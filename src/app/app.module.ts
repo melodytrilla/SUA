@@ -9,13 +9,15 @@ import { RequestsByStateComponent } from './requests-by-state/requests-by-state.
 import { ChartsModule } from 'ng2-charts';
 import { RatingBarComponent } from './rating-bar/rating-bar.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ResumenBannerComponent } from './resumen-banner/resumen-banner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RequestsByStateComponent,
     RatingBarComponent,
-    NavbarComponent
+    NavbarComponent,
+    ResumenBannerComponent
   ],
   imports: [
     BrowserModule,
