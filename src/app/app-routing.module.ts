@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RequestsByStateComponent } from './requests-by-state/requests-by-state.component';
+import { ResumenComponent } from './resumen/resumen.component';
 
 const routes: Routes = [
-{ path: '', component: RequestsByStateComponent }
+  { path: '', component: ResumenComponent}
 ];
 
 @NgModule({
