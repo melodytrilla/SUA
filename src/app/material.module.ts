@@ -10,7 +10,7 @@ import {
 
 @NgModule({
   declarations: [],
-  imports: [
+  exports: [
     MatButtonModule,
     MatMenuModule,
     MatToolbarModule,
