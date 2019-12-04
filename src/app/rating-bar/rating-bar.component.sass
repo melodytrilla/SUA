@@ -1,0 +1,34 @@
+$positivo: #92D439
+$negativo: #EB3542
+$neutral: #AED4D8
+
+.container
+    display: flex
+
+.positivo
+    color: $positivo
+.negativo
+    color: $negativo
+.neutral
+    color: $neutral
+
+.rating-bar
+    display: flex
+    flex-wrap: nowrap
+    text-align: center
+
+    -webkit-font-smoothing: antialiased
+    text-rendering: auto
+
+    .positivo
+        background-color: $positivo
+    .negativo
+        background-color: $negativo
+    .neutral
+        background-color: $neutral
+    
+    .rating
+        font-weight: bold
+        color: white
+
+
