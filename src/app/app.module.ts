@@ -7,11 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { RequestsByStateComponent } from './requests-by-state/requests-by-state.component';
 import { ChartsModule } from 'ng2-charts';
+import { RatingBarComponent } from './rating-bar/rating-bar.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RequestsByStateComponent
+    RequestsByStateComponent,
+    RatingBarComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

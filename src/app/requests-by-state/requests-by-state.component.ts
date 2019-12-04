@@ -22,6 +22,12 @@ export class RequestsByStateComponent implements OnInit {
       borderWidth: 2,
     }
   ];
+  public doughnutChartDatasetOverride: Array<any> = [
+    {
+      label:['pendientes'],
+      backgroundColor: ['#9B9487']
+    }
+  ]
 
   ngOnInit() {
   }

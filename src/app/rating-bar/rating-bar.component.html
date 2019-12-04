@@ -1,0 +1,13 @@
+
+<div>
+       
+       <button mat-icon-button [ngClass]=getColor() (click) = toggleDisplay()>
+            <mat-icon class="mat-icon-rtl-mirror">thumbs_up_down</mat-icon>
+       </button>
+       <span> {{total}}</span>
+       <div class="rating-bar" *ngIf=!hidden [@panelInOut]>
+              <div class="rating positivo" [style.width.%]="opiniones['positivo']">{{opiniones['positivo']}}%</div>
+              <div class="rating neutral " [style.width.%]="opiniones['neutral']">{{opiniones['neutral']}}%</div>
+              <div class="rating negativo" [style.width.%]="opiniones['negativo']">{{opiniones['negativo']}}%</div>
+       </div>
+</div>
