@@ -1,0 +1,9 @@
+<mat-card class="tarjeta">
+<mat-card-title class="titulo">Solicitudes por Estado</mat-card-title>
+<div>
+    <canvas class="grafico" baseChart
+        [data]="doughnutChartData"
+        [labels]="doughnutChartLabels"
+        [legend]="doughnutChartLegend"
+        [chartType]="doughnutChartType"
+        [colors]="doughnutChartColors"></canvas>

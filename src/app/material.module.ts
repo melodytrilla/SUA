@@ -5,12 +5,12 @@ import {
   MatMenuModule,
   MatToolbarModule,
   MatIconModule,
-  MatCardModule
+  MatCardModule,
 } from '@angular/material';
 
 @NgModule({
   declarations: [],
-  imports: [
+  exports: [
     MatButtonModule,
     MatMenuModule,
     MatToolbarModule,
