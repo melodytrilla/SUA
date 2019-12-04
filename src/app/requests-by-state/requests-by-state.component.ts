@@ -19,15 +19,9 @@ export class RequestsByStateComponent implements OnInit {
     {
       backgroundColor: ['#9B9487', '#F7B543', '#94D8FA', '#2764F3'],
       hoverBackgroundColor: ['#B2AFAA', '#F6C672', '#BAE3F7', '#6B96FA'],
-      borderWidth: 2,
+      borderWidth: 1,
     }
   ];
-  public doughnutChartDatasetOverride: Array<any> = [
-    {
-      label:['pendientes'],
-      backgroundColor: ['#9B9487']
-    }
-  ]
 
   ngOnInit() {
   }
