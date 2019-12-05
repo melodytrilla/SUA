@@ -10,6 +10,13 @@ import { ChartsModule } from 'ng2-charts';
 import { RatingBarComponent } from './rating-bar/rating-bar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ResumenBannerComponent } from './resumen-banner/resumen-banner.component';
+import { ResumenComponent } from './resumen/resumen.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -17,14 +24,21 @@ import { ResumenBannerComponent } from './resumen-banner/resumen-banner.componen
     RequestsByStateComponent,
     RatingBarComponent,
     NavbarComponent,
-    ResumenBannerComponent
+    ResumenBannerComponent,
+    ResumenComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ChartsModule
+    ChartsModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
