@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, plugins } from 'chart.js';
 import { FlexibleConnectedPositionStrategy } from '@angular/cdk/overlay';
-import { cursorTo } from 'readline';
 
 @Component({
   selector: 'app-requests-by-state',
