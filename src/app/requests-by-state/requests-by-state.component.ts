@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ChartOptions, plugins } from 'chart.js';
+import { FlexibleConnectedPositionStrategy } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-requests-by-state',
@@ -13,7 +15,7 @@ export class RequestsByStateComponent implements OnInit {
   public doughnutChartLabels = ['Pendientes', 'En curso', 'Resueltas', 'Cerradas'];
   public doughnutChartType = 'doughnut';
   public doughnutChartLegend = true;
-  public doughnutChartData = [701, 1671, 10773, 477]
+  public doughnutChartData = [701, 1671, 10773, 477];
 
   public doughnutChartColors: Array<any> = [
     {
@@ -22,8 +24,21 @@ export class RequestsByStateComponent implements OnInit {
       borderWidth: 1,
     }
   ];
+  public doughnutChartOptions: ChartOptions = {
+    legend: {
+      display: true,
+      position: 'right',
+      align: 'start',
+      labels: {
+        padding: 25,
+        fontSize: 14,
+        usePointStyle: true,
+        fontColor: '#82817F',
+        boxWidth: 10,
+      }
+    }
+  }
 
   ngOnInit() {
   }
-
 }

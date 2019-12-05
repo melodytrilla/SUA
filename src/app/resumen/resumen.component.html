@@ -2,6 +2,8 @@
 
   <h1 class="mat-h1">SUA Busqueda</h1>
   <app-navbar></app-navbar>
+  <app-resumen-banner></app-resumen-banner>
+ 
 
   <mat-grid-list cols="4" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
