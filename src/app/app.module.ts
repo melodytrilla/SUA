@@ -7,9 +7,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { RequestsByStateComponent } from './requests-by-state/requests-by-state.component';
 import { ChartsModule } from 'ng2-charts';
+import 'chart.piecelabel.js';
 import { RatingBarComponent } from './rating-bar/rating-bar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ResumenBannerComponent } from './resumen-banner/resumen-banner.component';
+import {MatListModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { ResumenBannerComponent } from './resumen-banner/resumen-banner.componen
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ChartsModule
+    ChartsModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
