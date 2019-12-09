@@ -15,9 +15,14 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { MatNativeDateModule} from '@angular/material/core';
+import { MatDatepickerModule} from '@angular/material/datepicker';
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { ChipsContainerComponent } from './chips-container/chips-container.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +32,8 @@ import { ChipsContainerComponent } from './chips-container/chips-container.compo
     NavbarComponent,
     ResumenBannerComponent,
     ResumenComponent,
-    ChipsContainerComponent
+    ChipsContainerComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +46,10 @@ import { ChipsContainerComponent } from './chips-container/chips-container.compo
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
     LayoutModule
   ],
   providers: [],

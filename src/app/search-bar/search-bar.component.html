@@ -1,0 +1,63 @@
+
+<div class="mainContainer">
+    <div class="subContainer">
+    <p class="dateLabel">Desde: </p>
+    <mat-form-field class="dateInput">
+        
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    </div>
+
+    <div class="subContainer">
+            <p class="dateLabel">Hasta: </p>
+            <mat-form-field class="dateInput">
+                
+                <input matInput [matDatepicker]="picker2">
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+    </div>
+
+    <div class="subContainer"> 
+        <p class="dateLabel"> Numero: </p>
+        <mat-form-field >
+            <input matInput >
+        </mat-form-field>
+    </div>
+
+    <div class="subContainer"> 
+            <p class="dateLabel"> Año: </p>
+            <mat-form-field >
+                <input matInput >
+            </mat-form-field>
+    </div>
+
+    <div class="subContainer"> 
+            <p class="dateLabel"> Ubicacion: </p>
+            <mat-form-field >
+                <input matInput >
+            </mat-form-field>
+    </div>
+
+    <div class="subContainer"> 
+            <p class="dateLabel"> Radio: </p>
+            <mat-form-field >
+                <input matInput >
+            </mat-form-field>
+    </div>
+
+    <div class="subContainer"> 
+            <p class="dateLabel"> Solicitante: </p>
+            <mat-form-field >
+                <input matInput >
+            </mat-form-field>
+    </div>
+
+    <div class="lastElement">
+        <div class="buttonShape">
+            <button mat-button> buscar </button>
+        </div>
+    </div>
+</div>
