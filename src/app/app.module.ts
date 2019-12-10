@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { TextMaskModule } from 'angular2-text-mask';
+import { SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +25,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { ChipsContainerComponent } from './chips-container/chips-container.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
-    LayoutModule
+    LayoutModule,
+    TextMaskModule,
+    SatDatepickerModule, SatNativeDateModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
