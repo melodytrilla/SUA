@@ -26,6 +26,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { ChipsContainerComponent } from './chips-container/chips-container.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatNativeDateModule,
     MatDatepickerModule,
     MatFormFieldModule,
-    MatInputModule,
+    MatInputModule, MatAutocompleteModule,
     LayoutModule,
     TextMaskModule,
     SatDatepickerModule, SatNativeDateModule,
