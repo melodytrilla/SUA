@@ -7,7 +7,10 @@
             placeholder="Fechas"
             [satDatepicker]="picker"
             formControlName="date">
-        <sat-datepicker #picker [rangeMode]="true"></sat-datepicker>
+        <sat-datepicker #picker 
+            [rangeMode]="true"
+            [calendarFooterComponent]="rangesFooter"
+            [selectFirstDateOnClose]="true"></sat-datepicker>
         <sat-datepicker-toggle matSuffix [for]="picker"></sat-datepicker-toggle>
     </mat-form-field>
    

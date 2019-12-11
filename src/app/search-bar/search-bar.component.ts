@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { PlacesService } from '../places.service';
 
+import {DateRangePicker} from '../date-range-picker/date-range-picker.component'
+
 
 @Component({
   selector: 'app-search-bar',
@@ -25,7 +27,11 @@ export class SearchBarComponent implements OnInit {
   };
   
   form: FormGroup;
+
+  //Datepicker props
   inlineRange;
+  rangesFooter = DateRangePicker;
+
   places;
   filteredOptions: Observable<string[]>;
   

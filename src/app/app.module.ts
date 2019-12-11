@@ -27,6 +27,7 @@ import { ChipsContainerComponent } from './chips-container/chips-container.compo
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material';
+import { DateRangePicker} from './date-range-picker/date-range-picker.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MatAutocompleteModule } from '@angular/material';
     ResumenBannerComponent,
     ResumenComponent,
     ChipsContainerComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    DateRangePicker
   ],
   imports: [
     BrowserModule,
@@ -59,6 +61,7 @@ import { MatAutocompleteModule } from '@angular/material';
     SatDatepickerModule, SatNativeDateModule,
     ReactiveFormsModule
   ],
+  entryComponents: [DateRangePicker],
   providers: [],
   bootstrap: [AppComponent]
 })
