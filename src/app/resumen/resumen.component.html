@@ -7,7 +7,7 @@
   <app-resumen-banner></app-resumen-banner>
  
 
-  <mat-grid-list cols="4" rowHeight="350px">
+  <!--<mat-grid-list cols="4" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
       <mat-card class="dashboard-card">
         <mat-card-header>
@@ -27,5 +27,135 @@
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
-  </mat-grid-list>
+  </mat-grid-list>-->
+
+  <div id="MasterCards">
+  <div id="firstHalf">
+    <mat-grid-list cols="2" rows="9" rowHeight="60px">
+      <mat-grid-tile [colspan] =2 [rowspan] =2> 
+        <mat-card class="dashboard-card">
+          <p id="cardTitle-center"> Solicitudes</p>
+          <p id="cardContent-big"><b>13.622</b></p>
+        </mat-card>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan] =1 [rowspan] =5> 
+          <mat-card class="dashboard-card">
+              <div id="total">
+                  <p id="cardTitle"> Reclamos y denuncias</p>
+                  <p id="cardContent">6456</p>
+                  <div id="separator"></div>
+              </div>
+              <div id="details">
+
+              </div>
+            </mat-card>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan] =1 [rowspan] =5> 
+          <mat-card class="dashboard-card">
+              <div id="total" >
+                  <p id="cardTitle"> Consultas y tramites</p>
+                  <p id="cardContent">7166</p>
+                  <div id="separator"></div>
+              </div>
+              <div id="details">
+
+              </div>
+            </mat-card>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan] =1 [rowspan] =2> 
+          <mat-card class="dashboard-card">
+              <p id="cardTitle"> Vecino con + solicitudes</p>
+              <p id="cardContent-side">95</p>
+          </mat-card>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan] =1 [rowspan] =2> 
+          <mat-card class="dashboard-card">
+              <p id="cardTitle"> Agente con + solicitudes</p>
+              <p id="cardContent-side">161</p>
+          </mat-card>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan] =1 [rowspan] =2> 
+          <mat-card class="dashboard-card">
+              <p id="cardTitle"> Equipamiento con + solicitudes</p>
+              <p id="cardContent-side">30</p>
+          </mat-card>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan] =1 [rowspan] =2> 
+          <mat-card class="dashboard-card">
+              <p id="cardTitle"> Solicitudes con equipamiento</p>
+              <p id="cardContent-side">1752</p>
+          </mat-card>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+  </div>
+
+<!-- second half-->
+
+  <div id="secondHalf"> 
+      <mat-grid-list cols="2" rows="7" rowHeight="60px">
+          <mat-grid-tile [colspan] =1 [rowspan] =5> 
+              <mat-card class="dashboard-card">
+                  <div id="total">
+                      <p id="cardTitle"> Solicitudes ppor estado</p>
+                      <p id="cardContent">7166</p>
+                      <div id="separator"></div>
+                  </div>
+                  <div id="details">
+    
+                  </div>
+                </mat-card>
+          </mat-grid-tile>
+    
+          <mat-grid-tile [colspan] =1 [rowspan] =5> 
+              <mat-card class="dashboard-card">
+                  <div id="total">
+                      <p id="cardTitle"> Opinadas</p>
+                      <p id="cardContent">36</p>
+                      <div id="separator"></div>
+                  </div>
+                  <div id="details">
+    
+                  </div>
+                </mat-card>
+          </mat-grid-tile>
+    
+          <mat-grid-tile [colspan] =1 [rowspan] =3> 
+            <mat-card class="dashboard-card">
+              <p id="cardTitle"> Solicitudes por distrito</p>
+              <p id="cardContent-side">grafico</p>
+            </mat-card>
+          </mat-grid-tile>
+    
+          <mat-grid-tile [colspan] =1 [rowspan] =3> 
+            <mat-card class="dashboard-card">
+              <p id="cardTitle"> top 10 vecinales</p>
+              <p id="cardContent-side">1752</p>
+                </mat-card>
+          </mat-grid-tile>
+    
+          <mat-grid-tile [colspan] =1 [rowspan] =3> 
+            <mat-card class="dashboard-card">
+              <p id="cardTitle"> Solicitudes por origen</p>
+              <p id="cardContent-side">1752</p>
+                </mat-card>
+          </mat-grid-tile>
+    
+          <mat-grid-tile [colspan] =1 [rowspan] =3> 
+            <mat-card class="dashboard-card">
+              <p id="cardTitle"> top 10 categorias</p>
+              <p id="cardContent-side">1752</p>
+                </mat-card>
+          </mat-grid-tile>
+    
+    
+      </mat-grid-list>
+  </div>
+
 </div>
