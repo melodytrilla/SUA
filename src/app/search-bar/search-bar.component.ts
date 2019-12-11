@@ -26,7 +26,7 @@ export class SearchBarComponent implements OnInit {
   
   constructor() {
     this.form = new FormGroup({
-      date: new FormControl('')
+      date: new FormControl([{begin: new Date(2018, 7, 5), end: new Date(2018, 7, 25)}]),
     });
   }
 
