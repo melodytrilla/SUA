@@ -1,31 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
-import * as pluginDataLabels from 'chartjs-plugin-datalabels';
-import { Label } from 'ng2-charts';
+import { ChartOptions } from 'chart.js';
 import 'chart.piecelabel.js';
-import { preserveWhitespacesDefault } from '@angular/compiler';
-import { filter } from 'minimatch';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 
 @Component({
-  selector: 'app-requests-by-state',
-  templateUrl: './requests-by-state.component.html',
-  styleUrls: ['./requests-by-state.component.sass']
+  selector: 'app-requests-by-district',
+  templateUrl: './requests-by-district.component.html',
+  styleUrls: ['./requests-by-district.component.sass']
 })
-export class RequestsByStateComponent implements OnInit {
+export class RequestsByDistrictComponent implements OnInit {
 
   constructor() {
   }
 
-  public doughnutChartLabels: Array<string> = ['Pendientes', 'En curso', 'Resueltas', 'Cerradas'];
+  public doughnutChartLabels: Array<string> = ['Centro', 'Norte', 'Sur', 'Oeste', 'Noroeste', 'Sudoeste'];
   public doughnutChartType = 'doughnut';
   public doughnutChartLegend = true;
-  public doughnutChartData: Array<number> = [701, 1671, 10773, 477];
+  public doughnutChartData: Array<number> = [7566, 1671, 986, 896, 1200, 1303];
 
   public doughnutChartColors: Array<any> = [
     {
-      backgroundColor: ['#9B9487', '#F7B543', '#94D8FA', '#2764F3'],
-      hoverBackgroundColor: ['#B2AFAA', '#F6C672', '#BAE3F7', '#6B96FA'],
+      backgroundColor: ['#F5CBA7', '#48C9B0', '#2471A3', '#F7DC6F', '#AF7AC5', '#F1948A'],
+      hoverBackgroundColor: ['#FAE5D3', '#76D7C4', '#5499C7', '#F9E79F', '#D7BDE2', '#FADBD8'],
       borderWidth: 1,
     }
   ];
@@ -33,17 +30,20 @@ export class RequestsByStateComponent implements OnInit {
     responsive: true,
     tooltips: {
       enabled: true,
-    
-      
     },
+    
     plugins: {
+    
       datalabels: {
         padding: 0,
-        color: 'black',
+        color: '#82817F',
         anchor: 'end',
         textStrokeWidth: 0.2,
-        align: 'end'
+        align: 'end',
+        formatter: function(value) {
+          return value;
       }
+     }
     },
       legend: {
         fullWidth: false,
@@ -51,16 +51,16 @@ export class RequestsByStateComponent implements OnInit {
         position: 'right',
         
         labels: {
-          padding: 18,
-          fontSize: 18,
+          padding: 5,
+          fontSize: 12,
           usePointStyle: true,
           fontColor: '#82817F',
-          boxWidth: 10,
+          boxWidth: 8,
         }
       }
   }
   public doughnutChartPlugins = [{
-    pluginDataLabels,
+      ChartDataLabels,
       /*afterLayout: function (chart){
       chart.legend.legendItems.forEach(
         (label) => {
@@ -70,8 +70,8 @@ export class RequestsByStateComponent implements OnInit {
           return label;
         }
       )
-    } */
-  }]
+    }*/
+    }]
 
   ngOnInit() {
   }

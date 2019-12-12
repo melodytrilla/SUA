@@ -12,6 +12,16 @@ import { RatingBarComponent } from './rating-bar/rating-bar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ResumenBannerComponent } from './resumen-banner/resumen-banner.component';
 import {MatListModule} from '@angular/material';
+import { ResumenComponent } from './resumen/resumen.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { LayoutModule } from '@angular/cdk/layout';
+import { RequestsByDistrictComponent } from './requests-by-district/requests-by-district.component';
+import { ClaimsAndComplaintsComponent } from './claims-and-complaints/claims-and-complaints.component';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -19,7 +29,10 @@ import {MatListModule} from '@angular/material';
     RequestsByStateComponent,
     RatingBarComponent,
     NavbarComponent,
-    ResumenBannerComponent
+    ResumenBannerComponent,
+    ResumenComponent,
+    RequestsByDistrictComponent,
+    ClaimsAndComplaintsComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,9 +40,19 @@ import {MatListModule} from '@angular/material';
     BrowserAnimationsModule,
     MaterialModule,
     ChartsModule,
-    MatListModule
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    LayoutModule,  
+    MatListModule,
+    MatIconModule,
+    MatButtonModule,
+    FlexLayoutModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
