@@ -1,45 +1,44 @@
-<div class="main-container">
-    <button mat-button class="element-button">
-        <p class="elemnto-titulo"> Alertas </p>
-        <div class="icono">
-            <mat-icon [inline]="true">alarm</mat-icon>
-        </div>
-    </button>
+<div class="container">
 
-    <button mat-button class="element-button">
-            <p class="elemnto-titulo"> Retiradas </p>
-            <p class="numero-info"> 429 </p>
-    </button>
+    <div class="alerta">
+        <mat-icon [inline]="true">alarm</mat-icon>
+        Alertas
+    </div >
 
-    <button mat-button class="element-button">
-        <p class="elemnto-titulo"> Sin Intervención </p>
-        <div class="numero-icono-info">
-            <p> 10.205 </p>
+    <mat-card>
+        <mat-card-subtitle> Retiradas </mat-card-subtitle>
+        <mat-card-title> 429 </mat-card-title>
+    </mat-card >
+
+    <mat-card>
+        <mat-card-subtitle>  Sin Intervención </mat-card-subtitle>
+        <mat-card-title> 
+            10.205 
             <mat-icon>phone_disabled</mat-icon>
-        </div>
-    </button>
+        </mat-card-title>
+    </mat-card>
 
-    <button mat-button class="element-button">
-        <p class="elemnto-titulo"> Sin asignación </p>
-        <div class="numero-icono-info">
-                <p> 10.033 </p>
-                <mat-icon>stop_screen_share</mat-icon>
-            </div>
-    </button>
+    <mat-card>
+        <mat-card-subtitle> Sin asignación </mat-card-subtitle>
+        <mat-card-title> 
+            10.033 
+            <mat-icon>stop_screen_share</mat-icon>
+        </mat-card-title>
+    </mat-card>
 
-    <button mat-button class="element-button">
-            <p class="elemnto-titulo"> Vencidas </p>
-            <p class="numero-info"> 10.205 </p>
-    </button>
+    <mat-card>
+        <mat-card-subtitle> Vencidas </mat-card-subtitle>
+        <mat-card-title> 10.205 </mat-card-title>
+    </mat-card>
 
-    <button mat-button class="element-button">
-        <p class="elemnto-titulo"> Reprogramadas </p>
-        <p class="numero-info"> 1.687 </p>
-    </button>
+    <mat-card>
+        <mat-card-subtitle> Reprogramadas </mat-card-subtitle>
+        <mat-card-title> 1.687 </mat-card-title>
+    </mat-card>
 
-    <button mat-button class="element-button">
-        <p class="elemnto-titulo"> Resueltas fuera de término </p>
-        <p class="numero-info"> 5.578 </p>
-    </button>
+    <mat-card>
+        <mat-card-subtitle> Resueltas fuera de término </mat-card-subtitle>
+        <mat-card-title>  5.578 </mat-card-title>
+    </mat-card>
 
 </div>
