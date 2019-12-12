@@ -1,0 +1,34 @@
+{
+  "alertas":[
+    {
+      "descripcion": "RETIRED",
+      "cantidad": "429",
+      "_link": "http://localhost:8080/api/retiradas"
+    },
+    {
+      "descripcion": "UNINTERVINED",
+      "cantidad": "560",
+      "_link": "http://localhost:8080/api/no-intervenidas"
+    },
+    {
+      "descripcion": "UNASIGNED",
+      "cantidad": "150",
+      "_link": "http://localhost:8080/api/no-asignadas"
+    },
+    {
+      "descripcion": "EXPIRED",
+      "cantidad": "200",
+      "_link": "http://localhost:8080/api/vencidas"
+    },
+    {
+      "descripcion": "REPROGRAMMED",
+      "cantidad": "1023",
+      "_link": "http://localhost:8080/api/reprogramadas"
+    },
+    {
+      "descripcion": "OUT_OF_TERM",
+      "cantidad": "769",
+      "_link": "http://localhost:8080/api/fuera-termino"
+    }
+  ]
+}
