@@ -1,5 +1,4 @@
-<div class="container">
-
+<div class="container" >
     <div class="alerta">
         <mat-icon [inline]="true">alarm</mat-icon>
         Alertas
@@ -8,16 +7,18 @@
     <mat-card>
         <div class="accent" style="background-color: red"></div>
         <mat-card-content>
-            <mat-card-subtitle> Retiradas </mat-card-subtitle>
-            <mat-card-title> 429 </mat-card-title>
+            <mat-card-subtitle> Reiteradas </mat-card-subtitle>
+            <mat-card-title *ngIf="alertas['reiterated']; else placeholder"> 
+                {{alertas['reiterated'].cantidad}} 
+            </mat-card-title>
         </mat-card-content>
     </mat-card >
 
     <mat-card>
         <mat-card-content>
             <mat-card-subtitle>  Sin Intervención </mat-card-subtitle>
-            <mat-card-title> 
-                10.205 
+            <mat-card-title *ngIf="alertas['unintervined']; else placeholder"> 
+                {{alertas['unintervined'].cantidad}}
                 <mat-icon>phone_disabled</mat-icon>
             </mat-card-title>
         </mat-card-content>
@@ -26,8 +27,8 @@
     <mat-card>
         <mat-card-content>
             <mat-card-subtitle> Sin asignación </mat-card-subtitle>
-            <mat-card-title> 
-                10.033 
+            <mat-card-title *ngIf="alertas['unasigned']; else placeholder"> 
+                {{alertas['unasigned'].cantidad}}
                 <mat-icon>stop_screen_share</mat-icon>
             </mat-card-title>
         </mat-card-content>
@@ -36,22 +37,30 @@
     <mat-card>
         <mat-card-content>
             <mat-card-subtitle> Vencidas </mat-card-subtitle>
-            <mat-card-title> 10.205 </mat-card-title>
+            <mat-card-title *ngIf="alertas['expired']; else placeholder"> 
+                {{alertas['expired'].cantidad}} 
+            </mat-card-title>
         </mat-card-content>
     </mat-card>
 
     <mat-card>
         <mat-card-content>
             <mat-card-subtitle> Reprogramadas </mat-card-subtitle>
-            <mat-card-title> 1.687 </mat-card-title>
+            <mat-card-title *ngIf="alertas['reprogrammed']; else placeholder"> 
+                {{alertas['reprogrammed'].cantidad}} 
+            </mat-card-title>
         </mat-card-content>
     </mat-card>
 
     <mat-card>
         <mat-card-content>
             <mat-card-subtitle> Resueltas fuera de término </mat-card-subtitle>
-            <mat-card-title>  5.578 </mat-card-title>
+            <mat-card-title *ngIf="alertas['out-of-term']; else placeholder"> 
+                 {{alertas['out-of-term'].cantidad}} 
+            </mat-card-title>
         </mat-card-content>
     </mat-card>
+
+    <ng-template #placeholder>Loading...</ng-template>
 
 </div>
