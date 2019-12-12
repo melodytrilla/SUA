@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { TextMaskModule } from 'angular2-text-mask';
+import { SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,11 +19,20 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { MatNativeDateModule} from '@angular/material/core';
+import { MatDatepickerModule} from '@angular/material/datepicker';
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { RequestsByDistrictComponent } from './requests-by-district/requests-by-district.component';
 import { ClaimsAndComplaintsComponent } from './claims-and-complaints/claims-and-complaints.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { ChipsContainerComponent } from './chips-container/chips-container.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material';
+import { DateRangePicker} from './date-range-picker/date-range-picker.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +44,9 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     ResumenComponent,
     RequestsByDistrictComponent,
     ClaimsAndComplaintsComponent,
+    ChipsContainerComponent,
+    SearchBarComponent,
+    DateRangePicker
   ],
   imports: [
     BrowserModule,
@@ -50,8 +64,17 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     MatListModule,
     MatIconModule,
     MatButtonModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule, MatAutocompleteModule,
+    LayoutModule,
+    TextMaskModule,
+    SatDatepickerModule, SatNativeDateModule,
+    ReactiveFormsModule
   ],
+  entryComponents: [DateRangePicker],
   providers: [],
   bootstrap: [AppComponent],
 })
