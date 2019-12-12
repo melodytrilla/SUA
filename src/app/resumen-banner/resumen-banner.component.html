@@ -19,7 +19,7 @@
             <mat-card-subtitle>  Sin Intervención </mat-card-subtitle>
             <mat-card-title *ngIf="alertas['unintervined']; else placeholder"> 
                 {{alertas['unintervined'].cantidad}}
-                <mat-icon>phone_disabled</mat-icon>
+                <mat-icon class="fsua fsua-intervenido fsua-0_5x"></mat-icon>
             </mat-card-title>
         </mat-card-content>
     </mat-card>
@@ -29,7 +29,7 @@
             <mat-card-subtitle> Sin asignación </mat-card-subtitle>
             <mat-card-title *ngIf="alertas['unasigned']; else placeholder"> 
                 {{alertas['unasigned'].cantidad}}
-                <mat-icon>stop_screen_share</mat-icon>
+                <mat-icon class="fsua fsua-intervenido fsua-0_5x"></mat-icon>
             </mat-card-title>
         </mat-card-content>
     </mat-card>
