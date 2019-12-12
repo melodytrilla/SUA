@@ -1,0 +1,34 @@
+{
+  "alertas":{
+    "reiterated": {
+      "descripcion": "REITERATED",
+      "cantidad": "429",
+      "_link": "http://localhost:8080/api/reiteradas"
+    },
+    "unintervined": {
+      "descripcion": "UNINTERVINED",
+      "cantidad": "560",
+      "_link": "http://localhost:8080/api/no-intervenidas"
+    },
+    "unasigned": {
+      "descripcion": "UNASIGNED",
+      "cantidad": "150",
+      "_link": "http://localhost:8080/api/no-asignadas"
+    },
+    "expired": {
+      "descripcion": "EXPIRED",
+      "cantidad": "200",
+      "_link": "http://localhost:8080/api/vencidas"
+    },
+    "reprogrammed": {
+      "descripcion": "REPROGRAMMED",
+      "cantidad": "1023",
+      "_link": "http://localhost:8080/api/reprogramadas"
+    },
+    "out-of-term": {
+      "descripcion": "OUT_OF_TERM",
+      "cantidad": "769",
+      "_link": "http://localhost:8080/api/fuera-termino"
+    }
+  }
+}

@@ -1,0 +1,476 @@
+@font-face {
+  font-family: 'suaicons';
+  src: url('assets/fonts/suamov_v7.eot?v=0.7.0');
+  src: url('assets/fonts/suamov_v7.eot?#iefix') format('embedded-opentype'),
+         url('assets/fonts/suamov_v7.woff') format('woff'),
+         url('assets/fonts/suamov_v7.ttf') format('truetype'),
+         url('assets/fonts/suamov_v7.svg#robotolight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.fsua {
+  display: inline-block;
+  font: normal normal normal 14px/1 suaicons;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* makes the font 33% larger relative to the icon container */
+.fsua-lg {
+  font-size: 1.33333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+.fsua-0_5x {
+  font-size: .5em;
+}
+.fsua-1_5x {
+  font-size: 1.5em;
+}
+.fsua-2x {
+  font-size: 2em;
+}
+.fsua-3x {
+  font-size: 3em;
+}
+.fsua-4x {
+  font-size: 4em;
+}
+.fsua-5x {
+  font-size: 5em;
+}
+.fsua-fw {
+  width: 1.28571429em;
+  text-align: center;
+}
+.fsua-ul {
+  padding-left: 0;
+  margin-left: 2.14285714em;
+  list-style-type: none;
+}
+.fsua-ul > li {
+  position: relative;
+}
+.fsua-li {
+  position: absolute;
+  left: -2.14285714em;
+  width: 2.14285714em;
+  top: 0.14285714em;
+  text-align: center;
+}
+.fsua-li.fsua-lg {
+  left: -1.85714286em;
+}
+.fsua-border {
+  padding: .2em .25em .15em;
+  border: solid 0.08em #eeeeee;
+  border-radius: .1em;
+}
+.fsua-pull-left {
+  float: left;
+}
+.fsua-pull-right {
+  float: right;
+}
+.fsua.fsua-pull-left {
+  margin-right: .3em;
+}
+.fsua.fsua-pull-right {
+  margin-left: .3em;
+}
+/* Deprecated as of 4.4.0 */
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
+.fsua.pull-left {
+  margin-right: .3em;
+}
+.fsua.pull-right {
+  margin-left: .3em;
+}
+.fsua-stack {
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle;
+}
+.fsua-stack-1x,
+.fsua-stack-2x {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+.fsua-stack-1x {
+  line-height: inherit;
+}
+.fsua-stack-2x {
+  font-size: 2em;
+}
+.fsua-inverse {
+  color: #ffffff;
+}
+
+.fsua-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+          animation: fa-spin 2s infinite linear;
+}
+
+/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+   readers do not read off random characters that represent icons */
+
+.fsua-favorito:before {
+  content: "\E900";
+}
+
+.fsua-intervenido-o:before {
+  content: "\E901";
+}
+
+.fsua-nueva:before {
+  content: "\E902";
+}
+
+.fsua-intervencion:before {
+  content: "\E903";
+}
+
+.fsua-senalizacion_vial:before {
+  content: "\E904";
+}
+
+.fsua-volver:before {
+  content: "\E905";
+}
+
+.fsua-opinar:before {
+  content: "\E906";
+}
+
+.fsua-intervenido:before {
+  content: "\E907";
+}
+
+.fsua-filtrar:before {
+  content: "\E90B";
+}
+
+.fsua-acerca_de:before {
+  content: "\E90C";
+}
+
+.fsua-compartir:before {
+  content: "\E90D";
+}
+
+.fsua-cerrar_sesion:before {
+  content: "\E90E";
+}
+
+.fsua-ver_detalle:before {
+  content: "\E90F";
+}
+
+.fsua-ver_listado:before {
+  content: "\E911";
+}
+
+.fsua-vista_listado:before {
+  content: "\E912";
+}
+
+.fsua-vista_agil:before {
+  content: "\E913";
+}
+
+.fsua-version:before {
+  content: "\E914";
+}
+
+.fsua-terminos_y_condiciones:before {
+  content: "\E915";
+}
+
+.fsua-colapsar:before {
+  content: "\E916";
+}
+
+.fsua-desplegar:before {
+  content: "\E917";
+}
+
+.fsua-pin_mas:before {
+  content: "\E918";
+}
+
+.fsua-pin_4:before {
+  content: "\E919";
+}
+
+.fsua-pin_3:before {
+  content: "\E91A";
+}
+
+.fsua-pin_2:before {
+  content: "\E91B";
+}
+
+.fsua-pin_1:before {
+  content: "\E91C";
+}
+
+.fsua-pin:before {
+  content: "\E91D";
+}
+
+.fsua-neutro:before {
+  content: "\E91E";
+}
+
+.fsua-neutro-o:before {
+  content: "\E91F";
+}
+
+.fsua-pin:before {
+  content: "\E920";
+}
+
+.fsua-pin_intervenido:before {
+  content: "\E921";
+}
+
+.fsua-no_camara:before {
+  content: "\E922";
+}
+
+.fsua-mi_area:before {
+  content: "\E923";
+}
+
+.fsua-carga:before {
+  content: "\E924";
+}
+
+.fsua-fb_logo:before {
+  content: "\E925";
+}
+
+.fsua-google_logo:before {
+  content: "\E926";
+}
+
+.fsua-r_igual_logo:before {
+  content: "\E927";
+}
+
+.fsua-warning:before {
+  content: "\E928";
+}
+
+.fsua-tel:before {
+  content: "\E929";
+}
+
+.fsua-cancelar:before {
+  content: "\F001";
+}
+
+.fsua-tipear:before {
+  content: "\F002";
+}
+
+.fsua-mi_ubicacion:before {
+  content: "\F003";
+}
+
+.fsua-editar:before {
+  content: "\F004";
+}
+
+.fsua-equipamiento:before {
+  content: "\F005";
+}
+
+.fsua-taxis_y_remises:before {
+  content: "\F006";
+}
+
+.fsua-semaforos:before {
+  content: "\F007";
+}
+
+.fsua-colectivos_urbanos:before {
+  content: "\F008";
+}
+
+.fsua-calzadas_y_veredas:before {
+  content: "\F009";
+}
+
+.fsua-higiene_urbana:before {
+  content: "\F010";
+}
+
+.fsua-bicis_publicas:before {
+  content: "\F011";
+}
+
+.fsua-transito:before {
+  content: "\F012";
+}
+
+.fsua-mi_perfil-o:before {
+  content: "\F013";
+}
+
+.fsua-reiteraciones:before {
+  content: "\F013";
+}
+
+.fsua-reloj-o:before {
+  content: "\F014";
+}
+
+.fsua-ubicacion:before {
+  content: "\F015";
+}
+
+.fsua-logo:before {
+  content: "\F016";
+}
+
+.fsua-buscar:before {
+  content: "\F017";
+}
+
+.fsua-actualizar:before {
+  content: "\F018";
+}
+
+.fsua-opciones:before {
+  content: "\F019";
+}
+
+.fsua-favorito-o:before {
+  content: "\F020";
+}
+
+.fsua-adjuntar_imagen:before {
+  content: "\F021";
+}
+
+.fsua-camara:before {
+  content: "\F022";
+}
+
+.fsua-adjunto:before {
+  content: "\F023";
+}
+
+.fsua-aceptar:before {
+  content: "\F026";
+}
+
+.fsua-bueno-o:before {
+  content: "\F028";
+}
+
+.fsua-malo-o:before {
+  content: "\F029";
+}
+
+.fsua-bueno:before {
+  content: "\F030";
+}
+
+.fsua-malo:before {
+  content: "\F031";
+}
+
+.fsua-menu:before {
+  content: "\F032";
+}
+
+.fsua-mapa:before {
+  content: "\F033";
+}
+
+.fsua-recientes:before {
+  content: "\F034";
+}
+
+.fsua-estacionamiento_medido:before {
+  content: "\F035";
+}
+
+.fsua-alumbrado_publico:before {
+  content: "\F036";
+}
+
+.fsua-usuario:before {
+  content: "\F037";
+}
+
+.fsua-arbolado:before {
+  content: "\E937";
+}
+
+.fsua-comercio_industria:before {
+  content: "\E936";
+}
+
+.fsua-alimentos:before {
+  content: "\E935";
+}
+
+.fsua-plagas_vectores:before {
+  content: "\E934";
+}
+
+.fsua-desmalezado_limpieza:before {
+  content: "\E933";
+}
+
+.fsua-cloacas_zanjas:before {
+  content: "\E932";
+}
+
+.fsua-contaminacion:before {
+  content: "\E931";
+}
+
+.fsua-convivencia_ciudadana:before {
+  content: "\E930";
+}
+
+.fsua-riesgo:before {
+  content: "\E92F";
+}
+
+.fsua-animales:before {
+  content: "\E92E";
+}
+
+.fsua-transporte_escolar_especial:before {
+  content: "\E92D";
+}
+
+.fsua-tasas_impuestos:before {
+  content: "\E92C";
+}
+
+.fsua-obras_particulares:before {
+  content: "\E92B";
+}
+
+.fsua-parques_plazas:before {
+  content: "\E92A";
+}
+
