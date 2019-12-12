@@ -1,0 +1,12 @@
+<mat-card class="tarjeta">
+    <mat-card-title class="titulo">Solicitudes por Distrito</mat-card-title>
+    <div>
+        <canvas class="grafico" baseChart
+            [data]="doughnutChartData"
+            [labels]="doughnutChartLabels"
+            [chartType]="doughnutChartType"
+            [colors]="doughnutChartColors"
+            [options] ="doughnutChartOptions"
+            [plugins] = "doughnutChartPlugins"></canvas>
+    </div>
+    </mat-card>

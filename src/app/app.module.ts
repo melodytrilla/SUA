@@ -9,9 +9,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { RequestsByStateComponent } from './requests-by-state/requests-by-state.component';
 import { ChartsModule } from 'ng2-charts';
+import 'chart.piecelabel.js';
 import { RatingBarComponent } from './rating-bar/rating-bar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ResumenBannerComponent } from './resumen-banner/resumen-banner.component';
+import {MatListModule} from '@angular/material';
 import { ResumenComponent } from './resumen/resumen.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
@@ -23,12 +25,16 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
+import { RequestsByDistrictComponent } from './requests-by-district/requests-by-district.component';
+import { ClaimsAndComplaintsComponent } from './claims-and-complaints/claims-and-complaints.component';
+import { FlexLayoutModule } from "@angular/flex-layout";
 import { ChipsContainerComponent } from './chips-container/chips-container.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material';
 import { DateRangePicker} from './date-range-picker/date-range-picker.component';
 import { HttpClientModule } from '@angular/common/http';
+import { QueriesAndFormalitiesComponent } from './queries-and-formalities/queries-and-formalities.component';
 
 @NgModule({
   declarations: [
@@ -38,9 +44,12 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     ResumenBannerComponent,
     ResumenComponent,
+    RequestsByDistrictComponent,
+    ClaimsAndComplaintsComponent,
     ChipsContainerComponent,
     SearchBarComponent,
-    DateRangePicker
+    DateRangePicker,
+    QueriesAndFormalitiesComponent
   ],
   imports: [
     BrowserModule,
@@ -49,11 +58,17 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MaterialModule,
     ChartsModule,
+    MatListModule,
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
+    LayoutModule,  
+    MatListModule,
+    MatIconModule,
+    MatButtonModule,
+    FlexLayoutModule,
     MatNativeDateModule,
     MatDatepickerModule,
     MatFormFieldModule,
@@ -65,6 +80,6 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   entryComponents: [DateRangePicker],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

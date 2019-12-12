@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartOptions, plugins } from 'chart.js';
-import { FlexibleConnectedPositionStrategy } from '@angular/cdk/overlay';
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+import { Label } from 'ng2-charts';
+import 'chart.piecelabel.js';
+import { preserveWhitespacesDefault } from '@angular/compiler';
+import { filter } from 'minimatch';
+
 
 @Component({
   selector: 'app-requests-by-state',
@@ -12,10 +17,10 @@ export class RequestsByStateComponent implements OnInit {
   constructor() {
   }
 
-  public doughnutChartLabels = ['Pendientes', 'En curso', 'Resueltas', 'Cerradas'];
+  public doughnutChartLabels: Array<string> = ['Pendientes', 'En curso', 'Resueltas', 'Cerradas'];
   public doughnutChartType = 'doughnut';
   public doughnutChartLegend = true;
-  public doughnutChartData = [701, 1671, 10773, 477];
+  public doughnutChartData: Array<number> = [701, 1671, 10773, 477];
 
   public doughnutChartColors: Array<any> = [
     {
@@ -25,19 +30,48 @@ export class RequestsByStateComponent implements OnInit {
     }
   ];
   public doughnutChartOptions: ChartOptions = {
-    legend: {
-      display: true,
-      position: 'right',
-      align: 'start',
-      labels: {
-        padding: 25,
-        fontSize: 14,
-        usePointStyle: true,
-        fontColor: '#82817F',
-        boxWidth: 10,
+    responsive: true,
+    tooltips: {
+      enabled: true,
+    
+      
+    },
+    plugins: {
+      datalabels: {
+        padding: 0,
+        color: 'black',
+        anchor: 'end',
+        textStrokeWidth: 0.2,
+        align: 'end'
       }
-    }
+    },
+      legend: {
+        fullWidth: false,
+        display: true,
+        position: 'right',
+        
+        labels: {
+          padding: 18,
+          fontSize: 18,
+          usePointStyle: true,
+          fontColor: '#82817F',
+          boxWidth: 10,
+        }
+      }
   }
+  public doughnutChartPlugins = [{
+    pluginDataLabels,
+      /*afterLayout: function (chart){
+      chart.legend.legendItems.forEach(
+        (label) => {
+          let value = chart.data.datasets[0].data[label.index];
+
+          label.text += ': ' + value;
+          return label;
+        }
+      )
+    } */
+  }]
 
   ngOnInit() {
   }

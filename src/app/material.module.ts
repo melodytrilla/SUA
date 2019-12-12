@@ -6,6 +6,7 @@ import {
   MatToolbarModule,
   MatIconModule,
   MatCardModule,
+  MatDividerModule,
   MatChipsModule,
 } from '@angular/material';
 
@@ -17,6 +18,7 @@ import {
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
+    MatDividerModule,
     MatChipsModule
   ]
 })
