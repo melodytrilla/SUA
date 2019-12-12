@@ -4,12 +4,14 @@ import { RequestsByStateComponent } from './requests-by-state/requests-by-state.
 import { ResumenComponent } from './resumen/resumen.component';
 import { RequestsByDistrictComponent } from './requests-by-district/requests-by-district.component';
 import { ClaimsAndComplaintsComponent } from './claims-and-complaints/claims-and-complaints.component';
+import { QueriesAndFormalitiesComponent } from './queries-and-formalities/queries-and-formalities.component';
 
 const routes: Routes = [
   { path: '', component: ResumenComponent},
   { path: 'solicitudesPorEstado', component: RequestsByStateComponent},
   { path: 'solicitudesPorDistrito', component: RequestsByDistrictComponent},
-  { path: 'reclamosYDenuncias', component: ClaimsAndComplaintsComponent}
+  { path: 'reclamosYDenuncias', component: ClaimsAndComplaintsComponent},
+  { path: 'consultasYTramites', component: QueriesAndFormalitiesComponent}
 ];
 
 @NgModule({

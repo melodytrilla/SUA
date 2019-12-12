@@ -29,12 +29,13 @@ export class RequestsByDistrictComponent implements OnInit {
   public doughnutChartOptions: ChartOptions = {
     responsive: true,
     tooltips: {
-      enabled: true,
+      enabled: false,
     },
     
     plugins: {
     
       datalabels: {
+        display: false,
         padding: 0,
         color: '#82817F',
         anchor: 'end',
@@ -48,7 +49,7 @@ export class RequestsByDistrictComponent implements OnInit {
       legend: {
         fullWidth: false,
         display: true,
-        position: 'right',
+        position: 'bottom',
         
         labels: {
           padding: 5,
@@ -61,16 +62,16 @@ export class RequestsByDistrictComponent implements OnInit {
   }
   public doughnutChartPlugins = [{
       ChartDataLabels,
-      /*afterLayout: function (chart){
+      afterLayout: function (chart){
       chart.legend.legendItems.forEach(
         (label) => {
           let value = chart.data.datasets[0].data[label.index];
 
-          label.text += ': ' + value;
+          label.text += " " + value ;
           return label;
         }
       )
-    }*/
+    }
     }]
 
   ngOnInit() {

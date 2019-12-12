@@ -1,0 +1,20 @@
+<mat-card class="tarjeta">
+    <mat-card-title class="titulo">Consultas y Trámites</mat-card-title>
+    <p> 7166 </p>
+</mat-card>
+<div class="tarjeta">
+    <mat-list class="lista" *ngFor="let item of items">
+        <div mat-list-item>
+            <img src="{{item.icono}}">
+            <mat-icon class="icono">{{item.icono}}</mat-icon>
+            <h3 matLine> {{item.name}}</h3>
+            <p matLine >{{item.details}}</p>
+            <mat-icon class="flecha">keyboard_arrow_right</mat-icon>
+        </div>
+        <mat-divider></mat-divider>
+    </mat-list>
+    <div class="ver-mas">
+        <a>VER MÁS</a>
+    </div>
+
+</div>

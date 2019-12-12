@@ -33,6 +33,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material';
 import { DateRangePicker} from './date-range-picker/date-range-picker.component';
+import { QueriesAndFormalitiesComponent } from './queries-and-formalities/queries-and-formalities.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { DateRangePicker} from './date-range-picker/date-range-picker.component'
     ClaimsAndComplaintsComponent,
     ChipsContainerComponent,
     SearchBarComponent,
-    DateRangePicker
+    DateRangePicker,
+    QueriesAndFormalitiesComponent
   ],
   imports: [
     BrowserModule,
