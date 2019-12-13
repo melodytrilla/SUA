@@ -3,21 +3,19 @@ import { ChartOptions } from 'chart.js';
 import 'chart.piecelabel.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
-
 @Component({
-  selector: 'app-requests-by-district',
-  templateUrl: './requests-by-district.component.html',
-  styleUrls: ['./requests-by-district.component.sass']
+  selector: 'app-requests-by-origin',
+  templateUrl: './requests-by-origin.component.html',
+  styleUrls: ['./requests-by-origin.component.sass']
 })
-export class RequestsByDistrictComponent implements OnInit {
+export class RequestsByOriginComponent implements OnInit {
 
-  constructor() {
-  }
+  constructor() { }
   
-  public doughnutChartLabels: Array<string> = ['Centro', 'Norte', 'Sur', 'Oeste', 'Noroeste', 'Sudoeste'];
+  public doughnutChartLabels: Array<string> = ['Telefónico', 'Personal', 'Facebook', 'Twitter', 'Contacto Web', 'Nota/Expediente', 'VVV', 'MR', 'Externo'] ;
   public doughnutChartType = 'doughnut';
   public doughnutChartLegend = true;
-  public doughnutChartData: Array<number> = [7566, 1671, 986, 896, 1200, 1303];
+  public doughnutChartData: Array<number> = [9542, 80, 125, 548, 3017, 10, 10, 200, 100];
   public doughnutChartColors: Array<any> = [
     {
       backgroundColor: ['#F5CBA7', '#48C9B0', '#2471A3', '#F7DC6F', '#AF7AC5', '#F1948A'],
@@ -53,10 +51,13 @@ export class RequestsByDistrictComponent implements OnInit {
         
         labels: {
           padding: 5,
-          fontSize: 12,
+          fontSize: 8,
           usePointStyle: true,
           fontColor: '#82817F',
           boxWidth: 8,
+          filter: function(item, chart) {
+            return !item.text.includes('')
+        }
         }
       }
   }
@@ -73,6 +74,8 @@ export class RequestsByDistrictComponent implements OnInit {
       )
     }*/
     }];
+
   ngOnInit() {
   }
+
 }

@@ -34,6 +34,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material';
 import { DateRangePicker} from './date-range-picker/date-range-picker.component';
 import { QueriesAndFormalitiesComponent } from './queries-and-formalities/queries-and-formalities.component';
+import { RequestsByOriginComponent } from './requests-by-origin/requests-by-origin.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { QueriesAndFormalitiesComponent } from './queries-and-formalities/querie
     ChipsContainerComponent,
     SearchBarComponent,
     DateRangePicker,
-    QueriesAndFormalitiesComponent
+    QueriesAndFormalitiesComponent,
+    RequestsByOriginComponent
   ],
   imports: [
     BrowserModule,
