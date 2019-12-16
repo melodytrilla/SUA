@@ -30,5 +30,11 @@
       "cantidad": "769",
       "_link": "http://localhost:8080/api/fuera-termino"
     }
-  }
+  },
+  "filters": [
+    "elemento 1",
+    "elemento 2",
+    "elemento 3",
+    "elemento 3",
+    "elemento 4"]
 }
