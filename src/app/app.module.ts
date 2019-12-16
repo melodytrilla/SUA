@@ -35,6 +35,7 @@ import { MatAutocompleteModule } from '@angular/material';
 import { DateRangePicker} from './date-range-picker/date-range-picker.component';
 import { HttpClientModule } from '@angular/common/http';
 import { QueriesAndFormalitiesComponent } from './queries-and-formalities/queries-and-formalities.component';
+import { GlobalNavBarComponent } from './global-nav-bar/global-nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { QueriesAndFormalitiesComponent } from './queries-and-formalities/querie
     ChipsContainerComponent,
     SearchBarComponent,
     DateRangePicker,
-    QueriesAndFormalitiesComponent
+    QueriesAndFormalitiesComponent,
+    GlobalNavBarComponent
   ],
   imports: [
     BrowserModule,
