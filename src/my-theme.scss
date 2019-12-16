@@ -1,0 +1,27 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+//este es el color primario se utiliza en toda la pagina
+$my-theme-primary: mat-palette($mat-yellow, 700, 300, 900);
+$my-theme-accent: mat-palette($mat-blue, 600, 200, 900);
+
+$my-theme-warn: mat-palette($mat-red);
+
+
+$my-theme-theme:mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
+
+@include angular-material-theme($my-theme-theme);
+
+//este es el dark solo lo uso para que el searchbar tenga letra blanca
+$darkTheme-primary: mat-palette($mat-yellow, 700, 300, 900);
+$darkTheme-accent: mat-palette($mat-blue, 600, 200, 900);
+
+$darkTheme-warn: mat-palette($mat-red);
+
+
+$darkTheme-theme:mat-dark-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
+
+//se le agrega dark a la clase para transformarlo
+.dark{
+    @include angular-material-theme($darkTheme-theme);
+}
