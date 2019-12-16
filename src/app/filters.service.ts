@@ -11,8 +11,8 @@ export class FiltersService {
   constructor(private httpClient: HttpClient) { }
 
   //Obtiene los datos del banner del dashboard
-  getFilters (searchValue: string): Observable<String> {
-    return this.httpClient.get<String>(
-      `${this.apiURL}/filters`);
+  getFilters (searchValue: string): Observable<string[]> {
+    return this.httpClient.get<string[]>(
+      `${this.apiURL}/filters?search=${searchValue}`);
   }
 }

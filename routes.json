@@ -1,0 +1,3 @@
+{
+    "/filters?search=:search": "/filters?desc_like=:search"
+  }

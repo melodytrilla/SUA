@@ -9,19 +9,28 @@
             [removable]="removable" 
             (removed)="remove(chip)"
             color="primary" selected="true">
-            {{chip.value}}
+            {{chip}}
             <mat-icon matChipRemove>cancel</mat-icon>
         </mat-chip>
         <div>
             <button *ngIf="!searchBoxVisible" mat-chip class="add" (click)="showSearch()">Agregar +</button>
-            <input *ngIf="searchBoxVisible" #search 
+
+            <input matInput *ngIf="searchBoxVisible" #search 
                 placeholder = "Agregar"
                 autocapitalize="off"
                 autocomplete="off"
+                (input)="onSearchChange($event.target.value)"
                 [matChipInputFor] = "chipList"
                 [matChipInputSeparatorKeyCodes] = "separatorKeys"
                 [matChipInputAddOnBlur] = "addOnBlur"
-                (matChipInputTokenEnd) = "add($event)" />
+                (matChipInputTokenEnd) = "add($event)" 
+                [matAutocomplete]="auto"/>
+
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{ option.desc }}
+                </mat-option>
+            </mat-autocomplete>
         </div>
         
     </mat-chip-list>

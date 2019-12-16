@@ -32,9 +32,10 @@
     }
   },
   "filters": [
-    "elemento 1",
-    "elemento 2",
-    "elemento 3",
-    "elemento 3",
-    "elemento 4"]
+    {"desc":"Semaforo"},
+    {"desc": "Alumbrado"},
+    {"desc": "Bicicleta"},
+    {"desc": "Colectivo"},
+    {"desc": "Moviles"}]
+  
 }
