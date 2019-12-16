@@ -1,16 +1,28 @@
+<div class="container">
 
-<mat-chip-list #chipList  class="mainContainer">
-    <mat-chip *ngFor="let chip of chips" [selectable]="selectable" [removable]="removable" (removed)="remove(chip)">
-        {{chip.value}}
-        <mat-icon matChipRemove>cancel</mat-icon>
-    </mat-chip>
+    
+    <h5 class="legend">Filtros: </h5>
 
-</mat-chip-list>
-<br>
-<p class = "messange">Ingrese un nuevo chip:</p>
-<input  class="chipInput"
-        placeholder = "nuevo chip..."
-        [matChipInputFor] = "chipList"
-        [matChipInputSeparatorKeyCodes] = "separatorKeys"
-        [matChipInputAddOnBlur] = "addOnBlur"
-        (matChipInputTokenEnd) = "add($event)">
+    <mat-chip-list #chipList>
+        <mat-chip *ngFor="let chip of chips" 
+            [selectable]="selectable" 
+            [removable]="removable" 
+            (removed)="remove(chip)"
+            color="primary" selected="true">
+            {{chip.value}}
+            <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+        <div>
+            <button *ngIf="!searchBoxVisible" mat-chip class="add" (click)="showSearch()">Agregar +</button>
+            <input *ngIf="searchBoxVisible" #search 
+                placeholder = "Agregar"
+                autocapitalize="off"
+                autocomplete="off"
+                [matChipInputFor] = "chipList"
+                [matChipInputSeparatorKeyCodes] = "separatorKeys"
+                [matChipInputAddOnBlur] = "addOnBlur"
+                (matChipInputTokenEnd) = "add($event)" />
+        </div>
+        
+    </mat-chip-list>
+</div>

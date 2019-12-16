@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatInputModule} from '@angular/material/input'
@@ -15,6 +15,8 @@ export interface Chip{
 })
 export class ChipsContainerComponent {
 
+  @ViewChild('search', {static: false}) searchElement: ElementRef;
+  searchBoxVisible = false;
   removable = true;
   selectable = true;
 
@@ -49,6 +51,14 @@ export class ChipsContainerComponent {
     if(index >= 0){
       this.chips.splice(index, 1);
     }
+  }
+
+  showSearch() : void {
+    this.searchBoxVisible = !this.searchBoxVisible;
+    // Focus on the search bar after the boolean has changed
+    setTimeout(()=>{ 
+      this.searchElement.nativeElement.focus();
+    },0);  
   }
 
 
