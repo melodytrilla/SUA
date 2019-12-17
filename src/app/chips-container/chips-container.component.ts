@@ -32,27 +32,10 @@ export class ChipsContainerComponent implements OnInit{
     this.filteredOptions =  this.filtersService.getFilters('');
   }
 
-  onSearchChange (searchValue: string): void {  
-    this.filteredOptions =  this.filtersService.getFilters(searchValue);
-  }
-
-  add(event: MatChipInputEvent):void{
-
-    if (!this.matAutocomplete.isOpen) {
-      const input = event.input;
-      const value = event.value;
-
-     console.log(value, this.chips);
-
-      if((value || '').trim()){
-        this.chips.push(value.trim());
-      }
-
-      if(input){
-        input.value = '';
-      }
+  onSearchChange (searchValue: string): void {
+      this.filteredOptions =  this.filtersService.getFilters(searchValue);
     }
-  }
+
 
   remove(chip: string):void {
     const index = this.chips.indexOf(chip);
