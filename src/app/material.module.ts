@@ -8,6 +8,7 @@ import {
   MatCardModule,
   MatDividerModule,
   MatChipsModule,
+  MatExpansionModule,
 } from '@angular/material';
 
 @NgModule({
@@ -19,7 +20,8 @@ import {
     MatIconModule,
     MatCardModule,
     MatDividerModule,
-    MatChipsModule
+    MatChipsModule,
+    MatExpansionModule
   ]
 })
 export class MaterialModule { }

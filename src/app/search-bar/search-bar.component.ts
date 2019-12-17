@@ -32,6 +32,7 @@ export class SearchBarComponent implements OnInit {
   inlineRange;
   rangesFooter = DateRangePicker;
 
+  //Locations filtering 
   places;
   filteredOptions: Observable<string[]>;
   
