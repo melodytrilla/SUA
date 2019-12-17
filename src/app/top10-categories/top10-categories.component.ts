@@ -2,25 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { ChartOptions } from 'chart.js';
 import 'chart.piecelabel.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { monkeyPatchChartJsLegend } from 'ng2-charts';
 
 @Component({
-  selector: 'app-requests-by-origin',
-  templateUrl: './requests-by-origin.component.html',
-  styleUrls: ['./requests-by-origin.component.sass']
+  selector: 'app-top10-categories',
+  templateUrl: './top10-categories.component.html',
+  styleUrls: ['./top10-categories.component.sass']
 })
-export class RequestsByOriginComponent implements OnInit {
+export class Top10CategoriesComponent implements OnInit {
 
   constructor() { }
-  
-  public doughnutChartLabels: Array<string> = ['Telefónico', 'Contacto Web', 'Twitter', 'Personal', 'Facebook', 'Nota/Expediente', 'VVV', 'MR', 'Externo'] ;
+
+  public doughnutChartLabels: Array<string> = ['Alumbrado', 'Colectivos Urbanos', 'Estacionamiento Medido', 'Bicis Públicas', 'Higiene Urbana', 'Semáforos', 'Señalización Vial', 'Taxis y Remises', 'Arbolado', 'Tránsito'] ;
   public doughnutChartType = 'doughnut';
   public doughnutChartLegend = true;
-  public doughnutChartData: Array<number> = [9542, 3017, 548, 80, 125, 10, 10, 200, 90];
+  public doughnutChartData: Array<number> = [1056, 3522, 348, 350, 367, 325, 347, 300, 390, 335];
   public doughnutChartColors: Array<any> = [
     {
-      backgroundColor: ['#F5CBA7', '#48C9B0', '#2471A3', '#F7DC6F', '#AF7AC5', '#F1948A', '#EE493E', '#88B6DF'],
-      hoverBackgroundColor: ['#FAE5D3', '#76D7C4', '#5499C7', '#F9E79F', '#D7BDE2', '#FADBD8', '#F96D63', '#A2D0F9'],
+      backgroundColor: ['#48C9B0', '#88B6DF', '#2471A3', '#F5CBA7', '#AF7AC5', '#F1948A', '#EE493E', '#F7DC6F', '#97C442'],
+      hoverBackgroundColor: ['#76D7C4', '#A2D0F9', '#5499C7', '#FAE5D3', '#D7BDE2', '#FADBD8', '#F96D63', '#F9E79F', '#B8DF6D'],
       borderWidth: 1,
     }
   ];
@@ -49,8 +48,8 @@ export class RequestsByOriginComponent implements OnInit {
         position: 'right',
         display: true,
         labels: {
-          padding: 10,
-          fontSize: 15,
+          padding: 9,
+          fontSize: 13,
           usePointStyle: true,
           fontColor: '#929191',
           boxWidth: 9,

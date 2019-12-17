@@ -1,0 +1,27 @@
+<mat-card class="tarjeta">
+        <div class= "container">
+            <mat-card-title class="titulo">Top 10 Categorías</mat-card-title>
+            <div class="navbar">
+                    <div class="dropdown">
+                    <button class="dropbtn"><mat-icon>keyboard_arrow_down</mat-icon>
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="http://localhost:4200/solicitudesPorOrigen">Solicitudes por Origen</a>
+                        <a href="http://localhost:4200/solicitudesPorDistrito">Solicitudes por Distrito</a>
+                        <a href="http://localhost:4200/top10categorias">Top 10 categorías</a>
+                        <a href="http://localhost:4200/top10vecinales">Top 10 vecinales</a>
+                    </div>
+                    </div>
+            </div>
+        </div>
+        <div>
+            <canvas id="doughnut" class="grafico" baseChart
+                [data]="doughnutChartData"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"
+                [colors]="doughnutChartColors"
+                [options] ="doughnutChartOptions"
+                [plugins] = "doughnutChartPlugins"></canvas>
+        </div>
+        </mat-card>

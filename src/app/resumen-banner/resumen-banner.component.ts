@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SolicitudesService } from '../solicitudes.service';
 
 @Component({
   selector: 'app-resumen-banner',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResumenBannerComponent implements OnInit {
 
-  constructor() { }
+  alertas;
+
+  constructor(private solicitudesService: SolicitudesService) { }
 
   ngOnInit() {
+    this.update();
+  }
+
+  update(){
+    this.alertas = this.solicitudesService
+        .getAlertsStats().subscribe(data => {
+          this.alertas = data;
+        });
   }
 
 }

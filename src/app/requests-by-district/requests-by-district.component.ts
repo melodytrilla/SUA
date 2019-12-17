@@ -52,11 +52,11 @@ export class RequestsByDistrictComponent implements OnInit {
         position: 'right',
         
         labels: {
-          padding: 5,
-          fontSize: 12,
+          padding: 10,
+          fontSize: 18,
           usePointStyle: true,
-          fontColor: '#82817F',
-          boxWidth: 8,
+          fontColor: '#929191',
+          boxWidth: 11,
         }
       }
   }

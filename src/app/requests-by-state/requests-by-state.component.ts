@@ -38,6 +38,7 @@ export class RequestsByStateComponent implements OnInit {
     },
     plugins: {
       datalabels: {
+        display: false,
         padding: 0,
         color: 'black',
         anchor: 'end',

@@ -33,8 +33,12 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material';
 import { DateRangePicker} from './date-range-picker/date-range-picker.component';
+import { HttpClientModule } from '@angular/common/http';
 import { QueriesAndFormalitiesComponent } from './queries-and-formalities/queries-and-formalities.component';
 import { RequestsByOriginComponent } from './requests-by-origin/requests-by-origin.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { Top10CategoriesComponent } from './top10-categories/top10-categories.component';
+import { Top10NeighborhoodsComponent } from './top10-neighborhoods/top10-neighborhoods.component';
 
 @NgModule({
   declarations: [
@@ -50,10 +54,13 @@ import { RequestsByOriginComponent } from './requests-by-origin/requests-by-orig
     SearchBarComponent,
     DateRangePicker,
     QueriesAndFormalitiesComponent,
-    RequestsByOriginComponent
+    RequestsByOriginComponent,
+    Top10CategoriesComponent,
+    Top10NeighborhoodsComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
@@ -76,7 +83,8 @@ import { RequestsByOriginComponent } from './requests-by-origin/requests-by-orig
     LayoutModule,
     TextMaskModule,
     SatDatepickerModule, SatNativeDateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BsDropdownModule.forRoot()
   ],
   entryComponents: [DateRangePicker],
   providers: [],

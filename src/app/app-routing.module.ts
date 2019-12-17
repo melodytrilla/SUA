@@ -6,6 +6,8 @@ import { RequestsByDistrictComponent } from './requests-by-district/requests-by-
 import { ClaimsAndComplaintsComponent } from './claims-and-complaints/claims-and-complaints.component';
 import { QueriesAndFormalitiesComponent } from './queries-and-formalities/queries-and-formalities.component';
 import { RequestsByOriginComponent } from './requests-by-origin/requests-by-origin.component';
+import { Top10CategoriesComponent } from './top10-categories/top10-categories.component';
+import { Top10NeighborhoodsComponent } from './top10-neighborhoods/top10-neighborhoods.component';
 
 const routes: Routes = [
   { path: '', component: ResumenComponent},
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'reclamosYDenuncias', component: ClaimsAndComplaintsComponent},
   { path: 'consultasYTramites', component: QueriesAndFormalitiesComponent},
   { path: 'solicitudesPorOrigen', component: RequestsByOriginComponent},
+  { path: 'top10categorias', component: Top10CategoriesComponent},
+  { path: 'top10vecinales', component: Top10NeighborhoodsComponent},
 ];
 
 @NgModule({
