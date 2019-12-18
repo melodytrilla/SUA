@@ -47,7 +47,11 @@ export class ChipsContainerComponent implements OnInit{
 
   //Select an option from the select menu
   selected(event: MatAutocompleteSelectedEvent): void {
-    this.chips.push(event.option.viewValue);
+    if(this.chips.indexOf(event.option.viewValue) < 0){
+      //Checks if the option was alredy added.
+      //If it has, it ignores it 
+      this.chips.push(event.option.viewValue);
+    }
     this.searchElement.nativeElement.value = '';
   }
 
