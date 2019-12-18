@@ -12,10 +12,11 @@
             {{chip}}
             <mat-icon matChipRemove>cancel</mat-icon>
         </mat-chip>
-        <div>
-            <button *ngIf="!searchBoxVisible" mat-chip class="add" (click)="showSearch()">Agregar +</button>
+    <div>
+        <button *ngIf="!searchBoxVisible" mat-chip class="add" (click)="showSearch()">Agregar +</button>
 
-            <input matInput *ngIf="searchBoxVisible" #search 
+        <div *ngIf="searchBoxVisible">
+            <input matInput  #search 
                 placeholder = "Agregar"
                 autocapitalize="off"
                 autocomplete="off"
@@ -31,6 +32,7 @@
                 </mat-option>
             </mat-autocomplete>
         </div>
+    </div>
         
     </mat-chip-list>
 </div>
