@@ -36,6 +36,9 @@ import { DateRangePicker} from './date-range-picker/date-range-picker.component'
 import { HttpClientModule } from '@angular/common/http';
 import { QueriesAndFormalitiesComponent } from './queries-and-formalities/queries-and-formalities.component';
 import { GlobalNavBarComponent } from './global-nav-bar/global-nav-bar.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+import { ListadoComponent } from './listado/listado.component';
+import { MapaComponent } from './mapa/mapa.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import { GlobalNavBarComponent } from './global-nav-bar/global-nav-bar.component
     SearchBarComponent,
     DateRangePicker,
     QueriesAndFormalitiesComponent,
-    GlobalNavBarComponent
+    GlobalNavBarComponent,
+    EstadisticasComponent,
+    ListadoComponent,
+    MapaComponent
   ],
   imports: [
     BrowserModule,
