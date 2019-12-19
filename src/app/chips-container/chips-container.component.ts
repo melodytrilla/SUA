@@ -33,7 +33,7 @@ export class ChipsContainerComponent implements OnInit{
   }
 
   onSearchChange (searchValue: string): void {
-      this.filteredOptions =  this.filtersService.getFilters(searchValue);
+      this.filteredOptions =  this.filtersService.getFilters(searchValue);;
     }
 
 
