@@ -1,10 +1,12 @@
+<app-global-nav-bar></app-global-nav-bar>
+<!--<h1 class="mat-h1">SUA Busqueda</h1>-->
+<!--<app-chips-container></app-chips-container>-->
+<app-search-bar></app-search-bar>
+<app-navbar></app-navbar>
+<app-resumen-banner></app-resumen-banner>
 <div class="grid-container">
 
-  <h1 class="mat-h1">SUA Busqueda</h1>
-  <!--<app-chips-container></app-chips-container>-->
-  <app-search-bar></app-search-bar>
-  <app-navbar></app-navbar>
-  <app-resumen-banner></app-resumen-banner>
+
  
 
   <!--<mat-grid-list cols="4" rowHeight="350px">
@@ -129,7 +131,7 @@
           <mat-grid-tile [colspan] =1 [rowspan] =3> 
             <mat-card class="dashboard-card">
               <p id="cardTitle"> Solicitudes por distrito</p>
-              <p id="cardContent-side">grafico</p>
+              <app-requests-by-state></app-requests-by-state>
             </mat-card>
           </mat-grid-tile>
     

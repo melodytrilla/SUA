@@ -1,7 +1,6 @@
-<mat-card class="tarjeta">
+<!--<mat-card class="tarjeta">-->
         <div class= "container">
-            <mat-card-title class="titulo">Top 10 Vecinales</mat-card-title>
-            <div class="navbar">
+            <!--<div class="navbar">
                     <div class="dropdown">
                     <button class="dropbtn"><mat-icon>keyboard_arrow_down</mat-icon>
                         <i class="fa fa-caret-down"></i>
@@ -13,9 +12,9 @@
                         <a routerLink="/top10vecinales">Top 10 vecinales</a>
                     </div>
                     </div>
-            </div>
+            </div>-->
         </div>
-        <div>
+        <div class="card">
             <canvas id="doughnut" class="grafico" baseChart
                 [data]="doughnutChartData"
                 [labels]="doughnutChartLabels"
@@ -24,4 +23,4 @@
                 [options] ="doughnutChartOptions"
                 [plugins] = "doughnutChartPlugins"></canvas>
         </div>
-        </mat-card>
+<!--</mat-card>-->

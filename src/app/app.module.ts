@@ -39,6 +39,8 @@ import { RequestsByOriginComponent } from './requests-by-origin/requests-by-orig
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { Top10CategoriesComponent } from './top10-categories/top10-categories.component';
 import { Top10NeighborhoodsComponent } from './top10-neighborhoods/top10-neighborhoods.component';
+import { GlobalNavBarComponent } from './global-nav-bar/global-nav-bar.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,10 @@ import { Top10NeighborhoodsComponent } from './top10-neighborhoods/top10-neighbo
     QueriesAndFormalitiesComponent,
     RequestsByOriginComponent,
     Top10CategoriesComponent,
-    Top10NeighborhoodsComponent
+    Top10NeighborhoodsComponent,
+    GlobalNavBarComponent,
+    CarouselComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -84,10 +89,12 @@ import { Top10NeighborhoodsComponent } from './top10-neighborhoods/top10-neighbo
     TextMaskModule,
     SatDatepickerModule, SatNativeDateModule,
     ReactiveFormsModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
   ],
   entryComponents: [DateRangePicker],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [
+  AppComponent,
+  ],
 })
 export class AppModule { }
