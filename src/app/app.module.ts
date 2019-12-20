@@ -41,6 +41,9 @@ import { Top10CategoriesComponent } from './top10-categories/top10-categories.co
 import { Top10NeighborhoodsComponent } from './top10-neighborhoods/top10-neighborhoods.component';
 import { GlobalNavBarComponent } from './global-nav-bar/global-nav-bar.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+import { ListadoComponent } from './listado/listado.component';
+import { MapaComponent } from './mapa/mapa.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +64,10 @@ import { CarouselComponent } from './carousel/carousel.component';
     Top10NeighborhoodsComponent,
     GlobalNavBarComponent,
     CarouselComponent,
-  
+    GlobalNavBarComponent,
+    EstadisticasComponent,
+    ListadoComponent,
+    MapaComponent
   ],
   imports: [
     BrowserModule,

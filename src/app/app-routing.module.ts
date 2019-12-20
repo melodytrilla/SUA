@@ -9,6 +9,9 @@ import { RequestsByOriginComponent } from './requests-by-origin/requests-by-orig
 import { Top10CategoriesComponent } from './top10-categories/top10-categories.component';
 import { Top10NeighborhoodsComponent } from './top10-neighborhoods/top10-neighborhoods.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { ListadoComponent } from './listado/listado.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+import { MapaComponent } from './mapa/mapa.component';
 
 const routes: Routes = [
   { path: '', component: ResumenComponent},
@@ -19,7 +22,10 @@ const routes: Routes = [
   { path: 'solicitudesPorOrigen', component: RequestsByOriginComponent},
   { path: 'top10categorias', component: Top10CategoriesComponent},
   { path: 'top10vecinales', component: Top10NeighborhoodsComponent},
-  { path: 'carousel', component: CarouselComponent}
+  { path: 'carousel', component: CarouselComponent},
+  { path: 'estadisticas', component: EstadisticasComponent},
+  { path: 'listado', component: ListadoComponent},
+  { path: 'mapa', component: MapaComponent}
 ];
 
 @NgModule({
