@@ -1,24 +1,26 @@
 .tarjeta
     background-color: white
     align-items: center
-    width: 15rem
-    padding: 5px
+    width: 100%
+    padding: 0px
     border: 1px solid #ddd
     border-collapse: collapse
     border-radius: 5px
     border-top: none
 
 .titulo
-    color: #6B6868
+    color: #161616
     text-align: left
     font-size: 15px
     margin: 0
+    padding-top: 5px
+    padding-left: 5px
 
-.tarjeta p
+.tarjeta h3
     color: #6B6868
     font-size: 35px
-    text-align: right
-    padding: 7px
+    text-align: center
+    padding: 5px
     margin: 0
 
 .lista
@@ -26,16 +28,18 @@
     align-items: center
     justify-content: space-around
     border-color: grey
-    max-width: 15rem
 
 .lista div
     list-style-type: none !important
-    padding: 10px
+    padding-top: 5px
+    padding-bottom: 5px
     color: #6B6868
     display: flex
     flex: 1
     cursor: pointer
     align-items: center
+    align-self: end
+    width: 100%
 
 .lista div:hover
     background-color: #EFEEEE
@@ -54,30 +58,37 @@
     padding: 5px
     margin: 0px
     flex: 1
-    width: 20%
+    width: 15%
     order: 3
-    text-align: center
 
 .icono
     width: 15%
     order: 1
+    text-align: center
+    font-size: 20px
 
 .flecha
-    width: 3%
+    width: 5%
     order: 4
     padding: 5px
     color: #979696
     cursor: pointer
 
 .mat-divider
+    display: block
+    position: inherit !important
     border-top-color: #b1aaaa
     padding-bottom: 0px
 
 .ver-mas
     color: #979696
-    text-align: right
-    padding-top: 20px
+    text-align: center
+    padding-top: 5px
     cursor: pointer
 
 .mat-list-base 
-    padding-top: 0px
+    display: flex
+    max-width: inherit
+    align-items: inherit
+    flex-flow: column
+    padding-top: 4px

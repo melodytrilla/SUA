@@ -1,12 +1,14 @@
 <mat-card class="tarjeta">
-    <mat-card-title class="titulo">Reclamos y Denuncias</mat-card-title>
-    <p> 6456 </p>
-</mat-card>
+    <mat-card-title class="titulo">Reclamos y Denuncias
+        <h3> 6456 </h3>
+    </mat-card-title>
+
+    <mat-divider></mat-divider>
+
 <div class="tarjeta">
     <mat-list class="lista" *ngFor="let item of items">
         <div mat-list-item>
-            <img src="{{item.icono}}">
-            <mat-icon class="icono">{{item.icono}}</mat-icon>
+            <mat-icon class="icono fsua {{item.icono}} fsua-1:5x"></mat-icon>
             <h3 matLine> {{item.name}}</h3>
             <p matLine >{{item.details}}</p>
             <mat-icon class="flecha">keyboard_arrow_right</mat-icon>
@@ -18,3 +20,4 @@
     </div>
 
 </div>
+</mat-card>

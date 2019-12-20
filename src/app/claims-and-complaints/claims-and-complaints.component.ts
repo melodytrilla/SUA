@@ -12,17 +12,19 @@ constructor() { }
 public items: Array<any> = [
     {
       id: 1,
-      icono: "",
+      icono: "fsua-colectivos_urbanos",
       name: "Lámpara apagada ó encendida",
       details: "840"
     },
     {
       id: 2,
+      icono: "fsua-tel",
       name: "Sector apagado ó encendido",
       details: "516"
     },
     {
       id: 3,
+      icono: "fsua-higiene_urbana",
       name: "Barrido y limpieza ausente ó deficiente",
       details: "450"
     },
