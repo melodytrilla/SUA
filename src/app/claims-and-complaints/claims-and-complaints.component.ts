@@ -25,12 +25,19 @@ public items: Array<any> = [
     {
       id: 3,
       icono: "fsua-higiene_urbana",
-      name: "Barrido y limpieza ausente ó deficiente",
+      name: "Barrido y limpieza ausente ó deficiente asdasdasda dsasdasdsdasdasda sdsadsadasdasdasdasd sdasdsadasdasd",
       details: "450"
     },
   ];
 
   ngOnInit() {
+
+    this.items.forEach(function(item) {
+       if(item.name.length > 60){
+         item.name = item.name.substr(0, 57) + "...";
+         console.log("paso");
+       }
+    });
   }
 
 }
