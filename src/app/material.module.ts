@@ -9,7 +9,8 @@ import {
   MatDividerModule,
   MatChipsModule,
   MatExpansionModule,
-  MatDialogModule
+  MatDialogModule,
+  MatCheckboxModule, MatRadioModule,
 
 } from '@angular/material';
 
@@ -24,7 +25,8 @@ import {
     MatDividerModule,
     MatChipsModule,
     MatExpansionModule,
-    MatDialogModule    
+    MatDialogModule ,
+    MatCheckboxModule, MatRadioModule,
   ]
 })
 export class MaterialModule { }
