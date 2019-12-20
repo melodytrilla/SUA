@@ -22,8 +22,14 @@ export class CarouselComponent implements OnInit {
     }, 3000);
 
   }
-playPause(){
+togglePlay(){
   this.pause = !this.pause;
 }
+
+playPause(){
+  this.pause = true;
+}
+
+
 
 }

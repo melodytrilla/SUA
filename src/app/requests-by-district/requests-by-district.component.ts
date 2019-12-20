@@ -52,8 +52,8 @@ export class RequestsByDistrictComponent implements OnInit {
         position: 'right',
         
         labels: {
-          padding: 10,
-          fontSize: 18,
+          padding: 12,
+          fontSize: 20,
           usePointStyle: true,
           fontColor: '#929191',
           boxWidth: 11,

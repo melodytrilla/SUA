@@ -50,7 +50,7 @@ export class RequestsByOriginComponent implements OnInit {
         display: true,
         labels: {
           padding: 10,
-          fontSize: 15,
+          fontSize: 18,
           usePointStyle: true,
           fontColor: '#929191',
           boxWidth: 9,

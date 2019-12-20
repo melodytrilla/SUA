@@ -49,7 +49,7 @@ export class Top10CategoriesComponent implements OnInit {
         display: true,
         labels: {
           padding: 9,
-          fontSize: 13,
+          fontSize: 14,
           usePointStyle: true,
           fontColor: '#929191',
           boxWidth: 9,
