@@ -5,7 +5,8 @@ import { startWith, map } from 'rxjs/operators';
 import { PlacesService } from '../places.service';
 
 import {DateRangePicker} from '../date-range-picker/date-range-picker.component'
-
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { FiltroAvanzadoDialogComponent } from '../filtro-avanzado-dialog/filtro-avanzado-dialog.component';
 
 @Component({
   selector: 'app-search-bar',
@@ -38,9 +39,8 @@ export class SearchBarComponent implements OnInit {
   
   constructor(
     private formBuilder: FormBuilder, 
-    private placesService: PlacesService
-    ) {
-  }
+    private placesService: PlacesService,
+    public dialog: MatDialog) {  }
 
   inlineRangeChange($event) {
     this.inlineRange = $event;
@@ -54,6 +54,7 @@ export class SearchBarComponent implements OnInit {
         end: new Date(2018, 7, 25)
       },
       ubicacion: '',
+      filtrosAvanzados: '',
     });
 
     /**Para disminuir la cantidad de request a la API en el filtrado 
@@ -77,4 +78,18 @@ export class SearchBarComponent implements OnInit {
     return this.places
       .filter(option => option.toLowerCase().includes(filterValue));
   }
+
+
+  //Filtro avanzado dialog 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(FiltroAvanzadoDialogComponent, {
+      width: '1000px',
+      data: {info: "filtro"}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
 }

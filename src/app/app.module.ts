@@ -30,11 +30,12 @@ import { ClaimsAndComplaintsComponent } from './claims-and-complaints/claims-and
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { ChipsContainerComponent } from './chips-container/chips-container.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material';
 import { DateRangePicker} from './date-range-picker/date-range-picker.component';
 import { HttpClientModule } from '@angular/common/http';
 import { QueriesAndFormalitiesComponent } from './queries-and-formalities/queries-and-formalities.component';
+import { FiltroAvanzadoDialogComponent } from './filtro-avanzado-dialog/filtro-avanzado-dialog.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { QueriesAndFormalitiesComponent } from './queries-and-formalities/querie
     ChipsContainerComponent,
     SearchBarComponent,
     DateRangePicker,
-    QueriesAndFormalitiesComponent
+    QueriesAndFormalitiesComponent,
+    FiltroAvanzadoDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -76,9 +78,10 @@ import { QueriesAndFormalitiesComponent } from './queries-and-formalities/querie
     LayoutModule,
     TextMaskModule,
     SatDatepickerModule, SatNativeDateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
-  entryComponents: [DateRangePicker],
+  entryComponents: [DateRangePicker, FiltroAvanzadoDialogComponent],
   providers: [],
   bootstrap: [AppComponent],
 })
