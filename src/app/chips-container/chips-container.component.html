@@ -9,8 +9,11 @@
             [removable]="removable" 
             (removed)="remove(chip)"
             color="primary" selected="true">
-                <mat-icon>traffic</mat-icon>
-                {{chip}}
+                <mat-icon class="fsua {{chip.icon}} fsua-2x"></mat-icon>
+                <div class="chip">
+                    <h6 class="subtitulo">{{chip.category}}</h6>
+                    {{chip.description}}
+                </div>
             <mat-icon matChipRemove>cancel</mat-icon>
         </mat-chip>
     <div>
@@ -29,7 +32,7 @@
 
             <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
                 <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                    {{ option.desc }}
+                    {{ option.description }}
                 </mat-option>
             </mat-autocomplete>
         </div>

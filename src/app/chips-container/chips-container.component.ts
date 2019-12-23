@@ -6,6 +6,13 @@ import { FiltersService } from '../filters.service';
 import { startWith, map, filter } from 'rxjs/operators';
 import { MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material';
 
+export interface Chip{
+  id: number;
+  category: string;
+  icon: string;
+  description: string;
+}
+
 @Component({
   selector: 'app-chips-container',
   templateUrl: './chips-container.component.html',
@@ -17,8 +24,8 @@ export class ChipsContainerComponent implements OnInit{
   @ViewChild('auto', {static: false}) matAutocomplete: MatAutocomplete;
 
   searchBoxVisible = false;
-  filteredOptions: Observable<string[]>;
-  chips: string[] = [];
+  filteredOptions: Observable<Chip[]>;
+  chips: Chip[] = [];
 
   //Chips config
   removable = true;
@@ -33,13 +40,17 @@ export class ChipsContainerComponent implements OnInit{
   }
 
   onSearchChange (searchValue: string): void {
-      this.filteredOptions =  this.filtersService.getFilters(searchValue);;
+      this.filteredOptions =  this.filtersService.getFilters(searchValue);
     }
 
 
-  remove(chip: string):void {
+  remove(chip: Chip):void {
     const index = this.chips.indexOf(chip);
 
+    var removeIndex = this.chips
+      .map(function(item) { return item.id; }).indexOf(chip.id);
+    ~removeIndex && this.chips.splice(removeIndex, 1);
+   
     if(index >= 0){
       this.chips.splice(index, 1);
     }
@@ -47,10 +58,15 @@ export class ChipsContainerComponent implements OnInit{
 
   //Select an option from the select menu
   selected(event: MatAutocompleteSelectedEvent): void {
-    if(this.chips.indexOf(event.option.viewValue) < 0){
+    const value = event.option.viewValue;
+
+    var data = this.chips.find( element => { 
+      return element.description === value;});
+
+    if(!data){
       //Checks if the option was alredy added.
       //If it has, it ignores it 
-      this.chips.push(event.option.viewValue);
+      this.chips.push(event.option.value);
     }
     this.searchElement.nativeElement.value = '';
   }

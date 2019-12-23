@@ -32,10 +32,70 @@
     }
   },
   "filters": [
-    {"desc":"Semaforo"},
-    {"desc": "Alumbrado"},
-    {"desc": "Bicicleta"},
-    {"desc": "Colectivo"},
-    {"desc": "Moviles"}]
-  
+    {
+      "id": 1,
+      "category": "Categoria",
+      "icon": "",
+      "description": "Semaforo"
+    },
+    {
+      "id": 2,
+      "category": "Tipo",
+      "icon": "",
+      "description": "Alumbrado"
+    },
+    {
+      "id": 3,
+      "category": "Distrito",
+      "icon": "",
+      "description": "Norte"
+    },
+    {
+      "id": 4,
+      "category": "Distrito",
+      "icon": "",
+      "description": "Centro"
+    },
+    {
+      "id": 5,
+      "category": "Equipamiento",
+      "icon": "",
+      "description": "Bicicleta"
+    },
+    {
+      "id": 6,
+      "category": "Categoria",
+      "icon": "",
+      "description": "Colectivo"
+    },
+    {
+      "id": 7,
+      "category": "Categoria",
+      "icon": "",
+      "description": "Moviles"
+    },
+    {
+      "id": 8,
+      "category": "Equipamiento",
+      "icon": "",
+      "description": "Semaforo"
+    },
+    {
+      "id": 9,
+      "category": "Opinion",
+      "icon": "fsua-opinar",
+      "description": "Positivo"
+    },
+    {
+      "id": 10,
+      "category": "Opinion",
+      "icon": "fsua-opinar",
+      "description": "Negativo"
+    },
+    {
+      "id": 11,
+      "category": "Opinion",
+      "icon": "fsua-opinar",
+      "description": "Neutral"
+    }]
 }
