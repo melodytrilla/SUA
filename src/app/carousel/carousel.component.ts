@@ -19,7 +19,7 @@ export class CarouselComponent implements OnInit {
       if (!this.pause){
         this.valor= (this.valor + 1) % 4;
       }
-    }, 3000);
+    }, 10000);
 
   }
 togglePlay(){

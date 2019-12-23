@@ -129,6 +129,7 @@
                 </mat-card>
           </mat-grid-tile>
     
+          <!--
           <mat-grid-tile [colspan] =1 [rowspan] =3> 
             <mat-card class="dashboard-card">
               <p id="cardTitle"> Solicitudes por distrito</p>
@@ -155,8 +156,12 @@
               <p id="cardTitle"> top 10 categorias</p>
               <p id="cardContent-side">1752</p>
                 </mat-card>
+          </mat-grid-tile>-->
+          <mat-grid-tile [colspan] =2 [rowspan] =6>
+            <mat-card class="dashboard-card">
+              <app-carousel></app-carousel>
+            </mat-card>
           </mat-grid-tile>
-    
     
       </mat-grid-list>
   </div>
