@@ -5,37 +5,54 @@
 <div class="content">
     <div class="listConteiner">
         <div class="listButton">button</div>
-        <div class="list">
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
-        <p>this is the list</p>
+        <div class="list" >
+            <div *ngFor="let solicitud of solicitudes">
+            <div class="listElement">
+                <div class="part1">
+                    <div class="upperPart">
+                        <mat-checkbox></mat-checkbox>
+                        <p class="estado"> {{solicitud.estado}}</p>
+                    </div>
+                    <div class="lowerPart">
+                        <div class="imageConteiner">
+                            <img class="imageProperties" src={{solicitud.imagen}}>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part2">
+                    <div class="upperPart" >
+                        <mat-icon class="iconoPos "> access_time</mat-icon>
+                        <p class="descripcionTiempo"> {{solicitud.tiempoPasado}}</p>
+
+                        <div class="addDistance"></div>
+                        <div class="raiting" *ngIf="solicitud.calificacion != 0">
+                            <mat-icon class="iconoPos fsua fsua-bueno-o " *ngIf="solicitud.calificacion > 0"></mat-icon>
+                            <mat-icon class="iconoPos fsua fsua-malo-o " *ngIf="solicitud.calificacion < 0"></mat-icon>
+                            <mat-icon class="iconoPos fsua fsua-usuario "></mat-icon>
+                            <p class="cantPersonas"> {{solicitud.calificacion}} </p>
+                        </div>
+                    </div>
+                    <div class="lowerPart rowContent">
+                        <div class= "infoConteiner">
+                            <div class="infoType">
+                                <mat-icon class="iconoPos fsua {{solicitud.info_icono}}"></mat-icon>
+                                <p> {{solicitud.info_tipo}}</p>
+                            </div>
+                            <div class="infoDescripcion">
+                                <p> {{solicitud.info_descripcion}}</p>
+                            </div>
+                        </div>
+                        <div class="arrowSeparator">
+                            <mat-icon class="arrowPos">keyboard_arrow_right</mat-icon>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="separator"></div>
+        </div>
+            
         </div>
     </div>
     <div class="map"> this is the map</div>
