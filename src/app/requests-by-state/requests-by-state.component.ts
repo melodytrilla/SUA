@@ -17,50 +17,52 @@ export class RequestsByStateComponent implements OnInit {
   constructor() {
   }
 
-  public doughnutChartLabels: Array<string> = ['Pendientes', 'En curso', 'Resueltas', 'Cerradas'];
-  public doughnutChartType = 'doughnut';
-  public doughnutChartLegend = true;
-  public doughnutChartData: Array<number> = [701, 1671, 10773, 477];
+  public barChartLabels: Array<string> = ['Pendientes', 'En curso', 'Resueltas', 'Cerradas'];
+  public barChartType = 'horizontalBar';
+  public barChartLegend = "true";
+  public barChartData: Array<number> = [701, 1671, 10773, 477];
 
-  public doughnutChartColors: Array<any> = [
+  public barChartColors: Array<any> = [
     {
       backgroundColor: ['#9B9487', '#F7B543', '#94D8FA', '#2764F3'],
       hoverBackgroundColor: ['#B2AFAA', '#F6C672', '#BAE3F7', '#6B96FA'],
       borderWidth: 1,
     }
   ];
-  public doughnutChartOptions: ChartOptions = {
+  public barChartOptions: ChartOptions = {
     responsive: true,
     tooltips: {
       enabled: true,
-    
-      
     },
     plugins: {
       datalabels: {
-        display: false,
+        display: true,
         padding: 0,
         color: 'black',
         anchor: 'end',
         textStrokeWidth: 0.2,
-        align: 'end'
-      }
-    },
-      legend: {
-        fullWidth: false,
-        display: true,
-        position: 'right',
-        
-        labels: {
-          padding: 18,
-          fontSize: 18,
-          usePointStyle: true,
-          fontColor: '#82817F',
-          boxWidth: 10,
+        align: 'end',
+        formatter: function(value, context) {
+          return context.chart.data.labels[context.dataIndex];
         }
       }
+    },
+    //Hide background guide lines
+    scales: {
+      xAxes: [{
+         gridLines: {
+            display: false
+         }
+      }],
+      yAxes: [{
+         gridLines: {
+            display: false
+         }
+      }]
+    }   
   }
-  public doughnutChartPlugins = [{
+
+  public barChartPlugins = [{
     pluginDataLabels,
       /*afterLayout: function (chart){
       chart.legend.legendItems.forEach(
