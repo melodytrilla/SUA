@@ -3,7 +3,7 @@ import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { Label } from 'ng2-charts';
 import 'chart.piecelabel.js';
-import { preserveWhitespacesDefault } from '@angular/compiler';
+import { preserveWhitespacesDefault, sanitizeIdentifier } from '@angular/compiler';
 import { filter } from 'minimatch';
 
 
@@ -16,39 +16,60 @@ export class RequestsByStateComponent implements OnInit {
 
   constructor() {
   }
+  total = 701 + 1671 + 10773 + 477;
+  public hBarChartLabels: Array<string> = ['Pendientes', 'En curso', 'Resueltas', 'Cerradas'];
+  public hBarChartType = 'horizontalBar';
+  public hBarChartLegend = false;
+  public hBarChartData: Array<number> = [701, 1671, 10773, 477];
 
-  public doughnutChartLabels: Array<string> = ['Pendientes', 'En curso', 'Resueltas', 'Cerradas'];
-  public doughnutChartType = 'doughnut';
-  public doughnutChartLegend = true;
-  public doughnutChartData: Array<number> = [701, 1671, 10773, 477];
-
-  public doughnutChartColors: Array<any> = [
+  public hBarChartColors: Array<any> = [
     {
       backgroundColor: ['#9B9487', '#F7B543', '#94D8FA', '#2764F3'],
       hoverBackgroundColor: ['#B2AFAA', '#F6C672', '#BAE3F7', '#6B96FA'],
       borderWidth: 1,
     }
   ];
-  public doughnutChartOptions: ChartOptions = {
+  public hBarChartOptions: ChartOptions = {
     responsive: true,
     tooltips: {
       enabled: true,
     
       
     },
+
+    scales:{
+      xAxes:[{
+        display: false
+        
+      }],
+      yAxes:[{
+        gridLines:{
+          display: false
+        }
+      }]
+    },
+    
+    layout:{
+      padding:{
+        right:70
+      }
+    },
+
+
     plugins: {
       datalabels: {
-        display: false,
+        display: true,
         padding: 0,
         color: 'black',
         anchor: 'end',
-        textStrokeWidth: 0.2,
-        align: 'end'
+        textStrokeWidth: 0.4,
+        align: 'end',
+        font: {size: 25},
       }
     },
       legend: {
         fullWidth: false,
-        display: true,
+        display: false,
         position: 'right',
         
         labels: {
@@ -59,8 +80,9 @@ export class RequestsByStateComponent implements OnInit {
           boxWidth: 10,
         }
       }
+
   }
-  public doughnutChartPlugins = [{
+  public hBarChartPlugins = [{
     pluginDataLabels,
       /*afterLayout: function (chart){
       chart.legend.legendItems.forEach(

@@ -1,12 +1,14 @@
 <mat-card class="tarjeta">
-<mat-card-title class="titulo">Solicitudes por Estado</mat-card-title>
+<!--<mat-card-title class="titulo">Solicitudes por Estado
+    <h3>{{total}}</h3>
+</mat-card-title>-->
 <div>
     <canvas class="grafico" baseChart
-        [data]="doughnutChartData"
-        [labels]="doughnutChartLabels"
-        [chartType]="doughnutChartType"
-        [colors]="doughnutChartColors"
-        [options] ="doughnutChartOptions"
-        [plugins] = "doughnutChartPlugins"></canvas>
+        [data]="hBarChartData"
+        [labels]="hBarChartLabels"
+        [chartType]="hBarChartType"
+        [colors]="hBarChartColors"
+        [options] ="hBarChartOptions"
+        [plugins] = "hBarChartPlugins"></canvas>
 </div>
 </mat-card>
