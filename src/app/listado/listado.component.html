@@ -12,81 +12,84 @@
                         <div><img src="{{item.imagen}}"></div>
                     </div>
                     <div class="tablagen">
-                            <div class="col">
+                            <div class="col colum1">
                                 <div class="fila">
                                     {{item.fecha}}
                                 </div>
                                 <div class="fila">
-                                    {{item.descripcion}}
+                                    <mat-icon class="fsua {{item.iconoDesc}}"></mat-icon> {{item.descripcion}}
                                 </div>
-                                <div class="fila">
+                                <div class="fila" >
                                     {{item.direccion}}
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col colum2">
                                 <div class="fila">
-                                    {{item.tiempo}}
+                                    <mat-icon class="fsua fsua-recientes"></mat-icon>{{item.tiempo}}
                                 </div>
                                 <div class="fila">
-                                    {{item.estado}}
+                                    <mat-icon class="fsua {{item.iconoOpinada}}"></mat-icon> {{item.estado}}
                                 </div>
                                 <div class="fila">
                                     {{item.descEstado}}
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col colum3">
                                 <div class="fila">
-                                    icono intervencion
+                                    <div  *ngIf="item.cantInterv>0">
+                                        {{item.cantInterv}} <mat-icon class="fsua fsua-intervenido"></mat-icon> {{item.tiempoInterv}}
+                                    </div>
                                 </div>
                                 <div class="fila">
-    
+                                    <mat-icon></mat-icon>
                                 </div>
-                                <div class="fila">
-                                    6 icono
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="fila">
-                                    Hace 3 días
-                                </div>
-                                <div class="fila">
-    
-                                </div>
-                                <div class="fila">
-                                    Hace 10 días
+                                <div class="fila" >
+                                    <div *ngIf="item.cantMap>0">
+                                        {{item.cantMap}} <mat-icon class="fsua fsua-mapa"></mat-icon> {{item.tiempoMap}}
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col colum">
                                 <div class="fila">
-                                    3 icono
+                                    <div  *ngIf="item.cantTel>0">
+                                       {{item.cantTel}} <mat-icon class="fsua fsua-tel"></mat-icon>
+                                    </div>
                                 </div>
                                 <div class="fila">
-    
+                                    <mat-icon></mat-icon>
                                 </div>
-                                <div class="fila">
-                                    2 icono
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="fila">
-                                    1 icono
-                                </div>
-                                <div class="fila">
-    
-                                </div>
-                                <div class="fila">
-                                    2 icono
+                                <div class="fila" >
+                                    <div *ngIf="item.cantPerfil>0">
+                                        {{item.cantPerfil}} <mat-icon class="fsua fsua-mi_perfil-o"></mat-icon>
+                                    </div>
                                 </div>
                             </div>
-                             <div class="col">
+                            <div class="col colum">
                                 <div class="fila">
-                                    
+                                    <div *ngIf="item.cantLogo>0">
+                                        {{item.cantLogo}} <mat-icon class="fsua fsua-logo"></mat-icon>
+                                    </div>
                                 </div>
                                 <div class="fila">
-                                    flecha
+                                    <mat-icon></mat-icon>
+                                </div>
+                                <div>
+                                    <div class="fila">
+                                        <div *ngIf="item.cantRiesgo>0">
+                                            {{item.cantRiesgo}} <mat-icon class="fsua fsua-warning"></mat-icon>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" col flecha">
+                                <div class="fila">
+                                    <mat-icon></mat-icon>
+                                </div>
+                                 <div class="fila">
+                                    <mat-icon>keyboard_arrow_right</mat-icon>
                                 </div>
                                 <div class="fila">
-                                    
+                                    <mat-icon></mat-icon>
                                 </div>
                             </div>
                     </div>
