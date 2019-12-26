@@ -1,3 +1,98 @@
 <app-global-nav-bar></app-global-nav-bar>
 <app-search-bar></app-search-bar>
 <app-navbar></app-navbar>
+<div class="topBar">
+    <p>this is the top bar</p>
+    <mat-icon class="more">more_vert</mat-icon>
+</div>
+<mat-list class="lista" *ngFor="let item of items">
+        <div mat-list-item class="content">
+                    <div class="colum0">
+                        <mat-checkbox>{{item.nroSolicitud}}</mat-checkbox>
+                        <div><img src="{{item.imagen}}"></div>
+                    </div>
+                    <div class="tablagen">
+                            <div class="col">
+                                <div class="fila">
+                                    {{item.fecha}}
+                                </div>
+                                <div class="fila">
+                                    {{item.descripcion}}
+                                </div>
+                                <div class="fila">
+                                    {{item.direccion}}
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="fila">
+                                    {{item.tiempo}}
+                                </div>
+                                <div class="fila">
+                                    {{item.estado}}
+                                </div>
+                                <div class="fila">
+                                    {{item.descEstado}}
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="fila">
+                                    icono intervencion
+                                </div>
+                                <div class="fila">
+    
+                                </div>
+                                <div class="fila">
+                                    6 icono
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="fila">
+                                    Hace 3 días
+                                </div>
+                                <div class="fila">
+    
+                                </div>
+                                <div class="fila">
+                                    Hace 10 días
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="fila">
+                                    3 icono
+                                </div>
+                                <div class="fila">
+    
+                                </div>
+                                <div class="fila">
+                                    2 icono
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="fila">
+                                    1 icono
+                                </div>
+                                <div class="fila">
+    
+                                </div>
+                                <div class="fila">
+                                    2 icono
+                                </div>
+                            </div>
+                             <div class="col">
+                                <div class="fila">
+                                    
+                                </div>
+                                <div class="fila">
+                                    flecha
+                                </div>
+                                <div class="fila">
+                                    
+                                </div>
+                            </div>
+                    </div>
+                </div>
+        <mat-divider></mat-divider>
+    </mat-list>
+    <div class="ver-mas">
+        <a>... VER MÁS SOLICITUDES ...</a>
+    </div>

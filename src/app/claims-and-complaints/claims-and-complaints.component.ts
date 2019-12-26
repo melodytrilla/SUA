@@ -31,6 +31,12 @@ public items: Array<any> = [
   ];
 
   ngOnInit() {
+
+    this.items.forEach(function(item) {
+       if(item.name.length > 60){
+         item.name = item.name.substr(0, 57) + "...";
+       }
+    });
   }
 
 }

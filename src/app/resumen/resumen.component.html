@@ -42,7 +42,7 @@
       </mat-grid-tile>
 
       <mat-grid-tile [colspan] =1 [rowspan] =5> 
-          <mat-card class="dashboard-card">
+          <!--<mat-card class="dashboard-card">
               <div id="total">
                   <p id="cardTitle"> Reclamos y denuncias</p>
                   <p id="cardContent">6456</p>
@@ -51,7 +51,8 @@
               <div id="details">
 
               </div>
-            </mat-card>
+            </mat-card>-->
+          <app-claims-and-complaints></app-claims-and-complaints>
       </mat-grid-tile>
 
       <mat-grid-tile [colspan] =1 [rowspan] =5> 
@@ -128,6 +129,7 @@
                 </mat-card>
           </mat-grid-tile>
     
+          <!--
           <mat-grid-tile [colspan] =1 [rowspan] =3> 
             <mat-card class="dashboard-card">
               <p id="cardTitle"> Solicitudes por distrito</p>
@@ -154,8 +156,12 @@
               <p id="cardTitle"> top 10 categorias</p>
               <p id="cardContent-side">1752</p>
                 </mat-card>
+          </mat-grid-tile>-->
+          <mat-grid-tile [colspan] =2 [rowspan] =6>
+            <mat-card class="dashboard-card">
+              <app-carousel></app-carousel>
+            </mat-card>
           </mat-grid-tile>
-    
     
       </mat-grid-list>
   </div>
