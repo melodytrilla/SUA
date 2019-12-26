@@ -42,30 +42,17 @@
       </mat-grid-tile>
 
       <mat-grid-tile [colspan] =1 [rowspan] =5> 
-          <!--<mat-card class="dashboard-card">
-              <div id="total">
-                  <p id="cardTitle"> Reclamos y denuncias</p>
-                  <p id="cardContent">6456</p>
-                  <div id="separator"></div>
-              </div>
-              <div id="details">
-
-              </div>
-            </mat-card>-->
-          <app-claims-and-complaints></app-claims-and-complaints>
+          <mat-card class="dashboard-card">
+              <app-claims-and-complaints></app-claims-and-complaints>
+            </mat-card>
+          
       </mat-grid-tile>
 
       <mat-grid-tile [colspan] =1 [rowspan] =5> 
-          <mat-card class="dashboard-card">
-              <div id="total" >
-                  <p id="cardTitle"> Consultas y tramites</p>
-                  <p id="cardContent">7166</p>
-                  <div id="separator"></div>
-              </div>
-              <div id="details">
-
-              </div>
+            <mat-card class="dashboard-card">
+              <app-queries-and-formalities></app-queries-and-formalities>
             </mat-card>
+            
       </mat-grid-tile>
 
       <mat-grid-tile [colspan] =1 [rowspan] =2> 
