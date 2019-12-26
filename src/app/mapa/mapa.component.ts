@@ -15,6 +15,7 @@ export class MapaComponent implements OnInit {
       imagen: "http://4.bp.blogspot.com/-3s5RpPRPdv4/UcIE__NluhI/AAAAAAAAALc/Cz6EW-I-9YA/s1600/114139.jpg",
       tiempoPasado: "Hace mas de un mes",
       calificacion: 1,
+      usuarios_calificaron: 1,
       info_icono:"fsua-reloj-o",
       info_tipo: "Corte de transito",
       info_descripcion: "esta es una descripcion medio larga asi que habra que cortarla"
@@ -24,6 +25,17 @@ export class MapaComponent implements OnInit {
       imagen: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.c3Bp-l_gMgBj77lsnqOb9wHaFj%26pid%3DApi&f=1",
       tiempoPasado: "Hace mas de un mes",
       calificacion: -1,
+      usuarios_calificaron: 3,
+      info_icono:"fsua-transito",
+      info_tipo: "Mas problemas de transito",
+      info_descripcion: "corta descripcion"
+    },
+    {
+      estado: "En Curso",
+      imagen: "http://www.pbs.org/wnet/nature/files/2017/10/reqzNZB-asset-mezzanine-16x9-dWu5cfN.jpg",
+      tiempoPasado: "Hace mas de un mes",
+      calificacion: 0,
+      usuarios_calificaron: 2,
       info_icono:"fsua-transito",
       info_tipo: "Mas problemas de transito",
       info_descripcion: "corta descripcion"

@@ -26,11 +26,12 @@
                         <p class="descripcionTiempo"> {{solicitud.tiempoPasado}}</p>
 
                         <div class="addDistance"></div>
-                        <div class="raiting" *ngIf="solicitud.calificacion != 0">
+                        <div class="raiting" *ngIf="solicitud.usuarios_calificaron != 0">
                             <mat-icon class="iconoPos fsua fsua-bueno-o " *ngIf="solicitud.calificacion > 0"></mat-icon>
+                            <mat-icon class="iconoPos fsua fsua-neutro-o " *ngIf="solicitud.calificacion == 0"></mat-icon>
                             <mat-icon class="iconoPos fsua fsua-malo-o " *ngIf="solicitud.calificacion < 0"></mat-icon>
                             <mat-icon class="iconoPos fsua fsua-usuario "></mat-icon>
-                            <p class="cantPersonas"> {{solicitud.calificacion}} </p>
+                            <p class="cantPersonas"> {{solicitud.usuarios_calificaron}} </p>
                         </div>
                     </div>
                     <div class="lowerPart rowContent">
