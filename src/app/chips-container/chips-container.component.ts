@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { FiltersService } from '../filters.service';
-import { startWith, map, filter } from 'rxjs/operators';
+import { startWith, map, filter, reduce, mergeMap, groupBy, zip, toArray } from 'rxjs/operators';
 import { MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material';
 
 export interface Chip{
@@ -40,9 +40,9 @@ export class ChipsContainerComponent implements OnInit{
   }
 
   onSearchChange (searchValue: string): void {
+      this.filtersService.getFilters(searchValue).subscribe(console.log);
       this.filteredOptions =  this.filtersService.getFilters(searchValue);
     }
-
 
   remove(chip: Chip):void {
     const index = this.chips.indexOf(chip);

@@ -31,9 +31,11 @@
                 [matAutocomplete]="auto"/>
 
             <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                    {{ option.description }}
-                </mat-option>
+                <mat-optgroup *ngFor="let group of filteredOptions | async" [label]="group.category" >
+                    <mat-option *ngFor="let option of group.tags " [value]="option">
+                        {{ option.description }}
+                    </mat-option>
+                </mat-optgroup>
             </mat-autocomplete>
         </div>
     </div>
