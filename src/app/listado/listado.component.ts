@@ -1,11 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 
+export interface Opcion {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-listado',
   templateUrl: './listado.component.html',
   styleUrls: ['./listado.component.sass']
 })
 export class ListadoComponent implements OnInit {
+  selectedValue: string;
+  public opciones: Opcion[] = [
+    {value: 'FC0', viewValue: 'Fecha de creación'},
+    {value: 'FE1', viewValue: 'Fecha de estado'},
+    {value: 'CR2', viewValue: 'Cantidad de reiteraciones'},
+    {value: 'CS3', viewValue: 'Cantidad de solicitantes'},
+    {value: 'CA4', viewValue: 'Cantidad de asignaciones'},
+    {value: 'CI5', viewValue: 'Cantidad de intervenciones'}
+  ]
 
   constructor() { }
 
@@ -100,7 +114,7 @@ export class ListadoComponent implements OnInit {
       tiempo: "Hace 2 días",
       iconoOpinada: "",
       estado: "En curso",
-      descEstado: "Oroño- Uriburu semáforo intermitente",
+      descEstado: "Oroño - Uriburu semáforo intermitente",
       cantTel: "3",
       cantLogo: 1,
       cantMap: 6,
