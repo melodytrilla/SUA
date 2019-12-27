@@ -33,8 +33,6 @@ export class RequestsByStateComponent implements OnInit {
     responsive: true,
     tooltips: {
       enabled: true,
-    
-      
     },
 
     scales:{

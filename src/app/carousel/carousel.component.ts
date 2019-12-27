@@ -9,9 +9,9 @@ export class CarouselComponent implements OnInit {
 
   valor=0;
   pause= false;
-
+  
   constructor() { 
- 
+  
   }
 
   ngOnInit() {
