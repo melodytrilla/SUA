@@ -15,4 +15,10 @@ export class SolicitudesService {
     return this.httpClient.get<Object>(
       `${this.apiURL}/alertas`);
   }
+
+  getTopReclamosDenuncias () : Observable<any[]>{
+    return this.httpClient.get<any[]>(
+      `${this.apiURL}/reclamos`
+    )
+  }
 }
