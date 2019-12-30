@@ -14,7 +14,7 @@ public items: Array<any> = [
       id: 1,
       icono: "fsua-alumbrado_publico",
       name: "Lámpara apagada ó encendida",
-      details: "840"
+      details: "1840"
     },
     {
       id: 2,
@@ -27,6 +27,18 @@ public items: Array<any> = [
       icono: "fsua-higiene_urbana",
       name: "Barrido y limpieza ausente ó deficiente",
       details: "450"
+    },
+    {
+      id: 4,
+      icono: "fsua-bicis_publicas",
+      name: "Puesto de bicicletas vacio",
+      details: "289"
+    },
+    {
+      id: 5,
+      icono: "fsua-semaforos",
+      name: "Semaforo roto",
+      details: "100"
     },
   ];
 
