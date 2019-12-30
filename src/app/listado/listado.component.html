@@ -1,9 +1,19 @@
 <app-global-nav-bar></app-global-nav-bar>
 <app-navbar></app-navbar>
 <div class="topBar">
-    <p>this is the top bar</p>
+    <div class="ordenar">
+        <mat-form-field>
+            <mat-label>Ordenar por</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let opc of opciones" [value]="opc.value">
+                    {{opc.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
     <mat-icon class="more">more_vert</mat-icon>
 </div>
+<mat-divider></mat-divider>
 <mat-list class="lista" *ngFor="let item of items">
         <div mat-list-item class="content">
                     <div class="colum0">
