@@ -5,19 +5,11 @@
 
     <mat-divider></mat-divider>
 
-<div class="tarjeta">
     <mat-list class="lista" *ngFor="let item of items">
-        <div mat-list-item>
+        <div class="item">
             <mat-icon class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
-            <h3 matLine> {{item.name}}</h3>
-            <p matLine >{{item.details}}</p>
-            <mat-icon class="flecha">keyboard_arrow_right</mat-icon>
+            <h3> {{item.name}}</h3>
+            <p>{{item.details}}</p>
         </div>
-        <mat-divider></mat-divider>
     </mat-list>
-    <div class="ver-mas">
-        <a>VER MÁS</a>
-    </div>
-
-</div>
 </mat-card>
