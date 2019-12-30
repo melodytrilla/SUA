@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SolicitudesService } from '../solicitudes.service';
 
 @Component({
   selector: 'app-claims-and-complaints',
@@ -7,30 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClaimsAndComplaintsComponent implements OnInit {
 
-constructor() { }
+constructor(private solicitudesService: SolicitudesService) { }
 
-public items: Array<any> = [
-    {
-      id: 1,
-      icono: "fsua-alumbrado_publico",
-      name: "Lámpara apagada ó encendida",
-      details: "840"
-    },
-    {
-      id: 2,
-      icono: "fsua-alumbrado_publico",
-      name: "Sector apagado ó encendido",
-      details: "516"
-    },
-    {
-      id: 3,
-      icono: "fsua-higiene_urbana",
-      name: "Barrido y limpieza ausente ó deficiente",
-      details: "450"
-    },
-  ];
+public items;
 
   ngOnInit() {
+
+    this.items = this.solicitudesService.getTopReclamosDenuncias().subscribe(
+      data => { this.items= data; });
 
     this.items.forEach(function(item) {
        if(item.name.length > 60){

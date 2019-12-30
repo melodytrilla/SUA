@@ -30,5 +30,37 @@
       "cantidad": "769",
       "_link": "http://localhost:8080/api/fuera-termino"
     }
-  }
+  },
+  "reclamos": [
+    {
+      "id": 1,
+      "icono": "fsua-alumbrado_publico",
+      "name": "Lámpara apagada ó encendida",
+      "details": 840
+    },
+    {
+      "id": 2,
+      "icono": "fsua-alumbrado_publico",
+      "name": "Sector apagado ó encendido",
+      "details": 516
+    },
+    {
+      "id": 3,
+      "icono": "fsua-higiene_urbana",
+      "name": "Barrido y limpieza ausente ó deficiente",
+      "details": 450
+    },
+    {
+      "id": 4,
+      "icono": "fsua-bicis_publicas",
+      "name": "Puesto de bicicletas vacio",
+      "details": 289
+    },
+    {
+      "id": 5,
+      "icono": "fsua-semaforos",
+      "name": "Semaforo roto",
+      "details": 100
+    }
+  ]
 }

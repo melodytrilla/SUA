@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { TextMaskModule } from 'angular2-text-mask';
 import { SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
 
@@ -100,7 +100,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     ScrollingModule,
   ],
   entryComponents: [DateRangePicker],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: "es-AR" }],
   bootstrap: [
     AppComponent,
   ],

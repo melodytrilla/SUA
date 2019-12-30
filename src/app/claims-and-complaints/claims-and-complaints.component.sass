@@ -1,67 +1,45 @@
 .tarjeta
-    background-color: white
-    align-items: center
-    width: 100%
     padding: 0px
-    border: 1px solid #ddd
-    border-collapse: collapse
-    border-radius: 5px
-    border-top: none
 
 .titulo
-    color: #161616
-    text-align: left
     font-size: 15px
     margin: 0
     padding-top: 5px
     padding-left: 5px
 
 .tarjeta h3
-    color: #6B6868
     font-size: 35px
-    text-align: center
-    padding: 5px
+    text-align: start
     margin: 0
+    font-weight: initial
 
-.lista
-    background-color: white
-    align-items: center
-    justify-content: space-around
-    border-color: grey
-    max-width: 15rem
+.lista 
+    padding-top: 0 !important
 
-.lista div
-    list-style-type: none !important
-    padding-top: 5px
-    padding-bottom: 5px
-    color: #6B6868
+.item
     display: flex
-    flex: 1
+    flex-direction: row
     cursor: pointer
     align-items: center
     align-self: end
     width: 100%
 
-.lista div:hover
+.item:hover
     background-color: #EFEEEE
 
-.lista div h3
+.item h3
     font-size: 14px
-    padding: 5px
-    margin: 0px
-    flex: 2
+    padding: 6px
+    flex: 8
     order: 2
-    font-weight: normal
-    color: grey
+    font-weight: lighter
 
-.lista div p
-    font-size: 30px
+.item p
+    font-size: 26px
     padding: 5px
     margin: 0px
     flex: 1
-    width: 15%
     order: 3
-    text-align: right
 
 .icono
     width: 15%
@@ -70,29 +48,3 @@
     font-size: 20px
     color: #555353
     padding: 5px 5px 5px 0px
-
-.flecha
-    width: 5%
-    order: 4
-    padding: 5px
-    color: #979696
-    cursor: pointer
-
-.mat-divider
-    display: block
-    position: inherit !important
-    border-top-color: #b1aaaa
-    padding-bottom: 0px
-
-.ver-mas
-    color: #979696
-    text-align: center
-    padding-top: 5px
-    cursor: pointer
-
-.mat-list-base 
-    display: flex
-    max-width: inherit
-    align-items: inherit
-    flex-flow: column
-    padding-top: 4px
