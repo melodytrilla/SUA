@@ -13,15 +13,15 @@ import 'chart.piecelabel.js';
 import { RatingBarComponent } from './rating-bar/rating-bar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ResumenBannerComponent } from './resumen-banner/resumen-banner.component';
-import {MatListModule} from '@angular/material';
+import { MatListModule } from '@angular/material';
 import { ResumenComponent } from './resumen/resumen.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
-import { MatNativeDateModule} from '@angular/material/core';
-import { MatDatepickerModule} from '@angular/material/datepicker';
-import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -32,7 +32,7 @@ import { ChipsContainerComponent } from './chips-container/chips-container.compo
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material';
-import { DateRangePicker} from './date-range-picker/date-range-picker.component';
+import { DateRangePicker } from './date-range-picker/date-range-picker.component';
 import { HttpClientModule } from '@angular/common/http';
 import { QueriesAndFormalitiesComponent } from './queries-and-formalities/queries-and-formalities.component';
 import { RequestsByOriginComponent } from './requests-by-origin/requests-by-origin.component';
@@ -44,6 +44,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { ListadoComponent } from './listado/listado.component';
 import { MapaComponent } from './mapa/mapa.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,7 @@ import { MapaComponent } from './mapa/mapa.component';
     GlobalNavBarComponent,
     EstadisticasComponent,
     ListadoComponent,
-    MapaComponent
+    MapaComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,7 +83,7 @@ import { MapaComponent } from './mapa/mapa.component';
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
-    LayoutModule,  
+    LayoutModule,
     MatListModule,
     MatIconModule,
     MatButtonModule,
@@ -96,11 +97,12 @@ import { MapaComponent } from './mapa/mapa.component';
     SatDatepickerModule, SatNativeDateModule,
     ReactiveFormsModule,
     BsDropdownModule.forRoot(),
+    ScrollingModule,
   ],
   entryComponents: [DateRangePicker],
   providers: [],
   bootstrap: [
-  AppComponent,
+    AppComponent,
   ],
 })
 export class AppModule { }
