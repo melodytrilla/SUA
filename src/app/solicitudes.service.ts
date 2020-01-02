@@ -21,4 +21,10 @@ export class SolicitudesService {
       `${this.apiURL}/reclamos`
     )
   }
+
+  getTopConsultasTramites () : Observable<any[]>{
+    return this.httpClient.get<any[]>(
+      `${this.apiURL}/consultas`
+    )
+  }
 }

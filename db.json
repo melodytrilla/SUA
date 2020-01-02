@@ -47,7 +47,7 @@
     {
       "id": 3,
       "icono": "fsua-higiene_urbana",
-      "name": "Barrido y limpieza ausente ó deficiente",
+      "name": "Barrido y limpieza ausente ó deficiente aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       "details": 450
     },
     {
@@ -62,5 +62,37 @@
       "name": "Semaforo roto",
       "details": 100
     }
+  ], 
+  "consultas" : [
+      {
+        "id": 1,
+        "icono": "fsua-colectivos_urbanos",
+        "name": "Consulta TUP",
+        "details": "5948"
+      },
+      {
+        "id": 2,
+        "icono": "fsua-tel",
+        "name": "Información sobre temas ajenos al 147",
+        "details": "358"
+      },
+      {
+        "id": 3,
+        "icono": "fsua-higiene_urbana",
+        "name": "Solicitud de información de higiene urbana",
+        "details": "72"
+      },
+      {
+        "id": 4,
+        "icono": "fsua-higiene_urbana",
+        "name": "Solicitud de información de higiene urbana y mas texto para testeasr que se corta en el programa",
+        "details": "50"
+      },
+      {
+        "id": 5,
+        "icono": "fsua-higiene_urbana",
+        "name": "Otro item",
+        "details": "10"
+      }
   ]
 }
