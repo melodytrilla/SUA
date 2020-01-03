@@ -23,13 +23,21 @@ import 'chart.piecelabel.js';
 })
 export class RatingBarComponent implements OnInit {
 
+  ratings = [40, 50, 10]; //pedirlo en porcentajes
+  total = 3471;
+
   ngOnInit() {
   }
+
+  
+  
+  
+
 
   public barChartLabels: Array<string> = ['Neutral', 'Negativas', 'Positivas'];
   public barChartType = 'bar';
   public barChartLegend = "false";
-  public barChartData: Array<number> = [1200, 1271, 1077];
+  public barChartData: Array<number> = this.ratings;
 
   public barChartColors: Array<any> = [
     {
@@ -48,20 +56,23 @@ export class RatingBarComponent implements OnInit {
     },
     layout: {
       padding: {
-          top: 18
+          top: 30
       }
     },
     plugins: {
       datalabels: {
         display: true,
-        padding: 0,
         color: 'black',
+        padding: 0,
         anchor: 'end',
         font: {
           size: 20
         },
         textStrokeWidth: 0.3,
         align: 'end',
+        formatter: function (value, context) {
+          return Math.round(value) + "%";
+        }
       }
     },
     //Hide background guide lines
@@ -73,6 +84,9 @@ export class RatingBarComponent implements OnInit {
       }],
       yAxes: [{
         display:false,
+        ticks:{
+          beginAtZero: true
+        },
          gridLines: {
             display: false
          }

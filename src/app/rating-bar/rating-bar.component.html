@@ -1,6 +1,7 @@
 
+<mat-card class="tarjeta">
 <div>
-    <canvas class="grafico" baseChart
+    <canvas class="grafico" id="myChart" baseChart
        [data]="barChartData"
        [labels]="barChartLabels"
        [chartType]="barChartType"
@@ -8,3 +9,4 @@
        [options] ="barChartOptions"
        [plugins] = "barChartPlugins"></canvas>
 </div>
+</mat-card>
