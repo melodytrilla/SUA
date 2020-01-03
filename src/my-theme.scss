@@ -25,3 +25,7 @@ $darkTheme-theme:mat-dark-theme($my-theme-primary, $my-theme-accent, $my-theme-w
 .dark{
     @include angular-material-theme($darkTheme-theme);
 }
+
+.light{
+    @include angular-material-theme($my-theme-theme);
+}
