@@ -3,7 +3,7 @@
 
 //este es el color primario se utiliza en toda la pagina
 $my-theme-primary: mat-palette($mat-yellow, 700, 300, 900);
-$my-theme-accent: mat-palette($mat-blue, 600, 200, 900);
+$my-theme-accent: mat-palette($mat-red, 600, 200, 900);
 
 $my-theme-warn: mat-palette($mat-red);
 
@@ -19,9 +19,13 @@ $darkTheme-accent: mat-palette($mat-blue, 600, 200, 900);
 $darkTheme-warn: mat-palette($mat-red);
 
 
-$darkTheme-theme:mat-dark-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
+$darkTheme-theme:mat-dark-theme($darkTheme-primary, $darkTheme-accent, $darkTheme-warn);
 
 //se le agrega dark a la clase para transformarlo
 .dark{
     @include angular-material-theme($darkTheme-theme);
+}
+
+.light{
+    @include angular-material-theme($my-theme-theme);
 }
