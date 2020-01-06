@@ -94,5 +94,23 @@
         "name": "Otro item",
         "details": "10"
       }
+  ],
+  "porEstado":[
+    {
+      "name": "Pendiente",
+      "number": 701
+    },
+    {
+      "name": "En curso",
+      "number": 1671
+    },
+    {
+      "name": "Resueltas",
+      "number": 10773
+    },
+    {
+      "name": "Cerradas",
+      "number": 477
+    }
   ]
 }

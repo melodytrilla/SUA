@@ -5,6 +5,8 @@ import { Label } from 'ng2-charts';
 import 'chart.piecelabel.js';
 import { preserveWhitespacesDefault, sanitizeIdentifier } from '@angular/compiler';
 import { filter } from 'minimatch';
+import { SolicitudesService } from '../solicitudes.service';
+import { $ } from 'protractor';
 
 
 @Component({
@@ -14,8 +16,12 @@ import { filter } from 'minimatch';
 })
 export class RequestsByStateComponent implements OnInit {
 
-  constructor() {
+  constructor(private solicitudService: SolicitudesService) {
   }
+
+  public items: any[];
+  
+
   total = 701 + 1671 + 10773 + 477;
   public hBarChartLabels: Array<string> = ['Pendientes', 'En curso', 'Resueltas', 'Cerradas'];
   public hBarChartType = 'horizontalBar';
@@ -95,5 +101,12 @@ export class RequestsByStateComponent implements OnInit {
   }]
 
   ngOnInit() {
+    this.solicitudService.getSolicitudesporEstado().subscribe(
+      data => {
+        for(var i=0; i< this.hBarChartData.length; i++){
+          this.hBarChartData[i] = data[i];
+        }
+      }     
+    )
   }
 }

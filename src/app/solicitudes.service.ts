@@ -27,4 +27,10 @@ export class SolicitudesService {
       `${this.apiURL}/consultas`
     )
   }
+
+  getSolicitudesporEstado (): Observable<any[]>{
+    return this.httpClient.get<any[]>(
+      `${this.apiURL}/porEstado`
+    )
+  }
 }
