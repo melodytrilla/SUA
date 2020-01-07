@@ -1,5 +1,11 @@
 
 <mat-card class="tarjeta">
+    <div id="total">
+        <p id="cardTitle"> Opinadas</p>
+        <p id="cardContent">{{total}}</p>
+        <div id="separator"></div>
+    </div>
+
 <div>
     <canvas class="grafico" id="myChart" baseChart
        [data]="barChartData"

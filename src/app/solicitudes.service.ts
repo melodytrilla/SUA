@@ -33,4 +33,10 @@ export class SolicitudesService {
       `${this.apiURL}/porEstado`
     )
   }
+
+  getOpiniones(): Observable<any>{
+    return this.httpClient.get<any>(
+      `${this.apiURL}/Opinadas`
+    )
+  }
 }

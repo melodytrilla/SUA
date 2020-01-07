@@ -98,19 +98,36 @@
   "porEstado":[
     {
       "name": "Pendiente",
-      "number": 701
+      "number": 845
     },
     {
       "name": "En curso",
-      "number": 1671
+      "number": 1576
     },
     {
       "name": "Resueltas",
-      "number": 10773
+      "number": 5246
     },
     {
       "name": "Cerradas",
-      "number": 477
+      "number": 4122
     }
-  ]
+  ],
+  "Opinadas":{
+    "total": 26,
+    "ratings":[
+      {
+        "porcentaje": 20,
+        "tipo": "Neutral"
+      },
+      {
+        "porcentaje": 40,
+        "tipo": "Negativas"
+      },
+      {
+        "porcentaje": 30,
+        "tipo": "Positivas"
+      }
+    ]
+  }
 }
