@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartOptions } from 'chart.js';
 import 'chart.piecelabel.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { SolicitudesService } from '../solicitudes.service';
 
 @Component({
   selector: 'app-top10-neighborhoods',
@@ -10,12 +11,12 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 })
 export class Top10NeighborhoodsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private solicitudesService: SolicitudesService) { }
 
   public doughnutChartLabels: Array<string> = ['Acera 1', 'Acindar 2', 'Alberdi 3', 'Avellaneda 9', 'Azcuénaga 12', 'Dorrego 31', 'La Florida 57', 'Unión 94', 'Pellegrini 28', 'Del Bicentenario 51'] ;
   public doughnutChartType = 'doughnut';
   public doughnutChartLegend = true;
-  public doughnutChartData: Array<number> = [1056, 345, 348, 350, 367, 325, 347, 300, 3522, 335];
+  public doughnutChartData: Array<number> = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
   public doughnutChartColors: Array<any> = [
     {
       backgroundColor: ['#48C9B0', '#88B6DF', '#2471A3', '#F5CBA7', '#AF7AC5', '#F1948A', '#EE493E', '#F7DC6F', '#97C442'],
@@ -87,6 +88,21 @@ export class Top10NeighborhoodsComponent implements OnInit {
     }];
 
   ngOnInit() {
+    
+    this.solicitudesService.get10Vecinales().subscribe(
+      data =>{
+        let clone1 = JSON.parse(JSON.stringify(this.doughnutChartData));
+        let clone2 = JSON.parse(JSON.stringify(this.doughnutChartLabels));
+
+        for(let i=0; i < clone1.length; i++){
+          clone1[i] = data[i].num;
+          clone2[i] = data[i].nombre;
+        }
+
+        this.doughnutChartData = clone1;
+        this.doughnutChartLabels = clone2;
+      }
+    )
   }
 
 }

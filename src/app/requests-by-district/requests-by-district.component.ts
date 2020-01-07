@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartOptions } from 'chart.js';
 import 'chart.piecelabel.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { SolicitudesService } from '../solicitudes.service';
 
 
 @Component({
@@ -11,13 +12,13 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 })
 export class RequestsByDistrictComponent implements OnInit {
 
-  constructor() {
+  constructor(private solicitudesService: SolicitudesService) {
   }
   
   public doughnutChartLabels: Array<string> = ['Centro', 'Norte', 'Sur', 'Oeste', 'Noroeste', 'Sudoeste'];
   public doughnutChartType = 'doughnut';
   public doughnutChartLegend = true;
-  public doughnutChartData: Array<number> = [7566, 1671, 986, 896, 1200, 1303];
+  public doughnutChartData: Array<number> = [1, 1, 1, 1, 1, 1];
   public doughnutChartColors: Array<any> = [
     {
       backgroundColor: ['#F5CBA7', '#48C9B0', '#2471A3', '#F7DC6F', '#AF7AC5', '#F1948A'],
@@ -74,5 +75,21 @@ export class RequestsByDistrictComponent implements OnInit {
     }*/
     }];
   ngOnInit() {
+
+    this.solicitudesService.getporDistrito().subscribe(
+      data =>{
+        let clone1 = JSON.parse(JSON.stringify(this.doughnutChartData));
+        let clone2 = JSON.parse(JSON.stringify(this.doughnutChartLabels));
+
+        for(let i=0; i < clone1.length; i++){
+          clone1[i] = data[i].solicitudes;
+          clone2[i] = data[i].distrito;
+        }
+
+        this.doughnutChartData = clone1;
+        this.doughnutChartLabels = clone2;
+      }
+    )
+
   }
 }
