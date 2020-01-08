@@ -90,28 +90,14 @@
   <div id="secondHalf"> 
       <mat-grid-list cols="2" rows="7" rowHeight="60px">
           <mat-grid-tile [colspan] =1 [rowspan] =5> 
-              <mat-card class="dashboard-card">
-                <div id="total">
-                  <p id="cardTitle"> solicitudes por estado</p>
-                  <p id="cardContent">18579</p>
-                  <div id="separator"></div>
-                </div>
-                <div id="details">
-                        <app-requests-by-state></app-requests-by-state>
-                      </div>
-                </mat-card>
+              <mat-card class="dashboard-card"> 
+                  <app-requests-by-state></app-requests-by-state>
+              </mat-card>
           </mat-grid-tile>
     
           <mat-grid-tile [colspan] =1 [rowspan] =5> 
               <mat-card class="dashboard-card">
-                  <div id="total">
-                      <p id="cardTitle"> Opinadas</p>
-                      <p id="cardContent">36</p>
-                      <div id="separator"></div>
-                  </div>
-                  <div id="details">
                       <rating-bar></rating-bar>
-                  </div>
                 </mat-card>
           </mat-grid-tile>
     

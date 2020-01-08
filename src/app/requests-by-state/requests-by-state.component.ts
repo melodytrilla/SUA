@@ -5,6 +5,8 @@ import { Label } from 'ng2-charts';
 import 'chart.piecelabel.js';
 import { preserveWhitespacesDefault, sanitizeIdentifier } from '@angular/compiler';
 import { filter } from 'minimatch';
+import { SolicitudesService } from '../solicitudes.service';
+import { $ } from 'protractor';
 
 
 @Component({
@@ -14,13 +16,14 @@ import { filter } from 'minimatch';
 })
 export class RequestsByStateComponent implements OnInit {
 
-  constructor() {
+  constructor(private solicitudService: SolicitudesService) {
   }
-  total = 701 + 1671 + 10773 + 477;
+
+  total = 0;
   public hBarChartLabels: Array<string> = ['Pendientes', 'En curso', 'Resueltas', 'Cerradas'];
   public hBarChartType = 'horizontalBar';
   public hBarChartLegend = false;
-  public hBarChartData: Array<number> = [701, 1671, 10773, 477];
+  public hBarChartData: Array<number> = [0, 0, 0, 0];
 
   public hBarChartColors: Array<any> = [
     {
@@ -95,5 +98,21 @@ export class RequestsByStateComponent implements OnInit {
   }]
 
   ngOnInit() {
+    
+    this.solicitudService.getSolicitudesporEstado().subscribe(
+      data => {
+        let clone1 = JSON.parse(JSON.stringify(this.hBarChartData));
+        let clone2 = JSON.parse(JSON.stringify(this.hBarChartLabels));
+        clone1.forEach((dato,index) =>{ 
+          clone1[index] = data[index].number;
+          clone2[index] = data[index].name;
+          this.total += data[index].number;
+        });
+
+
+        this.hBarChartData = clone1;
+        this.hBarChartLabels = clone2;
+    });
+
   }
 }

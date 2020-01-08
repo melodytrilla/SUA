@@ -27,4 +27,40 @@ export class SolicitudesService {
       `${this.apiURL}/consultas`
     )
   }
+
+  getSolicitudesporEstado (): Observable<any[]>{
+    return this.httpClient.get<any[]>(
+      `${this.apiURL}/porEstado`
+    )
+  }
+
+  getOpiniones(): Observable<any>{
+    return this.httpClient.get<any>(
+      `${this.apiURL}/Opinadas`
+    )
+  }
+
+  get10Categorias(): Observable<any[]>{
+    return this.httpClient.get<any[]>(
+      `${this.apiURL}/top10-categorias`
+    )
+  }
+
+  get10Vecinales(): Observable<any[]>{
+    return this.httpClient.get<any[]>(
+      `${this.apiURL}/top10-vecinales`
+    )
+  }
+
+  getporDistrito():Observable<any[]>{
+    return this.httpClient.get<any[]>(
+      `${this.apiURL}/porDistrito`
+    )
+  }
+
+  getporOrigen():Observable<any[]>{
+    return this.httpClient.get<any[]>(
+      `${this.apiURL}/porOrigen`
+    )
+  }
 }

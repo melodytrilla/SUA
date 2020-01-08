@@ -2,8 +2,13 @@
 <!--<mat-card-title class="titulo">Solicitudes por Estado
     <h3>{{total}}</h3>
 </mat-card-title>-->
+<div id="total">
+    <p id="cardTitle"> solicitudes por estado</p>
+    <p id="cardContent">{{total}}</p>
+    <div id="separator"></div>
+  </div>
 <div>
-    <canvas class="grafico" baseChart
+    <canvas Id="graph" class="grafico" baseChart
         [data]="hBarChartData"
         [labels]="hBarChartLabels"
         [chartType]="hBarChartType"

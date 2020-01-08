@@ -4,6 +4,7 @@ import { ChartOptions } from 'chart.js';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { Label } from 'ng2-charts';
 import 'chart.piecelabel.js';
+import { SolicitudesService } from '../solicitudes.service';
 
 @Component({
   selector: 'rating-bar',
@@ -23,21 +24,37 @@ import 'chart.piecelabel.js';
 })
 export class RatingBarComponent implements OnInit {
 
-  ratings = [40, 50, 10]; //pedirlo en porcentajes
-  total = 3471;
+  constructor(private solicitudesService: SolicitudesService){}
+  
 
   ngOnInit() {
-  }
 
+    this.solicitudesService.getOpiniones().subscribe(
+      data =>{
+        //console.log(data);
+        
+        let clone1 = JSON.parse(JSON.stringify(this.barChartData));
+        let clone2 = JSON.parse(JSON.stringify(this.barChartLabels));
+
+        clone1.forEach((element, index) => {
+          clone1[index] = data.ratings[index].porcentaje;
+          clone2[index] = data.ratings[index].tipo;
+
+        });
+
+        this.total= data.total;
+        this.barChartData = clone1;
+        this.barChartLabels = clone2;
+      });
+    }
   
   
-  
 
-
+  total = 0;
   public barChartLabels: Array<string> = ['Neutral', 'Negativas', 'Positivas'];
   public barChartType = 'bar';
   public barChartLegend = "false";
-  public barChartData: Array<number> = this.ratings;
+  public barChartData: Array<number> = [0, 0, 0];
 
   public barChartColors: Array<any> = [
     {
