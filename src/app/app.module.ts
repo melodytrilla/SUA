@@ -45,6 +45,7 @@ import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { ListadoComponent } from './listado/listado.component';
 import { MapaComponent } from './mapa/mapa.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { SideBarLoginComponent } from './side-bar-login/side-bar-login.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     EstadisticasComponent,
     ListadoComponent,
     MapaComponent,
+    SideBarLoginComponent,
   ],
   imports: [
     BrowserModule,

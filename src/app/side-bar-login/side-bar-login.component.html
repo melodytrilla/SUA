@@ -1,0 +1,17 @@
+
+<div class="sidenavDiv"> 
+<div id="screenDarkener" (click)="Close()">
+ </div>
+<mat-sidenav-container class="contenedor">
+    <mat-sidenav #sidenav class="sidenav"
+    [mode] = over
+    [fixedInViewport] = true>
+            <button (click)="Close()">close</button>
+            <p>hello</p>
+    </mat-sidenav>
+
+</mat-sidenav-container>
+
+<button mat-button (click)="Open()"><i class="fsua fsua-menu fsua-2x" style="color:#f7f7f8"></i></button>
+
+</div>

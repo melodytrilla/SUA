@@ -1,0 +1,57 @@
+#screenDarkener
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background-color: rgba(0, 0, 0, 0)
+    animation-name: none
+    animation-duration: 0.5s
+    animation-fill-mode: forwards
+    animation-timing-function: ease-in
+    -webkit-animation-name: none
+    -webkit-animation-duration: 0.5s
+    -webkit-animation-fill-mode: forwards
+    -webkit-animation-timing-function: ease-in
+
+.sidenavDiv
+    max-height: 100%
+    max-width: 100%
+
+.sidenav
+   width: 30vh
+   height: 100vh 
+
+
+/* animation */
+
+@keyframes transparent
+    0%
+        background-color: rgba(0, 0, 0, 0.6)
+    100%
+        background-color: rgba(0, 0, 0, 0)
+
+@-webkit-keyframes transparent
+    0%
+        background-color: rgba(0, 0, 0, 0.6)
+    100%
+        background-color: rgba(0, 0, 0, 0)
+
+
+@keyframes color
+    100%
+        background-color: rgba(0, 0, 0, 0.6)
+
+@-webkit-keyframes color
+    100%
+        background-color: rgba(0, 0, 0, 0.6)
+
+
+
+@keyframes none
+    100%
+        background-color: rgba(0, 0, 0, 0)
+
+@-webkit-keyframes none
+    100%
+        background-color: rgba(0, 0, 0, 0)
