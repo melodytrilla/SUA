@@ -46,6 +46,7 @@ import { ListadoComponent } from './listado/listado.component';
 import { MapaComponent } from './mapa/mapa.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+import * as _ from 'lodash';
 
 @NgModule({
   declarations: [
