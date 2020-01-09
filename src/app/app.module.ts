@@ -45,6 +45,7 @@ import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { ListadoComponent } from './listado/listado.component';
 import { MapaComponent } from './mapa/mapa.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -98,6 +99,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     ReactiveFormsModule,
     BsDropdownModule.forRoot(),
     ScrollingModule,
+    InfiniteScrollModule
   ],
   entryComponents: [DateRangePicker],
   providers: [{ provide: LOCALE_ID, useValue: "es-AR" }],
