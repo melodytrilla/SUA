@@ -9,6 +9,7 @@ import {MatSidenav} from '@angular/material/sidenav';
 export class SideBarLoginComponent implements OnInit {
 
   public ScreenDarkAmount = 0;
+  public userLog;
 
   constructor() { 
   }

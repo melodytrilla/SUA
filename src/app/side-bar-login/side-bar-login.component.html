@@ -8,8 +8,25 @@
             <div (click)="Close()" class="closeButton">
                 <i class="fsua fsua-cancelar closeIcono"></i>
             </div>
+            
+            <div *ngIf= userLog; else loginBlock style="display: flex; height: 89%;">
+                <p> Welcome!</p>
+                <p> {{userLog.username}}</p>
+            </div>
+            <div #loginBlock style="display: flex; height: 89%">
+                <p>no hay usuario logeado</p>
+                <!--
+                <form>
+                    <mat-form-field>
+                        <input matInput placeholder="Username">
+                    </mat-form-field>
 
-            <p>Log In</p>
+                    <mat-form-field>
+                        <input matInput placeholder="Password">
+                    </mat-form-field>
+                </form>
+                -->
+            </div>
     </mat-sidenav>
 
 </mat-sidenav-container>
