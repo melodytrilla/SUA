@@ -1,5 +1,18 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatSidenav} from '@angular/material/sidenav';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+export class UserLog{
+  public username: String;
+
+  public busquedas : Array<any>;
+
+  constructor (name: String){
+    this.username = name;
+  }
+}
+
 
 @Component({
   selector: 'app-side-bar-login',
@@ -8,8 +21,11 @@ import {MatSidenav} from '@angular/material/sidenav';
 })
 export class SideBarLoginComponent implements OnInit {
 
+  
+
   public ScreenDarkAmount = 0;
-  public userLog;
+  //public userLog: UserLog;
+  public userLog = new UserLog("Usuario01");
 
   constructor() { 
   }

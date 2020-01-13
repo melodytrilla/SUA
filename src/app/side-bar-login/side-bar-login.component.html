@@ -9,24 +9,43 @@
                 <i class="fsua fsua-cancelar closeIcono"></i>
             </div>
             
-            <div *ngIf= userLog; else loginBlock style="display: flex; height: 89%;">
-                <p> Welcome!</p>
-                <p> {{userLog.username}}</p>
+            <div *ngIf= "userLog; else loginBlock" style="display: flex; height: 89%;flex-direction: column;">
+                <div class="spacer"></div>
+                <div class="bienvenidaConteiner">
+                    <p class="bienvenido"> Welcome!</p>
+                    <p class="usuario"> {{userLog.username}}</p>
+                </div>
+                <mat-divider></mat-divider>
+                <div class="favConteiner">
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Busquedas favoritas
+                                </mat-panel-title>
+                                <mat-panel-description>
+                                    aqui estan todas tus busquedas favoritas
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
             </div>
-            <div #loginBlock style="display: flex; height: 89%">
-                <p>no hay usuario logeado</p>
-                <!--
-                <form>
-                    <mat-form-field>
+            <ng-template #loginBlock style="display: flex; height: 89%">
+                <!--<div class="spacer" style="height: 5%; display: flex"></div>
+                <div style="display: flex; flex-direction: column;">
+                    <mat-form-field style="width: 90%;">
                         <input matInput placeholder="Username">
                     </mat-form-field>
 
-                    <mat-form-field>
+                    <mat-form-field style="width: 90%;">
                         <input matInput placeholder="Password">
                     </mat-form-field>
-                </form>
-                -->
-            </div>
+
+                    <button mat-stroked-button style="width: 40%; float: right; margin-right: 10%;"> Log in</button>
+                </div>-->
+            </ng-template>
     </mat-sidenav>
 
 </mat-sidenav-container>
