@@ -47,6 +47,7 @@ import { MapaComponent } from './mapa/mapa.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import * as _ from 'lodash';
+import { SideBarLoginComponent } from './side-bar-login/side-bar-login.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import * as _ from 'lodash';
     EstadisticasComponent,
     ListadoComponent,
     MapaComponent,
+    SideBarLoginComponent,
   ],
   imports: [
     BrowserModule,

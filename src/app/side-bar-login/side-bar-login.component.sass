@@ -1,0 +1,97 @@
+#screenDarkener
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background-color: rgba(0, 0, 0, 0)
+    animation-name: none
+    animation-duration: 0.5s
+    animation-fill-mode: forwards
+    animation-timing-function: ease-in
+    -webkit-animation-name: none
+    -webkit-animation-duration: 0.5s
+    -webkit-animation-fill-mode: forwards
+    -webkit-animation-timing-function: ease-in
+    z-index: 2
+
+.sidenavDiv
+    max-height: 100%
+    max-width: 100%
+
+.sidenav
+   width: 20vw
+   height: 100vh 
+
+.contenedor
+    z-index: 5
+
+.closeButton
+    display: flex
+    align-items: center
+    height: 10vh
+    min-height: 10vh
+    min-width: 100%
+    margin-top: 1%
+    background-color: #0086ad
+
+    &:hover
+        cursor: pointer
+        background-color: #09a0b4
+
+.closeIcono
+    color: white
+    font-size: 45px
+    position: relative
+    left: 75%
+
+.spacer
+    display: flex
+    height: 5%
+
+.bienvenidaConteiner
+    height:15%
+
+.bienvenido
+    padding-left: 5%
+
+.usuario
+    text-align: center
+
+.favConteiner
+    height: 85%
+    width: 100%
+    margin-top: 2%
+
+/* animation */
+
+@keyframes transparent
+    0%
+        background-color: rgba(0, 0, 0, 0.6)
+    100%
+        background-color: rgba(0, 0, 0, 0)
+
+@-webkit-keyframes transparent
+    0%
+        background-color: rgba(0, 0, 0, 0.6)
+    100%
+        background-color: rgba(0, 0, 0, 0)
+
+
+@keyframes color
+    100%
+        background-color: rgba(0, 0, 0, 0.6)
+
+@-webkit-keyframes color
+    100%
+        background-color: rgba(0, 0, 0, 0.6)
+
+
+
+@keyframes none
+    100%
+        background-color: rgba(0, 0, 0, 0)
+
+@-webkit-keyframes none
+    100%
+        background-color: rgba(0, 0, 0, 0)
