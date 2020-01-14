@@ -9,10 +9,10 @@
             [removable]="removable" 
             (removed)="remove(chip)"
             color="primary" selected="true">
-                <mat-icon class="fsua {{chip.icon}} fsua-2x"></mat-icon>
+                <mat-icon class="fsua {{chip.estilo}} fsua-2x"></mat-icon>
                 <div class="chip">
-                    <h6 class="subtitulo">{{chip.category}}</h6>
-                    {{chip.description}}
+                    <h6 class="subtitulo">{{chip.categoria}}</h6>
+                    {{chip.descripcion}}
                 </div>
             <mat-icon matChipRemove>cancel</mat-icon>
         </mat-chip>
@@ -31,10 +31,12 @@
                 [matAutocomplete]="auto"/>
 
             <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-                <mat-optgroup *ngFor="let group of filteredOptions | async" [label]="group.category" >
-                    <mat-option *ngFor="let option of group.tags " [value]="option">
-                        {{ option.description }}
-                    </mat-option>
+                <mat-optgroup *ngFor="let group of filteredOptions | async" [label]="group.categoria" >
+                    <ng-container *ngFor="let option of filteredOptions | async">
+                        <mat-option *ngIf= "option.categoria == group.categoria" [value]="option">
+                            {{ option.descripcion }}
+                        </mat-option>
+                    </ng-container>
                 </mat-optgroup>
             </mat-autocomplete>
         </div>

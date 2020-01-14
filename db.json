@@ -31,7 +31,8 @@
       "_link": "http://localhost:8080/api/fuera-termino"
     }
   },
-  "filters": [
+
+    "filters": [
     {
       "id": 1,
       "category": "Categoria",

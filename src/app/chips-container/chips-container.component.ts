@@ -13,6 +13,13 @@ export interface Chip{
   description: string;
 }
 
+export interface Chip2{
+  id_subtipo: number;
+  categoria: string;
+  estilo: string;
+  descripcion: string;
+}
+
 @Component({
   selector: 'app-chips-container',
   templateUrl: './chips-container.component.html',
@@ -24,8 +31,9 @@ export class ChipsContainerComponent implements OnInit{
   @ViewChild('auto', {static: false}) matAutocomplete: MatAutocomplete;
 
   searchBoxVisible = false;
-  filteredOptions: Observable<Chip[]>;
-  chips: Chip[] = [];
+  //volver a cambiar a Chip (sacar el 2)
+  filteredOptions: Observable<Chip2[]>;
+  chips: Chip2[] = [];
 
   //Chips config
   removable = true;
@@ -36,19 +44,21 @@ export class ChipsContainerComponent implements OnInit{
   constructor(private filtersService: FiltersService) { }
 
   ngOnInit() {
-    this.filteredOptions =  this.filtersService.getFilters('');
+    //this.filteredOptions =  this.filtersService.getFilters('');
+    this.filteredOptions = this.filtersService.getNewFilters2('');
   }
 
   onSearchChange (searchValue: string): void {
-      this.filtersService.getFilters(searchValue).subscribe(console.log);
-      this.filteredOptions =  this.filtersService.getFilters(searchValue);
+      //this.filtersService.getFilters(searchValue).subscribe(console.log);
+      this.filtersService.getNewFilters2(searchValue).subscribe(console.log);
+      this.filteredOptions = this.filtersService.getNewFilters2(searchValue);
     }
-
-  remove(chip: Chip):void {
+//volver a chip y id_subtipo => id
+  remove(chip: Chip2):void {
     const index = this.chips.indexOf(chip);
 
     var removeIndex = this.chips
-      .map(function(item) { return item.id; }).indexOf(chip.id);
+      .map(function(item) { return item.id_subtipo; }).indexOf(chip.id_subtipo);
     ~removeIndex && this.chips.splice(removeIndex, 1);
    
     if(index >= 0){
@@ -61,7 +71,8 @@ export class ChipsContainerComponent implements OnInit{
     const value = event.option.viewValue;
 
     var data = this.chips.find( element => { 
-      return element.description === value;});
+      //volver a description
+      return element.descripcion === value;});
 
     if(!data){
       //Checks if the option was alredy added.
