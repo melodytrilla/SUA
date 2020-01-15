@@ -31,103 +31,255 @@
       "_link": "http://localhost:8080/api/fuera-termino"
     }
   },
-
-    "filters": [
+  "reclamos": [
     {
       "id": 1,
-      "category": "Categoria",
-      "tags": [
-        {
-          "id": 1,
-          "category": "Categoria",
-          "icon": "",
-          "description": "Semaforo"
-        },
-        {
-          "id": 2,
-          "category": "Categoria",
-          "icon": "",
-          "description": "Colectivo"
-        },
-        { 
-          "id": 3,
-          "category": "Categoria",
-          "icon": "",
-          "description": "Moviles"
-        }
-      ]
+      "icono": "fsua-alumbrado_publico",
+      "name": "Lámpara apagada ó encendida",
+      "details": 840
     },
     {
       "id": 2,
-      "category": "Tipo",
-      "tags": [
-        {
-          "id": 1,
-          "category": "Tipo",
-          "icon": "",
-          "description": "Alumbrado"
-        }
-      ]
+      "icono": "fsua-alumbrado_publico",
+      "name": "Sector apagado ó encendido",
+      "details": 516
     },
     {
       "id": 3,
-      "category": "Distrito",
-      "tags": [
-        {
-          "id": 1,
-          "category": "Distrito",
-          "icon": "",
-          "description": "Norte"
-        },
-        {
-          "id": 2,
-          "category": "Distrito",
-          "icon": "",
-          "description": "Centro"
-        }
-      ]
+      "icono": "fsua-higiene_urbana",
+      "name": "Barrido y limpieza ausente ó deficiente aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "details": 450
+    },
+    {
+      "id": 4,
+      "icono": "fsua-bicis_publicas",
+      "name": "Puesto de bicicletas vacio",
+      "details": 289
     },
     {
       "id": 5,
-      "category": "Equipamiento",
-      "tags": [
-        {
-          "id": 1,
-          "category": "Equipamiento",
-          "icon": "fsua-bicis_publicas",
-          "description": "Bicicleta"
-        },
-        {
-          "id": 2,
-          "category": "Equipamiento",
-          "icon": "",
-          "description": "Semaforo"
-        }
-      ]
+      "icono": "fsua-semaforos",
+      "name": "Semaforo roto",
+      "details": 100
+    }
+  ], 
+  "consultas" : [
+      {
+        "id": 1,
+        "icono": "fsua-colectivos_urbanos",
+        "name": "Consulta TUP",
+        "details": "5948"
+      },
+      {
+        "id": 2,
+        "icono": "fsua-tel",
+        "name": "Información sobre temas ajenos al 147",
+        "details": "358"
+      },
+      {
+        "id": 3,
+        "icono": "fsua-higiene_urbana",
+        "name": "Solicitud de información de higiene urbana",
+        "details": "72"
+      },
+      {
+        "id": 4,
+        "icono": "fsua-higiene_urbana",
+        "name": "Solicitud de información de higiene urbana y mas texto para testeasr que se corta en el programa",
+        "details": "50"
+      },
+      {
+        "id": 5,
+        "icono": "fsua-higiene_urbana",
+        "name": "Otro item",
+        "details": "10"
+      }
+  ],
+  "porEstado":[
+    {
+      "name": "Pendiente",
+      "number": 845
     },
     {
-      "id": 9,
-      "category": "Opinion",
-      "tags": [
-        {
-          "id": 1,
-          "category": "Opinion",
-          "icon": "fsua-opinar",
-          "description": "Positivo"
-        },
-        {
-          "id": 2,
-          "category": "Opinion",
-          "icon": "fsua-opinar",
-          "description": "Negativo"
-        },
-        {
-          "id": 3,
-          "category": "Opinion",
-          "icon": "fsua-opinar",
-          "description": "Neutral"
-        }
-      ] 
+      "name": "En curso",
+      "number": 1576
+    },
+    {
+      "name": "Resueltas",
+      "number": 5246
+    },
+    {
+      "name": "Cerradas",
+      "number": 4122
+    }
+  ],
+  "Opinadas":{
+    "total": 26,
+    "ratings":[
+      {
+        "porcentaje": 20,
+        "tipo": "Neutral"
+      },
+      {
+        "porcentaje": 40,
+        "tipo": "Negativas"
+      },
+      {
+        "porcentaje": 30,
+        "tipo": "Positivas"
+      }
+    ]
+  },
+  "top10-categorias":[
+    {
+      "nombre": "Alumbrado",
+      "num": 1056
+    },
+    {
+      "nombre": "Colectivos Urbanos",
+      "num": 3522
+    },
+    {
+      "nombre": "Estacionamiento Medido",
+      "num": 348
+    },
+    {
+      "nombre": "Bicis Publicas",
+      "num": 350
+    },
+    {
+      "nombre": "Higiene Urbana",
+      "num": 367
+    },
+    {
+      "nombre": "Semaforos",
+      "num": 325
+    },
+    {
+      "nombre": "Señalizacion Vial",
+      "num": 347
+    },
+    {
+      "nombre": "Taxi y remises",
+      "num": 300
+    },
+    {
+      "nombre": "Arbolado",
+      "num": 390
+    },
+    {
+      "nombre": "Transito",
+      "num": 335
+    }
+  ],
+
+  "top10-vecinales":[
+    {
+      "nombre": "Acera 1",
+      "num": 1056
+    },
+    {
+      "nombre": "Acindar 2",
+      "num": 345
+    },
+    {
+      "nombre": "Alberdi 3",
+      "num": 348
+    },
+    {
+      "nombre": "Avellaneda 9",
+      "num": 3500
+    },
+    {
+      "nombre": "Azcuénaga 12",
+      "num": 367
+    },
+    {
+      "nombre": "Dorrego 31",
+      "num": 325
+    },
+    {
+      "nombre": "La Florida 57",
+      "num": 347
+    },
+    {
+      "nombre": "Unión 94",
+      "num": 300
+    },
+    {
+      "nombre": "Pellegrini 28",
+      "num": 390
+    },
+    {
+      "nombre": "Del Bicentenario 51",
+      "num": 335
+    }
+  ],
+
+  "porDistrito":[
+    {
+      "distrito": "Centro",
+      "solicitudes": 7566
+    },
+    {
+      "distrito": "Norte",
+      "solicitudes": 1671
+    },
+    {
+      "distrito": "Sur",
+      "solicitudes": 986
+    },
+    {
+      "distrito": "Oeste",
+      "solicitudes": 896
+    },
+    {
+      "distrito": "Noroeste",
+      "solicitudes": 1200
+    },
+    {
+      "distrito": "Sudoeste",
+      "solicitudes": 1303
+    }
+  ],
+
+  "porOrigen":[
+    {
+      "origen":"Telefonico",
+      "solicitudes": 9542
+    },
+    {
+      "origen":"Contacto Web",
+      "solicitudes": 3017
+    },
+    {
+      "origen":"Twitter",
+      "solicitudes": 548
+    },
+    {
+      "origen":"Personal",
+      "solicitudes": 80
+    },
+    {
+      "origen":"Facebook",
+      "solicitudes": 125
+    },
+    {
+      "origen":"Nota/Expediente",
+      "solicitudes": 10
+    },
+    {
+      "origen":"VVV",
+      "solicitudes": 10
+    },
+    {
+      "origen":"MR",
+      "solicitudes": 200
+    },
+    {
+      "origen":"Externo",
+      "solicitudes": 90
     }
   ]
+
 }

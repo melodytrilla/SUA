@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SolicitudesService } from '../solicitudes.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-queries-and-formalities',
@@ -7,28 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QueriesAndFormalitiesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private solicitudeService: SolicitudesService) { }
 
-  public items: Array<any> = [
-    {
-      id: 1,
-      icono: "",
-      name: "Consulta TUP",
-      details: "5948"
-    },
-    {
-      id: 2,
-      name: "Información sobre temas ajenos al 147",
-      details: "358"
-    },
-    {
-      id: 3,
-      name: "Solicitud de información de higiene urbana",
-      details: "72"
-    },
-  ];
+  public items: any[];
 
   ngOnInit() {
+    this.solicitudeService.getTopConsultasTramites().subscribe(
+      data => {
+        data.forEach(value =>{
+          if(value.name.length > 60){
+            value.name = value.name.substr(0, 57) + "...";
+          }
+        })
+        this.items = data
+      });
   }
 
 }

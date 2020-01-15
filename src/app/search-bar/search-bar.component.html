@@ -22,7 +22,7 @@
         <input matInput placeholder="Año" [textMask]="yearMask">
     </mat-form-field>
 
-    <mat-form-field >
+    <mat-form-field class="large">
         <input matInput type="text" 
             placeholder="Ubicacion" 
             formControlName="ubicacion" 
@@ -38,16 +38,21 @@
         <input matInput type="text" placeholder="Radio" maxlength=4>
     </mat-form-field>
 
-    <mat-form-field >
+    <mat-form-field class="large">
         <input matInput placeholder="Solicitante" [textMask]="numberMask">
     </mat-form-field>
+    <div class="boton">
+        <div class="filtrar">
+            <button mat-button (click)="openDialog()"> <i class="fsua fsua-filtrar fsua-1_5x" style="color: #f7f7f8"> </i></button>
+        </div>
 
-    <button mat-button (click)="openDialog()" >
-        <span class="fsua fsua-filtrar"></span> Filtrar
-    </button>
-    
+        <div class="serch-button">
+            <button mat-raised-button  color= "accent"><mat-icon style="color: inherit;" >search</mat-icon></button>
+        </div> 
+    </div>
 </div>
 
 <mat-expansion-panel [disabled]="true" #mep="matExpansionPanel">
     <app-chips-container></app-chips-container>
 </mat-expansion-panel>
+ 

@@ -1,16 +1,18 @@
 <div class="container" >
     <div class="alerta">
+        <div>Alertas</div>
         <mat-icon [inline]="true">alarm</mat-icon>
-        Alertas
     </div >
 
     <mat-card>
         <div class="accent" style="background-color: red"></div>
         <mat-card-content>
             <mat-card-subtitle> Reiteradas </mat-card-subtitle>
-            <mat-card-title *ngIf="alertas['reiterated']; else placeholder"> 
-                {{alertas['reiterated'].cantidad}} 
-            </mat-card-title>
+            <div>
+                <mat-card-title *ngIf="alertas['reiterated']; else placeholder"> 
+                    {{alertas['reiterated'].cantidad}} 
+                </mat-card-title>
+            </div>
         </mat-card-content>
     </mat-card >
 

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { TextMaskModule } from 'angular2-text-mask';
 import { SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
 
@@ -13,15 +13,15 @@ import 'chart.piecelabel.js';
 import { RatingBarComponent } from './rating-bar/rating-bar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ResumenBannerComponent } from './resumen-banner/resumen-banner.component';
-import {MatListModule} from '@angular/material';
+import { MatListModule } from '@angular/material';
 import { ResumenComponent } from './resumen/resumen.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
-import { MatNativeDateModule} from '@angular/material/core';
-import { MatDatepickerModule} from '@angular/material/datepicker';
-import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -32,10 +32,23 @@ import { ChipsContainerComponent } from './chips-container/chips-container.compo
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material';
-import { DateRangePicker} from './date-range-picker/date-range-picker.component';
+import { DateRangePicker } from './date-range-picker/date-range-picker.component';
 import { HttpClientModule } from '@angular/common/http';
 import { QueriesAndFormalitiesComponent } from './queries-and-formalities/queries-and-formalities.component';
 import { FiltroAvanzadoDialogComponent } from './filtro-avanzado-dialog/filtro-avanzado-dialog.component';
+import { RequestsByOriginComponent } from './requests-by-origin/requests-by-origin.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { Top10CategoriesComponent } from './top10-categories/top10-categories.component';
+import { Top10NeighborhoodsComponent } from './top10-neighborhoods/top10-neighborhoods.component';
+import { GlobalNavBarComponent } from './global-nav-bar/global-nav-bar.component';
+import { CarouselComponent } from './carousel/carousel.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+import { ListadoComponent } from './listado/listado.component';
+import { MapaComponent } from './mapa/mapa.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+import * as _ from 'lodash';
+import { SideBarLoginComponent } from './side-bar-login/side-bar-login.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +64,17 @@ import { FiltroAvanzadoDialogComponent } from './filtro-avanzado-dialog/filtro-a
     SearchBarComponent,
     DateRangePicker,
     QueriesAndFormalitiesComponent,
-    FiltroAvanzadoDialogComponent
+    FiltroAvanzadoDialogComponent,
+    RequestsByOriginComponent,
+    Top10CategoriesComponent,
+    Top10NeighborhoodsComponent,
+    GlobalNavBarComponent,
+    CarouselComponent,
+    GlobalNavBarComponent,
+    EstadisticasComponent,
+    ListadoComponent,
+    MapaComponent,
+    SideBarLoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,7 +89,7 @@ import { FiltroAvanzadoDialogComponent } from './filtro-avanzado-dialog/filtro-a
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
-    LayoutModule,  
+    LayoutModule,
     MatListModule,
     MatIconModule,
     MatButtonModule,
@@ -79,10 +102,14 @@ import { FiltroAvanzadoDialogComponent } from './filtro-avanzado-dialog/filtro-a
     TextMaskModule,
     SatDatepickerModule, SatNativeDateModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BsDropdownModule.forRoot(),
+    ScrollingModule,
+    InfiniteScrollModule
   ],
   entryComponents: [DateRangePicker, FiltroAvanzadoDialogComponent],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: "es-AR" }],
   bootstrap: [AppComponent],
+
 })
 export class AppModule { }

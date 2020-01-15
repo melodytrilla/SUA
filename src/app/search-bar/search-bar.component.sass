@@ -1,4 +1,3 @@
-
 .mainContainer
     background-color: rgba(0, 134, 173, 1)
     width: 100%
@@ -6,6 +5,7 @@
     display: flex
     flex-direction: row
     align-content: center
+    align-items: center
 
 mat-form-field
     margin: 10px
@@ -13,17 +13,20 @@ mat-form-field
     color: #e1e1e1
     margin: 10px
     margin-bottom: 0px
-    width: 20rem
+    width: 100%
 
 button 
     color: white !important
     margin: 18px 0px
     
 .short
-    width: 110px
+    width: 10%
 
 .medium
-    width: 220px
+    width: 22%
+
+.large
+    width: 28%
 
 ::ng-deep.mat-datepicker-content .mat-calendar
     height: unset !important
@@ -33,3 +36,15 @@ button
 
 ::ng-deep.mat-expansion-panel
     display: flex !important
+.search-button
+    max-height: 100%
+    text-align: center
+
+.filtrar
+    margin: 1.5%
+
+.boton
+    display: flex
+    flex-direction: column
+    margin-bottom: 10px
+    margin-left: 5px
