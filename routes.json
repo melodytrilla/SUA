@@ -1,0 +1,3 @@
+{
+    "/Categorias?main=:search": "/Categorias?descripcion_ext_like=:search"
+}

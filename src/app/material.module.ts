@@ -9,12 +9,14 @@ import {
   MatCardModule,
   MatDividerModule,
   MatChipsModule,
+  MatExpansionModule,
+  MatDialogModule,
+  MatCheckboxModule, 
+  MatRadioModule,
   MatTabsModule,
-  MatCheckboxModule,
   MatSelectModule,
   MatBadgeModule,
-  MatSidenavModule,
-  MatExpansionModule
+  MatSidenavModule
 } from '@angular/material';
 
 @NgModule({
@@ -27,8 +29,9 @@ import {
     MatCardModule,
     MatDividerModule,
     MatChipsModule,
+    MatDialogModule ,
+    MatCheckboxModule, MatRadioModule,
     MatTabsModule,
-    MatCheckboxModule,
     MatSelectModule,
     MatBadgeModule,
     MatSidenavModule,

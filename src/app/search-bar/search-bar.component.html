@@ -1,7 +1,6 @@
 
 <div class="mainContainer dark" [formGroup]="form">
     
-    
     <mat-form-field class="medium">
         <input matInput
             placeholder="Fechas"
@@ -44,7 +43,7 @@
     </mat-form-field>
     <div class="boton">
         <div class="filtrar">
-            <button mat-button> <i class="fsua fsua-filtrar fsua-1_5x" style="color: #f7f7f8"> </i></button>
+            <button mat-button (click)="openDialog()"> <i class="fsua fsua-filtrar fsua-1_5x" style="color: #f7f7f8"> </i></button>
         </div>
 
         <div class="serch-button">
@@ -52,4 +51,8 @@
         </div> 
     </div>
 </div>
+
+<mat-expansion-panel [disabled]="true" #mep="matExpansionPanel">
+    <app-chips-container></app-chips-container>
+</mat-expansion-panel>
  

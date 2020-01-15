@@ -1,11 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { MatInputModule} from '@angular/material/input'
-
+import { Observable, of} from 'rxjs';
+import { FiltersService } from '../filters.service';
+import { startWith, map, filter, reduce, mergeMap, groupBy, zip, toArray } from 'rxjs/operators';
+import { MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material';
 
 export interface Chip{
-  value: string;
+  id_subtipo: number;
+  categoria: string;
+  estilo: string;
+  descripcion: string;
 }
 
 @Component({
@@ -13,42 +18,64 @@ export interface Chip{
   templateUrl: './chips-container.component.html',
   styleUrls: ['./chips-container.component.sass']
 })
-export class ChipsContainerComponent {
+export class ChipsContainerComponent implements OnInit{
 
+  @ViewChild('search', {static: false}) searchElement: ElementRef;
+  @ViewChild('auto', {static: false}) matAutocomplete: MatAutocomplete;
+
+  searchBoxVisible = false;
+  filteredOptions: Observable<Chip[]>;
+  chips: Chip[] = [];
+
+  //Chips config
   removable = true;
   selectable = true;
-
   addOnBlur = true;
-
   separatorKeys: number[] = [ENTER, COMMA];
 
-  chips: Chip[]=[
-    {value:'elemento 1'},
-    {value:'elemento 2'},
-    {value:'elemento 3'},
-    {value:'elemento 3'},
-    {value:'elemento 4'}
-  ];
+  constructor(private filtersService: FiltersService) { }
 
-  add(event: MatChipInputEvent):void{
-    const input = event.input;
-    const value = event.value;
-
-    if((value || '').trim()){
-      this.chips.push({value:value.trim()});
-    }
-
-    if(input){
-      input.value = '';
-    }
+  ngOnInit() {
+    this.filteredOptions = this.filtersService.getNewFilters('');
   }
 
+  onSearchChange (searchValue: string): void {
+    //this.filtersService.getNewFilters(searchValue).subscribe(console.log)
+    this.filteredOptions = this.filtersService.getNewFilters(searchValue);
+  }
   remove(chip: Chip):void {
     const index = this.chips.indexOf(chip);
 
+    var removeIndex = this.chips
+      .map(function(item) { return item.id_subtipo; }).indexOf(chip.id_subtipo);
+    ~removeIndex && this.chips.splice(removeIndex, 1);
+   
     if(index >= 0){
       this.chips.splice(index, 1);
     }
+  }
+
+  //Select an option from the select menu
+  selected(event: MatAutocompleteSelectedEvent): void {
+    const value = event.option.viewValue;
+
+    var data = this.chips.find( element => { 
+      return element.descripcion === value;});
+
+    if(!data){
+      //Checks if the option was alredy added.
+      //If it has, it ignores it 
+      this.chips.push(event.option.value);
+    }
+    this.searchElement.nativeElement.value = '';
+  }
+
+  showSearch() : void {
+    this.searchBoxVisible = !this.searchBoxVisible;
+    // Focus on the search bar after the boolean has changed
+    setTimeout(()=>{ 
+      this.searchElement.nativeElement.focus();
+    },0);  
   }
 
 

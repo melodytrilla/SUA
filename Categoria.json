@@ -1,0 +1,1816 @@
+{
+   "Categorias":[
+      {
+         "id_subtipo":380,
+         "tipo":"Reclamo",
+         "categoria":"Higiene urbana",
+         "descripcion":"Equipamiento desaparecido, dañado ó fuera de lugar",
+         "descripcion_ext":"Reclamo [Higiene urbana] - Equipamiento desaparecido, dañado ó fuera de lugar",
+         "orden":1,
+         "estilo":"fsua-higiene_urbana",
+         "etiquetas":"contenedor verde naranja metálico metalico cesto residuo basura volquete faltante roto quemado",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "contenedores"
+         ],
+         "eq_req":true,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":382,
+         "tipo":"Reclamo",
+         "categoria":"Higiene urbana",
+         "descripcion":"Falta de recolección de residuos domiciliarios",
+         "descripcion_ext":"Reclamo [Higiene urbana] - Falta de recolección de residuos domiciliarios",
+         "orden":1,
+         "estilo":"fsua-higiene_urbana",
+         "etiquetas":"contenedor basura camion basural minibasural manual recoleccion",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "contenedores"
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":426,
+         "tipo":"Reclamo",
+         "categoria":"Higiene urbana",
+         "descripcion":"Problema en centro de recepción de reciclables",
+         "descripcion_ext":"Reclamo [Higiene urbana] - Problema en centro de recepción de reciclables",
+         "orden":1,
+         "estilo":"fsua-higiene_urbana",
+         "etiquetas":"contenedor plastico plástico naranja reciclar separe",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "contenedores"
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":491,
+         "tipo":"Reclamo",
+         "categoria":"Alumbrado",
+         "descripcion":"Lámpara apagada ó encendida",
+         "descripcion_ext":"Reclamo [Alumbrado] - Lámpara apagada ó encendida",
+         "orden":1,
+         "estilo":"fsua-alumbrado_publico",
+         "etiquetas":"lampara quemada",
+         "desc_sugerida":"",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "transversal",
+            "columna"
+         ],
+         "eq_req":true,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":492,
+         "tipo":"Reclamo",
+         "categoria":"Alumbrado",
+         "descripcion":"Problema con columna ó cable",
+         "descripcion_ext":"Reclamo [Alumbrado] - Problema con columna ó cable",
+         "orden":1,
+         "estilo":"fsua-alumbrado_publico",
+         "etiquetas":"",
+         "desc_sugerida":"",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "transversal",
+            "columna"
+         ],
+         "eq_req":true,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":500,
+         "tipo":"Reclamo",
+         "categoria":"Alumbrado",
+         "descripcion":"Problema con artefacto ó tulipa",
+         "descripcion_ext":"Reclamo [Alumbrado] - Problema con artefacto ó tulipa",
+         "orden":1,
+         "estilo":"fsua-alumbrado_publico",
+         "etiquetas":"luminaria",
+         "desc_sugerida":"",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "transversal",
+            "columna"
+         ],
+         "eq_req":true,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":501,
+         "tipo":"Reclamo",
+         "categoria":"Alumbrado",
+         "descripcion":"Tablero abierto ó dañado",
+         "descripcion_ext":"Reclamo [Alumbrado] - Tablero abierto ó dañado",
+         "orden":1,
+         "estilo":"fsua-alumbrado_publico",
+         "etiquetas":"",
+         "desc_sugerida":"",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "tablero"
+         ],
+         "eq_req":true,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":383,
+         "tipo":"Denuncia",
+         "categoria":"Higiene urbana",
+         "descripcion":"Incorrecta disposición de residuos",
+         "descripcion_ext":"Denuncia [Higiene urbana] - Incorrecta disposición de residuos",
+         "orden":1,
+         "estilo":"fsua-higiene_urbana",
+         "etiquetas":"contenedor basura separe verdes voluminosos fuera horario domicilia",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "contenedores"
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":420,
+         "tipo":"Trámite",
+         "categoria":"Alumbrado",
+         "descripcion":"Solicitud de nuevo servicio ó mayor potencia",
+         "descripcion_ext":"Trámite [Alumbrado] - Solicitud de nuevo servicio ó mayor potencia",
+         "orden":1,
+         "estilo":"fsua-alumbrado_publico",
+         "etiquetas":"corrimiento",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "columna",
+            "transversal"
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":99,
+         "tipo":"Denuncia",
+         "categoria":"Tránsito",
+         "descripcion":"Cochera obstruida",
+         "descripcion_ext":"Denuncia [Tránsito] - Cochera obstruida",
+         "orden":1,
+         "estilo":"fsua-transito",
+         "etiquetas":"garage estaciona",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":100,
+         "tipo":"Denuncia",
+         "categoria":"Tránsito",
+         "descripcion":"Vehículo abandonado",
+         "descripcion_ext":"Denuncia [Tránsito] - Vehículo abandonado",
+         "orden":1,
+         "estilo":"fsua-transito",
+         "etiquetas":"abandono chatarra auto",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":354,
+         "tipo":"Denuncia",
+         "categoria":"Tránsito",
+         "descripcion":"Estacionamiento en lugar prohibido",
+         "descripcion_ext":"Denuncia [Tránsito] - Estacionamiento en lugar prohibido",
+         "orden":1,
+         "estilo":"fsua-transito",
+         "etiquetas":"vehiculo auto vehículo estaciona estacionado detenido prohibido doble fila ochava reservado acera vereda rampa",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":373,
+         "tipo":"Suceso",
+         "categoria":"Tránsito",
+         "descripcion":"Corte de tránsito",
+         "descripcion_ext":"Suceso [Tránsito] - Corte de tránsito",
+         "orden":1,
+         "estilo":"fsua-transito",
+         "etiquetas":"transito manifestacion manifestación huelga marcha piquete arbol árbol corralito obra",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":379,
+         "tipo":"Trámite",
+         "categoria":"Higiene urbana",
+         "descripcion":"Solicitud de nuevo servicio ó equipamiento",
+         "descripcion_ext":"Trámite [Higiene urbana] - Solicitud de nuevo servicio ó equipamiento",
+         "orden":1,
+         "estilo":"fsua-higiene_urbana",
+         "etiquetas":"pedido contenedor cesto cartel erradicar basural frecuencia servicio barrido recolección recoleccion",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":381,
+         "tipo":"Reclamo",
+         "categoria":"Higiene urbana",
+         "descripcion":"Barrido y limpieza ausente ó deficiente",
+         "descripcion_ext":"Reclamo [Higiene urbana] - Barrido y limpieza ausente ó deficiente",
+         "orden":1,
+         "estilo":"fsua-higiene_urbana",
+         "etiquetas":"barrendero barredora mecanico mecánico manual fonavi basura",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":390,
+         "tipo":"Reclamo",
+         "categoria":"Higiene urbana",
+         "descripcion":"Problema con recolección de verdes y voluminosos",
+         "descripcion_ext":"Reclamo [Higiene urbana] - Problema con recolección de verdes y voluminosos",
+         "orden":1,
+         "estilo":"fsua-higiene_urbana",
+         "etiquetas":"escombro camion camión poda ramas basura",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":425,
+         "tipo":"Trámite",
+         "categoria":"Higiene urbana",
+         "descripcion":"Solicitud del servicio de verdes y voluminosos",
+         "descripcion_ext":"Trámite [Higiene urbana] - Solicitud del servicio de verdes y voluminosos",
+         "orden":1,
+         "estilo":"fsua-higiene_urbana",
+         "etiquetas":"poda restos escombro mueble chatarra recolección recoleccion residuos basura bolsas tanque electro",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":478,
+         "tipo":"Reclamo",
+         "categoria":"Higiene urbana",
+         "descripcion":"Basural crónico ó asentamiento sin asistencia",
+         "descripcion_ext":"Reclamo [Higiene urbana] - Basural crónico ó asentamiento sin asistencia",
+         "orden":1,
+         "estilo":"fsua-higiene_urbana",
+         "etiquetas":"punto arrojo minibasural",
+         "desc_sugerida":"",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":499,
+         "tipo":"Reclamo",
+         "categoria":"Alumbrado",
+         "descripcion":"Sector apagado ó encendido",
+         "descripcion_ext":"Reclamo [Alumbrado] - Sector apagado ó encendido",
+         "orden":1,
+         "estilo":"fsua-alumbrado_publico",
+         "etiquetas":"zona prendido",
+         "desc_sugerida":"",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":427,
+         "tipo":"Reclamo",
+         "categoria":"Bicis públicas",
+         "descripcion":"Estación completa ó vacía",
+         "descripcion_ext":"Reclamo [Bicis públicas] - Estación completa ó vacía",
+         "orden":4,
+         "estilo":"fsua-bicis_publicas",
+         "etiquetas":"bicicleta lugar llena anclaje disponible",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "estaciones"
+         ],
+         "eq_req":true,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":428,
+         "tipo":"Reclamo",
+         "categoria":"Bicis públicas",
+         "descripcion":"Problema con estación de bicis",
+         "descripcion_ext":"Reclamo [Bicis públicas] - Problema con estación de bicis",
+         "orden":4,
+         "estilo":"fsua-bicis_publicas",
+         "etiquetas":"bicicleta estacion fuera servicio tildada dañada rota tarjeta funciona libera",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "estaciones"
+         ],
+         "eq_req":true,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":429,
+         "tipo":"Reclamo",
+         "categoria":"Bicis públicas",
+         "descripcion":"Bici dañada, desinflada ó con faltantes",
+         "descripcion_ext":"Reclamo [Bicis públicas] - Bici dañada, desinflada ó con faltantes",
+         "orden":4,
+         "estilo":"fsua-bicis_publicas",
+         "etiquetas":"bicicleta pinchada rueda manubrio espejo pedal asiento cadena frenos",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "estaciones"
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":431,
+         "tipo":"Reclamo",
+         "categoria":"Bicis públicas",
+         "descripcion":"Descargo por penalidades ó cobro",
+         "descripcion_ext":"Reclamo [Bicis públicas] - Descargo por penalidades ó cobro",
+         "orden":4,
+         "estilo":"fsua-bicis_publicas",
+         "etiquetas":"bicicleta infraccion infracción abono",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "estaciones"
+         ],
+         "eq_req":true,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":4,
+         "tipo":"Reclamo",
+         "categoria":"Semáforos",
+         "descripcion":"Semáforo apagado ó intermitente",
+         "descripcion_ext":"Reclamo [Semáforos] - Semáforo apagado ó intermitente",
+         "orden":4,
+         "estilo":"fsua-semaforos",
+         "etiquetas":"semaforo trabado",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "semaforos"
+         ],
+         "eq_req":true,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":239,
+         "tipo":"Reclamo",
+         "categoria":"Parques y plazas",
+         "descripcion":"Juego ó equipamiento dañado",
+         "descripcion_ext":"Reclamo [Parques y plazas] - Juego ó equipamiento dañado",
+         "orden":4,
+         "estilo":"fsua-parques_plazas",
+         "etiquetas":"roto pintar pintura arena arenero banco mesa bebedero plaza parque plazoleta fuente circuito aerobico",
+         "desc_sugerida":"",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "parques_plazas"
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":280,
+         "tipo":"Reclamo",
+         "categoria":"Parques y plazas",
+         "descripcion":"Falta de mantenimiento en parque, plaza ó rotonda",
+         "descripcion_ext":"Reclamo [Parques y plazas] - Falta de mantenimiento en parque, plaza ó rotonda",
+         "orden":4,
+         "estilo":"fsua-parques_plazas",
+         "etiquetas":"desmalezado maleza cesped césped cortar podar",
+         "desc_sugerida":"",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "parques_plazas"
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":312,
+         "tipo":"Reclamo",
+         "categoria":"Colectivos urbanos",
+         "descripcion":"Problema con refugio ó poste",
+         "descripcion_ext":"Reclamo [Colectivos urbanos] - Problema con refugio ó poste",
+         "orden":4,
+         "estilo":"fsua-colectivos_urbanos",
+         "etiquetas":"cole parada pantalla",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "parada_colectivo"
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":335,
+         "tipo":"Reclamo",
+         "categoria":"Colectivos urbanos",
+         "descripcion":"Problema con punto de venta MOVI",
+         "descripcion_ext":"Reclamo [Colectivos urbanos] - Problema con punto de venta MOVI",
+         "orden":4,
+         "estilo":"fsua-colectivos_urbanos",
+         "etiquetas":"movi recarga cobro extra horario comprobante autocarga puesto cabina",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "punto_recarga"
+         ],
+         "eq_req":true,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":350,
+         "tipo":"Reclamo",
+         "categoria":"Semáforos",
+         "descripcion":"Semáforo con lámpara quemada",
+         "descripcion_ext":"Reclamo [Semáforos] - Semáforo con lámpara quemada",
+         "orden":4,
+         "estilo":"fsua-semaforos",
+         "etiquetas":"semaforo luz apagada lampara",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "semaforos"
+         ],
+         "eq_req":true,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":351,
+         "tipo":"Reclamo",
+         "categoria":"Semáforos",
+         "descripcion":"Semáforo dañado",
+         "descripcion_ext":"Reclamo [Semáforos] - Semáforo dañado",
+         "orden":4,
+         "estilo":"fsua-semaforos",
+         "etiquetas":"semaforo caido chocado inclinado girado roto",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "semaforos"
+         ],
+         "eq_req":true,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":360,
+         "tipo":"Reclamo",
+         "categoria":"Señalización vial",
+         "descripcion":"Cartel o poste dañado o faltante",
+         "descripcion_ext":"Reclamo [Señalización vial] - Cartel o poste dañado o faltante",
+         "orden":4,
+         "estilo":"fsua-senalizacion_vial",
+         "etiquetas":"chapa faltante",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "carteles"
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":366,
+         "tipo":"Reclamo",
+         "categoria":"Estacionamiento medido",
+         "descripcion":"Problema con punto de venta",
+         "descripcion_ext":"Reclamo [Estacionamiento medido] - Problema con punto de venta",
+         "orden":4,
+         "estilo":"fsua-estacionamiento_medido",
+         "etiquetas":"recargo cospel zona parquimetro tickeadora medido",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "puntos_de_venta",
+            "zonaa_medido"
+         ],
+         "eq_req":true,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":367,
+         "tipo":"Reclamo",
+         "categoria":"Estacionamiento medido",
+         "descripcion":"Tickeadora con problema de funcionamiento",
+         "descripcion_ext":"Reclamo [Estacionamiento medido] - Tickeadora con problema de funcionamiento",
+         "orden":4,
+         "estilo":"fsua-estacionamiento_medido",
+         "etiquetas":"maquina cospel servicio fuera ranura moneda traga ticket bloqueada parquimetro medido",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "zonaa_medido",
+            "tickeadoras"
+         ],
+         "eq_req":true,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":386,
+         "tipo":"Denuncia",
+         "categoria":"Convivencia ciudadana",
+         "descripcion":"Ruido molesto en vía pública, comercio ú obra",
+         "descripcion_ext":"Denuncia [Convivencia ciudadana] - Ruido molesto en vía pública, comercio ú obra",
+         "orden":4,
+         "estilo":"fsua-convivencia_ciudadana",
+         "etiquetas":"musica música boliche construcción construccion medicion medición",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "comercios"
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":477,
+         "tipo":"Denuncia",
+         "categoria":"Alimentos",
+         "descripcion":"Establecimiento con falta de higiene",
+         "descripcion_ext":"Denuncia [Alimentos] - Establecimiento con falta de higiene",
+         "orden":4,
+         "estilo":"fsua-alimentos",
+         "etiquetas":"alimento higiene elaboracion limpieza sanitaria",
+         "desc_sugerida":"",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "comercios"
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":493,
+         "tipo":"Denuncia",
+         "categoria":"Alimentos",
+         "descripcion":"Alimento en mal estado",
+         "descripcion_ext":"Denuncia [Alimentos] - Alimento en mal estado",
+         "orden":4,
+         "estilo":"fsua-alimentos",
+         "etiquetas":"alimentos contaminacion podrido intoxicacion",
+         "desc_sugerida":"",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "comercios"
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":89,
+         "tipo":"Denuncia",
+         "categoria":"Comercio e industria",
+         "descripcion":"Local sin habilitación ó con irregularidad",
+         "descripcion_ext":"Denuncia [Comercio e industria] - Local sin habilitación ó con irregularidad",
+         "orden":4,
+         "estilo":"fsua-comercio_industria",
+         "etiquetas":"inspección inspeccion permiso comercio",
+         "desc_sugerida":" ",
+         "solicitante_req":false,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+            "comercios"
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":71,
+         "tipo":"Trámite",
+         "categoria":"Cloacas desagües y zanjas",
+         "descripcion":"Solicitud de camión atmosférico para caso social",
+         "descripcion_ext":"Trámite [Cloacas desagües y zanjas] - Solicitud de camión atmosférico para caso social",
+         "orden":4,
+         "estilo":"fsua-cloacas_zanjas",
+         "etiquetas":"pozo negro tapado desagote ciego",
+         "desc_sugerida":"El solicitante requiere el servicio del camion atmosferico.\r\nPropiedad: pasillo- casa frente.\r\nDireccion valida:",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":80,
+         "tipo":"Reclamo",
+         "categoria":"Cloacas desagües y zanjas",
+         "descripcion":"Problema con cloaca",
+         "descripcion_ext":"Reclamo [Cloacas desagües y zanjas] - Problema con cloaca",
+         "orden":4,
+         "estilo":"fsua-cloacas_zanjas",
+         "etiquetas":"caño tapada tapado",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":94,
+         "tipo":"Denuncia",
+         "categoria":"Construcción, casas y baldíos",
+         "descripcion":"Demolición sin permiso",
+         "descripcion_ext":"Denuncia [Construcción, casas y baldíos] - Demolición sin permiso",
+         "orden":4,
+         "estilo":"fsua-obras_particulares",
+         "etiquetas":"obra construcción construccion demoler patrimionio",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":95,
+         "tipo":"Reclamo",
+         "categoria":"Construcción, casas y baldíos",
+         "descripcion":"Obra en construcción sin permiso ó irregular",
+         "descripcion_ext":"Reclamo [Construcción, casas y baldíos] - Obra en construcción sin permiso ó irregular",
+         "orden":4,
+         "estilo":"fsua-obras_particulares",
+         "etiquetas":"construccion particular",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":96,
+         "tipo":"Reclamo",
+         "categoria":"Construcción, casas y baldíos",
+         "descripcion":"Problema con medianera, filtración ó rajadura",
+         "descripcion_ext":"Reclamo [Construcción, casas y baldíos] - Problema con medianera, filtración ó rajadura",
+         "orden":4,
+         "estilo":"fsua-obras_particulares",
+         "etiquetas":"particular constatacion arbol árbol vecino lindero",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":97,
+         "tipo":"Reclamo",
+         "categoria":"Construcción, casas y baldíos",
+         "descripcion":"Terreno privado con suciedad ó maleza",
+         "descripcion_ext":"Reclamo [Construcción, casas y baldíos] - Terreno privado con suciedad ó maleza",
+         "orden":4,
+         "estilo":"fsua-obras_particulares",
+         "etiquetas":"baldio yuyo escombro rata roedor",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":114,
+         "tipo":"Reclamo",
+         "categoria":"Calzadas y veredas",
+         "descripcion":"Bache ó rotura de calzada",
+         "descripcion_ext":"Reclamo [Calzadas y veredas] - Bache ó rotura de calzada",
+         "orden":4,
+         "estilo":"fsua-calzadas_y_veredas",
+         "etiquetas":"pozo hundimiento grieta fisura desnivel calle",
+         "desc_sugerida":"",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":117,
+         "tipo":"Reclamo",
+         "categoria":"Calzadas y veredas",
+         "descripcion":"Cordón roto",
+         "descripcion_ext":"Reclamo [Calzadas y veredas] - Cordón roto",
+         "orden":4,
+         "estilo":"fsua-calzadas_y_veredas",
+         "etiquetas":"calle vía via publica pública calzada vereda",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":166,
+         "tipo":"Suceso",
+         "categoria":"Animales",
+         "descripcion":"Animal muerto en la vía pública",
+         "descripcion_ext":"Suceso [Animales] - Animal muerto en la vía pública",
+         "orden":4,
+         "estilo":"fsua-animales",
+         "etiquetas":"muerto via publica vía caballo perro higiene urbana",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":184,
+         "tipo":"Reclamo",
+         "categoria":"Tasas e impuestos",
+         "descripcion":"Problema en la distribución de recibos",
+         "descripcion_ext":"Reclamo [Tasas e impuestos] - Problema en la distribución de recibos",
+         "orden":4,
+         "estilo":"fsua-tasas_impuestos",
+         "etiquetas":"reparto repartidor irregular tgi tasa contribucion",
+         "desc_sugerida":"El solicitante informa que los tributos que se detallan en datos complementarios , no son recibidos desde hace",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":200,
+         "tipo":"Reclamo",
+         "categoria":"Colectivos urbanos",
+         "descripcion":"Problema con recorridos",
+         "descripcion_ext":"Reclamo [Colectivos urbanos] - Problema con recorridos",
+         "orden":4,
+         "estilo":"fsua-colectivos_urbanos",
+         "etiquetas":"desvio cole corte",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":203,
+         "tipo":"Reclamo",
+         "categoria":"Colectivos urbanos",
+         "descripcion":"Problema de frecuencia u horario",
+         "descripcion_ext":"Reclamo [Colectivos urbanos] - Problema de frecuencia u horario",
+         "orden":4,
+         "estilo":"fsua-colectivos_urbanos",
+         "etiquetas":"pasa demora especial servicio nocturno incumple",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":209,
+         "tipo":"Reclamo",
+         "categoria":"Transporte escolar y especial",
+         "descripcion":"Coche en mal estado o fuera de norma",
+         "descripcion_ext":"Reclamo [Transporte escolar y especial] - Coche en mal estado o fuera de norma",
+         "orden":4,
+         "estilo":"fsua-transporte_escolar_especial",
+         "etiquetas":"escolar especial roto dañado sucio cinturón seguridad permiso habilitado",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":215,
+         "tipo":"Reclamo",
+         "categoria":"Taxis y remises",
+         "descripcion":"Coche en mal estado ó fuera de norma",
+         "descripcion_ext":"Reclamo [Taxis y remises] - Coche en mal estado ó fuera de norma",
+         "orden":4,
+         "estilo":"fsua-taxis_y_remises",
+         "etiquetas":"taxi remis aire acondicionado cinturon cinturón seguridad reloj ticket sucio roto",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":216,
+         "tipo":"Reclamo",
+         "categoria":"Taxis y remises",
+         "descripcion":"Falta de servicio",
+         "descripcion_ext":"Reclamo [Taxis y remises] - Falta de servicio",
+         "orden":4,
+         "estilo":"fsua-taxis_y_remises",
+         "etiquetas":"",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":219,
+         "tipo":"Reclamo",
+         "categoria":"Taxis y remises",
+         "descripcion":"Vehículo no habilitado",
+         "descripcion_ext":"Reclamo [Taxis y remises] - Vehículo no habilitado",
+         "orden":4,
+         "estilo":"fsua-taxis_y_remises",
+         "etiquetas":"",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":false,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":233,
+         "tipo":"Denuncia",
+         "categoria":"Convivencia ciudadana",
+         "descripcion":"Inseguridad por obra en construcción",
+         "descripcion_ext":"Denuncia [Convivencia ciudadana] - Inseguridad por obra en construcción",
+         "orden":4,
+         "estilo":"fsua-convivencia_ciudadana",
+         "etiquetas":"riesgo lindero propiedad construccion",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":282,
+         "tipo":"Reclamo",
+         "categoria":"Cloacas desagües y zanjas",
+         "descripcion":"Problema con mantenimiento de zanja",
+         "descripcion_ext":"Reclamo [Cloacas desagües y zanjas] - Problema con mantenimiento de zanja",
+         "orden":4,
+         "estilo":"fsua-cloacas_zanjas",
+         "etiquetas":"zanjeo servicio tapada obstruida",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":287,
+         "tipo":"Reclamo",
+         "categoria":"Cloacas desagües y zanjas",
+         "descripcion":"Problema con boca de tormenta ó sumidero",
+         "descripcion_ext":"Reclamo [Cloacas desagües y zanjas] - Problema con boca de tormenta ó sumidero",
+         "orden":4,
+         "estilo":"fsua-cloacas_zanjas",
+         "etiquetas":"tapa faltante camara cámara",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":308,
+         "tipo":"Reclamo",
+         "categoria":"Taxis y remises",
+         "descripcion":"Radiotaxi ó remiseria no habilitado",
+         "descripcion_ext":"Reclamo [Taxis y remises] - Radiotaxi ó remiseria no habilitado",
+         "orden":4,
+         "estilo":"fsua-taxis_y_remises",
+         "etiquetas":"",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":309,
+         "tipo":"Reclamo",
+         "categoria":"Transporte escolar y especial",
+         "descripcion":"Vehículos no habilitados",
+         "descripcion_ext":"Reclamo [Transporte escolar y especial] - Vehículos no habilitados",
+         "orden":4,
+         "estilo":"fsua-transporte_escolar_especial",
+         "etiquetas":"escolar especial permiso trucho",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":313,
+         "tipo":"Reclamo",
+         "categoria":"Colectivos urbanos",
+         "descripcion":"Coche en mal estado",
+         "descripcion_ext":"Reclamo [Colectivos urbanos] - Coche en mal estado",
+         "orden":4,
+         "estilo":"fsua-colectivos_urbanos",
+         "etiquetas":"unidad sucio sucia cole roto",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":315,
+         "tipo":"Reclamo",
+         "categoria":"Taxis y remises",
+         "descripcion":"Problema de conducta de chofer",
+         "descripcion_ext":"Reclamo [Taxis y remises] - Problema de conducta de chofer",
+         "orden":4,
+         "estilo":"fsua-taxis_y_remises",
+         "etiquetas":"taxi remis taxista remisero maltrato cobro fuma pelea ticket tarifa falso dinero",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":316,
+         "tipo":"Reclamo",
+         "categoria":"Colectivos urbanos",
+         "descripcion":"Problema de conducta del chofer",
+         "descripcion_ext":"Reclamo [Colectivos urbanos] - Problema de conducta del chofer",
+         "orden":4,
+         "estilo":"fsua-colectivos_urbanos",
+         "etiquetas":"cole pelea para maltrato fuma",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":317,
+         "tipo":"Reclamo",
+         "categoria":"Transporte escolar y especial",
+         "descripcion":"Problema de conducta del chofer.",
+         "descripcion_ext":"Reclamo [Transporte escolar y especial] - Problema de conducta del chofer.",
+         "orden":4,
+         "estilo":"fsua-transporte_escolar_especial",
+         "etiquetas":"especial escolar maltrato cobro fuma pelea acoso acosa seguridad",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":363,
+         "tipo":"Reclamo",
+         "categoria":"Señalización vial",
+         "descripcion":"Problema en señalización de calzada",
+         "descripcion_ext":"Reclamo [Señalización vial] - Problema en señalización de calzada",
+         "orden":4,
+         "estilo":"fsua-senalizacion_vial",
+         "etiquetas":"horizontal despintada despintado cordon cordón senda peatonal lomo reservado",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":374,
+         "tipo":"Trámite",
+         "categoria":"Semáforos",
+         "descripcion":"Solicitud de nuevo semáforo",
+         "descripcion_ext":"Trámite [Semáforos] - Solicitud de nuevo semáforo",
+         "orden":4,
+         "estilo":"fsua-semaforos",
+         "etiquetas":"semaforo",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":375,
+         "tipo":"Trámite",
+         "categoria":"Señalización vial",
+         "descripcion":"Solicitud de nueva señalización vial",
+         "descripcion_ext":"Trámite [Señalización vial] - Solicitud de nueva señalización vial",
+         "orden":4,
+         "estilo":"fsua-senalizacion_vial",
+         "etiquetas":"cartel pare contramano senda peatonal reservado ciclovia",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":387,
+         "tipo":"Denuncia",
+         "categoria":"Convivencia ciudadana",
+         "descripcion":"Cuidacoches",
+         "descripcion_ext":"Denuncia [Convivencia ciudadana] - Cuidacoches",
+         "orden":4,
+         "estilo":"fsua-convivencia_ciudadana",
+         "etiquetas":"trapito maltrato",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":388,
+         "tipo":"Denuncia",
+         "categoria":"Convivencia ciudadana",
+         "descripcion":"Discriminación, xenofobia, racismo",
+         "descripcion_ext":"Denuncia [Convivencia ciudadana] - Discriminación, xenofobia, racismo",
+         "orden":4,
+         "estilo":"fsua-convivencia_ciudadana",
+         "etiquetas":"",
+         "desc_sugerida":" ",
+         "solicitante_req":false,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":389,
+         "tipo":"Denuncia",
+         "categoria":"Convivencia ciudadana",
+         "descripcion":"Uso indebido del espacio público",
+         "descripcion_ext":"Denuncia [Convivencia ciudadana] - Uso indebido del espacio público",
+         "orden":4,
+         "estilo":"fsua-convivencia_ciudadana",
+         "etiquetas":"escombro vereda calzada acera",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":393,
+         "tipo":"Denuncia",
+         "categoria":"Convivencia ciudadana",
+         "descripcion":"Venta ilegal ó con riesgo",
+         "descripcion_ext":"Denuncia [Convivencia ciudadana] - Venta ilegal ó con riesgo",
+         "orden":4,
+         "estilo":"fsua-convivencia_ciudadana",
+         "etiquetas":"ambulante vendedor permiso animal alimento pirotecnia",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":432,
+         "tipo":"Trámite",
+         "categoria":"Bicis públicas",
+         "descripcion":"Solicitud de infraestructura para bicis",
+         "descripcion_ext":"Trámite [Bicis públicas] - Solicitud de infraestructura para bicis",
+         "orden":4,
+         "estilo":"fsua-bicis_publicas",
+         "etiquetas":"bicicleta bicicletero estacionamiento ciclovia ciclovía estación estacion bicisenda",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":false,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":437,
+         "tipo":"Reclamo",
+         "categoria":"Colectivos urbanos",
+         "descripcion":"Problema con el Cuándo Llega",
+         "descripcion_ext":"Reclamo [Colectivos urbanos] - Problema con el Cuándo Llega",
+         "orden":4,
+         "estilo":"fsua-colectivos_urbanos",
+         "etiquetas":"aplicación parada cuando sistema infomapa movi app",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":false,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":440,
+         "tipo":"Suceso",
+         "categoria":"Plagas y vectores",
+         "descripcion":"Plaga ó vector en propiedad privada",
+         "descripcion_ext":"Suceso [Plagas y vectores] - Plaga ó vector en propiedad privada",
+         "orden":4,
+         "estilo":"fsua-plagas_vectores",
+         "etiquetas":"abejas avispas alacranes cucarachas hormigas mosquitos pulgas garrapatas roedores ratas ratones palomas murcielagos",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":441,
+         "tipo":"Suceso",
+         "categoria":"Plagas y vectores",
+         "descripcion":"Plaga ó vectores en vía pública",
+         "descripcion_ext":"Suceso [Plagas y vectores] - Plaga ó vectores en vía pública",
+         "orden":4,
+         "estilo":"fsua-plagas_vectores",
+         "etiquetas":"abejas avispas alacranes cucarachas hormigas mosquitos pulgas garrapatas roedores insectos ratas ratones palomas murcielagos",
+         "desc_sugerida":" ",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":448,
+         "tipo":"Reclamo",
+         "categoria":"Calzadas y veredas",
+         "descripcion":"Vereda rota ó hundida",
+         "descripcion_ext":"Reclamo [Calzadas y veredas] - Vereda rota ó hundida",
+         "orden":4,
+         "estilo":"fsua-calzadas_y_veredas",
+         "etiquetas":"",
+         "desc_sugerida":"",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":463,
+         "tipo":"Reclamo",
+         "categoria":"Taxis y remises",
+         "descripcion":"Objeto perdido ó robado",
+         "descripcion_ext":"Reclamo [Taxis y remises] - Objeto perdido ó robado",
+         "orden":4,
+         "estilo":"fsua-taxis_y_remises",
+         "etiquetas":"viaje taxi remis",
+         "desc_sugerida":"",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":464,
+         "tipo":"Denuncia",
+         "categoria":"Taxis y remises",
+         "descripcion":"Taxista alcoholizado ó narcotizado",
+         "descripcion_ext":"Denuncia [Taxis y remises] - Taxista alcoholizado ó narcotizado",
+         "orden":4,
+         "estilo":"fsua-taxis_y_remises",
+         "etiquetas":"ebrio borracho drogado abria borracha drogada taxista remisero",
+         "desc_sugerida":"",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":471,
+         "tipo":"Reclamo",
+         "categoria":"Arbolado",
+         "descripcion":"Falta de mantenimiento de arbolado público",
+         "descripcion_ext":"Reclamo [Arbolado] - Falta de mantenimiento de arbolado público",
+         "orden":4,
+         "estilo":"fsua-arbolado",
+         "etiquetas":"arbol árbol rama raices raíces extraccion extracción poda escamonda",
+         "desc_sugerida":"",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":474,
+         "tipo":"Denuncia",
+         "categoria":"Arbolado",
+         "descripcion":"Denuncia de poda ó extracción sin permiso",
+         "descripcion_ext":"Denuncia [Arbolado] - Denuncia de poda ó extracción sin permiso",
+         "orden":4,
+         "estilo":"fsua-arbolado",
+         "etiquetas":"arbol árbol daño intencional",
+         "desc_sugerida":"",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":475,
+         "tipo":"Trámite",
+         "categoria":"Arbolado",
+         "descripcion":"Permiso de poda ó extracción por cuenta propia",
+         "descripcion_ext":"Trámite [Arbolado] - Permiso de poda ó extracción por cuenta propia",
+         "orden":4,
+         "estilo":"fsua-arbolado",
+         "etiquetas":"árbol arbol ramas podar",
+         "desc_sugerida":"",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":476,
+         "tipo":"Trámite",
+         "categoria":"Arbolado",
+         "descripcion":"Solicitud de plantación de árbol en mi frente",
+         "descripcion_ext":"Trámite [Arbolado] - Solicitud de plantación de árbol en mi frente",
+         "orden":4,
+         "estilo":"fsua-arbolado",
+         "etiquetas":"plantar arbol cazuela",
+         "desc_sugerida":"",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":496,
+         "tipo":"Trámite",
+         "categoria":"Parques y plazas",
+         "descripcion":"Solicitud de nuevo equipamiento",
+         "descripcion_ext":"Trámite [Parques y plazas] - Solicitud de nuevo equipamiento",
+         "orden":4,
+         "estilo":"fsua-parques_plazas",
+         "etiquetas":"",
+         "desc_sugerida":"",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":497,
+         "tipo":"Suceso",
+         "categoria":"Convivencia ciudadana",
+         "descripcion":"Persona en situación de calle",
+         "descripcion_ext":"Suceso [Convivencia ciudadana] - Persona en situación de calle",
+         "orden":4,
+         "estilo":"fsua-convivencia_ciudadana",
+         "etiquetas":"",
+         "desc_sugerida":"",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":509,
+         "tipo":"Reclamo",
+         "categoria":"Colectivos urbanos",
+         "descripcion":"Problema con máquina canceladora",
+         "descripcion_ext":"Reclamo [Colectivos urbanos] - Problema con máquina canceladora",
+         "orden":4,
+         "estilo":"fsua-colectivos_urbanos",
+         "etiquetas":"maquina boleto trasbordo pasaje",
+         "desc_sugerida":"",
+         "solicitante_req":true,
+         "direccion_req":true,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":517,
+         "tipo":"Reclamo",
+         "categoria":"Colectivos urbanos",
+         "descripcion":"Problema con aplicaciones de movilidad",
+         "descripcion_ext":"Reclamo [Colectivos urbanos] - Problema con aplicaciones de movilidad",
+         "orden":4,
+         "estilo":"fsua-colectivos_urbanos",
+         "etiquetas":"movi virtual joven app",
+         "desc_sugerida":"",
+         "solicitante_req":true,
+         "direccion_req":false,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":519,
+         "tipo":"Reclamo",
+         "categoria":"Colectivos urbanos",
+         "descripcion":"Problemas con saldo y recarga MOVI",
+         "descripcion_ext":"Reclamo [Colectivos urbanos] - Problemas con saldo y recarga MOVI",
+         "orden":4,
+         "estilo":"fsua-colectivos_urbanos",
+         "etiquetas":"homebanking cuanto tengo",
+         "desc_sugerida":"",
+         "solicitante_req":true,
+         "direccion_req":false,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      },
+      {
+         "id_subtipo":339,
+         "tipo":"Sugerencia",
+         "categoria":"Atención ciudadana",
+         "descripcion":"Sugerencia app Rosario Responde",
+         "descripcion_ext":"Sugerencia [Atención ciudadana] - Sugerencia app Rosario Responde",
+         "orden":100,
+         "estilo":"",
+         "etiquetas":"",
+         "desc_sugerida":" ",
+         "solicitante_req":false,
+         "direccion_req":false,
+         "guia":"",
+         "tipos_equipamiento":[
+
+         ],
+         "eq_req":false,
+         "preguntas":[
+
+         ]
+      }
+   ]
+}

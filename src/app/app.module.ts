@@ -30,11 +30,12 @@ import { ClaimsAndComplaintsComponent } from './claims-and-complaints/claims-and
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { ChipsContainerComponent } from './chips-container/chips-container.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material';
 import { DateRangePicker } from './date-range-picker/date-range-picker.component';
 import { HttpClientModule } from '@angular/common/http';
 import { QueriesAndFormalitiesComponent } from './queries-and-formalities/queries-and-formalities.component';
+import { FiltroAvanzadoDialogComponent } from './filtro-avanzado-dialog/filtro-avanzado-dialog.component';
 import { RequestsByOriginComponent } from './requests-by-origin/requests-by-origin.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { Top10CategoriesComponent } from './top10-categories/top10-categories.component';
@@ -63,6 +64,7 @@ import { SideBarLoginComponent } from './side-bar-login/side-bar-login.component
     SearchBarComponent,
     DateRangePicker,
     QueriesAndFormalitiesComponent,
+    FiltroAvanzadoDialogComponent,
     RequestsByOriginComponent,
     Top10CategoriesComponent,
     Top10NeighborhoodsComponent,
@@ -100,14 +102,14 @@ import { SideBarLoginComponent } from './side-bar-login/side-bar-login.component
     TextMaskModule,
     SatDatepickerModule, SatNativeDateModule,
     ReactiveFormsModule,
+    FormsModule,
     BsDropdownModule.forRoot(),
     ScrollingModule,
     InfiniteScrollModule
   ],
-  entryComponents: [DateRangePicker],
+  entryComponents: [DateRangePicker, FiltroAvanzadoDialogComponent],
   providers: [{ provide: LOCALE_ID, useValue: "es-AR" }],
-  bootstrap: [
-    AppComponent,
-  ],
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

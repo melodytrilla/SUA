@@ -1,16 +1,47 @@
+<div class="container">
 
-<mat-chip-list #chipList  class="mainContainer">
-    <mat-chip *ngFor="let chip of chips" [selectable]="selectable" [removable]="removable" (removed)="remove(chip)">
-        {{chip.value}}
-        <mat-icon matChipRemove>cancel</mat-icon>
-    </mat-chip>
+    
+    <h5 class="legend">Filtros: </h5>
 
-</mat-chip-list>
-<br>
-<p class = "messange">Ingrese un nuevo chip:</p>
-<input  class="chipInput"
-        placeholder = "nuevo chip..."
-        [matChipInputFor] = "chipList"
-        [matChipInputSeparatorKeyCodes] = "separatorKeys"
-        [matChipInputAddOnBlur] = "addOnBlur"
-        (matChipInputTokenEnd) = "add($event)">
+    <mat-chip-list #chipList>
+        <mat-chip *ngFor="let chip of chips" 
+            [selectable]="selectable" 
+            [removable]="removable" 
+            (removed)="remove(chip)"
+            color="primary" selected="true">
+                <mat-icon class="fsua {{chip.estilo}} fsua-2x"></mat-icon>
+                <div class="chip">
+                    <h6 class="subtitulo">{{chip.categoria}}</h6>
+                    {{chip.descripcion}}
+                </div>
+            <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+    <div>
+        <button *ngIf="!searchBoxVisible" mat-chip class="add" (click)="showSearch()">Agregar +</button>
+
+        <div *ngIf="searchBoxVisible">
+            <input matInput  #search 
+                id="search"
+                placeholder = "Agregar"
+                autocapitalize="off"
+                autocomplete="off"
+                (input)="onSearchChange($event.target.value)"
+                [matChipInputFor] = "chipList"
+                [matChipInputSeparatorKeyCodes] = "separatorKeys"
+                [matChipInputAddOnBlur] = "addOnBlur"
+                [matAutocomplete]="auto"/>
+
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                <mat-optgroup *ngFor="let group of filteredOptions | async" [label]="group.categoria" >
+                    <ng-container *ngFor="let option of filteredOptions | async">
+                        <mat-option *ngIf= "option.categoria == group.categoria" [value]="option">
+                            {{ option.descripcion }}
+                        </mat-option>
+                    </ng-container>
+                </mat-optgroup>
+            </mat-autocomplete>
+        </div>
+    </div>
+        
+    </mat-chip-list>
+</div>
