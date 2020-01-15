@@ -1,19 +1,12 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { Observable, of } from 'rxjs';
+import { Observable, of} from 'rxjs';
 import { FiltersService } from '../filters.service';
 import { startWith, map, filter, reduce, mergeMap, groupBy, zip, toArray } from 'rxjs/operators';
 import { MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material';
 
 export interface Chip{
-  id: number;
-  category: string;
-  icon: string;
-  description: string;
-}
-
-export interface Chip2{
   id_subtipo: number;
   categoria: string;
   estilo: string;
@@ -31,9 +24,8 @@ export class ChipsContainerComponent implements OnInit{
   @ViewChild('auto', {static: false}) matAutocomplete: MatAutocomplete;
 
   searchBoxVisible = false;
-  //volver a cambiar a Chip (sacar el 2)
-  filteredOptions: Observable<Chip2[]>;
-  chips: Chip2[] = [];
+  filteredOptions: Observable<Chip[]>;
+  chips: Chip[] = [];
 
   //Chips config
   removable = true;
@@ -44,17 +36,14 @@ export class ChipsContainerComponent implements OnInit{
   constructor(private filtersService: FiltersService) { }
 
   ngOnInit() {
-    //this.filteredOptions =  this.filtersService.getFilters('');
-    this.filteredOptions = this.filtersService.getNewFilters2('');
+    this.filteredOptions = this.filtersService.getNewFilters('');
   }
 
   onSearchChange (searchValue: string): void {
-      //this.filtersService.getFilters(searchValue).subscribe(console.log);
-      this.filtersService.getNewFilters2(searchValue).subscribe(console.log);
-      this.filteredOptions = this.filtersService.getNewFilters2(searchValue);
-    }
-//volver a chip y id_subtipo => id
-  remove(chip: Chip2):void {
+    //this.filtersService.getNewFilters(searchValue).subscribe(console.log)
+    this.filteredOptions = this.filtersService.getNewFilters(searchValue);
+  }
+  remove(chip: Chip):void {
     const index = this.chips.indexOf(chip);
 
     var removeIndex = this.chips
@@ -71,7 +60,6 @@ export class ChipsContainerComponent implements OnInit{
     const value = event.option.viewValue;
 
     var data = this.chips.find( element => { 
-      //volver a description
       return element.descripcion === value;});
 
     if(!data){
