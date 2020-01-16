@@ -4,13 +4,15 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { Observable, of} from 'rxjs';
 import { FiltersService } from '../filters.service';
 import { startWith, map, filter, reduce, mergeMap, groupBy, zip, toArray } from 'rxjs/operators';
-import { MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material';
+import { MatAutocompleteSelectedEvent, MatAutocomplete, MatAutocompleteTrigger } from '@angular/material';
 
 export interface Chip{
   id_subtipo: number;
   categoria: string;
   estilo: string;
   descripcion: string;
+  descripcion_ext: string;
+  etiquetas: string;
 }
 
 @Component({
@@ -23,8 +25,11 @@ export class ChipsContainerComponent implements OnInit{
   @ViewChild('search', {static: false}) searchElement: ElementRef;
   @ViewChild('auto', {static: false}) matAutocomplete: MatAutocomplete;
 
+  
+
   searchBoxVisible = false;
-  filteredOptions: Observable<Chip[]>;
+  filteredCategories: string[] = [];
+  filteredOptions: Chip[];
   chips: Chip[] = [];
 
   //Chips config
@@ -36,23 +41,58 @@ export class ChipsContainerComponent implements OnInit{
   constructor(private filtersService: FiltersService) { }
 
   ngOnInit() {
-    this.filteredOptions = this.filtersService.getNewFilters('');
   }
 
   onSearchChange (searchValue: string): void {
-    //this.filtersService.getNewFilters(searchValue).subscribe(console.log)
-    this.filteredOptions = this.filtersService.getNewFilters(searchValue);
+    //consige todas las opciones filtradas por las palabras buscadas
+    this.filteredOptions = this.filtersService.filteredSubCategorias(searchValue);
+    console.log(this.filteredOptions);
+
+    //busca todas las diferentes categorias que se encontraron en esta busqueda
+    this.filteredCategories = [];
+    this.filteredOptions.forEach(chip =>{
+      if(this.filteredCategories.length == 0 || this.filteredCategories.every(palabra => palabra != chip.categoria)){
+        this.filteredCategories = this.filteredCategories.concat(chip.categoria);
+      }
+    });
+    console.log(this.filteredCategories);
   }
+
+  getAllCategoria(palabra: string): void{
+    console.log(palabra);
+
+    var datas = this.filtersService.filteredByCategorias(palabra);
+    console.log(datas);
+
+    datas.forEach(data => {
+      if(!this.chips.includes(data)){
+        this.chips.push(data);
+      }
+    })
+/*
+    if(!data){
+      //Checks if the option was alredy added.
+      //If it has, it ignores it 
+      this.chips.push(event.option.value);
+    }*/
+    this.searchElement.nativeElement.value = '';
+    
+  }
+
+
   remove(chip: Chip):void {
     const index = this.chips.indexOf(chip);
 
+    this.chips = this.chips.filter( data => data.id_subtipo != chip.id_subtipo);
+
+    /*
     var removeIndex = this.chips
       .map(function(item) { return item.id_subtipo; }).indexOf(chip.id_subtipo);
     ~removeIndex && this.chips.splice(removeIndex, 1);
    
     if(index >= 0){
       this.chips.splice(index, 1);
-    }
+    }*/
   }
 
   //Select an option from the select menu
@@ -68,6 +108,7 @@ export class ChipsContainerComponent implements OnInit{
       this.chips.push(event.option.value);
     }
     this.searchElement.nativeElement.value = '';
+
   }
 
   showSearch() : void {
