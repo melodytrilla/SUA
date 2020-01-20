@@ -53,8 +53,11 @@
                                 </div>
                                 <div class="col colum3">
                                     <div class="fila">
-                                        <div  *ngIf="item.cantInterv>0">
+                                        <div *ngIf="item.cantInterv>0">
                                             <mat-icon matBadge="{{item.cantInterv}}" matBadgeSize="small" class="fsua fsua-intervenido"></mat-icon> {{item.tiempoInterv}}
+                                        </div>
+                                        <div *ngIf="item.cantInterv==0">
+                                            <mat-icon></mat-icon>
                                         </div>
                                     </div>
                                     <div class="fila">

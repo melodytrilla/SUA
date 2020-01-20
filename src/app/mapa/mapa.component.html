@@ -1,6 +1,25 @@
 <app-global-nav-bar></app-global-nav-bar>
 <app-navbar></app-navbar>
-<div class="topBar"><p>this is the top bar</p></div>
+<div class="topBar">
+    <div class="ordenar">
+        <mat-form-field>
+            <mat-label >Ordenar por</mat-label>
+            <mat-select>
+                <mat-option value="Fecha de creación"> Fecha de creación </mat-option>
+                <mat-option value="Fecha de estado"> Fecha de estado </mat-option>
+                <mat-option value="Cantidad de reiteraciones"> Cantidad de reiteraciones </mat-option>
+                <mat-option value="Cantidad de solicitantes"> Cantidad de solicitantes </mat-option>
+                <mat-option value="Cantidad de asignaciones"> Cantidad de asignaciones </mat-option>
+                <mat-option value="Cantidad de intervenciones"> Cantidad de intervenciones </mat-option>
+            </mat-select>
+        </mat-form-field>
+            <button mat-button (click)="togglePlay()">
+                <mat-icon *ngIf="!asc">arrow_downward</mat-icon>
+                <mat-icon *ngIf="asc">arrow_upward</mat-icon>
+            </button>
+    </div>
+    <mat-icon class="more">more_vert</mat-icon>
+</div>
 <div class="content">
     <div class="listConteiner">
         <div class="listButton">button</div>

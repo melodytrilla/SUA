@@ -63,4 +63,10 @@ export class SolicitudesService {
       `${this.apiURL}/porOrigen`
     )
   }
+
+  getItems(): Observable<any[]> {
+    return this.httpClient.get<any[]>(
+      `${this.apiURL}/items`
+    )
+  }
 }
