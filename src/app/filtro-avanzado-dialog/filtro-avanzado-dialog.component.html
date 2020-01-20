@@ -1,4 +1,4 @@
-<div mat-dialog-content class="mainContainer dark" [formGroup]="form"></div>
+<!--<div mat-dialog-content class="mainContainer dark" [formGroup]="form"></div>-->
 
     <h1 mat-dialog-title>Filtros avanzados</h1>
     <app-chips-container></app-chips-container>
@@ -9,15 +9,15 @@
 
     <section>
       Intervenciones: 
-      <mat-radio-group>
+      <mat-radio-group #Intervenciones_boton value='advSearch.con_Intervenciones'>
         <mat-radio-button class="example-margin" value="after">Con</mat-radio-button>
         <mat-radio-button class="example-margin" value="before">Sin</mat-radio-button>
       </mat-radio-group>
       <mat-form-field class="medium">
           <input matInput
               placeholder="Fechas"
-              [satDatepicker]="picker"
-              formControlName="estadoDates">
+              [satDatepicker]="picker">
+              <!--formControlName="estadoDates"-->
               
           <sat-datepicker #picker 
               [rangeMode]="true"
@@ -28,8 +28,8 @@
 
   
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancelar</button>
-  <button mat-button [mat-dialog-close]="data.filtro" cdkFocusInitial>Buscar</button>
+  <button mat-stroked-button (click)="onNoClick()">Cancelar</button>
+  <button mat-stroked-button [mat-dialog-close]="data.filtro" cdkFocusInitial>Buscar</button>
 </div>
 
 

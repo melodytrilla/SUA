@@ -15,6 +15,8 @@ export class FiltersService {
 
   private _todasSubcategorias: Chip[] = [];
 
+  private _savedChips: Chip[] = [];
+
   //Obtiene los datos del Json
   getNewFilters(): void{
     this._todasSubcategorias = [];
@@ -55,5 +57,14 @@ export class FiltersService {
     }
     return false;
     
+  }
+
+  //interaccion con los cips guardados
+  get savedChips(): Chip[]{
+    return this._savedChips;
+  }
+
+  set savedChips( newChips: Chip[]){
+    this._savedChips = newChips;
   }
 }

@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { Observable, of} from 'rxjs';
 import { FiltersService } from '../filters.service';
 import { startWith, map, filter, reduce, mergeMap, groupBy, zip, toArray } from 'rxjs/operators';
 import { MatAutocompleteSelectedEvent, MatAutocomplete, MatAutocompleteTrigger } from '@angular/material';
+//import { EventEmitter } from 'protractor';
 
 export interface Chip{
   id_subtipo: number;
@@ -38,9 +39,13 @@ export class ChipsContainerComponent implements OnInit{
   addOnBlur = true;
   separatorKeys: number[] = [ENTER, COMMA];
 
+  //interaccion con la busqueda
+  @Output() guardarChips = new EventEmitter<Chip[]>();
+
   constructor(private filtersService: FiltersService) { }
 
   ngOnInit() {
+    this.chips = this.filtersService.savedChips
   }
 
   onSearchChange (searchValue: string): void {
