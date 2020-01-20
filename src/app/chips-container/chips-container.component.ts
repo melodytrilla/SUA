@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, Input } from '@angular/core';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { Observable, of} from 'rxjs';
@@ -40,7 +40,8 @@ export class ChipsContainerComponent implements OnInit{
   separatorKeys: number[] = [ENTER, COMMA];
 
   //interaccion con la busqueda
-  @Output() guardarChips = new EventEmitter<Chip[]>();
+  @Input() chipsAnteriores: Chip[];
+  //@Output() eviarChips = new EventEmitter<Chip[]>();
 
   constructor(private filtersService: FiltersService) { }
 
@@ -101,16 +102,17 @@ export class ChipsContainerComponent implements OnInit{
   }
 
   //Select an option from the select menu
-  selected(event: MatAutocompleteSelectedEvent): void {
+  selected(chip: Chip): void {
+    /*
     const value = event.option.viewValue;
-
+    */
     var data = this.chips.find( element => { 
-      return element.descripcion === value;});
-
+      return element.descripcion === chip.descripcion;});
+      
     if(!data){
       //Checks if the option was alredy added.
       //If it has, it ignores it 
-      this.chips.push(event.option.value);
+      this.chips.push(chip);
     }
     this.searchElement.nativeElement.value = '';
 
@@ -124,5 +126,8 @@ export class ChipsContainerComponent implements OnInit{
     },0);  
   }
 
-
+  guardarChips(): Chip[]{
+    //this.eviarChips.emit(this.chips);
+    return this.chips;
+  }
 }

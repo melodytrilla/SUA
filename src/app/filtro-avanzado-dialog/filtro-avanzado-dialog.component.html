@@ -1,7 +1,7 @@
 <!--<div mat-dialog-content class="mainContainer dark" [formGroup]="form"></div>-->
 
     <h1 mat-dialog-title>Filtros avanzados</h1>
-    <app-chips-container></app-chips-container>
+    <app-chips-container #myChips [chipsAnteriores] = []></app-chips-container>
 
     <section class="direccion">
         <mat-checkbox [(ngModel)]="checked">Originada en direccion de Transito</mat-checkbox>
@@ -29,7 +29,8 @@
   
 <div mat-dialog-actions>
   <button mat-stroked-button (click)="onNoClick()">Cancelar</button>
-  <button mat-stroked-button [mat-dialog-close]="data.filtro" cdkFocusInitial>Buscar</button>
+  <!--agregar devuelta al botton de abajo ( [mat-dialog-close]="data.filtro" cdkFocusInitial)-->
+  <button mat-stroked-button (click)="Busqueda()">Buscar</button>
 </div>
 
 

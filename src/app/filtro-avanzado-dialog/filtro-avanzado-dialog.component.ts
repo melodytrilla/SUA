@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 
 import {DateRangePicker} from '../date-range-picker/date-range-picker.component';
 
-import { Chip } from '../chips-container/chips-container.component';
+import { Chip, ChipsContainerComponent } from '../chips-container/chips-container.component';
 
 export interface AdvSearch{
   filtros: Chip[];
@@ -23,7 +23,16 @@ export interface AdvSearch{
 export class FiltroAvanzadoDialogComponent implements OnInit{
 
   //todavia sigue tirando error buscar porque tira undefine
-  advSearch: AdvSearch;
+  advSearch: AdvSearch = {
+    filtros: [],
+    Originadas_dirTransito: false,
+    con_Intervenciones: "",
+    intervenciones_fechaStart: null,
+    intervenciones_fechaEnd: null
+  };
+
+  @ViewChild(ChipsContainerComponent, {static: false})
+  private myChips: ChipsContainerComponent;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -66,6 +75,12 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   onNoClick(): void {
     //console.log(this.form);
     this.dialogRef.close();
+  }
+
+  Busqueda():void{
+    this.advSearch.filtros = this.myChips.guardarChips();
+    console.log(this.advSearch.filtros);
+    //this.dialogRef.close();
   }
 
   //* Date picker props
