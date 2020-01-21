@@ -49,6 +49,8 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import * as _ from 'lodash';
 import { SideBarLoginComponent } from './side-bar-login/side-bar-login.component';
+import { BusquedaService } from './busqueda.service'
+
 
 @NgModule({
   declarations: [
@@ -108,7 +110,7 @@ import { SideBarLoginComponent } from './side-bar-login/side-bar-login.component
     InfiniteScrollModule
   ],
   entryComponents: [DateRangePicker, FiltroAvanzadoDialogComponent],
-  providers: [{ provide: LOCALE_ID, useValue: "es-AR" }],
+  providers: [{ provide: LOCALE_ID, useValue: "es-AR" }, BusquedaService],
   bootstrap: [AppComponent],
 
 })
