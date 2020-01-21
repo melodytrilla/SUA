@@ -63,7 +63,7 @@ export class RequestsByStateComponent implements OnInit {
         padding: 0,
         color: 'black',
         anchor: 'end',
-        textStrokeWidth: 0.4,
+        textStrokeWidth: 0.1,
         align: 'end',
         font: {size: 25},
       }

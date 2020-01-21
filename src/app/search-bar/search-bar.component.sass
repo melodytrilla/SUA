@@ -4,6 +4,7 @@
     height: 20%
     display: flex
     flex-direction: row
+    align-content: center
     align-items: center
 
 mat-form-field
@@ -14,6 +15,10 @@ mat-form-field
     margin-bottom: 0px
     width: 100%
 
+button 
+    color: white !important
+    margin: 3px 0px
+    
 .short
     width: 10%
 
@@ -26,6 +31,11 @@ mat-form-field
 ::ng-deep.mat-datepicker-content .mat-calendar
     height: unset !important
 
+::ng-deep.mat-expansion-panel-body
+    padding: 0 !important
+
+::ng-deep.mat-expansion-panel
+    display: flex !important
 .search-button
     max-height: 100%
     text-align: center

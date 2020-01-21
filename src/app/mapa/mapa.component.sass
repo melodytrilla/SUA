@@ -1,13 +1,24 @@
 .topBar
-    height: 5vh
-    width: 100%
-    border-bottom-width: 2px
-    border-bottom-color: #464343
-    border-bottom-style: solid
-    
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-between
+
+.more
+    align-self: left
+    cursor: pointer
+    padding: 5px
+
+.more:hover
+    background-color: #EFEEEE
+
+.ordenar
+    display: flex
+    align-items: center
+
 .content
     display: flex
-    height: 70vh
+    height: 72vh
 
 .listConteiner
     width: 30%
@@ -16,18 +27,9 @@
     border-right-color: #464343
     border-right-style: solid
 
-.listButton
-    height:5%
-    background-color: #0086ad
-
-.list
-    height:95%
-    overflow: scroll
-
-.map
-    display: flex
-    width: 70%
-    height: 100%
+.left
+    text-align: right
+    margin-right: 5px
 
 //css de la lista de elementos
 
@@ -36,10 +38,6 @@
     flex-direction: row
     height: 12vh
     min-height: 100px
-
-.separator
-    height: 2px
-    background-color: #111111
 
 //datos de cada elemento
 
@@ -65,7 +63,7 @@ mat-checkBox
     margin-bottom: 0px
 
 .lowerPart
-    height:75%
+    height: 75%
     min-height: 75%
 
 .imageConteiner
@@ -73,12 +71,11 @@ mat-checkBox
     height: 60px
     position: relative
     left: 15%
-    top:4%
+    top: 4%
 
 .imageProperties
     width: 100%
     height: 100%
-
 
 //fin de parte 1
 //comienzo de parte 2
@@ -126,8 +123,8 @@ mat-checkBox
 .infoConteiner
     display: flex
     flex-direction: column
-    height:100%
-    width:90%
+    height: 100%
+    width: 90%
     min-width: 90%
     min-height: 100%
 
@@ -140,9 +137,9 @@ mat-checkBox
 
 .infoType mat-icon
     margin-top: 2%
-    
+
 .infoType p
-    width:100%
+    width: 100%
     align-self: center
     margin-left: 2%
     margin-top: 2%
@@ -166,9 +163,12 @@ mat-checkBox
     align-content: center
     align-items: center
     display: flex
-    
+
 .arrowPos
     display: flex
     color: inherit
     margin-left: 30%
-    
+
+#map
+    height: 72vh
+    width: 135vh

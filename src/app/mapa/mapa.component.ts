@@ -1,11 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import * as L from 'leaflet';
+import 'leaflet.markercluster';
+import { NgElement, WithProperties } from '@angular/elements';
 
 @Component({
   selector: 'app-mapa',
   templateUrl: './mapa.component.html',
-  styleUrls: ['./mapa.component.sass']
+  styleUrls: ['./mapa.component.sass'],
 })
 export class MapaComponent implements OnInit {
+  asc= false;
+
+  map: L.Map;
 
   constructor() { }
 
@@ -43,6 +49,7 @@ export class MapaComponent implements OnInit {
   ];
 
   ngOnInit() {
+    this.init();
     this.solicitudes.forEach(function(solicitud) {
       if(solicitud.info_tipo.length > 30){
         solicitud.info_tipo = solicitud.info_tipo.substr(0, 27) + "...";
@@ -52,5 +59,18 @@ export class MapaComponent implements OnInit {
       }
    });
   }
+  togglePlay(){
+    this.asc = !this.asc;
+  }
 
+  init() {
+    this.map = new L.Map('map', {
+      layers: [L.tileLayer(
+        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        { subdomains: ['a', 'b', 'c'], maxZoom: 19 })],
+      center: new L.LatLng(-32.9478200, -60.6683200),
+      zoomControl: false,
+      zoom: 14
+    });
+  }
 }

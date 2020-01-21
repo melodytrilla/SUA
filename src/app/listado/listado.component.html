@@ -21,8 +21,7 @@
     <mat-icon class="more">more_vert</mat-icon>
 </div>
 <mat-divider></mat-divider>
-<cdk-virtual-scroll-viewport itemSize="4" class="example-viewport">
-    <div mat-list *cdkVirtualFor="let item of items" class="lista">
+    <div mat-list *ngFor="let item of items" class="lista">
             <div mat-list-item class="content">
                         <div class="colum0">
                             <mat-checkbox>{{item.nroSolicitud}}</mat-checkbox>
@@ -55,9 +54,6 @@
                                     <div class="fila">
                                         <div *ngIf="item.cantInterv>0">
                                             <mat-icon matBadge="{{item.cantInterv}}" matBadgeSize="small" class="fsua fsua-intervenido"></mat-icon> {{item.tiempoInterv}}
-                                        </div>
-                                        <div *ngIf="item.cantInterv==0">
-                                            <mat-icon></mat-icon>
                                         </div>
                                     </div>
                                     <div class="fila">
@@ -115,5 +111,4 @@
                         </div>
                     </div>
             <mat-divider></mat-divider>
-            </div>
-</cdk-virtual-scroll-viewport>
+    </div>

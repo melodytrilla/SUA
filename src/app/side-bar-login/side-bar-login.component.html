@@ -1,0 +1,58 @@
+
+<div class="sidenavDiv"> 
+
+<mat-sidenav-container class="contenedor">
+    <mat-sidenav #sidenav class="sidenav"
+    [mode] = over
+    [fixedInViewport] = true>
+            <div (click)="Close()" class="closeButton">
+                <i class="fsua fsua-cancelar closeIcono"></i>
+            </div>
+            
+            <div *ngIf= "userLog; else loginBlock" style="display: flex; height: 89%;flex-direction: column;">
+                <div class="spacer"></div>
+                <div class="bienvenidaConteiner">
+                    <p class="bienvenido"> Welcome!</p>
+                    <p class="usuario"> {{userLog.username}}</p>
+                </div>
+                <mat-divider></mat-divider>
+                <div class="favConteiner">
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Busquedas favoritas
+                                </mat-panel-title>
+                                <mat-panel-description>
+                                    aqui estan todas tus busquedas favoritas
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </div>
+            <ng-template #loginBlock style="display: flex; height: 89%">
+                <!--<div class="spacer" style="height: 5%; display: flex"></div>
+                <div style="display: flex; flex-direction: column;">
+                    <mat-form-field style="width: 90%;">
+                        <input matInput placeholder="Username">
+                    </mat-form-field>
+
+                    <mat-form-field style="width: 90%;">
+                        <input matInput placeholder="Password">
+                    </mat-form-field>
+
+                    <button mat-stroked-button style="width: 40%; float: right; margin-right: 10%;"> Log in</button>
+                </div>-->
+            </ng-template>
+    </mat-sidenav>
+
+</mat-sidenav-container>
+
+<div id="screenDarkener" (click)="Close()"></div>
+
+
+<button mat-button (click)="Open()"><i class="fsua fsua-menu fsua-2x" style="color:#f7f7f8"></i></button>
+
+</div>
