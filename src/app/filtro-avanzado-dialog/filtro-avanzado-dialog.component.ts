@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, Input, ViewChild, ElementRef, ContentChild, TemplateRef } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatRadioGroup } from '@angular/material';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 import {DateRangePicker} from '../date-range-picker/date-range-picker.component';
 
@@ -31,6 +31,8 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     intervenciones_fechaEnd: null
   };
 
+  datesControl = new FormControl('');
+
   @ViewChild(ChipsContainerComponent, {static: false})
   private myChips: ChipsContainerComponent;
 
@@ -47,7 +49,6 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   //form: FormGroup;
 
   ngOnInit() {
-    this.advSearch.con_Intervenciones = "after";
   /*  this.form = this.formBuilder.group({
       prioridad: '',
 
@@ -79,7 +80,12 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
   Busqueda():void{
     this.advSearch.filtros = this.myChips.guardarChips();
-    console.log(this.advSearch.filtros);
+    console.log(this.datesControl.value);
+
+    this.advSearch.intervenciones_fechaStart = this.datesControl.value.begin;
+    this.advSearch.intervenciones_fechaEnd = this.datesControl.value.end;
+
+    console.log(this.advSearch);
     //this.dialogRef.close();
   }
 
@@ -91,4 +97,8 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   }
   // ********
 
+
+  onDateChange(): void{
+    console.log(this.datesControl.value);
+  }
 }

@@ -52,7 +52,7 @@ export class ChipsContainerComponent implements OnInit{
   onSearchChange (searchValue: string): void {
     //consige todas las opciones filtradas por las palabras buscadas
     this.filteredOptions = this.filtersService.filteredSubCategorias(searchValue);
-    console.log(this.filteredOptions);
+    //console.log(this.filteredOptions);
 
     //busca todas las diferentes categorias que se encontraron en esta busqueda
     this.filteredCategories = [];
@@ -61,14 +61,14 @@ export class ChipsContainerComponent implements OnInit{
         this.filteredCategories = this.filteredCategories.concat(chip.categoria);
       }
     });
-    console.log(this.filteredCategories);
+    //console.log(this.filteredCategories);
   }
 
   getAllCategoria(palabra: string): void{
-    console.log(palabra);
+    //console.log(palabra);
 
     var datas = this.filtersService.filteredByCategorias(palabra);
-    console.log(datas);
+    //console.log(datas);
 
     datas.forEach(data => {
       if(!this.chips.includes(data)){
