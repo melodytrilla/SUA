@@ -51,6 +51,8 @@ import * as _ from 'lodash';
 import { SideBarLoginComponent } from './side-bar-login/side-bar-login.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { MapComponent } from './map/map.component';
+import { BusquedaService } from './busqueda.service'
+
 
 @NgModule({
   declarations: [
@@ -112,7 +114,7 @@ import { MapComponent } from './map/map.component';
     NgxSpinnerModule,
   ],
   entryComponents: [DateRangePicker, FiltroAvanzadoDialogComponent],
-  providers: [{ provide: LOCALE_ID, useValue: "es-AR" }],
+  providers: [{ provide: LOCALE_ID, useValue: "es-AR" }, BusquedaService],
   bootstrap: [AppComponent],
 
 })
