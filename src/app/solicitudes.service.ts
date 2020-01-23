@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, forkJoin } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpUrlEncodingCodec } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -67,6 +67,13 @@ export class SolicitudesService {
   getItems(): Observable<any[]> {
     return this.httpClient.get<any[]>(
       `${this.apiURL}/items`
+    )
+  }
+
+  getDatosVarios(titulo: string): Observable<any>{
+    titulo = encodeURIComponent(titulo);
+    return this.httpClient.get<any>(
+      `${this.apiURL}/datosVarios?titulo=${titulo}`
     )
   }
 }

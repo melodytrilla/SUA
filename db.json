@@ -1783,6 +1783,28 @@
       "tiempoInterv": " Hace 3 días",
       "tiempoMap": " Hace 10 días"
     }
-]
+  ],
+  "datosVarios":[
+    {
+      "titulo":"Solicitudes",
+      "valor": 13622
+    },
+    {
+      "titulo":"Vecino con + solicitudes",
+      "valor": 95
+    },
+    {
+      "titulo":"Agente con + solicitudes",
+      "valor": 161
+    },
+    {
+      "titulo":"Equipamiento con + solicitudes",
+      "valor": 30
+    },
+    {
+      "titulo":"Solicitudes con equipamiento",
+      "valor": 1752
+    }
+  ]
 
 }

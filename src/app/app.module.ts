@@ -51,7 +51,8 @@ import * as _ from 'lodash';
 import { SideBarLoginComponent } from './side-bar-login/side-bar-login.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { MapComponent } from './map/map.component';
-import { BusquedaService } from './busqueda.service'
+import { BusquedaService } from './busqueda.service';
+import { CartaInfoComponent } from './carta-info/carta-info.component'
 
 
 @NgModule({
@@ -79,7 +80,8 @@ import { BusquedaService } from './busqueda.service'
     ListadoComponent,
     MapaComponent,
     SideBarLoginComponent,
-    MapComponent
+    MapComponent,
+    CartaInfoComponent
   ],
   imports: [
     BrowserModule,
