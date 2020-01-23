@@ -1,11 +1,11 @@
-import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, Input, Inject } from '@angular/core';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { Observable, of} from 'rxjs';
 import { FiltersService } from '../filters.service';
 import { startWith, map, filter, reduce, mergeMap, groupBy, zip, toArray } from 'rxjs/operators';
-import { MatAutocompleteSelectedEvent, MatAutocomplete, MatAutocompleteTrigger } from '@angular/material';
-//import { EventEmitter } from 'protractor';
+import { MatAutocompleteSelectedEvent, MatAutocomplete, MatAutocompleteTrigger} from '@angular/material';
+import { BusquedaService } from '../busqueda.service';
 
 export interface Chip{
   id_subtipo: number;
@@ -41,12 +41,15 @@ export class ChipsContainerComponent implements OnInit{
 
   //interaccion con la busqueda
   @Input() chipsAnteriores: Chip[];
-  //@Output() eviarChips = new EventEmitter<Chip[]>();
 
-  constructor(private filtersService: FiltersService) { }
+  constructor(private filtersService: FiltersService,
+              private busquedaService: BusquedaService) { }
 
+  //recupera los chisp guardados en la session si los hay
   ngOnInit() {
-    this.chips = this.filtersService.savedChips
+    if(this.busquedaService.busquedaCompleta.advSearch != null){
+      this.chips = this.busquedaService.busquedaCompleta.advSearch.filtros;
+    }
   }
 
   onSearchChange (searchValue: string): void {
@@ -64,6 +67,7 @@ export class ChipsContainerComponent implements OnInit{
     //console.log(this.filteredCategories);
   }
 
+  //al seleccionar una categoria se le debuelve todos las subcategorias que pertenescan a ella
   getAllCategoria(palabra: string): void{
     //console.log(palabra);
 
@@ -85,7 +89,7 @@ export class ChipsContainerComponent implements OnInit{
     
   }
 
-
+  //para remover chips 
   remove(chip: Chip):void {
     const index = this.chips.indexOf(chip);
 
@@ -126,6 +130,7 @@ export class ChipsContainerComponent implements OnInit{
     },0);  
   }
 
+  //se utiliza para enviar los chips al elemento padre
   guardarChips(): Chip[]{
     //this.eviarChips.emit(this.chips);
     return this.chips;

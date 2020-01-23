@@ -13,6 +13,7 @@ export interface Busqueda{
 }
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -20,16 +21,36 @@ export class BusquedaService {
 
   constructor() { }
 
-  busquedaCompleta:Busqueda ={
-    dateRange_begin: null,
-    dateRange_end: null,
-    Id_solicitud: "",
-    año: null,
-    Dir: null,
-    radio: 0,
-    Id_solicitante: "",
-    advSearch: null,
+  busquedaCompleta:Busqueda;
 
-  };
+
+  //si hay algo guardado en la session se carga en una variable, si no se inicializa vacio
+  Init(){
+    if(window.sessionStorage['busqueda']){
+      this.busquedaCompleta = JSON.parse(window.sessionStorage['busqueda']);
+    }else{
+      this.busquedaCompleta = {
+        dateRange_begin: null,
+        dateRange_end: null,
+        Id_solicitud: "",
+        año: null,
+        Dir: null,
+        radio: 0,
+        Id_solicitante: "",
+        advSearch: null,
+    
+      };
+    }
+  }
+
+// se utilizara para inicializar la busqueda, por ahora solo guarda la busqueda en la session
+  Buscar(busqueda: Busqueda): void{
+    console.log("se esta haciendo la busqueda");
+    //console.log(busqueda);
+    //console.log(this.busquedaCompleta);
+
+    //almacena la busqueda en la session
+    window.sessionStorage['busqueda'] = JSON.stringify(this.busquedaCompleta);
+  }
 
 }

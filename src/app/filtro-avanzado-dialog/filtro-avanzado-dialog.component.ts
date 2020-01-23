@@ -5,6 +5,8 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import {DateRangePicker} from '../date-range-picker/date-range-picker.component';
 
 import { Chip, ChipsContainerComponent } from '../chips-container/chips-container.component';
+import { BusquedaService } from '../busqueda.service';
+
 
 export interface AdvSearch{
   filtros: Chip[];
@@ -22,7 +24,7 @@ export interface AdvSearch{
 })
 export class FiltroAvanzadoDialogComponent implements OnInit{
 
-  //todavia sigue tirando error buscar porque tira undefine
+  //una variable donde se guardaran todos los valores y asociaran algunos valores de la forma
   advSearch: AdvSearch = {
     filtros: [],
     Originadas_dirTransito: false,
@@ -33,22 +35,33 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
   datesControl = new FormControl('');
 
+  //referencia al elemento chips conteiner
   @ViewChild(ChipsContainerComponent, {static: false})
   private myChips: ChipsContainerComponent;
+
+  //usar un output para mandar el advSerch al padre
 
   constructor(
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<FiltroAvanzadoDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) 
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private busqueda: BusquedaService) 
     {
 
     }
- 
-
 
   //form: FormGroup;
 
   ngOnInit() {
+
+    //inicializa los valores del advSerch si hay algunos guardado en la session
+    if(this.busqueda.busquedaCompleta.advSearch){
+      this.advSearch =  this.busqueda.busquedaCompleta.advSearch;
+      
+      this.datesControl.setValue({begin: this.advSearch.intervenciones_fechaStart,
+                                end: this.advSearch.intervenciones_fechaEnd});
+    }
+
   /*  this.form = this.formBuilder.group({
       prioridad: '',
 
@@ -73,20 +86,26 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     });*/
   }
 
+  // cierra la ventana al apretar cancelar
   onNoClick(): void {
     //console.log(this.form);
     this.dialogRef.close();
   }
 
-  Busqueda():void{
+  //agarra todos los valores puestos en el formulario y se los pasa con
+  //los de la busqueda principal al servicio de busqueda
+  BusquedaClick():void{
     this.advSearch.filtros = this.myChips.guardarChips();
-    console.log(this.datesControl.value);
+    //console.log(this.datesControl.value);
 
     this.advSearch.intervenciones_fechaStart = this.datesControl.value.begin;
     this.advSearch.intervenciones_fechaEnd = this.datesControl.value.end;
 
-    console.log(this.advSearch);
-    //this.dialogRef.close();
+    //console.log(this.advSearch);
+    this.data.busqueda.advSearch = this.advSearch;
+    //console.log(this.data);
+    this.busqueda.Buscar(this.data.busqueda);
+    this.dialogRef.close();
   }
 
   //* Date picker props
@@ -97,7 +116,8 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   }
   // ********
 
-
+//esta funcion se utiliza para verifiar los 
+//cambios en los valores de el selector de fechas
   onDateChange(): void{
     console.log(this.datesControl.value);
   }
