@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
-import { PlacesService } from '../places.service';
+import { PlacesService, Direccion } from '../places.service';
 
 import {DateRangePicker} from '../date-range-picker/date-range-picker.component'
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
@@ -36,7 +36,7 @@ export class SearchBarComponent implements OnInit {
 
   //Locations filtering 
   places;
-  filteredOptions: Observable<string[]>;
+  filteredDirecciones: Direccion[];
   
 
   //a enviar al servicio de busqueda
@@ -79,11 +79,13 @@ export class SearchBarComponent implements OnInit {
     this.places = this.placesService.getPlaces();
 
     //Filtrado de resultados busqueda ubicacion
+    /*
     this.filteredOptions = this.form.get('ubicacion').valueChanges
       .pipe(
         startWith(''),
         map(value => this._filter(value))
     );
+    */
   }
 
   private _filter(value: string): string[] {
@@ -127,4 +129,14 @@ export class SearchBarComponent implements OnInit {
     this.busquedaField.dateRange_end = this.form.value.date.end;
   }
 
+  searchUbicaciones(searchValue: string):void{
+    let tempArray:any[];
+    if(searchValue.length >= 4){
+      this.placesService.getDirecciones(searchValue).subscribe(dir =>{
+        this.filteredDirecciones = dir["features"];
+      });
+    }else{
+      console.log("not enought");
+    }
+  }
 }
