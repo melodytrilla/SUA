@@ -7,7 +7,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SolicitudesService {
 
-  apiURL = "http://localhost:3000"
+  apiURL = "http://localhost:3000";
+  api = "http://localhost:5000"
+
   constructor(private httpClient: HttpClient) { }
 
   //Obtiene los datos del banner del dashboard

@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet.markercluster';
-import { NgElement, WithProperties } from '@angular/elements';
+import * as _ from 'lodash';
+import { SolicitudesItemsService } from '../solicitudes-items.service';
+import * as moment from 'moment';
+
+export interface Opcion {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-mapa',
@@ -10,57 +17,52 @@ import { NgElement, WithProperties } from '@angular/elements';
 })
 export class MapaComponent implements OnInit {
   asc= false;
-
   map: L.Map;
 
-  constructor() { }
+  constructor(public api: SolicitudesItemsService) { }
 
-  public solicitudes: Array<any> = [
-    {
-      estado: "Resuelto",
-      imagen: "http://4.bp.blogspot.com/-3s5RpPRPdv4/UcIE__NluhI/AAAAAAAAALc/Cz6EW-I-9YA/s1600/114139.jpg",
-      tiempoPasado: "Hace mas de un mes",
-      calificacion: 1,
-      usuarios_calificaron: 1,
-      info_icono:"fsua-reloj-o",
-      info_tipo: "Corte de transito",
-      info_descripcion: "esta es una descripcion medio larga asi que habra que cortarla"
-    },
-    {
-      estado: "En Curso",
-      imagen: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.c3Bp-l_gMgBj77lsnqOb9wHaFj%26pid%3DApi&f=1",
-      tiempoPasado: "Hace mas de un mes",
-      calificacion: -1,
-      usuarios_calificaron: 3,
-      info_icono:"fsua-transito",
-      info_tipo: "Mas problemas de transito",
-      info_descripcion: "corta descripcion"
-    },
-    {
-      estado: "En Curso",
-      imagen: "http://www.pbs.org/wnet/nature/files/2017/10/reqzNZB-asset-mezzanine-16x9-dWu5cfN.jpg",
-      tiempoPasado: "Hace mas de un mes",
-      calificacion: 0,
-      usuarios_calificaron: 2,
-      info_icono:"fsua-transito",
-      info_tipo: "Mas problemas de transito",
-      info_descripcion: "corta descripcion"
-    }
-  ];
+  public solicitudes: any[];
+  markers: L.Marker[] = [];
+
+  svg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>'
+  iconUrl = 'data:image/svg+xml;base64,' + btoa(this.svg);
+
+  myIcon = L.icon({
+    iconUrl: this.iconUrl,
+    iconSize: [38, 95],
+    iconAnchor: [22, 94],
+    popupAnchor: [-3, -76],
+    shadowSize: [68, 95],
+    shadowAnchor: [22, 94]
+});
 
   ngOnInit() {
     this.init();
-    this.solicitudes.forEach(function(solicitud) {
-      if(solicitud.info_tipo.length > 30){
-        solicitud.info_tipo = solicitud.info_tipo.substr(0, 27) + "...";
-      }
-      if(solicitud.info_descripcion.length > 50){
-        solicitud.info_descripcion = solicitud.info_descripcion.substr(0, 47) + "...";
-      }
-   });
+    this.api.getSolicitudes().subscribe(
+      data => {
+        data.forEach(value => {
+          if (value.subtipo.length > 35) {
+            value.subtipo = value.subtipo.substr(0, 32) + "...";
+          }
+          if (value.interseccion.length > 10) {
+            value.interseccion = value.interseccion.substr(0, 7) + "...";
+          }
+
+          value.tiempo = moment([this.formato(value.fecha_hora_estado)], "YYYY, MM, DD, h, mm, ss").fromNow();
+        })
+        
+        this.solicitudes = data
+      });
   }
   togglePlay(){
     this.asc = !this.asc;
+  }
+  formato(fecha){
+    fecha = fecha.replace("/","-")
+    fecha = fecha.replace("/", "-")
+    fecha = fecha.replace(" ", "-")
+    fecha = fecha.replace(":", "-")
+    return fecha.replace(/^(\d{2})-(\d{2})-(\d{4})-(\d{2})-(\d{2})$/g,'$3, $2, $1, $4, $5')
   }
 
   init() {
@@ -68,9 +70,25 @@ export class MapaComponent implements OnInit {
       layers: [L.tileLayer(
         'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
         { subdomains: ['a', 'b', 'c'], maxZoom: 19 })],
-      center: new L.LatLng(-32.9478200, -60.6683200),
+      center: new L.LatLng(-32.9468200, -60.6393200),
       zoomControl: false,
       zoom: 14
     });
+    this.map.createPane('foo');
+    this.map.getPane('foo').style.zIndex = '401';
+    this.setLayers();
+    const group = new L.FeatureGroup(this.markers, {pane: 'foo'})
+    group.addTo(this.map);
+    console.log(this.map)
   }
+
+  setLayers() {
+    this.api.getSolicitudes().subscribe(
+      data => {
+        data.forEach(value => {
+          this.markers.push(new L.Marker({lat: value.coord_x, lng: value.coord_y}, {icon: this.myIcon, pane: 'foo'}));  
+      })
+  });
+}
+
 }

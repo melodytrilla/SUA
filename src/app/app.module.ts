@@ -50,7 +50,6 @@ import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import * as _ from 'lodash';
 import { SideBarLoginComponent } from './side-bar-login/side-bar-login.component';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -76,8 +75,7 @@ import { MapComponent } from './map/map.component';
     EstadisticasComponent,
     ListadoComponent,
     MapaComponent,
-    SideBarLoginComponent,
-    MapComponent
+    SideBarLoginComponent
   ],
   imports: [
     BrowserModule,

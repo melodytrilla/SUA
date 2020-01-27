@@ -24,19 +24,21 @@
     <div mat-list *ngFor="let item of items" class="lista">
             <div mat-list-item class="content">
                         <div class="colum0">
-                            <mat-checkbox>{{item.nroSolicitud}}</mat-checkbox>
+                            <mat-checkbox>{{item.numero}}-{{item.anio}}</mat-checkbox>
                             <div><img src="{{item.imagen}}"></div>
                         </div>
                         <div class="tablagen">
                                 <div class="col colum1">
                                     <div class="fila">
-                                        {{item.fecha}}
+                                        {{item.fecha_hora_registro}}
                                     </div>
                                     <div class="fila">
-                                        <mat-icon class="fsua {{item.iconoDesc}}"></mat-icon> {{item.descripcion}}
+                                        <div *ngIf = "item.categoria=='Alumbrado'"><mat-icon class="fsua fsua-alumbrado_publico"></mat-icon> {{item.subtipo}}</div>
+                                        <div *ngIf = "item.categoria=='Colectivos urbanos'"><mat-icon class="fsua fsua-colectivos_urbanos"></mat-icon> {{item.subtipo}}</div>
                                     </div>
                                     <div class="fila" >
-                                        {{item.direccion}}
+                                        <div *ngIf="item.altura>0">{{item.calle}} {{item.altura}}</div>
+                                        <div *ngIf="item.interseccion != ''">{{item.calle}} Y {{item.interseccion}}</div>
                                     </div>
                                 </div>
                                 <div class="col colum2">
@@ -44,10 +46,15 @@
                                         <mat-icon class="fsua fsua-recientes"></mat-icon>{{item.tiempo}}
                                     </div>
                                     <div class="fila">
-                                        <mat-icon class="fsua {{item.iconoOpinada}}"></mat-icon> {{item.estado}}
+                                        <div *ngIf="item.opinion=='positivo'"><mat-icon class="fsua fsua-bueno"></mat-icon> {{item.estado}}</div>
+                                        <div *ngIf="item.opinion=='negativo'"><mat-icon class="fsua fsua-malo"></mat-icon> {{item.estado}}</div>
+                                        <div *ngIf="item.opinion=='neutro'"><mat-icon class="fsua fsua-neutro"></mat-icon> {{item.estado}}</div>
+                                        <div *ngIf="item.opinion==''">{{item.estado}}</div>
                                     </div>
                                     <div class="fila">
-                                        {{item.descEstado}}
+                                        <div *ngIf="item.estado== 'Resuelto'"> {{item.detalle_intervencion}}</div>
+                                        <div *ngIf="item.estado== 'En curso'">{{item.descripcion}}</div>
+                                        <div *ngIf="item.estado== 'Pendiente'"></div>
                                     </div>
                                 </div>
                                 <div class="col colum3">
@@ -75,8 +82,8 @@
                                         <mat-icon></mat-icon>
                                     </div>
                                     <div class="fila" >
-                                        <div *ngIf="item.cantPerfil>0">
-                                            <mat-icon matBadge="{{item.cantPerfil}}" matBadgeSize="small" class="fsua fsua-mi_perfil-o"></mat-icon>
+                                        <div *ngIf="item.reiteraciones>0">
+                                            <mat-icon matBadge="{{item.reiteraciones}}" matBadgeSize="small" class="fsua fsua-mi_perfil-o"></mat-icon>
                                         </div>
                                     </div>
                                 </div>
