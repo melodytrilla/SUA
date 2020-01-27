@@ -24,13 +24,44 @@
 
     <mat-form-field class="large">
         <input matInput type="text" 
-            placeholder="Ubicacion" 
-            formControlName="ubicacion" 
+            placeholder="Ubicacion (min 4 letras)" 
+            formControlName="ubicacion"
+            autocapitalize="off"
+            autocomplete="off"
+            (input)="searchUbicaciones($event.target.value)" 
             [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-              {{ option }}
-            </mat-option>
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFunction">
+            <ng-container *ngFor="let dir of filteredDirecciones">
+                <ng-container *ngIf="dir.geometry; else notPoint">
+                    <mat-option class="optionPunto" [value]=dir>
+                        <div class="punto">
+                            <p>{{dir.properties.name}}</p>
+                            <p *ngIf="dir.properties.subtipo != 'DIRECCIÓN'; else direccion" class="dir">{{dir.properties.direccion}}</p>
+                            <ng-template #direccion>
+                                <p class="dir">{{dir.properties.subtipo}}</p>
+                            </ng-template>
+                        </div>
+                        <mat-divider></mat-divider>
+                        <!--Soy un punto-->
+                    </mat-option>
+                </ng-container>
+                <ng-template #notPoint>
+                    <mat-option class="optionPunto" [value]="dir">
+                        <div class="punto">
+                            <p>{{dir.properties.name}}</p>
+                            <p class="dir">{{dir.properties.subtipo}}</p>
+                            <ng-container *ngFor="let altura of dir.properties.rangosAltura">
+                                <div class="altura">
+                                    <p>{{altura.alturaDesde}} - {{altura.alturaHasta}} </p>
+                                    <p *ngIf="altura.bis" > BIS </p>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <mat-divider></mat-divider>
+                        <!--No soy un punto-->
+                    </mat-option>
+                </ng-template>
+            </ng-container>
          </mat-autocomplete>
     </mat-form-field>
 
