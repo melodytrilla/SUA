@@ -8,7 +8,6 @@ import {DateRangePicker} from '../date-range-picker/date-range-picker.component'
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FiltroAvanzadoDialogComponent } from '../filtro-avanzado-dialog/filtro-avanzado-dialog.component';
 import { BusquedaService, Busqueda } from '../busqueda.service';
-import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-search-bar',
@@ -114,7 +113,7 @@ export class SearchBarComponent implements OnInit {
   sendInfo():void{
     this.deFormABusqueda()
     //console.log(this.form.value);
-    //console.log(this.busquedaField);
+    console.log(this.busquedaField);
     this.busqueda.Buscar(this.busquedaField);
   
   }
@@ -140,4 +139,12 @@ export class SearchBarComponent implements OnInit {
       console.log("not enought");
     }
   }
+  displayFunction(value: Direccion):string{
+    if(value != null){
+      if(value.geometry){
+        return value.properties.name;
+      }
+    }
+  }
+
 }
