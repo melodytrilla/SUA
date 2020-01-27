@@ -8,6 +8,7 @@ import {DateRangePicker} from '../date-range-picker/date-range-picker.component'
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FiltroAvanzadoDialogComponent } from '../filtro-avanzado-dialog/filtro-avanzado-dialog.component';
 import { BusquedaService, Busqueda } from '../busqueda.service';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-search-bar',

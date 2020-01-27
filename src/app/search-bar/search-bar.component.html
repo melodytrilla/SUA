@@ -33,13 +33,29 @@
         <mat-autocomplete #auto="matAutocomplete">
             <ng-container *ngFor="let dir of filteredDirecciones">
                 <ng-container *ngIf="dir.geometry; else notPoint">
-                    <mat-option>
-                        Soy un punto
+                    <mat-option class="optionPunto">
+                        <div class="punto">
+                            <p>{{dir.properties.name}}</p>
+                            <p class="dir">{{dir.properties.direccion}}</p>
+                        </div>
+                        <mat-divider></mat-divider>
+                        <!--Soy un punto-->
                     </mat-option>
                 </ng-container>
                 <ng-template #notPoint>
-                    <mat-option>
-                        No soy un punto
+                    <mat-option class="optionPunto">
+                        <div class="punto">
+                            <p>{{dir.properties.name}}</p>
+                            <p class="dir">{{dir.properties.subtipo}}</p>
+                            <ng-container *ngFor="let altura of dir.properties.rangosAltura">
+                                <div class="altura">
+                                    <p>{{altura.alturaDesde}} - {{altura.alturaHasta}} </p>
+                                    <p *ngIf="altura.bis" > BIS </p>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <mat-divider></mat-divider>
+                        <!--No soy un punto-->
                     </mat-option>
                 </ng-template>
             </ng-container>
