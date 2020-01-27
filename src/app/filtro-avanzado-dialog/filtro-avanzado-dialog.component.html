@@ -1,35 +1,39 @@
-<div mat-dialog-content class="mainContainer dark" [formGroup]="form"></div>
+<!--<div mat-dialog-content class="mainContainer dark" [formGroup]="form"></div>-->
 
     <h1 mat-dialog-title>Filtros avanzados</h1>
-    <app-chips-container></app-chips-container>
+    <app-chips-container #myChips [chipsAnteriores] = []></app-chips-container>
 
     <section class="direccion">
-        <mat-checkbox [(ngModel)]="checked">Originada en direccion de Transito</mat-checkbox>
+        <mat-checkbox [(ngModel)]="advSearch.Originadas_dirTransito">Originada en direccion de Transito</mat-checkbox>
     </section>
 
     <section>
       Intervenciones: 
-      <mat-radio-group>
-        <mat-radio-button class="example-margin" value="after">Con</mat-radio-button>
-        <mat-radio-button class="example-margin" value="before">Sin</mat-radio-button>
+      <mat-radio-group #Intervenciones_boton [(ngModel)]='advSearch.con_Intervenciones'>
+        <mat-radio-button class="example-margin" value="Con">Con</mat-radio-button>
+        <mat-radio-button class="example-margin" value="Sin">Sin</mat-radio-button>
       </mat-radio-group>
       <mat-form-field class="medium">
           <input matInput
               placeholder="Fechas"
               [satDatepicker]="picker"
-              formControlName="estadoDates">
+              [formControl]= "datesControl"
+              (change)="onDateChange()">
+              <!--formControlName="estadoDates"-->
               
           <sat-datepicker #picker 
               [rangeMode]="true"
-              [calendarFooterComponent]="rangesFooter"></sat-datepicker>
+              [calendarFooterComponent]="rangesFooter"
+               ></sat-datepicker>
           <sat-datepicker-toggle matSuffix [for]="picker"></sat-datepicker-toggle>
       </mat-form-field>
     </section>
 
   
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancelar</button>
-  <button mat-button [mat-dialog-close]="data.filtro" cdkFocusInitial>Buscar</button>
+  <button mat-stroked-button (click)="onNoClick()">Cancelar</button>
+  <!--agregar devuelta al botton de abajo ( [mat-dialog-close]="data.filtro" cdkFocusInitial)-->
+  <button mat-stroked-button (click)="BusquedaClick()">Buscar</button>
 </div>
 
 

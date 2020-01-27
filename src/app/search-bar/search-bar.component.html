@@ -15,39 +15,70 @@
    
 
     <mat-form-field class="short">
-        <input matInput placeholder="Numero" [textMask]="numberMask">
+        <input matInput placeholder="Numero" formControlName="Id_solicitud">
     </mat-form-field>
 
     <mat-form-field class="short">
-        <input matInput placeholder="Año" [textMask]="yearMask">
+        <input matInput placeholder="Año" [textMask]="yearMask" formControlName="año">
     </mat-form-field>
 
     <mat-form-field class="large">
         <input matInput type="text" 
-            placeholder="Ubicacion" 
-            formControlName="ubicacion" 
+            placeholder="Ubicacion (min 4 letras)" 
+            formControlName="ubicacion"
+            autocapitalize="off"
+            autocomplete="off"
+            (input)="searchUbicaciones($event.target.value)" 
             [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-              {{ option }}
-            </mat-option>
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFunction">
+            <ng-container *ngFor="let dir of filteredDirecciones">
+                <ng-container *ngIf="dir.geometry; else notPoint">
+                    <mat-option class="optionPunto" [value]=dir>
+                        <div class="punto">
+                            <p>{{dir.properties.name}}</p>
+                            <p *ngIf="dir.properties.subtipo != 'DIRECCIÓN'; else direccion" class="dir">{{dir.properties.direccion}}</p>
+                            <ng-template #direccion>
+                                <p class="dir">{{dir.properties.subtipo}}</p>
+                            </ng-template>
+                        </div>
+                        <mat-divider></mat-divider>
+                        <!--Soy un punto-->
+                    </mat-option>
+                </ng-container>
+                <ng-template #notPoint>
+                    <mat-option class="optionPunto" [value]="dir">
+                        <div class="punto">
+                            <p>{{dir.properties.name}}</p>
+                            <p class="dir">{{dir.properties.subtipo}}</p>
+                            <ng-container *ngFor="let altura of dir.properties.rangosAltura">
+                                <div class="altura">
+                                    <p>{{altura.alturaDesde}} - {{altura.alturaHasta}} </p>
+                                    <p *ngIf="altura.bis" > BIS </p>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <mat-divider></mat-divider>
+                        <!--No soy un punto-->
+                    </mat-option>
+                </ng-template>
+            </ng-container>
          </mat-autocomplete>
     </mat-form-field>
 
     <mat-form-field class="short">
-        <input matInput type="text" placeholder="Radio" maxlength=4>
+        <input matInput type="text" placeholder="Radio" maxlength=4 formControlName="radio">
     </mat-form-field>
 
     <mat-form-field class="large">
-        <input matInput placeholder="Solicitante" [textMask]="numberMask">
+        <input matInput placeholder="Solicitante" formControlName="Id_solicitante">
     </mat-form-field>
     <div class="boton">
         <div class="filtrar">
             <button mat-button (click)="openDialog()"> <i class="fsua fsua-filtrar fsua-1_5x" style="color: #f7f7f8"> </i></button>
         </div>
 
-        <div class="search-button">
-            <button mat-raised-button  color= "accent"><mat-icon style="color: inherit;" >search</mat-icon></button>
+        <div class="serch-button">
+            <button mat-raised-button (click)="sendInfo()" color= "accent"><mat-icon style="color: inherit;" >search</mat-icon></button>
         </div> 
     </div>
 </div>

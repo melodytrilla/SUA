@@ -50,6 +50,8 @@ import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import * as _ from 'lodash';
 import { SideBarLoginComponent } from './side-bar-login/side-bar-login.component';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { BusquedaService } from './busqueda.service';
+import { CartaInfoComponent } from './carta-info/carta-info.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +77,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     EstadisticasComponent,
     ListadoComponent,
     MapaComponent,
-    SideBarLoginComponent
+    SideBarLoginComponent,
+    CartaInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -110,7 +113,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     NgxSpinnerModule,
   ],
   entryComponents: [DateRangePicker, FiltroAvanzadoDialogComponent],
-  providers: [{ provide: LOCALE_ID, useValue: "es-AR" }],
+  providers: [{ provide: LOCALE_ID, useValue: "es-AR" }, BusquedaService],
   bootstrap: [AppComponent],
 
 })

@@ -20,7 +20,8 @@
         <button *ngIf="!searchBoxVisible" mat-chip class="add" (click)="showSearch()">Agregar +</button>
 
         <div *ngIf="searchBoxVisible">
-            <input matInput  #search 
+            <input matInput  #search
+                #trigger = "matAutocompleteTrigger"
                 id="search"
                 placeholder = "Agregar"
                 autocapitalize="off"
@@ -31,14 +32,29 @@
                 [matChipInputAddOnBlur] = "addOnBlur"
                 [matAutocomplete]="auto"/>
 
-            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-                <mat-optgroup *ngFor="let group of filteredOptions | async" [label]="group.categoria" >
-                    <ng-container *ngFor="let option of filteredOptions | async">
-                        <mat-option *ngIf= "option.categoria == group.categoria" [value]="option">
+            <!--(optionSelected)="selected($event)" recordatorio volver a ponner en autocomplete si no funciona-->
+            <mat-autocomplete #auto="matAutocomplete" >
+                <ng-container *ngFor="let categoria of filteredCategories">
+                    <mat-option  class="labelOpcion" [value]="categoria" (click)="getAllCategoria(categoria); trigger.closePanel()">
+                        {{categoria}}
+                    </mat-option>
+
+                    <ng-container *ngFor="let option of filteredOptions">
+                        <mat-option class="subOpcion" [value]="option" *ngIf= "option.categoria == categoria" (click) = "selected(option)">
+                            {{ option.descripcion }}
+                        </mat-option>
+                    </ng-container>
+
+                </ng-container>
+                <!--
+                <mat-optgroup *ngFor="let categoria of filteredCategories" [label]="categoria" (click)="getAllCategoria(categoria); trigger.closePanel()">
+                    <ng-container *ngFor="let option of filteredOptions">
+                        <mat-option *ngIf= "option.categoria == categoria" [value]="option">
                             {{ option.descripcion }}
                         </mat-option>
                     </ng-container>
                 </mat-optgroup>
+            -->
             </mat-autocomplete>
         </div>
     </div>

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Chip } from './chips-container/chips-container.component';
+import { Chip, ChipsContainerComponent } from './chips-container/chips-container.component';
+import { element } from 'protractor';
 
 
 @Injectable({
@@ -9,14 +10,61 @@ import { Chip } from './chips-container/chips-container.component';
 })
 export class FiltersService {
 
-  apiURL = "http://localhost:3000"
   otherURL = "http://localhost:4000"
   constructor(private httpClient: HttpClient) { }
 
-  //Obtiene los datos del banner del dashboard
-  getNewFilters(searchValue: string): Observable<Chip[]>{
-    return this.httpClient.get<Chip[]>(
-      `${this.otherURL}/Categorias?main=${searchValue}`
-    );
+  private _todasSubcategorias: Chip[] = [];
+
+  private _savedChips: Chip[] = [];
+
+  //Obtiene los datos del Json
+  getNewFilters(): void{
+    this._todasSubcategorias = [];
+    this.httpClient.get<Chip[]>(
+      `${this.otherURL}/Categorias`).subscribe(
+        categorias => {
+          this._todasSubcategorias = this._todasSubcategorias.concat(categorias);
+        }
+      );
+  }
+
+  get todasSubcategorias(): Chip[]{
+    return this._todasSubcategorias;
+  }
+
+  filteredByCategorias( value: string):Chip[]{
+    return this.todasSubcategorias.filter(chip => chip.categoria == value)
+  }
+
+  //funcion que devuelve una lista de chips filtrados 
+  filteredSubCategorias( value: string):Chip[]{
+    return this.todasSubcategorias.filter(chip => this.filterfunction(chip, value));
+  }
+
+  //funcion para filtrar entre las categorias busca por categoria sub categoria tipo y etiquetas
+  private filterfunction( chip: Chip, value: string):boolean{
+    let valuesArray = value.split(" ");
+    valuesArray = valuesArray.filter( palabra => palabra != "");
+ 
+    if(valuesArray.length == 0){
+      return true;
+    }
+
+    for (let index = 0; index < valuesArray.length; index++) {
+      if(chip.etiquetas.toLocaleLowerCase().includes(valuesArray[index].toLocaleLowerCase()) || chip.descripcion_ext.toLocaleLowerCase().includes(valuesArray[index].toLocaleLowerCase())){
+        return true;
+      }
+    }
+    return false;
+    
+  }
+
+  //interaccion con los cips guardados
+  get savedChips(): Chip[]{
+    return this._savedChips;
+  }
+
+  set savedChips( newChips: Chip[]){
+    this._savedChips = newChips;
   }
 }

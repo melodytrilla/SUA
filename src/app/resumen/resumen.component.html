@@ -34,10 +34,13 @@
   <div id="firstHalf">
     <mat-grid-list cols="2" rows="9" rowHeight="60px">
       <mat-grid-tile [colspan] =2 [rowspan] =2> 
+        <app-carta-info cardName="Solicitudes"></app-carta-info>
+       <!--
         <mat-card class="dashboard-card">
           <p id="cardTitle-center"> Solicitudes</p>
           <p id="cardContent-big"><b>13622</b></p>
         </mat-card>
+         -->
       </mat-grid-tile>
 
       <mat-grid-tile [colspan] =1 [rowspan] =5> 
@@ -55,31 +58,43 @@
       </mat-grid-tile>
 
       <mat-grid-tile [colspan] =1 [rowspan] =2> 
+        <app-carta-info cardName="Vecino con + solicitudes"></app-carta-info>
+        <!--
           <mat-card class="dashboard-card">
               <p id="cardTitle"> Vecino con + solicitudes</p>
               <h3 id="cardContent">95</h3>
           </mat-card>
+          -->
       </mat-grid-tile>
 
       <mat-grid-tile [colspan] =1 [rowspan] =2> 
+        <app-carta-info cardName="Agente con + solicitudes"></app-carta-info>
+        <!--
           <mat-card class="dashboard-card">
               <p id="cardTitle"> Agente con + solicitudes</p>
               <h3 id="cardContent">161</h3>
           </mat-card>
+          -->
       </mat-grid-tile>
 
-      <mat-grid-tile [colspan] =1 [rowspan] =2> 
+      <mat-grid-tile [colspan] =1 [rowspan] =2>
+        <app-carta-info cardName="Equipamiento con + solicitudes"></app-carta-info>
+        <!-- 
           <mat-card class="dashboard-card">
               <p id="cardTitle"> Equipamiento con + solicitudes</p>
               <h3 id="cardContent">30</h3>
           </mat-card>
+          -->
       </mat-grid-tile>
 
       <mat-grid-tile [colspan] =1 [rowspan] =2> 
+        <app-carta-info cardName="Solicitudes con equipamiento"></app-carta-info>
+        <!--
           <mat-card class="dashboard-card">
               <p id="cardTitle"> Solicitudes con equipamiento</p>
               <h3 id="cardContent">1752</h3>
           </mat-card>
+          -->
       </mat-grid-tile>
 
     </mat-grid-list>
