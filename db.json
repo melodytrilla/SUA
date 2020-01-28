@@ -31,8 +31,9 @@
       "_link": "http://localhost:8080/api/fuera-termino"
     }
   },
-  "reclamos": [
-    {
+  "reclamos": {
+    "total": 6457,
+    "valores":[{
       "id": 1,
       "icono": "fsua-alumbrado_publico",
       "name": "Lámpara apagada ó encendida",
@@ -62,9 +63,10 @@
       "name": "Semaforo roto",
       "details": 100
     }
-  ], 
-  "consultas" : [
-      {
+  ]}, 
+  "consultas" : {
+    "total": 7165,
+    "valores":[{
         "id": 1,
         "icono": "fsua-colectivos_urbanos",
         "name": "Consulta TUP",
@@ -94,7 +96,7 @@
         "name": "Otro item",
         "details": "10"
       }
-  ],
+  ]},
   "porEstado":[
     {
       "name": "Pendiente",

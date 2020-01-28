@@ -12,16 +12,18 @@ export class QueriesAndFormalitiesComponent implements OnInit {
   constructor(private solicitudeService: SolicitudesService) { }
 
   public items: any[];
+  public total: number = 0;
 
   ngOnInit() {
     this.solicitudeService.getTopConsultasTramites().subscribe(
       data => {
-        data.forEach(value =>{
+        this.total = data.total
+        data.valores.forEach(value =>{
           if(value.name.length > 60){
             value.name = value.name.substr(0, 57) + "...";
           }
         })
-        this.items = data
+        this.items = data.valores
       });
   }
 

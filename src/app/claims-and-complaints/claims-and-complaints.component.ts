@@ -10,18 +10,20 @@ export class ClaimsAndComplaintsComponent implements OnInit {
 
 constructor(private solicitudesService: SolicitudesService) { }
 
+public total: number = 0;
 public items: any[];
 
   ngOnInit() {
 
       this.solicitudesService.getTopReclamosDenuncias().subscribe(
         data => {
-          data.forEach(value =>{
+          this.total = data.total;
+          data.valores.forEach(value =>{
             if(value.name.length > 60){
               value.name = value.name.substr(0, 57) + "...";
             }
           })
-          this.items = data
+          this.items = data.valores
         });
   }
 
