@@ -17,13 +17,13 @@
             <mat-icon matChipRemove>cancel</mat-icon>
         </mat-chip>
     <div>
-        <button *ngIf="!searchBoxVisible" mat-chip class="add" (click)="showSearch()">Agregar +</button>
+        <button *ngIf="!searchBoxVisible" mat-chip class="add" (click)="showSearch()">Agregar + (min 4 letras)</button>
 
         <div *ngIf="searchBoxVisible">
             <input matInput  #search
                 #trigger = "matAutocompleteTrigger"
                 id="search"
-                placeholder = "Agregar"
+                placeholder = "Agregar (min 4 letras)"
                 autocapitalize="off"
                 autocomplete="off"
                 (input)="onSearchChange($event.target.value)"
