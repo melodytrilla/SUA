@@ -1,6 +1,7 @@
 <!--<div mat-dialog-content class="mainContainer dark" [formGroup]="form"></div>-->
 
     <h1 mat-dialog-title>Filtros avanzados</h1>
+    <!--
     <app-chips-container #myChips [chipsAnteriores] = []></app-chips-container>
 
     <section class="direccion">
@@ -19,7 +20,6 @@
               [satDatepicker]="picker"
               [formControl]= "datesControl"
               (change)="onDateChange()">
-              <!--formControlName="estadoDates"-->
               
           <sat-datepicker #picker 
               [rangeMode]="true"
@@ -29,7 +29,29 @@
       </mat-form-field>
     </section>
 
-  
+  -->
+
+  <mat-accordion>
+    <mat-expansion-panel (closed)="ActualizarDesc()" class="light" Id="principalPanel">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Titulo
+            </mat-panel-title>
+            <mat-panel-description>
+                {{descripcion}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div class="body">
+        <mat-form-field Id="inputField" style="color: black;">
+            <input matInput [(ngModel)]="inputDescripcion" placeholder="ingrese un texto">
+        </mat-form-field>
+        </div>
+        
+    </mat-expansion-panel>
+</mat-accordion>
+
+
 <div mat-dialog-actions>
   <button mat-stroked-button (click)="onNoClick()">Cancelar</button>
   <!--agregar devuelta al botton de abajo ( [mat-dialog-close]="data.filtro" cdkFocusInitial)-->

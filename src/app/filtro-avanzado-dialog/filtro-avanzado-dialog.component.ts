@@ -41,6 +41,16 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
   //usar un output para mandar el advSerch al padre
 
+  //variables para los paneles expansores
+  readonly default_descripcion: string = "esto es un descripcion temporal";
+  public descripcion: string = this.default_descripcion;
+  inputDescripcion="";
+
+  //Datos de busqueda ---------------------------------------------------
+  //-----Buasqueda Reporte ----------------------------------------------
+  reiteraciones: string;
+  tipos_reiteraciones: string[] = ["ambas", "con", "sin"];
+
   constructor(
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<FiltroAvanzadoDialogComponent>,
@@ -84,6 +94,11 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
       },
 
     });*/
+
+    //inicializacion de los paneles expansores
+    if(this.inputDescripcion != ""){
+      this.ActualizarDesc()
+    }
   }
 
   // cierra la ventana al apretar cancelar
@@ -120,5 +135,29 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 //cambios en los valores de el selector de fechas
   onDateChange(): void{
     console.log(this.datesControl.value);
+  }
+
+
+  //para actualizar la descripcion y color de los paneles expansores
+  ActualizarDesc(){
+    if(this.inputDescripcion != ""){
+      document.getElementById("principalPanel").style.animationName = "hasData"
+      document.getElementById("principalPanel").style.webkitAnimationName = "hasData"
+      document.getElementById("principalPanel").style.webkitAnimationDirection = "normal";
+      document.getElementById("principalPanel").classList.remove("light");
+      document.getElementById("principalPanel").classList.add("dark");
+      document.getElementById("inputField").style.color = "#ffffff";
+
+      this.descripcion = this.inputDescripcion;
+    }else{
+      if( document.getElementById("principalPanel").style.animationName == "hasData"){
+        document.getElementById("principalPanel").style.animationDirection = "reverse";
+        document.getElementById("principalPanel").style.webkitAnimationDirection = "reverse";
+        document.getElementById("principalPanel").classList.remove("dark");
+        document.getElementById("principalPanel").classList.add("light");
+        document.getElementById("inputField").style.color = "#000000"
+      }
+      this.descripcion = this.default_descripcion;
+    }
   }
 }

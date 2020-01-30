@@ -1,0 +1,31 @@
+<mat-accordion>
+    <mat-expansion-panel (closed)="ActualizarDesc()" class="dark" Id="principalPanel">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Reporte
+            </mat-panel-title>
+            <mat-panel-description>
+                {{descripcion}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-label style="color:White; margin-right: 2%;">Reiteraciones: </mat-label>
+        <mat-radio-group [(ngModel)] = "reiteraciones">
+            <mat-radio-button *ngFor="let tipo of tipos_reiteraciones" [value]="tipo" class="reiteracion">
+                {{tipo}}
+            </mat-radio-button>
+
+        </mat-radio-group>
+
+        <mat-form-field>
+            <mat-label>Prioridad:</mat-label>
+            <mat-select [(value)] = "opt_selected">
+                <mat-option>Todas</mat-option>
+                <mat-option value="Alta">Alta</mat-option>
+                <mat-option value="Media">Media</mat-option>
+                <mat-option value="Baja">Baja</mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+    </mat-expansion-panel>
+</mat-accordion>
