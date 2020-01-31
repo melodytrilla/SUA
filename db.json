@@ -1807,6 +1807,13 @@
       "titulo":"Solicitudes con equipamiento",
       "valor": 1752
     }
-  ]
+  ],
 
+  "Areas":[
+    "CIOR - Comunicación",
+    "CMD Centro - Inspección",
+    "CMD Sudoeste - Trámites Rápidos",
+    "Cementerio La Piedad",
+    "Dirección General de Defunciones y Cementerios"
+  ]
 }

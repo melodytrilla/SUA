@@ -6,6 +6,7 @@ import {DateRangePicker} from '../date-range-picker/date-range-picker.component'
 
 import { Chip, ChipsContainerComponent } from '../chips-container/chips-container.component';
 import { BusquedaService } from '../busqueda.service';
+import { SolicitudesService } from '../solicitudes.service';
 
 
 export interface AdvSearch{
@@ -70,10 +71,20 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
 
   //--------------------------------------------------------------------
+  
+  //-----Busqueda Area -------------------------------------------------
+  public descripcionArea:string = this.default_descripcion; 
+  area_areas:string[] = [];
+
+  area_origen:string = undefined;
+  area_destino:string = undefined;
+  area_reiteracion:string= undefined;
+  //--------------------------------------------------------------------
   constructor(
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<FiltroAvanzadoDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
+    private solicitud:SolicitudesService,
     private busqueda: BusquedaService) 
     {
 
@@ -273,6 +284,66 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
   //----------------------------------------------------------------------
 
+  //Para actualizar Area -------------------------------------------------
+
+  updateAutocomplete(value: string):void{
+    this.area_areas = [];
+    this.solicitud.getAreas().subscribe(result => 
+      this.area_areas = result.filter((area) => {
+      return (area.toLowerCase()).includes(value);
+    }))
+  }
+
+  ActualizarDescArea(){
+    this.inputDescripcion = this.InputADescripcionArea();
+
+    if(this.AreaCheck()){
+      this.turnOn("AreaPanel", "");
+
+      this.descripcionArea = this.inputDescripcion;
+    }else{
+      this.turnOff("AreaPanel", "")
+      
+      this.descripcionArea = this.inputDescripcion;
+    }
+  }
+
+  InputADescripcionArea():string{
+    let desc:string = "";
+    let cantDesc = 0;
+
+    if(this.area_origen){
+      desc = desc.concat("Origen: " + this.area_origen);
+      cantDesc += 1;
+    }
+
+
+    if(this.area_destino){
+      if(cantDesc > 0){
+        desc = desc.concat(", ");
+      }
+      desc = desc.concat("Destino: " + this.area_destino);
+    }
+
+
+    if(this.area_reiteracion){
+      if(cantDesc > 0){
+        desc = desc.concat(", ");
+      }
+      desc = desc.concat("Reiteracion: " + this.area_reiteracion);
+    }
+    return desc;
+  }
+
+  AreaCheck():boolean{
+    if(this.area_origen  || this.area_destino || this.area_reiteracion){
+      return true;
+    }
+    return false;
+  }
+
+  //---------------------------------------------------------------------
+
   //funciones para cambiar visualmente los paneles expansores-------------
   turnOn(panelId:string, fontId: string){
     document.getElementById(panelId).style.animationName = "hasData"
@@ -280,7 +351,9 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
       document.getElementById(panelId).style.webkitAnimationDirection = "normal";
       document.getElementById(panelId).classList.remove("light");
       document.getElementById(panelId).classList.add("dark");
-      document.getElementById(fontId).style.color = "#ffffff";
+      if(fontId != ""){
+        document.getElementById(fontId).style.color = "#ffffff";
+      }
   }
 
   turnOff(panelId:string, fontId: string){
@@ -289,7 +362,9 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
       document.getElementById(panelId).style.webkitAnimationDirection = "reverse";
       document.getElementById(panelId).classList.remove("dark");
       document.getElementById(panelId).classList.add("light");
-      document.getElementById(fontId).style.color = "#000000"
+      if(fontId != ""){
+        document.getElementById(fontId).style.color = "#000000";
+      }
     }
   }
   //----------------------------------------------------------------------------

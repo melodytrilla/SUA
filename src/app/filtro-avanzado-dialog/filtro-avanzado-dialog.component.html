@@ -123,6 +123,54 @@
             </div>
         </div>
     </mat-expansion-panel>
+    <!-- ----------------Areas------------------- -->
+    <mat-expansion-panel (closed)="ActualizarDescArea()" class="light every-panel" Id="AreaPanel">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Area
+            </mat-panel-title>
+            <mat-panel-description>
+                {{descripcionArea}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        
+        <div class="body">
+            <mat-form-field style="width: 25%;">
+                <mat-label>Area de Origen</mat-label>            
+                <input matInput [matAutocomplete] = "auto"
+                    (input)="updateAutocomplete($event.target.value)"
+                    (focus)="updateAutocomplete($event.target.value)"
+                    [(ngModel)]="area_origen"
+                    >
+
+                <mat-autocomplete #auto = "matAutocomplete">
+                    <mat-option> cualquiera </mat-option>
+                    <mat-divider></mat-divider>
+                    <div *ngFor = "let area of area_areas">
+                        <mat-option  [value]= area style="height:auto; display: flex; white-space: normal;line-height: 2;">
+                            {{area}}
+                        </mat-option>
+                        <mat-divider></mat-divider>
+                    </div>
+                </mat-autocomplete>
+            </mat-form-field>
+            <mat-form-field style="width: 25%;">
+                <mat-label>Area de Destino Actual</mat-label>            
+                <input matInput [matAutocomplete] = "auto"
+                    (input)="updateAutocomplete($event.target.value)"
+                    (focus)="updateAutocomplete($event.target.value)"
+                    [(ngModel)]="area_destino"
+                    >
+            </mat-form-field>
+            <mat-form-field style="width: 25%;">
+                <mat-label>Area de Reiteracion</mat-label>            
+                <input matInput [matAutocomplete] = "auto"
+                    (input)="updateAutocomplete($event.target.value)"
+                    [(ngModel)]="area_reiteracion"
+                    >
+            </mat-form-field>
+        </div>
+    </mat-expansion-panel>
 </mat-accordion>
 
 

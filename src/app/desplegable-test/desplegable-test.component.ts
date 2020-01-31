@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MatExpansionPanel } from '@angular/material';
+import { SolicitudesService } from '../solicitudes.service';
+
 
 @Component({
   selector: 'app-desplegable-test',
@@ -11,9 +13,11 @@ import { MatExpansionPanel } from '@angular/material';
 
 export class DesplegableTestComponent implements OnInit {
 
+  areas:string[] = [];
+
   readonly default_descripcion: string = "esto es un descripcion temporal";
 
-  constructor() { }
+  constructor(private solicitudesService: SolicitudesService) { }
 
   public descripcion: string = this.default_descripcion;
   inputDescripcion="";
@@ -26,6 +30,11 @@ export class DesplegableTestComponent implements OnInit {
 
   origenes:string[] = ["Telefonico", "Personal", "Facebook", "Twitter", "Contacto Web", "Nota/Expediente", "VVV", "MR", "Externo", "MR Movil", "Sensor", "Vecino Movil"]
   origenesSeleccionados:string[] = [];
+
+  //----------------------------------------------------
+  origen:string = "";
+  destino:string = "";
+  reiteracion:string="";
 
 
   ngOnInit() {
@@ -58,19 +67,11 @@ export class DesplegableTestComponent implements OnInit {
     return desc;
   }
 
-  agregarChipOrigen(origen:string):void{
-    if(this.origenesSeleccionados.length == 0){
-      this.origenesSeleccionados = this.origenesSeleccionados.concat(origen);
-    }else{
-      if(!this.origenesSeleccionados.includes(origen)){
-        this.origenesSeleccionados = this.origenesSeleccionados.concat(origen);
-      }  
-    }
-    //console.log(this.origenesSeleccionados);
-  } 
-
-  takeOut(elegido:string):void{
-    this.origenesSeleccionados = this.origenesSeleccionados.filter((elem) => {return elem != elegido});
-    //console.log(this.origenesSeleccionados);
+  updateAutocomplete(value: string):void{
+    this.areas = [];
+    this.solicitudesService.getAreas().subscribe(result => 
+      this.areas = result.filter((area) => {
+      return (area.toLowerCase()).includes(value);
+    }))
   }
 }

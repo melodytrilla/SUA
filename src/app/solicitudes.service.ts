@@ -78,4 +78,10 @@ export class SolicitudesService {
       `${this.apiURL}/datosVarios?titulo=${titulo}`
     )
   }
+
+  getAreas():Observable<string[]>{
+    return this.httpClient.get<string[]>(
+      `${this.apiURL}/Areas`
+      )
+  }
 }
