@@ -53,18 +53,20 @@ export class ChipsContainerComponent implements OnInit{
   }
 
   onSearchChange (searchValue: string): void {
-    //consige todas las opciones filtradas por las palabras buscadas
-    this.filteredOptions = this.filtersService.filteredSubCategorias(searchValue);
-    //console.log(this.filteredOptions);
+    if(searchValue.length >= 4){
+      //consige todas las opciones filtradas por las palabras buscadas
+      this.filteredOptions = this.filtersService.filteredSubCategorias(searchValue);
+      //console.log(this.filteredOptions);
 
-    //busca todas las diferentes categorias que se encontraron en esta busqueda
-    this.filteredCategories = [];
-    this.filteredOptions.forEach(chip =>{
-      if(this.filteredCategories.length == 0 || this.filteredCategories.every(palabra => palabra != chip.categoria)){
-        this.filteredCategories = this.filteredCategories.concat(chip.categoria);
-      }
-    });
-    //console.log(this.filteredCategories);
+      //busca todas las diferentes categorias que se encontraron en esta busqueda
+      this.filteredCategories = [];
+      this.filteredOptions.forEach(chip =>{
+        if(this.filteredCategories.length == 0 || this.filteredCategories.every(palabra => palabra != chip.categoria)){
+          this.filteredCategories = this.filteredCategories.concat(chip.categoria);
+        }
+      });
+      //console.log(this.filteredCategories);
+    }
   }
 
   //al seleccionar una categoria se le debuelve todos las subcategorias que pertenescan a ella
