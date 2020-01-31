@@ -10,7 +10,7 @@
   margin-right: 2%
 
 
-#principalPanel
+.every-panel
     background-color: #ffffff
     animation-name: none
     animation-duration: 0.5s
@@ -23,9 +23,23 @@
 
 .body
   padding: 0 24px 16px !important
+  display: flex
+  flex-direction: row
+  align-items: center
+  justify-content: space-between
 
 .mat-expansion-panel
   display: block !important
+
+.reiteracion
+    margin-right: 5%
+
+#inputField
+  float: left
+  width: auto
+  height: 100%
+  display: flex
+  flex-direction: row
 
 //animacion de los paneles
   @keyframes hasData

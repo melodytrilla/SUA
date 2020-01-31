@@ -32,22 +32,96 @@
   -->
 
   <mat-accordion>
-    <mat-expansion-panel (closed)="ActualizarDesc()" class="light" Id="principalPanel">
+      <!-- -------------Reporte--------------- -->
+    <mat-expansion-panel (closed)="ActualizarDescReporte()" class="light every-panel" Id="ReportePanel">
         <mat-expansion-panel-header>
             <mat-panel-title>
-                Titulo
+                Reporte
             </mat-panel-title>
             <mat-panel-description>
-                {{descripcion}}
+                {{descripcionReporte}}
             </mat-panel-description>
         </mat-expansion-panel-header>
 
         <div class="body">
-        <mat-form-field Id="inputField" style="color: black;">
-            <input matInput [(ngModel)]="inputDescripcion" placeholder="ingrese un texto">
-        </mat-form-field>
+            <div Id="inputField">
+                <mat-label style="margin-right: 2%;">Reiteraciones: </mat-label>
+                <mat-radio-group [(ngModel)] = "reiteraciones" style="display: flex;">
+                    <mat-radio-button *ngFor="let tipo of tipos_reiteraciones" [value]="tipo" class="reiteracion">
+                        {{tipo}}
+                    </mat-radio-button>
+                
+                </mat-radio-group>
+            </div>
+            
+
+            <mat-form-field style="margin-left: 5%">
+                <mat-label>Prioridad:</mat-label>
+                <mat-select [(value)] = "opt_selected">
+                    <mat-option>Todas</mat-option>
+                    <mat-option value="Alta">Alta</mat-option>
+                    <mat-option value="Media">Media</mat-option>
+                    <mat-option value="Baja">Baja</mat-option>
+                </mat-select>
+            </mat-form-field>
         </div>
         
+    </mat-expansion-panel>
+
+    <!-- -------------Clasificacion--------------- -->
+    <mat-expansion-panel (closed)="ActualizarDescCalificacion()" class="light every-panel" Id="CalifPanel">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Clasificacion
+            </mat-panel-title>
+            <mat-panel-description>
+                {{descripcionCalif}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div>
+            <app-chips-container #myChips [chipsAnteriores] = []></app-chips-container>
+        </div>
+        <mat-divider style="margin-bottom: 1%;"></mat-divider>
+        <div class="body">
+            <mat-form-field>
+                <mat-label>Tipo</mat-label>
+
+                <mat-select [(value)]="tipo">
+                    <mat-option> cualquiera</mat-option>
+                    <mat-option *ngFor="let elem of tipos" [value]="elem">  
+                        {{elem}}
+                    </mat-option>
+                </mat-select> 
+            </mat-form-field>
+
+            <div style="display: flex;" Id="CalifFont">
+                <mat-checkbox
+                [(ngModel)]="registroCheck"
+                style="margin-right: 8%;">
+                Registro
+                    
+                </mat-checkbox>
+
+                <mat-checkbox
+                [(ngModel)]="reiteracionCheck">
+                Reiteracion
+                    
+                </mat-checkbox>
+            </div>
+
+            <div style="max-width: 35%;">
+                <mat-form-field>
+                    <mat-label>Origen</mat-label>
+                    <mat-select>
+                        <mat-option (click)="agregarChipOrigen(origen)" *ngFor="let origen of origenes">{{origen}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-chip-list>
+                    <mat-chip *ngFor="let elegido of origenesSeleccionados" (click)="takeOut(elegido)"> {{elegido}}</mat-chip>
+                </mat-chip-list>
+            </div>
+        </div>
     </mat-expansion-panel>
 </mat-accordion>
 

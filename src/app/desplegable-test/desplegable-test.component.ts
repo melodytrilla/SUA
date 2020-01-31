@@ -18,11 +18,15 @@ export class DesplegableTestComponent implements OnInit {
   public descripcion: string = this.default_descripcion;
   inputDescripcion="";
 
+  tipos :string[]= ["Emergencia", "Suceso", "Reclamo", "Consulta", "Sugerencia", "Denuncia", "Tramite"]
+  tipo:string;
 
-  reiteraciones: string = "ambas";
-  tipos_reiteraciones: string[] = ["ambas", "con", "sin"];
+  registroCheck;
+  reiteracionCheck;
 
-  opt_selected;
+  origenes:string[] = ["Telefonico", "Personal", "Facebook", "Twitter", "Contacto Web", "Nota/Expediente", "VVV", "MR", "Externo", "MR Movil", "Sensor", "Vecino Movil"]
+  origenesSeleccionados:string[] = [];
+
 
   ngOnInit() {
       this.ActualizarDesc()
@@ -31,7 +35,7 @@ export class DesplegableTestComponent implements OnInit {
   ActualizarDesc(){
     this.inputDescripcion = this.InputADescripcion();
 
-    if(!(this.reiteraciones == "ambas" && this.opt_selected == undefined)){
+    if(this.inputDescripcion!=""){
       document.getElementById("principalPanel").style.animationName = "hasData"
       document.getElementById("principalPanel").style.webkitAnimationName = "hasData"
       document.getElementById("principalPanel").style.animationDirection = "normal";
@@ -50,20 +54,23 @@ export class DesplegableTestComponent implements OnInit {
   InputADescripcion(): string{
     let desc:string = "";
 
-    //reiteraciones
-    if(this.reiteraciones == "ambas"){
-      desc = desc.concat("con o sin reiteraciones. ");
-      
-    }else{
-      desc = desc.concat(this.reiteraciones + " reiteraciones. ");
-    }
-
-    if(this.opt_selected != undefined){
-      desc = desc.concat( "prioriedad " + this.opt_selected);
-    }else{
-      desc = desc.concat("cualquier prioriedad");
-    }
 
     return desc;
+  }
+
+  agregarChipOrigen(origen:string):void{
+    if(this.origenesSeleccionados.length == 0){
+      this.origenesSeleccionados = this.origenesSeleccionados.concat(origen);
+    }else{
+      if(!this.origenesSeleccionados.includes(origen)){
+        this.origenesSeleccionados = this.origenesSeleccionados.concat(origen);
+      }  
+    }
+    //console.log(this.origenesSeleccionados);
+  } 
+
+  takeOut(elegido:string):void{
+    this.origenesSeleccionados = this.origenesSeleccionados.filter((elem) => {return elem != elegido});
+    //console.log(this.origenesSeleccionados);
   }
 }

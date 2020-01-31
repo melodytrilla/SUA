@@ -43,14 +43,33 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
   //variables para los paneles expansores
   readonly default_descripcion: string = "esto es un descripcion temporal";
-  public descripcion: string = this.default_descripcion;
   inputDescripcion="";
 
   //Datos de busqueda ---------------------------------------------------
-  //-----Buasqueda Reporte ----------------------------------------------
-  reiteraciones: string;
+  //-----Busqueda Reporte ----------------------------------------------
+  public descripcionReporte: string = this.default_descripcion;
+  
+  reiteraciones: string = "ambas";
   tipos_reiteraciones: string[] = ["ambas", "con", "sin"];
 
+  opt_selected;
+
+  //--------------------------------------------------------------------
+
+  //-----Busqueda Clasificacion ----------------------------------------
+  public descripcionCalif:string = this.default_descripcion; 
+
+  tipos :string[]= ["Emergencia", "Suceso", "Reclamo", "Consulta", "Sugerencia", "Denuncia", "Tramite"]
+  tipo:string;
+
+  registroCheck;
+  reiteracionCheck;
+
+  origenes:string[] = ["Telefonico", "Personal", "Facebook", "Twitter", "Contacto Web", "Nota/Expediente", "VVV", "MR", "Externo", "MR Movil", "Sensor", "Vecino Movil"]
+  origenesSeleccionados:string[] = [];
+
+
+  //--------------------------------------------------------------------
   constructor(
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<FiltroAvanzadoDialogComponent>,
@@ -96,9 +115,8 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     });*/
 
     //inicializacion de los paneles expansores
-    if(this.inputDescripcion != ""){
-      this.ActualizarDesc()
-    }
+    this.ActualizarDescReporte();
+    this.ActualizarDescCalificacion();
   }
 
   // cierra la ventana al apretar cancelar
@@ -138,26 +156,144 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   }
 
 
-  //para actualizar la descripcion y color de los paneles expansores
-  ActualizarDesc(){
-    if(this.inputDescripcion != ""){
-      document.getElementById("principalPanel").style.animationName = "hasData"
-      document.getElementById("principalPanel").style.webkitAnimationName = "hasData"
-      document.getElementById("principalPanel").style.webkitAnimationDirection = "normal";
-      document.getElementById("principalPanel").classList.remove("light");
-      document.getElementById("principalPanel").classList.add("dark");
-      document.getElementById("inputField").style.color = "#ffffff";
+  //para actualizar la descripcion y color del panel reporte------------
+  ActualizarDescReporte(){
+    this.inputDescripcion = this.InputADescripcionReporte();
 
-      this.descripcion = this.inputDescripcion;
+    if(!(this.reiteraciones == "ambas" && this.opt_selected == undefined)){
+      this.turnOn("ReportePanel", "inputField");
+
+      this.descripcionReporte = this.inputDescripcion;
     }else{
-      if( document.getElementById("principalPanel").style.animationName == "hasData"){
-        document.getElementById("principalPanel").style.animationDirection = "reverse";
-        document.getElementById("principalPanel").style.webkitAnimationDirection = "reverse";
-        document.getElementById("principalPanel").classList.remove("dark");
-        document.getElementById("principalPanel").classList.add("light");
-        document.getElementById("inputField").style.color = "#000000"
-      }
-      this.descripcion = this.default_descripcion;
+      this.turnOff("ReportePanel", "inputField")
+      
+      this.descripcionReporte = this.inputDescripcion;
     }
   }
+
+  //genera la nueva descripcion de reporte
+  InputADescripcionReporte(): string{
+    let desc:string = "";
+
+    //reiteraciones
+    if(this.reiteraciones == "ambas"){
+      desc = desc.concat("con o sin reiteraciones. ");
+      
+    }else{
+      desc = desc.concat(this.reiteraciones + " reiteraciones. ");
+    }
+
+    if(this.opt_selected != undefined){
+      desc = desc.concat( "prioriedad " + this.opt_selected);
+    }else{
+      desc = desc.concat("cualquier prioriedad");
+    }
+
+    return desc;
+  }
+  //----------------------------------------------------------------------
+
+  //para catualizar la Calificacion --------------------------------------
+
+  agregarChipOrigen(origen:string):void{
+    if(this.origenesSeleccionados.length == 0){
+      this.origenesSeleccionados = this.origenesSeleccionados.concat(origen);
+    }else{
+      if(!this.origenesSeleccionados.includes(origen)){
+        this.origenesSeleccionados = this.origenesSeleccionados.concat(origen);
+      }  
+    }
+    //console.log(this.origenesSeleccionados);
+  } 
+
+  takeOut(elegido:string):void{
+    this.origenesSeleccionados = this.origenesSeleccionados.filter((elem) => {return elem != elegido});
+    //console.log(this.origenesSeleccionados);
+  }
+
+  ActualizarDescCalificacion(){
+    this.inputDescripcion = this.InputADescripcionCalificacion();
+
+    if(this.CalificacionCheck()){
+      this.turnOn("CalifPanel", "CalifFont");
+
+      this.descripcionCalif = this.inputDescripcion;
+    }else{
+      this.turnOff("CalifPanel", "CalifFont")
+      
+      this.descripcionCalif = this.inputDescripcion;
+    }
+  }
+
+  CalificacionCheck():boolean{
+    if(this.myChips != undefined){
+      if(this.myChips.chipsLength() > 0){
+        return true;
+      }
+    }
+    if(this.tipo != undefined || this.origenesSeleccionados.length > 0){
+      return true;
+    }
+    
+    return false;
+  }
+
+  //genera la nueva descripcion de reporte
+  InputADescripcionCalificacion(): string{
+    let desc:string = "";
+
+    //reiteraciones
+    if(this.myChips != undefined){
+      if(this.myChips.chipsLength() > 0){
+        desc = desc.concat( "cantidad de filtros " + this.myChips.chipsLength() + ". ");
+      }
+    } 
+    if(this.tipo != undefined){
+      desc = desc.concat( "Tipo: " + this.tipo + " ");
+    }else{
+      desc = desc.concat("Cualquier tipo. ");
+    }
+
+    if(this.origenesSeleccionados.length > 0){
+      desc = desc.concat("Origen: " + this.origenesSeleccionados[0] + " ");
+      if(this.origenesSeleccionados.length > 1){
+        desc = desc.concat("+" + (this.origenesSeleccionados.length - 1));
+      }
+      if(this.registroCheck){
+        desc = desc.concat(" de Registro.");
+      }else{
+        if(this.reiteracionCheck){
+          desc = desc.concat(" de Reiteraciones.");
+        }
+      }
+    }
+
+    return desc;
+  }
+
+  //----------------------------------------------------------------------
+
+  //funciones para cambiar visualmente los paneles expansores-------------
+  turnOn(panelId:string, fontId: string){
+    document.getElementById(panelId).style.animationName = "hasData"
+      document.getElementById(panelId).style.webkitAnimationName = "hasData"
+      document.getElementById(panelId).style.webkitAnimationDirection = "normal";
+      document.getElementById(panelId).classList.remove("light");
+      document.getElementById(panelId).classList.add("dark");
+      document.getElementById(fontId).style.color = "#ffffff";
+  }
+
+  turnOff(panelId:string, fontId: string){
+    if( document.getElementById(panelId).style.animationName == "hasData"){
+      document.getElementById(panelId).style.animationDirection = "reverse";
+      document.getElementById(panelId).style.webkitAnimationDirection = "reverse";
+      document.getElementById(panelId).classList.remove("dark");
+      document.getElementById(panelId).classList.add("light");
+      document.getElementById(fontId).style.color = "#000000"
+    }
+  }
+  //----------------------------------------------------------------------------
+
+
+
 }

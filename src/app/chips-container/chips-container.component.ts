@@ -66,7 +66,11 @@ export class ChipsContainerComponent implements OnInit{
         }
       });
       //console.log(this.filteredCategories);
+    }else{
+      this.filteredOptions = [];
+      this.filteredCategories = [];
     }
+
   }
 
   //al seleccionar una categoria se le debuelve todos las subcategorias que pertenescan a ella
@@ -97,6 +101,10 @@ export class ChipsContainerComponent implements OnInit{
 
     this.chips = this.chips.filter( data => data.id_subtipo != chip.id_subtipo);
 
+    if(this.chips.length == 0){
+      this.filteredOptions = [];
+      this.filteredCategories = [];
+    }
     /*
     var removeIndex = this.chips
       .map(function(item) { return item.id_subtipo; }).indexOf(chip.id_subtipo);
@@ -136,5 +144,9 @@ export class ChipsContainerComponent implements OnInit{
   guardarChips(): Chip[]{
     //this.eviarChips.emit(this.chips);
     return this.chips;
+  }
+
+  chipsLength():number{
+    return this.chips.length;
   }
 }
