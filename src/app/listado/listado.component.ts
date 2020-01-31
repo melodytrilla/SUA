@@ -3,6 +3,7 @@ import * as _ from 'lodash';
 import { SolicitudesItemsService } from '../solicitudes-items.service';
 import { stringToKeyValue } from '@angular/flex-layout/extended/typings/style/style-transforms';
 import * as moment from 'moment';
+import 'moment/locale/es';
 
 export interface Opcion {
   value: string;
@@ -31,7 +32,7 @@ export class ListadoComponent implements OnInit {
           if (value.descripcion.length > 50) {
             value.descripcion = value.descripcion.substr(0, 47) + "...";
           }
-
+          moment.locale('es');
           value.tiempo = moment([this.formato(value.fecha_hora_estado)], "YYYY, MM, DD, h, mm, ss").fromNow();
           value.tiempoInterv =moment([this.formato(value.fecha_hora_intervencion)], "YYYY, MM, DD, h, mm, ss").fromNow();
           value.tiempoMap =moment([this.formato(value.fecha_hora_asignacion)], "YYYY, MM, DD, h, mm, ss").fromNow();

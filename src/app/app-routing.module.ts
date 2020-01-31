@@ -13,6 +13,7 @@ import { ListadoComponent } from './listado/listado.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { MapaComponent } from './mapa/mapa.component';
 import { SideBarLoginComponent } from './side-bar-login/side-bar-login.component';
+import { MapComponent } from './map/map.component';
 
 const routes: Routes = [
   { path: '', component: ResumenComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'listado', component: ListadoComponent},
   { path: 'mapa', component: MapaComponent},
   {path: 'sidenavTest', component: SideBarLoginComponent},
+  {path: 'map', component: MapComponent}
 ];
 
 @NgModule({

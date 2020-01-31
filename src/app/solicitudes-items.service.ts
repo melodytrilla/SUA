@@ -10,9 +10,15 @@ export class SolicitudesItemsService {
   apiURL = "http://localhost:5000";
 
   constructor(private httpClient: HttpClient) { }
-  getSolicitudes(): Observable<any[]> {
-    return this.httpClient.get<any[]>(
+  getSolicitudes(): Observable<any> {
+    return this.httpClient.get<any>(
       `${this.apiURL}/solicitudes`
     )
   }
+  getSolic(): any {
+    return this.httpClient.get(
+      `${this.apiURL}/solicitudes`
+    )
+  }
+ 
 }

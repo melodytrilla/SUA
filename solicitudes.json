@@ -27,8 +27,8 @@
     "hora_ult_derivacion": "11:35",
     "fecha_hora_recepcion": "15/01/2020 11:36",
     "hora_recepcion": "11:36",
-    "coord_x": -32.3790974157222,
-    "coord_y": -60.54364200221464,
+    "coord_x": -32.9511072,
+    "coord_y": -60.6637368,
     "secretaria": "SECRETARIA DE AMBIENTE Y ESPACIO PUBLICO",
     "id_calle": 3689,
     "calle": "LAGOS OVIDIO",
@@ -65,7 +65,8 @@
     "cantMap": 1,
     "cantTel": 1,
     "cantLogo": 2,
-    "cantRiesgo": 0
+    "cantRiesgo": 0,
+    "imagen": "http://moron.enorsai.com.ar/upload/news/moron/56c49a3f38932_crop.JPG"
   },
   {
     "id": 4181,
@@ -94,8 +95,8 @@
     "hora_ult_derivacion": "09:18",
     "fecha_hora_recepcion": "16/01/2020 09:19",
     "hora_recepcion": "09:19",
-    "coord_x": 5436220.29879327,
-    "coord_y": 6355821.34979182,
+    "coord_x": -32.9384365,
+    "coord_y": -60.6818504,
     "secretaria": "SECRETARIA DE AMBIENTE Y ESPACIO PUBLICO",
     "id_calle": 3690,
     "calle": "VALPARAISO",
@@ -132,7 +133,8 @@
     "cantMap": 1,
     "cantTel": 2,
     "cantLogo": 0,
-    "cantRiesgo": 0
+    "cantRiesgo": 0,
+    "imagen": "https://i1.wp.com/transitocordoba.com/wp-content/uploads/2012/09/2012-05-22_07-37-57_852.jpg?resize=720%2C340&ssl=1"
   },
   {
     "id": 4182,
@@ -161,8 +163,8 @@
     "hora_ult_derivacion": "09:31",
     "fecha_hora_recepcion": "16/01/2020 09:32",
     "hora_recepcion": "09:32",
-    "coord_x": 5436305.310237439,
-    "coord_y": 6355229.360866504,
+    "coord_x": -32.9440316,
+    "coord_y": -60.6811332,
     "secretaria": "SECRETARIA DE AMBIENTE Y ESPACIO PUBLICO",
     "id_calle": 3691,
     "calle": "MENDOZA",
@@ -199,7 +201,8 @@
     "cantMap": 1,
     "cantTel": 2,
     "cantLogo": 1,
-    "cantRiesgo": 3
+    "cantRiesgo": 3,
+    "imagen": "http://moron.enorsai.com.ar/upload/news/moron/571f658475af5_crop.JPG"
   },
   {
     "id": 4183,
@@ -228,8 +231,8 @@
     "hora_ult_derivacion": "09:52",
     "fecha_hora_recepcion": "16/01/2020 09:52",
     "hora_recepcion": "09:52",
-    "coord_x": 5436174.924568053,
-    "coord_y": 6355849.91793057,
+    "coord_x": -32.9384574,
+    "coord_y": -60.682504,
     "secretaria": "SECRETARIA DE AMBIENTE Y ESPACIO PUBLICO",
     "id_calle": 3692,
     "calle": "PERON EVA",
@@ -266,7 +269,8 @@
     "cantMap": 1,
     "cantTel": 1,
     "cantLogo": 2,
-    "cantRiesgo": 0
+    "cantRiesgo": 0,
+    "imagen": "http://www.construar.com.ar/wp-content/uploads/2018/04/Rosario-El-alumbrado-p%C3%BAblico-quedar%C3%A1-dividido-en-tres.png"
   },
   {
     "id": 4184,
@@ -295,8 +299,8 @@
     "hora_ult_derivacion": "",
     "fecha_hora_recepcion": "",
     "hora_recepcion": "",
-    "coord_x": 5442989.13309,
-    "coord_y": 6354323.25719,
+    "coord_x": -32.9384574,
+    "coord_y": -60.6637368,
     "secretaria": "SECRETARIA DE GOBIERNO",
     "id_calle": 0,
     "calle": "",
@@ -333,7 +337,8 @@
     "cantMap": 0,
     "cantTel": 2,
     "cantLogo": 2,
-    "cantRiesgo": 0
+    "cantRiesgo": 0,
+    "imagen": "https://www.rosario.gob.ar/web/sites/default/files/p1bahqshquirh1rqr71aor9onf5_0.jpg"
   },
   {
     "id": 4185,
@@ -362,8 +367,8 @@
     "hora_ult_derivacion": "09:46",
     "fecha_hora_recepcion": "21/01/2020 09:50",
     "hora_recepcion": "09:50",
-    "coord_x": 5435216.607784645,
-    "coord_y": 6352814.462655302,
+    "coord_x": -32.9702025,
+    "coord_y": -60.6692159,
     "secretaria": "SECRETARIA DE AMBIENTE Y ESPACIO PUBLICO",
     "id_calle": 3693,
     "calle": "GARAY JUAN DE",
@@ -400,7 +405,8 @@
     "cantMap": 1,
     "cantTel": 4,
     "cantLogo": 0,
-    "cantRiesgo": 1
+    "cantRiesgo": 1,
+    "imagen":"http://www.lagomerin.uy/images/alumbrado-roto-lagomerin.jpg"
   },
   {
     "id": 4186,
@@ -429,8 +435,8 @@
     "hora_ult_derivacion": "09:48",
     "fecha_hora_recepcion": "21/01/2020 09:50",
     "hora_recepcion": "09:50",
-    "coord_x": 5434746.955502587,
-    "coord_y": 6353358.860855233,
+    "coord_x": -32.9702025,
+    "coord_y": -60.6692159,
     "secretaria": "SECRETARIA DE AMBIENTE Y ESPACIO PUBLICO",
     "id_calle": 3694,
     "calle": "LINIERS SANTIAGO A DE",
@@ -467,7 +473,8 @@
     "cantMap": 0,
     "cantTel": 1,
     "cantLogo": 2,
-    "cantRiesgo": 0
+    "cantRiesgo": 0,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR875f0tFTqPUVxxhTP2rxSX6BmcQLN0ZOhm9emVjARgMgD1Gfmng&s"
   },
   {
     "id": 4187,
@@ -496,8 +503,8 @@
     "hora_ult_derivacion": "09:49",
     "fecha_hora_recepcion": "21/01/2020 09:50",
     "hora_recepcion": "09:50",
-    "coord_x": 5434870.222327174,
-    "coord_y": 6353424.666770551,
+    "coord_x": -32.9702025,
+    "coord_y": -60.6632159,
     "secretaria": "SECRETARIA DE AMBIENTE Y ESPACIO PUBLICO",
     "id_calle": 3695,
     "calle": "LARREA JUAN",
@@ -534,7 +541,8 @@
     "cantMap": 0,
     "cantTel": 1,
     "cantLogo": 2,
-    "cantRiesgo": 1
+    "cantRiesgo": 1,
+    "imagen": "https://s3.amazonaws.com/tn-imagenes/venezuela/a3-Alumbrado1-1916965-333x250.jpg"
   },
   {
     "id": 4188,
@@ -563,8 +571,8 @@
     "hora_ult_derivacion": "10:16",
     "fecha_hora_recepcion": "",
     "hora_recepcion": "",
-    "coord_x": 5435628.150000034,
-    "coord_y": 6362234.259999947,
+    "coord_x": -32.9902025,
+    "coord_y": -60.6692159,
     "secretaria": "SECRETARIA DE GOBIERNO",
     "id_calle": 3696,
     "calle": "CARRASCO EUDORO",
@@ -601,7 +609,8 @@
     "cantMap": 0,
     "cantTel": 1,
     "cantLogo": 0,
-    "cantRiesgo": 0
+    "cantRiesgo": 0,
+    "imagen": "https://media.lacapital.com.ar/adjuntos/203/imagenes/019/167/0019167710.jpg"
   },
   {
     "id": 4189,
@@ -630,8 +639,8 @@
     "hora_ult_derivacion": "10:22",
     "fecha_hora_recepcion": "",
     "hora_recepcion": "",
-    "coord_x": 5438138.035592059,
-    "coord_y": 6354821.096317112,
+    "coord_x": -32.9706025,
+    "coord_y": -60.6692159,
     "secretaria": "SECRETARIA DE AMBIENTE Y ESPACIO PUBLICO",
     "id_calle": 3697,
     "calle": "CALLAO",
@@ -668,7 +677,8 @@
     "cantMap": 0,
     "cantTel": 1,
     "cantLogo": 2,
-    "cantRiesgo": 0
+    "cantRiesgo": 0,
+    "imagen": "https://pbs.twimg.com/media/DmS2or_W0AAI_6r.jpg"
   },
   {
     "id": 4190,
@@ -697,8 +707,8 @@
     "hora_ult_derivacion": "10:23",
     "fecha_hora_recepcion": "",
     "hora_recepcion": "",
-    "coord_x": 5438462.073468203,
-    "coord_y": 6355749.886366376,
+    "coord_x": -32.9702025,
+    "coord_y": -60.6692159,
     "secretaria": "SECRETARIA DE AMBIENTE Y ESPACIO PUBLICO",
     "id_calle": 3698,
     "calle": "RODRIGUEZ MARTIN",
@@ -735,7 +745,8 @@
     "cantMap": 0,
     "cantTel": 1,
     "cantLogo": 2,
-    "cantRiesgo": 2
+    "cantRiesgo": 2,
+    "imagen": "http://laopcion.com.mx/assets/2014/july/12/big/alumbradoup.jpg"
   },
   {
     "id": 4191,
@@ -764,8 +775,8 @@
     "hora_ult_derivacion": "10:26",
     "fecha_hora_recepcion": "",
     "hora_recepcion": "",
-    "coord_x": 5441242.048148409,
-    "coord_y": 6354737.957898675,
+    "coord_x": -32.9702025,
+    "coord_y": -60.6692159,
     "secretaria": "SECRETARIA DE AMBIENTE Y ESPACIO PUBLICO",
     "id_calle": 3699,
     "calle": "BELGRANO GRAL. MANUEL",
@@ -802,7 +813,8 @@
     "cantMap": 1,
     "cantTel": 1,
     "cantLogo": 2,
-    "cantRiesgo": 0
+    "cantRiesgo": 0,
+    "imagen": "http://1.bp.blogspot.com/-pv0AeB5lt5E/UB-UfFegHXI/AAAAAAAAHIw/I_7jm4jGJI0/s1600/ALUMBRADO+ROTO.jpg"
   },
   {
     "id": 4192,
@@ -831,8 +843,8 @@
     "hora_ult_derivacion": "10:27",
     "fecha_hora_recepcion": "",
     "hora_recepcion": "",
-    "coord_x": 5438415.703414601,
-    "coord_y": 6356166.513247145,
+    "coord_x": -32.9702025,
+    "coord_y": -60.6692159,
     "secretaria": "SECRETARIA DE AMBIENTE Y ESPACIO PUBLICO",
     "id_calle": 3700,
     "calle": "CALLAO",
@@ -869,7 +881,8 @@
     "cantMap": 0,
     "cantTel": 0,
     "cantLogo": 0,
-    "cantRiesgo": 0
+    "cantRiesgo": 0,
+    "imagen": "http://www.lagomerin.com.uy/images/alumbrado-roto-lagomerin.jpg"
   },
   {
     "id": 4193,
@@ -898,8 +911,8 @@
     "hora_ult_derivacion": "10:28",
     "fecha_hora_recepcion": "",
     "hora_recepcion": "",
-    "coord_x": 5438248.58928458,
-    "coord_y": 6355354.119983433,
+    "coord_x": -32.9702025,
+    "coord_y": -60.6692159,
     "secretaria": "SECRETARIA DE AMBIENTE Y ESPACIO PUBLICO",
     "id_calle": 3701,
     "calle": "CALLAO",
@@ -936,7 +949,8 @@
     "cantMap": 0,
     "cantTel": 1,
     "cantLogo": 2,
-    "cantRiesgo": 0
+    "cantRiesgo": 0,
+    "imagen": "https://hoycanelones.com.uy/web/wp-content/uploads/2019/02/a-1-678x381.jpg"
   },
   {
     "id": 4194,
@@ -965,8 +979,8 @@
     "hora_ult_derivacion": "10:29",
     "fecha_hora_recepcion": "",
     "hora_recepcion": "",
-    "coord_x": 5436906.184570972,
-    "coord_y": 6354638.132018973,
+    "coord_x": -32.9702025,
+    "coord_y": -60.6692159,
     "secretaria": "SECRETARIA DE AMBIENTE Y ESPACIO PUBLICO",
     "id_calle": 3702,
     "calle": "SAN NICOLAS",
@@ -1003,7 +1017,8 @@
     "cantMap": 0,
     "cantTel": 3,
     "cantLogo": 1,
-    "cantRiesgo": 0
+    "cantRiesgo": 0,
+    "imagen": "https://cdn.lavoz.com.ar/sites/default/files/styles/width_1072/public/nota_periodistica/lampra.jpg"
   },
   {
     "id": 4195,
@@ -1032,8 +1047,8 @@
     "hora_ult_derivacion": "10:30",
     "fecha_hora_recepcion": "",
     "hora_recepcion": "",
-    "coord_x": 5436904.665393781,
-    "coord_y": 6355266.873288899,
+    "coord_x": -32.9702025,
+    "coord_y": -60.6692151,
     "secretaria": "SECRETARIA DE AMBIENTE Y ESPACIO PUBLICO",
     "id_calle": 3703,
     "calle": "SAN JUAN",
@@ -1070,7 +1085,8 @@
     "cantMap": 0,
     "cantTel": 1,
     "cantLogo": 0,
-    "cantRiesgo": 0
+    "cantRiesgo": 0,
+    "imagen": "https://static.treslineas.com.ar/foto/nota-1456516-admiten-alumbrado-publico-permanece-apagado-793845.jpg?imgres=400x0x80"
   }
 ]
 }

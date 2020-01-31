@@ -52,6 +52,7 @@ import { SideBarLoginComponent } from './side-bar-login/side-bar-login.component
 import { NgxSpinnerModule } from "ngx-spinner";
 import { BusquedaService } from './busqueda.service';
 import { CartaInfoComponent } from './carta-info/carta-info.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { CartaInfoComponent } from './carta-info/carta-info.component';
     ListadoComponent,
     MapaComponent,
     SideBarLoginComponent,
-    CartaInfoComponent
+    CartaInfoComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

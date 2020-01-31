@@ -3,7 +3,9 @@
    crossorigin=""/>
 <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-   crossorigin=""></script>
+   crossorigin=""></script>   
+<script src="proj4.js"></script>
+<script src="proj4leaflet.js"></script>
 <app-global-nav-bar></app-global-nav-bar>
 <app-navbar></app-navbar>
 <div class="topBar">
@@ -40,7 +42,7 @@
                                     </div>
                                     <div class="lowerPart">
                                         <div class="imageConteiner">
-                                            <img class="imageProperties" src={{solicitud.imagen}}>
+                                            <img class="imageProperties" src="{{solicitud.imagen}}">
                                         </div>
                                     </div>
                                 </div>
@@ -83,6 +85,6 @@
                 </div>
         </cdk-virtual-scroll-viewport>
     <div class="mapa">
-        <div id="map"></div>
+        <app-map></app-map>
     </div>
 </div>
