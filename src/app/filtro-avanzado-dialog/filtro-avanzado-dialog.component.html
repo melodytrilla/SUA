@@ -171,6 +171,64 @@
             </mat-form-field>
         </div>
     </mat-expansion-panel>
+    
+    <!-- ----------------Adjuntos------------------- -->
+    <mat-expansion-panel (closed)="ActualizarDescAdjunto()" class="light every-panel" Id="AdjuntoPanel">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Adjunto
+            </mat-panel-title>
+            <mat-panel-description>
+                {{descripcionAdjunto}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        
+        <div id="AdjuntoFont" class="body">
+            <section>
+                <mat-radio-group [(ngModel)]="tiene" (change)="checkEnable($event)">
+                    <mat-radio-button value="con"> Con</mat-radio-button>
+                    <mat-radio-button value="sin"> Sin</mat-radio-button>
+                    <mat-radio-button value="no"> No Seleccionado</mat-radio-button>
+                </mat-radio-group>
+            </section>
+
+            <section>
+                <mat-checkbox [disabled]="dis" [(ngModel)]="registro"> Registro/ Reiteracion</mat-checkbox>
+                <mat-checkbox [disabled]="dis" [(ngModel)]="intervencion"> Intervencion</mat-checkbox>
+                <mat-checkbox [disabled]="dis" [(ngModel)]="resolucion"> Resolucion</mat-checkbox>
+            </section>
+        </div>
+    </mat-expansion-panel>
+
+    <!-- ----------------Opiniones------------------- -->
+    <mat-expansion-panel (closed)="ActualizarDescOpinion()" class="light every-panel" Id="OpinionPanel">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Opinion
+            </mat-panel-title>
+            <mat-panel-description>
+                {{descripcionOpinion}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        
+        <div id="OpinionFont" class="body">
+            <section>
+                <mat-radio-group [(ngModel)]="tieneOp" (change)="checkEnableOp($event)">
+                    <mat-radio-button value="con"> Con</mat-radio-button>
+                    <mat-radio-button value="sin"> Sin</mat-radio-button>
+                    <mat-radio-button value="no"> No Seleccionado</mat-radio-button>
+                </mat-radio-group
+                >
+            </section>
+
+            <section>
+                <mat-checkbox [disabled]="disOp" [(ngModel)]="positivo"> Positiva</mat-checkbox>
+                <mat-checkbox [disabled]="disOp" [(ngModel)]="negativo"> Negativa</mat-checkbox>
+                <mat-checkbox [disabled]="disOp" [(ngModel)]="neutro"> Neutral</mat-checkbox>
+            </section>
+        </div>
+    </mat-expansion-panel>
+
 </mat-accordion>
 
 

@@ -36,6 +36,21 @@ export class DesplegableTestComponent implements OnInit {
   destino:string = "";
   reiteracion:string="";
 
+  //-------------------------------------------------------
+  dis: boolean= true;
+  tiene: string = "no";
+  registro: boolean = false;
+  intervencion: boolean = false;
+  resolucion: boolean = false;
+
+  checkEnable(event){
+    if(event.value == "no"){
+      this.dis = true;
+    }else{
+      this.dis = false;
+    }
+  }
+
 
   ngOnInit() {
       this.ActualizarDesc()
@@ -44,7 +59,7 @@ export class DesplegableTestComponent implements OnInit {
   ActualizarDesc(){
     this.inputDescripcion = this.InputADescripcion();
 
-    if(this.inputDescripcion!=""){
+    if(this.tiene != "no"){
       document.getElementById("principalPanel").style.animationName = "hasData"
       document.getElementById("principalPanel").style.webkitAnimationName = "hasData"
       document.getElementById("principalPanel").style.animationDirection = "normal";
@@ -63,15 +78,40 @@ export class DesplegableTestComponent implements OnInit {
   InputADescripcion(): string{
     let desc:string = "";
 
+    if(this.tiene == "no"){
+      desc = "no tiene adjuntos."
+    }else{
+      desc = desc.concat(this.tiene + "adjuntos en ");
+      let count = 0;
+      if(this.registro){
+        desc = desc.concat("Registro/ Reiteracion ");
+        count += 1;
+      }
+
+      if(this.intervencion){
+        if(count>0){
+          desc = desc.concat("y ")
+        }
+        desc = desc.concat("Intervencion ");
+      }
+
+      if(this.resolucion){
+        if(count>0){
+          desc = desc.concat("y ")
+        }
+        desc = desc.concat("Resolucion ");
+      }
+    }
+
 
     return desc;
   }
-
+/*
   updateAutocomplete(value: string):void{
     this.areas = [];
     this.solicitudesService.getAreas().subscribe(result => 
       this.areas = result.filter((area) => {
       return (area.toLowerCase()).includes(value);
     }))
-  }
+  }*/
 }

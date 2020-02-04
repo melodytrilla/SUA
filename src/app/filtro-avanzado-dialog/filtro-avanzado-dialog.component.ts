@@ -80,6 +80,26 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   area_destino:string = undefined;
   area_reiteracion:string= undefined;
   //--------------------------------------------------------------------
+  
+  //-----Busqueda Adjunto ----------------------------------------------
+  public descripcionAdjunto: string;
+  
+  dis: boolean= true;
+  tiene: string = "no";
+  registro: boolean = false;
+  intervencion: boolean = false;
+  resolucion: boolean = false;
+
+  //-----Busqueda Adjunto ----------------------------------------------
+  public descripcionOpinion: string;
+  
+  disOp: boolean= true;
+  tieneOp: string = "no";
+  positivo : boolean = false;
+  negativo: boolean = false;
+  neutro: boolean = false;
+
+  //--------------------------------------------------------------------
   constructor(
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<FiltroAvanzadoDialogComponent>,
@@ -128,6 +148,8 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     //inicializacion de los paneles expansores
     this.ActualizarDescReporte();
     this.ActualizarDescCalificacion();
+    this.ActualizarDescAdjunto();
+    this.ActualizarDescOpinion();
   }
 
   // cierra la ventana al apretar cancelar
@@ -304,7 +326,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     }else{
       this.turnOff("AreaPanel", "")
       
-      this.descripcionArea = this.inputDescripcion;
+      this.descripcionArea = this.default_descripcion;
     }
   }
 
@@ -340,6 +362,121 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
       return true;
     }
     return false;
+  }
+
+  //---------------------------------------------------------------------
+
+
+  //Para actualizar Adjuntos --------------------------------------------
+
+  checkEnable(event){
+    if(event.value == "no"){
+      this.dis = true;
+    }else{
+      this.dis = false;
+    }
+  }
+
+  ActualizarDescAdjunto(){
+    this.inputDescripcion = this.InputADescripcionAdjunto();
+
+    if(this.tiene != "no"){
+      this.turnOn("AdjuntoPanel", "AdjuntoFont");
+
+      this.descripcionAdjunto = this.inputDescripcion;
+    }else{
+      this.turnOff("AdjuntoPanel", "AdjuntoFont")
+      
+      this.descripcionAdjunto = this.inputDescripcion;
+    }
+  }
+
+  InputADescripcionAdjunto(): string{
+    let desc:string = "";
+
+    if(this.tiene == "no"){
+      desc = "no busca por adjuntos."
+    }else{
+      desc = desc.concat(this.tiene + " adjuntos en ");
+      let count = 0;
+      if(this.registro){
+        desc = desc.concat("Registro/ Reiteracion ");
+        count += 1;
+      }
+
+      if(this.intervencion){
+        if(count>0){
+          desc = desc.concat("y ")
+        }
+        desc = desc.concat("Intervencion ");
+        count += 1;
+      }
+
+      if(this.resolucion){
+        if(count>0){
+          desc = desc.concat("y ")
+        }
+        desc = desc.concat("Resolucion ");
+      }
+    }
+    return desc;
+  }
+
+  //---------------------------------------------------------------------
+
+  //Para actualizar Opiniones --------------------------------------------
+
+  checkEnableOp(event){
+    if(event.value == "no"){
+      this.disOp = true;
+    }else{
+      this.disOp = false;
+    }
+  }
+
+  ActualizarDescOpinion(){
+    this.inputDescripcion = this.InputADescripcionOpinion();
+
+    if(this.tieneOp != "no"){
+      this.turnOn("OpinionPanel", "OpinionFont");
+
+      this.descripcionOpinion = this.inputDescripcion;
+    }else{
+      this.turnOff("OpinionPanel", "OpinionFont")
+      
+      this.descripcionOpinion = this.inputDescripcion;
+    }
+  }
+
+  InputADescripcionOpinion(): string{
+    let desc:string = "";
+
+    if(this.tieneOp == "no"){
+      desc = "no busca por Opiniones."
+    }else{
+      desc = desc.concat(this.tieneOp + " opiniones ");
+      let count = 0;
+      if(this.positivo){
+        desc = desc.concat("positivas ");
+        count += 1;
+      }
+
+      if(this.negativo){
+        if(count>0){
+          desc = desc.concat("y ")
+        }
+        desc = desc.concat("negativas ");
+        count += 1;
+      }
+
+      if(this.neutro){
+        if(count>0){
+          desc = desc.concat("y ")
+        }
+        desc = desc.concat("neutras ");
+      }
+    }
+    return desc;
   }
 
   //---------------------------------------------------------------------
