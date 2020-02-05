@@ -14,7 +14,7 @@ $my-theme-theme:mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-w
 
 //este es el dark solo lo uso para que el searchbar tenga letra blanca
 $darkTheme-primary: mat-palette($mat-yellow, 700, 300, 900);
-$darkTheme-accent: mat-palette($mat-blue, 600, 200, 900);
+$darkTheme-accent: mat-palette($mat-green, 600, 200, 900);
 
 $darkTheme-warn: mat-palette($mat-red);
 

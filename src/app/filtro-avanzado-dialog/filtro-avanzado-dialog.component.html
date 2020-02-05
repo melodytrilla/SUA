@@ -35,7 +35,7 @@
       <!-- -------------Reporte--------------- -->
     <mat-expansion-panel (closed)="ActualizarDescReporte()" class="light every-panel" Id="ReportePanel">
         <mat-expansion-panel-header>
-            <mat-panel-title>
+            <mat-panel-title class="titulo">
                 Reporte
             </mat-panel-title>
             <mat-panel-description>
@@ -71,7 +71,7 @@
     <!-- -------------Clasificacion--------------- -->
     <mat-expansion-panel (closed)="ActualizarDescCalificacion()" class="light every-panel" Id="CalifPanel">
         <mat-expansion-panel-header>
-            <mat-panel-title>
+            <mat-panel-title class="titulo">
                 Clasificacion
             </mat-panel-title>
             <mat-panel-description>
@@ -118,7 +118,12 @@
                 </mat-form-field>
 
                 <mat-chip-list>
-                    <mat-chip *ngFor="let elegido of origenesSeleccionados" (click)="takeOut(elegido)"> {{elegido}}</mat-chip>
+                    <mat-chip *ngFor="let elegido of origenesSeleccionados"
+                        [removable]=true [selectable]=true 
+                        color="primary" (removed)="takeOut(elegido)"> 
+                            {{elegido}}
+                            <mat-icon matChipRemove>cancel</mat-icon>
+                        </mat-chip>
                 </mat-chip-list>
             </div>
         </div>
@@ -126,7 +131,7 @@
     <!-- ----------------Areas------------------- -->
     <mat-expansion-panel (closed)="ActualizarDescArea()" class="light every-panel" Id="AreaPanel">
         <mat-expansion-panel-header>
-            <mat-panel-title>
+            <mat-panel-title class="titulo">
                 Area
             </mat-panel-title>
             <mat-panel-description>
@@ -175,7 +180,7 @@
     <!-- ----------------Adjuntos------------------- -->
     <mat-expansion-panel (closed)="ActualizarDescAdjunto()" class="light every-panel" Id="AdjuntoPanel">
         <mat-expansion-panel-header>
-            <mat-panel-title>
+            <mat-panel-title class="titulo">
                 Adjunto
             </mat-panel-title>
             <mat-panel-description>
@@ -203,7 +208,7 @@
     <!-- ----------------Opiniones------------------- -->
     <mat-expansion-panel (closed)="ActualizarDescOpinion()" class="light every-panel" Id="OpinionPanel">
         <mat-expansion-panel-header>
-            <mat-panel-title>
+            <mat-panel-title class="titulo">
                 Opinion
             </mat-panel-title>
             <mat-panel-description>
