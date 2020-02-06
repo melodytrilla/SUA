@@ -2,11 +2,13 @@ import { Component, OnInit, Inject, Input, ViewChild, ElementRef, ContentChild, 
 import { MatDialogRef, MAT_DIALOG_DATA, MatRadioGroup } from '@angular/material';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
+
 import {DateRangePicker} from '../date-range-picker/date-range-picker.component';
 
 import { Chip, ChipsContainerComponent } from '../chips-container/chips-container.component';
 import { BusquedaService } from '../busqueda.service';
-import { SolicitudesService } from '../solicitudes.service';
+import { SolicitudesService, Vecinal } from '../solicitudes.service';
 
 
 export interface AdvSearch{
@@ -90,7 +92,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   intervencion: boolean = false;
   resolucion: boolean = false;
 
-  //-----Busqueda Adjunto ----------------------------------------------
+  //-----Busqueda Opinion ----------------------------------------------
   public descripcionOpinion: string;
   
   disOp: boolean= true;
@@ -99,6 +101,21 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   negativo: boolean = false;
   neutro: boolean = false;
 
+  //--------------------------------------------------------------------
+
+  //-----Busqueda Distrito ----------------------------------------------
+  @ViewChild('search', {static: false}) searchElement: ElementRef;
+
+  descripcionDistrito:string = "";
+
+  filteredDistritos: string[] = [];
+  filteredVecinales: Vecinal[] = [];
+
+  chipVecinales: Vecinal[] = [];
+
+  separatorKeys: number[] = [ENTER, COMMA];
+
+  
   //--------------------------------------------------------------------
   constructor(
     private formBuilder: FormBuilder,
@@ -144,6 +161,9 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
       },
 
     });*/
+
+    this.solicitud.getAllVecinales();
+
 
     //inicializacion de los paneles expansores
     this.ActualizarDescReporte();
@@ -479,6 +499,76 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     return desc;
   }
 
+  //---------------------------------------------------------------------
+
+  //Para actualizar Distrito --------------------------------------------
+  onChange(searchValue: string):void{
+    if(searchValue.length > 2){
+
+      //this.filteredVecinales = this.solicitudesService.getVecinales();
+      //this.filteredDistritos = this.solicitudesService.getDistritos();
+
+      this.filteredVecinales = this.solicitud.filteredVecinalesSearch(searchValue);
+      this.filteredDistritos = this.solicitud.filterdeDistritosSearch(searchValue, this.filteredVecinales);
+
+
+    }else{
+      this.filteredDistritos = [];
+      this.filteredVecinales = [];
+    }
+  }
+
+  remove(vecinal: Vecinal):void{
+    this.chipVecinales = this.chipVecinales.filter(valor => valor.nombre != vecinal.nombre);
+  }
+
+  selecVecinal( vecinal:Vecinal):void{
+    if(this.chipVecinales.every(value => value.nombre != vecinal.nombre)){
+      this.chipVecinales.push(vecinal);
+    }
+
+    this.searchElement.nativeElement.value = "";
+    this.filteredDistritos = [];
+    this.filteredVecinales = [];
+
+  }
+
+  selecDistrito(distrito: string):void{
+    let temp = this.solicitud.getVecinales().filter(vecinal => vecinal.distrito == distrito);
+
+    temp.forEach(vecinal => {
+      if(this.chipVecinales.every(chip => chip.nombre != vecinal.nombre)){
+        this.chipVecinales.push(vecinal);
+      }
+    });
+
+
+    this.searchElement.nativeElement.value = "";
+    this.filteredDistritos = [];
+    this.filteredVecinales = [];
+
+  }
+
+  InputADescripcionDistirto(){
+    let desc:string = "se filtra por " + this.chipVecinales.length + " distritos";
+
+
+    return desc;
+  }
+
+  ActualizarDescDistrito(){
+    this.inputDescripcion = this.InputADescripcionDistirto();
+
+    if(this.chipVecinales.length > 0){
+      this.turnOn("DistritoPanel", "");
+
+      this.descripcionDistrito = this.InputADescripcionDistirto();
+    }else{
+      this.turnOff("DistritoPanel", "")
+      
+      this.descripcionDistrito = "no se filtra por Distritos";
+    }
+  }
   //---------------------------------------------------------------------
 
   //funciones para cambiar visualmente los paneles expansores-------------

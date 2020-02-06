@@ -2,27 +2,56 @@
     <mat-expansion-panel (closed)="ActualizarDesc()" class="dark" Id="principalPanel">
         <mat-expansion-panel-header>
             <mat-panel-title>
-                Adjuntos
+                Distrito
             </mat-panel-title>
             <mat-panel-description>
                 {{descripcion}}
             </mat-panel-description>
         </mat-expansion-panel-header>
         <div style="display: flex; justify-content: space-between;">
-            <section>
-                <mat-radio-group [(ngModel)]="tiene" (change)="checkEnable($event)">
-                    <mat-radio-button value="con"> Con</mat-radio-button>
-                    <mat-radio-button value="sin"> Sin</mat-radio-button>
-                    <mat-radio-button value="no"> No Seleccionado</mat-radio-button>
-                </mat-radio-group
-                >
-            </section>
+            <div style="flex-grow: 1;">
+                <mat-form-field style="width:300px">
+                    <input matInput #search
+                        placeholder = "Vecinal"
+                        [matAutocomplete]="auto"
+                        [matChipInputFor]="showVecinales"
+                        [matChipInputSeparatorKeyCodes] = "separatorKeys"
+                        [matChipInputAddOnBlur] = true
+                        [matAutocomplete]="auto"
+                        (input)="onChange($event.target.value)"
+                        >
+                </mat-form-field>
+                <mat-autocomplete #auto="matAutocomplete"> 
+                    <ng-container *ngFor="let distrito of filteredDistritos">
+                        <mat-option class="distritoOption" [value]="distrito" (click)="selecDistrito(distrito)">
+                            {{distrito}}
+                        </mat-option>
 
-            <section>
-                <mat-checkbox [disabled]="dis" [(ngModel)]="registro"> Registro/ Reiteracion</mat-checkbox>
-                <mat-checkbox [disabled]="dis" [(ngModel)]="intervencion"> Intervencion</mat-checkbox>
-                <mat-checkbox [disabled]="dis" [(ngModel)]="resolucion"> Resolucion</mat-checkbox>
-            </section>
+                        <ng-container *ngFor="let vecinal of filteredVecinales">
+                            <mat-option class="vecinalOption" [value]="vecinal" *ngIf="vecinal.distrito == distrito" (click)="selecVecinal(vecinal)">
+                                {{vecinal.nombre}}
+                            </mat-option>
+                        </ng-container>
+                    </ng-container>
+                </mat-autocomplete>
+            </div>
+            <mat-divider [vertical]="true"></mat-divider>
+            <div style="flex-grow: 10;">
+                <mat-chip-list #showVecinales>
+                    <mat-chip *ngFor="let chip of chipVecinales"
+                        [removable]=true
+                        (removed)="remove(chip)"
+                        color="primary">
+                        <div class="chip">
+                            <h6 class="subtitulo">{{chip.distrito}}</h6>
+                            {{chip.nombre}}
+                        </div>
+                        <mat-icon matChipRemove>cancel</mat-icon>
+                    </mat-chip>
+                    
+                </mat-chip-list>
+            </div>
+               
         </div>
     </mat-expansion-panel>
 </mat-accordion>

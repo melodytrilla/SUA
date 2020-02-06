@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { MatExpansionPanel } from '@angular/material';
-import { SolicitudesService } from '../solicitudes.service';
+import { SolicitudesService, Vecinal } from '../solicitudes.service';
 
 
 @Component({
@@ -22,44 +23,30 @@ export class DesplegableTestComponent implements OnInit {
   public descripcion: string = this.default_descripcion;
   inputDescripcion="";
 
-  tipos :string[]= ["Emergencia", "Suceso", "Reclamo", "Consulta", "Sugerencia", "Denuncia", "Tramite"]
-  tipo:string;
-
-  registroCheck;
-  reiteracionCheck;
-
-  origenes:string[] = ["Telefonico", "Personal", "Facebook", "Twitter", "Contacto Web", "Nota/Expediente", "VVV", "MR", "Externo", "MR Movil", "Sensor", "Vecino Movil"]
-  origenesSeleccionados:string[] = [];
+  
 
   //----------------------------------------------------
-  origen:string = "";
-  destino:string = "";
-  reiteracion:string="";
+  @ViewChild('search', {static: false}) searchElement: ElementRef;
 
-  //-------------------------------------------------------
-  dis: boolean= true;
-  tiene: string = "no";
-  registro: boolean = false;
-  intervencion: boolean = false;
-  resolucion: boolean = false;
+  filteredDistritos: string[] = [];
+  filteredVecinales: Vecinal[] = [];
 
-  checkEnable(event){
-    if(event.value == "no"){
-      this.dis = true;
-    }else{
-      this.dis = false;
-    }
-  }
+  chipVecinales: Vecinal[] = [];
+
+  separatorKeys: number[] = [ENTER, COMMA];
+
+
 
 
   ngOnInit() {
+    this.solicitudesService.getAllVecinales();
       this.ActualizarDesc()
 
   }
   ActualizarDesc(){
     this.inputDescripcion = this.InputADescripcion();
 
-    if(this.tiene != "no"){
+    if(this.chipVecinales.length > 0){
       document.getElementById("principalPanel").style.animationName = "hasData"
       document.getElementById("principalPanel").style.webkitAnimationName = "hasData"
       document.getElementById("principalPanel").style.animationDirection = "normal";
@@ -71,40 +58,62 @@ export class DesplegableTestComponent implements OnInit {
         document.getElementById("principalPanel").style.animationDirection = "reverse";
         document.getElementById("principalPanel").style.webkitAnimationDirection = "reverse";
       }
-      this.descripcion = this.inputDescripcion;
+      this.descripcion = "no se busca por esta categoria.";
     }
   }
 
   InputADescripcion(): string{
-    let desc:string = "";
-
-    if(this.tiene == "no"){
-      desc = "no tiene adjuntos."
-    }else{
-      desc = desc.concat(this.tiene + "adjuntos en ");
-      let count = 0;
-      if(this.registro){
-        desc = desc.concat("Registro/ Reiteracion ");
-        count += 1;
-      }
-
-      if(this.intervencion){
-        if(count>0){
-          desc = desc.concat("y ")
-        }
-        desc = desc.concat("Intervencion ");
-      }
-
-      if(this.resolucion){
-        if(count>0){
-          desc = desc.concat("y ")
-        }
-        desc = desc.concat("Resolucion ");
-      }
-    }
+    let desc:string = "se filtra por " + this.chipVecinales.length + " distritos";
 
 
     return desc;
+  }
+
+  onChange(searchValue: string):void{
+    if(searchValue.length > 2){
+
+      //this.filteredVecinales = this.solicitudesService.getVecinales();
+      //this.filteredDistritos = this.solicitudesService.getDistritos();
+
+      this.filteredVecinales = this.solicitudesService.filteredVecinalesSearch(searchValue);
+      this.filteredDistritos = this.solicitudesService.filterdeDistritosSearch(searchValue, this.filteredVecinales);
+
+
+    }else{
+      this.filteredDistritos = [];
+      this.filteredVecinales = [];
+    }
+  }
+
+  remove(vecinal: Vecinal):void{
+    this.chipVecinales = this.chipVecinales.filter(valor => valor.nombre != vecinal.nombre);
+  }
+
+  selecVecinal( vecinal:Vecinal):void{
+    if(this.chipVecinales.every(value => value.nombre != vecinal.nombre)){
+      this.chipVecinales.push(vecinal);
+    }
+
+    this.searchElement.nativeElement.value = "";
+    this.filteredDistritos = [];
+    this.filteredVecinales = [];
+
+  }
+
+  selecDistrito(distrito: string):void{
+    let temp = this.solicitudesService.getVecinales().filter(vecinal => vecinal.distrito == distrito);
+
+    temp.forEach(vecinal => {
+      if(this.chipVecinales.every(chip => chip.nombre != vecinal.nombre)){
+        this.chipVecinales.push(vecinal);
+      }
+    });
+
+
+    this.searchElement.nativeElement.value = "";
+    this.filteredDistritos = [];
+    this.filteredVecinales = [];
+
   }
 /*
   updateAutocomplete(value: string):void{

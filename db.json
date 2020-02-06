@@ -1815,5 +1815,778 @@
     "CMD Sudoeste - Trámites Rápidos",
     "Cementerio La Piedad",
     "Dirección General de Defunciones y Cementerios"
+  ],
+
+  "Vecinales":[
+    {
+      "msLink": 85,
+      "numero": 19,
+      "nombre": "Parque Sur",
+      "distrito": "Sudoeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 51,
+      "numero": 28,
+      "nombre": "Pellegrini",
+      "distrito": "Oeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 27,
+      "numero": 105,
+      "nombre": "Vecinos Unidos",
+      "distrito": "Noroeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 97,
+      "numero": 22,
+      "nombre": "Barrio Magnano",
+      "distrito": "Sur",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 23,
+      "numero": 37,
+      "nombre": "Fisherton Este",
+      "distrito": "Noroeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 95,
+      "numero": 26,
+      "nombre": "Bernardo de Irigoyen",
+      "distrito": "Sur",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 26,
+      "numero": 91,
+      "nombre": "6 de Febrero",
+      "distrito": "Noroeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 6,
+      "numero": 47,
+      "nombre": "Barrio Rucci",
+      "distrito": "Norte",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 4,
+      "numero": 54,
+      "nombre": "Lomas de Alberdi",
+      "distrito": "Norte",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 88,
+      "numero": 59,
+      "nombre": "Las Delicias Centro",
+      "distrito": "Sudoeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 94,
+      "numero": 58,
+      "nombre": "Las Flores Este",
+      "distrito": "Sudoeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 24,
+      "numero": 75,
+      "nombre": "Las Flores",
+      "distrito": "Noroeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 40,
+      "numero": 39,
+      "nombre": "Fisherton R",
+      "distrito": "Noroeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 61,
+      "numero": 108,
+      "nombre": "Cacique Pedro Martínez",
+      "distrito": "Oeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 93,
+      "numero": 32,
+      "nombre": "17 de Agosto",
+      "distrito": "Sudoeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 82,
+      "numero": 98,
+      "nombre": "25 de Mayo",
+      "distrito": "Sudoeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 45,
+      "numero": 104,
+      "nombre": "Villa Urquiza Oeste",
+      "distrito": "Oeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 44,
+      "numero": 48,
+      "nombre": "Juan Pablo II",
+      "distrito": "Oeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 62,
+      "numero": 117,
+      "nombre": "23 de Febrero",
+      "distrito": "Oeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 99,
+      "numero": 79,
+      "nombre": "San Martín Sur",
+      "distrito": "Sur",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 52,
+      "numero": 21,
+      "nombre": "Barrio Parque",
+      "distrito": "Centro",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 73,
+      "numero": 44,
+      "nombre": "Hertz y La Bajada",
+      "distrito": "Sur",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 30,
+      "numero": 9,
+      "nombre": "Avellaneda",
+      "distrito": "Centro",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 38,
+      "numero": 83,
+      "nombre": "Stella Maris y Santa Rosa",
+      "distrito": "Noroeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 74,
+      "numero": 60,
+      "nombre": "Las Heras",
+      "distrito": "Sur",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 100,
+      "numero": 86,
+      "nombre": "Sgto. Cabral y Pte Gallego",
+      "distrito": "Sudoeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 96,
+      "numero": 101,
+      "nombre": "Vicente López y Planes",
+      "distrito": "Sur",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 32,
+      "numero": 109,
+      "nombre": "La República",
+      "distrito": "Centro",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 13,
+      "numero": 20,
+      "nombre": "Barrio Parque Casas",
+      "distrito": "Norte",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 75,
+      "numero": 7,
+      "nombre": "Araoz de Lamadrid",
+      "distrito": "Sur",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 59,
+      "numero": 49,
+      "nombre": "J.J. Urquiza",
+      "distrito": "Oeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 47,
+      "numero": 103,
+      "nombre": "Villa Nueva",
+      "distrito": "Oeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 84,
+      "numero": 36,
+      "nombre": "F.M. Domingo Matheu",
+      "distrito": "Sudoeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 58,
+      "numero": 10,
+      "nombre": "Avellaneda Oeste",
+      "distrito": "Oeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 49,
+      "numero": 112,
+      "nombre": "13 de Marzo",
+      "distrito": "Oeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 35,
+      "numero": 80,
+      "nombre": "Santa Lucía",
+      "distrito": "Noroeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 8,
+      "numero": 15,
+      "nombre": "Barrio Cerámica",
+      "distrito": "Norte",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 29,
+      "numero": 56,
+      "nombre": "Las Malvinas",
+      "distrito": "Norte",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 20,
+      "numero": 99,
+      "nombre": "20 de Junio",
+      "distrito": "Noroeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 86,
+      "numero": 31,
+      "nombre": "Dorrego",
+      "distrito": "Sudoeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 104,
+      "numero": 29,
+      "nombre": "17 de Noviembre",
+      "distrito": "Sudoeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 64,
+      "numero": 102,
+      "nombre": "Villa 57 y 58",
+      "distrito": "Sudoeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 37,
+      "numero": 13,
+      "nombre": "Azcuénaga Sur",
+      "distrito": "Oeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 92,
+      "numero": 85,
+      "nombre": "San Martin A",
+      "distrito": "Sudoeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 81,
+      "numero": 87,
+      "nombre": "Santa Teresita",
+      "distrito": "Sudoeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 10,
+      "numero": 94,
+      "nombre": "Unión",
+      "distrito": "Norte",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 48,
+      "numero": 96,
+      "nombre": "Unión y Progreso",
+      "distrito": "Oeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 31,
+      "numero": 33,
+      "nombre": "Echesortu Oeste",
+      "distrito": "Centro",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 76,
+      "numero": 92,
+      "nombre": "Tiro Suizo",
+      "distrito": "Sur",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 89,
+      "numero": 107,
+      "nombre": "San Francisco Solano",
+      "distrito": "Sudoeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 55,
+      "numero": 118,
+      "nombre": "Villa del Parque",
+      "distrito": "Centro",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 60,
+      "numero": 46,
+      "nombre": "Julio A. Roca",
+      "distrito": "Oeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 71,
+      "numero": 106,
+      "nombre": "22 de Julio",
+      "distrito": "Sur",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 50,
+      "numero": 24,
+      "nombre": "Bella Vista Oeste",
+      "distrito": "Oeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 103,
+      "numero": 23,
+      "nombre": "Bella Vista",
+      "distrito": "Oeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 2,
+      "numero": 42,
+      "nombre": "Florida Norte",
+      "distrito": "Norte",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 98,
+      "numero": 66,
+      "nombre": "Ntra. Señora de Itatí",
+      "distrito": "Sudoeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 3,
+      "numero": 57,
+      "nombre": "La Florida",
+      "distrito": "Norte",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 70,
+      "numero": 43,
+      "nombre": "Gral. San Martín",
+      "distrito": "Sur",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 72,
+      "numero": 97,
+      "nombre": "Uriburu y La Guardia",
+      "distrito": "Sur",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 33,
+      "numero": 12,
+      "nombre": "Azcuénaga",
+      "distrito": "Noroeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 18,
+      "numero": 82,
+      "nombre": "7 de Septiembre",
+      "distrito": "Noroeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 16,
+      "numero": 50,
+      "nombre": "Hostal del Sol",
+      "distrito": "Noroeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 57,
+      "numero": 78,
+      "nombre": "San Francisquito",
+      "distrito": "Sudoeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 78,
+      "numero": 71,
+      "nombre": "Parque Regional Sur",
+      "distrito": "Sur",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 28,
+      "numero": 5,
+      "nombre": "Barrio Industrial",
+      "distrito": "Norte",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 53,
+      "numero": 89,
+      "nombre": "Solidaridad Social",
+      "distrito": "Centro",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 54,
+      "numero": 1,
+      "nombre": "Acera",
+      "distrito": "Sur",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 22,
+      "numero": 53,
+      "nombre": "Ludueña Norte y Moreno",
+      "distrito": "Noroeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 9,
+      "numero": 3,
+      "nombre": "Alberdi",
+      "distrito": "Norte",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 90,
+      "numero": 93,
+      "nombre": "Tío Rolo",
+      "distrito": "Sudoeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 77,
+      "numero": 76,
+      "nombre": "Saladillo Sud",
+      "distrito": "Sur",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 39,
+      "numero": 38,
+      "nombre": "Fisherton Norte",
+      "distrito": "Noroeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 14,
+      "numero": 81,
+      "nombre": "Sarmiento",
+      "distrito": "Norte",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 67,
+      "numero": 69,
+      "nombre": "Monumento a la Bandera",
+      "distrito": "Centro",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 83,
+      "numero": 16,
+      "nombre": "Barrio Plata",
+      "distrito": "Sudoeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 69,
+      "numero": 11,
+      "nombre": "Avrose",
+      "distrito": "Sur",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 65,
+      "numero": 30,
+      "nombre": "Domingo Matheu",
+      "distrito": "Sur",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 21,
+      "numero": 34,
+      "nombre": "Empalme Graneros",
+      "distrito": "Noroeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 68,
+      "numero": 73,
+      "nombre": "1ro de Mayo",
+      "distrito": "Centro",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 102,
+      "numero": 119,
+      "nombre": "Dr. Ernesto Sábato",
+      "distrito": "Centro",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 15,
+      "numero": 55,
+      "nombre": "Lisandro de la Torre",
+      "distrito": "Norte",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 91,
+      "numero": 110,
+      "nombre": "Piamonte",
+      "distrito": "Sudoeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 1,
+      "numero": 67,
+      "nombre": "Nuevo Alberdi Oeste",
+      "distrito": "Norte",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 46,
+      "numero": 74,
+      "nombre": "Rodolfo Rivarola",
+      "distrito": "Oeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 101,
+      "numero": 72,
+      "nombre": "Dr. Esteban Maradona",
+      "distrito": "Centro",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 87,
+      "numero": 115,
+      "nombre": "Barrio Hume",
+      "distrito": "Sudoeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 43,
+      "numero": 18,
+      "nombre": "Belgrano Sur",
+      "distrito": "Oeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 11,
+      "numero": 45,
+      "nombre": "Independencia",
+      "distrito": "Norte",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 106,
+      "numero": 41,
+      "nombre": "La Nueva Fisherton",
+      "distrito": "Noroeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 107,
+      "numero": 997,
+      "nombre": "Hostal del Sol Oeste",
+      "distrito": "Noroeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 108,
+      "numero": 62,
+      "nombre": "Barrio Latinoamérica",
+      "distrito": "Centro",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 17,
+      "numero": 51,
+      "nombre": "Del Bicentenario",
+      "distrito": "Noroeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 109,
+      "numero": 998,
+      "nombre": "Hipólito Bouchard",
+      "distrito": "Norte",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 110,
+      "numero": 999,
+      "nombre": "María Duboe",
+      "distrito": "Noroeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 42,
+      "numero": 40,
+      "nombre": "Fisherton Sur",
+      "distrito": "Noroeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 56,
+      "numero": 65,
+      "nombre": "Martín Güemes",
+      "distrito": "Sudoeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 19,
+      "numero": 4,
+      "nombre": "Vecinal Amiga",
+      "distrito": "Noroeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 36,
+      "numero": 6,
+      "nombre": "Antártida Argentina",
+      "distrito": "Noroeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 34,
+      "numero": 17,
+      "nombre": "Barrio Belgrano",
+      "distrito": "Noroeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 41,
+      "numero": 77,
+      "nombre": "San Cayetano",
+      "distrito": "Noroeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 79,
+      "numero": 84,
+      "nombre": "Saladillo Sudeste",
+      "distrito": "Sur",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 105,
+      "numero": 120,
+      "nombre": "Arroyito Oeste",
+      "distrito": "Norte",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 5,
+      "numero": 68,
+      "nombre": "Nuevo Alberdi",
+      "distrito": "Norte",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 7,
+      "numero": 70,
+      "nombre": "Barrio Parque Field",
+      "distrito": "Norte",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 12,
+      "numero": 95,
+      "nombre": "Unión y Parque Casas",
+      "distrito": "Norte",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 66,
+      "numero": 88,
+      "nombre": "Parque España",
+      "distrito": "Centro",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 80,
+      "numero": 2,
+      "nombre": "Acindar",
+      "distrito": "Sudoeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 25,
+      "numero": 52,
+      "nombre": "Ludueña Sur",
+      "distrito": "Noroeste",
+      "limites": "Revisado"
+    },
+    {
+      "msLink": 63,
+      "numero": 14,
+      "nombre": "Barrio Alvear",
+      "distrito": "Oeste",
+      "limites": "Revisado"
+    }
   ]
 }

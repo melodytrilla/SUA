@@ -128,6 +128,10 @@
             </div>
         </div>
     </mat-expansion-panel>
+
+    <!-- ----------------Distrito------------------- -->
+
+
     <!-- ----------------Areas------------------- -->
     <mat-expansion-panel (closed)="ActualizarDescArea()" class="light every-panel" Id="AreaPanel">
         <mat-expansion-panel-header>
@@ -232,6 +236,67 @@
                 <mat-checkbox [disabled]="disOp" [(ngModel)]="neutro"> Neutral</mat-checkbox>
             </section>
         </div>
+    </mat-expansion-panel>
+
+<!-- ----------------Distritos------------------- -->
+    <mat-expansion-panel (closed)="ActualizarDescDistrito()" class="light every-panel" Id="DistritoPanel">
+        <mat-expansion-panel-header>
+            <mat-panel-title class="titulo">
+                Distrito
+            </mat-panel-title>
+            <mat-panel-description>
+                {{descripcionDistrito}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div class="body">
+            <div style="display: flex; justify-content: space-between;">
+                <div style="flex-grow: 1;">
+                    <mat-form-field style="width:275px">
+                        <input matInput #search
+                            placeholder = "Vecinal"
+                            [matAutocomplete]="auto"
+                            [matChipInputFor]="showVecinales"
+                            [matChipInputSeparatorKeyCodes] = "separatorKeys"
+                            [matChipInputAddOnBlur] = true
+                            [matAutocomplete]="auto"
+                            (input)="onChange($event.target.value)"
+                            >
+                    </mat-form-field>
+                    <mat-autocomplete #auto="matAutocomplete"> 
+                        <ng-container *ngFor="let distrito of filteredDistritos">
+                            <mat-option class="distritoOption" [value]="distrito" (click)="selecDistrito(distrito)">
+                                {{distrito}}
+                            </mat-option>
+
+                            <ng-container *ngFor="let vecinal of filteredVecinales">
+                                <mat-option class="vecinalOption" [value]="vecinal" *ngIf="vecinal.distrito == distrito" (click)="selecVecinal(vecinal)">
+                                    {{vecinal.nombre}}
+                                </mat-option>
+                            </ng-container>
+                        </ng-container>
+                    </mat-autocomplete>
+                </div>
+                <mat-divider [vertical]="true"></mat-divider>
+                <div style="flex-grow: 10;">
+                    <mat-chip-list #showVecinales>
+                        <mat-chip *ngFor="let chip of chipVecinales"
+                            [removable]=true
+                            (removed)="remove(chip)"
+                            color="primary">
+                            <div class="chip">
+                                <h6 class="subtitulo">{{chip.distrito}}</h6>
+                                {{chip.nombre}}
+                            </div>
+                            <mat-icon matChipRemove>cancel</mat-icon>
+                        </mat-chip>
+                        
+                    </mat-chip-list>
+                </div>
+                
+            </div>
+        </div>
+        
     </mat-expansion-panel>
 
 </mat-accordion>
