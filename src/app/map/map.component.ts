@@ -12,38 +12,45 @@ import { SolicitudesItemsService } from '../solicitudes-items.service';
 export class MapComponent implements OnInit {
   mymap: L.Map;
   
-  markers: L.Marker[] = [];
-
   constructor(public api: SolicitudesItemsService) { }
-  public solicitudes: any[];
 
   myIcon = L.divIcon({
     className: 'fsua fsua-ubicacion fsua-3x',
-    iconAnchor: [20, 15],
+    iconAnchor: [20, 32],
 });
 
   ngOnInit() {
-    this.mymap = new L.map('mapid').setView([-32.9668200, -60.6393200], 14);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    var argCrs = new L.proj.CRS('EPSG:22185',
+    '+proj=tmerc +lat_0=-90 +lon_0=-60 +k=1 +x_0=5500000 +y_0=0 +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs ');
+    this.mymap = new L.map('mapid').setView([-32.9493486, -60.6746665], 14);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
     maxZoom: 19,
 }).addTo(this.mymap);
-    this.setLayers();
-    const group = new L.FeatureGroup(this.markers)
-    group.addTo(this.mymap);
-    //let marker= new L.Marker([-32.9511072, -60.6637368], {icon: this.myIcon});
-    //marker.addTo(this.mymap).bindPopup("Ovidios Lagos 1520");
-    console.log(this.mymap);
+    //this.setLayers();
+    var newPoint = new L.Point(5438909.74157222,6354364.200221464);
+    console.log(newPoint);
+
+    //var crs = L.CRS.EPSG3857;
+    console.log(argCrs);
+    
+    var latLong = argCrs.unproject(newPoint);
+    console.log(latLong);
+    this.mymap.panTo(latLong);
   }
+  
+
   setLayers() {
-    this.api.getSolic().subscribe(
+    this.api.getSolicitudes().subscribe(
       data => {
-        data.forEach((value: { coord_x: any; coord_y: any; }) => {
-          this.addMarker(value.coord_x, value.coord_y)
+        data.forEach(value => {
+          this.addMarker(value.coord_x, value.coord_y, value.categoria, value.subtipo, value.estado)
         })
-        this.solicitudes = data
       });
      }
-  addMarker(x: any,y: any){
-    this.markers.push(new L.Marker({lng: x , lat: y}, {icon: this.myIcon}));
-   }
+  addMarker(x, y, cat, subt, est){
+    let a = new L.Marker({lat: x, lng: y}, {icon: this.myIcon});
+    a.addTo(this.mymap).bindPopup('<p>Categoría: <p>', cat, '</br><p>jk</p>');
+};
+
+
 }

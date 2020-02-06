@@ -15,10 +15,5 @@ export class SolicitudesItemsService {
       `${this.apiURL}/solicitudes`
     )
   }
-  getSolic(): any {
-    return this.httpClient.get(
-      `${this.apiURL}/solicitudes`
-    )
-  }
  
 }
