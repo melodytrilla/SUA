@@ -23,7 +23,7 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     var argCrs = new L.Proj.CRS('EPSG:22185',
-    '+proj=tmerc +lat_0=-90 +lon_0=-60 +k=1 +x_0=5500000 +y_0=0 +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs ');
+    '+proj=tmerc +lat_0=-90 +lon_0=-60 +k=1 +x_0=5500000 +y_0=0 +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs ').default;
     this.mymap = new L.map('mapid').setView([-32.9493486, -60.6746665], 14);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     subdomains: ['a', 'b', 'c'],

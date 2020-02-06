@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
 import * as _ from 'lodash';
 import { SolicitudesItemsService } from '../solicitudes-items.service';
-import { stringToKeyValue } from '@angular/flex-layout/extended/typings/style/style-transforms';
+import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import * as moment from 'moment';
 import 'moment/locale/es';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { tap, map, auditTime } from 'rxjs/operators';
 
 export interface Opcion {
   value: string;
@@ -13,14 +15,22 @@ export interface Opcion {
 @Component({
   selector: 'app-listado',
   templateUrl: './listado.component.html',
-  styleUrls: ['./listado.component.sass']
+  styleUrls: ['./listado.component.sass'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ListadoComponent implements OnInit {
+export class ListadoComponent implements AfterViewInit {
   asc = false;
+  
 
   constructor(public api: SolicitudesItemsService) { }
 
   public items: any[];
+
+  @ViewChild(CdkVirtualScrollViewport, {static: false}) viewPort: CdkVirtualScrollViewport;
+  
+  ngAfterViewInit() {
+    
+  }
 
   ngOnInit() {
     this.api.getSolicitudes().subscribe(
@@ -52,5 +62,20 @@ export class ListadoComponent implements OnInit {
     return fecha.replace(/^(\d{2})-(\d{2})-(\d{4})-(\d{2})-(\d{2})$/g,'$3, $2, $1, $4, $5')
   }
   
+  nextBatch(currIndex: number, items: any[]) {
+    const start = this.viewPort.getRenderedRange().start;
+    const end = this.viewPort.getRenderedRange().end;
+    const total = this.viewPort.getDataLength();
+console.log(`end is ${end} total is ${total}`)
+    if (end == total) {
+      console.log("end reached increase page no")
+    }
+  }
+
+  trackByIdx(i: number) {
+    return i;
+  }
+
+
 }
 

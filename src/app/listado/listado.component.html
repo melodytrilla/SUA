@@ -21,7 +21,8 @@
     <mat-icon class="more">more_vert</mat-icon>
 </div>
 <mat-divider></mat-divider>
-    <div mat-list *ngFor="let item of items" class="lista">
+<cdk-virtual-scroll-viewport  style="height: 90vh" itemSize="130" (scrolledIndexChange)="nextBatch($event)">
+    <div mat-list *cdkVirtualFor="let item of items" class="lista">
             <div mat-list-item class="content">
                         <div class="colum0">
                             <mat-checkbox>{{item.numero}}-{{item.anio}}</mat-checkbox>
@@ -119,3 +120,5 @@
                     </div>
             <mat-divider></mat-divider>
     </div>
+    <p>cargando...</p>
+</cdk-virtual-scroll-viewport>
