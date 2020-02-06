@@ -20,14 +20,14 @@ export class MapComponent implements OnInit {
 });
 
   ngOnInit() {
-    var argCrs = new L.proj.CRS('EPSG:22185',
-    '+proj=tmerc +lat_0=-90 +lon_0=-60 +k=1 +x_0=5500000 +y_0=0 +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs ');
+    /*var argCrs = new L.proj.CRS('EPSG:22185',
+    '+proj=tmerc +lat_0=-90 +lon_0=-60 +k=1 +x_0=5500000 +y_0=0 +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs ');*/
     this.mymap = new L.map('mapid').setView([-32.9493486, -60.6746665], 14);
-    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
 }).addTo(this.mymap);
-    //this.setLayers();
-    var newPoint = new L.Point(5438909.74157222,6354364.200221464);
+    this.setLayers();
+    /*var newPoint = new L.Point(5438909.74157222,6354364.200221464);
     console.log(newPoint);
 
     //var crs = L.CRS.EPSG3857;
@@ -35,8 +35,10 @@ export class MapComponent implements OnInit {
     
     var latLong = argCrs.unproject(newPoint);
     console.log(latLong);
-    this.mymap.panTo(latLong);
+    this.mymap.panTo(latLong);*/
+    console.log(this.mymap)
   }
+  
   
 
   setLayers() {
