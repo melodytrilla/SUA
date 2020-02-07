@@ -143,6 +143,18 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
   //--------------------------------------------------------------------
 
+  //-----Busqueda Equipamiento -----------------------------------------
+
+  equipamiento_tipo:string[] = ["Alumbrado-columna", "Camara-bicis publicas", "Semaforo-semaforo"];
+  equipamiento_seleccionado:string = "";
+
+  equipamiento_choice:string = "";
+
+  equipamiento_detalle:string = "";
+
+  descripcionEqp:string = "";
+
+  //--------------------------------------------------------------------
   constructor(
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<FiltroAvanzadoDialogComponent>,
@@ -199,6 +211,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     this.ActualizarDescOpinion();
     this.ActualizarDescDistrito();
     this.ActualizarDescInt();
+    this.ActualizarDescEqp();
   }
 
   // cierra la ventana al apretar cancelar
@@ -628,16 +641,52 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   }
 
   ActualizarDescInt(){
-    this.inputDescripcion = this.InputADescripcionDistirto();
+    this.inputDescripcion = this.InputADescripcionInt();
 
     if(this.intChanged()){
       this.turnOn("IntPanel", "changeFont");
 
-      this.descripcionInt = this.InputADescripcionInt();
+      this.descripcionInt = this.inputDescripcion;
     }else{
       this.turnOff("IntPanel", "changeFont")
             
       this.descripcionInt = "no se filtra por Intervenciones";
+    }
+  }
+
+  //---------------------------------------------------------------------
+
+  //Para actualizar Equipamiento --------------------------------------
+
+  InputADescripcionEqp(){
+    let desc:string = "se filtra por Equipamiento";
+
+
+    return desc;
+  }
+
+  EqpChanged():boolean{
+    //console.log(this.equipamiento_seleccionado);
+    //console.log(this.equipamiento_detalle);
+    //console.log(this.equipamiento_choice);
+    if(this.equipamiento_choice != "" || this.equipamiento_detalle != "" || this.equipamiento_seleccionado != ""){ 
+      return true;
+    }
+          
+    return false;
+  }
+
+  ActualizarDescEqp(){
+    this.inputDescripcion = this.InputADescripcionDistirto();
+
+    if(this.EqpChanged()){
+      this.turnOn("EqpPanel", "changeFontEqp");
+
+      this.descripcionEqp = this.InputADescripcionInt();
+    }else{
+      this.turnOff("EqpPanel", "changeFontEqp")
+            
+      this.descripcionEqp = "no se filtra por Equipamiento";
     }
   }
 

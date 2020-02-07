@@ -26,39 +26,17 @@ export class DesplegableTestComponent implements OnInit {
   
 
   //----------------------------------------------------
-  private _pickDate:boolean;
-  disablePicker:boolean;
+ 
+  equipamiento_tipo:string[] = ["Alumbrado-columna", "Camara-bicis publicas", "Semaforo-semaforo"];
+  equipamiento_seleccionado:string = "";
 
-  get pickDate():boolean{
-    return this._pickDate;
-  }
-  
-  set pickDate(value:boolean){
-    this._pickDate = value;
-    this.disablePicker = !value;
-  }
+  equipamiento_choice:string = "";
 
-  intervenciones:string[] = ["Acta de Informacion", "Constatado", "No constatado"];
-  intervencionesSelecionadas:string[] = [];
-
-
-  suaMovil:boolean = false;
-
-  quitarIntervencion(int:string):void{
-    this.intervencionesSelecionadas = this.intervencionesSelecionadas.filter(value => value != int);
-
-  }
-
-  agregarInt(int: string):void{
-    if(this.intervencionesSelecionadas.every(value => value != int)){
-      this.intervencionesSelecionadas.push(int);
-    }
-  }
+  equipamiento_detalle:string = "";
 
   ngOnInit() {
     //this.solicitudesService.getAllVecinales();
     this.ActualizarDesc()
-    this.pickDate = false;
 
   }
   ActualizarDesc(){
