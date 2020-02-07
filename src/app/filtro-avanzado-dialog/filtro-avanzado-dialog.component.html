@@ -298,7 +298,74 @@
         </div>
         
     </mat-expansion-panel>
+    <!-- ----------------Distritos------------------- -->
+    <mat-expansion-panel (closed)="ActualizarDescInt()" class="light every-panel" Id="IntPanel">
+        <mat-expansion-panel-header>
+            <mat-panel-title class="titulo">
+                Intervenciones
+            </mat-panel-title>
+            <mat-panel-description>
+                {{descripcionInt}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
 
+        <div class="body">
+            <div Id="changeFont" class="flexRow" style="width: -moz-available; width: 100%;">
+                <div class="flexColunm" style="min-width: 50%;">
+                    <mat-radio-group [(ngModel)] = "tipoInt">
+                        <mat-radio-button value="con"> con </mat-radio-button>
+                        <mat-radio-button value="sin"> sin </mat-radio-button>
+                        <mat-radio-button value="ultima"> ultima </mat-radio-button>
+                        <mat-radio-button value=""> no seleccionado </mat-radio-button>
+    
+                    </mat-radio-group>
+                    <div clas="flexRow" style="margin-top: 5px;">
+                        <mat-checkbox [(ngModel)]="pickDate"></mat-checkbox>
+                        <mat-form-field style = "margin-left: 10px;">
+                            <input matInput
+                                    [disabled]="disablePicker"
+                                placeholder="Choose a date"
+                                [satDatepicker]="picker3"
+                                value="">
+                            <sat-datepicker #picker3 [rangeMode]="true">
+                            </sat-datepicker>
+                            <sat-datepicker-toggle matSuffix [for]="picker3"></sat-datepicker-toggle>
+                        </mat-form-field>
+                    </div>
+    
+                </div>
+    
+    
+                <div class="flexIColunm" style="min-width: 50%;">
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Intervencion</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor=" let int of intervenciones" 
+                                (click)="agregarInt(int)">
+                                    {{int}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+    
+                        <mat-chip-list>
+                            <mat-chip *ngFor="let int of intervencionesSelecionadas"
+                            [removable]=true [selectable]=true
+                            color=primary (removed)="quitarIntervencion(int)">
+                                {{int}}
+                                <mat-icon matChipRemove>cancel</mat-icon>
+                            </mat-chip>
+                        </mat-chip-list>
+                    </div>
+                    <div>
+                        <mat-checkbox [(ngModel)]="suaMovil" >SUA Movil</mat-checkbox>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </mat-expansion-panel>
 </mat-accordion>
 
 

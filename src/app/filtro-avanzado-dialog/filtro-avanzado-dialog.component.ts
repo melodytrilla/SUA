@@ -117,6 +117,32 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
   
   //--------------------------------------------------------------------
+
+  //-----Busqueda Intervenciones ---------------------------------------
+  private _pickDate:boolean;
+  disablePicker:boolean;
+
+  get pickDate():boolean{
+    return this._pickDate;
+  }
+  
+  set pickDate(value:boolean){
+    this._pickDate = value;
+    this.disablePicker = !value;
+  }
+
+  intervenciones:string[] = ["Acta de Informacion", "Constatado", "No constatado"];
+  intervencionesSelecionadas:string[] = [];
+
+
+  suaMovil:boolean = false;
+  
+  descripcionInt:string;
+
+  tipoInt:string = "";
+
+  //--------------------------------------------------------------------
+
   constructor(
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<FiltroAvanzadoDialogComponent>,
@@ -163,6 +189,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     });*/
 
     this.solicitud.getAllVecinales();
+    this.pickDate = false;
 
 
     //inicializacion de los paneles expansores
@@ -170,6 +197,8 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     this.ActualizarDescCalificacion();
     this.ActualizarDescAdjunto();
     this.ActualizarDescOpinion();
+    this.ActualizarDescDistrito();
+    this.ActualizarDescInt();
   }
 
   // cierra la ventana al apretar cancelar
@@ -571,16 +600,59 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   }
   //---------------------------------------------------------------------
 
+  //Para actualizar Intervenciones --------------------------------------
+  quitarIntervencion(int:string):void{
+    this.intervencionesSelecionadas = this.intervencionesSelecionadas.filter(value => value != int);
+
+  }
+
+  agregarInt(int: string):void{
+    if(this.intervencionesSelecionadas.every(value => value != int)){
+      this.intervencionesSelecionadas.push(int);
+    }
+  }
+
+  InputADescripcionInt(){
+    let desc:string = "se filtra por Intervenciones";
+
+
+    return desc;
+  }
+
+  intChanged():boolean{
+    if(this.tipoInt != "" || this.pickDate || this.suaMovil || this.intervencionesSelecionadas.length > 0){ 
+      return true;
+    }
+          
+    return false;
+  }
+
+  ActualizarDescInt(){
+    this.inputDescripcion = this.InputADescripcionDistirto();
+
+    if(this.intChanged()){
+      this.turnOn("IntPanel", "changeFont");
+
+      this.descripcionInt = this.InputADescripcionInt();
+    }else{
+      this.turnOff("IntPanel", "changeFont")
+            
+      this.descripcionInt = "no se filtra por Intervenciones";
+    }
+  }
+
+  //---------------------------------------------------------------------
+
   //funciones para cambiar visualmente los paneles expansores-------------
   turnOn(panelId:string, fontId: string){
     document.getElementById(panelId).style.animationName = "hasData"
-      document.getElementById(panelId).style.webkitAnimationName = "hasData"
-      document.getElementById(panelId).style.webkitAnimationDirection = "normal";
-      document.getElementById(panelId).classList.remove("light");
-      document.getElementById(panelId).classList.add("dark");
-      if(fontId != ""){
-        document.getElementById(fontId).style.color = "#ffffff";
-      }
+    document.getElementById(panelId).style.webkitAnimationName = "hasData"
+    document.getElementById(panelId).style.webkitAnimationDirection = "normal";
+    document.getElementById(panelId).classList.remove("light");
+    document.getElementById(panelId).classList.add("dark");
+    if(fontId != ""){
+      document.getElementById(fontId).style.color = "#ffffff";
+    }
   }
 
   turnOff(panelId:string, fontId: string){

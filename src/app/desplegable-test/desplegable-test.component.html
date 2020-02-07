@@ -2,56 +2,62 @@
     <mat-expansion-panel (closed)="ActualizarDesc()" class="dark" Id="principalPanel">
         <mat-expansion-panel-header>
             <mat-panel-title>
-                Distrito
+                Itervenciones
             </mat-panel-title>
             <mat-panel-description>
                 {{descripcion}}
             </mat-panel-description>
         </mat-expansion-panel-header>
-        <div style="display: flex; justify-content: space-between;">
-            <div style="flex-grow: 1;">
-                <mat-form-field style="width:300px">
-                    <input matInput #search
-                        placeholder = "Vecinal"
-                        [matAutocomplete]="auto"
-                        [matChipInputFor]="showVecinales"
-                        [matChipInputSeparatorKeyCodes] = "separatorKeys"
-                        [matChipInputAddOnBlur] = true
-                        [matAutocomplete]="auto"
-                        (input)="onChange($event.target.value)"
-                        >
-                </mat-form-field>
-                <mat-autocomplete #auto="matAutocomplete"> 
-                    <ng-container *ngFor="let distrito of filteredDistritos">
-                        <mat-option class="distritoOption" [value]="distrito" (click)="selecDistrito(distrito)">
-                            {{distrito}}
-                        </mat-option>
+        <div class="flexRow">
+            <div class="flexColunm" style="min-width: 50%;">
+                <mat-radio-group>
+                    <mat-radio-button value="con"> con </mat-radio-button>
+                    <mat-radio-button value="sin"> sin </mat-radio-button>
+                    <mat-radio-button value="ultima"> ultima </mat-radio-button>
 
-                        <ng-container *ngFor="let vecinal of filteredVecinales">
-                            <mat-option class="vecinalOption" [value]="vecinal" *ngIf="vecinal.distrito == distrito" (click)="selecVecinal(vecinal)">
-                                {{vecinal.nombre}}
+                </mat-radio-group>
+                <div>
+                    <mat-checkbox [(ngModel)]="pickDate"></mat-checkbox>
+                    <mat-form-field style = "margin-left: 10px;">
+                        <input matInput
+                                [disabled]="disablePicker"
+                            placeholder="Choose a date"
+                            [satDatepicker]="picker3"
+                            value="">
+                        <sat-datepicker #picker3>
+                        </sat-datepicker>
+                        <sat-datepicker-toggle matSuffix [for]="picker3"></sat-datepicker-toggle>
+                    </mat-form-field>
+                </div>
+
+            </div>
+
+
+            <div class="flexIColunm" style="min-width: 50%;">
+                <div>
+                    <mat-form-field>
+                        <mat-label>Intervencion</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor=" let int of intervenciones" 
+                            (click)="agregarInt(int)">
+                                {{int}}
                             </mat-option>
-                        </ng-container>
-                    </ng-container>
-                </mat-autocomplete>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-chip-list>
+                        <mat-chip *ngFor="let int of intervencionesSelecionadas"
+                        [removable]=true [selectable]=true
+                        color=primary (removed)="quitarIntervencion(int)">
+                            {{int}}
+                            <mat-icon matChipRemove>cancel</mat-icon>
+                        </mat-chip>
+                    </mat-chip-list>
+                </div>
+                <div>
+                    <mat-checkbox [(ngModel)]="suaMovil" >SUA Movil</mat-checkbox>
+                </div>
             </div>
-            <mat-divider [vertical]="true"></mat-divider>
-            <div style="flex-grow: 10;">
-                <mat-chip-list #showVecinales>
-                    <mat-chip *ngFor="let chip of chipVecinales"
-                        [removable]=true
-                        (removed)="remove(chip)"
-                        color="primary">
-                        <div class="chip">
-                            <h6 class="subtitulo">{{chip.distrito}}</h6>
-                            {{chip.nombre}}
-                        </div>
-                        <mat-icon matChipRemove>cancel</mat-icon>
-                    </mat-chip>
-                    
-                </mat-chip-list>
-            </div>
-               
         </div>
     </mat-expansion-panel>
 </mat-accordion>
