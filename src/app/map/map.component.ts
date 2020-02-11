@@ -54,9 +54,9 @@ argCrs: any;
         })
       });
      }
-  addMarker(x, y, cat, subt, est){
+  addMarker(x: number, y: number, categoria: string, subtipo:string, estado:string){
     let a = new L.Marker({lat: x, lng: y}, {icon: this.myIcon});
-    a.addTo(this.mymap).bindPopup('<p>Categoría: ' + cat +'</br>jk</p>');
+    a.addTo(this.mymap).bindPopup('<p>Categoría: ' + categoria +'</br>jk</p>');
 };
 
 
