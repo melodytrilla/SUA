@@ -53,6 +53,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { BusquedaService } from './busqueda.service';
 import { CartaInfoComponent } from './carta-info/carta-info.component';
 import { MapComponent } from './map/map.component';
+import { DetalleSolicitudComponent } from './detalle-solicitud/detalle-solicitud.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { MapComponent } from './map/map.component';
     MapaComponent,
     SideBarLoginComponent,
     CartaInfoComponent,
-    MapComponent
+    MapComponent,
+    DetalleSolicitudComponent
   ],
   imports: [
     BrowserModule,

@@ -30,9 +30,8 @@
 </div>
 <mat-divider></mat-divider>
 <div class="content">
-        <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+        <cdk-virtual-scroll-viewport style="height: 73vh" itemSize="93" (scrolledIndexChange)="nextBatch($event)">
                 <div class="listConteiner">
-                    <div class="list">
                         <div mat-list *cdkVirtualFor="let solicitud of solicitudes">
                             <div mat-list-item class="listElement">
                                 <div class="part1">
@@ -81,7 +80,6 @@
                             </div>
                             <mat-divider></mat-divider>
                         </div>
-                    </div>
                 </div>
         </cdk-virtual-scroll-viewport>
     <div class="mapa">

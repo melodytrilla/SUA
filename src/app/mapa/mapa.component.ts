@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import * as _ from 'lodash';
 import { SolicitudesItemsService } from '../solicitudes-items.service';
 import * as moment from 'moment';
+import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 
 export interface Opcion {
   value: string;
@@ -19,9 +20,14 @@ export class MapaComponent implements OnInit {
   constructor(public api: SolicitudesItemsService) { }
 
   public solicitudes: any[];
-
+  @ViewChild(CdkVirtualScrollViewport, {static: false}) viewPort: CdkVirtualScrollViewport;
+  
+  ngAfterViewInit() {
+    
+  }
 
   ngOnInit() {
+  
     this.api.getSolicitudes().subscribe(
       data => {
         data.forEach(value => {
@@ -47,5 +53,18 @@ export class MapaComponent implements OnInit {
     fecha = fecha.replace(" ", "-")
     fecha = fecha.replace(":", "-")
     return fecha.replace(/^(\d{2})-(\d{2})-(\d{4})-(\d{2})-(\d{2})$/g,'$3, $2, $1, $4, $5')
+  }
+  nextBatch(currIndex: number, items: any[]) {
+    const start = this.viewPort.getRenderedRange().start;
+    const end = this.viewPort.getRenderedRange().end;
+    const total = this.viewPort.getDataLength();
+console.log(`end is ${end} total is ${total}`)
+    if (end == total) {
+      console.log("end reached increase page no")
+    }
+  }
+
+  trackByIdx(i: number) {
+    return i;
   }
 }

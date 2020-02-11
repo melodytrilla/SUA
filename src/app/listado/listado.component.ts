@@ -1,11 +1,9 @@
-import { Component, OnInit, ViewChild, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
 import * as _ from 'lodash';
 import { SolicitudesItemsService } from '../solicitudes-items.service';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import * as moment from 'moment';
 import 'moment/locale/es';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { tap, map, auditTime } from 'rxjs/operators';
 
 export interface Opcion {
   value: string;
@@ -33,6 +31,7 @@ export class ListadoComponent implements AfterViewInit {
   }
 
   ngOnInit() {
+    
     this.api.getSolicitudes().subscribe(
       data => {
         data.forEach(value => {
@@ -51,6 +50,7 @@ export class ListadoComponent implements AfterViewInit {
         this.items = data
       });
   }
+  
   togglePlay() {
     this.asc = !this.asc;
   }
@@ -76,6 +76,7 @@ console.log(`end is ${end} total is ${total}`)
     return i;
   }
 
-
+  
 }
+
 
