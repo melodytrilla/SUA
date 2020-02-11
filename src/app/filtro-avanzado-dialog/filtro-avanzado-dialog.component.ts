@@ -9,6 +9,7 @@ import {DateRangePicker} from '../date-range-picker/date-range-picker.component'
 import { Chip, ChipsContainerComponent } from '../chips-container/chips-container.component';
 import { BusquedaService } from '../busqueda.service';
 import { SolicitudesService, Vecinal } from '../solicitudes.service';
+import { SatDatepickerRangeValue } from 'saturn-datepicker';
 
 
 export interface AdvSearch{
@@ -103,6 +104,19 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
   //--------------------------------------------------------------------
 
+  //-----Busqueda Estado ----------------------------------------------
+  descripcionEstado:string = "";
+
+  estados_total:string[] = ["Resuelto", "Cerrado", "En curso", "Pendiente", "Archivado de oficio"];
+  estados_select:string[] = [];
+
+  detallados_total:string[] = ["Derivado", "Resuelto con aviso", "Resuelto", "Resuelto sin aviso", "Archivado de oficion", "Rechazado", "Pendiente", "Cerrado"];
+  detallados_select:string = "";
+
+  estado_DateRango: SatDatepickerRangeValue<Date> = {begin: null, end: null};
+
+  //--------------------------------------------------------------------
+
   //-----Busqueda Distrito ----------------------------------------------
   @ViewChild('search', {static: false}) searchElement: ElementRef;
 
@@ -153,6 +167,35 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   equipamiento_detalle:string = "";
 
   descripcionEqp:string = "";
+
+  //--------------------------------------------------------------------
+
+  //-----Busqueda Asignacion -----------------------------------------
+
+  descripcionAsig:string = "";
+
+  List_Personas_Total: string[] = ["Ayelen Carbone", "D'Arrigo Florencia", "Fede Movil"];
+  List_Personas: string[] = [];
+
+  List_chips_Personas: string[] = [];
+
+  asignacion_choice:string = "";
+
+  private _asingCheck: boolean = false;
+  asigDateEnable:boolean = true;
+
+  asigDate:SatDatepickerRangeValue<Date> = {begin: null, end: null};
+
+
+  get asingCheck(): boolean {
+    return this._asingCheck;
+  }
+
+  set asingCheck(value: boolean) {
+    this._asingCheck = value;
+    this.asigDateEnable = !value;
+    
+  }
 
   //--------------------------------------------------------------------
   constructor(
@@ -212,6 +255,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     this.ActualizarDescDistrito();
     this.ActualizarDescInt();
     this.ActualizarDescEqp();
+    this.ActualizarDescAsig();
   }
 
   // cierra la ventana al apretar cancelar
@@ -543,6 +587,47 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
   //---------------------------------------------------------------------
 
+  //Para actualizar Estado --------------------------------------------
+
+  addEstadoToChips(value:string):void{
+    if(!this.estados_select.includes(value)){
+      this.estados_select.push(value);
+    }
+  }
+
+  removeEstado(value:string):void{
+    this.estados_select = this.estados_select.filter(estado => estado!= value);
+  }
+
+  InputADescripcionEst(){
+    let desc:string = "se filtra por Estado";
+
+
+    return desc;
+  }
+
+  EstChanged():boolean{
+    if(this.estados_select.length > 0 || this.detallados_select != ""){ 
+      return true;
+    }
+          
+    return false;
+  }
+
+  ActualizarEstado(){
+    if(this.EstChanged()){
+      this.turnOn("EstadoPanel", "");
+
+      this.descripcionEstado = this.InputADescripcionAsig();
+    }else{
+      this.turnOff("EstadoPanel", "")
+            
+      this.descripcionEstado = "no se filtra por Estado";
+    }
+  }
+
+  //---------------------------------------------------------------------
+
   //Para actualizar Distrito --------------------------------------------
   onChange(searchValue: string):void{
     if(searchValue.length > 2){
@@ -677,16 +762,64 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   }
 
   ActualizarDescEqp(){
-    this.inputDescripcion = this.InputADescripcionDistirto();
 
     if(this.EqpChanged()){
       this.turnOn("EqpPanel", "changeFontEqp");
 
-      this.descripcionEqp = this.InputADescripcionInt();
+      this.descripcionEqp = this.InputADescripcionEqp();
     }else{
       this.turnOff("EqpPanel", "changeFontEqp")
             
       this.descripcionEqp = "no se filtra por Equipamiento";
+    }
+  }
+
+  //---------------------------------------------------------------------
+
+  //Para actualizar Asignaciones --------------------------------------
+
+  updateEquipoAuto(value:string):void{
+    if(value == ""){
+      this.List_Personas = this.List_Personas_Total
+    }else{
+      this.List_Personas = this.List_Personas_Total.filter(per => per.toLocaleLowerCase().includes(value.toLocaleLowerCase()));
+    }
+  }
+
+  agregarEquipo(persona:string):void{
+    if(!this.List_chips_Personas.includes(persona)){
+      this.List_chips_Personas.push(persona);
+    }
+  }
+
+  removeEquipo(persona:string):void{
+    this.List_chips_Personas = this.List_chips_Personas.filter(value => value != persona);
+  }
+
+  InputADescripcionAsig(){
+    let desc:string = "se filtra por Asignacion";
+
+
+    return desc;
+  }
+
+  AsigChanged():boolean{
+    if(this.asignacion_choice != "" || (this.asingCheck == true && this.asigDate.begin != null ) || this.List_chips_Personas.length > 0){ 
+      return true;
+    }
+          
+    return false;
+  }
+
+  ActualizarDescAsig(){
+    if(this.AsigChanged()){
+      this.turnOn("AsigPanel", "");
+
+      this.descripcionAsig = this.InputADescripcionAsig();
+    }else{
+      this.turnOff("AsigPanel", "")
+            
+      this.descripcionAsig = "no se filtra por Asignacion";
     }
   }
 

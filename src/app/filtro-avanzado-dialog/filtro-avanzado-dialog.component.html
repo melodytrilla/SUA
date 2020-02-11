@@ -238,6 +238,71 @@
         </div>
     </mat-expansion-panel>
 
+    <!-- ----------------Estados------------------- -->
+    <mat-expansion-panel (closed)="ActualizarEstado()" class="light every-panel" Id="EstadoPanel">
+        <mat-expansion-panel-header>
+            <mat-panel-title class="titulo">
+                Estado
+            </mat-panel-title>
+            <mat-panel-description>
+                {{descripcionEstado}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        
+        <div class="body">
+            <div style="width: 100%;display: flex;flex-direction: row;">
+                <div style="flex-grow: 1;flex-direction: column;">
+                    <!-- estado chips -->
+                    <mat-form-field>
+                        <mat-label>Estado</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let option of estados_total" (click)="addEstadoToChips(option)">
+                                {{option}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div>
+                        <mat-chip-list #showEstado>
+                            <mat-chip *ngFor="let chip of estados_select"
+                                [removable] = "true"
+                                (removed)= "removeEstado(chip)"
+                                color="primary">
+                            {{chip}}
+                            <mat-icon matChipRemove> cancel</mat-icon>
+                            </mat-chip>
+                        </mat-chip-list>
+                    </div>
+                </div>
+                <div style="flex-grow: 1;">
+                    <!-- Date Range -->
+                    <mat-form-field>
+                        <input matInput
+                            [disabled]="estados_select.length == 0"
+                            placeholder = "Elija una fecha"
+                            [satDatepicker]="pickerEstado"
+                            [(ngModel)] = "estado_DateRango"
+                            value = "">
+                        <sat-datepicker #pickerEstado [rangeMode]="true">
+                        </sat-datepicker>
+                        <sat-datepicker-toggle matSuffix [for]="pickerEstado"></sat-datepicker-toggle>
+                    </mat-form-field>
+                </div>
+                <div style="flex-grow: 1;">
+                    <!-- estado Determinado -->
+                    <mat-form-field >
+                        <mat-label>Estado Detallado</mat-label>
+                        <mat-select [(ngModel)] = "detallados_select">
+                            <mat-option *ngFor="let option of detallados_total" [value]="option">
+                                {{option}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+
+        </div>
+    </mat-expansion-panel>
+
 <!-- ----------------Distritos------------------- -->
     <mat-expansion-panel (closed)="ActualizarDescDistrito()" class="light every-panel" Id="DistritoPanel">
         <mat-expansion-panel-header>
@@ -408,6 +473,97 @@
 
         </div>
 
+    </mat-expansion-panel>
+
+<!-- ----------------Asignaciones------------------------ -->
+    <mat-expansion-panel (closed)="ActualizarDescAsig()" class="light every-panel" Id="AsigPanel">
+        <mat-expansion-panel-header>
+            <mat-panel-title class="titulo">
+                Asignaciones
+            </mat-panel-title>
+            <mat-panel-description>
+                {{descripcionAsig}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="body">
+            <div style="width: 100%;display: flex;flex-direction: row;">
+                <div style="flex-grow: 1; flex-direction: column;">
+                    <div>
+                        <mat-radio-group [(ngModel)] = "asignacion_choice">
+                            <mat-radio-button value="con"> con </mat-radio-button>
+                            <mat-radio-button value="sin"> sin </mat-radio-button>
+                            <mat-radio-button value="ultima"> ultima </mat-radio-button>
+                            <mat-radio-button value=""> no seleccionado </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <div clas="flexRow" style="margin-top: 5px;">
+                        <mat-checkbox [(ngModel)]="asingCheck"></mat-checkbox>
+                        <mat-form-field style = "margin-left: 10px;">
+                            <input matInput
+                                [disabled]="asigDateEnable"
+                                placeholder="Choose a date"
+                                [satDatepicker]="pickerAsig"
+                                [(ngModel)]="asigDate"
+                                value="">
+                            <sat-datepicker #pickerAsig [rangeMode]="true">
+                            </sat-datepicker>
+                            <sat-datepicker-toggle matSuffix [for]="pickerAsig"></sat-datepicker-toggle>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <mat-divider [vertical]="true" style="margin-right: 20px;"></mat-divider>
+    
+                <div style="flex-grow: 20; flex-direction: column;">
+                    <div>
+                        <mat-form-field>
+                            <mat-label> Equipo</mat-label>
+                            <input matInput [matAutocomplete]="auto"
+                                [matChipInputFor]="showEquipo"
+                                [matChipInputAddOnBlur]= true
+                                (focus)="updateEquipoAuto($event.target.value)"
+                                (input)="updateEquipoAuto($event.target.value)"
+                                >
+                            <mat-autocomplete #auto = "matAutocomplete">
+                                <div *ngFor="let persona of List_Personas">
+                                    <mat-option [value]= "" (click)="agregarEquipo(persona)">
+                                        {{persona}}
+                                    </mat-option>
+                                    <mat-divider></mat-divider>
+                                </div>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-chip-list #showEquipo>
+                            <mat-chip *ngFor= "let chip of List_chips_Personas"
+                                [removable]=true
+                                (removed)= "removeEquipo(chip)"
+                                color="Primary">
+                                {{chip}}
+                                <mat-icon matChipRemove> cancel</mat-icon>
+                            </mat-chip>
+                        </mat-chip-list>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </mat-expansion-panel>
+
+<!-- ----------------Datos Especificos------------------- -->
+    <mat-expansion-panel (closed)="ActualizarDescDE()" class="light every-panel" Id="DEPanel">
+        <mat-expansion-panel-header>
+            <mat-panel-title class="titulo">
+                Datos Especificos
+            </mat-panel-title>
+            <mat-panel-description>
+                <!--{{descripcionDE}}--> no se filtra por datos especificos
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <ng-container color= 'warning'>
+            <p>Para ver una busqueda de datos especificos debe ingresar solo 1 subtipo en clasificaciones</p>
+        </ng-container>
     </mat-expansion-panel>
 </mat-accordion>
 

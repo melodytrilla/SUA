@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { MatExpansionPanel } from '@angular/material';
 import { SolicitudesService, Vecinal } from '../solicitudes.service';
+import { SatDatepickerRangeValue } from 'saturn-datepicker';
 
 
 @Component({
@@ -26,13 +27,25 @@ export class DesplegableTestComponent implements OnInit {
   
 
   //----------------------------------------------------
- 
-  equipamiento_tipo:string[] = ["Alumbrado-columna", "Camara-bicis publicas", "Semaforo-semaforo"];
-  equipamiento_seleccionado:string = "";
+  estados_total:string[] = ["Resuelto", "Cerrado", "En curso", "Pendiente", "Archivado de oficio"];
+  estados_select:string[] = [];
 
-  equipamiento_choice:string = "";
+  detallados_total:string[] = ["Derivado", "Resuelto con aviso", "Resuelto", "Resuelto sin aviso", "Archivado de oficion", "Rechazado", "Pendiente", "Cerrado"];
+  detallados_select:string = "";
 
-  equipamiento_detalle:string = "";
+  estado_DateRango: SatDatepickerRangeValue<Date> = {begin: null, end: null};
+
+  addEstadoToChips(value:string):void{
+    if(!this.estados_select.includes(value)){
+      this.estados_select.push(value);
+    }
+  }
+
+  removeEstado(value:string):void{
+    this.estados_select = this.estados_select.filter(estado => estado!= value);
+  }
+
+
 
   ngOnInit() {
     //this.solicitudesService.getAllVecinales();

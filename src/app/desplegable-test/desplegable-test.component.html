@@ -2,36 +2,58 @@
     <mat-expansion-panel (closed)="ActualizarDesc()" class="dark" Id="principalPanel">
         <mat-expansion-panel-header>
             <mat-panel-title>
-                Itervenciones
+                Estado
             </mat-panel-title>
             <mat-panel-description>
                 {{descripcion}}
             </mat-panel-description>
         </mat-expansion-panel-header>
         <div style="width: 100%;display: flex;flex-direction: row;">
-            <div style="flex-grow: 1;">
-                <mat-radio-group [(ngModel)] = "equipamiento_choice">
-                    <mat-radio-button value="con"> con </mat-radio-button>
-                    <mat-radio-button value="sin"> sin </mat-radio-button>
-                    <mat-radio-button value=""> no seleccionado </mat-radio-button>
-                </mat-radio-group>
-            </div>
-
-            <div style="flex-grow: 1;">
+            <div style="flex-grow: 1;flex-direction: column;">
+                <!-- estado chips -->
                 <mat-form-field>
-                    <mat-label>Tipo</mat-label>
-                    <mat-select [(ngModel)] = "equipamiento_seleccionado">
-                        <mat-option *ngFor="let tipo of equipamiento_tipo" [value]="tipo">
-                            {{tipo}}
+                    <mat-label>Estado</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let option of estados_total" (click)="addEstadoToChips(option)">
+                            {{option}}
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
+                <div>
+                    <mat-chip-list #showEstado>
+                        <mat-chip *ngFor="let chip of estados_select"
+                            [removable] = "true"
+                            (removed)= "removeEstado(chip)"
+                            color="primary">
+                        {{chip}}
+                        <mat-icon matChipRemove> cancel</mat-icon>
+                        </mat-chip>
+                    </mat-chip-list>
+                </div>
             </div>
-
             <div style="flex-grow: 1;">
-                <mat-form-field appearance="fill" style="width: -moz-available;">
-                    <mat-label>Detalle</mat-label>
-                    <textarea matInput [(ngModel)]="equipamiento_detalle"></textarea>
+                <!-- Date Range -->
+                <mat-form-field>
+                    <input matInput
+                        [disabled]="estados_select.length == 0"
+                        placeholder = "Elija una fecha"
+                        [satDatepicker]="pickerEstado"
+                        [(ngModel)] = "estado_DateRango"
+                        value = "">
+                    <sat-datepicker #pickerEstado [rangeMode]="true">
+                    </sat-datepicker>
+                    <sat-datepicker-toggle matSuffix [for]="pickerEstado"></sat-datepicker-toggle>
+                </mat-form-field>
+            </div>
+            <div style="flex-grow: 1;">
+                <!-- estado Determinado -->
+                <mat-form-field [(ngModel)] = "detallados_select">
+                    <mat-label>Estado Detallado</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let option of detallados_total" [value]="option">
+                            {{option}}
+                        </mat-option>
+                    </mat-select>
                 </mat-form-field>
             </div>
         </div>
