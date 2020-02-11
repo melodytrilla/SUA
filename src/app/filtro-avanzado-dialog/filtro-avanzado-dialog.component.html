@@ -94,20 +94,6 @@
                 </mat-select> 
             </mat-form-field>
 
-            <div style="display: flex;" Id="CalifFont">
-                <mat-checkbox
-                [(ngModel)]="registroCheck"
-                style="margin-right: 8%;">
-                Registro
-                    
-                </mat-checkbox>
-
-                <mat-checkbox
-                [(ngModel)]="reiteracionCheck">
-                Reiteracion
-                    
-                </mat-checkbox>
-            </div>
 
             <div style="max-width: 35%;">
                 <mat-form-field>
@@ -125,6 +111,20 @@
                             <mat-icon matChipRemove>cancel</mat-icon>
                         </mat-chip>
                 </mat-chip-list>
+            </div>
+            <div style="display: flex;" Id="CalifFont">
+                <mat-checkbox
+                [(ngModel)]="registroCheck"
+                style="margin-right: 8%;">
+                Registro
+                    
+                </mat-checkbox>
+
+                <mat-checkbox
+                [(ngModel)]="reiteracionCheck">
+                Reiteracion
+                    
+                </mat-checkbox>
             </div>
         </div>
     </mat-expansion-panel>

@@ -66,8 +66,8 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   tipos :string[]= ["Emergencia", "Suceso", "Reclamo", "Consulta", "Sugerencia", "Denuncia", "Tramite"]
   tipo:string;
 
-  registroCheck;
-  reiteracionCheck;
+  registroCheck = true;
+  reiteracionCheck = true;
 
   origenes:string[] = ["Telefonico", "Personal", "Facebook", "Twitter", "Contacto Web", "Nota/Expediente", "VVV", "MR", "Externo", "MR Movil", "Sensor", "Vecino Movil"]
   origenesSeleccionados:string[] = [];
