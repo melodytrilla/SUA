@@ -19,9 +19,10 @@ export class MapComponent implements OnInit {
   myIcon = L.divIcon({
     className: 'fsua fsua-ubicacion fsua-3x',
     iconAnchor: [20, 32],
-});
+  });
 
-argCrs: any;
+  argCrs: any;
+  num: number = 0;
 
   ngOnInit() {
     this.argCrs = new L.Proj.CRS('EPSG:22185',
@@ -33,15 +34,7 @@ argCrs: any;
     maxZoom: 19,
       }).addTo(this.mymap);
     this.setLayers();
-    var newPoint = new L.Point(5438909.74157222,6354364.200221464);
-    console.log(newPoint);
 
-    console.log(this.argCrs);
-    
-    var latLong = this.argCrs.unproject(newPoint);
-    console.log(latLong);
-    this.mymap.panTo(latLong);
-    this.addMarker(latLong.lat, latLong.lng, "cat", "hola", "mas");
   }
   
   
@@ -50,14 +43,24 @@ argCrs: any;
     this.api.getSolicitudes().subscribe(
       data => {
         data.forEach(value => {
-          this.addMarker(value.coord_x, value.coord_y, value.categoria, value.subtipo, value.estado)
+          let tempLatLng = this.convertToLatLng(value.coord_x, value.coord_y);
+
+          this.addMarker(tempLatLng.lat, tempLatLng.lng, value.categoria, value.subtipo, value.estado, value.numero);
+          this.num++;
         })
       });
-     }
-  addMarker(x: number, y: number, categoria: string, subtipo:string, estado:string){
+    }
+  
+  
+  addMarker(x: number, y: number, categoria: string, subtipo:string, estado:string, nume:number){
     let a = new L.Marker({lat: x, lng: y}, {icon: this.myIcon});
-    a.addTo(this.mymap).bindPopup('<p>Categoría: ' + categoria +'</br>jk</p>');
-};
+    a.addTo(this.mymap).bindPopup('<p>Categoría: ' + categoria +'</br>Subtipo: ' + subtipo +'</br> Estado: '+ estado +'</br> numero: '+ nume + '</p>');
+  }
+
+  convertToLatLng(x: number, y :number){
+    let tempPoint = new L.Point(x,y);
+    return this.argCrs.unproject(tempPoint)
+  }
 
 
 }
