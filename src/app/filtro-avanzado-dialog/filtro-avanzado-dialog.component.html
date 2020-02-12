@@ -98,8 +98,8 @@
             <div style="max-width: 35%;">
                 <mat-form-field>
                     <mat-label>Origen</mat-label>
-                    <mat-select>
-                        <mat-option (click)="agregarChipOrigen(origen)" *ngFor="let origen of origenes">{{origen}}</mat-option>
+                    <mat-select #origenSelect (selectionChange)="agregarChipOrigen($event.value)" >
+                        <mat-option  *ngFor="let origen of origenes" [value]="origen">{{origen}}</mat-option>
                     </mat-select>
                 </mat-form-field>
 
@@ -129,8 +129,6 @@
         </div>
     </mat-expansion-panel>
 
-    <!-- ----------------Distrito------------------- -->
-
 
     <!-- ----------------Areas------------------- -->
     <mat-expansion-panel (closed)="ActualizarDescArea()" class="light every-panel" Id="AreaPanel">
@@ -146,13 +144,13 @@
         <div class="body">
             <mat-form-field style="width: 25%;">
                 <mat-label>Area de Origen</mat-label>            
-                <input matInput [matAutocomplete] = "auto"
+                <input matInput [matAutocomplete] = "autoArea"
                     (input)="updateAutocomplete($event.target.value)"
                     (focus)="updateAutocomplete($event.target.value)"
                     [(ngModel)]="area_origen"
                     >
 
-                <mat-autocomplete #auto = "matAutocomplete">
+                <mat-autocomplete #autoArea = "matAutocomplete" style="width: 100px; height: 100px;">
                     <mat-option> cualquiera </mat-option>
                     <mat-divider></mat-divider>
                     <div *ngFor = "let area of area_areas">
@@ -165,7 +163,7 @@
             </mat-form-field>
             <mat-form-field style="width: 25%;">
                 <mat-label>Area de Destino Actual</mat-label>            
-                <input matInput [matAutocomplete] = "auto"
+                <input matInput [matAutocomplete] = "autoArea"
                     (input)="updateAutocomplete($event.target.value)"
                     (focus)="updateAutocomplete($event.target.value)"
                     [(ngModel)]="area_destino"
@@ -173,7 +171,7 @@
             </mat-form-field>
             <mat-form-field style="width: 25%;">
                 <mat-label>Area de Reiteracion</mat-label>            
-                <input matInput [matAutocomplete] = "auto"
+                <input matInput [matAutocomplete] = "autoArea"
                     (input)="updateAutocomplete($event.target.value)"
                     [(ngModel)]="area_reiteracion"
                     >
@@ -251,12 +249,12 @@
         
         <div class="body">
             <div style="width: 100%;display: flex;flex-direction: row;">
-                <div style="flex-grow: 1;flex-direction: column;">
+                <div style="flex-grow: 1;flex-direction: column; max-width: 35%;">
                     <!-- estado chips -->
                     <mat-form-field>
                         <mat-label>Estado</mat-label>
-                        <mat-select>
-                            <mat-option *ngFor="let option of estados_total" (click)="addEstadoToChips(option)">
+                        <mat-select #estadoBuscador (selectionChange)="addEstadoToChips($event.value)">
+                            <mat-option *ngFor="let option of estados_total" [value]="option">
                                 {{option}}
                             </mat-option>
                         </mat-select>
@@ -282,16 +280,21 @@
                             [satDatepicker]="pickerEstado"
                             [(ngModel)] = "estado_DateRango"
                             value = "">
-                        <sat-datepicker #pickerEstado [rangeMode]="true">
+
+                        <sat-datepicker #pickerEstado 
+                            [rangeMode]="true"
+                            [calendarFooterComponent]="rangesFooter"
+                            [selectFirstDateOnClose]="true">
                         </sat-datepicker>
                         <sat-datepicker-toggle matSuffix [for]="pickerEstado"></sat-datepicker-toggle>
                     </mat-form-field>
                 </div>
                 <div style="flex-grow: 1;">
-                    <!-- estado Determinado -->
+                    <!-- estado Detallado -->
                     <mat-form-field >
                         <mat-label>Estado Detallado</mat-label>
                         <mat-select [(ngModel)] = "detallados_select">
+                            <mat-option [value] = ""> --ninguno--</mat-option>
                             <mat-option *ngFor="let option of detallados_total" [value]="option">
                                 {{option}}
                             </mat-option>
@@ -320,22 +323,22 @@
                     <mat-form-field style="width:275px">
                         <input matInput #search
                             placeholder = "Vecinal"
-                            [matAutocomplete]="auto"
+                            [matAutocomplete]="autoDistrito"
                             [matChipInputFor]="showVecinales"
                             [matChipInputSeparatorKeyCodes] = "separatorKeys"
                             [matChipInputAddOnBlur] = true
-                            [matAutocomplete]="auto"
                             (input)="onChange($event.target.value)"
+                            (focus)="onChange($event.target.value)"
                             >
                     </mat-form-field>
-                    <mat-autocomplete #auto="matAutocomplete"> 
+                    <mat-autocomplete #autoDistrito="matAutocomplete" (optionSelected)="showSelected($event.option.value)"> 
                         <ng-container *ngFor="let distrito of filteredDistritos">
-                            <mat-option class="distritoOption" [value]="distrito" (click)="selecDistrito(distrito)">
+                            <mat-option class="distritoOption" [value]="distrito">
                                 {{distrito}}
                             </mat-option>
 
                             <ng-container *ngFor="let vecinal of filteredVecinales">
-                                <mat-option class="vecinalOption" [value]="vecinal" *ngIf="vecinal.distrito == distrito" (click)="selecVecinal(vecinal)">
+                                <mat-option class="vecinalOption" [value]="vecinal" *ngIf="vecinal.distrito == distrito">
                                     {{vecinal.nombre}}
                                 </mat-option>
                             </ng-container>
@@ -363,7 +366,7 @@
         </div>
         
     </mat-expansion-panel>
-<!-- ----------------Distritos------------------- -->
+<!-- ----------------Intervenciones------------------- -->
     <mat-expansion-panel (closed)="ActualizarDescInt()" class="light every-panel" Id="IntPanel">
         <mat-expansion-panel-header>
             <mat-panel-title class="titulo">
@@ -385,14 +388,16 @@
     
                     </mat-radio-group>
                     <div clas="flexRow" style="margin-top: 5px;">
-                        <mat-checkbox [(ngModel)]="pickDate"></mat-checkbox>
                         <mat-form-field style = "margin-left: 10px;">
                             <input matInput
-                                    [disabled]="disablePicker"
+                                    [disabled]="tipoInt == ''"
                                 placeholder="Choose a date"
                                 [satDatepicker]="picker3"
                                 value="">
-                            <sat-datepicker #picker3 [rangeMode]="true">
+                            <sat-datepicker #picker3 
+                                [rangeMode]="true"
+                                [calendarFooterComponent]="rangesFooter"
+                                [selectFirstDateOnClose]="true">
                             </sat-datepicker>
                             <sat-datepicker-toggle matSuffix [for]="picker3"></sat-datepicker-toggle>
                         </mat-form-field>
@@ -405,9 +410,9 @@
                     <div>
                         <mat-form-field>
                             <mat-label>Intervencion</mat-label>
-                            <mat-select>
+                            <mat-select #intervencionSelect (selectionChange)="agregarInt($event.value)">
                                 <mat-option *ngFor=" let int of intervenciones" 
-                                (click)="agregarInt(int)">
+                                [value]="int">
                                     {{int}}
                                 </mat-option>
                             </mat-select>
@@ -497,15 +502,17 @@
                         </mat-radio-group>
                     </div>
                     <div clas="flexRow" style="margin-top: 5px;">
-                        <mat-checkbox [(ngModel)]="asingCheck"></mat-checkbox>
                         <mat-form-field style = "margin-left: 10px;">
                             <input matInput
-                                [disabled]="asigDateEnable"
+                                [disabled]="asignacion_choice == ''"
                                 placeholder="Choose a date"
                                 [satDatepicker]="pickerAsig"
                                 [(ngModel)]="asigDate"
                                 value="">
-                            <sat-datepicker #pickerAsig [rangeMode]="true">
+                            <sat-datepicker #pickerAsig 
+                                [rangeMode]="true"
+                                [calendarFooterComponent]="rangesFooter"
+                                [selectFirstDateOnClose]="true">
                             </sat-datepicker>
                             <sat-datepicker-toggle matSuffix [for]="pickerAsig"></sat-datepicker-toggle>
                         </mat-form-field>
@@ -517,15 +524,15 @@
                     <div>
                         <mat-form-field>
                             <mat-label> Equipo</mat-label>
-                            <input matInput [matAutocomplete]="auto"
+                            <input #equipoSearch matInput [matAutocomplete]="auto"
                                 [matChipInputFor]="showEquipo"
                                 [matChipInputAddOnBlur]= true
                                 (focus)="updateEquipoAuto($event.target.value)"
                                 (input)="updateEquipoAuto($event.target.value)"
                                 >
-                            <mat-autocomplete #auto = "matAutocomplete">
+                            <mat-autocomplete #auto = "matAutocomplete" (optionSelected)="agregarEquipo($event.option.value)" >
                                 <div *ngFor="let persona of List_Personas">
-                                    <mat-option [value]= "" (click)="agregarEquipo(persona)">
+                                    <mat-option [value]= "persona" (click)="agregarEquipo(persona)">
                                         {{persona}}
                                     </mat-option>
                                     <mat-divider></mat-divider>

@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, Input, ViewChild, ElementRef, ContentChild, TemplateRef } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA, MatRadioGroup } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatRadioGroup, MatSelect } from '@angular/material';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
@@ -61,6 +61,8 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   //--------------------------------------------------------------------
 
   //-----Busqueda Clasificacion ----------------------------------------
+  @ViewChild('origenSelect', {static: false}) origenSelect: MatSelect;
+  
   public descripcionCalif:string = this.default_descripcion; 
 
   tipos :string[]= ["Emergencia", "Suceso", "Reclamo", "Consulta", "Sugerencia", "Denuncia", "Tramite"]
@@ -105,6 +107,8 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   //--------------------------------------------------------------------
 
   //-----Busqueda Estado ----------------------------------------------
+  @ViewChild('estadoBuscador', {static: false}) estadoBuscador:MatSelect;
+
   descripcionEstado:string = "";
 
   estados_total:string[] = ["Resuelto", "Cerrado", "En curso", "Pendiente", "Archivado de oficio"];
@@ -133,18 +137,8 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   //--------------------------------------------------------------------
 
   //-----Busqueda Intervenciones ---------------------------------------
-  private _pickDate:boolean;
-  disablePicker:boolean;
-
-  get pickDate():boolean{
-    return this._pickDate;
-  }
+  @ViewChild('intervencionSelect', {static: false}) intSelect: MatSelect;
   
-  set pickDate(value:boolean){
-    this._pickDate = value;
-    this.disablePicker = !value;
-  }
-
   intervenciones:string[] = ["Acta de Informacion", "Constatado", "No constatado"];
   intervencionesSelecionadas:string[] = [];
 
@@ -171,6 +165,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   //--------------------------------------------------------------------
 
   //-----Busqueda Asignacion -----------------------------------------
+  @ViewChild('equipoSearch', {static: false}) equipoSearch:ElementRef;
 
   descripcionAsig:string = "";
 
@@ -181,21 +176,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
   asignacion_choice:string = "";
 
-  private _asingCheck: boolean = false;
-  asigDateEnable:boolean = true;
-
   asigDate:SatDatepickerRangeValue<Date> = {begin: null, end: null};
-
-
-  get asingCheck(): boolean {
-    return this._asingCheck;
-  }
-
-  set asingCheck(value: boolean) {
-    this._asingCheck = value;
-    this.asigDateEnable = !value;
-    
-  }
 
   //--------------------------------------------------------------------
   constructor(
@@ -244,7 +225,6 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     });*/
 
     this.solicitud.getAllVecinales();
-    this.pickDate = false;
 
 
     //inicializacion de los paneles expansores
@@ -252,6 +232,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     this.ActualizarDescCalificacion();
     this.ActualizarDescAdjunto();
     this.ActualizarDescOpinion();
+    this.ActualizarEstado();
     this.ActualizarDescDistrito();
     this.ActualizarDescInt();
     this.ActualizarDescEqp();
@@ -335,14 +316,21 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   //para catualizar la Calificacion --------------------------------------
 
   agregarChipOrigen(origen:string):void{
+    /*
     if(this.origenesSeleccionados.length == 0){
       this.origenesSeleccionados = this.origenesSeleccionados.concat(origen);
     }else{
       if(!this.origenesSeleccionados.includes(origen)){
         this.origenesSeleccionados = this.origenesSeleccionados.concat(origen);
       }  
+    }*/
+    if(origen != "" && this.origenSelect.panelOpen){
+      if(!this.origenesSeleccionados.includes(origen)){
+        this.origenesSeleccionados.push(origen);
+      }
+      console.log(this.origenesSeleccionados);
     }
-    //console.log(this.origenesSeleccionados);
+    this.origenSelect.value = "";
   } 
 
   takeOut(elegido:string):void{
@@ -416,10 +404,11 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
   updateAutocomplete(value: string):void{
     this.area_areas = [];
-    this.solicitud.getAreas().subscribe(result => 
+    this.solicitud.getAreas().subscribe(result =>
       this.area_areas = result.filter((area) => {
-      return (area.toLowerCase()).includes(value);
-    }))
+        return (area.toLowerCase()).includes(value);
+        }
+      ))
   }
 
   ActualizarDescArea(){
@@ -590,14 +579,19 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   //Para actualizar Estado --------------------------------------------
 
   addEstadoToChips(value:string):void{
-    if(!this.estados_select.includes(value)){
-      this.estados_select.push(value);
+    if(value != "" && this.estadoBuscador.panelOpen){
+      if(!this.estados_select.includes(value)){
+        this.estados_select.push(value);
+      }
     }
+    this.estadoBuscador.value = "";
   }
 
   removeEstado(value:string):void{
     this.estados_select = this.estados_select.filter(estado => estado!= value);
   }
+
+
 
   InputADescripcionEst(){
     let desc:string = "se filtra por Estado";
@@ -644,6 +638,15 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
       this.filteredVecinales = [];
     }
   }
+
+  showSelected(option: string| Vecinal){
+   if(typeof option === "string"){
+    this.selecDistrito(option);
+   }else{
+     this.selecVecinal(option);
+   }
+  }
+
 
   remove(vecinal: Vecinal):void{
     this.chipVecinales = this.chipVecinales.filter(valor => valor.nombre != vecinal.nombre);
@@ -705,9 +708,13 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   }
 
   agregarInt(int: string):void{
-    if(this.intervencionesSelecionadas.every(value => value != int)){
-      this.intervencionesSelecionadas.push(int);
+    if(int!= "" && this.intSelect.panelOpen){
+      if(this.intervencionesSelecionadas.every(value => value != int)){
+        this.intervencionesSelecionadas.push(int);
+      }
+      
     }
+    this.intSelect.value = "";
   }
 
   InputADescripcionInt(){
@@ -718,7 +725,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   }
 
   intChanged():boolean{
-    if(this.tipoInt != "" || this.pickDate || this.suaMovil || this.intervencionesSelecionadas.length > 0){ 
+    if(this.tipoInt != "" || this.suaMovil || this.intervencionesSelecionadas.length > 0){ 
       return true;
     }
           
@@ -778,6 +785,10 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
   //Para actualizar Asignaciones --------------------------------------
 
+  showIt(value){
+    console.log(value);
+  }
+
   updateEquipoAuto(value:string):void{
     if(value == ""){
       this.List_Personas = this.List_Personas_Total
@@ -790,6 +801,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     if(!this.List_chips_Personas.includes(persona)){
       this.List_chips_Personas.push(persona);
     }
+    this.equipoSearch.nativeElement.value = "";
   }
 
   removeEquipo(persona:string):void{
@@ -804,7 +816,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   }
 
   AsigChanged():boolean{
-    if(this.asignacion_choice != "" || (this.asingCheck == true && this.asigDate.begin != null ) || this.List_chips_Personas.length > 0){ 
+    if(this.asignacion_choice != "" || this.List_chips_Personas.length > 0){ 
       return true;
     }
           
