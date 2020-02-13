@@ -1,6 +1,7 @@
 <!--<div mat-dialog-content class="mainContainer dark" [formGroup]="form"></div>-->
 
     <h1 mat-dialog-title>Filtros avanzados</h1>
+    <!--
     <app-chips-container #myChips [chipsAnteriores] = []></app-chips-container>
 
     <section class="direccion">
@@ -19,7 +20,6 @@
               [satDatepicker]="picker"
               [formControl]= "datesControl"
               (change)="onDateChange()">
-              <!--formControlName="estadoDates"-->
               
           <sat-datepicker #picker 
               [rangeMode]="true"
@@ -29,7 +29,545 @@
       </mat-form-field>
     </section>
 
-  
+  -->
+
+  <mat-accordion>
+      <!-- -------------Reporte--------------- -->
+    <mat-expansion-panel (closed)="ActualizarDescReporte()" class="light every-panel" Id="ReportePanel">
+        <mat-expansion-panel-header>
+            <mat-panel-title class="titulo">
+                Reporte
+            </mat-panel-title>
+            <mat-panel-description>
+                {{descripcionReporte}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div class="body">
+            <div Id="inputField">
+                <mat-label style="margin-right: 2%;">Reiteraciones: </mat-label>
+                <mat-radio-group [(ngModel)] = "reiteraciones" style="display: flex;">
+                    <mat-radio-button *ngFor="let tipo of tipos_reiteraciones" [value]="tipo" class="reiteracion">
+                        {{tipo}}
+                    </mat-radio-button>
+                
+                </mat-radio-group>
+            </div>
+            
+
+            <mat-form-field style="margin-left: 5%">
+                <mat-label>Prioridad:</mat-label>
+                <mat-select [(value)] = "opt_selected">
+                    <mat-option>Todas</mat-option>
+                    <mat-option value="Alta">Alta</mat-option>
+                    <mat-option value="Media">Media</mat-option>
+                    <mat-option value="Baja">Baja</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        
+    </mat-expansion-panel>
+
+    <!-- -------------Clasificacion--------------- -->
+    <mat-expansion-panel (closed)="ActualizarDescCalificacion()" class="light every-panel" Id="CalifPanel">
+        <mat-expansion-panel-header>
+            <mat-panel-title class="titulo">
+                Clasificacion
+            </mat-panel-title>
+            <mat-panel-description>
+                {{descripcionCalif}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div>
+            <app-chips-container #myChips [chipsAnteriores] = []></app-chips-container>
+        </div>
+        <mat-divider style="margin-bottom: 1%;"></mat-divider>
+        <div class="body">
+            <mat-form-field>
+                <mat-label>Tipo</mat-label>
+
+                <mat-select [(value)]="tipo">
+                    <mat-option> cualquiera</mat-option>
+                    <mat-option *ngFor="let elem of tipos" [value]="elem">  
+                        {{elem}}
+                    </mat-option>
+                </mat-select> 
+            </mat-form-field>
+
+
+            <div style="max-width: 35%;">
+                <mat-form-field>
+                    <mat-label>Origen</mat-label>
+                    <mat-select>
+                        <mat-option (click)="agregarChipOrigen(origen)" *ngFor="let origen of origenes">{{origen}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-chip-list>
+                    <mat-chip *ngFor="let elegido of origenesSeleccionados"
+                        [removable]=true [selectable]=true 
+                        color="primary" (removed)="takeOut(elegido)"> 
+                            {{elegido}}
+                            <mat-icon matChipRemove>cancel</mat-icon>
+                        </mat-chip>
+                </mat-chip-list>
+            </div>
+            <div style="display: flex;" Id="CalifFont">
+                <mat-checkbox
+                [(ngModel)]="registroCheck"
+                style="margin-right: 8%;">
+                Registro
+                    
+                </mat-checkbox>
+
+                <mat-checkbox
+                [(ngModel)]="reiteracionCheck">
+                Reiteracion
+                    
+                </mat-checkbox>
+            </div>
+        </div>
+    </mat-expansion-panel>
+
+    <!-- ----------------Distrito------------------- -->
+
+
+    <!-- ----------------Areas------------------- -->
+    <mat-expansion-panel (closed)="ActualizarDescArea()" class="light every-panel" Id="AreaPanel">
+        <mat-expansion-panel-header>
+            <mat-panel-title class="titulo">
+                Area
+            </mat-panel-title>
+            <mat-panel-description>
+                {{descripcionArea}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        
+        <div class="body">
+            <mat-form-field style="width: 25%;">
+                <mat-label>Area de Origen</mat-label>            
+                <input matInput [matAutocomplete] = "auto"
+                    (input)="updateAutocomplete($event.target.value)"
+                    (focus)="updateAutocomplete($event.target.value)"
+                    [(ngModel)]="area_origen"
+                    >
+
+                <mat-autocomplete #auto = "matAutocomplete">
+                    <mat-option> cualquiera </mat-option>
+                    <mat-divider></mat-divider>
+                    <div *ngFor = "let area of area_areas">
+                        <mat-option  [value]= area style="height:auto; display: flex; white-space: normal;line-height: 2;">
+                            {{area}}
+                        </mat-option>
+                        <mat-divider></mat-divider>
+                    </div>
+                </mat-autocomplete>
+            </mat-form-field>
+            <mat-form-field style="width: 25%;">
+                <mat-label>Area de Destino Actual</mat-label>            
+                <input matInput [matAutocomplete] = "auto"
+                    (input)="updateAutocomplete($event.target.value)"
+                    (focus)="updateAutocomplete($event.target.value)"
+                    [(ngModel)]="area_destino"
+                    >
+            </mat-form-field>
+            <mat-form-field style="width: 25%;">
+                <mat-label>Area de Reiteracion</mat-label>            
+                <input matInput [matAutocomplete] = "auto"
+                    (input)="updateAutocomplete($event.target.value)"
+                    [(ngModel)]="area_reiteracion"
+                    >
+            </mat-form-field>
+        </div>
+    </mat-expansion-panel>
+    
+    <!-- ----------------Adjuntos------------------- -->
+    <mat-expansion-panel (closed)="ActualizarDescAdjunto()" class="light every-panel" Id="AdjuntoPanel">
+        <mat-expansion-panel-header>
+            <mat-panel-title class="titulo">
+                Adjunto
+            </mat-panel-title>
+            <mat-panel-description>
+                {{descripcionAdjunto}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        
+        <div id="AdjuntoFont" class="body">
+            <section>
+                <mat-radio-group [(ngModel)]="tiene" (change)="checkEnable($event)">
+                    <mat-radio-button value="con"> Con</mat-radio-button>
+                    <mat-radio-button value="sin"> Sin</mat-radio-button>
+                    <mat-radio-button value="no"> No Seleccionado</mat-radio-button>
+                </mat-radio-group>
+            </section>
+
+            <section>
+                <mat-checkbox [disabled]="dis" [(ngModel)]="registro"> Registro/ Reiteracion</mat-checkbox>
+                <mat-checkbox [disabled]="dis" [(ngModel)]="intervencion"> Intervencion</mat-checkbox>
+                <mat-checkbox [disabled]="dis" [(ngModel)]="resolucion"> Resolucion</mat-checkbox>
+            </section>
+        </div>
+    </mat-expansion-panel>
+
+    <!-- ----------------Opiniones------------------- -->
+    <mat-expansion-panel (closed)="ActualizarDescOpinion()" class="light every-panel" Id="OpinionPanel">
+        <mat-expansion-panel-header>
+            <mat-panel-title class="titulo">
+                Opinion
+            </mat-panel-title>
+            <mat-panel-description>
+                {{descripcionOpinion}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        
+        <div id="OpinionFont" class="body">
+            <section>
+                <mat-radio-group [(ngModel)]="tieneOp" (change)="checkEnableOp($event)">
+                    <mat-radio-button value="con"> Con</mat-radio-button>
+                    <mat-radio-button value="sin"> Sin</mat-radio-button>
+                    <mat-radio-button value="no"> No Seleccionado</mat-radio-button>
+                </mat-radio-group
+                >
+            </section>
+
+            <section>
+                <mat-checkbox [disabled]="disOp" [(ngModel)]="positivo"> Positiva</mat-checkbox>
+                <mat-checkbox [disabled]="disOp" [(ngModel)]="negativo"> Negativa</mat-checkbox>
+                <mat-checkbox [disabled]="disOp" [(ngModel)]="neutro"> Neutral</mat-checkbox>
+            </section>
+        </div>
+    </mat-expansion-panel>
+
+    <!-- ----------------Estados------------------- -->
+    <mat-expansion-panel (closed)="ActualizarEstado()" class="light every-panel" Id="EstadoPanel">
+        <mat-expansion-panel-header>
+            <mat-panel-title class="titulo">
+                Estado
+            </mat-panel-title>
+            <mat-panel-description>
+                {{descripcionEstado}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        
+        <div class="body">
+            <div style="width: 100%;display: flex;flex-direction: row;">
+                <div style="flex-grow: 1;flex-direction: column;">
+                    <!-- estado chips -->
+                    <mat-form-field>
+                        <mat-label>Estado</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let option of estados_total" (click)="addEstadoToChips(option)">
+                                {{option}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div>
+                        <mat-chip-list #showEstado>
+                            <mat-chip *ngFor="let chip of estados_select"
+                                [removable] = "true"
+                                (removed)= "removeEstado(chip)"
+                                color="primary">
+                            {{chip}}
+                            <mat-icon matChipRemove> cancel</mat-icon>
+                            </mat-chip>
+                        </mat-chip-list>
+                    </div>
+                </div>
+                <div style="flex-grow: 1;">
+                    <!-- Date Range -->
+                    <mat-form-field>
+                        <input matInput
+                            [disabled]="estados_select.length == 0"
+                            placeholder = "Elija una fecha"
+                            [satDatepicker]="pickerEstado"
+                            [(ngModel)] = "estado_DateRango"
+                            value = "">
+                        <sat-datepicker #pickerEstado [rangeMode]="true">
+                        </sat-datepicker>
+                        <sat-datepicker-toggle matSuffix [for]="pickerEstado"></sat-datepicker-toggle>
+                    </mat-form-field>
+                </div>
+                <div style="flex-grow: 1;">
+                    <!-- estado Determinado -->
+                    <mat-form-field >
+                        <mat-label>Estado Detallado</mat-label>
+                        <mat-select [(ngModel)] = "detallados_select">
+                            <mat-option *ngFor="let option of detallados_total" [value]="option">
+                                {{option}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+
+        </div>
+    </mat-expansion-panel>
+
+<!-- ----------------Distritos------------------- -->
+    <mat-expansion-panel (closed)="ActualizarDescDistrito()" class="light every-panel" Id="DistritoPanel">
+        <mat-expansion-panel-header>
+            <mat-panel-title class="titulo">
+                Distrito
+            </mat-panel-title>
+            <mat-panel-description>
+                {{descripcionDistrito}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div class="body">
+            <div style="display: flex; justify-content: space-between;">
+                <div style="flex-grow: 1;">
+                    <mat-form-field style="width:275px">
+                        <input matInput #search
+                            placeholder = "Vecinal"
+                            [matAutocomplete]="auto"
+                            [matChipInputFor]="showVecinales"
+                            [matChipInputSeparatorKeyCodes] = "separatorKeys"
+                            [matChipInputAddOnBlur] = true
+                            [matAutocomplete]="auto"
+                            (input)="onChange($event.target.value)"
+                            >
+                    </mat-form-field>
+                    <mat-autocomplete #auto="matAutocomplete"> 
+                        <ng-container *ngFor="let distrito of filteredDistritos">
+                            <mat-option class="distritoOption" [value]="distrito" (click)="selecDistrito(distrito)">
+                                {{distrito}}
+                            </mat-option>
+
+                            <ng-container *ngFor="let vecinal of filteredVecinales">
+                                <mat-option class="vecinalOption" [value]="vecinal" *ngIf="vecinal.distrito == distrito" (click)="selecVecinal(vecinal)">
+                                    {{vecinal.nombre}}
+                                </mat-option>
+                            </ng-container>
+                        </ng-container>
+                    </mat-autocomplete>
+                </div>
+                <mat-divider [vertical]="true"></mat-divider>
+                <div style="flex-grow: 10;">
+                    <mat-chip-list #showVecinales>
+                        <mat-chip *ngFor="let chip of chipVecinales"
+                            [removable]=true
+                            (removed)="remove(chip)"
+                            color="primary">
+                            <div class="chip">
+                                <h6 class="subtitulo">{{chip.distrito}}</h6>
+                                {{chip.nombre}}
+                            </div>
+                            <mat-icon matChipRemove>cancel</mat-icon>
+                        </mat-chip>
+                        
+                    </mat-chip-list>
+                </div>
+                
+            </div>
+        </div>
+        
+    </mat-expansion-panel>
+<!-- ----------------Distritos------------------- -->
+    <mat-expansion-panel (closed)="ActualizarDescInt()" class="light every-panel" Id="IntPanel">
+        <mat-expansion-panel-header>
+            <mat-panel-title class="titulo">
+                Intervenciones
+            </mat-panel-title>
+            <mat-panel-description>
+                {{descripcionInt}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div class="body">
+            <div Id="changeFont" class="flexRow" style="width: -moz-available; width: 100%;">
+                <div class="flexColunm" style="min-width: 50%;">
+                    <mat-radio-group [(ngModel)] = "tipoInt">
+                        <mat-radio-button value="con"> con </mat-radio-button>
+                        <mat-radio-button value="sin"> sin </mat-radio-button>
+                        <mat-radio-button value="ultima"> ultima </mat-radio-button>
+                        <mat-radio-button value=""> no seleccionado </mat-radio-button>
+    
+                    </mat-radio-group>
+                    <div clas="flexRow" style="margin-top: 5px;">
+                        <mat-checkbox [(ngModel)]="pickDate"></mat-checkbox>
+                        <mat-form-field style = "margin-left: 10px;">
+                            <input matInput
+                                    [disabled]="disablePicker"
+                                placeholder="Choose a date"
+                                [satDatepicker]="picker3"
+                                value="">
+                            <sat-datepicker #picker3 [rangeMode]="true">
+                            </sat-datepicker>
+                            <sat-datepicker-toggle matSuffix [for]="picker3"></sat-datepicker-toggle>
+                        </mat-form-field>
+                    </div>
+    
+                </div>
+    
+    
+                <div class="flexIColunm" style="min-width: 50%;">
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Intervencion</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor=" let int of intervenciones" 
+                                (click)="agregarInt(int)">
+                                    {{int}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+    
+                        <mat-chip-list>
+                            <mat-chip *ngFor="let int of intervencionesSelecionadas"
+                            [removable]=true [selectable]=true
+                            color=primary (removed)="quitarIntervencion(int)">
+                                {{int}}
+                                <mat-icon matChipRemove>cancel</mat-icon>
+                            </mat-chip>
+                        </mat-chip-list>
+                    </div>
+                    <div>
+                        <mat-checkbox [(ngModel)]="suaMovil" >SUA Movil</mat-checkbox>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </mat-expansion-panel>
+<!-- ----------------Equipamiento------------------- -->
+    <mat-expansion-panel (closed)="ActualizarDescEqp()" class="light every-panel" Id="EqpPanel">
+        <mat-expansion-panel-header>
+            <mat-panel-title class="titulo">
+                Equipamiento
+            </mat-panel-title>
+            <mat-panel-description>
+                {{descripcionEqp}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="body">
+            <div Id="changeFontEqp" style="width: 100%;display: flex;flex-direction: row;">
+                <div style="flex-grow: 1;">
+                    <mat-radio-group [(ngModel)] = "equipamiento_choice">
+                        <mat-radio-button value="con"> con </mat-radio-button>
+                        <mat-radio-button value="sin"> sin </mat-radio-button>
+                        <mat-radio-button value=""> no seleccionado </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+    
+                <div style="flex-grow: 1;">
+                    <mat-form-field>
+                        <mat-label>Tipo</mat-label>
+                        <mat-select [(ngModel)] = "equipamiento_seleccionado">
+                            <mat-option [value]="">no seleccionado</mat-option>
+                            <mat-option *ngFor="let tipo of equipamiento_tipo" [value]="tipo">
+                                {{tipo}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+    
+                <div style="flex-grow: 1;">
+                    <mat-form-field appearance="outline" style="width: -moz-available;">
+                        <mat-label>Detalle</mat-label>
+                        <textarea matInput [(ngModel)]="equipamiento_detalle"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+
+        </div>
+
+    </mat-expansion-panel>
+
+<!-- ----------------Asignaciones------------------------ -->
+    <mat-expansion-panel (closed)="ActualizarDescAsig()" class="light every-panel" Id="AsigPanel">
+        <mat-expansion-panel-header>
+            <mat-panel-title class="titulo">
+                Asignaciones
+            </mat-panel-title>
+            <mat-panel-description>
+                {{descripcionAsig}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="body">
+            <div style="width: 100%;display: flex;flex-direction: row;">
+                <div style="flex-grow: 1; flex-direction: column;">
+                    <div>
+                        <mat-radio-group [(ngModel)] = "asignacion_choice">
+                            <mat-radio-button value="con"> con </mat-radio-button>
+                            <mat-radio-button value="sin"> sin </mat-radio-button>
+                            <mat-radio-button value="ultima"> ultima </mat-radio-button>
+                            <mat-radio-button value=""> no seleccionado </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <div clas="flexRow" style="margin-top: 5px;">
+                        <mat-checkbox [(ngModel)]="asingCheck"></mat-checkbox>
+                        <mat-form-field style = "margin-left: 10px;">
+                            <input matInput
+                                [disabled]="asigDateEnable"
+                                placeholder="Choose a date"
+                                [satDatepicker]="pickerAsig"
+                                [(ngModel)]="asigDate"
+                                value="">
+                            <sat-datepicker #pickerAsig [rangeMode]="true">
+                            </sat-datepicker>
+                            <sat-datepicker-toggle matSuffix [for]="pickerAsig"></sat-datepicker-toggle>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <mat-divider [vertical]="true" style="margin-right: 20px;"></mat-divider>
+    
+                <div style="flex-grow: 20; flex-direction: column;">
+                    <div>
+                        <mat-form-field>
+                            <mat-label> Equipo</mat-label>
+                            <input matInput [matAutocomplete]="auto"
+                                [matChipInputFor]="showEquipo"
+                                [matChipInputAddOnBlur]= true
+                                (focus)="updateEquipoAuto($event.target.value)"
+                                (input)="updateEquipoAuto($event.target.value)"
+                                >
+                            <mat-autocomplete #auto = "matAutocomplete">
+                                <div *ngFor="let persona of List_Personas">
+                                    <mat-option [value]= "" (click)="agregarEquipo(persona)">
+                                        {{persona}}
+                                    </mat-option>
+                                    <mat-divider></mat-divider>
+                                </div>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-chip-list #showEquipo>
+                            <mat-chip *ngFor= "let chip of List_chips_Personas"
+                                [removable]=true
+                                (removed)= "removeEquipo(chip)"
+                                color="Primary">
+                                {{chip}}
+                                <mat-icon matChipRemove> cancel</mat-icon>
+                            </mat-chip>
+                        </mat-chip-list>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </mat-expansion-panel>
+
+<!-- ----------------Datos Especificos------------------- -->
+    <mat-expansion-panel (closed)="ActualizarDescDE()" class="light every-panel" Id="DEPanel">
+        <mat-expansion-panel-header>
+            <mat-panel-title class="titulo">
+                Datos Especificos
+            </mat-panel-title>
+            <mat-panel-description>
+                <!--{{descripcionDE}}--> no se filtra por datos especificos
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <ng-container color= 'warning'>
+            <p>Para ver una busqueda de datos especificos debe ingresar solo 1 subtipo en clasificaciones</p>
+        </ng-container>
+    </mat-expansion-panel>
+</mat-accordion>
+
+
 <div mat-dialog-actions>
   <button mat-stroked-button (click)="onNoClick()">Cancelar</button>
   <!--agregar devuelta al botton de abajo ( [mat-dialog-close]="data.filtro" cdkFocusInitial)-->

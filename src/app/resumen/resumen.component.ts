@@ -3,6 +3,8 @@ import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { RequestsByDistrictComponent } from '../requests-by-district/requests-by-district.component';
 import { FiltersService } from '../filters.service';
+import { SolicitudesService } from '../solicitudes.service';
+
 
 
 @Component({
@@ -36,10 +38,13 @@ export class ResumenComponent {
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver, private filterService: FiltersService) {}
+  constructor(private breakpointObserver: BreakpointObserver, 
+    private filterService: FiltersService, private solicitudesService:SolicitudesService) {}
 
 
   ngOnInit() {
     this.filterService.getNewFilters();
+    //this.solicitudesService.getAllVecinales();
+    
   }
 }

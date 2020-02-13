@@ -54,6 +54,7 @@ import { BusquedaService } from './busqueda.service';
 import { CartaInfoComponent } from './carta-info/carta-info.component';
 import { MapComponent } from './map/map.component';
 import { DetalleSolicitudComponent } from './detalle-solicitud/detalle-solicitud.component';
+import { DesplegableTestComponent } from './desplegable-test/desplegable-test.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { DetalleSolicitudComponent } from './detalle-solicitud/detalle-solicitud
     SideBarLoginComponent,
     CartaInfoComponent,
     MapComponent,
-    DetalleSolicitudComponent
+    DetalleSolicitudComponent,
+    DesplegableTestComponent
   ],
   imports: [
     BrowserModule,

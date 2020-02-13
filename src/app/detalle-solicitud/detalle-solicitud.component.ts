@@ -29,7 +29,7 @@ export class DetalleSolicitudComponent implements OnInit {
   origen: "Externo",
   distrito: "CENTRO",
   vecinal: "-1 Sin Vecinal",
-  cant_solicitantes: 1,
+  cant_solicitantes: 2,
   ident_reservada: 0,
   usuario_ult_derivacion: "agarbag0",
   fecha_hora_ult_derivacion: "15/01/2020 11:35",
@@ -50,9 +50,9 @@ export class DetalleSolicitudComponent implements OnInit {
   monoblock: "",
   doc_solicitante: "DNI",
   nro_doc_solicitante: 37073611,
-  nombre_solicitante: "ATAHUALPA",
-  apellido_solicitante: "DE SAN BENITO",
-  descripcion: "EL ciudadano se comunica para reclamar por sector apagado",
+  nombre_solicitante: "Atahualpa",
+  apellido_solicitante: "De San Benito",
+  descripcion: "El ciudadano se comunica para reclamar por sector apagado",
   fecha_hora_intervencion: "16/01/2020 08:05",
   hora_primer_intervencion: "08:05",
   tipo_intervencion: "Reparado",
@@ -66,7 +66,7 @@ export class DetalleSolicitudComponent implements OnInit {
   detalle_asignacion: "para su ejecucion",
   detalle_solucion: "sasa djauewd",
   motivo_cierre: "",
-  opinion: "neutro",
+  opinion: "negativo",
   etiqueta_equipamiento: "Liniers Santiago A De 2756",
   descripcion_equipamiento: "Alambre",
   detalle_equipamiento: "Responsable: Alumbrado Público Zona 2",
@@ -78,8 +78,27 @@ export class DetalleSolicitudComponent implements OnInit {
   imagen: "http://moron.enorsai.com.ar/upload/news/moron/56c49a3f38932_crop.JPG",
   tiempo: "",
   tiempoInterv:"",
-  tiempoMap: "",
-  cant_opiniones: "2"
+  tiempoAsig: "",
+  tiempoDeriv:"",
+  cant_opiniones: "2",
+  email_solicitante: "desanbenitoatahualpa@gmail.com",
+  direccion_solicitante: "Pellegrini 1565",
+  horario_contacto_solicitante: "8 a 17hs",
+  telefono_solicitante: "341-457844",
+  celular_solicitante: "341-5789645",
+  fecha_hora_reiteracion: "29/01/2020 09:00",
+  usuario_registro_reiteracion: "agarbag0",
+  origen_registro_reiteracion: "Atención 147",
+  detalle_reiteracion: "El ciudadano comenta que hace más de 4 días que está el problema. Solicita intervención.",
+  detalle_opinion: "Tardaron demasiado para solucionar el problema.",
+  fecha_hora_registro_solicitud2: "28/01/2020 16:00",
+  ident_reservada_solicitud2: 1,
+  reiteraciones_solicitante2:0,
+  opinion_solicitante2: "negativo",
+  cant_asignaciones: 3,
+  cant_intervenciones: 1,
+  cant_derivaciones: 2,
+  detalle_opinion_solicitante2: "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
 }
 
   constructor() { }
@@ -88,7 +107,8 @@ export class DetalleSolicitudComponent implements OnInit {
     moment.locale('es');
     this.solicitud.tiempo = moment([this.formato(this.solicitud.fecha_hora_estado)], "YYYY, MM, DD, h, mm, ss").fromNow();
     this.solicitud.tiempoInterv =moment([this.formato(this.solicitud.fecha_hora_intervencion)], "YYYY, MM, DD, h, mm, ss").fromNow();
-    this.solicitud.tiempoMap =moment([this.formato(this.solicitud.fecha_hora_asignacion)], "YYYY, MM, DD, h, mm, ss").fromNow();
+    this.solicitud.tiempoAsig =moment([this.formato(this.solicitud.fecha_hora_asignacion)], "YYYY, MM, DD, h, mm, ss").fromNow();
+    this.solicitud.tiempoDeriv = moment([this.formato(this.solicitud.fecha_hora_ult_derivacion)], "YYYY, MM, DD, h, mm, ss").fromNow();
       }
 
   formato(fecha){
