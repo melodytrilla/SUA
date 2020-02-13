@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, Input, ViewChild, ElementRef, ContentChild, TemplateRef } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA, MatRadioGroup } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatRadioGroup, MatSelect } from '@angular/material';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
@@ -52,15 +52,17 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   //Datos de busqueda ---------------------------------------------------
   //-----Busqueda Reporte ----------------------------------------------
   public descripcionReporte: string = this.default_descripcion;
-  
-  reiteraciones: string = "ambas";
-  tipos_reiteraciones: string[] = ["Ambas", "Con", "Sin"];
+
+  tipo_con:boolean = true;
+  tipo_sin: boolean = true;
 
   opt_selected;
 
   //--------------------------------------------------------------------
 
   //-----Busqueda Clasificacion ----------------------------------------
+  @ViewChild('origenSelect', {static: false}) origenSelect: MatSelect;
+  
   public descripcionCalif:string = this.default_descripcion; 
 
   tipos :string[]= ["Emergencia", "Suceso", "Reclamo", "Consulta", "Sugerencia", "Denuncia", "Trámite"]
@@ -69,7 +71,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   registroCheck = true;
   reiteracionCheck = true;
 
-  origenes:string[] = ["Telefónico", "Personal", "Facebook", "Twitter", "Contacto Web", "Nota/Expediente", "VVV", "MR", "Externo", "MR Movil", "Sensor", "Vecino Movil"]
+  origenes:string[] = ["Telefónico", "Personal", "Facebook", "Twitter", "Contacto Web", "Nota/Expediente", "VVV", "MR", "Externo", "MR Móvil", "Sensor", "Vecino Móvil"]
   origenesSeleccionados:string[] = [];
 
 
@@ -105,6 +107,8 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   //--------------------------------------------------------------------
 
   //-----Busqueda Estado ----------------------------------------------
+  @ViewChild('estadoBuscador', {static: false}) estadoBuscador:MatSelect;
+
   descripcionEstado:string = "";
 
   estados_total:string[] = ["Resuelto", "Cerrado", "En curso", "Pendiente", "Archivado de oficio"];
@@ -133,19 +137,9 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   //--------------------------------------------------------------------
 
   //-----Busqueda Intervenciones ---------------------------------------
-  private _pickDate:boolean;
-  disablePicker:boolean;
-
-  get pickDate():boolean{
-    return this._pickDate;
-  }
+  @ViewChild('intervencionSelect', {static: false}) intSelect: MatSelect;
   
-  set pickDate(value:boolean){
-    this._pickDate = value;
-    this.disablePicker = !value;
-  }
-
-  intervenciones:string[] = ["Acta de Información", "Constatado", "No constatado"];
+  intervenciones:string[] = ["Acta de Informacion", "Constatado", "No constatado"];
   intervencionesSelecionadas:string[] = [];
 
 
@@ -171,6 +165,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   //--------------------------------------------------------------------
 
   //-----Busqueda Asignacion -----------------------------------------
+  @ViewChild('equipoSearch', {static: false}) equipoSearch:ElementRef;
 
   descripcionAsig:string = "";
 
@@ -181,21 +176,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
   asignacion_choice:string = "";
 
-  private _asingCheck: boolean = false;
-  asigDateEnable:boolean = true;
-
   asigDate:SatDatepickerRangeValue<Date> = {begin: null, end: null};
-
-
-  get asingCheck(): boolean {
-    return this._asingCheck;
-  }
-
-  set asingCheck(value: boolean) {
-    this._asingCheck = value;
-    this.asigDateEnable = !value;
-    
-  }
 
   //--------------------------------------------------------------------
   constructor(
@@ -244,7 +225,6 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     });*/
 
     this.solicitud.getAllVecinales();
-    this.pickDate = false;
 
 
     //inicializacion de los paneles expansores
@@ -252,6 +232,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     this.ActualizarDescCalificacion();
     this.ActualizarDescAdjunto();
     this.ActualizarDescOpinion();
+    this.ActualizarEstado();
     this.ActualizarDescDistrito();
     this.ActualizarDescInt();
     this.ActualizarDescEqp();
@@ -297,9 +278,13 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
   //para actualizar la descripcion y color del panel reporte------------
   ActualizarDescReporte(){
+    if(!this.tipo_con && !this.tipo_sin){
+      this.tipo_con = true;
+      this.tipo_sin = true;
+    }
     this.inputDescripcion = this.InputADescripcionReporte();
 
-    if(!(this.reiteraciones == "ambas" && this.opt_selected == undefined)){
+    if(!(this.tipo_con && this.tipo_sin && this.opt_selected == undefined)){
       this.turnOn("ReportePanel", "inputField");
 
       this.descripcionReporte = this.inputDescripcion;
@@ -315,11 +300,15 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     let desc:string = "";
 
     //reiteraciones
-    if(this.reiteraciones == "ambas"){
-      desc = desc.concat("Con o sin reiteraciones ");
+    if(this.tipo_con && this.tipo_sin){
+      desc = desc.concat("No se filtra por reiteraciones ");
       
     }else{
-      desc = desc.concat(this.reiteraciones + " reiteraciones ");
+      if(this.tipo_sin){
+        desc = desc.concat("Sin reiteraciones ");
+      }else{
+        desc = desc.concat("Con reiteraciones ");
+      }
     }
 
     if(this.opt_selected != undefined){
@@ -335,14 +324,21 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   //para catualizar la Calificacion --------------------------------------
 
   agregarChipOrigen(origen:string):void{
+    /*
     if(this.origenesSeleccionados.length == 0){
       this.origenesSeleccionados = this.origenesSeleccionados.concat(origen);
     }else{
       if(!this.origenesSeleccionados.includes(origen)){
         this.origenesSeleccionados = this.origenesSeleccionados.concat(origen);
       }  
+    }*/
+    if(origen != "" && this.origenSelect.panelOpen){
+      if(!this.origenesSeleccionados.includes(origen)){
+        this.origenesSeleccionados.push(origen);
+      }
+      console.log(this.origenesSeleccionados);
     }
-    //console.log(this.origenesSeleccionados);
+    this.origenSelect.value = "";
   } 
 
   takeOut(elegido:string):void{
@@ -351,6 +347,10 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   }
 
   ActualizarDescCalificacion(){
+    if(!this.registroCheck && !this.reiteracionCheck){
+      this.reiteracionCheck = true;
+      this.registroCheck = true;
+    }
     this.inputDescripcion = this.InputADescripcionCalificacion();
 
     if(this.CalificacionCheck()){
@@ -390,7 +390,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     if(this.tipo != undefined){
       desc = desc.concat( "Tipo: " + this.tipo + " ");
     }else{
-      desc = desc.concat("Cualquier tipo ");
+      desc = desc.concat("Cualquier tipo | Todos los orígenes");
     }
     if(this.origenesSeleccionados.length > 0){
       if(this.registroCheck===false && this.reiteracionCheck===false){
@@ -418,10 +418,11 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
   updateAutocomplete(value: string):void{
     this.area_areas = [];
-    this.solicitud.getAreas().subscribe(result => 
+    this.solicitud.getAreas().subscribe(result =>
       this.area_areas = result.filter((area) => {
-      return (area.toLowerCase()).includes(value);
-    }))
+        return (area.toLowerCase()).includes(value);
+        }
+      ))
   }
 
   ActualizarDescArea(){
@@ -440,27 +441,27 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
   InputADescripcionArea():string{
     let desc:string = "";
-    let cantDesc = 0;
+    //let cantDesc = 0;
 
     if(this.area_origen){
       desc = desc.concat("Origen: " + this.area_origen);
-      cantDesc += 1;
+      //cantDesc += 1;
     }
 
 
     if(this.area_destino){
-      if(cantDesc > 0){
+      /*if(cantDesc > 0){
         desc = desc.concat(", ");
-      }
-      desc = desc.concat("Destino: " + this.area_destino);
+      }*/
+      desc = desc.concat("| Destino: " + this.area_destino);
     }
 
 
     if(this.area_reiteracion){
-      if(cantDesc > 0){
+      /*if(cantDesc > 0){
         desc = desc.concat(", ");
-      }
-      desc = desc.concat("Reiteración: " + this.area_reiteracion);
+      }*/
+      desc = desc.concat("| Reiteración: " + this.area_reiteracion);
     }
     return desc;
   }
@@ -486,6 +487,11 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   }
 
   ActualizarDescAdjunto(){
+    if(this.tiene!= "no" && !this.registro && !this.intervencion && !this.resolucion){
+      this.registro = true;
+      this.intervencion = true;
+      this.resolucion = true;
+    }
     this.inputDescripcion = this.InputADescripcionAdjunto();
 
     if(this.tiene != "no"){
@@ -503,18 +509,23 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     let desc:string = "";
 
     if(this.tiene == "no"){
-      desc = "no busca por adjuntos."
+      desc = "No se filtra por adjuntos"
     }else{
       desc = desc.concat(this.tiene + " adjuntos en ");
       let count = 0;
       if(this.registro){
-        desc = desc.concat("Registro/ Reiteracion ");
+        desc = desc.concat("Registro/Reiteración");
         count += 1;
       }
 
       if(this.intervencion){
         if(count>0){
-          desc = desc.concat("y ")
+          if (this.resolucion){
+          desc = desc.concat(", ")
+          } 
+          else {
+          desc = desc.concat(" e ")
+          }
         }
         desc = desc.concat("Intervención ");
         count += 1;
@@ -522,7 +533,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
       if(this.resolucion){
         if(count>0){
-          desc = desc.concat("y ")
+          desc = desc.concat(" y ")
         }
         desc = desc.concat("Resolución ");
       }
@@ -543,6 +554,11 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   }
 
   ActualizarDescOpinion(){
+    if (!this.negativo && !this.positivo && !this.neutro){
+      this.negativo = true;
+      this.positivo = true;
+      this.neutro = true;
+    }
     this.inputDescripcion = this.InputADescripcionOpinion();
 
     if(this.tieneOp != "no"){
@@ -560,18 +576,23 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     let desc:string = "";
 
     if(this.tieneOp == "no"){
-      desc = "no busca por Opiniones."
+      desc = "No se filtra por opiniones"
     }else{
       desc = desc.concat(this.tieneOp + " opiniones ");
       let count = 0;
       if(this.positivo){
-        desc = desc.concat("positivas ");
+        desc = desc.concat("positivas");
         count += 1;
       }
 
       if(this.negativo){
         if(count>0){
-          desc = desc.concat("y ")
+          if(this.neutro){
+          desc = desc.concat(", ")
+          }
+          else{
+          desc=desc.concat(" y ")
+          }
         }
         desc = desc.concat("negativas ");
         count += 1;
@@ -579,7 +600,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
       if(this.neutro){
         if(count>0){
-          desc = desc.concat("y ")
+          desc = desc.concat(" y ")
         }
         desc = desc.concat("neutras ");
       }
@@ -592,17 +613,22 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   //Para actualizar Estado --------------------------------------------
 
   addEstadoToChips(value:string):void{
-    if(!this.estados_select.includes(value)){
-      this.estados_select.push(value);
+    if(value != "" && this.estadoBuscador.panelOpen){
+      if(!this.estados_select.includes(value)){
+        this.estados_select.push(value);
+      }
     }
+    this.estadoBuscador.value = "";
   }
 
   removeEstado(value:string):void{
     this.estados_select = this.estados_select.filter(estado => estado!= value);
   }
 
+
+
   InputADescripcionEst(){
-    let desc:string = "se filtra por Estado";
+    let desc:string = "Se filtra por estado";
 
 
     return desc;
@@ -620,11 +646,11 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     if(this.EstChanged()){
       this.turnOn("EstadoPanel", "");
 
-      this.descripcionEstado = this.InputADescripcionAsig();
+      this.descripcionEstado = this.InputADescripcionEst();
     }else{
       this.turnOff("EstadoPanel", "")
             
-      this.descripcionEstado = "no se filtra por Estado";
+      this.descripcionEstado = "No se filtra por estado";
     }
   }
 
@@ -646,6 +672,15 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
       this.filteredVecinales = [];
     }
   }
+
+  showSelected(option: string| Vecinal){
+   if(typeof option === "string"){
+    this.selecDistrito(option);
+   }else{
+     this.selecVecinal(option);
+   }
+  }
+
 
   remove(vecinal: Vecinal):void{
     this.chipVecinales = this.chipVecinales.filter(valor => valor.nombre != vecinal.nombre);
@@ -679,7 +714,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   }
 
   InputADescripcionDistirto(){
-    let desc:string = "se filtra por " + this.chipVecinales.length + " distritos";
+    let desc:string = "Se filtra por " + this.chipVecinales.length + " distritos";
 
 
     return desc;
@@ -695,7 +730,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     }else{
       this.turnOff("DistritoPanel", "")
       
-      this.descripcionDistrito = "no se filtra por Distritos";
+      this.descripcionDistrito = "No se filtra por distritos";
     }
   }
   //---------------------------------------------------------------------
@@ -707,20 +742,24 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   }
 
   agregarInt(int: string):void{
-    if(this.intervencionesSelecionadas.every(value => value != int)){
-      this.intervencionesSelecionadas.push(int);
+    if(int!= "" && this.intSelect.panelOpen){
+      if(this.intervencionesSelecionadas.every(value => value != int)){
+        this.intervencionesSelecionadas.push(int);
+      }
+      
     }
+    this.intSelect.value = "";
   }
 
   InputADescripcionInt(){
-    let desc:string = "se filtra por Intervenciones";
+    let desc:string = "Se filtra por intervenciones";
 
 
     return desc;
   }
 
   intChanged():boolean{
-    if(this.tipoInt != "" || this.pickDate || this.suaMovil || this.intervencionesSelecionadas.length > 0){ 
+    if(this.tipoInt != "" || this.suaMovil || this.intervencionesSelecionadas.length > 0){ 
       return true;
     }
           
@@ -737,7 +776,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     }else{
       this.turnOff("IntPanel", "changeFont")
             
-      this.descripcionInt = "no se filtra por Intervenciones";
+      this.descripcionInt = "No se filtra por intervenciones";
     }
   }
 
@@ -746,7 +785,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   //Para actualizar Equipamiento --------------------------------------
 
   InputADescripcionEqp(){
-    let desc:string = "se filtra por Equipamiento";
+    let desc:string = "Se filtra por equipamiento";
 
 
     return desc;
@@ -772,13 +811,17 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     }else{
       this.turnOff("EqpPanel", "changeFontEqp")
             
-      this.descripcionEqp = "no se filtra por Equipamiento";
+      this.descripcionEqp = "No se filtra por equipamiento";
     }
   }
 
   //---------------------------------------------------------------------
 
   //Para actualizar Asignaciones --------------------------------------
+
+  showIt(value){
+    console.log(value);
+  }
 
   updateEquipoAuto(value:string):void{
     if(value == ""){
@@ -792,6 +835,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     if(!this.List_chips_Personas.includes(persona)){
       this.List_chips_Personas.push(persona);
     }
+    this.equipoSearch.nativeElement.value = "";
   }
 
   removeEquipo(persona:string):void{
@@ -799,14 +843,14 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   }
 
   InputADescripcionAsig(){
-    let desc:string = "se filtra por Asignacion";
+    let desc:string = "Se filtra por asignación";
 
 
     return desc;
   }
 
   AsigChanged():boolean{
-    if(this.asignacion_choice != "" || (this.asingCheck == true && this.asigDate.begin != null ) || this.List_chips_Personas.length > 0){ 
+    if(this.asignacion_choice != "" || this.List_chips_Personas.length > 0){ 
       return true;
     }
           
@@ -821,7 +865,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     }else{
       this.turnOff("AsigPanel", "")
             
-      this.descripcionAsig = "no se filtra por Asignacion";
+      this.descripcionAsig = "No se filtra por asignación";
     }
   }
 
