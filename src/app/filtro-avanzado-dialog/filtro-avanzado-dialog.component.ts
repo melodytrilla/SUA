@@ -52,9 +52,9 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   //Datos de busqueda ---------------------------------------------------
   //-----Busqueda Reporte ----------------------------------------------
   public descripcionReporte: string = this.default_descripcion;
-  
-  reiteraciones: string = "ambas";
-  tipos_reiteraciones: string[] = ["ambas", "con", "sin"];
+
+  tipo_con:boolean = true;
+  tipo_sin: boolean = true;
 
   opt_selected;
 
@@ -280,7 +280,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   ActualizarDescReporte(){
     this.inputDescripcion = this.InputADescripcionReporte();
 
-    if(!(this.reiteraciones == "ambas" && this.opt_selected == undefined)){
+    if(!(this.tipo_con && this.tipo_sin && this.opt_selected == undefined)){
       this.turnOn("ReportePanel", "inputField");
 
       this.descripcionReporte = this.inputDescripcion;
@@ -296,11 +296,15 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     let desc:string = "";
 
     //reiteraciones
-    if(this.reiteraciones == "ambas"){
+    if(this.tipo_con && this.tipo_sin){
       desc = desc.concat("con o sin reiteraciones. ");
       
     }else{
-      desc = desc.concat(this.reiteraciones + " reiteraciones. ");
+      if(this.tipo_sin){
+        desc = desc.concat("sin reiteraciones. ");
+      }else{
+        desc = desc.concat("con reiteraciones. ");
+      }
     }
 
     if(this.opt_selected != undefined){

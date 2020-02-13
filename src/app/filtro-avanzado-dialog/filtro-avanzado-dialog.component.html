@@ -46,12 +46,9 @@
         <div class="body">
             <div Id="inputField">
                 <mat-label style="margin-right: 2%;">Reiteraciones: </mat-label>
-                <mat-radio-group [(ngModel)] = "reiteraciones" style="display: flex;">
-                    <mat-radio-button *ngFor="let tipo of tipos_reiteraciones" [value]="tipo" class="reiteracion">
-                        {{tipo}}
-                    </mat-radio-button>
                 
-                </mat-radio-group>
+                <mat-checkbox [(ngModel)]="tipo_con">con</mat-checkbox>
+                <mat-checkbox [(ngModel)]="tipo_sin">sin</mat-checkbox>
             </div>
             
 
