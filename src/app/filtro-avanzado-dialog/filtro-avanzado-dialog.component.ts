@@ -390,7 +390,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     if(this.tipo != undefined){
       desc = desc.concat( "Tipo: " + this.tipo + " ");
     }else{
-      desc = desc.concat("Cualquier tipo | Todos los orígenes");
+      desc = desc.concat("Cualquier tipo");
     }
     if(this.origenesSeleccionados.length > 0){
       if(this.registroCheck===false && this.reiteracionCheck===false){
@@ -408,6 +408,9 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
       if(this.origenesSeleccionados.length > 1){
         desc = desc.concat("+" + (this.origenesSeleccionados.length - 1));
       }
+    }
+    else {
+      desc = desc.concat(" | Todos los orígenes")
     }
     return desc;
   }

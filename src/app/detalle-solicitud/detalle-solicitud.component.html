@@ -186,7 +186,7 @@
             </mat-card>
             <mat-card class="card3" style="margin-right: 5px;">
                 <mat-expansion-panel class="mat-elevation-z0">
-                    <mat-expansion-panel-header>
+                    <mat-expansion-panel-header style="margin-bottom: 10px;">
                             <mat-panel-title>
                                 <div class="fila">
                                     <div class="numero">
@@ -198,6 +198,14 @@
                                 <div style="font-size: 12px;"><mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempoInterv}}</div>
                             </mat-panel-title>
                     </mat-expansion-panel-header>
+                    <mat-divider></mat-divider>
+                    <div style="margin-top: 20px; font-size: 13px">
+                        <p>{{solicitud.fecha_hora_intervencion}}</p>
+                        <p style="font-size: 14px;">{{solicitud.tipo_intervencion}}</p>
+                        <p>{{solicitud.detalle_intervencion}}</p>
+                        <p>{{solicitud.area_intervencion}}</p>
+                        <p>Por {{solicitud.usuario_intervencion}} el {{solicitud.fecha_hora_intervencion}}</p>
+                    </div>
                 </mat-expansion-panel>
             </mat-card>
             <mat-card class="card3">
