@@ -5,6 +5,7 @@ import * as _ from 'lodash';
 import { SolicitudesItemsService } from '../solicitudes-items.service';
 import 'proj4leaflet';
 import 'proj4';
+import { IconosManagerService } from '../iconos-manager.service';
 
 @Component({
   selector: 'app-map',
@@ -14,7 +15,7 @@ import 'proj4';
 export class MapComponent implements OnInit {
   mymap: L.Map;
   
-  constructor(public api: SolicitudesItemsService) { }
+  constructor(public api: SolicitudesItemsService, public iconManager:IconosManagerService) { }
 
   myIcon = L.divIcon({
     className: 'fsua fsua-ubicacion fsua-3x',
@@ -49,11 +50,19 @@ export class MapComponent implements OnInit {
           this.num++;
         })
       });
-    }
+  }
+
+  GetIcon(categoria:string, estado:string){
+    return L.icon({iconUrl: this.iconManager.getSrc2(categoria, estado),
+                  iconSize:[50, 60], 
+                  iconAnchor:[25,60],
+                  popupAnchor:[0,-55]});
+  }
   
   
   addMarker(x: number, y: number, categoria: string, subtipo:string, estado:string, nume:number){
-    let a = new L.Marker({lat: x, lng: y}, {icon: this.myIcon});
+    //console.log("Categoria: " + categoria + " / Estado: " + estado);
+    let a = new L.Marker({lat: x, lng: y}, {icon: this.GetIcon(categoria, estado)});
     a.addTo(this.mymap).bindPopup('<p>Categoría: ' + categoria +'</br>Subtipo: ' + subtipo +'</br> Estado: '+ estado +'</br> numero: '+ nume + '</p>');
   }
 

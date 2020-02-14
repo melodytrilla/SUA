@@ -28,22 +28,22 @@ export class IconosManagerService {
     {categoria:"categoria", estado:2 ,codigo:"g4007.png"},
     {categoria:"categoria", estado:1 ,codigo:"g4012.png"},
     {categoria:"categoria", estado:0 ,codigo:"g4017.png"},
-    {categoria:"categoria", estado:2 ,codigo:"g4023.png"},
-    {categoria:"categoria", estado:1 ,codigo:"g4029.png"},
-    {categoria:"categoria", estado:0 ,codigo:"g4035.png"},
+    {categoria:"Colectivos urbanos", estado:2 ,codigo:"g4023.png"},
+    {categoria:"Colectivos urbanos", estado:1 ,codigo:"g4029.png"},
+    {categoria:"Colectivos urbanos", estado:0 ,codigo:"g4035.png"},
     {categoria:"categoria", estado:2 ,codigo:"g4041.png"},
     {categoria:"categoria", estado:1 ,codigo:"g4047.png"},
     {categoria:"categoria", estado:0 ,codigo:"g4053.png"},
     {categoria:"Categoria", estado:2 ,codigo:"g4451.png"},
-    {categoria:"Columna", estado:2 ,codigo:"g4456.png"},
+    {categoria:"Alumbrado", estado:2 ,codigo:"g4456.png"},
     {categoria:"Transversal", estado:2 ,codigo:"g4461.png"},
     {categoria:"Tablero", estado:2 ,codigo:"g4466.png"},
     {categoria:"Categoria", estado:1 ,codigo:"g4471.png"},
-    {categoria:"Columna", estado:1 ,codigo:"g4476.png"},
+    {categoria:"Alumbrado", estado:1 ,codigo:"g4476.png"},
     {categoria:"Transversal", estado:1 ,codigo:"g4481.png"},
     {categoria:"Tablero", estado:1 ,codigo:"g4487.png"},
     {categoria:"Categoria", estado:0 ,codigo:"g4492.png"},
-    {categoria:"Columna", estado:0 ,codigo:"g4497.png"},
+    {categoria:"Alumbrado", estado:0 ,codigo:"g4497.png"},
     {categoria:"Transversal", estado:0 ,codigo:"g4502.png"},
     {categoria:"Tablero", estado:0 ,codigo:"g4508.png"},
     {categoria:"Alimentos", estado:2 ,codigo:"g5305.png"},
@@ -90,5 +90,22 @@ export class IconosManagerService {
   getSrc( data:iconoData):string{
     //console.log(data);
     return this.iconosFolder + data.codigo;
+  }
+
+  getSrc2(categoria:string, estado:string): string{
+
+    let estadoNum = 0;
+    if(estado == "Resuelto"){
+      estadoNum = 2;
+    }else{
+      if(estado.toLocaleLowerCase() == "En curso".toLocaleLowerCase()){
+        estadoNum = 1;
+      }
+    }
+
+    let temp:iconoData = this.listaIconos.find(icon => {
+      return (icon.categoria == categoria && icon.estado == estadoNum);
+    });
+    return this.iconosFolder + temp.codigo;
   }
 }
