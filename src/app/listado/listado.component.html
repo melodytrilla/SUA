@@ -26,7 +26,7 @@
         <div mat-list *cdkVirtualFor="let item of items" class="lista">
                 <div mat-list-item class="content">
                             <div class="colum0">
-                                <mat-checkbox>{{item.numero}}-{{item.anio}}</mat-checkbox>
+                                <mat-checkbox><a routerLink="/detalle/{{item.id}}/{{item.anio}}">{{item.id}}-{{item.anio}}</a></mat-checkbox>
                                 <div><img src="{{item.imagen}}"></div>
                             </div>
                             <div class="tablagen">

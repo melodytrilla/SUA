@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'mapa', component: MapaComponent},
   {path: 'sidenavTest', component: SideBarLoginComponent},
   {path: 'map', component: MapComponent},
-  {path: 'detalle', component: DetalleSolicitudComponent},
+  {path: 'detalle/:nro/:anio', component: DetalleSolicitudComponent},
   {path:'busquedaTesting', component: DesplegableTestComponent},
 ];
 
