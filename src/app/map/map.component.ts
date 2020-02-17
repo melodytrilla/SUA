@@ -46,7 +46,7 @@ export class MapComponent implements OnInit {
         data.forEach(value => {
           let tempLatLng = this.convertToLatLng(value.coord_x, value.coord_y);
 
-          this.addMarker(tempLatLng.lat, tempLatLng.lng, value.categoria, value.subtipo, value.estado, value.numero);
+          this.addMarker(tempLatLng.lat, tempLatLng.lng, value.categoria, value.subtipo, value.estado, this.num + 1);
           this.num++;
         })
       });
@@ -71,5 +71,13 @@ export class MapComponent implements OnInit {
     return this.argCrs.unproject(tempPoint)
   }
 
+  moveMap(x:number, y:number){
+    let temp = this.convertToLatLng(x,y);
+    console.log(temp);
+    this.mymap.panTo(temp,{animation:true});
+  }
 
+  printMsn() {
+    console.log("soy una funcion");
+  }
 }

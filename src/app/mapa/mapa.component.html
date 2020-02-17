@@ -46,7 +46,7 @@
                                     </div>
                                 </div>
 
-                                <div class="part2">
+                                <div class="part2" (click)="this.panToSolicitud(solicitud.coord_x, solicitud.coord_y)">
                                     <div class="upperPart">
                                         <mat-icon class="fsua fsua-recientes iconoPos"></mat-icon>{{solicitud.tiempo}}
                                         <div class="addDistance"></div>
@@ -78,7 +78,7 @@
                                 </div>
 
                             </div>
-                            <mat-divider></mat-divider>
+                            <mat-divider #map></mat-divider>
                         </div>
                 </div>
         </cdk-virtual-scroll-viewport>
