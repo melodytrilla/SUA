@@ -13,6 +13,67 @@ import { SatDatepickerRangeValue } from 'saturn-datepicker';
 
 
 export interface AdvSearch{
+  /* Los nuevos parametros a guardar
+  //Reporte
+  reiteraciones_con:boolean;
+  reiteraciones_sin:boolean;
+  prioridad:string;
+
+  //Clasificacion
+  filtros: Chip[];
+  clasificacion_tipo:string;
+  origenes: string[];
+  registro:boolean;
+  reiteracion :boolean;
+
+  //Area
+  area_origen:string;
+  area_destino:string;
+  area_reiteracion;
+
+  //Adjunto
+  tiene:string;
+  registro: boolean;
+  intervencion: boolean;
+  resolucion: boolean;
+  
+  //Opinion
+  tieneOp:string;
+  positivo:boolean;
+  negative:boolean;
+  neutro:boolean;
+
+  //Estado
+  estados:string[];
+  detallado: string;
+  estado_fecha_start: Date;
+  estado_fecha_end: Date;
+
+  //Distrito
+  vecinales: Vecinal[];
+
+  //Intervenciones
+  intervencionesSeleccionadas:string[];
+  suaMovile:boolean[];
+  descripcionInt:string[];
+    //falta la fecha start and end
+
+  //Equipamiento
+  equipamiento_seleccionado:string;
+  equipamiento_choice:string;
+  equipamiento_detalle:string;
+
+  //Asignaciones
+  asignacion_choce:string;
+  asignacion_fecha_start: Date;
+  asignacion_fecha_end: Date;
+  List_Personas:string[];
+
+  //Datos especificos
+  Datos_Extra:any[];
+  //
+
+  */
   filtros: Chip[];
   Originadas_dirTransito: boolean;
   con_Intervenciones: string;
@@ -257,7 +318,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     //console.log(this.advSearch);
     this.data.busqueda.advSearch = this.advSearch;
     //console.log(this.data);
-    this.busqueda.Buscar(this.data.busqueda);
+    //this.busqueda.Buscar(this.data.busqueda);
     this.dialogRef.close();
   }
 
@@ -872,6 +933,12 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     }
   }
 
+  //---------------------------------------------------------------------
+
+  //Para actualizar Datos Especificos --------------------------------------
+
+
+  ActualizarDescDE(){};
   //---------------------------------------------------------------------
 
   //funciones para cambiar visualmente los paneles expansores-------------
