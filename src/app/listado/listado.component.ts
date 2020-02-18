@@ -41,6 +41,9 @@ export class ListadoComponent implements AfterViewInit {
           if (value.descripcion.length > 50) {
             value.descripcion = value.descripcion.substr(0, 47) + "...";
           }
+          if (value.interseccion.length > 10) {
+            value.interseccion = value.interseccion.substr(0, 7) + "...";
+          }
           moment.locale('es');
           value.tiempo = moment([this.formato(value.fecha_hora_estado)], "YYYY, MM, DD, h, mm, ss").fromNow();
           value.tiempoInterv =moment([this.formato(value.fecha_hora_intervencion)], "YYYY, MM, DD, h, mm, ss").fromNow();

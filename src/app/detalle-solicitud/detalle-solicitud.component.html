@@ -35,7 +35,7 @@
                         <div *ngIf="solicitud.opinion=='neutro'"><mat-icon class="fsua fsua-neutro"></mat-icon> {{solicitud.estado}}</div>
                         <div *ngIf="solicitud.opinion==''">{{solicitud.estado}}</div>
                     </div>
-                    <div class="solucion">{{solicitud.detalle_solucion}}</div>
+                    <div *ngIf="solicitud.detalle_solucion!=''" class="solucion">{{solicitud.detalle_solucion}}</div>
                 </div>
                 <div *ngIf="solicitud.descripcion==''" class="fila">
                     <div>
@@ -57,7 +57,7 @@
                                 </div>
                             </mat-panel-title>
                         </mat-expansion-panel-header>
-                        <div class="descringpcion">{{solicitud.descripcion}}</div>
+                        <div class="descripcion">{{solicitud.descripcion}}</div>
                     </mat-expansion-panel>
                 </div>
                 <mat-divider></mat-divider>

@@ -24,9 +24,9 @@
     <mat-divider></mat-divider>
     <cdk-virtual-scroll-viewport style="height: 73vh" itemSize="93" (scrolledIndexChange)="nextBatch($event)">
         <div mat-list *cdkVirtualFor="let item of items" class="lista">
-                <div mat-list-item class="content">
+                <div mat-list-item class="content linea">
                             <div class="colum0">
-                                <mat-checkbox><a routerLink="/detalle/{{item.id}}/{{item.anio}}">{{item.id}}-{{item.anio}}</a></mat-checkbox>
+                                <mat-checkbox><a style="text-decoration: none;" routerLink="/detalle/{{item.id}}/{{item.anio}}">{{item.id}}-{{item.anio}}</a></mat-checkbox>
                                 <div><img src="{{item.imagen}}"></div>
                             </div>
                             <div class="tablagen">
@@ -100,8 +100,8 @@
                                         </div>
                                         <div>
                                             <div class="fila">
-                                                <div *ngIf="item.cantRiesgo>0">
-                                                    <mat-icon matBadge="{{item.cantRiesgo}}" matBadgeSize="small" class="fsua fsua-warning"></mat-icon>
+                                                <div *ngIf="item.reiteraciones>0">
+                                                    <mat-icon matBadge="{{item.reiteraciones}}" matBadgeSize="small" class="fsua fsua-warning"></mat-icon>
                                                 </div>
                                             </div>
                                         </div>
