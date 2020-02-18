@@ -13,7 +13,7 @@ import { SatDatepickerRangeValue } from 'saturn-datepicker';
 
 
 export interface AdvSearch{
-  /* Los nuevos parametros a guardar
+  // Los nuevos parametros a guardar
   //Reporte
   reiteraciones_con:boolean;
   reiteraciones_sin:boolean;
@@ -29,11 +29,11 @@ export interface AdvSearch{
   //Area
   area_origen:string;
   area_destino:string;
-  area_reiteracion;
+  area_reiteracion: string;
 
   //Adjunto
   tiene:string;
-  registro: boolean;
+  registro_reiteracion: boolean;
   intervencion: boolean;
   resolucion: boolean;
   
@@ -54,7 +54,7 @@ export interface AdvSearch{
 
   //Intervenciones
   intervencionesSeleccionadas:string[];
-  suaMovile:boolean[];
+  suaMovile:boolean;
   descripcionInt:string[];
     //falta la fecha start and end
 
@@ -73,12 +73,13 @@ export interface AdvSearch{
   Datos_Extra:any[];
   //
 
-  */
+  /*
   filtros: Chip[];
   Originadas_dirTransito: boolean;
   con_Intervenciones: string;
   intervenciones_fechaStart: Date;
   intervenciones_fechaEnd: Date;
+  */
 }
 
 
@@ -91,11 +92,71 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
   //una variable donde se guardaran todos los valores y asociaran algunos valores de la forma
   advSearch: AdvSearch = {
+    //Reporte
+    reiteraciones_con:true,
+    reiteraciones_sin:true,
+    prioridad:"",
+
+    //Clasificacion
+    filtros: [],
+    clasificacion_tipo:"",
+    origenes: [],
+    registro:true,
+    reiteracion :true,
+
+    //Area
+    area_origen:"",
+    area_destino:"",
+    area_reiteracion:"",
+
+    //Adjunto
+    tiene:"",
+    registro_reiteracion: true,
+    intervencion: true,
+    resolucion: true,
+    
+    //Opinion
+    tieneOp:"",
+    positivo:true,
+    negative:true,
+    neutro:true,
+
+    //Estado
+    estados:[],
+    detallado: "",
+    estado_fecha_start: null,
+    estado_fecha_end: null,
+
+    //Distrito
+    vecinales: [],
+
+    //Intervenciones
+    intervencionesSeleccionadas:[],
+    suaMovile:true,
+    descripcionInt:[],
+      //falta la fecha start and end
+
+    //Equipamiento
+    equipamiento_seleccionado:"",
+    equipamiento_choice:"",
+    equipamiento_detalle:"",
+
+    //Asignaciones
+    asignacion_choce:"",
+    asignacion_fecha_start: null,
+    asignacion_fecha_end: null,
+    List_Personas:[],
+
+    //Datos especificos
+    Datos_Extra:[]
+    
+    /*
     filtros: [],
     Originadas_dirTransito: false,
     con_Intervenciones: "",
     intervenciones_fechaStart: null,
     intervenciones_fechaEnd: null
+    */
   };
 
   datesControl = new FormControl('');
@@ -255,12 +316,12 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   ngOnInit() {
 
     //inicializa los valores del advSerch si hay algunos guardado en la session
-    if(this.busqueda.busquedaCompleta.advSearch){
+    /*if(this.busqueda.busquedaCompleta.advSearch){
       this.advSearch =  this.busqueda.busquedaCompleta.advSearch;
       
       this.datesControl.setValue({begin: this.advSearch.intervenciones_fechaStart,
                                 end: this.advSearch.intervenciones_fechaEnd});
-    }
+    }*/
 
   /*  this.form = this.formBuilder.group({
       prioridad: '',
@@ -309,14 +370,14 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   //agarra todos los valores puestos en el formulario y se los pasa con
   //los de la busqueda principal al servicio de busqueda
   BusquedaClick():void{
-    this.advSearch.filtros = this.myChips.guardarChips();
+    //this.advSearch.filtros = this.myChips.guardarChips();
     //console.log(this.datesControl.value);
 
-    this.advSearch.intervenciones_fechaStart = this.datesControl.value.begin;
-    this.advSearch.intervenciones_fechaEnd = this.datesControl.value.end;
+    //this.advSearch.intervenciones_fechaStart = this.datesControl.value.begin;
+    //this.advSearch.intervenciones_fechaEnd = this.datesControl.value.end;
 
     //console.log(this.advSearch);
-    this.data.busqueda.advSearch = this.advSearch;
+    //this.data.busqueda.advSearch = this.advSearch;
     //console.log(this.data);
     //this.busqueda.Buscar(this.data.busqueda);
     this.dialogRef.close();
