@@ -61,8 +61,6 @@
     "etiqueta_equipamiento": "",
     "descripcion_equipamiento": "",
     "detalle_equipamiento": "",
-    "cantInterv": 3,
-    "cantMap": 1,
     "cantTel": 1,
     "cantLogo": 2,
     "cantRiesgo": 0,
@@ -86,8 +84,45 @@
     "ident_reservada_solicitud2": 1,
     "reiteraciones_solicitante2":0,
     "opinion_solicitante2": "negativo",
-    "cant_asignaciones": 3,
-    "cant_intervenciones": 1,
+    "asignaciones": [
+      {
+        "fecha_hora_asignacion": "16/01/2020 07:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "VERIFICAR",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 19:20",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 23:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      }
+    ],
+    "intervenciones": [
+      {
+        "fecha_hora_intervencion": "16/01/2020 08:05",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se constato la falla. se reparo problema",
+        "usuario_intervencion": "agarbag0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      },
+      {
+        "fecha_hora_intervencion": "16/01/2020 10:35",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se normaliza el servicio",
+        "usuario_intervencion": "jhuyiu0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      }
+    ],
     "cant_derivaciones": 2,
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
@@ -179,6 +214,45 @@
     "opinion_solicitante2": "negativo",
     "cant_asignaciones": 3,
     "cant_intervenciones": 1,
+    "asignaciones": [
+      {
+        "fecha_hora_asignacion": "16/01/2020 07:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "VERIFICAR",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 19:20",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 23:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      }
+    ],
+    "intervenciones": [
+      {
+        "fecha_hora_intervencion": "16/01/2020 08:05",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se constato la falla. se reparo problema",
+        "usuario_intervencion": "agarbag0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      },
+      {
+        "fecha_hora_intervencion": "16/01/2020 10:35",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se normaliza el servicio",
+        "usuario_intervencion": "jhuyiu0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      }
+    ],
     "cant_derivaciones": 2,
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
@@ -270,6 +344,45 @@
     "opinion_solicitante2": "negativo",
     "cant_asignaciones": 3,
     "cant_intervenciones": 1,
+    "asignaciones": [
+      {
+        "fecha_hora_asignacion": "16/01/2020 07:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "VERIFICAR",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 19:20",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 23:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      }
+    ],
+    "intervenciones": [
+      {
+        "fecha_hora_intervencion": "16/01/2020 08:05",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se constato la falla. se reparo problema",
+        "usuario_intervencion": "agarbag0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      },
+      {
+        "fecha_hora_intervencion": "16/01/2020 10:35",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se normaliza el servicio",
+        "usuario_intervencion": "jhuyiu0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      }
+    ],
     "cant_derivaciones": 2,
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
@@ -361,6 +474,45 @@
     "opinion_solicitante2": "negativo",
     "cant_asignaciones": 3,
     "cant_intervenciones": 1,
+    "asignaciones": [
+      {
+        "fecha_hora_asignacion": "16/01/2020 07:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "VERIFICAR",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 19:20",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 23:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      }
+    ],
+    "intervenciones": [
+      {
+        "fecha_hora_intervencion": "16/01/2020 08:05",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se constato la falla. se reparo problema",
+        "usuario_intervencion": "agarbag0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      },
+      {
+        "fecha_hora_intervencion": "16/01/2020 10:35",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se normaliza el servicio",
+        "usuario_intervencion": "jhuyiu0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      }
+    ],
     "cant_derivaciones": 2,
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
@@ -452,6 +604,45 @@
     "opinion_solicitante2": "negativo",
     "cant_asignaciones": 3,
     "cant_intervenciones": 1,
+    "asignaciones": [
+      {
+        "fecha_hora_asignacion": "16/01/2020 07:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "VERIFICAR",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 19:20",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 23:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      }
+    ],
+    "intervenciones": [
+      {
+        "fecha_hora_intervencion": "16/01/2020 08:05",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se constato la falla. se reparo problema",
+        "usuario_intervencion": "agarbag0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      },
+      {
+        "fecha_hora_intervencion": "16/01/2020 10:35",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se normaliza el servicio",
+        "usuario_intervencion": "jhuyiu0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      }
+    ],
     "cant_derivaciones": 2,
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
@@ -543,6 +734,45 @@
     "opinion_solicitante2": "negativo",
     "cant_asignaciones": 3,
     "cant_intervenciones": 1,
+    "asignaciones": [
+      {
+        "fecha_hora_asignacion": "16/01/2020 07:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "VERIFICAR",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 19:20",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 23:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      }
+    ],
+    "intervenciones": [
+      {
+        "fecha_hora_intervencion": "16/01/2020 08:05",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se constato la falla. se reparo problema",
+        "usuario_intervencion": "agarbag0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      },
+      {
+        "fecha_hora_intervencion": "16/01/2020 10:35",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se normaliza el servicio",
+        "usuario_intervencion": "jhuyiu0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      }
+    ],
     "cant_derivaciones": 2,
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
@@ -634,6 +864,45 @@
     "opinion_solicitante2": "negativo",
     "cant_asignaciones": 3,
     "cant_intervenciones": 1,
+    "asignaciones": [
+      {
+        "fecha_hora_asignacion": "16/01/2020 07:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "VERIFICAR",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 19:20",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 23:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      }
+    ],
+    "intervenciones": [
+      {
+        "fecha_hora_intervencion": "16/01/2020 08:05",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se constato la falla. se reparo problema",
+        "usuario_intervencion": "agarbag0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      },
+      {
+        "fecha_hora_intervencion": "16/01/2020 10:35",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se normaliza el servicio",
+        "usuario_intervencion": "jhuyiu0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      }
+    ],
     "cant_derivaciones": 2,
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
@@ -725,6 +994,45 @@
     "opinion_solicitante2": "negativo",
     "cant_asignaciones": 3,
     "cant_intervenciones": 1,
+    "asignaciones": [
+      {
+        "fecha_hora_asignacion": "16/01/2020 07:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "VERIFICAR",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 19:20",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 23:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      }
+    ],
+    "intervenciones": [
+      {
+        "fecha_hora_intervencion": "16/01/2020 08:05",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se constato la falla. se reparo problema",
+        "usuario_intervencion": "agarbag0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      },
+      {
+        "fecha_hora_intervencion": "16/01/2020 10:35",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se normaliza el servicio",
+        "usuario_intervencion": "jhuyiu0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      }
+    ],
     "cant_derivaciones": 2,
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
@@ -816,6 +1124,45 @@
     "opinion_solicitante2": "negativo",
     "cant_asignaciones": 3,
     "cant_intervenciones": 1,
+    "asignaciones": [
+      {
+        "fecha_hora_asignacion": "16/01/2020 07:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "VERIFICAR",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 19:20",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 23:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      }
+    ],
+    "intervenciones": [
+      {
+        "fecha_hora_intervencion": "16/01/2020 08:05",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se constato la falla. se reparo problema",
+        "usuario_intervencion": "agarbag0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      },
+      {
+        "fecha_hora_intervencion": "16/01/2020 10:35",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se normaliza el servicio",
+        "usuario_intervencion": "jhuyiu0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      }
+    ],
     "cant_derivaciones": 2,
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
@@ -907,6 +1254,45 @@
     "opinion_solicitante2": "negativo",
     "cant_asignaciones": 3,
     "cant_intervenciones": 1,
+    "asignaciones": [
+      {
+        "fecha_hora_asignacion": "16/01/2020 07:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "VERIFICAR",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 19:20",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 23:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      }
+    ],
+    "intervenciones": [
+      {
+        "fecha_hora_intervencion": "16/01/2020 08:05",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se constato la falla. se reparo problema",
+        "usuario_intervencion": "agarbag0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      },
+      {
+        "fecha_hora_intervencion": "16/01/2020 10:35",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se normaliza el servicio",
+        "usuario_intervencion": "jhuyiu0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      }
+    ],
     "cant_derivaciones": 2,
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
@@ -998,6 +1384,45 @@
     "opinion_solicitante2": "negativo",
     "cant_asignaciones": 3,
     "cant_intervenciones": 1,
+    "asignaciones": [
+      {
+        "fecha_hora_asignacion": "16/01/2020 07:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "VERIFICAR",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 19:20",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 23:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      }
+    ],
+    "intervenciones": [
+      {
+        "fecha_hora_intervencion": "16/01/2020 08:05",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se constato la falla. se reparo problema",
+        "usuario_intervencion": "agarbag0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      },
+      {
+        "fecha_hora_intervencion": "16/01/2020 10:35",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se normaliza el servicio",
+        "usuario_intervencion": "jhuyiu0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      }
+    ],
     "cant_derivaciones": 2,
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
@@ -1089,6 +1514,45 @@
     "opinion_solicitante2": "negativo",
     "cant_asignaciones": 3,
     "cant_intervenciones": 1,
+    "asignaciones": [
+      {
+        "fecha_hora_asignacion": "16/01/2020 07:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "VERIFICAR",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 19:20",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 23:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      }
+    ],
+    "intervenciones": [
+      {
+        "fecha_hora_intervencion": "16/01/2020 08:05",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se constato la falla. se reparo problema",
+        "usuario_intervencion": "agarbag0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      },
+      {
+        "fecha_hora_intervencion": "16/01/2020 10:35",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se normaliza el servicio",
+        "usuario_intervencion": "jhuyiu0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      }
+    ],
     "cant_derivaciones": 2,
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
@@ -1180,6 +1644,45 @@
     "opinion_solicitante2": "negativo",
     "cant_asignaciones": 3,
     "cant_intervenciones": 1,
+    "asignaciones": [
+      {
+        "fecha_hora_asignacion": "16/01/2020 07:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "VERIFICAR",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 19:20",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 23:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      }
+    ],
+    "intervenciones": [
+      {
+        "fecha_hora_intervencion": "16/01/2020 08:05",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se constato la falla. se reparo problema",
+        "usuario_intervencion": "agarbag0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      },
+      {
+        "fecha_hora_intervencion": "16/01/2020 10:35",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se normaliza el servicio",
+        "usuario_intervencion": "jhuyiu0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      }
+    ],
     "cant_derivaciones": 2,
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
@@ -1271,6 +1774,45 @@
     "opinion_solicitante2": "negativo",
     "cant_asignaciones": 3,
     "cant_intervenciones": 1,
+    "asignaciones": [
+      {
+        "fecha_hora_asignacion": "16/01/2020 07:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "VERIFICAR",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 19:20",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 23:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      }
+    ],
+    "intervenciones": [
+      {
+        "fecha_hora_intervencion": "16/01/2020 08:05",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se constato la falla. se reparo problema",
+        "usuario_intervencion": "agarbag0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      },
+      {
+        "fecha_hora_intervencion": "16/01/2020 10:35",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se normaliza el servicio",
+        "usuario_intervencion": "jhuyiu0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      }
+    ],
     "cant_derivaciones": 2,
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
@@ -1362,6 +1904,45 @@
     "opinion_solicitante2": "negativo",
     "cant_asignaciones": 3,
     "cant_intervenciones": 1,
+    "asignaciones": [
+      {
+        "fecha_hora_asignacion": "16/01/2020 07:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "VERIFICAR",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 19:20",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 23:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      }
+    ],
+    "intervenciones": [
+      {
+        "fecha_hora_intervencion": "16/01/2020 08:05",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se constato la falla. se reparo problema",
+        "usuario_intervencion": "agarbag0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      },
+      {
+        "fecha_hora_intervencion": "16/01/2020 10:35",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se normaliza el servicio",
+        "usuario_intervencion": "jhuyiu0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      }
+    ],
     "cant_derivaciones": 2,
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
@@ -1453,6 +2034,45 @@
     "opinion_solicitante2": "negativo",
     "cant_asignaciones": 3,
     "cant_intervenciones": 1,
+    "asignaciones": [
+      {
+        "fecha_hora_asignacion": "16/01/2020 07:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "VERIFICAR",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 19:20",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      },
+      {
+        "fecha_hora_asignacion": "16/01/2020 23:51",
+        "equipo_asignado": "Alejandra Garbagna",
+        "detalle_asignacion": "Inspeccionar",
+        "area_asignacion": "Alumbrado Público Zona 2",
+        "usuario_asignacion": "gdemaio0"
+      }
+    ],
+    "intervenciones": [
+      {
+        "fecha_hora_intervencion": "16/01/2020 08:05",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se constato la falla. se reparo problema",
+        "usuario_intervencion": "agarbag0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      },
+      {
+        "fecha_hora_intervencion": "16/01/2020 10:35",
+        "tipo_intervencion": "Reparado",
+        "detalle_intervencion": "se normaliza el servicio",
+        "usuario_intervencion": "jhuyiu0",
+        "area_intervencion": "Alumbrado Público Zona 2"
+      }
+    ],
     "cant_derivaciones": 2,
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   }

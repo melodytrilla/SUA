@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="imagen">
-                    <img src="{{solicitud.imagen}}">
+                        <img src="{{solicitud.imagen}}">
                 </div>
                 <div class="fila1">
                     <div class="col1">
@@ -41,8 +41,13 @@
                     <div>
                         <mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempo}}
                     </div>
-                    <div>
-                        en {{solicitud.area_origen}} por {{solicitud.usuario_registro}}
+                    <div >
+                        <div *ngIf="solicitud.area_origen!=''">
+                        en {{solicitud.area_origen}} 
+                        </div>
+                        <div *ngIf="solicitud.usuario_registro!=''">
+                        por {{solicitud.usuario_registro}}
+                        </div>
                     </div>
                 </div>
                 <div>
@@ -82,18 +87,18 @@
                             <div class="fila">
                                 <div class="numero">
                                     <div class="cantidad">{{solicitud.cant_solicitantes}}</div> 
-                                    <div *ngIf="solicitud.cant_solicitantes!='1'"> Solicitantes</div>
-                                    <div *ngIf="solicitud.cant_solicitantes=='1'"> Solicitante</div>
+                                    <div *ngIf="solicitud.cant_solicitantes!=1"> Solicitantes</div>
+                                    <div *ngIf="solicitud.cant_solicitantes==1"> Solicitante</div>
                                 </div>
                                 <div class="numero">
                                     <div class="cantidad">{{solicitud.reiteraciones}}</div> 
-                                    <div *ngIf="solicitud.reiteraciones!='1'"> Reiteraciones</div>
-                                    <div *ngIf="solicitud.reiteraciones=='1'"> Reiteración </div>
+                                    <div *ngIf="solicitud.reiteraciones!=1"> Reiteraciones</div>
+                                    <div *ngIf="solicitud.reiteraciones==1"> Reiteración </div>
                                 </div>
                                 <div class="numero">
                                     <div class="cantidad">{{solicitud.cant_opiniones}}</div> 
-                                    <div *ngIf="solicitud.cant_opiniones!='1'"> Opiniones</div>
-                                    <div *ngIf="solicitud.cant_opiniones=='1'"> Opinion </div>
+                                    <div *ngIf="solicitud.cant_opiniones!=1"> Opiniones</div>
+                                    <div *ngIf="solicitud.cant_opiniones==1"> Opinion </div>
                                 </div>
                             </div>
                         </mat-panel-title>
@@ -175,14 +180,26 @@
                             <mat-panel-title>
                                 <div class="fila">
                                     <div class="numero">
-                                        <div class="cantidad">{{solicitud.cant_asignaciones}}</div> 
-                                        <div *ngIf="solicitud.cant_asignaciones!='1'"> Asignaciones</div>
-                                        <div *ngIf="solicitud.cant_asignaciones=='1'"> Asignación</div>
+                                        <div class="cantidad">{{solicitud.asignaciones.length}}</div> 
+                                        <div *ngIf="solicitud.asignaciones.length!='1'"> Asignaciones</div>
+                                        <div *ngIf="solicitud.asignaciones.length=='1'"> Asignación</div>
                                     </div>
                                 </div>
                                 <div style="font-size: 12px;"><mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempoAsig}}</div>
                             </mat-panel-title>
                         </mat-expansion-panel-header>
+                        
+                        <div *ngFor="let asig of solicitud.asignaciones">
+                            <mat-divider></mat-divider>
+                            <div class="detail">
+                                <p>{{asig.fecha_hora_asignacion}}</p>
+                                <div *ngIf="asig.equipo_asignado!=''"><p style="font-size: 14px;">Asignado a {{asig.equipo_asignado}}</p></div>
+                                <p>{{asig.detalle_asignacion}}</p>
+                                <p>{{asig.area_asignacion}}</p>
+                                <div *ngIf="asig.usuario_asignacion!=''"><p>Por {{asig.usuario_asignacion}} el {{asig.fecha_hora_asignacion}}</p></div>
+                            </div>
+                            
+                        </div>
                     </mat-expansion-panel>
                 </mat-card>
                 <mat-card class="card3" style="margin-right: 5px;">
@@ -191,21 +208,24 @@
                                     <mat-panel-title>
                                         <div class="fila">
                                             <div class="numero">
-                                                <div class="cantidad">{{solicitud.cant_intervenciones}}</div> 
-                                                <div *ngIf="solicitud.cant_intervenciones!='1'"> Intervenciones</div>
-                                                <div *ngIf="solicitud.cant_intervenciones=='1'"> Intervención</div>
+                                                <div class="cantidad">{{solicitud.intervenciones.length}}</div> 
+                                                <div *ngIf="solicitud.intervenciones.length!='1'"> Intervenciones</div>
+                                                <div *ngIf="solicitud.intervenciones.length=='1'"> Intervención</div>
                                             </div>
                                         </div>
                                         <div style="font-size: 12px;"><mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempoInterv}}</div>
                                     </mat-panel-title>
                             </mat-expansion-panel-header> 
-                        <mat-divider></mat-divider>
-                        <div style="margin-top: 20px; font-size: 13px">
-                            <p>{{solicitud.fecha_hora_intervencion}}</p>
-                            <p style="font-size: 14px;">{{solicitud.tipo_intervencion}}</p>
-                            <p>{{solicitud.detalle_intervencion}}</p>
-                            <p>{{solicitud.area_intervencion}}</p>
-                            <p>Por {{solicitud.usuario_intervencion}} el {{solicitud.fecha_hora_intervencion}}</p>
+                            
+                        <div *ngFor="let inter of solicitud.intervenciones">
+                            <mat-divider></mat-divider>
+                            <div class="detail">
+                                <p>{{inter.fecha_hora_intervencion}}</p>
+                                <p style="font-size: 14px;">{{inter.tipo_intervencion}}</p>
+                                <p>{{inter.detalle_intervencion}}</p>
+                                <p>{{inter.area_intervencion}}</p>
+                                <div *ngIf="inter.usuario_intervencion!=''"><p>Por {{inter.usuario_intervencion}} el {{inter.fecha_hora_intervencion}}</p></div>
+                            </div>
                         </div>
                     </mat-expansion-panel>
                 </mat-card>

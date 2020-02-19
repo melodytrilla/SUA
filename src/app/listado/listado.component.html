@@ -24,9 +24,9 @@
     <mat-divider></mat-divider>
     <cdk-virtual-scroll-viewport style="height: 73vh" itemSize="93" (scrolledIndexChange)="nextBatch($event)">
         <div mat-list *cdkVirtualFor="let item of items" class="lista">
-                <div mat-list-item class="content linea">
+                <div mat-list-item class="content linea" (click)="this.sendto(item.id, item.anio)">
                             <div class="colum0">
-                                <mat-checkbox><a style="text-decoration: none;" routerLink="/detalle/{{item.id}}/{{item.anio}}">{{item.id}}-{{item.anio}}</a></mat-checkbox>
+                                <mat-checkbox>{{item.id}}-{{item.anio}}</mat-checkbox>
                                 <div><img src="{{item.imagen}}"></div>
                             </div>
                             <div class="tablagen">
@@ -61,16 +61,16 @@
                                     </div>
                                     <div class="col colum3">
                                         <div class="fila">
-                                            <div *ngIf="item.cantInterv>0">
-                                                <mat-icon matBadge="{{item.cantInterv}}" matBadgeSize="small" class="fsua fsua-intervenido"></mat-icon> {{item.tiempoInterv}}
+                                            <div *ngIf="item.intervenciones.length>0">
+                                                <mat-icon matBadge="{{item.intervenciones.length}}" matBadgeSize="small" class="fsua fsua-intervenido"></mat-icon> {{item.tiempoInterv}}
                                             </div>
                                         </div>
                                         <div class="fila">
                                             <mat-icon></mat-icon>
                                         </div>
                                         <div class="fila">
-                                            <div *ngIf="item.cantMap>0">
-                                                <mat-icon matBadge="{{item.cantMap}}" matBadgeSize="small" class="fsua fsua-mapa"></mat-icon> {{item.tiempoMap}}
+                                            <div *ngIf="item.asignaciones.length>0">
+                                                <mat-icon matBadge="{{item.asignaciones.length}}" matBadgeSize="small" class="fsua fsua-mapa"></mat-icon> {{item.tiempoMap}}
                                             </div>
                                         </div>
                                     </div>
@@ -84,8 +84,8 @@
                                             <mat-icon></mat-icon>
                                         </div>
                                         <div class="fila" >
-                                            <div *ngIf="item.reiteraciones>0">
-                                                <mat-icon matBadge="{{item.reiteraciones}}" matBadgeSize="small" class="fsua fsua-mi_perfil-o"></mat-icon>
+                                            <div *ngIf="item.cant_solicitantes>0">
+                                                <mat-icon matBadge="{{item.cant_solicitantes}}" matBadgeSize="small" class="fsua fsua-mi_perfil-o"></mat-icon>
                                             </div>
                                         </div>
                                     </div>
