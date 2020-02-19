@@ -1,101 +1,103 @@
-<app-global-nav-bar></app-global-nav-bar>
-<app-navbar></app-navbar>
-<div class="detalle">
-    <mat-card class="card1">
-        <div class="fila">
-            <div>
-                <div *ngIf = "solicitud.categoria=='Alumbrado'"><mat-icon class="fsua fsua-alumbrado_publico"></mat-icon> {{solicitud.subtipo}}</div>
-                <div *ngIf = "solicitud.categoria=='Colectivos urbanos'"><mat-icon class="fsua fsua-colectivos_urbanos"></mat-icon> {{solicitud.subtipo}}</div>
+<div *ngIf="solicitud != undefined">
+    <app-global-nav-bar></app-global-nav-bar>
+    <app-navbar></app-navbar>
+    <div class="detalle">
+        <mat-card class="card1">
+            <div class="fila">
+                <div>
+                    <div *ngIf = "solicitud.categoria=='Alumbrado'"><mat-icon class="fsua fsua-alumbrado_publico"></mat-icon> {{solicitud.subtipo}}</div>
+                    <div *ngIf = "solicitud.categoria=='Colectivos urbanos'"><mat-icon class="fsua fsua-colectivos_urbanos"></mat-icon> {{solicitud.subtipo}}</div>
+                </div>
+                <div>
+                    {{solicitud.id}}-{{solicitud.anio}}
+                </div>
+            </div>
+            <div class="fila">
+                <div>
+                    <div *ngIf="solicitud.altura>0">{{solicitud.calle}} {{solicitud.altura}}</div>
+                    <div *ngIf="solicitud.interseccion != ''">{{solicitud.calle}} Y {{solicitud.interseccion}}</div>
+                </div>
+                <div>
+                    Distrito: {{solicitud.distrito}}
+                </div>
+                <div>
+                    Vecinal: {{solicitud.vecinal}}
+                </div>
+            </div>
+            <div class="imagen">
+                <img src="{{solicitud.imagen}}">
+            </div>
+            <div class="fila1">
+                <div class="col1">
+                    <div *ngIf="solicitud.opinion=='positivo'"><mat-icon class="fsua fsua-bueno"></mat-icon> {{solicitud.estado}}</div>
+                    <div *ngIf="solicitud.opinion=='negativo'"><mat-icon class="fsua fsua-malo"></mat-icon> {{solicitud.estado}}</div>
+                    <div *ngIf="solicitud.opinion=='neutro'"><mat-icon class="fsua fsua-neutro"></mat-icon> {{solicitud.estado}}</div>
+                    <div *ngIf="solicitud.opinion==''">{{solicitud.estado}}</div>
+                </div>
+                <div class="solucion">{{solicitud.detalle_solucion}}</div>
+            </div>
+            <div *ngIf="solicitud.descripcion==''" class="fila">
+                <div>
+                    <mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempo}}
+                </div>
+                <div>
+                    en {{solicitud.area_origen}} por {{solicitud.usuario_registro}}
+                </div>
             </div>
             <div>
-                {{solicitud.id}}-{{solicitud.anio}}
+                <mat-expansion-panel *ngIf="solicitud.descripcion!=''" class="mat-elevation-z0 panel">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <div class="col1">
+                                <mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempo}}
+                            </div>
+                            <div>
+                                en {{solicitud.area_origen}} por {{solicitud.usuario_registro}}
+                            </div>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="descringpcion">{{solicitud.descripcion}}</div>
+                </mat-expansion-panel>
             </div>
-        </div>
-        <div class="fila">
-            <div>
-                <div *ngIf="solicitud.altura>0">{{solicitud.calle}} {{solicitud.altura}}</div>
-                <div *ngIf="solicitud.interseccion != ''">{{solicitud.calle}} Y {{solicitud.interseccion}}</div>
+            <mat-divider></mat-divider>
+            <div class="equipamiento" *ngIf="solicitud.etiqueta_equipamiento!=''">
+                <div><mat-icon class="fsua fsua-equipamiento"></mat-icon>Equipamiento: {{solicitud.etiqueta_equipamiento}}</div>
+                <div><mat-icon></mat-icon>Descripcion: {{solicitud.descripcion_equipamiento}}</div>
+                <div><mat-icon></mat-icon>Detalle: {{solicitud.detalle_equipamiento}}</div>
             </div>
-            <div>
-                Distrito: {{solicitud.distrito}}
+            <mat-divider></mat-divider>
+            <div class="datos-complementarios">
+                <p>RECEPCIÓN DE LA SOLICITUD</p>
+                <p>GESTIÓN DE LA SOLICITUD </p>
             </div>
-            <div>
-                Vecinal: {{solicitud.vecinal}}
-            </div>
-        </div>
-        <div class="imagen">
-            <img src="{{solicitud.imagen}}">
-        </div>
-        <div class="fila1">
-            <div class="col1">
-                <div *ngIf="solicitud.opinion=='positivo'"><mat-icon class="fsua fsua-bueno"></mat-icon> {{solicitud.estado}}</div>
-                <div *ngIf="solicitud.opinion=='negativo'"><mat-icon class="fsua fsua-malo"></mat-icon> {{solicitud.estado}}</div>
-                <div *ngIf="solicitud.opinion=='neutro'"><mat-icon class="fsua fsua-neutro"></mat-icon> {{solicitud.estado}}</div>
-                <div *ngIf="solicitud.opinion==''">{{solicitud.estado}}</div>
-            </div>
-            <div class="solucion">{{solicitud.detalle_solucion}}</div>
-        </div>
-        <div *ngIf="solicitud.descripcion==''" class="fila">
-            <div>
-                <mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempo}}
-            </div>
-            <div>
-                en {{solicitud.area_origen}} por {{solicitud.usuario_registro}}
-            </div>
-        </div>
-        <div>
-            <mat-expansion-panel *ngIf="solicitud.descripcion!=''" class="mat-elevation-z0 panel">
+        </mat-card>
+
+        <mat-card class="card2">
+            <mat-expansion-panel class="mat-elevation-z0">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        <div class="col1">
-                            <mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempo}}
-                        </div>
-                        <div>
-                            en {{solicitud.area_origen}} por {{solicitud.usuario_registro}}
+                        <div class="fila">
+                            <div class="numero">
+                                <div class="cantidad">{{solicitud.cant_solicitantes}}</div> 
+                                <div *ngIf="solicitud.cant_solicitantes!='1'"> Solicitantes</div>
+                                <div *ngIf="solicitud.cant_solicitantes=='1'"> Solicitante</div>
+                            </div>
+                            <div class="numero">
+                                <div class="cantidad">{{solicitud.reiteraciones}}</div> 
+                                <div *ngIf="solicitud.reiteraciones!='1'"> Reiteraciones</div>
+                                <div *ngIf="solicitud.reiteraciones=='1'"> Reiteración </div>
+                            </div>
+                            <div class="numero">
+                                <div class="cantidad">{{solicitud.cant_opiniones}}</div> 
+                                <div *ngIf="solicitud.cant_opiniones!='1'"> Opiniones</div>
+                                <div *ngIf="solicitud.cant_opiniones=='1'"> Opinion </div>
+                            </div>
                         </div>
                     </mat-panel-title>
                 </mat-expansion-panel-header>
                 <div class="descringpcion">{{solicitud.descripcion}}</div>
             </mat-expansion-panel>
-        </div>
-        <mat-divider></mat-divider>
-        <div class="equipamiento" *ngIf="solicitud.etiqueta_equipamiento!=''">
-            <div><mat-icon class="fsua fsua-equipamiento"></mat-icon>Equipamiento: {{solicitud.etiqueta_equipamiento}}</div>
-            <div><mat-icon></mat-icon>Descripcion: {{solicitud.descripcion_equipamiento}}</div>
-            <div><mat-icon></mat-icon>Detalle: {{solicitud.detalle_equipamiento}}</div>
-        </div>
-        <mat-divider></mat-divider>
-        <div class="datos-complementarios">
-            <p>RECEPCIÓN DE LA SOLICITUD</p>
-            <p>GESTIÓN DE LA SOLICITUD </p>
-        </div>
-    </mat-card>
-
-    <mat-card class="card2">
-        <mat-expansion-panel class="mat-elevation-z0">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    <div class="fila">
-                        <div class="numero">
-                            <div class="cantidad">{{solicitud.cant_solicitantes}}</div> 
-                            <div *ngIf="solicitud.cant_solicitantes!='1'"> Solicitantes</div>
-                            <div *ngIf="solicitud.cant_solicitantes=='1'"> Solicitante</div>
-                        </div>
-                        <div class="numero">
-                            <div class="cantidad">{{solicitud.reiteraciones}}</div> 
-                            <div *ngIf="solicitud.reiteraciones!='1'"> Reiteraciones</div>
-                            <div *ngIf="solicitud.reiteraciones=='1'"> Reiteración </div>
-                        </div>
-                        <div class="numero">
-                            <div class="cantidad">{{solicitud.cant_opiniones}}</div> 
-                            <div *ngIf="solicitud.cant_opiniones!='1'"> Opiniones</div>
-                            <div *ngIf="solicitud.cant_opiniones=='1'"> Opinion </div>
-                        </div>
-                    </div>
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-            <div class="descringpcion">{{solicitud.descripcion}}</div>
-        </mat-expansion-panel>
-        
-    </mat-card>
+            
+        </mat-card>
+    </div>
 </div>
