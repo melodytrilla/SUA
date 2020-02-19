@@ -3,11 +3,8 @@ import * as _ from 'lodash';
 import { SolicitudesItemsService } from '../solicitudes-items.service';
 import * as moment from 'moment';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
-<<<<<<< HEAD
 import {MapComponent} from '../map/map.component';
-=======
 import { Router } from '@angular/router';
->>>>>>> 5020b8434368488106119ce7a21b9538a0c8ac05
 
 export interface Opcion {
   value: string;
