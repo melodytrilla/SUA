@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet.markercluster';
 import * as _ from 'lodash';
@@ -6,6 +6,7 @@ import { SolicitudesItemsService } from '../solicitudes-items.service';
 import 'proj4leaflet';
 import 'proj4';
 import { IconosManagerService } from '../iconos-manager.service';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-map',
@@ -14,6 +15,7 @@ import { IconosManagerService } from '../iconos-manager.service';
 })
 export class MapComponent implements OnInit {
   mymap: L.Map;
+  @Output() selected = new EventEmitter<number>();
   
   constructor(public api: SolicitudesItemsService, public iconManager:IconosManagerService) { }
 
@@ -59,10 +61,11 @@ export class MapComponent implements OnInit {
                   popupAnchor:[0,-55]});
   }
   
-  
+  //areglar selected
   addMarker(x: number, y: number, categoria: string, subtipo:string, estado:string, nume:number){
     //console.log("Categoria: " + categoria + " / Estado: " + estado);
-    let a = new L.Marker({lat: x, lng: y}, {icon: this.GetIcon(categoria, estado)});
+    let a = new L.Marker({lat: x, lng: y}, {title: nume, icon: this.GetIcon(categoria, estado)});
+    a.on('click', this.presed.bind(this, nume));
     a.addTo(this.mymap).bindPopup('<p>Categoría: ' + categoria +'</br>Subtipo: ' + subtipo +'</br> Estado: '+ estado +'</br> numero: '+ nume + '</p>');
   }
 
@@ -73,11 +76,12 @@ export class MapComponent implements OnInit {
 
   moveMap(x:number, y:number){
     let temp = this.convertToLatLng(x,y);
-    console.log(temp);
+    //console.log(temp);
     this.mymap.panTo(temp,{animation:true});
   }
 
-  printMsn() {
-    console.log("soy una funcion");
+  presed(a: number){
+    this.selected.emit(a);
+    //console.log(a);
   }
 }
