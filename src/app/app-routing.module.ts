@@ -31,6 +31,7 @@ const routes: Routes = [
   { path: 'listado', component: ListadoComponent},
   { path: 'mapa', component: MapaComponent},
   {path: 'sidenavTest', component: SideBarLoginComponent},
+  {path: 'detalle/:nro/:anio', component: DetalleSolicitudComponent},
   {path: 'map', component: MapComponent},
   {path: 'detalle', component: DetalleSolicitudComponent},
   {path: 'testIcono', component: IconoTestComponent}

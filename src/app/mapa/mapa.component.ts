@@ -3,7 +3,11 @@ import * as _ from 'lodash';
 import { SolicitudesItemsService } from '../solicitudes-items.service';
 import * as moment from 'moment';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
+<<<<<<< HEAD
 import {MapComponent} from '../map/map.component';
+=======
+import { Router } from '@angular/router';
+>>>>>>> 5020b8434368488106119ce7a21b9538a0c8ac05
 
 export interface Opcion {
   value: string;
@@ -18,7 +22,8 @@ export interface Opcion {
 export class MapaComponent implements OnInit {
   asc= false;
   
-  constructor(public api: SolicitudesItemsService) { }
+  constructor(public api: SolicitudesItemsService,
+              private router: Router) { }
 
   public solicitudes: any[];
   @ViewChild(CdkVirtualScrollViewport, {static: false}) viewPort: CdkVirtualScrollViewport;
@@ -47,6 +52,12 @@ export class MapaComponent implements OnInit {
       });
 
   }
+
+  sendto(a, b){
+        let url= `/detalle/${a}/${b}`;
+        this.router.navigateByUrl(url)
+      }
+
   togglePlay(){
     this.asc = !this.asc;
   }

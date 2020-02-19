@@ -33,7 +33,7 @@
         <cdk-virtual-scroll-viewport style="height: 73vh; width: 30vw;" itemSize="93" (scrolledIndexChange)="nextBatch($event)">
                 <div class="listConteiner">
                         <div mat-list *cdkVirtualFor="let solicitud of solicitudes">
-                            <div mat-list-item class="listElement">
+                            <div mat-list-item class="listElement" (click)="this.sendto(solicitud.id, solicitud.anio)">
                                 <div class="part1">
                                     <div class="upperPart">
                                         <mat-checkbox></mat-checkbox>
