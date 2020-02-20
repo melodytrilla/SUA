@@ -1,126 +1,127 @@
 <div style="overflow-y:hidden">
     <app-global-nav-bar></app-global-nav-bar>
     <app-navbar></app-navbar>
-    <div class="topBar">
-        <div class="ordenar">
-            <mat-form-field>
-                <mat-label >Ordenar por</mat-label>
-                <mat-select>
-                    <mat-option value="Fecha de creación"> Fecha de creación </mat-option>
-                    <mat-option value="Fecha de estado"> Fecha de estado </mat-option>
-                    <mat-option value="Cantidad de reiteraciones"> Cantidad de reiteraciones </mat-option>
-                    <mat-option value="Cantidad de solicitantes"> Cantidad de solicitantes </mat-option>
-                    <mat-option value="Cantidad de asignaciones"> Cantidad de asignaciones </mat-option>
-                    <mat-option value="Cantidad de intervenciones"> Cantidad de intervenciones </mat-option>
-                </mat-select>
-            </mat-form-field>
-            <button mat-button (click)="togglePlay()">
-                <mat-icon *ngIf="!asc">arrow_downward</mat-icon>
-                <mat-icon *ngIf="asc">arrow_upward</mat-icon>
-            </button>
+        <div class="topBar">
+            <div class="ordenar">
+                <mat-form-field>
+                    <mat-label >Ordenar por</mat-label>
+                    <mat-select>
+                        <mat-option value="fechaCreacion"> Fecha de creación </mat-option>
+                        <mat-option value="fechaEstado"> Fecha de estado </mat-option>
+                        <mat-option value="cantidadReiteraciones"> Cantidad de reiteraciones </mat-option>
+                        <mat-option value="cantidadSolicitantes"> Cantidad de solicitantes </mat-option>
+                        <mat-option value="cantidadAsignaciones"> Cantidad de asignaciones </mat-option>
+                        <mat-option value="cantidadIntervenciones"> Cantidad de intervenciones </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button mat-button (click)="togglePlay()">
+                    <mat-icon *ngIf="!asc">arrow_downward</mat-icon>
+                    <mat-icon *ngIf="asc">arrow_upward</mat-icon>
+                </button>
+            </div>
+            <mat-icon class="more">more_vert</mat-icon>
         </div>
-        <mat-icon class="more">more_vert</mat-icon>
-    </div>
-    <mat-divider></mat-divider>
-    <cdk-virtual-scroll-viewport style="height: 73vh" itemSize="93" (scrolledIndexChange)="nextBatch($event)">
-        <div mat-list *cdkVirtualFor="let item of items" class="lista">
-                <div mat-list-item class="content linea" (click)="this.sendto(item.id, item.anio)">
-                            <div class="colum0">
-                                <mat-checkbox>{{item.id}}-{{item.anio}}</mat-checkbox>
-                                <div><img src="{{item.imagen}}"></div>
-                            </div>
-                            <div class="tablagen">
-                                    <div class="col colum1">
-                                        <div class="fila">
-                                            {{item.fecha_hora_registro}}
-                                        </div>
-                                        <div class="fila">
-                                            <div *ngIf = "item.categoria=='Alumbrado'"><mat-icon class="fsua fsua-alumbrado_publico"></mat-icon> {{item.subtipo}}</div>
-                                            <div *ngIf = "item.categoria=='Colectivos urbanos'"><mat-icon class="fsua fsua-colectivos_urbanos"></mat-icon> {{item.subtipo}}</div>
-                                        </div>
-                                        <div class="fila" >
-                                            <div *ngIf="item.altura>0">{{item.calle}} {{item.altura}}</div>
-                                            <div *ngIf="item.interseccion != ''">{{item.calle}} Y {{item.interseccion}}</div>
-                                        </div>
-                                    </div>
-                                    <div class="col colum2">
-                                        <div class="fila">
-                                            <mat-icon class="fsua fsua-recientes"></mat-icon>{{item.tiempo}}
-                                        </div>
-                                        <div class="fila">
-                                            <div *ngIf="item.opinion=='positivo'"><mat-icon class="fsua fsua-bueno"></mat-icon> {{item.estado}}</div>
-                                            <div *ngIf="item.opinion=='negativo'"><mat-icon class="fsua fsua-malo"></mat-icon> {{item.estado}}</div>
-                                            <div *ngIf="item.opinion=='neutro'"><mat-icon class="fsua fsua-neutro"></mat-icon> {{item.estado}}</div>
-                                            <div *ngIf="item.opinion==''">{{item.estado}}</div>
-                                        </div>
-                                        <div class="fila">
-                                            <div *ngIf="item.estado== 'Resuelto'"> {{item.detalle_intervencion}}</div>
-                                            <div *ngIf="item.estado== 'En curso'">{{item.descripcion}}</div>
-                                            <div *ngIf="item.estado== 'Pendiente'"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col colum3">
-                                        <div class="fila">
-                                            <div *ngIf="item.intervenciones.length>0">
-                                                <mat-icon matBadge="{{item.intervenciones.length}}" matBadgeSize="small" class="fsua fsua-intervenido"></mat-icon> {{item.tiempoInterv}}
-                                            </div>
-                                        </div>
-                                        <div class="fila">
-                                            <mat-icon></mat-icon>
-                                        </div>
-                                        <div class="fila">
-                                            <div *ngIf="item.asignaciones.length>0">
-                                                <mat-icon matBadge="{{item.asignaciones.length}}" matBadgeSize="small" class="fsua fsua-mapa"></mat-icon> {{item.tiempoMap}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col colum">
-                                        <div class="fila">
-                                            <div  *ngIf="item.cantTel>0">
-                                            <mat-icon matBadge="{{item.cantTel}}" matBadgeSize="small" class="fsua fsua-tel"></mat-icon>
-                                            </div>
-                                        </div>
-                                        <div class="fila">
-                                            <mat-icon></mat-icon>
-                                        </div>
-                                        <div class="fila" >
-                                            <div *ngIf="item.cant_solicitantes>0">
-                                                <mat-icon matBadge="{{item.cant_solicitantes}}" matBadgeSize="small" class="fsua fsua-mi_perfil-o"></mat-icon>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col colum">
-                                        <div class="fila">
-                                            <div *ngIf="item.cantLogo>0">
-                                                <mat-icon matBadge="{{item.cantLogo}}" matBadgeSize="small" class="fsua fsua-logo"></mat-icon>
-                                            </div>
-                                        </div>
-                                        <div class="fila">
-                                        <mat-icon></mat-icon>
-                                        </div>
-                                        <div>
+        <mat-divider></mat-divider>
+        <cdk-virtual-scroll-viewport style="height: 73vh" itemSize="93" (scrolledIndexChange)="nextBatch($event)">
+            <div mat-list *cdkVirtualFor="let item of items" class="lista">
+                    <div mat-list-item class="content linea" (click)="this.sendto(item.id, item.anio)">
+                                <div class="colum0">
+                                    <mat-checkbox>{{item.id}}-{{item.anio}}</mat-checkbox>
+                                    <div><img src="{{item.imagen}}"></div>
+                                </div>
+                                <div class="tablagen">
+                                        <div class="col colum1">
                                             <div class="fila">
-                                                <div *ngIf="item.reiteraciones>0">
-                                                    <mat-icon matBadge="{{item.reiteraciones}}" matBadgeSize="small" class="fsua fsua-warning"></mat-icon>
+                                                {{item.fecha_hora_registro}}
+                                            </div>
+                                            <div class="fila">
+                                                <div *ngIf = "item.categoria=='Alumbrado'"><mat-icon class="fsua fsua-alumbrado_publico"></mat-icon> {{item.subtipo}}</div>
+                                                <div *ngIf = "item.categoria=='Colectivos urbanos'"><mat-icon class="fsua fsua-colectivos_urbanos"></mat-icon> {{item.subtipo}}</div>
+                                            </div>
+                                            <div class="fila" >
+                                                <div *ngIf="item.altura>0">{{item.calle}} {{item.altura}}</div>
+                                                <div *ngIf="item.interseccion != ''">{{item.calle}} Y {{item.interseccion}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="col colum2">
+                                            <div class="fila">
+                                                <mat-icon class="fsua fsua-recientes"></mat-icon>{{item.tiempo}}
+                                            </div>
+                                            <div class="fila">
+                                                <div *ngIf="item.opinion=='positivo'"><mat-icon class="fsua fsua-bueno"></mat-icon> {{item.estado}}</div>
+                                                <div *ngIf="item.opinion=='negativo'"><mat-icon class="fsua fsua-malo"></mat-icon> {{item.estado}}</div>
+                                                <div *ngIf="item.opinion=='neutro'"><mat-icon class="fsua fsua-neutro"></mat-icon> {{item.estado}}</div>
+                                                <div *ngIf="item.opinion==''">{{item.estado}}</div>
+                                            </div>
+                                            <div class="fila">
+                                                <div *ngIf="item.estado== 'Resuelto'"> {{item.detalle_intervencion}}</div>
+                                                <div *ngIf="item.estado== 'En curso'">{{item.descripcion}}</div>
+                                                <div *ngIf="item.estado== 'Pendiente'"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col colum3">
+                                            <div class="fila">
+                                                <div *ngIf="item.intervenciones.length>0" class="tiempo">
+                                                    <div><mat-icon matBadge="{{item.intervenciones.length}}" matBadgeSize="small" class="fsua fsua-intervenido"></mat-icon> </div>
+                                                    <div *ngIf="item.fecha_hora_intervencion!=''">{{item.tiempoInterv}}</div>
+                                                </div>
+                                            </div>
+                                            <div class="fila">
+                                                <mat-icon></mat-icon>
+                                            </div>
+                                            <div class="fila">
+                                                <div *ngIf="item.asignaciones.length>0" class="tiempo">
+                                                    <div><mat-icon matBadge="{{item.asignaciones.length}}" matBadgeSize="small" class="fsua fsua-mapa"></mat-icon> </div>
+                                                    <div *ngIf="item.fecha_hora_asignacion!=''">{{item.tiempoMap}}</div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class=" col flecha">
-                                        <div class="fila">
-                                        <mat-icon></mat-icon>
+                                        <div class="col colum">
+                                            <div class="fila">
+                                                <div  *ngIf="item.cantTel>0">
+                                                <mat-icon matBadge="{{item.cantTel}}" matBadgeSize="small" class="fsua fsua-tel"></mat-icon>
+                                                </div>
+                                            </div>
+                                            <div class="fila">
+                                                <mat-icon></mat-icon>
+                                            </div>
+                                            <div class="fila" >
+                                                <div *ngIf="item.cant_solicitantes>0">
+                                                    <mat-icon matBadge="{{item.cant_solicitantes}}" matBadgeSize="small" class="fsua fsua-mi_perfil-o"></mat-icon>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="fila">
-                                            <mat-icon>keyboard_arrow_right</mat-icon>
-                                        </div>
-                                        <div class="fila">
+                                        <div class="col colum">
+                                            <div class="fila">
+                                                <div *ngIf="item.cantLogo>0">
+                                                    <mat-icon matBadge="{{item.cantLogo}}" matBadgeSize="small" class="fsua fsua-logo"></mat-icon>
+                                                </div>
+                                            </div>
+                                            <div class="fila">
                                             <mat-icon></mat-icon>
+                                            </div>
+                                            <div>
+                                                <div class="fila">
+                                                    <div *ngIf="item.reiteraciones>0">
+                                                        <mat-icon matBadge="{{item.reiteraciones}}" matBadgeSize="small" class="fsua fsua-warning"></mat-icon>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                        <div class=" col flecha">
+                                            <div class="fila">
+                                            <mat-icon></mat-icon>
+                                            </div>
+                                            <div class="fila">
+                                                <mat-icon>keyboard_arrow_right</mat-icon>
+                                            </div>
+                                            <div class="fila">
+                                                <mat-icon></mat-icon>
+                                            </div>
+                                        </div>
+                                </div>
                             </div>
-                        </div>
-                <mat-divider></mat-divider>
-        </div>
-    </cdk-virtual-scroll-viewport>
-
+                    <mat-divider></mat-divider>
+            </div>
+        </cdk-virtual-scroll-viewport>
 </div>
