@@ -79,7 +79,6 @@
             </mat-card>
         </div>
         <div class="card2">
-            <mat-accordion>
             <mat-card>
                 <mat-expansion-panel class="mat-elevation-z0">
                     <mat-expansion-panel-header>
@@ -176,7 +175,7 @@
             <div class="detalle2">
                     <mat-card class="card3" style="margin-right: 5px;">
                         <mat-expansion-panel class="mat-elevation-z0">
-                            <mat-expansion-panel-header>
+                            <mat-expansion-panel-header style="height: 63px">
                                 <mat-panel-title>
                                     <div class="fila">
                                         <div class="numero">
@@ -188,23 +187,23 @@
                                     <div style="font-size: 12px;" *ngIf="solicitud.fecha_hora_asignacion!=''"><mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempoAsig}}</div>
                                 </mat-panel-title>
                             </mat-expansion-panel-header>
-                            
-                            <div *ngFor="let asig of solicitud.asignaciones">
-                                <mat-divider></mat-divider>
-                                <div class="detail">
-                                    <p>{{asig.fecha_hora_asignacion}}</p>
-                                    <div *ngIf="asig.equipo_asignado!=''"><p style="font-size: 14px;">Asignado a {{asig.equipo_asignado}}</p></div>
-                                    <p>{{asig.detalle_asignacion}}</p>
-                                    <p>{{asig.area_asignacion}}</p>
-                                    <div *ngIf="asig.usuario_asignacion!=''"><p>Por {{asig.usuario_asignacion}} el {{asig.fecha_hora_asignacion}}</p></div>
+                            <mat-card class="card4">
+                                <div *ngFor="let asig of solicitud.asignaciones">
+                                    <mat-divider></mat-divider>
+                                    <div class="detail">
+                                        <p>{{asig.fecha_hora_asignacion}}</p>
+                                        <div *ngIf="asig.equipo_asignado!=''"><p style="font-size: 14px;">Asignado a {{asig.equipo_asignado}}</p></div>
+                                        <p>{{asig.detalle_asignacion}}</p>
+                                        <p>{{asig.area_asignacion}}</p>
+                                        <div *ngIf="asig.usuario_asignacion!=''"><p>Por {{asig.usuario_asignacion}} el {{asig.fecha_hora_asignacion}}</p></div>
+                                    </div>
                                 </div>
-                                
-                            </div>
+                            </mat-card>
                         </mat-expansion-panel>
                     </mat-card>
                     <mat-card class="card3" style="margin-right: 5px;">
                         <mat-expansion-panel class="mat-elevation-z0">
-                                <mat-expansion-panel-header>
+                                <mat-expansion-panel-header style="height: 63px">
                                         <mat-panel-title>
                                             <div class="fila">
                                                 <div class="numero">
@@ -216,17 +215,18 @@
                                             <div style="font-size: 12px;" *ngIf="solicitud.fecha_hora_intervencion!=''"><mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempoInterv}}</div>
                                         </mat-panel-title>
                                 </mat-expansion-panel-header> 
-                                
-                            <div *ngFor="let inter of solicitud.intervenciones">
-                                <mat-divider></mat-divider>
-                                <div class="detail">
-                                    <p>{{inter.fecha_hora_intervencion}}</p>
-                                    <p style="font-size: 14px;">{{inter.tipo_intervencion}}</p>
-                                    <p>{{inter.detalle_intervencion}}</p>
-                                    <p>{{inter.area_intervencion}}</p>
-                                    <div *ngIf="inter.usuario_intervencion!=''"><p>Por {{inter.usuario_intervencion}} el {{inter.fecha_hora_intervencion}}</p></div>
+                            <mat-card class="card4">
+                                <div *ngFor="let inter of solicitud.intervenciones">
+                                    <mat-divider></mat-divider>
+                                    <div class="detail">
+                                        <p>{{inter.fecha_hora_intervencion}}</p>
+                                        <p style="font-size: 14px;">{{inter.tipo_intervencion}}</p>
+                                        <p>{{inter.detalle_intervencion}}</p>
+                                        <p>{{inter.area_intervencion}}</p>
+                                        <div *ngIf="inter.usuario_intervencion!=''"><p>Por {{inter.usuario_intervencion}} el {{inter.fecha_hora_intervencion}}</p></div>
+                                    </div>
                                 </div>
-                            </div>
+                            </mat-card>
                         </mat-expansion-panel>
                     </mat-card>
                     <mat-card class="card3">
@@ -256,7 +256,6 @@
                         </mat-expansion-panel>
                     </mat-card>
             </div>
-        </mat-accordion>
         </div>
     </div>
 </div>
