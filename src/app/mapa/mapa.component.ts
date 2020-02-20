@@ -3,6 +3,7 @@ import * as _ from 'lodash';
 import { SolicitudesItemsService } from '../solicitudes-items.service';
 import * as moment from 'moment';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
+import {MapComponent} from '../map/map.component';
 import { Router } from '@angular/router';
 
 export interface Opcion {
@@ -23,9 +24,10 @@ export class MapaComponent implements OnInit {
 
   public solicitudes: any[];
   @ViewChild(CdkVirtualScrollViewport, {static: false}) viewPort: CdkVirtualScrollViewport;
-  
+  @ViewChild(MapComponent, {static: false}) map;
+
   ngAfterViewInit() {
-    
+ 
   }
 
   ngOnInit() {
@@ -45,6 +47,7 @@ export class MapaComponent implements OnInit {
         
         this.solicitudes = data
       });
+
   }
 
   sendto(a, b){
@@ -74,5 +77,15 @@ console.log(`end is ${end} total is ${total}`)
 
   trackByIdx(i: number) {
     return i;
+  }
+
+  panToSolicitud(x:number, y:number){
+    //console.log("x: " + x + "///y: " + y );
+    this.map.moveMap(x,y);
+  }
+
+  showMe(a:number){
+    //console.log(a + "estoy en mapa");
+    this.viewPort.scrollToIndex(a-1);
   }
 }

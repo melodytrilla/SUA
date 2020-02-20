@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet.markercluster';
 import * as _ from 'lodash';
 import { SolicitudesItemsService } from '../solicitudes-items.service';
 import 'proj4leaflet';
 import 'proj4';
+import { IconosManagerService } from '../iconos-manager.service';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-map',
@@ -13,8 +15,9 @@ import 'proj4';
 })
 export class MapComponent implements OnInit {
   mymap: L.Map;
+  @Output() selected = new EventEmitter<number>();
   
-  constructor(public api: SolicitudesItemsService) { }
+  constructor(public api: SolicitudesItemsService, public iconManager:IconosManagerService) { }
 
   myIcon = L.divIcon({
     className: 'fsua fsua-ubicacion fsua-3x',
@@ -45,15 +48,24 @@ export class MapComponent implements OnInit {
         data.forEach(value => {
           let tempLatLng = this.convertToLatLng(value.coord_x, value.coord_y);
 
-          this.addMarker(tempLatLng.lat, tempLatLng.lng, value.categoria, value.subtipo, value.estado, value.numero);
+          this.addMarker(tempLatLng.lat, tempLatLng.lng, value.categoria, value.subtipo, value.estado, this.num + 1);
           this.num++;
         })
       });
-    }
+  }
+
+  GetIcon(categoria:string, estado:string){
+    return L.icon({iconUrl: this.iconManager.getSrc2(categoria, estado),
+                  iconSize:[50, 60], 
+                  iconAnchor:[25,60],
+                  popupAnchor:[0,-55]});
+  }
   
-  
+  //areglar selected
   addMarker(x: number, y: number, categoria: string, subtipo:string, estado:string, nume:number){
-    let a = new L.Marker({lat: x, lng: y}, {icon: this.myIcon});
+    //console.log("Categoria: " + categoria + " / Estado: " + estado);
+    let a = new L.Marker({lat: x, lng: y}, {title: nume, icon: this.GetIcon(categoria, estado)});
+    a.on('click', this.presed.bind(this, nume));
     a.addTo(this.mymap).bindPopup('<p>Categoría: ' + categoria +'</br>Subtipo: ' + subtipo +'</br> Estado: '+ estado +'</br> numero: '+ nume + '</p>');
   }
 
@@ -62,5 +74,14 @@ export class MapComponent implements OnInit {
     return this.argCrs.unproject(tempPoint)
   }
 
+  moveMap(x:number, y:number){
+    let temp = this.convertToLatLng(x,y);
+    //console.log(temp);
+    this.mymap.panTo(temp,{animation:true});
+  }
 
+  presed(a: number){
+    this.selected.emit(a);
+    //console.log(a);
+  }
 }

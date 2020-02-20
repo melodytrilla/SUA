@@ -1,0 +1,12 @@
+<p>icono-test works!</p>
+<div style="display: flex; flex-flow:wrap ;max-width: 100vw;">
+    <div *ngFor="let icono of this.iconosMang.listaIconos" style="margin-right: 15px;background-color: red;">
+        <p>{{icono.categoria}}</p> <p>{{icono.estado}}</p>
+        <div>
+            <img [src]="this.iconosMang.getSrc(icono)" style="width:100px; height:120px">
+            <img [src]="this.iconosMang.getSrc(icono)" style="width:50px; height:60px">
+        </div>
+        <p>{{icono.codigo}}</p>
+        <div style="width: 100%;height: 3px; background-color: green;"></div>
+    </div>
+</div>
