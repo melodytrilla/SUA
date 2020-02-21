@@ -55,6 +55,7 @@ import { CartaInfoComponent } from './carta-info/carta-info.component';
 import { MapComponent } from './map/map.component';
 import { DetalleSolicitudComponent } from './detalle-solicitud/detalle-solicitud.component';
 import { DesplegableTestComponent } from './desplegable-test/desplegable-test.component';
+import { IconoTestComponent } from './icono-test/icono-test.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import { DesplegableTestComponent } from './desplegable-test/desplegable-test.co
     CartaInfoComponent,
     MapComponent,
     DetalleSolicitudComponent,
-    DesplegableTestComponent
+    DesplegableTestComponent,
+    IconoTestComponent
   ],
   imports: [
     BrowserModule,

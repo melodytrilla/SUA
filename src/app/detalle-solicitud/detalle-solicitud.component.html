@@ -1,7 +1,7 @@
 <div *ngIf="solicitud != undefined">
     <app-global-nav-bar></app-global-nav-bar>
     <app-navbar></app-navbar>
-    <div class="detalle" >
+    <div class="detalle">
         <div class="card1">
             <mat-card>
                 <div class="fila">
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="imagen">
-                        <img src="{{solicitud.imagen}}">
+                    <img src="{{solicitud.imagen}}">
                 </div>
                 <div class="fila1">
                     <div class="col1">
@@ -41,7 +41,7 @@
                     <div>
                         <mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempo}}
                     </div>
-                    <div >
+                    <div>
                         <div *ngIf="solicitud.area_origen!=''">
                         en {{solicitud.area_origen}} 
                         </div>
@@ -172,10 +172,10 @@
                 </mat-expansion-panel>
                 
             </mat-card>
-            <div class="detalle2">
+                <div class="detalle2">
                     <mat-card class="card3" style="margin-right: 5px;">
                         <mat-expansion-panel class="mat-elevation-z0">
-                            <mat-expansion-panel-header style="height: 63px">
+                            <mat-expansion-panel-header>
                                 <mat-panel-title>
                                     <div class="fila">
                                         <div class="numero">
@@ -322,5 +322,4 @@
                     </mat-card>
             </div>
         </div>
-    </div>
 </div>

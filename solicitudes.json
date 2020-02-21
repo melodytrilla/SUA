@@ -272,7 +272,24 @@
         "area_intervencion": "Alumbrado Público Zona 2"
       }
     ],
-    "cant_derivaciones": 2,
+    "derivaciones": [
+      {
+        "area_derivacion": "Alumbrado Público",
+        "fecha_hora_derivacion": "27/01/2020 09:06",
+        "recepcion": "Recepeción en 6'",
+        "fecha_hora_recepcion": "27/01/2020 09:12",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      },
+      {
+        "area_derivacion": "Alumbrado Público Zona 3",
+        "fecha_hora_derivacion": "27/01/2020 10:00",
+        "recepcion": "Recepeción en 1hs 10'",
+        "fecha_hora_recepcion": "27/01/2020 11:10",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      }
+    ],
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
   {
@@ -402,7 +419,24 @@
         "area_intervencion": "Alumbrado Público Zona 2"
       }
     ],
-    "cant_derivaciones": 2,
+    "derivaciones": [
+      {
+        "area_derivacion": "Alumbrado Público",
+        "fecha_hora_derivacion": "27/01/2020 09:06",
+        "recepcion": "Recepeción en 6'",
+        "fecha_hora_recepcion": "27/01/2020 09:12",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      },
+      {
+        "area_derivacion": "Alumbrado Público Zona 3",
+        "fecha_hora_derivacion": "27/01/2020 10:00",
+        "recepcion": "Recepeción en 1hs 10'",
+        "fecha_hora_recepcion": "27/01/2020 11:10",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      }
+    ],
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
   {
@@ -532,7 +566,24 @@
         "area_intervencion": "Alumbrado Público Zona 2"
       }
     ],
-    "cant_derivaciones": 2,
+    "derivaciones": [
+      {
+        "area_derivacion": "Alumbrado Público",
+        "fecha_hora_derivacion": "27/01/2020 09:06",
+        "recepcion": "Recepeción en 6'",
+        "fecha_hora_recepcion": "27/01/2020 09:12",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      },
+      {
+        "area_derivacion": "Alumbrado Público Zona 3",
+        "fecha_hora_derivacion": "27/01/2020 10:00",
+        "recepcion": "Recepeción en 1hs 10'",
+        "fecha_hora_recepcion": "27/01/2020 11:10",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      }
+    ],
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
   {
@@ -662,7 +713,24 @@
         "area_intervencion": "Alumbrado Público Zona 2"
       }
     ],
-    "cant_derivaciones": 2,
+    "derivaciones": [
+      {
+        "area_derivacion": "Alumbrado Público",
+        "fecha_hora_derivacion": "27/01/2020 09:06",
+        "recepcion": "Recepeción en 6'",
+        "fecha_hora_recepcion": "27/01/2020 09:12",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      },
+      {
+        "area_derivacion": "Alumbrado Público Zona 3",
+        "fecha_hora_derivacion": "27/01/2020 10:00",
+        "recepcion": "Recepeción en 1hs 10'",
+        "fecha_hora_recepcion": "27/01/2020 11:10",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      }
+    ],
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
   {
@@ -792,7 +860,24 @@
         "area_intervencion": "Alumbrado Público Zona 2"
       }
     ],
-    "cant_derivaciones": 2,
+    "derivaciones": [
+      {
+        "area_derivacion": "Alumbrado Público",
+        "fecha_hora_derivacion": "27/01/2020 09:06",
+        "recepcion": "Recepeción en 6'",
+        "fecha_hora_recepcion": "27/01/2020 09:12",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      },
+      {
+        "area_derivacion": "Alumbrado Público Zona 3",
+        "fecha_hora_derivacion": "27/01/2020 10:00",
+        "recepcion": "Recepeción en 1hs 10'",
+        "fecha_hora_recepcion": "27/01/2020 11:10",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      }
+    ],
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
   {
@@ -922,7 +1007,24 @@
         "area_intervencion": "Alumbrado Público Zona 2"
       }
     ],
-    "cant_derivaciones": 2,
+    "derivaciones": [
+      {
+        "area_derivacion": "Alumbrado Público",
+        "fecha_hora_derivacion": "27/01/2020 09:06",
+        "recepcion": "Recepeción en 6'",
+        "fecha_hora_recepcion": "27/01/2020 09:12",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      },
+      {
+        "area_derivacion": "Alumbrado Público Zona 3",
+        "fecha_hora_derivacion": "27/01/2020 10:00",
+        "recepcion": "Recepeción en 1hs 10'",
+        "fecha_hora_recepcion": "27/01/2020 11:10",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      }
+    ],
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
   {
@@ -1052,7 +1154,24 @@
         "area_intervencion": "Alumbrado Público Zona 2"
       }
     ],
-    "cant_derivaciones": 2,
+    "derivaciones": [
+      {
+        "area_derivacion": "Alumbrado Público",
+        "fecha_hora_derivacion": "27/01/2020 09:06",
+        "recepcion": "Recepeción en 6'",
+        "fecha_hora_recepcion": "27/01/2020 09:12",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      },
+      {
+        "area_derivacion": "Alumbrado Público Zona 3",
+        "fecha_hora_derivacion": "27/01/2020 10:00",
+        "recepcion": "Recepeción en 1hs 10'",
+        "fecha_hora_recepcion": "27/01/2020 11:10",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      }
+    ],
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
   {
@@ -1182,7 +1301,24 @@
         "area_intervencion": "Alumbrado Público Zona 2"
       }
     ],
-    "cant_derivaciones": 2,
+    "derivaciones": [
+      {
+        "area_derivacion": "Alumbrado Público",
+        "fecha_hora_derivacion": "27/01/2020 09:06",
+        "recepcion": "Recepeción en 6'",
+        "fecha_hora_recepcion": "27/01/2020 09:12",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      },
+      {
+        "area_derivacion": "Alumbrado Público Zona 3",
+        "fecha_hora_derivacion": "27/01/2020 10:00",
+        "recepcion": "Recepeción en 1hs 10'",
+        "fecha_hora_recepcion": "27/01/2020 11:10",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      }
+    ],
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
   {
@@ -1312,7 +1448,24 @@
         "area_intervencion": "Alumbrado Público Zona 2"
       }
     ],
-    "cant_derivaciones": 2,
+    "derivaciones": [
+      {
+        "area_derivacion": "Alumbrado Público",
+        "fecha_hora_derivacion": "27/01/2020 09:06",
+        "recepcion": "Recepeción en 6'",
+        "fecha_hora_recepcion": "27/01/2020 09:12",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      },
+      {
+        "area_derivacion": "Alumbrado Público Zona 3",
+        "fecha_hora_derivacion": "27/01/2020 10:00",
+        "recepcion": "Recepeción en 1hs 10'",
+        "fecha_hora_recepcion": "27/01/2020 11:10",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      }
+    ],
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
   {
@@ -1442,7 +1595,24 @@
         "area_intervencion": "Alumbrado Público Zona 2"
       }
     ],
-    "cant_derivaciones": 2,
+    "derivaciones": [
+      {
+        "area_derivacion": "Alumbrado Público",
+        "fecha_hora_derivacion": "27/01/2020 09:06",
+        "recepcion": "Recepeción en 6'",
+        "fecha_hora_recepcion": "27/01/2020 09:12",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      },
+      {
+        "area_derivacion": "Alumbrado Público Zona 3",
+        "fecha_hora_derivacion": "27/01/2020 10:00",
+        "recepcion": "Recepeción en 1hs 10'",
+        "fecha_hora_recepcion": "27/01/2020 11:10",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      }
+    ],
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
   {
@@ -1572,7 +1742,24 @@
         "area_intervencion": "Alumbrado Público Zona 2"
       }
     ],
-    "cant_derivaciones": 2,
+    "derivaciones": [
+      {
+        "area_derivacion": "Alumbrado Público",
+        "fecha_hora_derivacion": "27/01/2020 09:06",
+        "recepcion": "Recepeción en 6'",
+        "fecha_hora_recepcion": "27/01/2020 09:12",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      },
+      {
+        "area_derivacion": "Alumbrado Público Zona 3",
+        "fecha_hora_derivacion": "27/01/2020 10:00",
+        "recepcion": "Recepeción en 1hs 10'",
+        "fecha_hora_recepcion": "27/01/2020 11:10",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      }
+    ],
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
   {
@@ -1702,7 +1889,24 @@
         "area_intervencion": "Alumbrado Público Zona 2"
       }
     ],
-    "cant_derivaciones": 2,
+    "derivaciones": [
+      {
+        "area_derivacion": "Alumbrado Público",
+        "fecha_hora_derivacion": "27/01/2020 09:06",
+        "recepcion": "Recepeción en 6'",
+        "fecha_hora_recepcion": "27/01/2020 09:12",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      },
+      {
+        "area_derivacion": "Alumbrado Público Zona 3",
+        "fecha_hora_derivacion": "27/01/2020 10:00",
+        "recepcion": "Recepeción en 1hs 10'",
+        "fecha_hora_recepcion": "27/01/2020 11:10",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      }
+    ],
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
   {
@@ -1832,7 +2036,24 @@
         "area_intervencion": "Alumbrado Público Zona 2"
       }
     ],
-    "cant_derivaciones": 2,
+    "derivaciones": [
+      {
+        "area_derivacion": "Alumbrado Público",
+        "fecha_hora_derivacion": "27/01/2020 09:06",
+        "recepcion": "Recepeción en 6'",
+        "fecha_hora_recepcion": "27/01/2020 09:12",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      },
+      {
+        "area_derivacion": "Alumbrado Público Zona 3",
+        "fecha_hora_derivacion": "27/01/2020 10:00",
+        "recepcion": "Recepeción en 1hs 10'",
+        "fecha_hora_recepcion": "27/01/2020 11:10",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      }
+    ],
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
   {
@@ -1961,7 +2182,24 @@
         "area_intervencion": "Alumbrado Público Zona 2"
       }
     ],
-    "cant_derivaciones": 2,
+    "derivaciones": [
+      {
+        "area_derivacion": "Alumbrado Público",
+        "fecha_hora_derivacion": "27/01/2020 09:06",
+        "recepcion": "Recepeción en 6'",
+        "fecha_hora_recepcion": "27/01/2020 09:12",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      },
+      {
+        "area_derivacion": "Alumbrado Público Zona 3",
+        "fecha_hora_derivacion": "27/01/2020 10:00",
+        "recepcion": "Recepeción en 1hs 10'",
+        "fecha_hora_recepcion": "27/01/2020 11:10",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      }
+    ],
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
   {
@@ -2091,7 +2329,24 @@
         "area_intervencion": "Alumbrado Público Zona 2"
       }
     ],
-    "cant_derivaciones": 2,
+    "derivaciones": [
+      {
+        "area_derivacion": "Alumbrado Público",
+        "fecha_hora_derivacion": "27/01/2020 09:06",
+        "recepcion": "Recepeción en 6'",
+        "fecha_hora_recepcion": "27/01/2020 09:12",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      },
+      {
+        "area_derivacion": "Alumbrado Público Zona 3",
+        "fecha_hora_derivacion": "27/01/2020 10:00",
+        "recepcion": "Recepeción en 1hs 10'",
+        "fecha_hora_recepcion": "27/01/2020 11:10",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      }
+    ],
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   }
 ]

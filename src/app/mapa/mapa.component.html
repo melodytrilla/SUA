@@ -30,10 +30,10 @@
 </div>
 <mat-divider></mat-divider>
 <div class="content">
-        <cdk-virtual-scroll-viewport style="height: 73vh" itemSize="93" (scrolledIndexChange)="nextBatch($event)">
+        <cdk-virtual-scroll-viewport style="height: 73vh; width: 30vw;" itemSize="93" (scrolledIndexChange)="nextBatch($event)">
                 <div class="listConteiner">
                         <div mat-list *cdkVirtualFor="let solicitud of solicitudes">
-                            <div mat-list-item class="listElement">
+                            <div mat-list-item class="listElement" (click)="this.sendto(solicitud.id, solicitud.anio)">
                                 <div class="part1">
                                     <div class="upperPart">
                                         <mat-checkbox></mat-checkbox>
@@ -46,7 +46,7 @@
                                     </div>
                                 </div>
 
-                                <div class="part2">
+                                <div class="part2" (click)="this.panToSolicitud(solicitud.coord_x, solicitud.coord_y)">
                                     <div class="upperPart">
                                         <mat-icon class="fsua fsua-recientes iconoPos"></mat-icon>{{solicitud.tiempo}}
                                         <div class="addDistance"></div>
@@ -78,11 +78,11 @@
                                 </div>
 
                             </div>
-                            <mat-divider></mat-divider>
+                            <mat-divider #map></mat-divider>
                         </div>
                 </div>
         </cdk-virtual-scroll-viewport>
     <div class="mapa">
-        <app-map></app-map>
+        <app-map (selected)="showMe($event)"></app-map>
     </div>
 </div>

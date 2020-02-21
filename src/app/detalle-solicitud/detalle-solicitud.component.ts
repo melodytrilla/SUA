@@ -5,9 +5,9 @@ import { ActivatedRoute } from '@angular/router';
 import { SolicitudesItemsService } from '../solicitudes-items.service';
 
 @Component({
-  selector: 'app-detalle-solicitud',
-  templateUrl: './detalle-solicitud.component.html',
-  styleUrls: ['./detalle-solicitud.component.sass']
+  selector: 'app-detalle-solicitud',
+  templateUrl: './detalle-solicitud.component.html',
+  styleUrls: ['./detalle-solicitud.component.sass']
 })
 export class DetalleSolicitudComponent implements OnInit {
   
@@ -32,19 +32,19 @@ export class DetalleSolicitudComponent implements OnInit {
               value.tiempoInterv =moment([this.formato(value.fecha_hora_intervencion)], "YYYY, MM, DD, h, mm, ss").fromNow();
               value.tiempoAsig =moment([this.formato(value.fecha_hora_asignacion)], "YYYY, MM, DD, h, mm, ss").fromNow();
               value.tiempoDeriv = moment([this.formato(value.fecha_hora_ult_derivacion)], "YYYY, MM, DD, h, mm, ss").fromNow();
-              console.log(value.reiteraciones, value.cant_solicitantes);
+              console.log(this.formato(value.fecha_hora_estado));
               this.solicitud = value
             }};
         })
       });
       }
 
-  formato(fecha){
-    fecha = fecha.replace("/","-")
-    fecha = fecha.replace("/", "-")
-    fecha = fecha.replace(" ", "-")
-    fecha = fecha.replace(":", "-")
-    return fecha.replace(/^(\d{2})-(\d{2})-(\d{4})-(\d{2})-(\d{2})$/g,'$3, $2, $1, $4, $5')
-  }
+      formato(fecha){
+        fecha = fecha.replace("/","-")
+        fecha = fecha.replace("/", "-")
+        fecha = fecha.replace(" ", "-")
+        fecha = fecha.replace(":", "-")
+        return fecha.replace(/^(\d{2})-(\d{2})-(\d{4})-(\d{2})-(\d{2})$/g,'$3, $2, $1, $4, $5')
+      }
 
 }

@@ -16,6 +16,7 @@ import { SideBarLoginComponent } from './side-bar-login/side-bar-login.component
 import { MapComponent } from './map/map.component';
 import { DetalleSolicitudComponent } from './detalle-solicitud/detalle-solicitud.component';
 import { DesplegableTestComponent } from './desplegable-test/desplegable-test.component';
+import { IconoTestComponent } from './icono-test/icono-test.component';
 
 const routes: Routes = [
   { path: '', component: ResumenComponent},
@@ -31,9 +32,12 @@ const routes: Routes = [
   { path: 'listado', component: ListadoComponent},
   { path: 'mapa', component: MapaComponent},
   {path: 'sidenavTest', component: SideBarLoginComponent},
+  {path: 'detalle/:nro/:anio', component: DetalleSolicitudComponent},
   {path: 'map', component: MapComponent},
   {path: 'detalle/:nro/:anio', component: DetalleSolicitudComponent},
   {path:'busquedaTesting', component: DesplegableTestComponent},
+  {path: 'detalle', component: DetalleSolicitudComponent},
+  {path: 'testIcono', component: IconoTestComponent}
 ];
 
 @NgModule({
