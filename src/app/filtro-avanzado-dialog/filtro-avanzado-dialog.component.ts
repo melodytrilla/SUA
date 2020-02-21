@@ -298,12 +298,13 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   ngOnInit() {
 
     //inicializa los valores del advSerch si hay algunos guardado en la session
-    /*if(this.busqueda.busquedaCompleta.advSearch){
-      this.advSearch =  this.busqueda.busquedaCompleta.advSearch;
+    if(this.busqueda.busquedaCompleta.advSearch){
+      console.log(this.busqueda.busquedaCompleta.advSearch);
+      this.advSearch =  Object.assign({}, this.busqueda.busquedaCompleta.advSearch);
       
-      this.datesControl.setValue({begin: this.advSearch.intervenciones_fechaStart,
-                                end: this.advSearch.intervenciones_fechaEnd});
-    }*/
+      //this.datesControl.setValue({begin: this.advSearch.intervenciones_fechaStart,
+      //                          end: this.advSearch.intervenciones_fechaEnd});
+    }
 
   /*  this.form = this.formBuilder.group({
       prioridad: '',
@@ -345,23 +346,28 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
   // cierra la ventana al apretar cancelar
   onNoClick(): void {
-    //console.log(this.form);
+    console.log(this.advSearch);
+    this.advSearch = this.data.busqueda.advSearch;
+    console.log(this.data);
+    console.log("after...");
+    console.log(this.advSearch);
     this.dialogRef.close();
   }
 
   //agarra todos los valores puestos en el formulario y se los pasa con
   //los de la busqueda principal al servicio de busqueda
   BusquedaClick():void{
-    //this.advSearch.filtros = this.myChips.guardarChips();
+    console.log(this.advSearch);
+    this.advSearch.clasificacion_subtipo = this.myChips.guardarChips();
     //console.log(this.datesControl.value);
 
     //this.advSearch.intervenciones_fechaStart = this.datesControl.value.begin;
     //this.advSearch.intervenciones_fechaEnd = this.datesControl.value.end;
 
     //console.log(this.advSearch);
-    //this.data.busqueda.advSearch = this.advSearch;
-    //console.log(this.data);
-    //this.busqueda.Buscar(this.data.busqueda);
+    this.data.busqueda.advSearch = this.advSearch;
+    console.log(this.data);
+    this.busqueda.Buscar(this.data.busqueda);
     this.dialogRef.close();
   }
 
@@ -459,8 +465,9 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
     if(this.CalificacionCheck()){
       this.turnOn("CalifPanel", "CalifFont");
-
-      this.advSearch.clasificacion_subtipo = this.myChips.guardarChips();
+      if(this.myChips != undefined){
+        this.advSearch.clasificacion_subtipo = this.myChips.guardarChips();
+      }
       this.descripcionCalif = this.inputDescripcion;
     }else{
       this.turnOff("CalifPanel", "CalifFont")
