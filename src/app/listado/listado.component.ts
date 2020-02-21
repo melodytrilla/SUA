@@ -4,6 +4,7 @@ import { SolicitudesItemsService } from '../solicitudes-items.service';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import * as moment from 'moment';
 import 'moment/locale/es';
+import { Router } from "@angular/router";
 
 export interface Opcion {
   value: string;
@@ -20,7 +21,8 @@ export class ListadoComponent implements AfterViewInit {
   asc = false;
   
 
-  constructor(public api: SolicitudesItemsService) { }
+  constructor(public api: SolicitudesItemsService,
+              private router: Router) { }
 
   public items: any[];
 
@@ -41,6 +43,9 @@ export class ListadoComponent implements AfterViewInit {
           if (value.descripcion.length > 50) {
             value.descripcion = value.descripcion.substr(0, 47) + "...";
           }
+          if (value.interseccion.length > 10) {
+            value.interseccion = value.interseccion.substr(0, 7) + "...";
+          }
           moment.locale('es');
           value.tiempo = moment([this.formato(value.fecha_hora_estado)], "YYYY, MM, DD, h, mm, ss").fromNow();
           value.tiempoInterv =moment([this.formato(value.fecha_hora_intervencion)], "YYYY, MM, DD, h, mm, ss").fromNow();
@@ -51,6 +56,10 @@ export class ListadoComponent implements AfterViewInit {
       });
   }
   
+  sendto(a, b){
+    let url= `/detalle/${a}/${b}`;
+    this.router.navigateByUrl(url)
+  }
   togglePlay() {
     this.asc = !this.asc;
   }

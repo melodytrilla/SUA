@@ -22,8 +22,6 @@ export class DetalleSolicitudComponent implements OnInit {
       nro: this.rutaActiva.snapshot.params.nro,
       anio: this.rutaActiva.snapshot.params.anio,
     };
-    console.log(this.detalle.nro);
-    console.log(this.detalle.anio);
     this.api.getSolicitudes().subscribe(
       data => {
         data.forEach(value => {
@@ -33,7 +31,8 @@ export class DetalleSolicitudComponent implements OnInit {
               value.tiempo = moment([this.formato(value.fecha_hora_estado)], "YYYY, MM, DD, h, mm, ss").fromNow();
               value.tiempoInterv =moment([this.formato(value.fecha_hora_intervencion)], "YYYY, MM, DD, h, mm, ss").fromNow();
               value.tiempoAsig =moment([this.formato(value.fecha_hora_asignacion)], "YYYY, MM, DD, h, mm, ss").fromNow();
-              value.tiempoDeriv = moment([this.formato(value.fecha_hora_ult_derivacion)], "YYYY, MM, DD, h, mm, ss").fromNow()
+              value.tiempoDeriv = moment([this.formato(value.fecha_hora_ult_derivacion)], "YYYY, MM, DD, h, mm, ss").fromNow();
+              console.log(value.reiteraciones, value.cant_solicitantes);
               this.solicitud = value
             }};
         })
