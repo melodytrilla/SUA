@@ -1,7 +1,7 @@
 <div *ngIf="solicitud != undefined">
     <app-global-nav-bar></app-global-nav-bar>
     <app-navbar></app-navbar>
-    <div class="detalle" >
+    <div class="detalle">
         <div class="card1">
             <mat-card>
                 <div class="fila">
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="imagen">
-                        <img src="{{solicitud.imagen}}">
+                    <img src="{{solicitud.imagen}}">
                 </div>
                 <div class="fila1">
                     <div class="col1">
@@ -41,7 +41,7 @@
                     <div>
                         <mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempo}}
                     </div>
-                    <div >
+                    <div>
                         <div *ngIf="solicitud.area_origen!=''">
                         en {{solicitud.area_origen}} 
                         </div>
@@ -172,10 +172,10 @@
                 </mat-expansion-panel>
                 
             </mat-card>
-            <div class="detalle2">
+                <div class="detalle2">
                     <mat-card class="card3" style="margin-right: 5px;">
                         <mat-expansion-panel class="mat-elevation-z0">
-                            <mat-expansion-panel-header style="height: 63px">
+                            <mat-expansion-panel-header>
                                 <mat-panel-title>
                                     <div class="fila">
                                         <div class="numero">
@@ -184,7 +184,7 @@
                                             <div *ngIf="solicitud.asignaciones.length=='1'"> Asignación</div>
                                         </div>
                                     </div>
-                                    <div style="font-size: 12px;" *ngIf="solicitud.fecha_hora_asignacion!=''"><mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempoAsig}}</div>
+                                    <div class="font12" *ngIf="solicitud.fecha_hora_asignacion!=''"><mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempoAsig}}</div>
                                 </mat-panel-title>
                             </mat-expansion-panel-header>
                             <mat-card class="card4">
@@ -192,7 +192,7 @@
                                     <mat-divider></mat-divider>
                                     <div class="detail">
                                         <p>{{asig.fecha_hora_asignacion}}</p>
-                                        <div *ngIf="asig.equipo_asignado!=''"><p style="font-size: 14px;">Asignado a {{asig.equipo_asignado}}</p></div>
+                                        <div *ngIf="asig.equipo_asignado!=''"><p class="font14">Asignado a {{asig.equipo_asignado}}</p></div>
                                         <p>{{asig.detalle_asignacion}}</p>
                                         <p>{{asig.area_asignacion}}</p>
                                         <div *ngIf="asig.usuario_asignacion!=''"><p>Por {{asig.usuario_asignacion}} el {{asig.fecha_hora_asignacion}}</p></div>
@@ -212,7 +212,7 @@
                                                     <div *ngIf="solicitud.intervenciones.length=='1'"> Intervención</div>
                                                 </div>
                                             </div>
-                                            <div style="font-size: 12px;" *ngIf="solicitud.fecha_hora_intervencion!=''"><mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempoInterv}}</div>
+                                            <div class="font12" *ngIf="solicitud.fecha_hora_intervencion!=''"><mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempoInterv}}</div>
                                         </mat-panel-title>
                                 </mat-expansion-panel-header> 
                             <mat-card class="card4">
@@ -220,7 +220,7 @@
                                     <mat-divider></mat-divider>
                                     <div class="detail">
                                         <p>{{inter.fecha_hora_intervencion}}</p>
-                                        <p style="font-size: 14px;">{{inter.tipo_intervencion}}</p>
+                                        <p class="font14">{{inter.tipo_intervencion}}</p>
                                         <p>{{inter.detalle_intervencion}}</p>
                                         <p>{{inter.area_intervencion}}</p>
                                         <div *ngIf="inter.usuario_intervencion!=''"><p>Por {{inter.usuario_intervencion}} el {{inter.fecha_hora_intervencion}}</p></div>
@@ -231,31 +231,95 @@
                     </mat-card>
                     <mat-card class="card3">
                         <mat-expansion-panel class="mat-elevation-z0">
-                                <mat-expansion-panel-header>
+                                <mat-expansion-panel-header style="height: 61px">
                                     <mat-panel-title>
                                         <div class="fila">
                                             <div class="numero">
-                                                <div class="cantidad">{{solicitud.cant_derivaciones}}</div> 
+                                                <div class="cantidad">{{solicitud.derivaciones.length}}</div> 
                                                 <div>
                                                     <div>
                                                         <div *ngIf="solicitud.cant_derivaciones!='1'"> Derivaciones</div>
                                                         <div *ngIf="solicitud.cant_derivaciones=='1'"> Derivación</div>
                                                     </div>
-                                                    <div style="font-size: 12px;">
+                                                    <div class="font12">
                                                         {{solicitud.area_ultima_derivacion}}
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div style="font-size: 12px;" *ngIf="solicitud.fecha_hora_ult_derivacion!=''">
+                                        <div class="font12" *ngIf="solicitud.fecha_hora_ult_derivacion!=''">
                                             
                                             <mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempoDeriv}}
                                         </div>
                                     </mat-panel-title>
                                 </mat-expansion-panel-header>
+                                <mat-card class="card4">
+                                    <div style="padding-bottom: 10px;">
+                                        <mat-divider></mat-divider>
+                                    </div>
+                                    <div *ngFor="let deriv of solicitud.derivaciones">
+                                        <div class="derivacion">
+                                            <div class="columna">
+                                                <mat-icon  class="font18h17">today</mat-icon>
+                                                <mat-icon  class="font18h13">more_vert</mat-icon>
+                                                <mat-icon  class="font18h13">more_vert</mat-icon>
+                                                <mat-icon  class="font18h17">more_vert</mat-icon>
+                                            </div>
+                                            <div class="font13">
+                                                <p>Originada por {{solicitud.area_origen}}</p>
+                                                <p>{{solicitud.fecha_hora_registro}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="derivacion">
+                                            <div class="columna">
+                                                <mat-icon  class="font18h17">today</mat-icon>
+                                                <mat-icon  class="font18h13">more_vert</mat-icon>
+                                                <mat-icon  class="font18h13">more_vert</mat-icon>
+                                                <mat-icon  class="font18h17">more_vert</mat-icon>
+                                            </div>
+                                            <div class="font13">
+                                                <p>Derivada a {{deriv.area_derivacion}}</p>
+                                                <p>{{deriv.fecha_hora_derivacion}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="derivacion">
+                                            <div class="columna">
+                                                <mat-icon  class="font18h17">today</mat-icon>
+                                                <mat-icon  class="font18h13">more_vert</mat-icon>
+                                                <mat-icon  class="font18h13">more_vert</mat-icon>
+                                                <mat-icon  class="font18h17">more_vert</mat-icon>
+                                            </div>
+                                            <div class="font13">
+                                                <p>{{deriv.recepcion}}</p>
+                                                <p>{{deriv.fecha_hora_recepcion}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="derivacion">
+                                            <div class="columna">
+                                                <mat-icon  class="font18h17">today</mat-icon>
+                                                <mat-icon  class="font18h13">more_vert</mat-icon>
+                                                <mat-icon  class="font18h13">more_vert</mat-icon>
+                                                <mat-icon  class="font18h17">more_vert</mat-icon>
+                                            </div>
+                                            <div class="font13">
+                                                <p>{{deriv.detalle}}</p>
+                                                <p>{{deriv.fecha_detalle}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="derivacion">
+                                        <div class="columna">
+                                            <mat-icon class="font18h17">today</mat-icon>
+                                        </div>
+                                        <div class="font13">
+                                            <p>{{solicitud.detalle_fecha}}</p>
+                                            <p>{{solicitud.fecha_hora_solucion}}</p>
+                                            <p>{{solicitud.detalle_solucion}}</p>
+                                        </div>
+                                    </div>
+                                </mat-card>
                         </mat-expansion-panel>
                     </mat-card>
             </div>
         </div>
-    </div>
 </div>
