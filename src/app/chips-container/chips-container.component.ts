@@ -48,7 +48,7 @@ export class ChipsContainerComponent implements OnInit{
   //recupera los chisp guardados en la session si los hay
   ngOnInit() {
     if(this.busquedaService.busquedaCompleta.advSearch != null){
-      this.chips = this.busquedaService.busquedaCompleta.advSearch.filtros;
+      this.chips = this.busquedaService.busquedaCompleta.advSearch.clasificacion_subtipo;
     }
   }
 

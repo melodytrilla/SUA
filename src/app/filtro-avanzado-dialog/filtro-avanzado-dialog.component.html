@@ -47,14 +47,14 @@
             <div Id="inputField">
                 <mat-label style="margin-right: 2%;">Reiteraciones: </mat-label>
                 
-                <mat-checkbox [(ngModel)]="tipo_con">Con</mat-checkbox>
-                <mat-checkbox [(ngModel)]="tipo_sin">Sin</mat-checkbox>
+                <mat-checkbox [(ngModel)]="advSearch.reiteraciones_con">Con</mat-checkbox>
+                <mat-checkbox [(ngModel)]="advSearch.reiteraciones_sin">Sin</mat-checkbox>
             </div>
             
 
             <mat-form-field style="margin-left: 5%">
                 <mat-label>Prioridad:</mat-label>
-                <mat-select [(value)] = "opt_selected">
+                <mat-select [(value)] = "advSearch.prioridad">
                     <mat-option>Todas</mat-option>
                     <mat-option value="Alta">Alta</mat-option>
                     <mat-option value="Media">Media</mat-option>
@@ -83,7 +83,7 @@
             <mat-form-field>
                 <mat-label>Tipo</mat-label>
 
-                <mat-select [(value)]="tipo">
+                <mat-select [(value)]="advSearch.clasificacion_tipo">
                     <mat-option> Cualquiera</mat-option>
                     <mat-option *ngFor="let elem of tipos" [value]="elem">  
                         {{elem}}
@@ -101,7 +101,7 @@
                 </mat-form-field>
 
                 <mat-chip-list>
-                    <mat-chip *ngFor="let elegido of origenesSeleccionados"
+                    <mat-chip *ngFor="let elegido of advSearch.clasificacion_origenes"
                         [removable]=true [selectable]=true 
                         color="primary" (removed)="takeOut(elegido)"> 
                             {{elegido}}
@@ -111,16 +111,16 @@
             </div>
             <div style="display: flex;" Id="CalifFont">
                 <mat-checkbox
-                [(ngModel)]="registroCheck"
-                [disabled]="origenesSeleccionados.length == 0"
+                [(ngModel)]="advSearch.clasificacion_registro"
+                [disabled]="advSearch.clasificacion_origenes.length == 0"
                 style="margin-right: 8%;">
                 Registro
                     
                 </mat-checkbox>
 
                 <mat-checkbox
-                [(ngModel)]="reiteracionCheck"
-                [disabled]="origenesSeleccionados.length == 0">
+                [(ngModel)]="advSearch.clasificacion_reiteracion"
+                [disabled]="advSearch.clasificacion_origenes.length == 0">
                 Reiteracion
                     
                 </mat-checkbox>
@@ -146,7 +146,7 @@
                 <input matInput [matAutocomplete] = "autoArea"
                     (input)="updateAutocomplete($event.target.value)"
                     (focus)="updateAutocomplete($event.target.value)"
-                    [(ngModel)]="area_origen"
+                    [(ngModel)]="advSearch.area_origen"
                     >
 
                 <mat-autocomplete #autoArea = "matAutocomplete" style="width: 100px; height: 100px;">
@@ -154,7 +154,7 @@
                     <mat-divider></mat-divider>
                     <div *ngFor = "let area of area_areas">
                         <mat-option  [value]= area style="height:auto; display: flex; white-space: normal;line-height: 2;">
-                            {{area}}
+                            {{area}}istro
                         </mat-option>
                         <mat-divider></mat-divider>
                     </div>
@@ -165,14 +165,14 @@
                 <input matInput [matAutocomplete] = "autoArea"
                     (input)="updateAutocomplete($event.target.value)"
                     (focus)="updateAutocomplete($event.target.value)"
-                    [(ngModel)]="area_destino"
+                    [(ngModel)]="advSearch.area_destino"
                     >
             </mat-form-field>
             <mat-form-field style="width: 25%;">
                 <mat-label>Área de reiteración</mat-label>            
                 <input matInput [matAutocomplete] = "autoArea"
                     (input)="updateAutocomplete($event.target.value)"
-                    [(ngModel)]="area_reiteracion"
+                    [(ngModel)]="advSearch.area_reiteracion"
                     >
             </mat-form-field>
         </div>
@@ -191,7 +191,7 @@
         
         <div id="AdjuntoFont" class="body">
             <section>
-                <mat-radio-group [(ngModel)]="tiene" (change)="checkEnable($event)">
+                <mat-radio-group [(ngModel)]="advSearch.adjunto_tiene" (change)="checkEnable($event)">
                     <mat-radio-button value="Con"> Con</mat-radio-button>
                     <mat-radio-button value="Sin"> Sin</mat-radio-button>
                     <mat-radio-button value="no"> No Seleccionado</mat-radio-button>
@@ -199,9 +199,9 @@
             </section>
 
             <section>
-                <mat-checkbox [disabled]="dis" [(ngModel)]="registro"> Registro/Reiteración</mat-checkbox>
-                <mat-checkbox [disabled]="dis" [(ngModel)]="intervencion"> Intervención</mat-checkbox>
-                <mat-checkbox [disabled]="dis" [(ngModel)]="resolucion"> Resolución</mat-checkbox>
+                <mat-checkbox [disabled]="dis" [(ngModel)]="advSearch.adjunto_regReit"> Registro/Reiteración</mat-checkbox>
+                <mat-checkbox [disabled]="dis" [(ngModel)]="advSearch.adjunto_intervencion"> Intervención</mat-checkbox>
+                <mat-checkbox [disabled]="dis" [(ngModel)]="advSearch.adjunto_resolucion"> Resolución</mat-checkbox>
             </section>
         </div>
     </mat-expansion-panel>
@@ -219,7 +219,7 @@
         
         <div id="OpinionFont" class="body">
             <section>
-                <mat-radio-group [(ngModel)]="tieneOp" (change)="checkEnableOp($event)">
+                <mat-radio-group [(ngModel)]="advSearch.opinion_tiene" (change)="checkEnableOp($event)">
                     <mat-radio-button value="Con"> Con</mat-radio-button>
                     <mat-radio-button value="Sin"> Sin</mat-radio-button>
                     <mat-radio-button value="no"> No Seleccionado</mat-radio-button>
@@ -228,9 +228,9 @@
             </section>
 
             <section>
-                <mat-checkbox [disabled]="disOp" [(ngModel)]="positivo"> Positiva</mat-checkbox>
-                <mat-checkbox [disabled]="disOp" [(ngModel)]="negativo"> Negativa</mat-checkbox>
-                <mat-checkbox [disabled]="disOp" [(ngModel)]="neutro"> Neutra</mat-checkbox>
+                <mat-checkbox [disabled]="disOp" [(ngModel)]="advSearch.opinion_positivo"> Positiva</mat-checkbox>
+                <mat-checkbox [disabled]="disOp" [(ngModel)]="advSearch.opinion_negative"> Negativa</mat-checkbox>
+                <mat-checkbox [disabled]="disOp" [(ngModel)]="advSearch.opinion_neutro"> Neutra</mat-checkbox>
             </section>
         </div>
     </mat-expansion-panel>
@@ -260,7 +260,7 @@
                     </mat-form-field>
                     <div>
                         <mat-chip-list #showEstado>
-                            <mat-chip *ngFor="let chip of estados_select"
+                            <mat-chip *ngFor="let chip of advSearch.estado_estados"
                                 [removable] = "true"
                                 (removed)= "removeEstado(chip)"
                                 color="primary">
@@ -274,7 +274,7 @@
                     <!-- Date Range -->
                     <mat-form-field>
                         <input matInput
-                            [disabled]="estados_select.length == 0"
+                            [disabled]="advSearch.estado_estados.length == 0"
                             placeholder = "Elija una fecha"
                             [satDatepicker]="pickerEstado"
                             [(ngModel)] = "estado_DateRango"
@@ -292,7 +292,7 @@
                     <!-- estado Detallado -->
                     <mat-form-field >
                         <mat-label>Estado detallado</mat-label>
-                        <mat-select [(ngModel)] = "detallados_select">
+                        <mat-select [(ngModel)] = "advSearch.estado_detallado">
                             <mat-option [value] = ""> --ninguno--</mat-option>
                             <mat-option *ngFor="let option of detallados_total" [value]="option">
                                 {{option}}
@@ -347,7 +347,7 @@
                 <mat-divider [vertical]="true"></mat-divider>
                 <div style="flex-grow: 10; margin-left: 30px;">
                     <mat-chip-list #showVecinales>
-                        <mat-chip *ngFor="let chip of chipVecinales"
+                        <mat-chip *ngFor="let chip of advSearch.distrito_vecinales"
                             [removable]=true
                             (removed)="remove(chip)"
                             color="primary">
@@ -379,7 +379,7 @@
         <div class="body">
             <div Id="changeFont" class="flexRow" style="width: -moz-available; width: 100%;">
                 <div class="flexColunm" style="min-width: 50%;">
-                    <mat-radio-group [(ngModel)] = "tipoInt">
+                    <mat-radio-group [(ngModel)] = "advSearch.intervenciones_tipo">
                         <mat-radio-button value="con"> Con </mat-radio-button>
                         <mat-radio-button value="sin"> Sin </mat-radio-button>
                         <mat-radio-button value="ultima"> Última </mat-radio-button>
@@ -389,9 +389,10 @@
                     <div clas="flexRow" style="margin-top: 5px;">
                         <mat-form-field style = "margin-left: 10px;">
                             <input matInput
-                                    [disabled]="tipoInt == ''"
+                                    [disabled]="advSearch.intervenciones_tipo == ''"
                                 placeholder="Choose a date"
                                 [satDatepicker]="picker3"
+                                [(ngModel)]= "intervenciones_DateRango"
                                 value="">
                             <sat-datepicker #picker3 
                                 [rangeMode]="true"
@@ -418,7 +419,7 @@
                         </mat-form-field>
     
                         <mat-chip-list>
-                            <mat-chip *ngFor="let int of intervencionesSelecionadas"
+                            <mat-chip *ngFor="let int of advSearch.intervenciones_seleccionadas"
                             [removable]=true [selectable]=true
                             color=primary (removed)="quitarIntervencion(int)">
                                 {{int}}
@@ -427,7 +428,7 @@
                         </mat-chip-list>
                     </div>
                     <div>
-                        <mat-checkbox [(ngModel)]="suaMovil" >SUA Móvil</mat-checkbox>
+                        <mat-checkbox [(ngModel)]="advSearch.intervenciones_suaMovile" >SUA Móvil</mat-checkbox>
                     </div>
                 </div>
             </div>
@@ -448,7 +449,7 @@
         <div class="body">
             <div Id="changeFontEqp" style="width: 100%;display: flex;flex-direction: row;">
                 <div style="flex-grow: 1;">
-                    <mat-radio-group [(ngModel)] = "equipamiento_choice">
+                    <mat-radio-group [(ngModel)] = "advSearch.equipamiento_choice">
                         <mat-radio-button value="con"> Con </mat-radio-button>
                         <mat-radio-button value="sin"> Sin </mat-radio-button>
                         <mat-radio-button value=""> No seleccionado </mat-radio-button>
@@ -458,7 +459,7 @@
                 <div style="flex-grow: 1;">
                     <mat-form-field>
                         <mat-label>Tipo</mat-label>
-                        <mat-select [(ngModel)] = "equipamiento_seleccionado">
+                        <mat-select [(ngModel)] = "advSearch.equipamiento_seleccionado">
                             <mat-option [value]="">No seleccionado</mat-option>
                             <mat-option *ngFor="let tipo of equipamiento_tipo" [value]="tipo">
                                 {{tipo}}
@@ -470,7 +471,7 @@
                 <div style="flex-grow: 1;">
                     <mat-form-field appearance="outline" style="width: -moz-available;">
                         <mat-label>Detalle</mat-label>
-                        <textarea matInput [(ngModel)]="equipamiento_detalle"></textarea>
+                        <textarea matInput [(ngModel)]="advSearch.equipamiento_detalle"></textarea>
                     </mat-form-field>
                 </div>
             </div>
@@ -493,7 +494,7 @@
             <div style="width: 100%;display: flex;flex-direction: row;">
                 <div style="flex-grow: 1; flex-direction: column;">
                     <div>
-                        <mat-radio-group [(ngModel)] = "asignacion_choice">
+                        <mat-radio-group [(ngModel)] = "advSearch.asignacion_tipo">
                             <mat-radio-button value="con"> Con </mat-radio-button>
                             <mat-radio-button value="sin"> Sin </mat-radio-button>
                             <mat-radio-button value="ultima"> Última </mat-radio-button>
@@ -503,7 +504,7 @@
                     <div clas="flexRow" style="margin-top: 5px;">
                         <mat-form-field style = "margin-left: 10px;">
                             <input matInput
-                                [disabled]="asignacion_choice == ''"
+                                [disabled]="advSearch.asignacion_tipo == ''"
                                 placeholder="Choose a date"
                                 [satDatepicker]="pickerAsig"
                                 [(ngModel)]="asigDate"
@@ -541,7 +542,7 @@
                     </div>
                     <div>
                         <mat-chip-list #showEquipo>
-                            <mat-chip *ngFor= "let chip of List_chips_Personas"
+                            <mat-chip *ngFor= "let chip of advSearch.asignacion_listPersonas"
                                 [removable]=true
                                 (removed)= "removeEquipo(chip)"
                                 color="Primary">

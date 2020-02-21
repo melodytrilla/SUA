@@ -13,11 +13,74 @@ import { SatDatepickerRangeValue } from 'saturn-datepicker';
 
 
 export interface AdvSearch{
+  // Los nuevos parametros a guardar
+  //Reporte
+  reiteraciones_con:boolean;
+  reiteraciones_sin:boolean;
+  prioridad:string;
+
+  //Clasificacion
+  clasificacion_subtipo: Chip[];
+  clasificacion_tipo:string;
+  clasificacion_origenes: string[];
+  clasificacion_registro:boolean;
+  clasificacion_reiteracion :boolean;
+
+  //Area
+  area_origen:string;
+  area_destino:string;
+  area_reiteracion: string;
+
+  //Adjunto
+  adjunto_tiene:string;
+  adjunto_regReit: boolean;
+  adjunto_intervencion: boolean;
+  adjunto_resolucion: boolean;
+  
+  //Opinion
+  opinion_tiene:string;
+  opinion_positivo:boolean;
+  opinion_negative:boolean;
+  opinion_neutro:boolean;
+
+  //Estado
+  estado_estados:string[];
+  estado_detallado: string;
+  estado_fecha_start: Date;
+  estado_fecha_end: Date;
+
+  //Distrito
+  distrito_vecinales: Vecinal[];
+
+  //Intervenciones
+  intervenciones_seleccionadas:string[];
+  intervenciones_suaMovile:boolean;
+  intervenciones_tipo:string,
+  intervenciones_fecha_begin: Date;
+  intervenciones_fecha_end: Date;
+
+  //Equipamiento
+  equipamiento_seleccionado:string;
+  equipamiento_choice:string;
+  equipamiento_detalle:string;
+
+  //Asignaciones
+  asignacion_tipo:string;
+  asignacion_fecha_start: Date;
+  asignacion_fecha_end: Date;
+  asignacion_listPersonas:string[];
+
+  //Datos especificos
+  Datos_Extra:any[];
+  //
+
+  /*
   filtros: Chip[];
   Originadas_dirTransito: boolean;
   con_Intervenciones: string;
   intervenciones_fechaStart: Date;
   intervenciones_fechaEnd: Date;
+  */
 }
 
 
@@ -30,11 +93,92 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
   //una variable donde se guardaran todos los valores y asociaran algunos valores de la forma
   advSearch: AdvSearch = {
+    //-----Busqueda Reporte ----------------------------------------------
+    reiteraciones_con:true,
+    reiteraciones_sin:true,
+    prioridad:undefined,
+
+    //--------------------------------------------------------------------
+
+    //-----Busqueda Clasificacion ----------------------------------------
+    clasificacion_subtipo: [],
+    clasificacion_tipo:undefined,
+    clasificacion_origenes: [],
+    clasificacion_registro:true,
+    clasificacion_reiteracion :true,
+
+    //--------------------------------------------------------------------
+
+    //-----Busqueda Area -------------------------------------------------
+    area_origen:undefined,
+    area_destino:undefined,
+    area_reiteracion:undefined,
+
+    //--------------------------------------------------------------------
+  
+    //-----Busqueda Adjunto ----------------------------------------------
+    adjunto_tiene:"no",
+    adjunto_regReit: false,
+    adjunto_intervencion: false,
+    adjunto_resolucion: false,
+    
+    //--------------------------------------------------------------------
+
+    //-----Busqueda Opinion ----------------------------------------------
+    opinion_tiene:"no",
+    opinion_positivo:false,
+    opinion_negative:false,
+    opinion_neutro:false,
+
+    //--------------------------------------------------------------------
+
+    //-----Busqueda Estado ----------------------------------------------
+    estado_estados:[],
+    estado_detallado: "",
+    estado_fecha_start: null,
+    estado_fecha_end: null,
+
+    //--------------------------------------------------------------------
+
+    //-----Busqueda Distrito ----------------------------------------------
+    distrito_vecinales: [],
+
+    //--------------------------------------------------------------------
+
+    //-----Busqueda Intervenciones ---------------------------------------
+    intervenciones_seleccionadas:[],
+    intervenciones_suaMovile:false,
+    intervenciones_tipo:"",
+    intervenciones_fecha_begin:null,
+    intervenciones_fecha_end: null,
+
+    //--------------------------------------------------------------------
+
+    //-----Busqueda Equipamiento -----------------------------------------
+    equipamiento_seleccionado:"",
+    equipamiento_choice:"",
+    equipamiento_detalle:"",
+
+  //--------------------------------------------------------------------
+
+  //-----Busqueda Asignacion -----------------------------------------
+    asignacion_tipo:"",
+    asignacion_fecha_start: null,
+    asignacion_fecha_end: null,
+    asignacion_listPersonas:[],
+
+//--------------------------------------------------------------------
+    
+//-----Datos especificos--------------------------------------------
+    Datos_Extra:[]
+      
+    /*
     filtros: [],
     Originadas_dirTransito: false,
     con_Intervenciones: "",
     intervenciones_fechaStart: null,
     intervenciones_fechaEnd: null
+    */
   };
 
   datesControl = new FormControl('');
@@ -53,11 +197,6 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   //-----Busqueda Reporte ----------------------------------------------
   public descripcionReporte: string = this.default_descripcion;
 
-  tipo_con:boolean = true;
-  tipo_sin: boolean = true;
-
-  opt_selected;
-
   //--------------------------------------------------------------------
 
   //-----Busqueda Clasificacion ----------------------------------------
@@ -66,43 +205,26 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   public descripcionCalif:string = this.default_descripcion; 
 
   tipos :string[]= ["Emergencia", "Suceso", "Reclamo", "Consulta", "Sugerencia", "Denuncia", "Trámite"]
-  tipo:string;
-
-  registroCheck = true;
-  reiteracionCheck = true;
 
   origenes:string[] = ["Telefónico", "Personal", "Facebook", "Twitter", "Contacto Web", "Nota/Expediente", "VVV", "MR", "Externo", "MR Móvil", "Sensor", "Vecino Móvil"]
-  origenesSeleccionados:string[] = [];
-
 
   //--------------------------------------------------------------------
   
   //-----Busqueda Area -------------------------------------------------
   public descripcionArea:string = this.default_descripcion; 
   area_areas:string[] = [];
-
-  area_origen:string = undefined;
-  area_destino:string = undefined;
-  area_reiteracion:string= undefined;
   //--------------------------------------------------------------------
   
   //-----Busqueda Adjunto ----------------------------------------------
   public descripcionAdjunto: string;
   
   dis: boolean= true;
-  tiene: string = "no";
-  registro: boolean = false;
-  intervencion: boolean = false;
-  resolucion: boolean = false;
+  //--------------------------------------------------------------------
 
   //-----Busqueda Opinion ----------------------------------------------
   public descripcionOpinion: string;
   
   disOp: boolean= true;
-  tieneOp: string = "no";
-  positivo : boolean = false;
-  negativo: boolean = false;
-  neutro: boolean = false;
 
   //--------------------------------------------------------------------
 
@@ -112,10 +234,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   descripcionEstado:string = "";
 
   estados_total:string[] = ["Resuelto", "Cerrado", "En curso", "Pendiente", "Archivado de oficio"];
-  estados_select:string[] = [];
-
   detallados_total:string[] = ["Derivado", "Resuelto con aviso", "Resuelto", "Resuelto sin aviso", "Archivado de oficion", "Rechazado", "Pendiente", "Cerrado"];
-  detallados_select:string = "";
 
   estado_DateRango: SatDatepickerRangeValue<Date> = {begin: null, end: null};
 
@@ -129,10 +248,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   filteredDistritos: string[] = [];
   filteredVecinales: Vecinal[] = [];
 
-  chipVecinales: Vecinal[] = [];
-
   separatorKeys: number[] = [ENTER, COMMA];
-
   
   //--------------------------------------------------------------------
 
@@ -142,23 +258,15 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   intervenciones:string[] = ["Acta de Informacion", "Constatado", "No constatado"];
   intervencionesSelecionadas:string[] = [];
 
+  intervenciones_DateRango: SatDatepickerRangeValue<Date> = {begin: null, end: null}
 
-  suaMovil:boolean = false;
-  
   descripcionInt:string;
-
-  tipoInt:string = "";
 
   //--------------------------------------------------------------------
 
   //-----Busqueda Equipamiento -----------------------------------------
 
   equipamiento_tipo:string[] = ["Alumbrado-columna", "Cámara-bicis públicas", "Semáforo-semáforo"];
-  equipamiento_seleccionado:string = "";
-
-  equipamiento_choice:string = "";
-
-  equipamiento_detalle:string = "";
 
   descripcionEqp:string = "";
 
@@ -171,10 +279,6 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
   List_Personas_Total: string[] = ["Ayelen Carbone", "D'Arrigo Florencia", "Fede Movil"];
   List_Personas: string[] = [];
-
-  List_chips_Personas: string[] = [];
-
-  asignacion_choice:string = "";
 
   asigDate:SatDatepickerRangeValue<Date> = {begin: null, end: null};
 
@@ -194,12 +298,12 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   ngOnInit() {
 
     //inicializa los valores del advSerch si hay algunos guardado en la session
-    if(this.busqueda.busquedaCompleta.advSearch){
+    /*if(this.busqueda.busquedaCompleta.advSearch){
       this.advSearch =  this.busqueda.busquedaCompleta.advSearch;
       
       this.datesControl.setValue({begin: this.advSearch.intervenciones_fechaStart,
                                 end: this.advSearch.intervenciones_fechaEnd});
-    }
+    }*/
 
   /*  this.form = this.formBuilder.group({
       prioridad: '',
@@ -248,16 +352,16 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   //agarra todos los valores puestos en el formulario y se los pasa con
   //los de la busqueda principal al servicio de busqueda
   BusquedaClick():void{
-    this.advSearch.filtros = this.myChips.guardarChips();
+    //this.advSearch.filtros = this.myChips.guardarChips();
     //console.log(this.datesControl.value);
 
-    this.advSearch.intervenciones_fechaStart = this.datesControl.value.begin;
-    this.advSearch.intervenciones_fechaEnd = this.datesControl.value.end;
+    //this.advSearch.intervenciones_fechaStart = this.datesControl.value.begin;
+    //this.advSearch.intervenciones_fechaEnd = this.datesControl.value.end;
 
     //console.log(this.advSearch);
-    this.data.busqueda.advSearch = this.advSearch;
+    //this.data.busqueda.advSearch = this.advSearch;
     //console.log(this.data);
-    this.busqueda.Buscar(this.data.busqueda);
+    //this.busqueda.Buscar(this.data.busqueda);
     this.dialogRef.close();
   }
 
@@ -278,13 +382,13 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
   //para actualizar la descripcion y color del panel reporte------------
   ActualizarDescReporte(){
-    if(!this.tipo_con && !this.tipo_sin){
-      this.tipo_con = true;
-      this.tipo_sin = true;
+    if(!this.advSearch.reiteraciones_con && !this.advSearch.reiteraciones_sin){
+      this.advSearch.reiteraciones_con = true;
+      this.advSearch.reiteraciones_sin = true;
     }
     this.inputDescripcion = this.InputADescripcionReporte();
 
-    if(!(this.tipo_con && this.tipo_sin && this.opt_selected == undefined)){
+    if(!(this.advSearch.reiteraciones_con && this.advSearch.reiteraciones_sin && this.advSearch.prioridad == undefined)){
       this.turnOn("ReportePanel", "inputField");
 
       this.descripcionReporte = this.inputDescripcion;
@@ -300,19 +404,19 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     let desc:string = "";
 
     //reiteraciones
-    if(this.tipo_con && this.tipo_sin){
+    if(this.advSearch.reiteraciones_con && this.advSearch.reiteraciones_sin){
       desc = desc.concat("No se filtra por reiteraciones ");
       
     }else{
-      if(this.tipo_sin){
+      if(this.advSearch.reiteraciones_sin){
         desc = desc.concat("Sin reiteraciones ");
       }else{
         desc = desc.concat("Con reiteraciones ");
       }
-    }
+    } 
 
-    if(this.opt_selected != undefined){
-      desc = desc.concat( "| Prioridad: " + this.opt_selected);
+    if(this.advSearch.prioridad != undefined){
+      desc = desc.concat( "| Prioridad: " + this.advSearch.prioridad);
     }else{
       desc = desc.concat("| Cualquier prioridad");
     }
@@ -333,33 +437,35 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
       }  
     }*/
     if(origen != "" && this.origenSelect.panelOpen){
-      if(!this.origenesSeleccionados.includes(origen)){
-        this.origenesSeleccionados.push(origen);
+      if(!this.advSearch.clasificacion_origenes.includes(origen)){
+        this.advSearch.clasificacion_origenes.push(origen);
       }
-      console.log(this.origenesSeleccionados);
+      console.log(this.advSearch.clasificacion_origenes);
     }
     this.origenSelect.value = "";
   } 
 
   takeOut(elegido:string):void{
-    this.origenesSeleccionados = this.origenesSeleccionados.filter((elem) => {return elem != elegido});
+    this.advSearch.clasificacion_origenes = this.advSearch.clasificacion_origenes.filter((elem) => {return elem != elegido});
     //console.log(this.origenesSeleccionados);
   }
 
   ActualizarDescCalificacion(){
-    if(!this.registroCheck && !this.reiteracionCheck){
-      this.reiteracionCheck = true;
-      this.registroCheck = true;
+    if(!this.advSearch.clasificacion_registro && !this.advSearch.clasificacion_reiteracion){
+      this.advSearch.clasificacion_registro = true;
+      this.advSearch.clasificacion_reiteracion = true;
     }
     this.inputDescripcion = this.InputADescripcionCalificacion();
 
     if(this.CalificacionCheck()){
       this.turnOn("CalifPanel", "CalifFont");
 
+      this.advSearch.clasificacion_subtipo = this.myChips.guardarChips();
       this.descripcionCalif = this.inputDescripcion;
     }else{
       this.turnOff("CalifPanel", "CalifFont")
       
+      this.advSearch.clasificacion_subtipo = [];
       this.descripcionCalif = this.inputDescripcion;
     }
   }
@@ -370,7 +476,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
         return true;
       }
     }
-    if(this.tipo != undefined || this.origenesSeleccionados.length > 0){
+    if(this.advSearch.clasificacion_tipo != undefined || this.advSearch.clasificacion_origenes.length > 0){
       return true;
     }
     
@@ -387,26 +493,26 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
         desc = desc.concat( "cantidad de filtros " + this.myChips.chipsLength() + ". ");
       }
     } 
-    if(this.tipo != undefined){
-      desc = desc.concat( "Tipo: " + this.tipo + " ");
+    if(this.advSearch.clasificacion_tipo != undefined){
+      desc = desc.concat( "Tipo: " + this.advSearch.clasificacion_tipo + " ");
     }else{
       desc = desc.concat("Cualquier tipo ");
     }
-    if(this.origenesSeleccionados.length > 0){
-      if(this.registroCheck===false && this.reiteracionCheck===false){
-        desc = desc.concat("| Origen: " + this.origenesSeleccionados[0] + " ");
+    if(this.advSearch.clasificacion_origenes.length > 0){
+      if(this.advSearch.clasificacion_registro===false && this.advSearch.clasificacion_reiteracion===false){
+        desc = desc.concat("| Origen: " + this.advSearch.clasificacion_origenes[0] + " ");
         }
-      if (this.registroCheck===true && this.reiteracionCheck===false ){
-          desc = desc.concat("| Origen de registro: " + this.origenesSeleccionados[0] + " ");
+      if (this.advSearch.clasificacion_registro===true && this.advSearch.clasificacion_reiteracion===false ){
+          desc = desc.concat("| Origen de registro: " + this.advSearch.clasificacion_origenes[0] + " ");
           }
-      if(this.reiteracionCheck===true && this.registroCheck===false ){
-        desc = desc.concat("| Origen de reiteración: " + this.origenesSeleccionados[0] + " ");
+      if(this.advSearch.clasificacion_reiteracion===true && this.advSearch.clasificacion_registro===false ){
+        desc = desc.concat("| Origen de reiteración: " + this.advSearch.clasificacion_origenes[0] + " ");
           }
-      if(this.reiteracionCheck===true && this.registroCheck===true ){
-        desc = desc.concat("| Origen de registro y reiteración: " + this.origenesSeleccionados[0] + " ");
+      if(this.advSearch.clasificacion_reiteracion===true && this.advSearch.clasificacion_registro===true ){
+        desc = desc.concat("| Origen de registro y reiteración: " + this.advSearch.clasificacion_origenes[0] + " ");
           }
-      if(this.origenesSeleccionados.length > 1){
-        desc = desc.concat("+" + (this.origenesSeleccionados.length - 1));
+      if(this.advSearch.clasificacion_origenes.length > 1){
+        desc = desc.concat("+" + (this.advSearch.clasificacion_origenes.length - 1));
       }
     }
     else {
@@ -446,31 +552,31 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     let desc:string = "";
     //let cantDesc = 0;
 
-    if(this.area_origen){
-      desc = desc.concat("Origen: " + this.area_origen);
+    if(this.advSearch.area_origen){
+      desc = desc.concat("Origen: " + this.advSearch.area_origen);
       //cantDesc += 1;
     }
 
 
-    if(this.area_destino){
+    if(this.advSearch.area_destino){
       /*if(cantDesc > 0){
         desc = desc.concat(", ");
       }*/
-      desc = desc.concat("| Destino: " + this.area_destino);
+      desc = desc.concat("| Destino: " + this.advSearch.area_destino);
     }
 
 
-    if(this.area_reiteracion){
+    if(this.advSearch.area_reiteracion){
       /*if(cantDesc > 0){
         desc = desc.concat(", ");
       }*/
-      desc = desc.concat("| Reiteración: " + this.area_reiteracion);
+      desc = desc.concat("| Reiteración: " + this.advSearch.area_reiteracion);
     }
     return desc;
   }
 
   AreaCheck():boolean{
-    if(this.area_origen  || this.area_destino || this.area_reiteracion){
+    if(this.advSearch.area_origen  || this.advSearch.area_destino || this.advSearch.area_reiteracion){
       return true;
     }
     return false;
@@ -490,14 +596,14 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   }
 
   ActualizarDescAdjunto(){
-    if(this.tiene!= "no" && !this.registro && !this.intervencion && !this.resolucion){
-      this.registro = true;
-      this.intervencion = true;
-      this.resolucion = true;
+    if(this.advSearch.adjunto_tiene!= "no" && !this.advSearch.adjunto_regReit && !this.advSearch.adjunto_intervencion && !this.advSearch.adjunto_resolucion){
+      this.advSearch.adjunto_regReit = true;
+      this.advSearch.adjunto_intervencion = true;
+      this.advSearch.adjunto_resolucion = true;
     }
     this.inputDescripcion = this.InputADescripcionAdjunto();
 
-    if(this.tiene != "no"){
+    if(this.advSearch.adjunto_tiene != "no"){
       this.turnOn("AdjuntoPanel", "AdjuntoFont");
 
       this.descripcionAdjunto = this.inputDescripcion;
@@ -511,19 +617,19 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   InputADescripcionAdjunto(): string{
     let desc:string = "";
 
-    if(this.tiene == "no"){
+    if(this.advSearch.adjunto_tiene == "no"){
       desc = "No se filtra por adjuntos"
     }else{
-      desc = desc.concat(this.tiene + " adjuntos en ");
+      desc = desc.concat(this.advSearch.adjunto_tiene + " adjuntos en ");
       let count = 0;
-      if(this.registro){
+      if(this.advSearch.adjunto_regReit){
         desc = desc.concat("Registro/Reiteración");
         count += 1;
       }
 
-      if(this.intervencion){
+      if(this.advSearch.adjunto_intervencion){
         if(count>0){
-          if (this.resolucion){
+          if (this.advSearch.adjunto_resolucion){
           desc = desc.concat(", ")
           } 
           else {
@@ -534,7 +640,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
         count += 1;
       }
 
-      if(this.resolucion){
+      if(this.advSearch.adjunto_resolucion){
         if(count>0){
           desc = desc.concat(" y ")
         }
@@ -557,14 +663,14 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   }
 
   ActualizarDescOpinion(){
-    if (!this.negativo && !this.positivo && !this.neutro){
-      this.negativo = true;
-      this.positivo = true;
-      this.neutro = true;
+    if (!this.advSearch.opinion_negative && !this.advSearch.opinion_positivo && !this.advSearch.opinion_neutro){
+      this.advSearch.opinion_negative = true;
+      this.advSearch.opinion_positivo = true;
+      this.advSearch.opinion_neutro = true;
     }
     this.inputDescripcion = this.InputADescripcionOpinion();
 
-    if(this.tieneOp != "no"){
+    if(this.advSearch.opinion_tiene != "no"){
       this.turnOn("OpinionPanel", "OpinionFont");
 
       this.descripcionOpinion = this.inputDescripcion;
@@ -578,19 +684,19 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   InputADescripcionOpinion(): string{
     let desc:string = "";
 
-    if(this.tieneOp == "no"){
+    if(this.advSearch.opinion_tiene == "no"){
       desc = "No se filtra por opiniones"
     }else{
-      desc = desc.concat(this.tieneOp + " opiniones ");
+      desc = desc.concat(this.advSearch.opinion_tiene + " opiniones ");
       let count = 0;
-      if(this.positivo){
+      if(this.advSearch.opinion_positivo){
         desc = desc.concat("positivas");
         count += 1;
       }
 
-      if(this.negativo){
+      if(this.advSearch.opinion_negative){
         if(count>0){
-          if(this.neutro){
+          if(this.advSearch.opinion_neutro){
           desc = desc.concat(", ")
           }
           else{
@@ -601,7 +707,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
         count += 1;
       }
 
-      if(this.neutro){
+      if(this.advSearch.opinion_neutro){
         if(count>0){
           desc = desc.concat(" y ")
         }
@@ -617,15 +723,15 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
   addEstadoToChips(value:string):void{
     if(value != "" && this.estadoBuscador.panelOpen){
-      if(!this.estados_select.includes(value)){
-        this.estados_select.push(value);
+      if(!this.advSearch.estado_estados.includes(value)){
+        this.advSearch.estado_estados.push(value);
       }
     }
     this.estadoBuscador.value = "";
   }
 
   removeEstado(value:string):void{
-    this.estados_select = this.estados_select.filter(estado => estado!= value);
+    this.advSearch.estado_estados = this.advSearch.estado_estados.filter(estado => estado!= value);
   }
 
 
@@ -638,7 +744,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   }
 
   EstChanged():boolean{
-    if(this.estados_select.length > 0 || this.detallados_select != ""){ 
+    if(this.advSearch.estado_estados.length > 0 || this.advSearch.estado_detallado != ""){ 
       return true;
     }
           
@@ -649,9 +755,12 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     if(this.EstChanged()){
       this.turnOn("EstadoPanel", "");
 
+      this.advSearch.estado_fecha_start = this.estado_DateRango.begin;
+      this.advSearch.estado_fecha_end = this.estado_DateRango.end;
+
       this.descripcionEstado = this.InputADescripcionEst();
     }else{
-      this.turnOff("EstadoPanel", "")
+      this.turnOff("EstadoPanel", "");
             
       this.descripcionEstado = "No se filtra por estado";
     }
@@ -686,12 +795,12 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
 
   remove(vecinal: Vecinal):void{
-    this.chipVecinales = this.chipVecinales.filter(valor => valor.nombre != vecinal.nombre);
+    this.advSearch.distrito_vecinales = this.advSearch.distrito_vecinales.filter(valor => valor.nombre != vecinal.nombre);
   }
 
   selecVecinal( vecinal:Vecinal):void{
-    if(this.chipVecinales.every(value => value.nombre != vecinal.nombre)){
-      this.chipVecinales.push(vecinal);
+    if(this.advSearch.distrito_vecinales.every(value => value.nombre != vecinal.nombre)){
+      this.advSearch.distrito_vecinales.push(vecinal);
     }
 
     this.searchElement.nativeElement.value = "";
@@ -704,8 +813,8 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     let temp = this.solicitud.getVecinales().filter(vecinal => vecinal.distrito == distrito);
 
     temp.forEach(vecinal => {
-      if(this.chipVecinales.every(chip => chip.nombre != vecinal.nombre)){
-        this.chipVecinales.push(vecinal);
+      if(this.advSearch.distrito_vecinales.every(chip => chip.nombre != vecinal.nombre)){
+        this.advSearch.distrito_vecinales.push(vecinal);
       }
     });
 
@@ -717,7 +826,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   }
 
   InputADescripcionDistirto(){
-    let desc:string = "Se filtra por " + this.chipVecinales.length + " distritos";
+    let desc:string = "Se filtra por " + this.advSearch.distrito_vecinales.length + " distritos";
 
 
     return desc;
@@ -726,7 +835,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   ActualizarDescDistrito(){
     this.inputDescripcion = this.InputADescripcionDistirto();
 
-    if(this.chipVecinales.length > 0){
+    if(this.advSearch.distrito_vecinales.length > 0){
       this.turnOn("DistritoPanel", "");
 
       this.descripcionDistrito = this.InputADescripcionDistirto();
@@ -740,14 +849,14 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
   //Para actualizar Intervenciones --------------------------------------
   quitarIntervencion(int:string):void{
-    this.intervencionesSelecionadas = this.intervencionesSelecionadas.filter(value => value != int);
+    this.advSearch.intervenciones_seleccionadas = this.advSearch.intervenciones_seleccionadas.filter(value => value != int);
 
   }
 
   agregarInt(int: string):void{
     if(int!= "" && this.intSelect.panelOpen){
-      if(this.intervencionesSelecionadas.every(value => value != int)){
-        this.intervencionesSelecionadas.push(int);
+      if(this.advSearch.intervenciones_seleccionadas.every(value => value != int)){
+        this.advSearch.intervenciones_seleccionadas.push(int);
       }
       
     }
@@ -762,7 +871,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   }
 
   intChanged():boolean{
-    if(this.tipoInt != "" || this.suaMovil || this.intervencionesSelecionadas.length > 0){ 
+    if(this.advSearch.intervenciones_tipo != "" || this.advSearch.intervenciones_suaMovile || this.advSearch.intervenciones_seleccionadas.length > 0){ 
       return true;
     }
           
@@ -774,6 +883,9 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
 
     if(this.intChanged()){
       this.turnOn("IntPanel", "changeFont");
+
+      this.advSearch.intervenciones_fecha_begin = this.intervenciones_DateRango.begin;
+      this.advSearch.intervenciones_fecha_end = this.intervenciones_DateRango.end;
 
       this.descripcionInt = this.inputDescripcion;
     }else{
@@ -798,7 +910,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     //console.log(this.equipamiento_seleccionado);
     //console.log(this.equipamiento_detalle);
     //console.log(this.equipamiento_choice);
-    if(this.equipamiento_choice != "" || this.equipamiento_detalle != "" || this.equipamiento_seleccionado != ""){ 
+    if(this.advSearch.equipamiento_choice != "" || this.advSearch.equipamiento_detalle != "" || this.advSearch.equipamiento_seleccionado != ""){ 
       return true;
     }
           
@@ -835,14 +947,14 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   }
 
   agregarEquipo(persona:string):void{
-    if(!this.List_chips_Personas.includes(persona)){
-      this.List_chips_Personas.push(persona);
+    if(!this.advSearch.asignacion_listPersonas.includes(persona)){
+      this.advSearch.asignacion_listPersonas.push(persona);
     }
     this.equipoSearch.nativeElement.value = "";
   }
 
   removeEquipo(persona:string):void{
-    this.List_chips_Personas = this.List_chips_Personas.filter(value => value != persona);
+    this.advSearch.asignacion_listPersonas = this.advSearch.asignacion_listPersonas.filter(value => value != persona);
   }
 
   InputADescripcionAsig(){
@@ -853,7 +965,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
   }
 
   AsigChanged():boolean{
-    if(this.asignacion_choice != "" || this.List_chips_Personas.length > 0){ 
+    if(this.advSearch.asignacion_tipo != "" || this.advSearch.asignacion_listPersonas.length > 0){ 
       return true;
     }
           
@@ -864,6 +976,9 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     if(this.AsigChanged()){
       this.turnOn("AsigPanel", "");
 
+      this.advSearch.asignacion_fecha_start = this.asigDate.begin;
+      this.advSearch.asignacion_fecha_end = this.asigDate.end;
+
       this.descripcionAsig = this.InputADescripcionAsig();
     }else{
       this.turnOff("AsigPanel", "")
@@ -872,6 +987,12 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     }
   }
 
+  //---------------------------------------------------------------------
+
+  //Para actualizar Datos Especificos --------------------------------------
+
+
+  ActualizarDescDE(){};
   //---------------------------------------------------------------------
 
   //funciones para cambiar visualmente los paneles expansores-------------
