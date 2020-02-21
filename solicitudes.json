@@ -55,7 +55,7 @@
     "hora_registro_asignacion": "07:51",
     "equipo_asignado": "Alejandra Garbagna",
     "detalle_asignacion": "para su ejecucion",
-    "detalle_solucion": "",
+    "detalle_solucion": "se remplaza lampara",
     "motivo_cierre": "",
     "opinion": "neutro",
     "etiqueta_equipamiento": "",
@@ -84,6 +84,8 @@
     "ident_reservada_solicitud2": 1,
     "reiteraciones_solicitante2":0,
     "opinion_solicitante2": "negativo",
+    "fecha_hora_solucion": "18/01/2020/ 12:30",
+    "detalle_fecha": "Resuelto en 3 días",
     "asignaciones": [
       {
         "fecha_hora_asignacion": "16/01/2020 07:51",
@@ -123,7 +125,24 @@
         "area_intervencion": "Alumbrado Público Zona 2"
       }
     ],
-    "cant_derivaciones": 2,
+    "derivaciones": [
+      {
+        "area_derivacion": "Alumbrado Público",
+        "fecha_hora_derivacion": "27/01/2020 09:06",
+        "recepcion": "Recepeción en 6'",
+        "fecha_hora_recepcion": "27/01/2020 09:12",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      },
+      {
+        "area_derivacion": "Alumbrado Público Zona 3",
+        "fecha_hora_derivacion": "27/01/2020 10:00",
+        "recepcion": "Recepeción en 1hs 10'",
+        "fecha_hora_recepcion": "27/01/2020 11:10",
+        "detalle": "Intervención para el día",
+        "fecha_detalle": "27/01/2020"
+      }
+    ],
     "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
   },
   {
