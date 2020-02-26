@@ -19,7 +19,11 @@
                     <mat-icon *ngIf="asc">arrow_upward</mat-icon>
                 </button>
             </div>
-            <mat-icon class="more">more_vert</mat-icon>
+            <div class="total">
+                <div *ngIf="items.length!='1'">{{items.length}} solicitudes</div>
+                <div *ngIf="items.length=='1'">{{items.length}} solicitud</div>
+                <div><mat-icon class="more">more_vert</mat-icon></div>
+            </div>
         </div>
         <mat-divider></mat-divider>
         <cdk-virtual-scroll-viewport style="height: 73vh" itemSize="93" (scrolledIndexChange)="nextBatch($event)">
