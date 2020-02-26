@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, Input, ViewChild, ElementRef, ContentChild, TemplateRef } from '@angular/core';
+import { Component, OnInit, OnDestroy,  Inject, Input, ViewChild, ElementRef, ContentChild, TemplateRef } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatRadioGroup, MatSelect } from '@angular/material';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
@@ -89,7 +89,7 @@ export interface AdvSearch{
   templateUrl: './filtro-avanzado-dialog.component.html',
   styleUrls: ['./filtro-avanzado-dialog.component.sass']
 })
-export class FiltroAvanzadoDialogComponent implements OnInit{
+export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy{
 
   //una variable donde se guardaran todos los valores y asociaran algunos valores de la forma
   advSearch: AdvSearch = {
@@ -180,7 +180,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     intervenciones_fechaEnd: null
     */
   };
-
+  savePressed:boolean = false;
   datesControl = new FormControl('');
 
   //referencia al elemento chips conteiner
@@ -344,20 +344,37 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     this.ActualizarDescAsig();
   }
 
+  ngOnDestroy(){
+    console.log("destroy called");
+    if(this.savePressed){
+      this.advSearch.clasificacion_subtipo = this.myChips.guardarChips();
+      this.data.busqueda.advSearch = this.advSearch;
+      //console.log(this.data);
+      this.busqueda.Buscar(this.data.busqueda);
+      this.savePressed = false;
+      console.log("destroy save");
+    }else{
+      this.advSearch = this.data.busqueda.advSearch;
+      console.log("destroy not save");
+    }
+  }
+
+
   // cierra la ventana al apretar cancelar
   onNoClick(): void {
-    console.log(this.advSearch);
+    /*console.log(this.advSearch);
     this.advSearch = this.data.busqueda.advSearch;
     console.log(this.data);
     console.log("after...");
-    console.log(this.advSearch);
+    console.log(this.advSearch);*/
+    
     this.dialogRef.close();
   }
 
   //agarra todos los valores puestos en el formulario y se los pasa con
   //los de la busqueda principal al servicio de busqueda
   BusquedaClick():void{
-    console.log(this.advSearch);
+    /*console.log(this.advSearch);
     this.advSearch.clasificacion_subtipo = this.myChips.guardarChips();
     //console.log(this.datesControl.value);
 
@@ -367,7 +384,8 @@ export class FiltroAvanzadoDialogComponent implements OnInit{
     //console.log(this.advSearch);
     this.data.busqueda.advSearch = this.advSearch;
     console.log(this.data);
-    this.busqueda.Buscar(this.data.busqueda);
+    this.busqueda.Buscar(this.data.busqueda);*/
+    this.savePressed = true;
     this.dialogRef.close();
   }
 
