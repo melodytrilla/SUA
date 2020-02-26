@@ -68,8 +68,8 @@
                 <mat-divider></mat-divider>
                 <div class="equipamiento" *ngIf="solicitud.etiqueta_equipamiento!=''">
                     <div><mat-icon class="fsua fsua-equipamiento"></mat-icon>Equipamiento: {{solicitud.etiqueta_equipamiento}}</div>
-                    <div><mat-icon></mat-icon>Descripcion: {{solicitud.descripcion_equipamiento}}</div>
-                    <div><mat-icon></mat-icon>Detalle: {{solicitud.detalle_equipamiento}}</div>
+                    <div><mat-icon></mat-icon>Descripción: {{solicitud.descripcion_equipamiento}}</div>
+                    <div><mat-icon></mat-icon>{{solicitud.detalle_equipamiento}}</div>
                 </div>
                 <mat-divider></mat-divider>
                 <div class="datos-complementarios">
@@ -85,9 +85,9 @@
                         <mat-panel-title>
                             <div class="fila">
                                 <div class="numero">
-                                    <div class="cantidad">{{solicitud.cant_solicitantes}}</div> 
-                                    <div *ngIf="solicitud.cant_solicitantes!=1"> Solicitantes</div>
-                                    <div *ngIf="solicitud.cant_solicitantes==1"> Solicitante</div>
+                                    <div class="cantidad">{{solicitud.solicitantes.length}}</div> 
+                                    <div *ngIf="solicitud.solicitantes.length!=1"> Solicitantes</div>
+                                    <div *ngIf="solicitud.solicitantes.length==1"> Solicitante</div>
                                 </div>
                                 <div class="numero">
                                     <div class="cantidad">{{solicitud.reiteraciones}}</div> 
@@ -102,75 +102,43 @@
                             </div>
                         </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <div class="contenido_panel">
-                        <div class="solicitante">
-                            <div><mat-icon class="fsua fsua-tel icono"></mat-icon>{{solicitud.fecha_hora_registro}}</div>
-                            <div *ngIf= "solicitud.ident_reservada=='0'">
-                                <div><mat-icon class="fsua fsua-mi_perfil-o icono"></mat-icon>{{solicitud.apellido_solicitante}}, {{solicitud.nombre_solicitante}} DNI: {{solicitud.nro_doc_solicitante}}</div>
-                                <div><mat-icon class="icono">email</mat-icon>{{solicitud.email_solicitante}}</div>
-                                <div class="datos_solicitante">
-                                    <p>Dirección: {{solicitud.direccion_solicitante}}</p>
-                                    <p>Horario de contacto: {{solicitud.horario_contacto_solicitante}}</p>
-                                    <p>Teléfono: {{solicitud.telefono_solicitante}}</p>
-                                    <p>Celular: {{solicitud.celular_solicitante}}</p>
+                    <div *ngFor="let solicitud of solicitud.solicitantes">
+                        <mat-divider></mat-divider>
+                        <div class="contenido_panel">
+                            <div class="solicitante">
+                                <div><mat-icon class="fsua fsua-tel icono"></mat-icon>{{solicitud.fecha_hora_registro}}</div>
+                                <div *ngIf= "solicitud.ident_reservada=='0'">
+                                    <div><mat-icon class="fsua fsua-mi_perfil-o icono"></mat-icon>{{solicitud.apellido_solicitante}}, {{solicitud.nombre_solicitante}} DNI: {{solicitud.nro_doc_solicitante}}</div>
+                                    <div><mat-icon class="icono">email</mat-icon>{{solicitud.email_solicitante}}</div>
+                                    <div class="datos_solicitante">
+                                        <p>Dirección: {{solicitud.direccion_solicitante}}</p>
+                                        <p>Horario de contacto: {{solicitud.horario_contacto_solicitante}}</p>
+                                        <p>Teléfono: {{solicitud.telefono_solicitante}}</p>
+                                        <p>Celular: {{solicitud.celular_solicitante}}</p>
+                                    </div>
+                                </div>
+                                <div *ngIf= "solicitud.ident_reservada=='1'">
+                                    <div><mat-icon class="fsua fsua-mi_perfil-o icono"></mat-icon> Identidad reservada</div>
                                 </div>
                             </div>
-                            <div *ngIf= "solicitud.ident_reservada=='1'">
-                                <div><mat-icon class="fsua fsua-mi_perfil-o icono"></mat-icon> Identidad reservada</div>
-                            </div>
-                        </div>
-                        <mat-divider [vertical]="true"></mat-divider>
-                        <div class="reiteracion">
-                            <div><mat-icon class="fsua fsua-tel icono"></mat-icon><mat-icon class="fsua fsua-warning icono"></mat-icon> {{solicitud.fecha_hora_reiteracion}}</div>
-                            <div>Por {{solicitud.usuario_registro_reiteracion}} en {{solicitud.origen_registro_reiteracion}}</div>
-                            <div style="margin-top:20px;">{{solicitud.detalle_reiteracion}}</div>
-                        </div>
-                        <mat-divider [vertical]="true"></mat-divider>
-                        <div class="opinion">
-                            <div *ngIf="solicitud.opinion=='positivo'"><mat-icon class="fsua fsua-bueno icono"></mat-icon></div>
-                            <div *ngIf="solicitud.opinion=='negativo'"><mat-icon class="fsua fsua-malo icono"></mat-icon></div>
-                            <div *ngIf="solicitud.opinion=='neutro'"><mat-icon class="fsua fsua-neutro icono"></mat-icon></div>
-                            <div>{{solicitud.detalle_opinion}}</div>
-                        </div>
-                    </div>
-                    <mat-divider></mat-divider>
-                    <div class="contenido_panel2">
-                        <div class="solicitante">
-                            <div><mat-icon class="fsua fsua-logo icono"></mat-icon>{{solicitud.fecha_hora_registro_solicitud2}}</div>
-                            <div *ngIf= "solicitud.ident_reservada_solicitud2=='0'">
-                                <div><mat-icon class="fsua fsua-mi_perfil-o icono"></mat-icon>{{solicitud.apellido_solicitante2}}, {{solicitud.nombre_solicitante2}} DNI: {{solicitud.nro_doc_solicitante2}}</div>
-                                <div><mat-icon class="icono">email</mat-icon>{{solicitud.email_solicitante2}}</div>
-                                <div class="datos_solicitante">
-                                    <p>Dirección: {{solicitud.direccion_solicitante2}}</p>
-                                    <p>Horario de contacto: {{solicitud.horario_contacto_solicitante2}}</p>
-                                    <p>Teléfono: {{solicitud.telefono_solicitante2}}</p>
-                                    <p>Celular: {{solicitud.celular_solicitante2}}</p>
+                            <mat-divider [vertical]="true"></mat-divider>
+                            <div class="reiteracion">
+                                <div *ngIf="solicitud.reiteraciones!='0'">
+                                    <div><mat-icon class="fsua fsua-tel icono"></mat-icon><mat-icon class="fsua fsua-warning icono"></mat-icon> {{solicitud.fecha_hora_reiteracion}}</div>
+                                    <div>Por {{solicitud.usuario_registro_reiteracion}} en {{solicitud.origen_registro_reiteracion}}</div>
+                                    <div style="margin-top:20px;">{{solicitud.detalle_reiteracion}}</div>
                                 </div>
                             </div>
-                            <div *ngIf= "solicitud.ident_reservada_solicitud2=='1'">
-                                <div><mat-icon class="fsua fsua-mi_perfil-o icono"></mat-icon> Identidad reservada</div>
-                            </div>
-                        </div>
-                        <mat-divider [vertical]="true"></mat-divider>
-                        <div class="reiteracion">
-                            <div  *ngIf="solicitud.reiteraciones_solicitante2!=0">
-                                <div><mat-icon class="fsua fsua-tel icono"></mat-icon><mat-icon class="fsua fsua-warning icono"></mat-icon> {{solicitud.fecha_hora_reiteracion_solicitante2}}</div>
-                                <div>Por {{solicitud.usuario_registro_reiteracion_solicitante2}} en {{solicitud.origen_registro_reiteracion.solicitante2}}</div>
-                                <div style="margin-top:20px;">{{solicitud.detalle_reiteracion_solicitante2}}</div>
-                            </div>
-                        </div>
-                        <mat-divider [vertical]="true"></mat-divider>
-                        <div class="opinion">
-                            <div *ngIf="solicitud.opinion_solicitante2!=''">
-                                <div *ngIf="solicitud.opinion_solicitante2=='positivo'"><mat-icon class="fsua fsua-bueno icono"></mat-icon></div>
-                                <div *ngIf="solicitud.opinion_solicitante2=='negativo'"><mat-icon class="fsua fsua-malo icono"></mat-icon></div>
-                                <div *ngIf="solicitud.opinion_solicitante2=='neutro'"><mat-icon class="fsua fsua-neutro icono"></mat-icon></div>
-                                <div>{{solicitud.detalle_opinion_solicitante2}}</div>
+                            <mat-divider [vertical]="true"></mat-divider>
+                            <div class="opinion">
+                                <div *ngIf="solicitud.opinion=='positivo'"><mat-icon class="fsua fsua-bueno icono"></mat-icon></div>
+                                <div *ngIf="solicitud.opinion=='negativo'"><mat-icon class="fsua fsua-malo icono"></mat-icon></div>
+                                <div *ngIf="solicitud.opinion=='neutro'"><mat-icon class="fsua fsua-neutro icono"></mat-icon></div>
+                                <div>{{solicitud.detalle_opinion}}</div>
                             </div>
                         </div>
                     </div>
                 </mat-expansion-panel>
-                
             </mat-card>
                 <div class="detalle2">
                     <mat-card class="card3" style="margin-right: 5px;">
@@ -311,10 +279,13 @@
                                         <div class="columna">
                                             <mat-icon class="font18h17">today</mat-icon>
                                         </div>
-                                        <div class="font13">
+                                        <div class="font13" *ngIf="solicitud.detalle_solucion!=''">
                                             <p>{{solicitud.detalle_fecha}}</p>
                                             <p>{{solicitud.fecha_hora_solucion}}</p>
                                             <p>{{solicitud.detalle_solucion}}</p>
+                                        </div>
+                                        <div class="font13" *ngIf="solicitud.detalle_solucion==''">
+                                            <p>Resolución pendiente</p>
                                         </div>
                                     </div>
                                 </mat-card>

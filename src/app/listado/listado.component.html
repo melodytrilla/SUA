@@ -86,15 +86,15 @@
                                                 <mat-icon></mat-icon>
                                             </div>
                                             <div class="fila" >
-                                                <div *ngIf="item.cant_solicitantes>0">
-                                                    <mat-icon matBadge="{{item.cant_solicitantes}}" matBadgeSize="small" class="fsua fsua-mi_perfil-o"></mat-icon>
+                                                <div *ngIf="item.solicitantes.length>0">
+                                                    <mat-icon matBadge="{{item.solicitantes.length}}" matBadgeSize="small" class="fsua fsua-mi_perfil-o"></mat-icon>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col colum">
                                             <div class="fila">
-                                                <div *ngIf="item.cantLogo>0">
-                                                    <mat-icon matBadge="{{item.cantLogo}}" matBadgeSize="small" class="fsua fsua-logo"></mat-icon>
+                                                <div *ngIf="(item.solicitantes.length - 1 )>0">
+                                                    <mat-icon matBadge="{{item.solicitantes.length -1}}" matBadgeSize="small" class="fsua fsua-logo"></mat-icon>
                                                 </div>
                                             </div>
                                             <div class="fila">
