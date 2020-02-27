@@ -48,7 +48,7 @@
                 <mat-label style="margin-right: 2%;">Reiteraciones: </mat-label>
                 
                 <mat-checkbox [(ngModel)]="advSearch.reiteraciones_con" color="primary">Con</mat-checkbox>
-                <mat-checkbox [(ngModel)]="advSearch.reiteraciones_sin">Sin</mat-checkbox>
+                <mat-checkbox [(ngModel)]="advSearch.reiteraciones_sin" color="primary">Sin</mat-checkbox>
             </div>
             
 
@@ -113,14 +113,14 @@
                 <mat-checkbox
                 [(ngModel)]="advSearch.clasificacion_registro"
                 [disabled]="advSearch.clasificacion_origenes.length == 0"
-                style="margin-right: 8%;">
+                style="margin-right: 8%;" color="primary">
                 Registro
                     
                 </mat-checkbox>
 
                 <mat-checkbox
                 [(ngModel)]="advSearch.clasificacion_reiteracion"
-                [disabled]="advSearch.clasificacion_origenes.length == 0">
+                [disabled]="advSearch.clasificacion_origenes.length == 0" color="primary">
                 Reiteracion
                     
                 </mat-checkbox>
@@ -191,17 +191,17 @@
         
         <div id="AdjuntoFont" class="body">
             <section>
-                <mat-radio-group [(ngModel)]="advSearch.adjunto_tiene">
-                    <mat-radio-button value="Con"> Con</mat-radio-button>
-                    <mat-radio-button value="Sin"> Sin</mat-radio-button>
-                    <mat-radio-button value="no"> No Seleccionado</mat-radio-button>
+                <mat-radio-group [(ngModel)]="advSearch.adjunto_tiene" (change)="checkEnable($event)">
+                    <mat-radio-button value="Con" color="primary"> Con</mat-radio-button>
+                    <mat-radio-button value="Sin" color="primary"> Sin</mat-radio-button>
+                    <mat-radio-button value="no" color="primary"> No Seleccionado</mat-radio-button>
                 </mat-radio-group>
             </section>
 
             <section>
-                <mat-checkbox [disabled]="advSearch.adjunto_tiene == 'no'" [(ngModel)]="advSearch.adjunto_regReit"> Registro/Reiteración</mat-checkbox>
-                <mat-checkbox [disabled]="advSearch.adjunto_tiene == 'no'" [(ngModel)]="advSearch.adjunto_intervencion"> Intervención</mat-checkbox>
-                <mat-checkbox [disabled]="advSearch.adjunto_tiene == 'no'" [(ngModel)]="advSearch.adjunto_resolucion"> Resolución</mat-checkbox>
+                <mat-checkbox [disabled]="advSearch.adjunto_tiene == 'no'" [(ngModel)]="advSearch.adjunto_regReit" color="primary"> Registro/Reiteración</mat-checkbox>
+                <mat-checkbox [disabled]="advSearch.adjunto_tiene == 'no'" [(ngModel)]="advSearch.adjunto_intervencion" color="primary"> Intervención</mat-checkbox>
+                <mat-checkbox [disabled]="advSearch.adjunto_tiene == 'no'" [(ngModel)]="advSearch.adjunto_resolucion" color="primary"> Resolución</mat-checkbox>
             </section>
         </div>
     </mat-expansion-panel>
@@ -220,17 +220,17 @@
         <div id="OpinionFont" class="body">
             <section>
                 <mat-radio-group [(ngModel)]="advSearch.opinion_tiene" (change)="checkEnableOp($event)">
-                    <mat-radio-button value="Con"> Con</mat-radio-button>
-                    <mat-radio-button value="Sin"> Sin</mat-radio-button>
-                    <mat-radio-button value="no"> No Seleccionado</mat-radio-button>
+                    <mat-radio-button value="Con" color="primary"> Con</mat-radio-button>
+                    <mat-radio-button value="Sin" color="primary"> Sin</mat-radio-button>
+                    <mat-radio-button value="no" color="primary"> No Seleccionado</mat-radio-button>
                 </mat-radio-group
                 >
             </section>
 
             <section>
-                <mat-checkbox [disabled]="advSearch.opinion_tiene == 'no'" [(ngModel)]="advSearch.opinion_positivo"> Positiva</mat-checkbox>
-                <mat-checkbox [disabled]="advSearch.opinion_tiene == 'no'" [(ngModel)]="advSearch.opinion_negative"> Negativa</mat-checkbox>
-                <mat-checkbox [disabled]="advSearch.opinion_tiene == 'no'" [(ngModel)]="advSearch.opinion_neutro"> Neutra</mat-checkbox>
+                <mat-checkbox [disabled]="advSearch.opinion_tiene == 'no'" [(ngModel)]="advSearch.opinion_positivo" color="primary"> Positiva</mat-checkbox>
+                <mat-checkbox [disabled]="advSearch.opinion_tiene == 'no'" [(ngModel)]="advSearch.opinion_negative" color="primary"> Negativa</mat-checkbox>
+                <mat-checkbox [disabled]="advSearch.opinion_tiene == 'no'" [(ngModel)]="advSearch.opinion_neutro" color="primary"> Neutra</mat-checkbox>
             </section>
         </div>
     </mat-expansion-panel>
@@ -380,10 +380,10 @@
             <div Id="changeFont" class="flexRow" style="width: -moz-available; width: 100%;">
                 <div class="flexColunm" style="min-width: 50%;">
                     <mat-radio-group [(ngModel)] = "advSearch.intervenciones_tipo">
-                        <mat-radio-button value="con"> Con </mat-radio-button>
-                        <mat-radio-button value="sin"> Sin </mat-radio-button>
-                        <mat-radio-button value="ultima"> Última </mat-radio-button>
-                        <mat-radio-button value=""> No seleccionado </mat-radio-button>
+                        <mat-radio-button value="con" color="primary"> Con </mat-radio-button>
+                        <mat-radio-button value="sin" color="primary"> Sin </mat-radio-button>
+                        <mat-radio-button value="ultima" color="primary"> Última </mat-radio-button>
+                        <mat-radio-button value="" color="primary"> No seleccionado </mat-radio-button>
     
                     </mat-radio-group>
                     <div clas="flexRow" style="margin-top: 5px;">
@@ -428,7 +428,7 @@
                         </mat-chip-list>
                     </div>
                     <div>
-                        <mat-checkbox [(ngModel)]="advSearch.intervenciones_suaMovile" >SUA Móvil</mat-checkbox>
+                        <mat-checkbox [(ngModel)]="advSearch.intervenciones_suaMovile" color="primary" >SUA Móvil</mat-checkbox>
                     </div>
                 </div>
             </div>
@@ -450,9 +450,9 @@
             <div Id="changeFontEqp" style="width: 100%;display: flex;flex-direction: row;">
                 <div style="flex-grow: 1;">
                     <mat-radio-group [(ngModel)] = "advSearch.equipamiento_choice">
-                        <mat-radio-button value="con"> Con </mat-radio-button>
-                        <mat-radio-button value="sin"> Sin </mat-radio-button>
-                        <mat-radio-button value=""> No seleccionado </mat-radio-button>
+                        <mat-radio-button value="con" color="primary"> Con </mat-radio-button>
+                        <mat-radio-button value="sin" color="primary"> Sin </mat-radio-button>
+                        <mat-radio-button value="" color="primary"> No seleccionado </mat-radio-button>
                     </mat-radio-group>
                 </div>
     
@@ -495,10 +495,10 @@
                 <div style="flex-grow: 1; flex-direction: column;">
                     <div>
                         <mat-radio-group [(ngModel)] = "advSearch.asignacion_tipo">
-                            <mat-radio-button value="con"> Con </mat-radio-button>
-                            <mat-radio-button value="sin"> Sin </mat-radio-button>
-                            <mat-radio-button value="ultima"> Última </mat-radio-button>
-                            <mat-radio-button value=""> No seleccionado </mat-radio-button>
+                            <mat-radio-button value="con" color="primary"> Con </mat-radio-button>
+                            <mat-radio-button value="sin" color="primary"> Sin </mat-radio-button>
+                            <mat-radio-button value="ultima" color="primary"> Última </mat-radio-button>
+                            <mat-radio-button value="" color="primary"> No seleccionado </mat-radio-button>
                         </mat-radio-group>
                     </div>
                     <div clas="flexRow" style="margin-top: 5px;">

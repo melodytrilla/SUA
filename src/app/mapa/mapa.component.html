@@ -26,61 +26,62 @@
             <mat-icon *ngIf="asc">arrow_upward</mat-icon>
         </button>
     </div>
-    <mat-icon class="more">more_vert</mat-icon>
+    <div class="total">
+        <div *ngIf="solicitudes.length!='1'">{{solicitudes.length}} solicitudes con localización</div>
+        <div *ngIf="solicitudes.length=='1'">{{solicitudes.length}} solicitud con localización</div>
+        <div><mat-icon class="more">more_vert</mat-icon></div>
+    </div>
 </div>
 <mat-divider></mat-divider>
 <div class="content">
         <cdk-virtual-scroll-viewport style="height: 73vh; width: 30vw;" itemSize="93" (scrolledIndexChange)="nextBatch($event)">
                 <div class="listConteiner">
                         <div mat-list *cdkVirtualFor="let solicitud of solicitudes">
-                            <div mat-list-item class="listElement" (click)="this.sendto(solicitud.id, solicitud.anio)">
-                                <div class="part1">
-                                    <div class="upperPart">
-                                        <mat-checkbox></mat-checkbox>
-                                        <p class="estado"> {{solicitud.estado}}</p>
-                                    </div>
-                                    <div class="lowerPart">
-                                        <div class="imageConteiner">
-                                            <img class="imageProperties" src="{{solicitud.imagen}}">
+                            <div mat-list-item class="listElement">
+                                <div style="display: flex; width: 100%;">
+                                    <div style="width: 1%"><mat-checkbox color="primary"></mat-checkbox></div>
+                                    <div class="click"(click)="this.sendto(solicitud.id, solicitud.anio)">
+                                        <div class="colum0">
+                                            <div>{{solicitud.estado}}</div>
+                                            <div><img src="{{solicitud.imagen}}"></div>
+                                        </div>
+                                        <div class="part2">
+                                            <div class="upperPart">
+                                                <mat-icon class="fsua fsua-recientes iconoPos"></mat-icon>{{solicitud.tiempo}}
+                                                <div class="addDistance"></div>
+                                                <div class="raiting">
+                                                    <div *ngIf="solicitud.opinion=='positivo'"><mat-icon class="iconoPos fsua fsua-bueno"></mat-icon></div>
+                                                    <div *ngIf="solicitud.opinion=='negativo'"><mat-icon class="iconoPos fsua fsua-malo"></mat-icon></div>
+                                                    <div *ngIf="solicitud.opinion=='neutro'"><mat-icon class="iconoPos fsua fsua-neutro"></mat-icon></div>
+                                                    <div *ngIf="solicitud.opinion==''"><mat-icon class="iconoPos"></mat-icon></div>
+                                                    <div *ngIf="solicitud.reiteraciones>0"  class="cantPersonas">
+                                                        <mat-icon matBadge="{{solicitud.reiteraciones}}" matBadgeSize="small" class="fsua fsua-mi_perfil-o"></mat-icon>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="lowerPart rowContent">
+                                                <div class="infoConteiner">
+                                                    <div class="infoType">
+                                                        <div *ngIf = "solicitud.categoria=='Alumbrado'"><mat-icon class="iconoPos fsua fsua-alumbrado_publico"></mat-icon> {{solicitud.subtipo}}</div>
+                                                        <div *ngIf = "solicitud.categoria=='Colectivos urbanos'"><mat-icon class="iconoPos fsua fsua-colectivos_urbanos"></mat-icon> {{solicitud.subtipo}}</div>
+                                                    </div>
+                                                    <div class="infoDescripcion">
+                                                        <div *ngIf="solicitud.altura>0">{{solicitud.calle}} {{solicitud.altura}}</div>
+                                                        <div *ngIf="solicitud.interseccion != ''">{{solicitud.calle}} Y {{solicitud.interseccion}}</div>
+                                                    </div>
+                                                </div>
+        
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="arrowSeparator" (click)="this.panToSolicitud(solicitud.coord_x, solicitud.coord_y)">
+                                        <mat-icon class="arrowPos">keyboard_arrow_right</mat-icon>
+                                    </div>
+                                    <mat-divider #map></mat-divider>
                                 </div>
-
-                                <div class="part2" (click)="this.panToSolicitud(solicitud.coord_x, solicitud.coord_y)">
-                                    <div class="upperPart">
-                                        <mat-icon class="fsua fsua-recientes iconoPos"></mat-icon>{{solicitud.tiempo}}
-                                        <div class="addDistance"></div>
-                                        <div class="raiting">
-                                            <div *ngIf="solicitud.opinion=='positivo'"><mat-icon class="iconoPos fsua fsua-bueno"></mat-icon></div>
-                                            <div *ngIf="solicitud.opinion=='negativo'"><mat-icon class="iconoPos fsua fsua-malo"></mat-icon></div>
-                                            <div *ngIf="solicitud.opinion=='neutro'"><mat-icon class="iconoPos fsua fsua-neutro"></mat-icon></div>
-                                            <div *ngIf="solicitud.opinion==''"><mat-icon class="iconoPos"></mat-icon></div>
-                                            <div *ngIf="solicitud.reiteraciones>0"  class="cantPersonas">
-                                                <mat-icon matBadge="{{solicitud.reiteraciones}}" matBadgeSize="small" class="fsua fsua-mi_perfil-o"></mat-icon>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="lowerPart rowContent">
-                                        <div class="infoConteiner">
-                                            <div class="infoType">
-                                                <div *ngIf = "solicitud.categoria=='Alumbrado'"><mat-icon class="iconoPos fsua fsua-alumbrado_publico"></mat-icon> {{solicitud.subtipo}}</div>
-                                                <div *ngIf = "solicitud.categoria=='Colectivos urbanos'"><mat-icon class="iconoPos fsua fsua-colectivos_urbanos"></mat-icon> {{solicitud.subtipo}}</div>
-                                            </div>
-                                            <div class="infoDescripcion">
-                                                <div *ngIf="solicitud.altura>0">{{solicitud.calle}} {{solicitud.altura}}</div>
-                                                <div *ngIf="solicitud.interseccion != ''">{{solicitud.calle}} Y {{solicitud.interseccion}}</div>
-                                            </div>
-                                        </div>
-                                        <div class="arrowSeparator">
-                                            <mat-icon class="arrowPos">keyboard_arrow_right</mat-icon>
-                                        </div>
-                                    </div>
-                                </div>
-
                             </div>
-                            <mat-divider #map></mat-divider>
                         </div>
-                </div>
+                    </div>
         </cdk-virtual-scroll-viewport>
     <div class="mapa">
         <app-map (selected)="showMe($event)"></app-map>
