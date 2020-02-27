@@ -27,10 +27,6 @@
     border-right-color: #464343
     border-right-style: solid
 
-.listElement:hover
-    cursor: pointer
-    background-color: #efeeee
-    
 cdk-virtual-scroll-viewport
     overflow-x: hidden
     
@@ -170,16 +166,16 @@ mat-checkBox
     width:100%
 
 .arrowSeparator
-    min-width: 10%
-    min-height: 100%
-    align-content: center
     align-items: center
     display: flex
+
+.arrowPos:hover
+    cursor: pointer
+    background-color: #EFEEEE
 
 .arrowPos
     display: flex
     color: inherit
-    margin-left: 30%
 
 .example-viewport
     height: 72vh
@@ -193,3 +189,23 @@ mat-checkBox
     display: flex
     flex-direction: row
     align-items: center
+
+.colum0
+    display: flex
+    flex-direction: column
+    max-width: 130px
+    text-align: center
+    margin: 0px 20px 0px 10px
+    justify-content: space-around
+
+.colum0 img
+    width: 80px
+    height: 60px
+
+.click
+    display: flex
+    width: 100%
+
+.click:hover
+    background-color: #EFEEEE
+    cursor: pointer

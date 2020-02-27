@@ -1,31 +1,86 @@
 @import '~@angular/material/theming';
 @include mat-core();
 
+
+//testing color blue
+$blue-theme: #0066cc;
+
+$blue-theme-lighter: #0787d1;
+$blue-theme-darker: #0053be;
+
+.whiteBack-Button{
+    background-color: white !important;
+    color: $blue-theme !important;
+}
+
+.blueBack-Button{
+    background-color: $blue-theme !important;
+    color: white !important;
+}
+
+//--------------------------------------------------------
+
 //este es el color primario se utiliza en toda la pagina
 $my-theme-primary: mat-palette($mat-yellow, 700, 300, 900);
+
+//test new primary
+$my-primary-test: ( default: $blue-theme, 
+                    lighter:$blue-theme-lighter, 
+                    darker: $blue-theme-darker,
+                    text: $blue-theme,
+                    
+                    default-contrast: $light-primary-text,
+                    lighter-contrast: $light-primary-text,
+                    darker-contrast: $light-primary-text);
+
 $my-theme-accent: mat-palette($mat-red, 600, 200, 900);
 
 $my-theme-warn: mat-palette($mat-red);
 
 
-$my-theme-theme:mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
+$my-theme-theme:mat-light-theme($my-primary-test, $my-theme-accent, $my-theme-warn);
 
 @include angular-material-theme($my-theme-theme);
 
+//--- Dark theme -------
+
 //este es el dark solo lo uso para que el searchbar tenga letra blanca
 $darkTheme-primary: mat-palette($mat-yellow, 700, 300, 900);
+
+//test new dark primary
+$darkTheme-test-primary:(default: #e6e6e6, 
+                        lighter:#eeeeee, 
+                        darker: #d1d1d1,
+                        text: $blue-theme,
+
+                        default-contrast: $light-primary-text,
+                        lighter-contrast: $light-primary-text,
+                        darker-contrast: $light-primary-text);
+
+
 $darkTheme-accent: mat-palette($mat-green, 600, 200, 900);
 
 $darkTheme-warn: mat-palette($mat-red);
 
 
-$darkTheme-theme:mat-dark-theme($darkTheme-primary, $darkTheme-accent, $darkTheme-warn);
+$darkTheme-theme:mat-dark-theme($darkTheme-test-primary, $darkTheme-accent, $darkTheme-warn);
+
+//even harder test
+$darkTheme-theme-test:(
+    primary: $darkTheme-test-primary,
+    accent: $darkTheme-accent,
+    warn: $darkTheme-warn,
+    is-dark: true,
+    foreground: $mat-dark-theme-foreground,
+    background: map_merge($mat-dark-theme-background, (background: $blue-theme))
+  );
 
 //se le agrega dark a la clase para transformarlo
 .dark{
-    @include angular-material-theme($darkTheme-theme);
+    @include angular-material-theme($darkTheme-theme-test);
 }
 
 .light{
     @include angular-material-theme($my-theme-theme);
 }
+
