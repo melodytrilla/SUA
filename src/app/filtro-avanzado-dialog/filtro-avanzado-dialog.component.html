@@ -191,7 +191,7 @@
         
         <div id="AdjuntoFont" class="body">
             <section>
-                <mat-radio-group [(ngModel)]="advSearch.adjunto_tiene" (change)="checkEnable($event)">
+                <mat-radio-group [(ngModel)]="advSearch.adjunto_tiene">
                     <mat-radio-button value="Con"> Con</mat-radio-button>
                     <mat-radio-button value="Sin"> Sin</mat-radio-button>
                     <mat-radio-button value="no"> No Seleccionado</mat-radio-button>
@@ -199,9 +199,9 @@
             </section>
 
             <section>
-                <mat-checkbox [disabled]="dis" [(ngModel)]="advSearch.adjunto_regReit"> Registro/Reiteración</mat-checkbox>
-                <mat-checkbox [disabled]="dis" [(ngModel)]="advSearch.adjunto_intervencion"> Intervención</mat-checkbox>
-                <mat-checkbox [disabled]="dis" [(ngModel)]="advSearch.adjunto_resolucion"> Resolución</mat-checkbox>
+                <mat-checkbox [disabled]="advSearch.adjunto_tiene == 'no'" [(ngModel)]="advSearch.adjunto_regReit"> Registro/Reiteración</mat-checkbox>
+                <mat-checkbox [disabled]="advSearch.adjunto_tiene == 'no'" [(ngModel)]="advSearch.adjunto_intervencion"> Intervención</mat-checkbox>
+                <mat-checkbox [disabled]="advSearch.adjunto_tiene == 'no'" [(ngModel)]="advSearch.adjunto_resolucion"> Resolución</mat-checkbox>
             </section>
         </div>
     </mat-expansion-panel>
@@ -228,9 +228,9 @@
             </section>
 
             <section>
-                <mat-checkbox [disabled]="disOp" [(ngModel)]="advSearch.opinion_positivo"> Positiva</mat-checkbox>
-                <mat-checkbox [disabled]="disOp" [(ngModel)]="advSearch.opinion_negative"> Negativa</mat-checkbox>
-                <mat-checkbox [disabled]="disOp" [(ngModel)]="advSearch.opinion_neutro"> Neutra</mat-checkbox>
+                <mat-checkbox [disabled]="advSearch.opinion_tiene == 'no'" [(ngModel)]="advSearch.opinion_positivo"> Positiva</mat-checkbox>
+                <mat-checkbox [disabled]="advSearch.opinion_tiene == 'no'" [(ngModel)]="advSearch.opinion_negative"> Negativa</mat-checkbox>
+                <mat-checkbox [disabled]="advSearch.opinion_tiene == 'no'" [(ngModel)]="advSearch.opinion_neutro"> Neutra</mat-checkbox>
             </section>
         </div>
     </mat-expansion-panel>
