@@ -11,7 +11,7 @@
     "hora_registro": "11:35",
     "area_origen": "Alumbrado Público Zona 2",
     "estado": "En curso",
-    "fecha_hora_estado": "15/06/2019 11:36",
+    "fecha_hora_estado": "28/01/2020 08:06",
     "hora_estado": "11:36",
     "usuario_registro": "agarbag0",
     "prioridad": "ALTA",
@@ -20,15 +20,14 @@
     "origen": "Externo",
     "distrito": "CENTRO",
     "vecinal": "-1 Sin Vecinal",
-    "cant_solicitantes": 1,
-    "ident_reservada": 0,
     "usuario_ult_derivacion": "agarbag0",
-    "fecha_hora_ult_derivacion": "15/01/2020 11:35",
+    "fecha_hora_ult_derivacion": "27/01/2020 11:35",
     "hora_ult_derivacion": "11:35",
-    "fecha_hora_recepcion": "15/01/2020 11:36",
+    "fecha_hora_recepcion": "27/01/2020 11:36",
     "hora_recepcion": "11:36",
     "coord_x": 5437909.74157222,
     "coord_y": 6354364.200221464,
+    "opinion": "neutro",
     "secretaria": "SECRETARIA DE AMBIENTE Y ESPACIO PUBLICO",
     "id_calle": 3689,
     "calle": "LAGOS OVIDIO",
@@ -39,25 +38,20 @@
     "piso": "",
     "depto": "",
     "monoblock": "",
-    "doc_solicitante": "DNI",
-    "nro_doc_solicitante": 37073611,
-    "nombre_solicitante": "ATAHUALPA",
-    "apellido_solicitante": "DE SAN BENITO",
     "descripcion": "",
-    "fecha_hora_intervencion": "16/01/2020 08:05",
+    "fecha_hora_intervencion": "28/01/2020 08:05",
     "hora_primer_intervencion": "08:05",
     "tipo_intervencion": "Reparado",
     "detalle_intervencion": "se constato la falla. se reparo problema",
     "fuente": "SUA Móvil",
     "usuario_intervencion": "agarbag0",
     "area_intervencion": "Alumbrado Público Zona 2",
-    "fecha_hora_asignacion": "16/01/2020 07:51",
+    "fecha_hora_asignacion": "28/01/2020 07:51",
     "hora_registro_asignacion": "07:51",
     "equipo_asignado": "Alejandra Garbagna",
     "detalle_asignacion": "para su ejecucion",
-    "detalle_solucion": "se remplaza lampara",
+    "detalle_solucion": "",
     "motivo_cierre": "",
-    "opinion": "neutro",
     "etiqueta_equipamiento": "",
     "descripcion_equipamiento": "",
     "detalle_equipamiento": "",
@@ -70,20 +64,6 @@
     "tiempoAsig": "",
     "tiempoDeriv":"",
     "cant_opiniones": "2",
-    "email_solicitante": "desanbenitoatahualpa@gmail.com",
-    "direccion_solicitante": "Pellegrini 1565",
-    "horario_contacto_solicitante": "8 a 17hs",
-    "telefono_solicitante": "341-457844",
-    "celular_solicitante": "341-5789645",
-    "fecha_hora_reiteracion": "29/01/2020 09:00",
-    "usuario_registro_reiteracion": "agarbag0",
-    "origen_registro_reiteracion": "Atención 147",
-    "detalle_reiteracion": "El ciudadano comenta que hace más de 4 días que está el problema. Solicita intervención.",
-    "detalle_opinion": "Tardaron demasiado para solucionar el problema.",
-    "fecha_hora_registro_solicitud2": "28/01/2020 16:00",
-    "ident_reservada_solicitud2": 1,
-    "reiteraciones_solicitante2":0,
-    "opinion_solicitante2": "negativo",
     "fecha_hora_solucion": "18/01/2020/ 12:30",
     "detalle_fecha": "Resuelto en 3 días",
     "asignaciones": [
@@ -116,13 +96,6 @@
         "detalle_intervencion": "se constato la falla. se reparo problema",
         "usuario_intervencion": "agarbag0",
         "area_intervencion": "Alumbrado Público Zona 2"
-      },
-      {
-        "fecha_hora_intervencion": "16/01/2020 10:35",
-        "tipo_intervencion": "Reparado",
-        "detalle_intervencion": "se normaliza el servicio",
-        "usuario_intervencion": "jhuyiu0",
-        "area_intervencion": "Alumbrado Público Zona 2"
       }
     ],
     "derivaciones": [
@@ -143,7 +116,46 @@
         "fecha_detalle": "27/01/2020"
       }
     ],
-    "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
+    "solicitantes": [
+      {
+        "fecha_hora_registro": "27/01/2020 09:00",
+        "reiteraciones": 1,
+        "nro_doc_solicitante": 37073611,
+        "nombre_solicitante": "DE SAN BENITO",
+        "apellido_solicitante": "ATAHUALPA",
+        "opinion": "neutro",
+        "ident_reservada": 0,
+        "email_solicitante": "desanbenitoatahualpa@gmail.com",
+        "direccion_solicitante": "Pellegrini 1565",
+        "horario_contacto_solicitante": "8 a 17hs",
+        "telefono_solicitante": "341-457844",
+        "celular_solicitante": "341-5789645",
+        "detalle_opinion": "Tardaron demasiado para solucionar el problema.",
+        "fecha_hora_reiteracion": "29/01/2020 09:00",
+        "usuario_registro_reiteracion": "agarbag0",
+        "origen_registro_reiteracion": "Atención 147",
+        "detalle_reiteracion": "El ciudadano comenta que hace más de 4 días que está el problema. Solicita intervención."
+      },
+      {
+        "fecha_hora_registro": "28/01/2020 16:00",
+        "reiteraciones": 0,
+        "nro_doc_solicitante": 22587461,
+        "nombre_solicitante": "JUAN",
+        "apellido_solicitante": "PEREZ",
+        "opinion": "negativo",
+        "ident_reservada": 1,
+        "email_solicitante": "juanperez@gmail.com",
+        "direccion_solicitante": "Corrientes 2565",
+        "horario_contacto_solicitante": "8 a 17hs",
+        "telefono_solicitante": "341-437894",
+        "celular_solicitante": "341-5723637",
+        "detalle_opinion": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita",
+        "fecha_hora_reiteracion": "",
+        "usuario_registro_reiteracion": "",
+        "origen_registro_reiteracion": "",
+        "detalle_reiteracion": ""
+      }
+    ]
   },
   {
     "id": 4181,
@@ -160,13 +172,11 @@
     "hora_estado": "09:29",
     "usuario_registro": "agarbag0",
     "prioridad": "MEDIA",
-    "reiteraciones": 2,
+    "reiteraciones": 1,
     "area_ultima_derivacion": "Alumbrado Público Zona 2",
     "origen": "MR",
     "distrito": "CENTRO",
     "vecinal": "33 Echesortu Oeste",
-    "cant_solicitantes": 1,
-    "ident_reservada": 0,
     "usuario_ult_derivacion": "agarbag0",
     "fecha_hora_ult_derivacion": "16/01/2020 09:18",
     "hora_ult_derivacion": "09:18",
@@ -184,11 +194,8 @@
     "piso": "",
     "depto": "",
     "monoblock": "",
-    "doc_solicitante": "DNI",
-    "nro_doc_solicitante": 24048034,
-    "nombre_solicitante": "ALEJANDRA ANDREA",
-    "apellido_solicitante": "GARBAGNA",
     "descripcion": "",
+    "opinion": "positivo",
     "fecha_hora_intervencion": "16/01/2020 09:25",
     "hora_primer_intervencion": "09:25",
     "tipo_intervencion": "Constatado",
@@ -202,7 +209,6 @@
     "detalle_asignacion": "para su resolución",
     "detalle_solucion": "reclamo resuelto se cambio artefacto",
     "motivo_cierre": "",
-    "opinion": "positivo",
     "etiqueta_equipamiento": "Valparaiso 791",
     "descripcion_equipamiento": "Cable Acerado",
     "detalle_equipamiento": "Responsable: Alumbrado Público Zona 2",
@@ -216,40 +222,24 @@
     "tiempoInterv":"",
     "tiempoAsig": "",
     "tiempoDeriv":"",
-    "cant_opiniones": "2",
-    "email_solicitante": "desanbenitoatahualpa@gmail.com",
-    "direccion_solicitante": "Pellegrini 1565",
-    "horario_contacto_solicitante": "8 a 17hs",
-    "telefono_solicitante": "341-457844",
-    "celular_solicitante": "341-5789645",
-    "fecha_hora_reiteracion": "29/01/2020 09:00",
-    "usuario_registro_reiteracion": "agarbag0",
-    "origen_registro_reiteracion": "Atención 147",
-    "detalle_reiteracion": "El ciudadano comenta que hace más de 4 días que está el problema. Solicita intervención.",
-    "detalle_opinion": "Tardaron demasiado para solucionar el problema.",
-    "fecha_hora_registro_solicitud2": "28/01/2020 16:00",
-    "ident_reservada_solicitud2": 1,
-    "reiteraciones_solicitante2":0,
-    "opinion_solicitante2": "negativo",
-    "cant_asignaciones": 3,
-    "cant_intervenciones": 1,
+    "cant_opiniones": "1",
     "asignaciones": [
       {
-        "fecha_hora_asignacion": "16/01/2020 07:51",
+        "fecha_hora_asignacion": "27/01/2020 10:51",
         "equipo_asignado": "Alejandra Garbagna",
         "detalle_asignacion": "VERIFICAR",
         "area_asignacion": "Alumbrado Público Zona 2",
         "usuario_asignacion": "gdemaio0"
       },
       {
-        "fecha_hora_asignacion": "16/01/2020 19:20",
+        "fecha_hora_asignacion": "27/01/2020 19:20",
         "equipo_asignado": "Alejandra Garbagna",
         "detalle_asignacion": "Inspeccionar",
         "area_asignacion": "Alumbrado Público Zona 2",
         "usuario_asignacion": "gdemaio0"
       },
       {
-        "fecha_hora_asignacion": "16/01/2020 23:51",
+        "fecha_hora_asignacion": "27/01/2020 23:51",
         "equipo_asignado": "Alejandra Garbagna",
         "detalle_asignacion": "Inspeccionar",
         "area_asignacion": "Alumbrado Público Zona 2",
@@ -258,14 +248,14 @@
     ],
     "intervenciones": [
       {
-        "fecha_hora_intervencion": "16/01/2020 08:05",
+        "fecha_hora_intervencion": "27/01/2020 16:05",
         "tipo_intervencion": "Reparado",
         "detalle_intervencion": "se constato la falla. se reparo problema",
         "usuario_intervencion": "agarbag0",
         "area_intervencion": "Alumbrado Público Zona 2"
       },
       {
-        "fecha_hora_intervencion": "16/01/2020 10:35",
+        "fecha_hora_intervencion": "27/01/2020 17:35",
         "tipo_intervencion": "Reparado",
         "detalle_intervencion": "se normaliza el servicio",
         "usuario_intervencion": "jhuyiu0",
@@ -290,7 +280,27 @@
         "fecha_detalle": "27/01/2020"
       }
     ],
-    "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
+    "solicitantes": [
+      {
+        "fecha_hora_registro": "27/01/2020 10:22",
+        "reiteraciones": 0,
+        "nro_doc_solicitante": 24048034,
+        "nombre_solicitante": "ALEJANDRA ANDREA",
+        "apellido_solicitante": "GARBAGNA",
+        "opinion": "positivo",
+        "ident_reservada": 0,
+        "email_solicitante": "alegarbagna@gmail.com",
+        "direccion_solicitante": "Montevideo 1520",
+        "horario_contacto_solicitante": "8 a 17hs",
+        "telefono_solicitante": "341-451458",
+        "celular_solicitante": "341-4478596",
+        "detalle_opinion": "",
+        "fecha_hora_reiteracion": "",
+        "usuario_registro_reiteracion": "",
+        "origen_registro_reiteracion": "",
+        "detalle_reiteracion": ""
+      }
+    ]
   },
   {
     "id": 4182,
@@ -307,13 +317,11 @@
     "hora_estado": "09:32",
     "usuario_registro": "agarbag0",
     "prioridad": "ALTA",
-    "reiteraciones": 0,
+    "reiteraciones": 1,
     "area_ultima_derivacion": "Alumbrado Público Zona 2",
     "origen": "Externo",
     "distrito": "CENTRO",
     "vecinal": "33 Echesortu Oeste",
-    "cant_solicitantes": 1,
-    "ident_reservada": 0,
     "usuario_ult_derivacion": "agarbag0",
     "fecha_hora_ult_derivacion": "16/01/2020 09:31",
     "hora_ult_derivacion": "09:31",
@@ -331,10 +339,6 @@
     "piso": "",
     "depto": "",
     "monoblock": "",
-    "doc_solicitante": "DNI",
-    "nro_doc_solicitante": 24048034,
-    "nombre_solicitante": "ALEJANDRA ANDREA",
-    "apellido_solicitante": "GARBAGNA",
     "descripcion": "",
     "fecha_hora_intervencion": "16/01/2020 09:34",
     "hora_primer_intervencion": "09:34",
@@ -349,7 +353,7 @@
     "detalle_asignacion": "cambiar poste",
     "detalle_solucion": "",
     "motivo_cierre": "",
-    "opinion": "",
+    "opinion": "negativo",
     "etiqueta_equipamiento": "",
     "descripcion_equipamiento": "",
     "detalle_equipamiento": "",
@@ -364,22 +368,6 @@
     "tiempoAsig": "",
     "tiempoDeriv":"",
     "cant_opiniones": "2",
-    "email_solicitante": "desanbenitoatahualpa@gmail.com",
-    "direccion_solicitante": "Pellegrini 1565",
-    "horario_contacto_solicitante": "8 a 17hs",
-    "telefono_solicitante": "341-457844",
-    "celular_solicitante": "341-5789645",
-    "fecha_hora_reiteracion": "29/01/2020 09:00",
-    "usuario_registro_reiteracion": "agarbag0",
-    "origen_registro_reiteracion": "Atención 147",
-    "detalle_reiteracion": "El ciudadano comenta que hace más de 4 días que está el problema. Solicita intervención.",
-    "detalle_opinion": "Tardaron demasiado para solucionar el problema.",
-    "fecha_hora_registro_solicitud2": "28/01/2020 16:00",
-    "ident_reservada_solicitud2": 1,
-    "reiteraciones_solicitante2":0,
-    "opinion_solicitante2": "negativo",
-    "cant_asignaciones": 3,
-    "cant_intervenciones": 1,
     "asignaciones": [
       {
         "fecha_hora_asignacion": "16/01/2020 07:51",
@@ -422,22 +410,61 @@
     "derivaciones": [
       {
         "area_derivacion": "Alumbrado Público",
-        "fecha_hora_derivacion": "27/01/2020 09:06",
+        "fecha_hora_derivacion": "16/01/2020 09:06",
         "recepcion": "Recepeción en 6'",
-        "fecha_hora_recepcion": "27/01/2020 09:12",
+        "fecha_hora_recepcion": "16/01/2020 09:12",
         "detalle": "Intervención para el día",
-        "fecha_detalle": "27/01/2020"
+        "fecha_detalle": "16/01/2020"
       },
       {
         "area_derivacion": "Alumbrado Público Zona 3",
-        "fecha_hora_derivacion": "27/01/2020 10:00",
+        "fecha_hora_derivacion": "16/01/2020 10:00",
         "recepcion": "Recepeción en 1hs 10'",
-        "fecha_hora_recepcion": "27/01/2020 11:10",
+        "fecha_hora_recepcion": "16/01/2020 11:10",
         "detalle": "Intervención para el día",
-        "fecha_detalle": "27/01/2020"
+        "fecha_detalle": "16/01/2020"
       }
     ],
-    "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
+    "solicitantes": [
+      {
+        "fecha_hora_registro": "16/01/2020 10:22",
+        "reiteraciones": 0,
+        "nro_doc_solicitante": 31458759,
+        "nombre_solicitante": "CARLA",
+        "apellido_solicitante": "GIMENEZ",
+        "opinion": "negativo",
+        "ident_reservada": 0,
+        "email_solicitante": "gimenezcarla@gmail.com",
+        "direccion_solicitante": "Entre ríos 520",
+        "horario_contacto_solicitante": "8 a 17hs",
+        "telefono_solicitante": "341-450475",
+        "celular_solicitante": "341-4458746",
+        "detalle_opinion": "Tardaron en solucionar el problema",
+        "fecha_hora_reiteracion": "",
+        "usuario_registro_reiteracion": "",
+        "origen_registro_reiteracion": "",
+        "detalle_reiteracion": ""
+      },
+      {
+        "fecha_hora_registro": "28/01/2020 15:00",
+        "reiteraciones": 1,
+        "nro_doc_solicitante": 12589478,
+        "nombre_solicitante": "PEDRO",
+        "apellido_solicitante": "PAEZ",
+        "opinion": "neutro",
+        "ident_reservada": 0,
+        "email_solicitante": "pedropaez@gmail.com",
+        "direccion_solicitante": "Cafferata 1600",
+        "horario_contacto_solicitante": "8 a 17hs",
+        "telefono_solicitante": "341-452589",
+        "celular_solicitante": "341-5547896",
+        "detalle_opinion": "",
+        "fecha_hora_reiteracion": "29/01/2020 19:00",
+        "usuario_registro_reiteracion": "agarbag0",
+        "origen_registro_reiteracion": "Atención 147",
+        "detalle_reiteracion": "El problema sigue sin solución"
+      }
+    ]
   },
   {
     "id": 4183,
@@ -446,11 +473,11 @@
     "tipo": "Reclamo",
     "subtipo": "Lámpara apagada ó encendida",
     "categoria": "Alumbrado",
-    "fecha_hora_registro": "16/01/2020 09:52",
+    "fecha_hora_registro": "19/01/2020 09:52",
     "hora_registro": "09:52",
     "area_origen": "Alumbrado Público Zona 2",
     "estado": "En curso",
-    "fecha_hora_estado": "16/01/2020 09:52",
+    "fecha_hora_estado": "19/01/2020 09:52",
     "hora_estado": "09:52",
     "usuario_registro": "agarbag0",
     "prioridad": "MEDIA",
@@ -459,12 +486,10 @@
     "origen": "Externo",
     "distrito": "CENTRO",
     "vecinal": "33 Echesortu Oeste",
-    "cant_solicitantes": 1,
-    "ident_reservada": 0,
     "usuario_ult_derivacion": "agarbag0",
-    "fecha_hora_ult_derivacion": "16/01/2020 09:52",
+    "fecha_hora_ult_derivacion": "19/01/2020 09:52",
     "hora_ult_derivacion": "09:52",
-    "fecha_hora_recepcion": "16/01/2020 09:52",
+    "fecha_hora_recepcion": "19/01/2020 09:52",
     "hora_recepcion": "09:52",
     "coord_x": 5436305.310237439,
     "coord_y": 6355229.360866504,
@@ -473,30 +498,26 @@
     "calle": "PERON EVA",
     "interseccion": "",
     "altura": 4350,
+    "opinion": "positivo",
     "bis": "",
     "letra": "",
     "piso": "",
     "depto": "",
     "monoblock": "",
-    "doc_solicitante": "DNI",
-    "nro_doc_solicitante": 24048034,
-    "nombre_solicitante": "ALEJANDRA ANDREA",
-    "apellido_solicitante": "GARBAGNA",
     "descripcion": "",
-    "fecha_hora_intervencion": "16/01/2020 14:10",
+    "fecha_hora_intervencion": "19/01/2020 14:10",
     "hora_primer_intervencion": "14:10",
     "tipo_intervencion": "Reemplazado",
     "detalle_intervencion": "Se reemplazo artefacto",
     "fuente": "SUA Móvil",
     "usuario_intervencion": "agarbag0",
     "area_intervencion": "Alumbrado Público Zona 2",
-    "fecha_hora_asignacion": "21/01/2020 09:51",
-    "hora_registro_asignacion": "09:51",
+    "fecha_hora_asignacion": "19/01/2020 10:51",
+    "hora_registro_asignacion": "10:51",
     "equipo_asignado": "Alejandra Garbagna",
     "detalle_asignacion": "Para reparar",
     "detalle_solucion": "",
     "motivo_cierre": "",
-    "opinion": "",
     "etiqueta_equipamiento": "Paroissien Gral. Dr. Diego 4350",
     "descripcion_equipamiento": "Cable Acerado",
     "detalle_equipamiento": "Responsable: Alumbrado Público Zona 2",
@@ -511,39 +532,16 @@
     "tiempoAsig": "",
     "tiempoDeriv":"",
     "cant_opiniones": "2",
-    "email_solicitante": "desanbenitoatahualpa@gmail.com",
-    "direccion_solicitante": "Pellegrini 1565",
-    "horario_contacto_solicitante": "8 a 17hs",
-    "telefono_solicitante": "341-457844",
-    "celular_solicitante": "341-5789645",
-    "fecha_hora_reiteracion": "29/01/2020 09:00",
-    "usuario_registro_reiteracion": "agarbag0",
-    "origen_registro_reiteracion": "Atención 147",
-    "detalle_reiteracion": "El ciudadano comenta que hace más de 4 días que está el problema. Solicita intervención.",
-    "detalle_opinion": "Tardaron demasiado para solucionar el problema.",
-    "fecha_hora_registro_solicitud2": "28/01/2020 16:00",
-    "ident_reservada_solicitud2": 1,
-    "reiteraciones_solicitante2":0,
-    "opinion_solicitante2": "negativo",
-    "cant_asignaciones": 3,
-    "cant_intervenciones": 1,
     "asignaciones": [
       {
-        "fecha_hora_asignacion": "16/01/2020 07:51",
+        "fecha_hora_asignacion": "19/01/2020 10:10",
         "equipo_asignado": "Alejandra Garbagna",
         "detalle_asignacion": "VERIFICAR",
         "area_asignacion": "Alumbrado Público Zona 2",
         "usuario_asignacion": "gdemaio0"
       },
       {
-        "fecha_hora_asignacion": "16/01/2020 19:20",
-        "equipo_asignado": "Alejandra Garbagna",
-        "detalle_asignacion": "Inspeccionar",
-        "area_asignacion": "Alumbrado Público Zona 2",
-        "usuario_asignacion": "gdemaio0"
-      },
-      {
-        "fecha_hora_asignacion": "16/01/2020 23:51",
+        "fecha_hora_asignacion": "19/01/2020 19:20",
         "equipo_asignado": "Alejandra Garbagna",
         "detalle_asignacion": "Inspeccionar",
         "area_asignacion": "Alumbrado Público Zona 2",
@@ -552,39 +550,44 @@
     ],
     "intervenciones": [
       {
-        "fecha_hora_intervencion": "16/01/2020 08:05",
+        "fecha_hora_intervencion": "19/01/2020 10:25",
         "tipo_intervencion": "Reparado",
         "detalle_intervencion": "se constato la falla. se reparo problema",
         "usuario_intervencion": "agarbag0",
-        "area_intervencion": "Alumbrado Público Zona 2"
-      },
-      {
-        "fecha_hora_intervencion": "16/01/2020 10:35",
-        "tipo_intervencion": "Reparado",
-        "detalle_intervencion": "se normaliza el servicio",
-        "usuario_intervencion": "jhuyiu0",
         "area_intervencion": "Alumbrado Público Zona 2"
       }
     ],
     "derivaciones": [
       {
         "area_derivacion": "Alumbrado Público",
-        "fecha_hora_derivacion": "27/01/2020 09:06",
+        "fecha_hora_derivacion": "19/01/2020 10:00",
         "recepcion": "Recepeción en 6'",
-        "fecha_hora_recepcion": "27/01/2020 09:12",
+        "fecha_hora_recepcion": "19/01/2020 09:12",
         "detalle": "Intervención para el día",
-        "fecha_detalle": "27/01/2020"
-      },
-      {
-        "area_derivacion": "Alumbrado Público Zona 3",
-        "fecha_hora_derivacion": "27/01/2020 10:00",
-        "recepcion": "Recepeción en 1hs 10'",
-        "fecha_hora_recepcion": "27/01/2020 11:10",
-        "detalle": "Intervención para el día",
-        "fecha_detalle": "27/01/2020"
+        "fecha_detalle": "19/01/2020"
       }
     ],
-    "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
+    "solicitantes": [
+      {
+        "fecha_hora_registro": "19/01/2020 10:22",
+        "reiteraciones": 0,
+        "nro_doc_solicitante": 25487966,
+        "nombre_solicitante": "GUILLERMO",
+        "apellido_solicitante": "FONT",
+        "opinion": "positivo",
+        "ident_reservada": 0,
+        "email_solicitante": "guillermofont@gmail.com",
+        "direccion_solicitante": "Tucumán 840",
+        "horario_contacto_solicitante": "8 a 17hs",
+        "telefono_solicitante": "341-458996",
+        "celular_solicitante": "341-5246897",
+        "detalle_opinion": "Se solucionó en el día.",
+        "fecha_hora_reiteracion": "",
+        "usuario_registro_reiteracion": "",
+        "origen_registro_reiteracion": "",
+        "detalle_reiteracion": ""
+      }
+    ]
   },
   {
     "id": 4184,
@@ -657,81 +660,19 @@
     "tiempoInterv":"",
     "tiempoAsig": "",
     "tiempoDeriv":"",
-    "cant_opiniones": "2",
-    "email_solicitante": "desanbenitoatahualpa@gmail.com",
-    "direccion_solicitante": "Pellegrini 1565",
-    "horario_contacto_solicitante": "8 a 17hs",
-    "telefono_solicitante": "341-457844",
-    "celular_solicitante": "341-5789645",
-    "fecha_hora_reiteracion": "29/01/2020 09:00",
-    "usuario_registro_reiteracion": "agarbag0",
-    "origen_registro_reiteracion": "Atención 147",
-    "detalle_reiteracion": "El ciudadano comenta que hace más de 4 días que está el problema. Solicita intervención.",
-    "detalle_opinion": "Tardaron demasiado para solucionar el problema.",
-    "fecha_hora_registro_solicitud2": "28/01/2020 16:00",
-    "ident_reservada_solicitud2": 1,
-    "reiteraciones_solicitante2":0,
-    "opinion_solicitante2": "negativo",
-    "cant_asignaciones": 3,
-    "cant_intervenciones": 1,
+  
     "asignaciones": [
-      {
-        "fecha_hora_asignacion": "16/01/2020 07:51",
-        "equipo_asignado": "Alejandra Garbagna",
-        "detalle_asignacion": "VERIFICAR",
-        "area_asignacion": "Alumbrado Público Zona 2",
-        "usuario_asignacion": "gdemaio0"
-      },
-      {
-        "fecha_hora_asignacion": "16/01/2020 19:20",
-        "equipo_asignado": "Alejandra Garbagna",
-        "detalle_asignacion": "Inspeccionar",
-        "area_asignacion": "Alumbrado Público Zona 2",
-        "usuario_asignacion": "gdemaio0"
-      },
-      {
-        "fecha_hora_asignacion": "16/01/2020 23:51",
-        "equipo_asignado": "Alejandra Garbagna",
-        "detalle_asignacion": "Inspeccionar",
-        "area_asignacion": "Alumbrado Público Zona 2",
-        "usuario_asignacion": "gdemaio0"
-      }
+      
     ],
     "intervenciones": [
-      {
-        "fecha_hora_intervencion": "16/01/2020 08:05",
-        "tipo_intervencion": "Reparado",
-        "detalle_intervencion": "se constato la falla. se reparo problema",
-        "usuario_intervencion": "agarbag0",
-        "area_intervencion": "Alumbrado Público Zona 2"
-      },
-      {
-        "fecha_hora_intervencion": "16/01/2020 10:35",
-        "tipo_intervencion": "Reparado",
-        "detalle_intervencion": "se normaliza el servicio",
-        "usuario_intervencion": "jhuyiu0",
-        "area_intervencion": "Alumbrado Público Zona 2"
-      }
+      
     ],
     "derivaciones": [
-      {
-        "area_derivacion": "Alumbrado Público",
-        "fecha_hora_derivacion": "27/01/2020 09:06",
-        "recepcion": "Recepeción en 6'",
-        "fecha_hora_recepcion": "27/01/2020 09:12",
-        "detalle": "Intervención para el día",
-        "fecha_detalle": "27/01/2020"
-      },
-      {
-        "area_derivacion": "Alumbrado Público Zona 3",
-        "fecha_hora_derivacion": "27/01/2020 10:00",
-        "recepcion": "Recepeción en 1hs 10'",
-        "fecha_hora_recepcion": "27/01/2020 11:10",
-        "detalle": "Intervención para el día",
-        "fecha_detalle": "27/01/2020"
-      }
+      
     ],
-    "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
+    "solicitantes": [
+
+    ]
   },
   {
     "id": 4185,
@@ -878,7 +819,27 @@
         "fecha_detalle": "27/01/2020"
       }
     ],
-    "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
+    "solicitantes": [
+      {
+        "fecha_hora_registro": "19/01/2020 10:22",
+        "reiteraciones": 0,
+        "nro_doc_solicitante": 25487966,
+        "nombre_solicitante": "GUILLERMO",
+        "apellido_solicitante": "FONT",
+        "opinion": "positivo",
+        "ident_reservada": 0,
+        "email_solicitante": "guillermofont@gmail.com",
+        "direccion_solicitante": "Tucumán 840",
+        "horario_contacto_solicitante": "8 a 17hs",
+        "telefono_solicitante": "341-458996",
+        "celular_solicitante": "341-5246897",
+        "detalle_opinion": "Se solucionó en el día.",
+        "fecha_hora_reiteracion": "",
+        "usuario_registro_reiteracion": "",
+        "origen_registro_reiteracion": "",
+        "detalle_reiteracion": ""
+      }
+    ]
   },
   {
     "id": 4186,
@@ -1025,7 +986,27 @@
         "fecha_detalle": "27/01/2020"
       }
     ],
-    "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
+    "solicitantes": [
+      {
+        "fecha_hora_registro": "19/01/2020 10:22",
+        "reiteraciones": 0,
+        "nro_doc_solicitante": 25487966,
+        "nombre_solicitante": "GUILLERMO",
+        "apellido_solicitante": "FONT",
+        "opinion": "positivo",
+        "ident_reservada": 0,
+        "email_solicitante": "guillermofont@gmail.com",
+        "direccion_solicitante": "Tucumán 840",
+        "horario_contacto_solicitante": "8 a 17hs",
+        "telefono_solicitante": "341-458996",
+        "celular_solicitante": "341-5246897",
+        "detalle_opinion": "Se solucionó en el día.",
+        "fecha_hora_reiteracion": "",
+        "usuario_registro_reiteracion": "",
+        "origen_registro_reiteracion": "",
+        "detalle_reiteracion": ""
+      }
+    ]
   },
   {
     "id": 4187,
@@ -1172,7 +1153,27 @@
         "fecha_detalle": "27/01/2020"
       }
     ],
-    "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
+    "solicitantes": [
+      {
+        "fecha_hora_registro": "19/01/2020 10:22",
+        "reiteraciones": 0,
+        "nro_doc_solicitante": 25487966,
+        "nombre_solicitante": "GUILLERMO",
+        "apellido_solicitante": "FONT",
+        "opinion": "positivo",
+        "ident_reservada": 0,
+        "email_solicitante": "guillermofont@gmail.com",
+        "direccion_solicitante": "Tucumán 840",
+        "horario_contacto_solicitante": "8 a 17hs",
+        "telefono_solicitante": "341-458996",
+        "celular_solicitante": "341-5246897",
+        "detalle_opinion": "Se solucionó en el día.",
+        "fecha_hora_reiteracion": "",
+        "usuario_registro_reiteracion": "",
+        "origen_registro_reiteracion": "",
+        "detalle_reiteracion": ""
+      }
+    ]
   },
   {
     "id": 4188,
@@ -1319,7 +1320,27 @@
         "fecha_detalle": "27/01/2020"
       }
     ],
-    "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
+    "solicitantes": [
+      {
+        "fecha_hora_registro": "19/01/2020 10:22",
+        "reiteraciones": 0,
+        "nro_doc_solicitante": 25487966,
+        "nombre_solicitante": "GUILLERMO",
+        "apellido_solicitante": "FONT",
+        "opinion": "positivo",
+        "ident_reservada": 0,
+        "email_solicitante": "guillermofont@gmail.com",
+        "direccion_solicitante": "Tucumán 840",
+        "horario_contacto_solicitante": "8 a 17hs",
+        "telefono_solicitante": "341-458996",
+        "celular_solicitante": "341-5246897",
+        "detalle_opinion": "Se solucionó en el día.",
+        "fecha_hora_reiteracion": "",
+        "usuario_registro_reiteracion": "",
+        "origen_registro_reiteracion": "",
+        "detalle_reiteracion": ""
+      }
+    ]
   },
   {
     "id": 4189,
@@ -1466,7 +1487,27 @@
         "fecha_detalle": "27/01/2020"
       }
     ],
-    "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
+    "solicitantes": [
+      {
+        "fecha_hora_registro": "19/01/2020 10:22",
+        "reiteraciones": 0,
+        "nro_doc_solicitante": 25487966,
+        "nombre_solicitante": "GUILLERMO",
+        "apellido_solicitante": "FONT",
+        "opinion": "positivo",
+        "ident_reservada": 0,
+        "email_solicitante": "guillermofont@gmail.com",
+        "direccion_solicitante": "Tucumán 840",
+        "horario_contacto_solicitante": "8 a 17hs",
+        "telefono_solicitante": "341-458996",
+        "celular_solicitante": "341-5246897",
+        "detalle_opinion": "Se solucionó en el día.",
+        "fecha_hora_reiteracion": "",
+        "usuario_registro_reiteracion": "",
+        "origen_registro_reiteracion": "",
+        "detalle_reiteracion": ""
+      }
+    ]
   },
   {
     "id": 4190,
@@ -1613,7 +1654,27 @@
         "fecha_detalle": "27/01/2020"
       }
     ],
-    "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
+    "solicitantes": [
+      {
+        "fecha_hora_registro": "19/01/2020 10:22",
+        "reiteraciones": 0,
+        "nro_doc_solicitante": 25487966,
+        "nombre_solicitante": "GUILLERMO",
+        "apellido_solicitante": "FONT",
+        "opinion": "positivo",
+        "ident_reservada": 0,
+        "email_solicitante": "guillermofont@gmail.com",
+        "direccion_solicitante": "Tucumán 840",
+        "horario_contacto_solicitante": "8 a 17hs",
+        "telefono_solicitante": "341-458996",
+        "celular_solicitante": "341-5246897",
+        "detalle_opinion": "Se solucionó en el día.",
+        "fecha_hora_reiteracion": "",
+        "usuario_registro_reiteracion": "",
+        "origen_registro_reiteracion": "",
+        "detalle_reiteracion": ""
+      }
+    ]
   },
   {
     "id": 4191,
@@ -1760,7 +1821,27 @@
         "fecha_detalle": "27/01/2020"
       }
     ],
-    "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
+    "solicitantes": [
+      {
+        "fecha_hora_registro": "19/01/2020 10:22",
+        "reiteraciones": 0,
+        "nro_doc_solicitante": 25487966,
+        "nombre_solicitante": "GUILLERMO",
+        "apellido_solicitante": "FONT",
+        "opinion": "positivo",
+        "ident_reservada": 0,
+        "email_solicitante": "guillermofont@gmail.com",
+        "direccion_solicitante": "Tucumán 840",
+        "horario_contacto_solicitante": "8 a 17hs",
+        "telefono_solicitante": "341-458996",
+        "celular_solicitante": "341-5246897",
+        "detalle_opinion": "Se solucionó en el día.",
+        "fecha_hora_reiteracion": "",
+        "usuario_registro_reiteracion": "",
+        "origen_registro_reiteracion": "",
+        "detalle_reiteracion": ""
+      }
+    ]
   },
   {
     "id": 4192,
@@ -1907,7 +1988,27 @@
         "fecha_detalle": "27/01/2020"
       }
     ],
-    "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
+    "solicitantes": [
+      {
+        "fecha_hora_registro": "19/01/2020 10:22",
+        "reiteraciones": 0,
+        "nro_doc_solicitante": 25487966,
+        "nombre_solicitante": "GUILLERMO",
+        "apellido_solicitante": "FONT",
+        "opinion": "positivo",
+        "ident_reservada": 0,
+        "email_solicitante": "guillermofont@gmail.com",
+        "direccion_solicitante": "Tucumán 840",
+        "horario_contacto_solicitante": "8 a 17hs",
+        "telefono_solicitante": "341-458996",
+        "celular_solicitante": "341-5246897",
+        "detalle_opinion": "Se solucionó en el día.",
+        "fecha_hora_reiteracion": "",
+        "usuario_registro_reiteracion": "",
+        "origen_registro_reiteracion": "",
+        "detalle_reiteracion": ""
+      }
+    ]
   },
   {
     "id": 4193,
@@ -2054,7 +2155,27 @@
         "fecha_detalle": "27/01/2020"
       }
     ],
-    "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
+    "solicitantes": [
+      {
+        "fecha_hora_registro": "19/01/2020 10:22",
+        "reiteraciones": 0,
+        "nro_doc_solicitante": 25487966,
+        "nombre_solicitante": "GUILLERMO",
+        "apellido_solicitante": "FONT",
+        "opinion": "positivo",
+        "ident_reservada": 0,
+        "email_solicitante": "guillermofont@gmail.com",
+        "direccion_solicitante": "Tucumán 840",
+        "horario_contacto_solicitante": "8 a 17hs",
+        "telefono_solicitante": "341-458996",
+        "celular_solicitante": "341-5246897",
+        "detalle_opinion": "Se solucionó en el día.",
+        "fecha_hora_reiteracion": "",
+        "usuario_registro_reiteracion": "",
+        "origen_registro_reiteracion": "",
+        "detalle_reiteracion": ""
+      }
+    ]
   },
   {
     "id": 4194,
@@ -2200,7 +2321,27 @@
         "fecha_detalle": "27/01/2020"
       }
     ],
-    "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
+    "solicitantes": [
+      {
+        "fecha_hora_registro": "19/01/2020 10:22",
+        "reiteraciones": 0,
+        "nro_doc_solicitante": 25487966,
+        "nombre_solicitante": "GUILLERMO",
+        "apellido_solicitante": "FONT",
+        "opinion": "positivo",
+        "ident_reservada": 0,
+        "email_solicitante": "guillermofont@gmail.com",
+        "direccion_solicitante": "Tucumán 840",
+        "horario_contacto_solicitante": "8 a 17hs",
+        "telefono_solicitante": "341-458996",
+        "celular_solicitante": "341-5246897",
+        "detalle_opinion": "Se solucionó en el día.",
+        "fecha_hora_reiteracion": "",
+        "usuario_registro_reiteracion": "",
+        "origen_registro_reiteracion": "",
+        "detalle_reiteracion": ""
+      }
+    ]
   },
   {
     "id": 4195,
@@ -2347,7 +2488,27 @@
         "fecha_detalle": "27/01/2020"
       }
     ],
-    "detalle_opinion_solicitante2": "Después de 3 días resuelven el problema. Tardaron demasiado para cambiar una lamparita"
+    "solicitantes": [
+      {
+        "fecha_hora_registro": "19/01/2020 10:22",
+        "reiteraciones": 0,
+        "nro_doc_solicitante": 25487966,
+        "nombre_solicitante": "GUILLERMO",
+        "apellido_solicitante": "FONT",
+        "opinion": "positivo",
+        "ident_reservada": 0,
+        "email_solicitante": "guillermofont@gmail.com",
+        "direccion_solicitante": "Tucumán 840",
+        "horario_contacto_solicitante": "8 a 17hs",
+        "telefono_solicitante": "341-458996",
+        "celular_solicitante": "341-5246897",
+        "detalle_opinion": "Se solucionó en el día.",
+        "fecha_hora_reiteracion": "",
+        "usuario_registro_reiteracion": "",
+        "origen_registro_reiteracion": "",
+        "detalle_reiteracion": ""
+      }
+    ]
   }
 ]
 }
