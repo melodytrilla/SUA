@@ -73,14 +73,6 @@ export interface AdvSearch{
   //Datos especificos
   Datos_Extra:any[];
   //
-
-  /*
-  filtros: Chip[];
-  Originadas_dirTransito: boolean;
-  con_Intervenciones: string;
-  intervenciones_fechaStart: Date;
-  intervenciones_fechaEnd: Date;
-  */
 }
 
 
@@ -171,14 +163,6 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy{
     
 //-----Datos especificos--------------------------------------------
     Datos_Extra:[]
-      
-    /*
-    filtros: [],
-    Originadas_dirTransito: false,
-    con_Intervenciones: "",
-    intervenciones_fechaStart: null,
-    intervenciones_fechaEnd: null
-    */
   };
   savePressed:boolean = false;
   datesControl = new FormControl('');
@@ -306,29 +290,6 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy{
       //                          end: this.advSearch.intervenciones_fechaEnd});
     }
 
-  /*  this.form = this.formBuilder.group({
-      prioridad: '',
-
-      estados: [],
-      estadoDates: {
-        begin: '', 
-        end: ''
-      },
-
-      categorias: [],
-      tipos: [],
-      subtipos: [],
-      distritos: [],
-      vecinales: [],
-
-      reiterado: false,
-      reiteradoDates: {
-        begin: '', 
-        end: ''
-      },
-
-    });*/
-
     this.solicitud.getAllVecinales();
 
 
@@ -362,29 +323,12 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy{
 
   // cierra la ventana al apretar cancelar
   onNoClick(): void {
-    /*console.log(this.advSearch);
-    this.advSearch = this.data.busqueda.advSearch;
-    console.log(this.data);
-    console.log("after...");
-    console.log(this.advSearch);*/
-    
     this.dialogRef.close();
   }
 
   //agarra todos los valores puestos en el formulario y se los pasa con
   //los de la busqueda principal al servicio de busqueda
   BusquedaClick():void{
-    /*console.log(this.advSearch);
-    this.advSearch.clasificacion_subtipo = this.myChips.guardarChips();
-    //console.log(this.datesControl.value);
-
-    //this.advSearch.intervenciones_fechaStart = this.datesControl.value.begin;
-    //this.advSearch.intervenciones_fechaEnd = this.datesControl.value.end;
-
-    //console.log(this.advSearch);
-    this.data.busqueda.advSearch = this.advSearch;
-    console.log(this.data);
-    this.busqueda.Buscar(this.data.busqueda);*/
     this.savePressed = true;
     this.dialogRef.close();
   }
@@ -452,14 +396,6 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy{
   //para catualizar la Calificacion --------------------------------------
 
   agregarChipOrigen(origen:string):void{
-    /*
-    if(this.origenesSeleccionados.length == 0){
-      this.origenesSeleccionados = this.origenesSeleccionados.concat(origen);
-    }else{
-      if(!this.origenesSeleccionados.includes(origen)){
-        this.origenesSeleccionados = this.origenesSeleccionados.concat(origen);
-      }  
-    }*/
     if(origen != "" && this.origenSelect.panelOpen){
       if(!this.advSearch.clasificacion_origenes.includes(origen)){
         this.advSearch.clasificacion_origenes.push(origen);
@@ -797,9 +733,6 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy{
   onChange(searchValue: string):void{
     if(searchValue.length > 2){
 
-      //this.filteredVecinales = this.solicitudesService.getVecinales();
-      //this.filteredDistritos = this.solicitudesService.getDistritos();
-
       this.filteredVecinales = this.solicitud.filteredVecinalesSearch(searchValue);
       this.filteredDistritos = this.solicitud.filterdeDistritosSearch(searchValue, this.filteredVecinales);
 
@@ -932,9 +865,6 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy{
   }
 
   EqpChanged():boolean{
-    //console.log(this.equipamiento_seleccionado);
-    //console.log(this.equipamiento_detalle);
-    //console.log(this.equipamiento_choice);
     if(this.advSearch.equipamiento_choice != "" || this.advSearch.equipamiento_detalle != "" || this.advSearch.equipamiento_seleccionado != ""){ 
       return true;
     }
