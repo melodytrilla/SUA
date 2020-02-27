@@ -39,7 +39,7 @@
                         <div mat-list *cdkVirtualFor="let solicitud of solicitudes">
                             <div mat-list-item class="listElement">
                                 <div style="display: flex; width: 100%;">
-                                    <div style="width: 1%"><mat-checkbox color="primary"></mat-checkbox></div>
+                                    <div><mat-checkbox color="primary"></mat-checkbox></div>
                                     <div class="click"(click)="this.sendto(solicitud.id, solicitud.anio)">
                                         <div class="colum0">
                                             <div>{{solicitud.estado}}</div>
@@ -77,9 +77,9 @@
                                     <div class="arrowSeparator" (click)="this.panToSolicitud(solicitud.coord_x, solicitud.coord_y)">
                                         <mat-icon class="arrowPos">keyboard_arrow_right</mat-icon>
                                     </div>
-                                    <mat-divider #map></mat-divider>
                                 </div>
                             </div>
+                            <mat-divider #map></mat-divider>
                         </div>
                     </div>
         </cdk-virtual-scroll-viewport>
