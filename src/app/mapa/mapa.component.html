@@ -8,8 +8,8 @@
 
 <app-global-nav-bar></app-global-nav-bar>
 <app-navbar></app-navbar>
-<div class="topBar">
-    <div class="ordenar">
+<div class="topBar fila">
+    <div class="ordenar fila">
         <mat-form-field>
             <mat-label>Ordenar por</mat-label>
             <mat-select>
@@ -26,27 +26,27 @@
             <mat-icon *ngIf="asc">arrow_upward</mat-icon>
         </button>
     </div>
-    <div class="total">
+    <div class="total fila">
         <div *ngIf="solicitudes.length!='1'">{{solicitudes.length}} solicitudes con localización</div>
         <div *ngIf="solicitudes.length=='1'">{{solicitudes.length}} solicitud con localización</div>
-        <div><mat-icon class="more">more_vert</mat-icon></div>
+        <div><mat-icon class="more hov">more_vert</mat-icon></div>
     </div>
 </div>
 <mat-divider></mat-divider>
-<div class="content">
+<div class="content fila">
         <cdk-virtual-scroll-viewport style="height: 73vh; width: 30vw;" itemSize="93" (scrolledIndexChange)="nextBatch($event)">
                 <div class="listConteiner">
                         <div mat-list *cdkVirtualFor="let solicitud of solicitudes">
-                            <div mat-list-item class="listElement">
-                                <div style="display: flex; width: 100%;">
-                                    <div><mat-checkbox color="primary"></mat-checkbox></div>
-                                    <div class="click"(click)="this.sendto(solicitud.id, solicitud.anio)">
-                                        <div class="colum0">
+                            <div mat-list-item class="listElement fila">
+                                <div class="fila" style="width: 100%;">
+                                    <div style="width: 1%"><mat-checkbox color="primary"></mat-checkbox></div>
+                                    <div class="click fila hov"(click)="this.sendto(solicitud.id, solicitud.anio)">
+                                        <div class="colum0 columna">
                                             <div>{{solicitud.estado}}</div>
                                             <div><img src="{{solicitud.imagen}}"></div>
                                         </div>
-                                        <div class="part2">
-                                            <div class="upperPart">
+                                        <div class="part2 columna">
+                                            <div class="upperPart fila">
                                                 <mat-icon class="fsua fsua-recientes iconoPos"></mat-icon>{{solicitud.tiempo}}
                                                 <div class="addDistance"></div>
                                                 <div class="raiting">
@@ -59,13 +59,13 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="lowerPart rowContent">
-                                                <div class="infoConteiner">
-                                                    <div class="infoType">
+                                            <div class="lowerPart rowContent fila">
+                                                <div class="infoConteiner columna">
+                                                    <div class="infoType fila">
                                                         <div *ngIf = "solicitud.categoria=='Alumbrado'"><mat-icon class="iconoPos fsua fsua-alumbrado_publico"></mat-icon> {{solicitud.subtipo}}</div>
                                                         <div *ngIf = "solicitud.categoria=='Colectivos urbanos'"><mat-icon class="iconoPos fsua fsua-colectivos_urbanos"></mat-icon> {{solicitud.subtipo}}</div>
                                                     </div>
-                                                    <div class="infoDescripcion">
+                                                    <div class="infoDescripcion fila">
                                                         <div *ngIf="solicitud.altura>0">{{solicitud.calle}} {{solicitud.altura}}</div>
                                                         <div *ngIf="solicitud.interseccion != ''">{{solicitud.calle}} Y {{solicitud.interseccion}}</div>
                                                     </div>
@@ -74,8 +74,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="arrowSeparator" (click)="this.panToSolicitud(solicitud.coord_x, solicitud.coord_y)">
-                                        <mat-icon class="arrowPos">keyboard_arrow_right</mat-icon>
+                                    <div class="arrowSeparator fila hov" (click)="this.panToSolicitud(solicitud.coord_x, solicitud.coord_y)">
+                                        <mat-icon class="arrowPos fila">keyboard_arrow_right</mat-icon>
                                     </div>
                                 </div>
                             </div>

@@ -1,10 +1,10 @@
 <div *ngIf="solicitud != undefined">
     <app-global-nav-bar></app-global-nav-bar>
     <app-navbar></app-navbar>
-    <div class="detalle">
+    <div class="fila fil">
         <div class="card1">
             <mat-card>
-                <div class="fila">
+                <div class="fila fil">
                     <div>
                         <div *ngIf = "solicitud.categoria=='Alumbrado'"><mat-icon class="fsua fsua-alumbrado_publico"></mat-icon> {{solicitud.subtipo}}</div>
                         <div *ngIf = "solicitud.categoria=='Colectivos urbanos'"><mat-icon class="fsua fsua-colectivos_urbanos"></mat-icon> {{solicitud.subtipo}}</div>
@@ -13,7 +13,7 @@
                         {{solicitud.id}}-{{solicitud.anio}}
                     </div>
                 </div>
-                <div class="fila">
+                <div class="fila fil">
                     <div>
                         <div *ngIf="solicitud.altura>0">{{solicitud.calle}} {{solicitud.altura}}</div>
                         <div *ngIf="solicitud.interseccion != ''">{{solicitud.calle}} Y {{solicitud.interseccion}}</div>
@@ -28,7 +28,7 @@
                 <div class="imagen">
                     <img src="{{solicitud.imagen}}">
                 </div>
-                <div class="fila1">
+                <div class="fila1 fila">
                     <div class="col1">
                         <div *ngIf="solicitud.opinion=='positivo'"><mat-icon class="fsua fsua-bueno"></mat-icon> {{solicitud.estado}}</div>
                         <div *ngIf="solicitud.opinion=='negativo'"><mat-icon class="fsua fsua-malo"></mat-icon> {{solicitud.estado}}</div>
@@ -37,7 +37,7 @@
                     </div>
                     <div *ngIf="solicitud.detalle_solucion!=''" class="solucion">{{solicitud.detalle_solucion}}</div>
                 </div>
-                <div *ngIf="solicitud.descripcion==''" class="fila">
+                <div *ngIf="solicitud.descripcion==''" class="fila fil">
                     <div>
                         <mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempo}}
                     </div>
@@ -83,18 +83,18 @@
                 <mat-expansion-panel class="mat-elevation-z0">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            <div class="fila">
-                                <div class="numero">
+                            <div class="fila fil">
+                                <div class="numero fila">
                                     <div class="cantidad">{{solicitud.solicitantes.length}}</div> 
                                     <div *ngIf="solicitud.solicitantes.length!=1"> Solicitantes</div>
                                     <div *ngIf="solicitud.solicitantes.length==1"> Solicitante</div>
                                 </div>
-                                <div class="numero">
+                                <div class="numero fila">
                                     <div class="cantidad">{{solicitud.reiteraciones}}</div> 
                                     <div *ngIf="solicitud.reiteraciones!=1"> Reiteraciones</div>
                                     <div *ngIf="solicitud.reiteraciones==1"> Reiteración </div>
                                 </div>
-                                <div class="numero">
+                                <div class="numero fila">
                                     <div class="cantidad">{{solicitud.cant_opiniones}}</div> 
                                     <div *ngIf="solicitud.cant_opiniones!=1"> Opiniones</div>
                                     <div *ngIf="solicitud.cant_opiniones==1"> Opinion </div>
@@ -104,7 +104,7 @@
                     </mat-expansion-panel-header>
                     <div *ngFor="let solicitud of solicitud.solicitantes">
                         <mat-divider></mat-divider>
-                        <div class="contenido_panel">
+                        <div class="contenido_panel fila">
                             <div class="solicitante">
                                 <div><mat-icon class="fsua fsua-tel icono"></mat-icon>{{solicitud.fecha_hora_registro}}</div>
                                 <div *ngIf= "solicitud.ident_reservada=='0'">
@@ -140,13 +140,13 @@
                     </div>
                 </mat-expansion-panel>
             </mat-card>
-                <div class="detalle2">
+                <div class="detalle2 fila">
                     <mat-card class="card3" style="margin-right: 5px;">
                         <mat-expansion-panel class="mat-elevation-z0">
                             <mat-expansion-panel-header>
                                 <mat-panel-title>
-                                    <div class="fila">
-                                        <div class="numero">
+                                    <div class="fila fil">
+                                        <div class="numero fila">
                                             <div class="cantidad">{{solicitud.asignaciones.length}}</div> 
                                             <div *ngIf="solicitud.asignaciones.length!='1'"> Asignaciones</div>
                                             <div *ngIf="solicitud.asignaciones.length=='1'"> Asignación</div>
@@ -173,8 +173,8 @@
                         <mat-expansion-panel class="mat-elevation-z0">
                                 <mat-expansion-panel-header style="height: 63px">
                                         <mat-panel-title>
-                                            <div class="fila">
-                                                <div class="numero">
+                                            <div class="fila fil">
+                                                <div class="numero fila">
                                                     <div class="cantidad">{{solicitud.intervenciones.length}}</div> 
                                                     <div *ngIf="solicitud.intervenciones.length!='1'"> Intervenciones</div>
                                                     <div *ngIf="solicitud.intervenciones.length=='1'"> Intervención</div>
@@ -201,8 +201,8 @@
                         <mat-expansion-panel class="mat-elevation-z0">
                                 <mat-expansion-panel-header style="height: 61px">
                                     <mat-panel-title>
-                                        <div class="fila">
-                                            <div class="numero">
+                                        <div class="fila fil">
+                                            <div class="numero fila">
                                                 <div class="cantidad">{{solicitud.derivaciones.length}}</div> 
                                                 <div>
                                                     <div>
@@ -226,7 +226,7 @@
                                         <mat-divider></mat-divider>
                                     </div>
                                     <div *ngFor="let deriv of solicitud.derivaciones">
-                                        <div class="derivacion">
+                                        <div class="derivacion fila">
                                             <div class="columna">
                                                 <mat-icon  class="font18h17">today</mat-icon>
                                                 <mat-icon  class="font18h13">more_vert</mat-icon>
@@ -238,7 +238,7 @@
                                                 <p>{{solicitud.fecha_hora_registro}}</p>
                                             </div>
                                         </div>
-                                        <div class="derivacion">
+                                        <div class="derivacion fila">
                                             <div class="columna">
                                                 <mat-icon  class="font18h17">today</mat-icon>
                                                 <mat-icon  class="font18h13">more_vert</mat-icon>
@@ -250,7 +250,7 @@
                                                 <p>{{deriv.fecha_hora_derivacion}}</p>
                                             </div>
                                         </div>
-                                        <div class="derivacion">
+                                        <div class="derivacion fila">
                                             <div class="columna">
                                                 <mat-icon  class="font18h17">today</mat-icon>
                                                 <mat-icon  class="font18h13">more_vert</mat-icon>
@@ -262,7 +262,7 @@
                                                 <p>{{deriv.fecha_hora_recepcion}}</p>
                                             </div>
                                         </div>
-                                        <div class="derivacion">
+                                        <div class="derivacion fila">
                                             <div class="columna">
                                                 <mat-icon  class="font18h17">today</mat-icon>
                                                 <mat-icon  class="font18h13">more_vert</mat-icon>
@@ -275,7 +275,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="derivacion">
+                                    <div class="derivacion fila">
                                         <div class="columna">
                                             <mat-icon class="font18h17">today</mat-icon>
                                         </div>
