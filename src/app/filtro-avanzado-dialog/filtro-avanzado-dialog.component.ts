@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy,  Inject, Input, ViewChild, ElementRef, ContentChild, TemplateRef } from '@angular/core';
+import { Component, OnInit, OnDestroy,  Inject, Input, ViewChild, ElementRef, ContentChild, TemplateRef, AfterViewInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatRadioGroup, MatSelect } from '@angular/material';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
@@ -81,7 +81,7 @@ export interface AdvSearch{
   templateUrl: './filtro-avanzado-dialog.component.html',
   styleUrls: ['./filtro-avanzado-dialog.component.sass']
 })
-export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy{
+export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterViewInit{
 
   //una variable donde se guardaran todos los valores y asociaran algunos valores de la forma
   advSearch: AdvSearch = {
@@ -267,6 +267,13 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy{
   asigDate:SatDatepickerRangeValue<Date> = {begin: null, end: null};
 
   //--------------------------------------------------------------------
+
+  //-----Busqueda Datos Especificos -----------------------------------------
+
+  datosEspecificos_warning:string = "";
+
+  //--------------------------------------------------------------------
+
   constructor(
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<FiltroAvanzadoDialogComponent>,
@@ -292,6 +299,8 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy{
 
     this.solicitud.getAllVecinales();
 
+    //console.log("ngInit");
+    //console.log(this.myChips);
 
     //inicializacion de los paneles expansores
     this.ActualizarDescReporte();
@@ -304,6 +313,15 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy{
     this.ActualizarDescEqp();
     this.ActualizarDescAsig();
   }
+
+  ngAfterViewInit(){
+    //console.log("afterviewInit")
+    //console.log(this.myChips);
+
+    this.ActualizarDescCalificacion();
+  }
+
+
 
   ngOnDestroy(){
     console.log("destroy called");
@@ -418,17 +436,19 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy{
     this.inputDescripcion = this.InputADescripcionCalificacion();
 
     if(this.CalificacionCheck()){
-      this.turnOn("CalifPanel", "CalifFont");
+      this.turnOn("CalifPanel", "CalifFont", "subtipoFont");
       if(this.myChips != undefined){
         this.advSearch.clasificacion_subtipo = this.myChips.guardarChips();
       }
       this.descripcionCalif = this.inputDescripcion;
     }else{
-      this.turnOff("CalifPanel", "CalifFont")
+      this.turnOff("CalifPanel", "CalifFont", "subtipoFont");
       
       this.advSearch.clasificacion_subtipo = [];
       this.descripcionCalif = this.inputDescripcion;
     }
+
+    this.DEcambiarBusqueda();
   }
 
   CalificacionCheck():boolean{
@@ -499,11 +519,11 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy{
     this.inputDescripcion = this.InputADescripcionArea();
 
     if(this.AreaCheck()){
-      this.turnOn("AreaPanel", "");
+      this.turnOn("AreaPanel", "area_font_toWhite");
 
       this.descripcionArea = this.inputDescripcion;
     }else{
-      this.turnOff("AreaPanel", "")
+      this.turnOff("AreaPanel", "area_font_toWhite")
       
       this.descripcionArea = this.default_descripcion;
     }
@@ -714,14 +734,14 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy{
 
   ActualizarEstado(){
     if(this.EstChanged()){
-      this.turnOn("EstadoPanel", "");
+      this.turnOn("EstadoPanel", "estado_font.toWhite");
 
       this.advSearch.estado_fecha_start = this.estado_DateRango.begin;
       this.advSearch.estado_fecha_end = this.estado_DateRango.end;
 
       this.descripcionEstado = this.InputADescripcionEst();
     }else{
-      this.turnOff("EstadoPanel", "");
+      this.turnOff("EstadoPanel", "estado_font.toWhite");
             
       this.descripcionEstado = "No se filtra por estado";
     }
@@ -794,11 +814,11 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy{
     this.inputDescripcion = this.InputADescripcionDistirto();
 
     if(this.advSearch.distrito_vecinales.length > 0){
-      this.turnOn("DistritoPanel", "");
+      this.turnOn("DistritoPanel", "distrito_font_toWhite");
 
       this.descripcionDistrito = this.InputADescripcionDistirto();
     }else{
-      this.turnOff("DistritoPanel", "")
+      this.turnOff("DistritoPanel", "distrito_font_toWhite")
       
       this.descripcionDistrito = "No se filtra por distritos";
     }
@@ -929,14 +949,14 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy{
 
   ActualizarDescAsig(){
     if(this.AsigChanged()){
-      this.turnOn("AsigPanel", "");
+      this.turnOn("AsigPanel", "asig_font-towhite");
 
       this.advSearch.asignacion_fecha_start = this.asigDate.begin;
       this.advSearch.asignacion_fecha_end = this.asigDate.end;
 
       this.descripcionAsig = this.InputADescripcionAsig();
     }else{
-      this.turnOff("AsigPanel", "")
+      this.turnOff("AsigPanel", "asig_font-towhite")
             
       this.descripcionAsig = "No se filtra por asignación";
     }
@@ -946,12 +966,19 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy{
 
   //Para actualizar Datos Especificos --------------------------------------
 
+  DEcambiarBusqueda(){
+    if(this.advSearch.clasificacion_subtipo.length == 1){
+      this.datosEspecificos_warning = "tiene 1";
+    }else{
+      this.datosEspecificos_warning =  "Para filtrar por datos específicos debe ingresar solo 1 subtipo en clasificación"
+    }
+  }
 
   ActualizarDescDE(){};
   //---------------------------------------------------------------------
 
   //funciones para cambiar visualmente los paneles expansores-------------
-  turnOn(panelId:string, fontId: string){
+  turnOn(panelId:string, fontId: string, secondFontId:string = null){
     document.getElementById(panelId).style.animationName = "hasData"
     document.getElementById(panelId).style.webkitAnimationName = "hasData"
     document.getElementById(panelId).style.webkitAnimationDirection = "normal";
@@ -960,9 +987,14 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy{
     if(fontId != ""){
       document.getElementById(fontId).style.color = "#ffffff";
     }
+    if(secondFontId != null){
+      if(secondFontId != ""){
+        document.getElementById(secondFontId).style.color = "#ffffff";
+      }
+    }
   }
 
-  turnOff(panelId:string, fontId: string){
+  turnOff(panelId:string, fontId: string, secondFontId:string = null){
     if( document.getElementById(panelId).style.animationName == "hasData"){
       document.getElementById(panelId).style.animationDirection = "reverse";
       document.getElementById(panelId).style.webkitAnimationDirection = "reverse";
@@ -970,6 +1002,11 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy{
       document.getElementById(panelId).classList.add("light");
       if(fontId != ""){
         document.getElementById(fontId).style.color = "#000000";
+      }
+      if(secondFontId != null){
+        if(secondFontId != ""){
+          document.getElementById(secondFontId).style.color = "#000000";
+        }
       }
     }
   }

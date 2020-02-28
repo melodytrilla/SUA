@@ -51,7 +51,7 @@ $darkTheme-primary: mat-palette($mat-yellow, 700, 300, 900);
 $darkTheme-test-primary:(default: #e6e6e6, 
                         lighter:#eeeeee, 
                         darker: #d1d1d1,
-                        text: $blue-theme,
+                        text: #e6e6e6,
 
                         default-contrast: $light-primary-text,
                         lighter-contrast: $light-primary-text,
@@ -72,7 +72,7 @@ $darkTheme-theme-test:(
     warn: $darkTheme-warn,
     is-dark: true,
     foreground: $mat-dark-theme-foreground,
-    background: map_merge($mat-dark-theme-background, (background: $blue-theme))
+    background: map_merge($mat-dark-theme-background, (background: rgb(12, 12, 12)))
   );
 
 //se le agrega dark a la clase para transformarlo
