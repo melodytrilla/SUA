@@ -38,7 +38,7 @@ export class RequestsByDistrictComponent implements OnInit {
       datalabels: {
         display: false,
         padding: 0,
-        color: '#82817F',
+        color: '#000000',
         anchor: 'end',
         textStrokeWidth: 0.2,
         align: 'end',
@@ -54,9 +54,9 @@ export class RequestsByDistrictComponent implements OnInit {
         
         labels: {
           padding: 12,
-          fontSize: 20,
+          fontSize: 16,
           usePointStyle: true,
-          fontColor: '#929191',
+          fontColor: '#000000',
           boxWidth: 11,
         }
       }

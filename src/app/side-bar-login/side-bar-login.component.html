@@ -5,12 +5,12 @@
     <mat-sidenav #sidenav class="sidenav"
     [mode] = over
     [fixedInViewport] = true>
-            <div (click)="Close()" class="closeButton">
+            <div (click)="Close()" class="closeButton fila">
                 <i class="fsua fsua-cancelar closeIcono"></i>
             </div>
             
-            <div *ngIf= "userLog; else loginBlock" style="display: flex; height: 89%;flex-direction: column;">
-                <div class="spacer"></div>
+            <div *ngIf= "userLog; else loginBlock" class="columna" style="height: 89%;">
+                <div class="spacer fila"></div>
                 <div class="bienvenidaConteiner">
                     <p class="bienvenido"> Welcome!</p>
                     <p class="usuario"> {{userLog.username}}</p>
@@ -32,8 +32,8 @@
                     </mat-accordion>
                 </div>
             </div>
-            <ng-template #loginBlock style="display: flex; height: 89%">
-                <!--<div class="spacer" style="height: 5%; display: flex"></div>
+            <ng-template #loginBlock class="fila" style="height: 89%">
+                <!--<div class="spacer fila" style="height: 5%"></div>
                 <div style="display: flex; flex-direction: column;">
                     <mat-form-field style="width: 90%;">
                         <input matInput placeholder="Username">

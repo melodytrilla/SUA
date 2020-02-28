@@ -77,7 +77,7 @@ export class RequestsByStateComponent implements OnInit {
           padding: 18,
           fontSize: 18,
           usePointStyle: true,
-          fontColor: '#82817F',
+          fontColor: '#000000',
           boxWidth: 10,
         }
       }

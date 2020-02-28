@@ -1,12 +1,12 @@
 <mat-card class="tarjeta">
-    <mat-card-title class="titulo">Consultas y Trámites
+    <mat-card-title class="titulo font15">Consultas y Trámites
         <h3> {{total}} </h3>
     </mat-card-title>   
 
     <mat-divider></mat-divider>
 
     <mat-list class="lista" *ngFor="let item of items">
-        <div class="item">
+        <div class="item fila hov">
             <mat-icon class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
             <h3> {{item.name}}</h3>
             <p>{{item.details}}</p>

@@ -4,7 +4,7 @@
     <!--
     <app-chips-container #myChips [chipsAnteriores] = []></app-chips-container>
 
-    <section class="direccion">
+    <section class="direccion fila">
         <mat-checkbox [(ngModel)]="advSearch.Originadas_dirTransito">Originada en direccion de Transito</mat-checkbox>
     </section>
 
@@ -43,8 +43,8 @@
             </mat-panel-description>
         </mat-expansion-panel-header>
 
-        <div class="body">
-            <div Id="inputField">
+        <div class="body fila">
+            <div class="fila" Id="inputField">
                 <mat-label style="margin-right: 2%;">Reiteraciones: </mat-label>
                 
                 <mat-checkbox [(ngModel)]="advSearch.reiteraciones_con" color="primary">Con</mat-checkbox>
@@ -79,7 +79,7 @@
             <app-chips-container id="subtipoFont" #myChips [chipsAnteriores] = []></app-chips-container>
         </div>
         <mat-divider style="margin-bottom: 1%;"></mat-divider>
-        <div class="body">
+        <div class="body fila">
             <mat-form-field>
                 <mat-label>Tipo</mat-label>
 
@@ -140,7 +140,7 @@
             </mat-panel-description>
         </mat-expansion-panel-header>
         
-        <div Id="area_font_toWhite" class="body">
+        <div Id="area_font_toWhite" class="body fila">
             <mat-form-field style="width: 25%;">
                 <mat-label>Área de origen</mat-label>            
                 <input matInput [matAutocomplete] = "autoArea"
@@ -190,7 +190,7 @@
             </mat-panel-description>
         </mat-expansion-panel-header>
         
-        <div id="AdjuntoFont" class="body">
+        <div id="AdjuntoFont" class="body fila">
             <section>
                 <mat-radio-group [(ngModel)]="advSearch.adjunto_tiene" (change)="checkEnable($event)">
                     <mat-radio-button value="Con" color="primary"> Con</mat-radio-button>
@@ -218,7 +218,7 @@
             </mat-panel-description>
         </mat-expansion-panel-header>
         
-        <div id="OpinionFont" class="body">
+        <div id="OpinionFont" class="body fila">
             <section>
                 <mat-radio-group [(ngModel)]="advSearch.opinion_tiene" (change)="checkEnableOp($event)">
                     <mat-radio-button value="Con" color="primary"> Con</mat-radio-button>
@@ -247,8 +247,8 @@
             </mat-panel-description>
         </mat-expansion-panel-header>
         
-        <div class="body">
-            <div style="width: 100%;display: flex;flex-direction: row;">
+        <div class="body fila">
+            <div class="fila" style="width: 100%">
                 <div style="flex-grow: 1;flex-direction: column; max-width: 35%;">
                     <!-- estado chips -->
                     <mat-form-field>
@@ -317,8 +317,8 @@
             </mat-panel-description>
         </mat-expansion-panel-header>
 
-        <div class="body">
-            <div style="display: flex; justify-content: space-between;">
+        <div class="body fila">
+            <div class="fila" style="justify-content: space-between;">
                 <div Id="distrito_font_toWhite" style="flex-grow: 1; margin-right: 30px;">
                     <mat-form-field style="width:275px">
                         <input matInput #search
@@ -377,9 +377,9 @@
             </mat-panel-description>
         </mat-expansion-panel-header>
 
-        <div class="body">
-            <div Id="changeFont" class="flexRow" style="width: -moz-available; width: 100%;">
-                <div class="flexColunm" style="min-width: 50%;">
+        <div class="body fila">
+            <div Id="changeFont" class="fila" style="width: -moz-available; width: 100%;">
+                <div class="columna" style="min-width: 50%;">
                     <mat-radio-group [(ngModel)] = "advSearch.intervenciones_tipo">
                         <mat-radio-button value="con" color="primary"> Con </mat-radio-button>
                         <mat-radio-button value="sin" color="primary"> Sin </mat-radio-button>
@@ -387,7 +387,7 @@
                         <mat-radio-button value="" color="primary"> No seleccionado </mat-radio-button>
     
                     </mat-radio-group>
-                    <div clas="flexRow" style="margin-top: 5px;">
+                    <div clas="fila" style="margin-top: 5px;">
                         <mat-form-field style = "margin-left: 10px;">
                             <input matInput
                                     [disabled]="advSearch.intervenciones_tipo == ''"
@@ -447,7 +447,7 @@
                 {{descripcionEqp}}
             </mat-panel-description>
         </mat-expansion-panel-header>
-        <div class="body">
+        <div class="body fila">
             <div Id="changeFontEqp" style="width: 100%;display: flex;flex-direction: row;">
                 <div style="flex-grow: 1;">
                     <mat-radio-group [(ngModel)] = "advSearch.equipamiento_choice">
@@ -491,8 +491,8 @@
                 {{descripcionAsig}}
             </mat-panel-description>
         </mat-expansion-panel-header>
-        <div class="body">
-            <div style="width: 100%;display: flex;flex-direction: row;">
+        <div class="body fila">
+            <div class="fila" style="width: 100%">
                 <div Id= "asig_font-towhite" style="flex-grow: 1; flex-direction: column;">
                     <div>
                         <mat-radio-group [(ngModel)] = "advSearch.asignacion_tipo">
@@ -502,7 +502,7 @@
                             <mat-radio-button value="" color="primary"> No seleccionado </mat-radio-button>
                         </mat-radio-group>
                     </div>
-                    <div clas="flexRow" style="margin-top: 5px;">
+                    <div clas="fila" style="margin-top: 5px;">
                         <mat-form-field style = "margin-left: 10px;">
                             <input matInput
                                 [disabled]="advSearch.asignacion_tipo == ''"

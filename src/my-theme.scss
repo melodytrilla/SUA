@@ -84,3 +84,38 @@ $darkTheme-theme-test:(
     @include angular-material-theme($my-theme-theme);
 }
 
+//otros estilos
+.fila{
+    display: flex;
+    flex-direction: row;
+}
+
+.columna{
+    display: flex;
+    flex-direction: column;
+}
+
+.hov:hover{
+    background-color: #EFEEEE;
+    cursor: pointer;
+}
+
+.font12{
+    font-size: 12px;
+}
+
+.font13{
+    font-size: 13px;
+}
+
+.font14{
+    font-size: 14px;
+}
+
+.font15{
+    font-size: 15px;
+}
+
+.font18{
+    font-size: 18px;
+}

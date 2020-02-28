@@ -35,7 +35,7 @@ export class Top10NeighborhoodsComponent implements OnInit {
       datalabels: {
         display: false,
         padding: 0,
-        color: '#82817F',
+        color: '#000000',
         anchor: 'end',
         textStrokeWidth: 0.2,
         align: 'end',
@@ -52,7 +52,7 @@ export class Top10NeighborhoodsComponent implements OnInit {
           padding: 9,
           fontSize: 14,
           usePointStyle: true,
-          fontColor: '#929191',
+          fontColor: '#000000',
           boxWidth: 9,
       }
   }

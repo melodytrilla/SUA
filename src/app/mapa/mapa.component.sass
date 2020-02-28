@@ -1,23 +1,15 @@
 .topBar
-    display: flex
-    flex-direction: row
     align-items: center
     justify-content: space-between
 
 .more
     align-self: left
-    cursor: pointer
     padding: 5px
 
-.more:hover
-    background-color: #EFEEEE
-
 .ordenar
-    display: flex
     align-items: center
 
 .content
-    display: flex
     height: 72vh
 
 .listConteiner
@@ -38,26 +30,15 @@ cdk-virtual-scroll-viewport
 //css de la lista de elementos
 
 .listElement
-    display: flex
-    flex-direction: row
     height: 12vh
     min-height: 100px
-
-
-//datos de cada elemento
-
-.part1
-    display: flex
-    flex-direction: column
-    min-width: 28%
 
 //dentro de parte 1
 
 .upperPart
-    display: flex
-    flex-direction: row
     min-height: 25%
     align-items: center
+    justify-content: space-between
 
 mat-checkBox
     margin: 4px
@@ -86,8 +67,6 @@ mat-checkBox
 
 
 .part2
-    display: flex
-    flex-direction: column
     min-width: 70%
 
 //dentro de upper part
@@ -96,14 +75,6 @@ mat-checkBox
     margin-left: 2%
     color: inherit
     margin-top: 10px
-
-.descripcionTiempo
-    margin: 0px
-    font-size: 13px
-    align-self: center
-
-.addDistance
-    min-width: 48%
 
 .raiting
     display: inherit
@@ -120,22 +91,16 @@ mat-checkBox
 
 //dentro de la lower part
 .rowContent
-    display: flex
-    flex-direction: row
     align-content: center
     align-items: center
 
 .infoConteiner
-    display: flex
-    flex-direction: column
     height: 100%
     width: 90%
     min-width: 90%
     min-height: 100%
 
 .infoType
-    display: flex
-    flex-direction: row
     color: inherit
     position: relative
     top: 10%
@@ -151,7 +116,6 @@ mat-checkBox
     margin-bottom: 0px
 
 .infoDescripcion
-    display: flex
     position: relative
     left: 1%
     top: 20%
@@ -167,14 +131,8 @@ mat-checkBox
 
 .arrowSeparator
     align-items: center
-    display: flex
-
-.arrowPos:hover
-    cursor: pointer
-    background-color: #EFEEEE
 
 .arrowPos
-    display: flex
     color: inherit
 
 .example-viewport
@@ -186,13 +144,9 @@ mat-checkBox
     width: 135vh
 
 .total
-    display: flex
-    flex-direction: row
     align-items: center
 
 .colum0
-    display: flex
-    flex-direction: column
     max-width: 130px
     text-align: center
     margin: 0px 20px 0px 10px
@@ -203,9 +157,4 @@ mat-checkBox
     height: 60px
 
 .click
-    display: flex
     width: 100%
-
-.click:hover
-    background-color: #EFEEEE
-    cursor: pointer
