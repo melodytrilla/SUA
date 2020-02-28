@@ -36,9 +36,9 @@
                     <mat-option class="optionPunto fila" [value]=dir>
                         <div class="punto columna">
                             <p>{{dir.properties.name}}</p>
-                            <p *ngIf="dir.properties.subtipo != 'DIRECCIÓN'; else direccion" class="dir">{{dir.properties.direccion}}</p>
+                            <p *ngIf="dir.properties.subtipo != 'DIRECCIÓN'; else direccion" class="dir font12">{{dir.properties.direccion}}</p>
                             <ng-template #direccion>
-                                <p class="dir">{{dir.properties.subtipo}}</p>
+                                <p class="dir font12">{{dir.properties.subtipo}}</p>
                             </ng-template>
                         </div>
                         <mat-divider></mat-divider>
@@ -49,9 +49,9 @@
                     <mat-option class="optionPunto fila" [value]="dir">
                         <div class="punto columna">
                             <p>{{dir.properties.name}}</p>
-                            <p class="dir">{{dir.properties.subtipo}}</p>
+                            <p class="dir font12">{{dir.properties.subtipo}}</p>
                             <ng-container *ngFor="let altura of dir.properties.rangosAltura">
-                                <div class="altura fila">
+                                <div class="altura fila font12">
                                     <p>{{altura.alturaDesde}} - {{altura.alturaHasta}} </p>
                                     <p *ngIf="altura.bis" > BIS </p>
                                 </div>

@@ -31,7 +31,7 @@
     <cdk-virtual-scroll-viewport style="height: 73vh" itemSize="93" (scrolledIndexChange)="nextBatch($event)">
         <div mat-list *cdkVirtualFor="let item of items" class="lista">
             <div mat-list-item class="content fila">
-                <div style="display: flex; width: 100%;">
+                <div class="fila" style="width: 100%;">
                     <div style="width: 1%"><mat-checkbox color="primary"></mat-checkbox></div>
                     <div class="click fila hov" (click)="this.sendto(item.id, item.anio)">
                         <div class="colum0 columna">
