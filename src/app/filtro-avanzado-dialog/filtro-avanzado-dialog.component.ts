@@ -968,7 +968,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
 
   DEcambiarBusqueda(){
     if(this.advSearch.clasificacion_subtipo.length == 1){
-      this.datosEspecificos_warning = "tiene 1";
+      this.datosEspecificos_warning = "tiene 1 y es " + this.advSearch.clasificacion_subtipo[0].descripcion;
     }else{
       this.datosEspecificos_warning =  "Para filtrar por datos específicos debe ingresar solo 1 subtipo en clasificación"
     }
