@@ -50,7 +50,6 @@ export class ListadoComponent implements AfterViewInit {
           value.tiempo = moment([this.formato(value.fecha_hora_estado)], "YYYY, MM, DD, h, mm, ss").fromNow();
           value.tiempoInterv =moment([this.formato(value.fecha_hora_intervencion)], "YYYY, MM, DD, h, mm, ss").fromNow();
           value.tiempoMap =moment([this.formato(value.fecha_hora_asignacion)], "YYYY, MM, DD, h, mm, ss").fromNow();
-          console.log(this.formato(value.fecha_hora_estado));
         })
         
         this.items = data
@@ -76,10 +75,6 @@ export class ListadoComponent implements AfterViewInit {
     const start = this.viewPort.getRenderedRange().start;
     const end = this.viewPort.getRenderedRange().end;
     const total = this.viewPort.getDataLength();
-console.log(`end is ${end} total is ${total}`)
-    if (end == total) {
-      console.log("end reached increase page no")
-    }
   }
 
   trackByIdx(i: number) {
