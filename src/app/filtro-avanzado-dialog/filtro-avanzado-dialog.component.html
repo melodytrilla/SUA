@@ -103,7 +103,8 @@
                 <mat-chip-list>
                     <mat-chip *ngFor="let elegido of advSearch.clasificacion_origenes"
                         [removable]=true [selectable]=true 
-                        color="primary" (removed)="takeOut(elegido)"> 
+                        (removed)="takeOut(elegido)"
+                        color="accent" selected> 
                             {{elegido}}
                             <mat-icon matChipRemove>cancel</mat-icon>
                         </mat-chip>
@@ -264,7 +265,7 @@
                             <mat-chip *ngFor="let chip of advSearch.estado_estados"
                                 [removable] = "true"
                                 (removed)= "removeEstado(chip)"
-                                color="primary">
+                                color="accent" selected>
                             {{chip}}
                             <mat-icon matChipRemove> cancel</mat-icon>
                             </mat-chip>
@@ -351,7 +352,7 @@
                         <mat-chip *ngFor="let chip of advSearch.distrito_vecinales"
                             [removable]=true
                             (removed)="remove(chip)"
-                            color="primary">
+                            color="accent" selected>
                             <div class="chip">
                                 <h6 class="subtitulo">{{chip.distrito}}</h6>
                                 {{chip.nombre}}
@@ -422,7 +423,8 @@
                         <mat-chip-list>
                             <mat-chip *ngFor="let int of advSearch.intervenciones_seleccionadas"
                             [removable]=true [selectable]=true
-                            color=primary (removed)="quitarIntervencion(int)">
+                            (removed)="quitarIntervencion(int)"
+                            color="accent" selected>
                                 {{int}}
                                 <mat-icon matChipRemove>cancel</mat-icon>
                             </mat-chip>
@@ -546,7 +548,7 @@
                             <mat-chip *ngFor= "let chip of advSearch.asignacion_listPersonas"
                                 [removable]=true
                                 (removed)= "removeEquipo(chip)"
-                                color="Primary">
+                                color="accent" selected>
                                 {{chip}}
                                 <mat-icon matChipRemove> cancel</mat-icon>
                             </mat-chip>
