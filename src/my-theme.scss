@@ -2,6 +2,44 @@
 @include mat-core();
 
 
+//---- Fonts ------------------
+
+
+.font-Ralewaybold{
+    font-family: ralewaybold;
+    
+}
+
+.font-Ralewayextrabold{
+    font-family: ralewayextrabold;
+    
+}
+.font-Ralewayblack{
+    font-family: ralewayblack;
+    
+}
+.font-Opensansregular{
+    font-family: open_sansregular;
+    
+}
+.font-Opensansitalic{
+    font-family: open_sansitalic;
+    
+}
+.font-Opensanssemibolditalic{
+    font-family: open_sanssemibold_italic;
+    
+}
+.font-Opensanssemibold{
+    font-family: open_sansitalic;
+    
+}
+
+
+//---------------------------------
+
+
+
 //testing color blue
 $blue-theme: #0066cc;
 
@@ -21,6 +59,10 @@ $white-theme-darker: #d1d1d1;
 .blueBack-Button{
     background-color: $blue-theme !important;
     color: $white-theme-lighter !important;
+}
+
+.titleFont-Bold{
+    font: "Raleway-Bold";
 }
 
 //--------------------------------------------------------

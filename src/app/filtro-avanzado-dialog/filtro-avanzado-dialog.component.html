@@ -1,6 +1,6 @@
 <!--<div mat-dialog-content class="mainContainer dark" [formGroup]="form"></div>-->
 
-    <h1 mat-dialog-title>Filtros avanzados</h1>
+    <h1 class="font-Ralewaybold" mat-dialog-title>Filtros avanzados</h1>
     <!--
     <app-chips-container #myChips [chipsAnteriores] = []></app-chips-container>
 
@@ -38,12 +38,12 @@
             <mat-panel-title class="titulo">
                 Reporte
             </mat-panel-title>
-            <mat-panel-description>
+            <mat-panel-description class="font-Opensansitalic">
                 {{descripcionReporte}}
             </mat-panel-description>
         </mat-expansion-panel-header>
 
-        <div class="body fila">
+        <div class="body fila font-Opensansregular">
             <div class="fila" Id="inputField">
                 <mat-label style="margin-right: 2%;">Reiteraciones: </mat-label>
                 
@@ -71,10 +71,11 @@
             <mat-panel-title class="titulo">
                 Clasificación
             </mat-panel-title>
-            <mat-panel-description>
+            <mat-panel-description class="font-Opensansitalic">
                 {{descripcionCalif}}
             </mat-panel-description>
         </mat-expansion-panel-header>
+        <div class="font-Opensansregular">
         <div>
             <app-chips-container id="subtipoFont" #myChips [chipsAnteriores] = []></app-chips-container>
         </div>
@@ -127,6 +128,7 @@
                 </mat-checkbox>
             </div>
         </div>
+        </div>
     </mat-expansion-panel>
 
 
@@ -136,12 +138,12 @@
             <mat-panel-title class="titulo">
                 Área
             </mat-panel-title>
-            <mat-panel-description>
+            <mat-panel-description class="font-Opensansitalic">
                 {{descripcionArea}}
             </mat-panel-description>
         </mat-expansion-panel-header>
         
-        <div Id="area_font_toWhite" class="body fila">
+        <div Id="area_font_toWhite font-Opensansregular" class="body fila">
             <mat-form-field style="width: 25%;">
                 <mat-label>Área de origen</mat-label>            
                 <input matInput [matAutocomplete] = "autoArea"
@@ -186,12 +188,12 @@
             <mat-panel-title class="titulo">
                 Adjunto
             </mat-panel-title>
-            <mat-panel-description>
+            <mat-panel-description class="font-Opensansitalic">
                 {{descripcionAdjunto}}
             </mat-panel-description>
         </mat-expansion-panel-header>
         
-        <div id="AdjuntoFont" class="body fila">
+        <div id="AdjuntoFont font-Opensansregular" class="body fila">
             <section>
                 <mat-radio-group [(ngModel)]="advSearch.adjunto_tiene" (change)="checkEnable($event)">
                     <mat-radio-button value="Con" color="primary"> Con</mat-radio-button>
@@ -214,7 +216,7 @@
             <mat-panel-title class="titulo">
                 Opinión
             </mat-panel-title>
-            <mat-panel-description>
+            <mat-panel-description class="font-Opensansitalic">
                 {{descripcionOpinion}}
             </mat-panel-description>
         </mat-expansion-panel-header>
@@ -243,7 +245,7 @@
             <mat-panel-title class="titulo">
                 Estado
             </mat-panel-title>
-            <mat-panel-description>
+            <mat-panel-description class="font-Opensansitalic">
                 {{descripcionEstado}}
             </mat-panel-description>
         </mat-expansion-panel-header>
@@ -313,7 +315,7 @@
             <mat-panel-title class="titulo">
                 Distrito
             </mat-panel-title>
-            <mat-panel-description>
+            <mat-panel-description class="font-Opensansitalic">
                 {{descripcionDistrito}}
             </mat-panel-description>
         </mat-expansion-panel-header>
@@ -373,7 +375,7 @@
             <mat-panel-title class="titulo">
                 Intervenciones
             </mat-panel-title>
-            <mat-panel-description>
+            <mat-panel-description class="font-Opensansitalic">
                 {{descripcionInt}}
             </mat-panel-description>
         </mat-expansion-panel-header>
@@ -445,7 +447,7 @@
             <mat-panel-title class="titulo">
                 Equipamiento
             </mat-panel-title>
-            <mat-panel-description>
+            <mat-panel-description class="font-Opensansitalic">
                 {{descripcionEqp}}
             </mat-panel-description>
         </mat-expansion-panel-header>
@@ -489,7 +491,7 @@
             <mat-panel-title class="titulo">
                 Asignaciones
             </mat-panel-title>
-            <mat-panel-description>
+            <mat-panel-description class="font-Opensansitalic">
                 {{descripcionAsig}}
             </mat-panel-description>
         </mat-expansion-panel-header>
@@ -567,7 +569,7 @@
             <mat-panel-title class="titulo">
                 Datos específicos
             </mat-panel-title>
-            <mat-panel-description>
+            <mat-panel-description class="font-Opensansitalic">
                 <!--{{descripcionDE}}--> No se filtra por datos específicos
             </mat-panel-description>
         </mat-expansion-panel-header>
