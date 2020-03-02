@@ -76,7 +76,7 @@
             </mat-panel-description>
         </mat-expansion-panel-header>
         <div>
-            <app-chips-container #myChips [chipsAnteriores] = []></app-chips-container>
+            <app-chips-container id="subtipoFont" #myChips [chipsAnteriores] = []></app-chips-container>
         </div>
         <mat-divider style="margin-bottom: 1%;"></mat-divider>
         <div class="body fila">
@@ -140,7 +140,7 @@
             </mat-panel-description>
         </mat-expansion-panel-header>
         
-        <div class="body fila">
+        <div Id="area_font_toWhite" class="body fila">
             <mat-form-field style="width: 25%;">
                 <mat-label>Área de origen</mat-label>            
                 <input matInput [matAutocomplete] = "autoArea"
@@ -172,6 +172,7 @@
                 <mat-label>Área de reiteración</mat-label>            
                 <input matInput [matAutocomplete] = "autoArea"
                     (input)="updateAutocomplete($event.target.value)"
+                    (focus)="updateAutocomplete($event.target.value)"
                     [(ngModel)]="advSearch.area_reiteracion"
                     >
             </mat-form-field>
@@ -270,7 +271,7 @@
                         </mat-chip-list>
                     </div>
                 </div>
-                <div style="flex-grow: 1;">
+                <div Id="estado_font.toWhite" style="flex-grow: 1;">
                     <!-- Date Range -->
                     <mat-form-field>
                         <input matInput
@@ -318,7 +319,7 @@
 
         <div class="body fila">
             <div class="fila" style="justify-content: space-between;">
-                <div style="flex-grow: 1; margin-right: 30px;">
+                <div Id="distrito_font_toWhite" style="flex-grow: 1; margin-right: 30px;">
                     <mat-form-field style="width:275px">
                         <input matInput #search
                             placeholder = "Vecinal"
@@ -492,7 +493,7 @@
         </mat-expansion-panel-header>
         <div class="body fila">
             <div class="fila" style="width: 100%">
-                <div style="flex-grow: 1; flex-direction: column;">
+                <div Id= "asig_font-towhite" style="flex-grow: 1; flex-direction: column;">
                     <div>
                         <mat-radio-group [(ngModel)] = "advSearch.asignacion_tipo">
                             <mat-radio-button value="con" color="primary"> Con </mat-radio-button>
@@ -568,8 +569,8 @@
                 <!--{{descripcionDE}}--> No se filtra por datos específicos
             </mat-panel-description>
         </mat-expansion-panel-header>
-        <ng-container color= 'warning'>
-            <p>Para filtrar por datos específicos debe ingresar solo 1 subtipo en clasificación</p>
+        <ng-container>
+            <p style="text-align: center;">{{datosEspecificos_warning}}</p>
         </ng-container>
     </mat-expansion-panel>
 </mat-accordion>
