@@ -8,14 +8,19 @@ $blue-theme: #0066cc;
 $blue-theme-lighter: #0787d1;
 $blue-theme-darker: #0053be;
 
+
+$white-theme: #e6e6e6;
+$white-theme-lighter:#eeeeee; 
+$white-theme-darker: #d1d1d1;
+
 .whiteBack-Button{
-    background-color: white !important;
+    background-color: $white-theme-lighter !important;
     color: $blue-theme !important;
 }
 
 .blueBack-Button{
     background-color: $blue-theme !important;
-    color: white !important;
+    color: $white-theme-lighter !important;
 }
 
 //--------------------------------------------------------
@@ -33,7 +38,14 @@ $my-primary-test: ( default: $blue-theme,
                     lighter-contrast: $light-primary-text,
                     darker-contrast: $light-primary-text);
 
-$my-theme-accent: mat-palette($mat-red, 600, 200, 900);
+$my-theme-accent: ( default: $blue-theme, 
+                    lighter:$blue-theme-lighter, 
+                    darker: $blue-theme-darker,
+                    text: $blue-theme,
+
+                    default-contrast: $light-primary-text,
+                    lighter-contrast: $light-primary-text,
+                    darker-contrast: $light-primary-text);
 
 $my-theme-warn: mat-palette($mat-red);
 
@@ -48,17 +60,24 @@ $my-theme-theme:mat-light-theme($my-primary-test, $my-theme-accent, $my-theme-wa
 $darkTheme-primary: mat-palette($mat-yellow, 700, 300, 900);
 
 //test new dark primary
-$darkTheme-test-primary:(default: #e6e6e6, 
-                        lighter:#eeeeee, 
-                        darker: #d1d1d1,
-                        text: #e6e6e6,
+$darkTheme-test-primary:(default: $white-theme, 
+                        lighter:$white-theme-lighter, 
+                        darker: $white-theme-darker,
+                        text: $white-theme,
 
                         default-contrast: $light-primary-text,
                         lighter-contrast: $light-primary-text,
                         darker-contrast: $light-primary-text);
 
 
-$darkTheme-accent: mat-palette($mat-green, 600, 200, 900);
+$darkTheme-accent: ( default: $white-theme-lighter, 
+                    lighter:$white-theme-lighter, 
+                    darker: $white-theme-lighter,
+                    text: $blue-theme,
+
+                    default-contrast: $blue-theme,
+                    lighter-contrast: $blue-theme-lighter,
+                    darker-contrast: $blue-theme-darker);
 
 $darkTheme-warn: mat-palette($mat-red);
 
