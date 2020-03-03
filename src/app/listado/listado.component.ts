@@ -5,6 +5,7 @@ import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import * as moment from 'moment';
 import 'moment/locale/es';
 import { Router } from "@angular/router";
+import { FormControl } from '@angular/forms';
 
 export interface Opcion {
   value: string;
@@ -19,7 +20,7 @@ export interface Opcion {
 })
 export class ListadoComponent implements AfterViewInit {
   asc = false;
-  
+  toppings = new FormControl();
 
   constructor(public api: SolicitudesItemsService,
               private router: Router) { }
@@ -81,7 +82,17 @@ export class ListadoComponent implements AfterViewInit {
     return i;
   }
 
-  
+  selectAll(ev){
+   
+    if(ev._selected){
+this.toppings.setValue(this.items);
+ev._selected=true;
+    }
+    if(ev._selected==false){
+      this.toppings.setValue([]);
+    }
+    
+  }
 }
 
 
