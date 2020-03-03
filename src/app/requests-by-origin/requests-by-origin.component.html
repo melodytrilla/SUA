@@ -1,27 +1,9 @@
-<!--<mat-card class="tarjeta">-->
-    <div class= "container">
-        <!--<div class="navbar">
-                <div class="dropdown">
-                <button class="dropbtn"><mat-icon>keyboard_arrow_down</mat-icon>
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a routerLink="/solicitudesPorOrigen"> Solicitudes por Origen</a>
-                    <a routerLink="/solicitudesPorDistrito">Solicitudes por Distrito</a>
-                    <a routerLink="/top10categorias">Top 10 categorías</a>
-                    <a routerLink="/top10vecinales">Top 10 vecinales</a>
-                </div>
-                </div>
-        </div>-->
-    </div>
-    <div class="card">
-        <canvas id="doughnut" class="grafico" baseChart
-            [data]="doughnutChartData"
-            [labels]="doughnutChartLabels"
-            [chartType]="doughnutChartType"
-            [colors]="doughnutChartColors"
-            [options] ="doughnutChartOptions"
-            [plugins] = "doughnutChartPlugins"></canvas>
-    </div>
-    
-<!--</mat-card>-->
+<div class="card">
+    <canvas id="doughnut" class="grafico" baseChart
+        [data]="doughnutChartData"
+        [labels]="doughnutChartLabels"
+        [chartType]="doughnutChartType"
+        [colors]="doughnutChartColors"
+        [options] ="doughnutChartOptions"
+        [plugins] = "doughnutChartPlugins"></canvas>
+</div>

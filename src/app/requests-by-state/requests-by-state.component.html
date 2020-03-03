@@ -1,7 +1,3 @@
-<mat-card class="tarjeta">
-<!--<mat-card-title class="titulo font15">Solicitudes por Estado
-    <h3>{{total}}</h3>
-</mat-card-title>-->
 <div id="total">
     <p id="cardTitle"> Solicitudes por estado</p>
     <p id="cardContent">{{total}}</p>
@@ -14,6 +10,5 @@
         [chartType]="hBarChartType"
         [colors]="hBarChartColors"
         [options] ="hBarChartOptions"
-        [plugins] = "hBarChartPlugins"></canvas>
+        [plugins] = "hBarChartPlugins" style="padding: 5% 0% 0% 5%; max-width: 95%"></canvas>
 </div>
-</mat-card>

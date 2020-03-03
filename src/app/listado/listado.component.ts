@@ -5,6 +5,7 @@ import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import * as moment from 'moment';
 import 'moment/locale/es';
 import { Router } from "@angular/router";
+import { FormControl } from '@angular/forms';
 
 export interface Opcion {
   value: string;
@@ -19,7 +20,7 @@ export interface Opcion {
 })
 export class ListadoComponent implements AfterViewInit {
   asc = false;
-  
+  toppings = new FormControl();
 
   constructor(public api: SolicitudesItemsService,
               private router: Router) { }
@@ -50,7 +51,6 @@ export class ListadoComponent implements AfterViewInit {
           value.tiempo = moment([this.formato(value.fecha_hora_estado)], "YYYY, MM, DD, h, mm, ss").fromNow();
           value.tiempoInterv =moment([this.formato(value.fecha_hora_intervencion)], "YYYY, MM, DD, h, mm, ss").fromNow();
           value.tiempoMap =moment([this.formato(value.fecha_hora_asignacion)], "YYYY, MM, DD, h, mm, ss").fromNow();
-          console.log(this.formato(value.fecha_hora_estado));
         })
         
         this.items = data
@@ -76,17 +76,23 @@ export class ListadoComponent implements AfterViewInit {
     const start = this.viewPort.getRenderedRange().start;
     const end = this.viewPort.getRenderedRange().end;
     const total = this.viewPort.getDataLength();
-console.log(`end is ${end} total is ${total}`)
-    if (end == total) {
-      console.log("end reached increase page no")
-    }
   }
 
   trackByIdx(i: number) {
     return i;
   }
 
-  
+  selectAll(ev){
+   
+    if(ev._selected){
+this.toppings.setValue(this.items);
+ev._selected=true;
+    }
+    if(ev._selected==false){
+      this.toppings.setValue([]);
+    }
+    
+  }
 }
 
 
