@@ -70,6 +70,7 @@ export class RatingBarComponent implements OnInit {
     },
     legend: {
       display: false
+      
     },
     layout: {
       padding: {
@@ -83,7 +84,8 @@ export class RatingBarComponent implements OnInit {
         padding: 0,
         anchor: 'end',
         font: {
-          size: 20
+          size: 20,
+          family: 'open_sanssemibold'
         },
         textStrokeWidth: 0.3,
         align: 'end',

@@ -61,7 +61,8 @@ export class RequestsByStateComponent implements OnInit {
         anchor: 'end',
         textStrokeWidth: 0.1,
         align: 'end',
-        font: {size: 25},
+        font: {size: 25, 
+               family: 'open_sanssemibold'},
       }
     },
       legend: {
@@ -71,7 +72,8 @@ export class RequestsByStateComponent implements OnInit {
         
         labels: {
           padding: 18,
-          fontSize: 18,
+          fontSize: 50,
+          fontFamily: 'open_sansregular',
           usePointStyle: true,
           fontColor: '#000000',
           boxWidth: 10
