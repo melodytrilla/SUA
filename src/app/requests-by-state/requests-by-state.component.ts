@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import { ChartOptions} from 'chart.js';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
-import { Label } from 'ng2-charts';
 import 'chart.piecelabel.js';
-import { preserveWhitespacesDefault, sanitizeIdentifier } from '@angular/compiler';
-import { filter } from 'minimatch';
 import { SolicitudesService } from '../solicitudes.service';
-import { $ } from 'protractor';
 
 
 @Component({
@@ -78,7 +74,7 @@ export class RequestsByStateComponent implements OnInit {
           fontSize: 18,
           usePointStyle: true,
           fontColor: '#000000',
-          boxWidth: 10,
+          boxWidth: 10
         }
       }
 

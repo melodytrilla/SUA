@@ -11,14 +11,14 @@
 <div class="topBar fila">
     <div class="ordenar fila">
         <mat-form-field>
-            <mat-label>Ordenar por</mat-label>
+            <mat-label class="texto-regular">Ordenar por</mat-label>
             <mat-select>
-                <mat-option value="Fecha de creación"> Fecha de creación </mat-option>
-                <mat-option value="Fecha de estado"> Fecha de estado </mat-option>
-                <mat-option value="Cantidad de reiteraciones"> Cantidad de reiteraciones </mat-option>
-                <mat-option value="Cantidad de solicitantes"> Cantidad de solicitantes </mat-option>
-                <mat-option value="Cantidad de asignaciones"> Cantidad de asignaciones </mat-option>
-                <mat-option value="Cantidad de intervenciones"> Cantidad de intervenciones </mat-option>
+                <mat-option class="texto-regular" value="Fecha de creación"> Fecha de creación </mat-option>
+                <mat-option class="texto-regular" value="Fecha de estado"> Fecha de estado </mat-option>
+                <mat-option class="texto-regular" value="Cantidad de reiteraciones"> Cantidad de reiteraciones </mat-option>
+                <mat-option class="texto-regular" value="Cantidad de solicitantes"> Cantidad de solicitantes </mat-option>
+                <mat-option class="texto-regular" value="Cantidad de asignaciones"> Cantidad de asignaciones </mat-option>
+                <mat-option class="texto-regular" value="Cantidad de intervenciones"> Cantidad de intervenciones </mat-option>
             </mat-select>
         </mat-form-field>
         <button mat-button (click)="togglePlay()">
@@ -26,14 +26,14 @@
             <mat-icon *ngIf="asc">arrow_upward</mat-icon>
         </button>
     </div>
-    <div class="total fila">
+    <div class="total fila texto-semibold">
         <div *ngIf="solicitudes.length!='1'">{{solicitudes.length}} solicitudes con localización</div>
         <div *ngIf="solicitudes.length=='1'">{{solicitudes.length}} solicitud con localización</div>
         <div><mat-icon class="more hov">more_vert</mat-icon></div>
     </div>
 </div>
 <mat-divider></mat-divider>
-<div class="content fila">
+<div class="content fila texto-regular">
         <cdk-virtual-scroll-viewport style="height: 73vh; width: 30vw;" itemSize="93" (scrolledIndexChange)="nextBatch($event)">
                 <div class="listConteiner">
                         <div mat-list *cdkVirtualFor="let solicitud of solicitudes">
@@ -42,12 +42,12 @@
                                     <div style="width: 1%"><mat-checkbox color="primary"></mat-checkbox></div>
                                     <div class="click fila hov"(click)="this.sendto(solicitud.id, solicitud.anio)">
                                         <div class="colum0 columna">
-                                            <div>{{solicitud.estado}}</div>
+                                            <div class="texto-semibold">{{solicitud.estado}}</div>
                                             <div><img src="{{solicitud.imagen}}"></div>
                                         </div>
                                         <div class="part2 columna">
                                             <div class="upperPart fila">
-                                                <div style="width: 35%;"><mat-icon class="fsua fsua-recientes iconoPos"></mat-icon>{{solicitud.tiempo}}</div>
+                                                <div class="texto-regularitalic font15" style="width: 40%;"><mat-icon class="fsua fsua-recientes iconoPos"></mat-icon>{{solicitud.tiempo}}</div>
                                                 <div class="raiting">
                                                     <div *ngIf="solicitud.opinion=='positivo'"><mat-icon class="iconoPos fsua fsua-bueno"></mat-icon></div>
                                                     <div *ngIf="solicitud.opinion=='negativo'"><mat-icon class="iconoPos fsua fsua-malo"></mat-icon></div>
