@@ -1,7 +1,7 @@
 
 <div class="mainContainer dark fila" [formGroup]="form">
     
-    <mat-form-field class="medium">
+    <mat-form-field class="medium texto-regular">
         <input matInput
             placeholder="Fechas"
             [satDatepicker]="picker"
@@ -14,15 +14,15 @@
     </mat-form-field>
    
 
-    <mat-form-field class="short">
+    <mat-form-field class="short texto-regular">
         <input matInput placeholder="Numero" formControlName="Id_solicitud">
     </mat-form-field>
 
-    <mat-form-field class="short">
+    <mat-form-field class="short texto-regular">
         <input matInput placeholder="Año" [textMask]="yearMask" formControlName="año">
     </mat-form-field>
 
-    <mat-form-field class="large">
+    <mat-form-field class="large texto-regular">
         <input matInput type="text" 
             placeholder="Ubicacion (min 4 letras)" 
             formControlName="ubicacion"
@@ -47,7 +47,7 @@
                 </ng-container>
                 <ng-template #notPoint>
                     <mat-option class="optionPunto fila" [value]="dir">
-                        <div class="punto columna">
+                        <div class="punto columna texto-regular">
                             <p>{{dir.properties.name}}</p>
                             <p class="dir font12">{{dir.properties.subtipo}}</p>
                             <ng-container *ngFor="let altura of dir.properties.rangosAltura">
@@ -65,7 +65,7 @@
          </mat-autocomplete>
     </mat-form-field>
 
-    <mat-form-field class="short">
+    <mat-form-field class="short texto-regular">
         <input matInput type="text" placeholder="Radio" maxlength=4 formControlName="radio">
     </mat-form-field>
 
@@ -78,7 +78,7 @@
         </div>
 
         <div class="serch-button">
-            <button class="whiteBack-Button" mat-stroked-button (click)="sendInfo()"><mat-icon style="color: inherit;" >search</mat-icon></button>
+            <button class="whiteBack-Button " mat-stroked-button (click)="sendInfo()"><mat-icon style="color: inherit;" >search</mat-icon></button>
         </div> 
     </div>
 </div>
