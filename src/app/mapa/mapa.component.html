@@ -8,7 +8,7 @@
 
 <app-global-nav-bar></app-global-nav-bar>
 <app-navbar></app-navbar>
-<div class="topBar fila">
+<div *ngIf="solicitudes" class="topBar fila">
     <div class="ordenar fila">
         <mat-form-field>
             <mat-label class="texto-regular">Ordenar por</mat-label>
