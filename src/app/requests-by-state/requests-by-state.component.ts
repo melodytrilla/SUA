@@ -72,8 +72,8 @@ export class RequestsByStateComponent implements OnInit {
         
         labels: {
           padding: 18,
-          fontSize: 50,
           fontFamily: 'open_sansregular',
+          fontSize: 18,
           usePointStyle: true,
           fontColor: '#000000',
           boxWidth: 10

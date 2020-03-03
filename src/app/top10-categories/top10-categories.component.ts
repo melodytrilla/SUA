@@ -51,8 +51,8 @@ export class Top10CategoriesComponent implements OnInit {
         labels: {
           padding: 9,
           fontSize: 14,
+          fontFamily: 'open_sansregular',
           usePointStyle: true,
-          fontColor: '#000000',
           boxWidth: 9,
       }
   }

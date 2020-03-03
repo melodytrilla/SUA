@@ -69,8 +69,10 @@ export class RatingBarComponent implements OnInit {
       enabled: true,
     },
     legend: {
-      display: false
-      
+      display: false,
+      labels: {
+        fontFamily: 'open_sansregular',
+      }
     },
     layout: {
       padding: {
