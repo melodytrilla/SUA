@@ -1,7 +1,7 @@
 <div class="container fila">
 
     
-    <h5 class="legend">Subtipo: </h5>
+    <h5 class="legend texto-semibold">Subtipo: </h5>
 
     <mat-chip-list #chipList>
         <mat-chip *ngFor="let chip of chips" 
@@ -10,8 +10,8 @@
             (removed)="remove(chip)"
             color="accent" selected>
                 <mat-icon class="fsua {{chip.estilo}} fsua-2x"></mat-icon>
-                <div class="chip columna">
-                    <h6 class="subtitulo">{{chip.categoria}}</h6>
+                <div class="chip columna texto-semibolditalic">
+                    <h6 class="subtitulo titulo-bold">{{chip.categoria}}</h6>
                     {{chip.descripcion}}
                 </div>
             <mat-icon matChipRemove>cancel</mat-icon>
@@ -19,7 +19,7 @@
     <div>
         <button *ngIf="!searchBoxVisible" mat-chip class="add" (click)="showSearch()">Agregar + (min 4 letras)</button>
 
-        <div *ngIf="searchBoxVisible">
+        <div *ngIf="searchBoxVisible texto-regular">
             <input matInput  #search
                 #trigger = "matAutocompleteTrigger"
                 id="search"
@@ -35,12 +35,12 @@
             <!--(optionSelected)="selected($event)" recordatorio volver a ponner en autocomplete si no funciona-->
             <mat-autocomplete #auto="matAutocomplete" >
                 <ng-container *ngFor="let categoria of filteredCategories">
-                    <mat-option  class="labelOpcion" [value]="categoria" (click)="getAllCategoria(categoria); trigger.closePanel()">
+                    <mat-option  class="labelOpcion texto-semibolditalic" [value]="categoria" (click)="getAllCategoria(categoria); trigger.closePanel()">
                         {{categoria}}
                     </mat-option>
 
                     <ng-container *ngFor="let option of filteredOptions">
-                        <mat-option class="subOpcion" [value]="option" *ngIf= "option.categoria == categoria" (click) = "selected(option)">
+                        <mat-option class="subOpcion texto-regularitalic" [value]="option" *ngIf= "option.categoria == categoria" (click) = "selected(option)">
                             {{ option.descripcion }}
                         </mat-option>
                     </ng-container>
