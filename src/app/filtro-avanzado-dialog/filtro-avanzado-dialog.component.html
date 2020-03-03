@@ -143,7 +143,7 @@
             </mat-panel-description>
         </mat-expansion-panel-header>
         
-        <div Id="area_font_toWhite font-Opensansregular" class="body fila">
+        <div Id="area_font_toWhite" class="body fila font-Opensansregular">
             <mat-form-field style="width: 25%;">
                 <mat-label>Área de origen</mat-label>            
                 <input matInput [matAutocomplete] = "autoArea"
@@ -193,7 +193,7 @@
             </mat-panel-description>
         </mat-expansion-panel-header>
         
-        <div id="AdjuntoFont font-Opensansregular" class="body fila">
+        <div id="AdjuntoFont" class="body fila font-Opensansregular">
             <section>
                 <mat-radio-group [(ngModel)]="advSearch.adjunto_tiene" (change)="checkEnable($event)">
                     <mat-radio-button value="Con" color="primary"> Con</mat-radio-button>
@@ -221,7 +221,7 @@
             </mat-panel-description>
         </mat-expansion-panel-header>
         
-        <div id="OpinionFont" class="body fila">
+        <div id="OpinionFont" class="body fila font-Opensansregular">
             <section>
                 <mat-radio-group [(ngModel)]="advSearch.opinion_tiene" (change)="checkEnableOp($event)">
                     <mat-radio-button value="Con" color="primary"> Con</mat-radio-button>
