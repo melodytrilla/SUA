@@ -52,6 +52,7 @@ export class Top10CategoriesComponent implements OnInit {
           padding: 9,
           fontSize: 14,
           fontFamily: 'open_sansregular',
+          fontColor: 'black',
           usePointStyle: true,
           boxWidth: 9,
       }

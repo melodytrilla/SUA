@@ -75,7 +75,7 @@ export class RequestsByStateComponent implements OnInit {
           fontFamily: 'open_sansregular',
           fontSize: 18,
           usePointStyle: true,
-          fontColor: '#000000',
+          fontColor: 'black',
           boxWidth: 10
         }
       }

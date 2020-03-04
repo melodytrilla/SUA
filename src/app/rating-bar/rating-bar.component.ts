@@ -51,7 +51,7 @@ export class RatingBarComponent implements OnInit {
   
 
   total = 0;
-  public barChartLabels: Array<string> = ['Neutral', 'Negativas', 'Positivas'];
+  public barChartLabels: Array<string> = ['Neutras', 'Negativas', 'Positivas'];
   public barChartType = 'bar';
   public barChartLegend = "false";
   public barChartData: Array<number> = [0, 0, 0];
@@ -72,6 +72,7 @@ export class RatingBarComponent implements OnInit {
       display: false,
       labels: {
         fontFamily: 'open_sansregular',
+        fontColor: 'black',
       }
     },
     layout: {
@@ -87,7 +88,7 @@ export class RatingBarComponent implements OnInit {
         anchor: 'end',
         font: {
           size: 20,
-          family: 'open_sanssemibold'
+          family: 'open_sanssemibold',
         },
         textStrokeWidth: 0.3,
         align: 'end',

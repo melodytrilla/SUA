@@ -53,6 +53,7 @@ export class RequestsByOriginComponent implements OnInit {
           padding: 10,
           fontSize: 16,
           fontFamily: 'open_sansregular',
+          fontColor: 'black',
           usePointStyle: true,
           boxWidth: 9,
       }
