@@ -12,18 +12,18 @@
             <div *ngIf= "userLog; else loginBlock" class="columna" style="height: 89%;">
                 <div class="spacer fila"></div>
                 <div class="bienvenidaConteiner">
-                    <p class="bienvenido"> Welcome!</p>
-                    <p class="usuario"> {{userLog.username}}</p>
+                    <p class="bienvenido titulo-bold"> Welcome!</p>
+                    <p class="usuario texto-regular"> {{userLog.username}}</p>
                 </div>
                 <mat-divider></mat-divider>
                 <div class="favConteiner">
                     <mat-accordion>
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
-                                <mat-panel-title>
+                                <mat-panel-title class="titulo-bold">
                                     Busquedas favoritas
                                 </mat-panel-title>
-                                <mat-panel-description>
+                                <mat-panel-description class="texto-regularitalic">
                                     aqui estan todas tus busquedas favoritas
                                 </mat-panel-description>
                             </mat-expansion-panel-header>
@@ -53,6 +53,6 @@
 <div id="screenDarkener" (click)="Close()"></div>
 
 
-<button mat-button (click)="Open()"><i class="fsua fsua-menu fsua-2x" style="color:#f7f7f8"></i></button>
+<button mat-button (click)="Open()"><i class="fsua fsua-menu fsua-2x menuButton"></i></button>
 
 </div>
