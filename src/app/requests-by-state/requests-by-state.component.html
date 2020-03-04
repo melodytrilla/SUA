@@ -1,8 +1,8 @@
 <div id="total">
-    <p id="cardTitle"> Solicitudes por estado</p>
-    <p id="cardContent">{{total}}</p>
+    <div class="titulo-bold font15"><p id="cardTitle"> Solicitudes por estado</p></div>
+    <div class="texto-semibold"><p id="cardContent">{{total}}</p></div>
     <mat-divider></mat-divider>
-  </div>
+</div>
 <div>
     <canvas Id="graph" class="grafico" baseChart
         [data]="hBarChartData"
@@ -10,5 +10,5 @@
         [chartType]="hBarChartType"
         [colors]="hBarChartColors"
         [options] ="hBarChartOptions"
-        [plugins] = "hBarChartPlugins" style="padding: 5% 0% 0% 5%; max-width: 95%"></canvas>
+        [plugins] = "hBarChartPlugins" style="padding: 3% 0% 0% 4%; max-width: 95%; max-height: 95%"></canvas>
 </div>

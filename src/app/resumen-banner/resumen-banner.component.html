@@ -1,14 +1,14 @@
 <div class="container fila" >
-    <div class="alerta columna">
+    <div class="alerta columna titulo-bold">
         <div>Alertas</div>
         <mat-icon [inline]="true">alarm</mat-icon>
     </div >
 
-    <mat-card style="height: 67px">
+    <mat-card style="height: 74px">
         <mat-card-content>
-            <mat-card-subtitle> Reiteradas </mat-card-subtitle>
+            <mat-card-subtitle class="titulo-bold"> Reiteradas </mat-card-subtitle>
             <div>
-                <mat-card-title *ngIf="alertas['reiterated']; else placeholder"> 
+                <mat-card-title class="texto-semibold" *ngIf="alertas['reiterated']; else placeholder"> 
                     {{alertas['reiterated'].cantidad}} 
                 </mat-card-title>
             </div>
@@ -17,8 +17,8 @@
 
     <mat-card>
         <mat-card-content>
-            <mat-card-subtitle>  Sin Intervención </mat-card-subtitle>
-            <mat-card-title *ngIf="alertas['unintervined']; else placeholder"> 
+            <mat-card-subtitle class="titulo-bold">  Sin Intervención </mat-card-subtitle>
+            <mat-card-title class="texto-semibold" *ngIf="alertas['unintervined']; else placeholder"> 
                 {{alertas['unintervined'].cantidad}}
                 <mat-icon class="fsua fsua-intervenido fsua-0_5x"></mat-icon>
             </mat-card-title>
@@ -27,8 +27,8 @@
 
     <mat-card>
         <mat-card-content>
-            <mat-card-subtitle> Sin asignación </mat-card-subtitle>
-            <mat-card-title *ngIf="alertas['unasigned']; else placeholder"> 
+            <mat-card-subtitle class="titulo-bold"> Sin asignación </mat-card-subtitle>
+            <mat-card-title class="texto-semibold" *ngIf="alertas['unasigned']; else placeholder"> 
                 {{alertas['unasigned'].cantidad}}
                 <mat-icon class="fsua fsua-mapa fsua-0_5x"></mat-icon>
             </mat-card-title>
@@ -37,8 +37,8 @@
 
     <mat-card>
         <mat-card-content>
-            <mat-card-subtitle> Vencidas </mat-card-subtitle>
-            <mat-card-title *ngIf="alertas['expired']; else placeholder"> 
+            <mat-card-subtitle class="titulo-bold"> Vencidas </mat-card-subtitle>
+            <mat-card-title class="texto-semibold" *ngIf="alertas['expired']; else placeholder"> 
                 {{alertas['expired'].cantidad}} 
             </mat-card-title>
         </mat-card-content>
@@ -46,8 +46,8 @@
 
     <mat-card>
         <mat-card-content>
-            <mat-card-subtitle> Reprogramadas </mat-card-subtitle>
-            <mat-card-title *ngIf="alertas['reprogrammed']; else placeholder"> 
+            <mat-card-subtitle class="titulo-bold"> Reprogramadas </mat-card-subtitle>
+            <mat-card-title class="texto-semibold" *ngIf="alertas['reprogrammed']; else placeholder"> 
                 {{alertas['reprogrammed'].cantidad}} 
             </mat-card-title>
         </mat-card-content>
@@ -55,8 +55,8 @@
 
     <mat-card>
         <mat-card-content>
-            <mat-card-subtitle> Resueltas fuera de término </mat-card-subtitle>
-            <mat-card-title *ngIf="alertas['out-of-term']; else placeholder"> 
+            <mat-card-subtitle class="titulo-bold"> Resueltas fuera de término </mat-card-subtitle>
+            <mat-card-title class="texto-semibold" *ngIf="alertas['out-of-term']; else placeholder"> 
                  {{alertas['out-of-term'].cantidad}} 
             </mat-card-title>
         </mat-card-content>

@@ -18,7 +18,7 @@ export class ResumenComponent {
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'Card 1', cols: 2, rows: 1, content: '<app-requests-by-state></app-requests-by-state>' },
+          { title: 'Card 1', cols: 2, rows: 1 },
           { title: 'Card 2', cols: 1, rows: 1 },
           { title: 'Card 3', cols: 1, rows: 1 },
           { title: 'Card 4', cols: 4, rows: 1 },

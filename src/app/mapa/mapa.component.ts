@@ -35,8 +35,8 @@ export class MapaComponent implements OnInit {
     this.api.getSolicitudes().subscribe(
       data => {
         data.forEach(value => {
-          if (value.subtipo.length > 35) {
-            value.subtipo = value.subtipo.substr(0, 32) + "...";
+          if (value.subtipo.length > 27) {
+            value.subtipo = value.subtipo.substr(0, 24) + "...";
           }
           if (value.interseccion.length > 10) {
             value.interseccion = value.interseccion.substr(0, 7) + "...";

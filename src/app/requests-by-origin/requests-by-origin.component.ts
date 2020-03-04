@@ -52,8 +52,9 @@ export class RequestsByOriginComponent implements OnInit {
         labels: {
           padding: 10,
           fontSize: 16,
+          fontFamily: 'open_sansregular',
+          fontColor: 'black',
           usePointStyle: true,
-          fontColor: '#000000',
           boxWidth: 9,
       }
   }

@@ -4,16 +4,16 @@
     <div class="fila fil font15">
         <div class="card1">
             <mat-card>
-                <div class="fila fil font15">
-                    <div>
+                <div class="fila fil font15 texto-regular">
+                    <div class="titulo-bold">
                         <div *ngIf = "solicitud.categoria=='Alumbrado'"><mat-icon class="fsua fsua-alumbrado_publico"></mat-icon> {{solicitud.subtipo}}</div>
                         <div *ngIf = "solicitud.categoria=='Colectivos urbanos'"><mat-icon class="fsua fsua-colectivos_urbanos"></mat-icon> {{solicitud.subtipo}}</div>
                     </div>
-                    <div>
+                    <div class="titulo-bold">
                         {{solicitud.id}}-{{solicitud.anio}}
                     </div>
                 </div>
-                <div class="fila fil font15">
+                <div class="fila fil font15 texto-regular">
                     <div>
                         <div *ngIf="solicitud.altura>0">{{solicitud.calle}} {{solicitud.altura}}</div>
                         <div *ngIf="solicitud.interseccion != ''">{{solicitud.calle}} Y {{solicitud.interseccion}}</div>
@@ -28,7 +28,7 @@
                 <div class="imagen">
                     <img src="{{solicitud.imagen}}">
                 </div>
-                <div class="fila1 fila font15">
+                <div class="fila1 fila font15 texto-regular">
                     <div class="col1">
                         <div *ngIf="solicitud.opinion=='positivo'"><mat-icon class="fsua fsua-bueno"></mat-icon> {{solicitud.estado}}</div>
                         <div *ngIf="solicitud.opinion=='negativo'"><mat-icon class="fsua fsua-malo"></mat-icon> {{solicitud.estado}}</div>
@@ -38,10 +38,10 @@
                     <div *ngIf="solicitud.detalle_solucion!=''" class="solucion">{{solicitud.detalle_solucion}}</div>
                 </div>
                 <div *ngIf="solicitud.descripcion==''" class="fila fil font15">
-                    <div>
+                    <div class="texto-regularitalic">
                         <mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempo}}
                     </div>
-                    <div>
+                    <div class="texto-regular">
                         <div *ngIf="solicitud.area_origen!=''">
                         en {{solicitud.area_origen}} 
                         </div>
@@ -54,27 +54,27 @@
                     <mat-expansion-panel *ngIf="solicitud.descripcion!=''" class="mat-elevation-z0 panel">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
-                                <div class="col1">
+                                <div class="col1 texto-regularitalic">
                                     <mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempo}}
                                 </div>
-                                <div>
+                                <div *ngIf="solicitud.area_origen!=''" class="texto-regular">
                                     en {{solicitud.area_origen}} por {{solicitud.usuario_registro}}
                                 </div>
                             </mat-panel-title>
                         </mat-expansion-panel-header>
-                        <div class="descripcion">{{solicitud.descripcion}}</div>
+                        <div class="descripcion texto-regular">{{solicitud.descripcion}}</div>
                     </mat-expansion-panel>
                 </div>
                 <mat-divider></mat-divider>
-                <div class="equipamiento font15" *ngIf="solicitud.etiqueta_equipamiento!=''">
+                <div class="equipamiento font15 texto-regular" *ngIf="solicitud.etiqueta_equipamiento!=''">
                     <div><mat-icon class="fsua fsua-equipamiento"></mat-icon>Equipamiento: {{solicitud.etiqueta_equipamiento}}</div>
                     <div><mat-icon></mat-icon>Descripción: {{solicitud.descripcion_equipamiento}}</div>
                     <div><mat-icon></mat-icon>{{solicitud.detalle_equipamiento}}</div>
                 </div>
                 <mat-divider></mat-divider>
                 <div class="datos-complementarios">
-                    <p>RECEPCIÓN DE LA SOLICITUD</p>
-                    <p>GESTIÓN DE LA SOLICITUD </p>
+                    <div class="texto-semibold"><p>RECEPCIÓN DE LA SOLICITUD</p></div>
+                    <div class="texto-semibold"><p>GESTIÓN DE LA SOLICITUD </p></div>
                 </div>
             </mat-card>
         </div>
@@ -84,18 +84,18 @@
                     <mat-expansion-panel-header>
                         <mat-panel-title>
                             <div class="fila fil font15">
-                                <div class="numero fila">
-                                    <div class="cantidad">{{solicitud.solicitantes.length}}</div> 
+                                <div class="numero fila titulo-bold">
+                                    <div class="cantidad texto-semibold">{{solicitud.solicitantes.length}}</div> 
                                     <div *ngIf="solicitud.solicitantes.length!=1"> Solicitantes</div>
                                     <div *ngIf="solicitud.solicitantes.length==1"> Solicitante</div>
                                 </div>
-                                <div class="numero fila">
-                                    <div class="cantidad">{{solicitud.reiteraciones}}</div> 
+                                <div class="numero fila titulo-bold">
+                                    <div class="cantidad texto-semibold">{{solicitud.reiteraciones}}</div> 
                                     <div *ngIf="solicitud.reiteraciones!=1"> Reiteraciones</div>
                                     <div *ngIf="solicitud.reiteraciones==1"> Reiteración </div>
                                 </div>
-                                <div class="numero fila">
-                                    <div class="cantidad">{{solicitud.cant_opiniones}}</div> 
+                                <div class="numero fila titulo-bold">
+                                    <div class="cantidad texto-semibold">{{solicitud.cant_opiniones}}</div> 
                                     <div *ngIf="solicitud.cant_opiniones!=1"> Opiniones</div>
                                     <div *ngIf="solicitud.cant_opiniones==1"> Opinion </div>
                                 </div>
@@ -104,11 +104,12 @@
                     </mat-expansion-panel-header>
                     <div *ngFor="let solicitud of solicitud.solicitantes">
                         <mat-divider></mat-divider>
-                        <div class="contenido_panel fila font13">
+                        <div class="contenido_panel fila font13 texto-regular">
                             <div class="solicitante">
                                 <div><mat-icon class="fsua fsua-tel icono font18"></mat-icon>{{solicitud.fecha_hora_registro}}</div>
                                 <div *ngIf= "solicitud.ident_reservada=='0'">
-                                    <div><mat-icon class="fsua fsua-mi_perfil-o icono font18"></mat-icon>{{solicitud.apellido_solicitante}}, {{solicitud.nombre_solicitante}} DNI: {{solicitud.nro_doc_solicitante}}</div>
+                                    <div><mat-icon class="fsua fsua-mi_perfil-o font18"></mat-icon>{{solicitud.apellido_solicitante}}, {{solicitud.nombre_solicitante}} </div>
+                                    <div class="dni">DNI: {{solicitud.nro_doc_solicitante}}</div>
                                     <div><mat-icon class="icono font18">email</mat-icon>{{solicitud.email_solicitante}}</div>
                                     <div class="datos_solicitante">
                                         <p>Dirección: {{solicitud.direccion_solicitante}}</p>
@@ -146,19 +147,19 @@
                             <mat-expansion-panel-header>
                                 <mat-panel-title>
                                     <div class="fila fil font15">
-                                        <div class="numero fila">
-                                            <div class="cantidad">{{solicitud.asignaciones.length}}</div> 
+                                        <div class="numero fila titulo-bold">
+                                            <div class="cantidad texto-semibold">{{solicitud.asignaciones.length}}</div> 
                                             <div *ngIf="solicitud.asignaciones.length!='1'"> Asignaciones</div>
                                             <div *ngIf="solicitud.asignaciones.length=='1'"> Asignación</div>
                                         </div>
                                     </div>
-                                    <div class="font12" *ngIf="solicitud.fecha_hora_asignacion!=''"><mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempoAsig}}</div>
+                                    <div class="font12 texto-regularitalic" *ngIf="solicitud.fecha_hora_asignacion!=''"><mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempoAsig}}</div>
                                 </mat-panel-title>
                             </mat-expansion-panel-header>
                             <mat-card class="card4">
                                 <div *ngFor="let asig of solicitud.asignaciones">
                                     <mat-divider></mat-divider>
-                                    <div class="detail font13">
+                                    <div class="detail font13 texto-regular">
                                         <p>{{asig.fecha_hora_asignacion}}</p>
                                         <div *ngIf="asig.equipo_asignado!=''"><p class="font14">Asignado a {{asig.equipo_asignado}}</p></div>
                                         <p>{{asig.detalle_asignacion}}</p>
@@ -174,19 +175,19 @@
                                 <mat-expansion-panel-header style="height: 63px">
                                         <mat-panel-title>
                                             <div class="fila fil font15">
-                                                <div class="numero fila">
-                                                    <div class="cantidad">{{solicitud.intervenciones.length}}</div> 
+                                                <div class="numero fila titulo-bold">
+                                                    <div class="cantidad texto-semibold">{{solicitud.intervenciones.length}}</div> 
                                                     <div *ngIf="solicitud.intervenciones.length!='1'"> Intervenciones</div>
                                                     <div *ngIf="solicitud.intervenciones.length=='1'"> Intervención</div>
                                                 </div>
                                             </div>
-                                            <div class="font12" *ngIf="solicitud.fecha_hora_intervencion!=''"><mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempoInterv}}</div>
+                                            <div class="font12 texto-regularitalic" *ngIf="solicitud.fecha_hora_intervencion!=''"><mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempoInterv}}</div>
                                         </mat-panel-title>
                                 </mat-expansion-panel-header> 
                             <mat-card class="card4">
                                 <div *ngFor="let inter of solicitud.intervenciones">
                                     <mat-divider></mat-divider>
-                                    <div class="detail font13">
+                                    <div class="detail font13 texto-regular">
                                         <p>{{inter.fecha_hora_intervencion}}</p>
                                         <p class="font14">{{inter.tipo_intervencion}}</p>
                                         <p>{{inter.detalle_intervencion}}</p>
@@ -202,8 +203,8 @@
                                 <mat-expansion-panel-header style="height: 61px">
                                     <mat-panel-title>
                                         <div class="fila fil font15">
-                                            <div class="numero fila">
-                                                <div class="cantidad">{{solicitud.derivaciones.length}}</div> 
+                                            <div class="numero fila titulo-bold">
+                                                <div class="cantidad texto-semibold">{{solicitud.derivaciones.length}}</div> 
                                                 <div>
                                                     <div>
                                                         <div *ngIf="solicitud.cant_derivaciones!='1'"> Derivaciones</div>
@@ -215,7 +216,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="font12" *ngIf="solicitud.fecha_hora_ult_derivacion!=''">
+                                        <div class="font12 texto-regularitalic" *ngIf="solicitud.fecha_hora_ult_derivacion!=''">
                                             
                                             <mat-icon class="fsua fsua-recientes"></mat-icon>{{solicitud.tiempoDeriv}}
                                         </div>
@@ -233,7 +234,7 @@
                                                 <mat-icon  class="h13 font18">more_vert</mat-icon>
                                                 <mat-icon  class="h17 font18">more_vert</mat-icon>
                                             </div>
-                                            <div class="font13">
+                                            <div class="font13 texto-regular">
                                                 <p>Originada por {{solicitud.area_origen}}</p>
                                                 <p>{{solicitud.fecha_hora_registro}}</p>
                                             </div>
@@ -245,7 +246,7 @@
                                                 <mat-icon  class="h13 font18">more_vert</mat-icon>
                                                 <mat-icon  class="h17 font18">more_vert</mat-icon>
                                             </div>
-                                            <div class="font13">
+                                            <div class="font13 texto-regular">
                                                 <p>Derivada a {{deriv.area_derivacion}}</p>
                                                 <p>{{deriv.fecha_hora_derivacion}}</p>
                                             </div>
@@ -257,7 +258,7 @@
                                                 <mat-icon  class="h13 font18">more_vert</mat-icon>
                                                 <mat-icon  class="h17 font18">more_vert</mat-icon>
                                             </div>
-                                            <div class="font13">
+                                            <div class="font13 texto-regular">
                                                 <p>{{deriv.recepcion}}</p>
                                                 <p>{{deriv.fecha_hora_recepcion}}</p>
                                             </div>
@@ -269,7 +270,7 @@
                                                 <mat-icon  class="h13 font18">more_vert</mat-icon>
                                                 <mat-icon  class="h17 font18">more_vert</mat-icon>
                                             </div>
-                                            <div class="font13">
+                                            <div class="font13 texto-regular">
                                                 <p>{{deriv.detalle}}</p>
                                                 <p>{{deriv.fecha_detalle}}</p>
                                             </div>
@@ -279,12 +280,12 @@
                                         <div class="columna">
                                             <mat-icon class="h17 font18">today</mat-icon>
                                         </div>
-                                        <div class="font13" *ngIf="solicitud.detalle_solucion!=''">
+                                        <div class="font13 texto-regular" *ngIf="solicitud.detalle_solucion!=''">
                                             <p>{{solicitud.detalle_fecha}}</p>
                                             <p>{{solicitud.fecha_hora_solucion}}</p>
                                             <p>{{solicitud.detalle_solucion}}</p>
                                         </div>
-                                        <div class="font13" *ngIf="solicitud.detalle_solucion==''">
+                                        <div class="font13 texto-regular" *ngIf="solicitud.detalle_solucion==''">
                                             <p>Resolución pendiente</p>
                                         </div>
                                     </div>

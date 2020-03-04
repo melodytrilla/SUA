@@ -1,17 +1,17 @@
-<div style="overflow-y:hidden">
+<div style="overflow-y:hidden" class="texto-regular">
     <app-global-nav-bar></app-global-nav-bar>
     <app-navbar></app-navbar>
     <div class="topBar fila">
         <div class="ordenar fila">
             <mat-form-field>
-                <mat-label>Ordenar por</mat-label>
+                <mat-label class="texto-regular">Ordenar por</mat-label>
                 <mat-select>
-                    <mat-option value="fechaCreacion"> Fecha de creación </mat-option>
-                    <mat-option value="fechaEstado"> Fecha de estado </mat-option>
-                    <mat-option value="cantidadReiteraciones"> Cantidad de reiteraciones </mat-option>
-                    <mat-option value="cantidadSolicitantes"> Cantidad de solicitantes </mat-option>
-                    <mat-option value="cantidadAsignaciones"> Cantidad de asignaciones </mat-option>
-                    <mat-option value="cantidadIntervenciones"> Cantidad de intervenciones </mat-option>
+                    <mat-option class="texto-regular" value="fechaCreacion"> Fecha de creación </mat-option>
+                    <mat-option class="texto-regular" value="fechaEstado"> Fecha de estado </mat-option>
+                    <mat-option class="texto-regular" value="cantidadReiteraciones"> Cantidad de reiteraciones </mat-option>
+                    <mat-option class="texto-regular" value="cantidadSolicitantes"> Cantidad de solicitantes </mat-option>
+                    <mat-option class="texto-regular" value="cantidadAsignaciones"> Cantidad de asignaciones </mat-option>
+                    <mat-option class="texto-regular" value="cantidadIntervenciones"> Cantidad de intervenciones </mat-option>
                 </mat-select>
             </mat-form-field>
             <button mat-button (click)="togglePlay()">
@@ -19,7 +19,7 @@
                 <mat-icon *ngIf="asc">arrow_upward</mat-icon>
             </button>
         </div>
-        <div *ngIf="items" class="total fila">
+        <div class="total fila texto-semibold">
             <div *ngIf="items.length!='1'">{{items.length}} solicitudes</div>
             <div *ngIf="items.length=='1'">{{items.length}} solicitud</div>
             <div>
@@ -35,7 +35,7 @@
                     <div style="width: 1%"><mat-checkbox color="primary"></mat-checkbox></div>
                     <div class="click fila hov" (click)="this.sendto(item.id, item.anio)">
                         <div class="colum0 columna">
-                            <div>{{item.id}}-{{item.anio}}</div>
+                            <div class="texto-semibold">{{item.id}}-{{item.anio}}</div>
                             <div><img src="{{item.imagen}}"></div>
                         </div>
                     
@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                             <div class="col colum2">
-                                <div class="fil">
+                                <div class="fil texto-regularitalic font15">
                                     <mat-icon class="fsua fsua-recientes"></mat-icon>{{item.tiempo}}
                                 </div>
                                 <div class="fil">
@@ -80,8 +80,8 @@
                                 </div>
                             </div>
                             <div class="col colum3">
-                                <div class="fil">
-                                    <div *ngIf="item.intervenciones.length>0" class="tiempo fila">
+                                <div class="fil texto-regularitalic">
+                                    <div *ngIf="item.intervenciones.length>0" class="tiempo fila font15">
                                         <div>
                                             <mat-icon matBadge="{{item.intervenciones.length}}" matBadgeSize="small"
                                                 class="fsua fsua-intervenido"></mat-icon>
@@ -92,8 +92,8 @@
                                 <div class="fil">
                                     <mat-icon></mat-icon>
                                 </div>
-                                <div class="fil">
-                                    <div *ngIf="item.asignaciones.length>0" class="tiempo fila">
+                                <div class="fil texto-regularitalic">
+                                    <div *ngIf="item.asignaciones.length>0" class="tiempo fila font15">
                                         <div>
                                             <mat-icon matBadge="{{item.asignaciones.length}}" matBadgeSize="small"
                                                 class="fsua fsua-mapa"></mat-icon>

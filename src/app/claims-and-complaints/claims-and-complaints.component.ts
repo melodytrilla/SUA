@@ -19,8 +19,8 @@ public items: any[];
         data => {
           this.total = data.total;
           data.valores.forEach(value =>{
-            if(value.name.length > 50){
-              value.name = value.name.substr(0, 48) + "...";
+            if(value.name.length > 32){
+              value.name = value.name.substr(0, 29) + "...";
             }
           })
           this.items = data.valores
