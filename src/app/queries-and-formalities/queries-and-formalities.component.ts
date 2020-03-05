@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SolicitudesService } from '../solicitudes.service';
-import { Observable } from 'rxjs';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-queries-and-formalities',
@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class QueriesAndFormalitiesComponent implements OnInit {
 
-  constructor(private solicitudeService: SolicitudesService) { }
+  constructor(private solicitudeService: SolicitudesService,
+              private router: Router) { }
 
   public items: any[];
   public total: number = 0;
@@ -26,5 +27,12 @@ export class QueriesAndFormalitiesComponent implements OnInit {
         this.items = data.valores
       });
   }
-
+  sendToList(a){
+    let url= `/listado/${a}`;
+    this.router.navigateByUrl(url)
+  }
+  sendToMap(a){
+    let url= `/mapa/${a}`;
+    this.router.navigateByUrl(url)
+  }
 }
