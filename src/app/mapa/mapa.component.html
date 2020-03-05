@@ -36,11 +36,24 @@
 <mat-divider></mat-divider>
 <div class="content fila texto-regular">
         <cdk-virtual-scroll-viewport style="height: 73vh; width: 30vw;" itemSize="93" (scrolledIndexChange)="nextBatch($event)">
+
+            <!--Ghost content placeholder while loading-->
             <div *ngIf="loading">
-                <mat-progress-spinner
-                    color="primary" 
-                    mode="indeterminate">
-                </mat-progress-spinner> 
+                <div mat-list *ngFor="let number of [0,1,2,3,4,5]">
+                    <ngx-content-loading mat-list-item class="listElement fila"
+                        [speed]="'2000ms'"
+                        [primaryColor]="'#ebebeb'"
+                        [secondaryColor]="'#cfcfcf'">
+        
+                        <svg:g ngx-rect width="70" height="13" y="10" x="20" rx="5" ry="5"></svg:g>
+                        <svg:g ngx-rect width="80" height="50" y="35" x="20" rx="5" ry="5"></svg:g>
+                        <svg:g ngx-rect width="40" height="13" y="10" x="330" rx="5" ry="5"></svg:g>
+        
+                        <svg:g ngx-rect width="90" height="13" y="10" x="120" rx="5" ry="5"></svg:g>
+                        <svg:g ngx-rect width="220" height="13" y="40" x="120" rx="5" ry="5"></svg:g>
+                        <svg:g ngx-rect width="100" height="15" y="70" x="120" rx="5" ry="5"></svg:g>
+                    </ngx-content-loading>
+                </div>
             </div>
                 <div *ngIf="solicitudes" class="listConteiner">
                         <div mat-list *cdkVirtualFor="let solicitud of solicitudes">
