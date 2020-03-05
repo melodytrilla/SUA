@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SolicitudesService } from '../solicitudes.service';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-claims-and-complaints',
@@ -8,7 +9,8 @@ import { SolicitudesService } from '../solicitudes.service';
 })
 export class ClaimsAndComplaintsComponent implements OnInit {
 
-constructor(private solicitudesService: SolicitudesService) { }
+constructor(private solicitudesService: SolicitudesService,
+            private router: Router) { }
 
 public total: number = 0;
 public items: any[];
@@ -25,6 +27,14 @@ public items: any[];
           })
           this.items = data.valores
         });
+  }
+  sendToList(a){
+    let url= `/listado/${a}`;
+    this.router.navigateByUrl(url)
+  }
+  sendToMap(a){
+    let url= `/mapa/${a}`;
+    this.router.navigateByUrl(url)
   }
 
 }

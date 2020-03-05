@@ -40,8 +40,6 @@ export class MapComponent implements OnInit {
 
   }
   
-  
-
   setLayers() {
     this.api.getSolicitudes().subscribe(
       data => {
