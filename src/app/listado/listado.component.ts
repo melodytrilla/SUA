@@ -33,8 +33,10 @@ export class ListadoComponent implements AfterViewInit {
     
   }
 
+  loading = false;
   ngOnInit() {
     
+    this.loading = true;
     this.api.getSolicitudes().subscribe(
       data => {
         data.forEach(value => {
@@ -53,7 +55,8 @@ export class ListadoComponent implements AfterViewInit {
           value.tiempoMap =moment([this.formato(value.fecha_hora_asignacion)], "YYYY, MM, DD, h, mm, ss").fromNow();
         })
         
-        this.items = data
+        this.items = data;
+        this.loading = false;
       });
   }
   

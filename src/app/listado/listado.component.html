@@ -1,4 +1,4 @@
-<div style="overflow-y:hidden" class="texto-regular">
+<div style="overflow-y:hidden;" class="texto-regular">
     <app-global-nav-bar></app-global-nav-bar>
     <app-navbar></app-navbar>
     <div class="topBar fila">
@@ -19,7 +19,7 @@
                 <mat-icon *ngIf="asc">arrow_upward</mat-icon>
             </button>
         </div>
-        <div class="total fila texto-semibold">
+        <div *ngIf="items" class="total fila texto-semibold">
             <div *ngIf="items.length!='1'">{{items.length}} solicitudes</div>
             <div *ngIf="items.length=='1'">{{items.length}} solicitud</div>
             <div>
@@ -28,7 +28,21 @@
         </div>
     </div>
     <mat-divider></mat-divider>
-    <cdk-virtual-scroll-viewport style="height: 73vh" itemSize="93" (scrolledIndexChange)="nextBatch($event)">
+
+    <div style="display: flex; justify-content: center; ">
+        <div *ngIf="loading">
+            <mat-progress-spinner
+                color="primary" 
+                mode="indeterminate">
+            </mat-progress-spinner> 
+        </div>
+
+        <div *ngIf="!loading && !items">
+            <h4 class="texto-regular">Ningun resultado.</h4>
+        </div>
+    </div>
+
+    <cdk-virtual-scroll-viewport *ngIf="!loading && items" style="height: 73vh" itemSize="93" (scrolledIndexChange)="nextBatch($event)">
         <div mat-list *cdkVirtualFor="let item of items" class="lista">
             <div mat-list-item class="content fila">
                 <div class="fila" style="width: 100%;">

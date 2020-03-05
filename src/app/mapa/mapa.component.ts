@@ -30,8 +30,11 @@ export class MapaComponent implements OnInit {
  
   }
 
+  loading = false;
+
   ngOnInit() {
   
+    this.loading = true;
     this.api.getSolicitudes().subscribe(
       data => {
         data.forEach(value => {
@@ -44,8 +47,8 @@ export class MapaComponent implements OnInit {
           value.tiempo = moment([this.formato(value.fecha_hora_estado)], "YYYY, MM, DD, h, mm, ss").fromNow();
         })
         
-        
-        this.solicitudes = data
+        this.solicitudes = data;
+        this.loading = false;
       });
 
   }

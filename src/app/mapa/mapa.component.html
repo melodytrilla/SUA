@@ -8,7 +8,7 @@
 
 <app-global-nav-bar></app-global-nav-bar>
 <app-navbar></app-navbar>
-<div *ngIf="solicitudes" class="topBar fila">
+<div class="topBar fila">
     <div class="ordenar fila">
         <mat-form-field>
             <mat-label class="texto-regular">Ordenar por</mat-label>
@@ -26,7 +26,8 @@
             <mat-icon *ngIf="asc">arrow_upward</mat-icon>
         </button>
     </div>
-    <div class="total fila texto-semibold">
+
+    <div class="total fila texto-semibold" *ngIf="solicitudes">
         <div *ngIf="solicitudes.length!='1'">{{solicitudes.length}} solicitudes con localización</div>
         <div *ngIf="solicitudes.length=='1'">{{solicitudes.length}} solicitud con localización</div>
         <div><mat-icon class="more hov">more_vert</mat-icon></div>
@@ -35,7 +36,13 @@
 <mat-divider></mat-divider>
 <div class="content fila texto-regular">
         <cdk-virtual-scroll-viewport style="height: 73vh; width: 30vw;" itemSize="93" (scrolledIndexChange)="nextBatch($event)">
-                <div class="listConteiner">
+            <div *ngIf="loading">
+                <mat-progress-spinner
+                    color="primary" 
+                    mode="indeterminate">
+                </mat-progress-spinner> 
+            </div>
+                <div *ngIf="solicitudes" class="listConteiner">
                         <div mat-list *cdkVirtualFor="let solicitud of solicitudes">
                             <div mat-list-item class="listElement fila">
                                 <div class="fila" style="width: 100%;">
