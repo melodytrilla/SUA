@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FiltersService } from '../filters.service';
 
 @Component({
   selector: 'app-global-nav-bar',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GlobalNavBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private filterService: FiltersService) { }
 
   ngOnInit() {
+    this.filterService.getNewFilters();
   }
 
 }

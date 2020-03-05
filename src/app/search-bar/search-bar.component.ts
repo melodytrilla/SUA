@@ -111,9 +111,11 @@ export class SearchBarComponent implements OnInit {
 
   //guarda los datos de la busqueda en el servicio
   sendInfo():void{
-    this.deFormABusqueda()
+    this.deFormABusqueda();
     //console.log(this.form.value);
-    console.log(this.busquedaField);
+    if(this.busquedaField.Dir.geometry == null){
+      this.busquedaField.Dir =  null;
+    }
     this.busqueda.Buscar(this.busquedaField);
   
   }
@@ -137,11 +139,14 @@ export class SearchBarComponent implements OnInit {
       });
     }else{
       console.log("not enought");
+      this.filteredDirecciones = [];
     }
   }
   displayFunction(value: Direccion):string{
     if(value != null){
       if(value.geometry){
+        return value.properties.name;
+      }else{
         return value.properties.name;
       }
     }
