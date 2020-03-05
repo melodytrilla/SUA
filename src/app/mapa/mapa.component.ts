@@ -35,8 +35,11 @@ export class MapaComponent implements OnInit {
  
   }
 
+  loading = false;
+
   ngOnInit() {
   
+    this.loading = true;
     this.api.getSolicitudes().subscribe(
         data => {
           data.forEach(value => {
@@ -54,7 +57,8 @@ export class MapaComponent implements OnInit {
               value.tiempoInterv =moment([this.formato(value.fecha_hora_intervencion)], "YYYY, MM, DD, h, mm, ss").fromNow();
               value.tiempoMap =moment([this.formato(value.fecha_hora_asignacion)], "YYYY, MM, DD, h, mm, ss").fromNow();
           })
-          this.solicitudes = data
+          this.solicitudes = data;
+          this.loading = false;
         });
         this.list = {
           subtipo: this.rutaActiva.snapshot.params.subtipo,
@@ -81,10 +85,9 @@ export class MapaComponent implements OnInit {
               this.ar.push(value);
               }
             })
-            this.solicitudes = this.ar
-            console.log(this.solicitudes)
+            this.solicitudes = this.ar;
+            this.loading = false;
           });
-
   }
 
   sendto(a, b){

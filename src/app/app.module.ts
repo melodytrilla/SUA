@@ -8,6 +8,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MaterialModule } from './material.module';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { NgxContentLoadingModule } from 'ngx-content-loading';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //Utiles
@@ -98,7 +99,7 @@ import { IconoTestComponent } from './icono-test/icono-test.component';
     BsDropdownModule.forRoot(),
     ScrollingModule,
     InfiniteScrollModule,
-    NgxSpinnerModule,
+    NgxSpinnerModule, NgxContentLoadingModule,
   ],
   entryComponents: [DateRangePicker, FiltroAvanzadoDialogComponent],
   providers: [{ provide: LOCALE_ID, useValue: "es-AR" }, BusquedaService],
