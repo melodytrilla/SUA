@@ -59,7 +59,6 @@
                         <div mat-list *cdkVirtualFor="let solicitud of solicitudes">
                             <div mat-list-item class="listElement fila">
                                 <div class="fila" style="width: 100%;">
-                                    <div style="width: 1%"><mat-checkbox color="primary"></mat-checkbox></div>
                                     <div class="click fila hov"(click)="this.sendto(solicitud.id, solicitud.anio)">
                                         <div class="colum0 columna">
                                             <div class="texto-semibold">{{solicitud.estado}}</div>

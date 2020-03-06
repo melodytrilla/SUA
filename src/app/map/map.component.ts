@@ -63,7 +63,7 @@ export class MapComponent implements OnInit {
   addMarker(x: number, y: number, categoria: string, subtipo:string, estado:string, nume:number){
     //console.log("Categoria: " + categoria + " / Estado: " + estado);
     let a = new L.Marker({lat: x, lng: y}, {title: nume, icon: this.GetIcon(categoria, estado)});
-    a.on('click', this.presed.bind(this, nume));
+    a.on('click', this.pressed.bind(this, nume));
     a.addTo(this.mymap).bindPopup('<p>Categoría: ' + categoria +'</br>Subtipo: ' + subtipo +'</br> Estado: '+ estado +'</br> numero: '+ nume + '</p>');
   }
 
@@ -73,12 +73,11 @@ export class MapComponent implements OnInit {
   }
 
   moveMap(x:number, y:number){
-    let temp = this.convertToLatLng(x,y);
-    //console.log(temp);
-    this.mymap.panTo(temp,{animation:true});
+    let coord = this.convertToLatLng(x,y);
+    this.mymap.flyTo(coord,16)
   }
 
-  presed(a: number){
+  pressed(a: number){
     this.selected.emit(a);
     //console.log(a);
   }
