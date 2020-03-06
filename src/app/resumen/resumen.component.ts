@@ -43,7 +43,6 @@ export class ResumenComponent {
 
 
   ngOnInit() {
-    this.filterService.getNewFilters();
     //this.solicitudesService.getAllVecinales();
     
   }

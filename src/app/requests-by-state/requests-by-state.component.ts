@@ -107,7 +107,8 @@ export class RequestsByStateComponent implements OnInit {
           this.total += data[index].number;
         });
 
-
+        //this.hBarChartData.forEach((dato,index) => this.hBarChartData[index] = +((clone1[index]/this.total)*100).toFixed(1));
+        
         this.hBarChartData = clone1;
         this.hBarChartLabels = clone2;
     });

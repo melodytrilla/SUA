@@ -35,6 +35,10 @@
     
 }
 
+.texto-secundario{
+    color: hsl(0,0%,15%)
+}
+
 
 //---------------------------------
 
@@ -59,10 +63,6 @@ $white-theme-darker: #d1d1d1;
 .blueBack-Button{
     background-color: $blue-theme !important;
     color: $white-theme-lighter !important;
-}
-
-.titleFont-Bold{
-    font: "Raleway-Bold";
 }
 
 //--------------------------------------------------------
