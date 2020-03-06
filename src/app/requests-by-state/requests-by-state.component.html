@@ -1,14 +1,46 @@
 <div id="total">
     <div class="titulo-bold font15"><p id="cardTitle"> Solicitudes por estado</p></div>
-    <div class="texto-semibold"><p id="cardContent">{{total}}</p></div>
-    <mat-divider></mat-divider>
 </div>
-<div>
-    <canvas Id="graph" class="grafico" baseChart
-        [data]="hBarChartData"
-        [labels]="hBarChartLabels"
-        [chartType]="hBarChartType"
-        [colors]="hBarChartColors"
-        [options] ="hBarChartOptions"
-        [plugins] = "hBarChartPlugins" style="padding: 3% 0% 0% 4%; max-width: 95%; max-height: 95%"></canvas>
+<div class="columna">
+    <div style="width: 100%; text-align: center;">
+        <div style="max-width: 50%;">
+            <canvas Id="graph" class="grafico" baseChart
+                [data]="doughnutChartData"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"
+                [colors]="doughnutChartColors"
+                [options] ="doughnutChartOptions"
+                [plugins] = "doughnutChartPlugins" style="padding: 3% 0% 0% 4%; margin-left: 70%;"></canvas>
+        </div>
+    </div>
+    <div class="columna">
+        <div class="fila hov item">
+            <div class="fila" style="margin-left: 1px; align-items: center;">
+                <div class="accent accentP"></div>
+                <div class="texto-regular">Pendientes</div>
+            </div>
+            <div class="texto-semibold" style="margin-right: 10px; font-size: 25px;">{{doughnutChartData[0]}}</div>
+        </div>
+        <div class="fila hov item">
+            <div class="fila" style="margin-left: 1px; align-items: center;">
+                <div class="accent accentEC"></div>
+                <div class="texto-regular">En curso</div>
+            </div>
+            <div class="texto-semibold" style="margin-right: 10px; font-size: 25px;">{{doughnutChartData[1]}}</div>
+        </div>
+        <div class="fila hov item">
+            <div class="fila" style="margin-left: 1px; align-items: center;">
+                <div class="accent accentR"></div>
+                <div class="texto-regular">Resueltas</div>
+            </div>
+            <div class="texto-semibold" style="margin-right: 10px; font-size: 25px;">{{doughnutChartData[2]}}</div>
+        </div>
+        <div class="fila hov item">
+            <div class="fila" style="margin-left: 1px; align-items: center;">
+                <div class="accent accentC"></div>
+                <div class="texto-regular">Cerradas</div>
+            </div>
+            <div class="texto-semibold" style="margin-right: 10px; font-size: 25px;">{{doughnutChartData[3]}}</div>
+        </div>
+    </div>
 </div>
