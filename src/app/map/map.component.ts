@@ -14,57 +14,50 @@ import { EventEmitter } from '@angular/core';
   styleUrls: ['./map.component.sass']
 })
 export class MapComponent implements OnInit {
-  mymap: L.Map;
+  map: L.Map;
+  argCrs: any;
   @Output() selected = new EventEmitter<number>();
   
   constructor(public api: SolicitudesItemsService, public iconManager:IconosManagerService) { }
 
-  myIcon = L.divIcon({
-    className: 'fsua fsua-ubicacion fsua-3x',
-    iconAnchor: [20, 32],
-  });
-
-  argCrs: any;
-  num: number = 0;
-
   ngOnInit() {
-    this.argCrs = new L.Proj.CRS('EPSG:22185',
-    '+proj=tmerc +lat_0=-90 +lon_0=-60 +k=1 +x_0=5500000 +y_0=0 +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs ');
-
-    this.mymap = new L.map('mapid').setView([-32.9493486, -60.6746665], 14);
+    this.argCrs = new L.Proj.CRS('EPSG:22185','+proj=tmerc +lat_0=-90 +lon_0=-60 +k=1 +x_0=5500000 +y_0=0 +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs ');
+    this.map = new L.map('mapid').setView([-32.9493486, -60.6746665], 14);
+    
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    subdomains: ['a', 'b', 'c'],
-    maxZoom: 19,
-      }).addTo(this.mymap);
+        subdomains: ['a', 'b', 'c'],
+        maxZoom: 19,
+      }).addTo(this.map);
     this.setLayers();
-
   }
   
   setLayers() {
     this.api.getSolicitudes().subscribe(
       data => {
         data.forEach(value => {
-          let tempLatLng = this.convertToLatLng(value.coord_x, value.coord_y);
-
-          this.addMarker(tempLatLng.lat, tempLatLng.lng, value.categoria, value.subtipo, value.estado, this.num + 1);
-          this.num++;
+          this.addMarker(value);
         })
       });
   }
 
-  GetIcon(categoria:string, estado:string){
+  getIcon(categoria:string, estado:string){
     return L.icon({iconUrl: this.iconManager.getSrc2(categoria, estado),
-                  iconSize:[50, 60], 
-                  iconAnchor:[25,60],
-                  popupAnchor:[0,-55]});
+        iconSize:[50, 60], 
+        iconAnchor:[25,60],
+        popupAnchor:[0,-55]});
   }
   
-  //areglar selected
-  addMarker(x: number, y: number, categoria: string, subtipo:string, estado:string, nume:number){
-    //console.log("Categoria: " + categoria + " / Estado: " + estado);
-    let a = new L.Marker({lat: x, lng: y}, {title: nume, icon: this.GetIcon(categoria, estado)});
-    a.on('click', this.presed.bind(this, nume));
-    a.addTo(this.mymap).bindPopup('<p>Categoría: ' + categoria +'</br>Subtipo: ' + subtipo +'</br> Estado: '+ estado +'</br> numero: '+ nume + '</p>');
+  addMarker(value: any){
+    let coord = this.convertToLatLng(value.coord_x, value.coord_y);
+    let marker = new L.Marker({
+      lat: coord.lat, lng: coord.lng},{
+        title: value.subtipo, 
+        icon: this.getIcon(value.categoria, value.estado)
+      });
+
+    marker.on('click', this.pressed.bind(this, value.id));
+    marker.addTo(this.map)
+      .bindPopup('<p>Categoría: ' + value.categoria +'</br>Subtipo: ' + value.subtipo +'</br> Estado: '+ value.estado +'</br> numero: '+ value.id+ '</p>');
   }
 
   convertToLatLng(x: number, y :number){
@@ -73,13 +66,11 @@ export class MapComponent implements OnInit {
   }
 
   moveMap(x:number, y:number){
-    let temp = this.convertToLatLng(x,y);
-    //console.log(temp);
-    this.mymap.panTo(temp,{animation:true});
+    let coord = this.convertToLatLng(x,y);
+    this.map.flyTo(coord,16)
   }
 
-  presed(a: number){
+  pressed(a: number){
     this.selected.emit(a);
-    //console.log(a);
   }
 }
