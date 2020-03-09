@@ -16,34 +16,22 @@ export class RequestsByStateComponent implements OnInit {
   }
 
   total = 0;
-  public hBarChartLabels: Array<string> = ['Pendientes', 'En curso', 'Resueltas', 'Cerradas'];
-  public hBarChartType = 'horizontalBar';
-  public hBarChartLegend = false;
-  public hBarChartData: Array<number> = [0, 0, 0, 0];
+  public doughnutChartLabels: Array<string> = ['Pendientes', 'En curso', 'Resueltas', 'Cerradas'];
+  public doughnutChartType = 'doughnut';
+  public doughnutChartLegend = false;
+  public doughnutChartData: Array<number> = [0, 0, 0, 0];
 
-  public hBarChartColors: Array<any> = [
+  public doughnutChartColors: Array<any> = [
     {
       backgroundColor: ['#9B9487', '#F7B543', '#94D8FA', '#2764F3'],
       hoverBackgroundColor: ['#B2AFAA', '#F6C672', '#BAE3F7', '#6B96FA'],
       borderWidth: 1,
     }
   ];
-  public hBarChartOptions: ChartOptions = {
+  public doughnutChartOptions: ChartOptions = {
     responsive: true,
     tooltips: {
       enabled: true,
-    },
-
-    scales:{
-      xAxes:[{
-        display: false
-        
-      }],
-      yAxes:[{
-        gridLines:{
-          display: false
-        }
-      }]
     },
     
     layout:{
@@ -55,7 +43,7 @@ export class RequestsByStateComponent implements OnInit {
 
     plugins: {
       datalabels: {
-        display: true,
+        display: false,
         padding: 0,
         color: 'black',
         anchor: 'end',
@@ -74,14 +62,14 @@ export class RequestsByStateComponent implements OnInit {
           padding: 18,
           fontFamily: 'open_sansregular',
           fontSize: 18,
-          usePointStyle: true,
+          usePointStyle: false,
           fontColor: 'hsl (0, 0%, 15%)',
           boxWidth: 10
         }
       }
 
   }
-  public hBarChartPlugins = [{
+  public doughnutChartPlugins = [{
     pluginDataLabels,
       /*afterLayout: function (chart){
       chart.legend.legendItems.forEach(
@@ -99,19 +87,19 @@ export class RequestsByStateComponent implements OnInit {
     
     this.solicitudService.getSolicitudesporEstado().subscribe(
       data => {
-        let clone1 = JSON.parse(JSON.stringify(this.hBarChartData));
-        let clone2 = JSON.parse(JSON.stringify(this.hBarChartLabels));
+        let clone1 = JSON.parse(JSON.stringify(this.doughnutChartData));
+        let clone2 = JSON.parse(JSON.stringify(this.doughnutChartLabels));
         clone1.forEach((dato,index) =>{ 
           clone1[index] = data[index].number;
           clone2[index] = data[index].name;
           this.total += data[index].number;
         });
 
-        //this.hBarChartData.forEach((dato,index) => this.hBarChartData[index] = +((clone1[index]/this.total)*100).toFixed(1));
-        
-        this.hBarChartData = clone1;
-        this.hBarChartLabels = clone2;
+
+        this.doughnutChartData = clone1;
+        this.doughnutChartLabels = clone2;
     });
 
   }
+
 }

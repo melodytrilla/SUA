@@ -46,7 +46,15 @@
         <div mat-list *cdkVirtualFor="let item of items" class="lista">
             <div mat-list-item class="content fila">
                 <div class="fila" style="width: 100%;">
-                    <div style="width: 1%"><mat-checkbox color="primary"></mat-checkbox></div>
+                    <div class="fila">
+                        <div>
+                            <div *ngIf="item.estado=='Pendiente'" class="accent accentP"></div>
+                            <div *ngIf="item.estado=='En curso'" class="accent accentEC"></div>
+                            <div *ngIf="item.estado=='Resuelto'" class="accent accentR"></div>
+                            <div *ngIf="item.estado=='cerrado'" class="accent accentC"></div>
+                        </div>
+                        <div style="width: 1%"><mat-checkbox color="primary"></mat-checkbox></div>
+                    </div>
                     <div class="click fila hov" (click)="this.sendto(item.id, item.anio)">
                         <div class="colum0 columna">
                             <div class="texto-semibold">{{item.id}}-{{item.anio}}</div>
