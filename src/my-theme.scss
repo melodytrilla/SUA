@@ -44,55 +44,188 @@
 
 
 
-//testing color blue
-$blue-theme: #0066cc;
+//Variables de colores a usar
+//--- Estados
+//------ cerrado
+$cerrado-theme: #0066cc;
+$cerrado-theme-lighter: #0787d1;
+$cerrado-theme-darker: #0053be;
 
-$blue-theme-lighter: #0787d1;
-$blue-theme-darker: #0053be;
+//------ Resuelto
+$resuelto-theme:#0dc1e0;
+$resuelto-theme-lighter:#25dae7;
+$resuelto-theme-darker:#0a8bc7;
+
+//------ En curso
+$encurso-theme:#3bdb98;
+$encurso-theme-lighter:#5cee9e;
+$encurso-theme-darker:#2ab9ad;
+
+//------ Pendiente
+$pendiente-theme:#616161;
+$pendiente-theme-lighter:#adadad;
+$pendiente-theme-darker:#3a3a3a;
+
+//--- Alertas
+
+//------ Leve
+$leve-theme:#e4bb36;
+$leve-theme-lighter:#f0d24e;
+$leve-theme-darker:#d1972b;
+
+//------ Mediano
+$medio-theme:#87488d;
+$medio-theme-lighter:#9c5a99;
+$medio-theme-darker:#653670;
+
+//------ Grave
+$grave-theme:#b42e39;
+$grave-theme-lighter:#c24d3e;
+$grave-theme-darker:#94233f;
 
 
+
+//color blanco 
 $white-theme: #e6e6e6;
 $white-theme-lighter:#eeeeee; 
 $white-theme-darker: #d1d1d1;
 
+
+//colores necesarios para la animacion
+//color en el que cambia al hacer cambios en filtro avanzado
+$Highlight-color: $cerrado-theme;
+
+//color de la barra titula
+$navbar-color: $cerrado-theme;
+
+//color de fondo  de busqueda
+$searchbar-color: $cerrado-theme;
+
+
+//Temas para uso de angular por cada color
+//-------- normal --------
+$angular-estado-cerrado: ( default: $cerrado-theme, 
+                    lighter:$cerrado-theme-lighter, 
+                    darker: $cerrado-theme-darker,
+                    text: $cerrado-theme,
+                    
+                    default-contrast: $light-primary-text,
+                    lighter-contrast: $light-primary-text,
+                    darker-contrast: $light-primary-text
+);
+
+$angular-estado-resuelto: ( default: $resuelto-theme, 
+                    lighter:$resuelto-theme-lighter, 
+                    darker: $resuelto-theme-darker,
+                    text: $resuelto-theme,
+                    
+                    default-contrast: $light-primary-text,
+                    lighter-contrast: $light-primary-text,
+                    darker-contrast: $light-primary-text
+);
+
+$angular-estado-encurso: ( default: $encurso-theme, 
+                    lighter:$encurso-theme-lighter, 
+                    darker: $encurso-theme-darker,
+                    text: $encurso-theme,
+                    
+                    default-contrast: $light-primary-text,
+                    lighter-contrast: $light-primary-text,
+                    darker-contrast: $light-primary-text
+);
+
+$angular-estado-pendiente: ( default: $pendiente-theme, 
+                    lighter:$pendiente-theme-lighter, 
+                    darker: $pendiente-theme-darker,
+                    text: $pendiente-theme,
+                    
+                    default-contrast: $light-primary-text,
+                    lighter-contrast: $light-primary-text,
+                    darker-contrast: $light-primary-text
+);
+
+$angular-alerta-leve: ( default: $leve-theme, 
+                    lighter:$leve-theme-lighter, 
+                    darker: $leve-theme-darker,
+                    text: $leve-theme,
+                    
+                    default-contrast: $light-primary-text,
+                    lighter-contrast: $light-primary-text,
+                    darker-contrast: $light-primary-text
+);
+
+$angular-alerta-medio: ( default: $medio-theme, 
+                    lighter:$medio-theme-lighter, 
+                    darker: $medio-theme-darker,
+                    text: $medio-theme,
+                    
+                    default-contrast: $light-primary-text,
+                    lighter-contrast: $light-primary-text,
+                    darker-contrast: $light-primary-text
+);
+
+$angular-alerta-grave: ( default: $grave-theme, 
+                    lighter:$grave-theme-lighter, 
+                    darker: $grave-theme-darker,
+                    text: $grave-theme,
+                    
+                    default-contrast: $light-primary-text,
+                    lighter-contrast: $light-primary-text,
+                    darker-contrast: $light-primary-text
+);
+
+//------classes para usarlos--------------
+$my-theme-cerrado: mat-light-theme($angular-estado-cerrado, $angular-estado-cerrado, $angular-estado-cerrado);
+.cerrados{
+    @include angular-material-theme ($my-theme-cerrado);
+}
+
+$my-theme-resuelto: mat-light-theme($angular-estado-resuelto, $angular-estado-resuelto, $angular-estado-resuelto);
+.resuelto{
+    @include angular-material-theme ($my-theme-resuelto);
+}
+
+$my-theme-encurso: mat-light-theme($angular-estado-encurso, $angular-estado-encurso, $angular-estado-encurso);
+.encurso{
+    @include angular-material-theme ($my-theme-encurso);
+}
+
+$my-theme-pendiente: mat-light-theme($angular-estado-pendiente, $angular-estado-pendiente, $angular-estado-pendiente);
+.pendiente{
+    @include angular-material-theme ($my-theme-pendiente);
+}
+
+$my-theme-leve: mat-light-theme($angular-alerta-leve, $angular-alerta-leve, $angular-alerta-leve);
+.leve{
+    @include angular-material-theme ($my-theme-leve);
+}
+
+$my-theme-medio: mat-light-theme($angular-alerta-medio, $angular-alerta-medio, $angular-alerta-medio);
+.medio{
+    @include angular-material-theme ($my-theme-medio);
+}
+
+$my-theme-grave: mat-light-theme($angular-alerta-grave, $angular-alerta-grave, $angular-alerta-grave);
+.grave{
+    @include angular-material-theme ($my-theme-grave);
+}
+
+//------ inversos --------
+
+
 .whiteBack-Button{
     background-color: $white-theme-lighter !important;
-    color: $blue-theme !important;
+    color: $cerrado-theme !important;
 }
 
 .blueBack-Button{
-    background-color: $blue-theme !important;
+    background-color: $cerrado-theme !important;
     color: $white-theme-lighter !important;
 }
 
 //--------------------------------------------------------
 
-//este es el color primario se utiliza en toda la pagina
-$my-theme-primary: mat-palette($mat-yellow, 700, 300, 900);
-
-//test new primary
-$my-primary-test: ( default: $blue-theme, 
-                    lighter:$blue-theme-lighter, 
-                    darker: $blue-theme-darker,
-                    text: $blue-theme,
-                    
-                    default-contrast: $light-primary-text,
-                    lighter-contrast: $light-primary-text,
-                    darker-contrast: $light-primary-text);
-
-$my-theme-accent: ( default: $blue-theme, 
-                    lighter:$blue-theme-lighter, 
-                    darker: $blue-theme-darker,
-                    text: $blue-theme,
-
-                    default-contrast: $light-primary-text,
-                    lighter-contrast: $light-primary-text,
-                    darker-contrast: $light-primary-text);
-
-$my-theme-warn: mat-palette($mat-red);
-
-
-$my-theme-theme:mat-light-theme($my-primary-test, $my-theme-accent, $my-theme-warn);
+$my-theme-theme:mat-light-theme($angular-estado-cerrado, $angular-estado-cerrado, $angular-alerta-grave);
 
 @include angular-material-theme($my-theme-theme);
 
@@ -101,36 +234,14 @@ $my-theme-theme:mat-light-theme($my-primary-test, $my-theme-accent, $my-theme-wa
 //este es el dark solo lo uso para que el searchbar tenga letra blanca
 $darkTheme-primary: mat-palette($mat-yellow, 700, 300, 900);
 
-//test new dark primary
-$darkTheme-test-primary:(default: $white-theme, 
-                        lighter:$white-theme-lighter, 
-                        darker: $white-theme-darker,
-                        text: $white-theme,
 
-                        default-contrast: $light-primary-text,
-                        lighter-contrast: $light-primary-text,
-                        darker-contrast: $light-primary-text);
-
-
-$darkTheme-accent: ( default: $white-theme-lighter, 
-                    lighter:$white-theme-lighter, 
-                    darker: $white-theme-lighter,
-                    text: $blue-theme,
-
-                    default-contrast: $blue-theme,
-                    lighter-contrast: $blue-theme-lighter,
-                    darker-contrast: $blue-theme-darker);
-
-$darkTheme-warn: mat-palette($mat-red);
-
-
-$darkTheme-theme:mat-dark-theme($darkTheme-test-primary, $darkTheme-accent, $darkTheme-warn);
+$darkTheme-theme:mat-dark-theme($angular-alerta-grave, $angular-alerta-grave, $angular-alerta-grave);
 
 //even harder test
 $darkTheme-theme-test:(
-    primary: $darkTheme-test-primary,
-    accent: $darkTheme-accent,
-    warn: $darkTheme-warn,
+    primary: $angular-alerta-grave,
+    accent: $angular-alerta-medio,
+    warn: $angular-alerta-leve,
     is-dark: true,
     foreground: $mat-dark-theme-foreground,
     background: map_merge($mat-dark-theme-background, (background: rgb(12, 12, 12)))
@@ -138,7 +249,7 @@ $darkTheme-theme-test:(
 
 //se le agrega dark a la clase para transformarlo
 .dark{
-    @include angular-material-theme($darkTheme-theme-test);
+    @include angular-material-theme($darkTheme-theme);
 }
 
 .light{
