@@ -41,9 +41,27 @@ export class ResumenComponent {
   constructor(private breakpointObserver: BreakpointObserver, 
     private filterService: FiltersService, private solicitudesService:SolicitudesService) {}
 
+  reclamos;
+  consultas;
+  opinadas;
+  loading = false;
 
   ngOnInit() {
-    //this.solicitudesService.getAllVecinales();
-    
+    this.loading = true;
+    this.solicitudesService.getTopReclamosDenuncias().subscribe(
+      data => {
+        this.reclamos = data;
+      });
+
+    this.solicitudesService.getTopConsultasTramites().subscribe(
+      data => {
+        this.consultas = data;
+      });
+
+    this.solicitudesService.getOpiniones().subscribe(
+      data => {
+        this.opinadas = data;
+    });
+    this.loading = false;
   }
 }
