@@ -7,17 +7,15 @@
     <mat-divider></mat-divider>
 
     <mat-list class="lista  hov" *ngFor="let item of items">
-        <div class="linea fila" style="max-height: 40px;" [matMenuTriggerFor]="menu">
-            <div><mat-icon class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon></div>
-            <div class= "fila" style="justify-content: space-between; width: 95%; align-items: center">
-                <div class="item texto-regular"><h3>{{item.name}}</h3></div>
-                <div class="item texto-semibold"><p>{{item.details}}</p></div>
+        <div class="linea fila" style="max-height: 40px;">
+            <div class="fila">
+                <mat-icon class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
+                <div class="item texto-semibold">
+                    <h3 class="cut-text">{{item.name}}</h3>
+                </div>
             </div>
+            <div class="item texto-semibold"><p>{{item.details}}</p></div>
         </div>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="this.sendToList(item.name)"> <mat-icon style="color: black">dns</mat-icon> Ver en listado</button>
-            <button mat-menu-item (click)="this.sendToMap(item.name)"> <mat-icon style="color: black">map</mat-icon> Ver en mapa</button>
-        </mat-menu>
     </mat-list>
 
 </mat-card>

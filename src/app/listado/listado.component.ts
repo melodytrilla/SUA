@@ -43,16 +43,6 @@ export class ListadoComponent implements AfterViewInit {
       this.api.getSolicitudes().subscribe(
         data => {
           data.forEach(value => {
-              if (value.subtipo.length > 50) {
-                value.subtipo = value.subtipo.substr(0, 47) + "...";
-              }
-              if (value.descripcion.length > 50) {
-                value.descripcion = value.descripcion.substr(0, 47) + "...";
-              }
-              if (value.interseccion.length > 10) {
-                value.interseccion = value.interseccion.substr(0, 7) + "...";
-              }
-
               value.tiempo = this.calculateTime(value.fecha_hora_estado);
               value.tiempoInterv = this.calculateTime(value.fecha_hora_intervencion);
               value.tiempoMap = this.calculateTime(value.fecha_hora_asignacion);
