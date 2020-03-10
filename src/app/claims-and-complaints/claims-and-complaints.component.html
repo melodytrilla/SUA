@@ -9,25 +9,24 @@
 
     <mat-divider></mat-divider>
 
-    <div class="centered">
-        <div *ngIf="!loading; else loader">
-            <div *ngIf="data; else error">
-                <mat-list class="lista hov" *ngFor="let item of data.valores">
-                    <div class="linea fila" style="max-height: 40px;">
-                        <div class="fila">
-                            <mat-icon class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
-                            <div class="item texto-semibold">
-                                <h3 class="cut-text">{{item.name}}</h3>
-                            </div>
+    <div>
+        <div *ngIf="!loading && data; else loader">
+            <mat-list class="lista hov" *ngFor="let item of data.valores">
+                <div class="linea fila" style="max-height: 40px;">
+                    <div class="fila">
+                        <mat-icon class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
+                        <div class="item texto-semibold">
+                            <h3 class="cut-text">{{item.name}}</h3>
                         </div>
-                    <div class="item texto-semibold"><p>{{item.details}}</p></div>
                     </div>
-                </mat-list>
-            </div>
-            <ng-template #error><mat-icon>error</mat-icon> Error</ng-template>
+                <div class="item texto-semibold"><p>{{item.details}}</p></div>
+                </div>
+            </mat-list>
         </div>
         <ng-template #loader>
             <mat-spinner [diameter]="70"></mat-spinner>
         </ng-template>
     </div>
 </mat-card>
+
+<ng-template #error><mat-icon>error</mat-icon> Error</ng-template>
