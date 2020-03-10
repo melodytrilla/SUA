@@ -231,23 +231,19 @@ $my-theme-theme:mat-light-theme($angular-estado-cerrado, $angular-estado-cerrado
 
 //--- Dark theme -------
 
-//este es el dark solo lo uso para que el searchbar tenga letra blanca
-$darkTheme-primary: mat-palette($mat-yellow, 700, 300, 900);
-
-
 $darkTheme-theme:mat-dark-theme($angular-alerta-grave, $angular-alerta-grave, $angular-alerta-grave);
 
-//even harder test
-$darkTheme-theme-test:(
+//prueva para poder dar mas detalle en la creacion de temas que mat-dark-theme o mat-light-theme
+/*$darkTheme-theme-test:(
     primary: $angular-alerta-grave,
     accent: $angular-alerta-medio,
     warn: $angular-alerta-leve,
     is-dark: true,
     foreground: $mat-dark-theme-foreground,
     background: map_merge($mat-dark-theme-background, (background: rgb(12, 12, 12)))
-  );
+  );*/
 
-//se le agrega dark a la clase para transformarlo
+//light y dark themes base --- se necesitarian cambiar por su respectiva forma de las clases de arriva
 .dark{
     @include angular-material-theme($darkTheme-theme);
 }
