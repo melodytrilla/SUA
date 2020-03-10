@@ -117,18 +117,21 @@
   ],
   "Opinadas":{
     "total": 26,
-    "ratings":[
+    "valores":[
       {
-        "porcentaje": 2,
-        "tipo": "Neutral"
+        "icono": "fsua-neutro",
+        "details": 1,
+        "name": "Neutral"
       },
       {
-        "porcentaje": 95,
-        "tipo": "Negativas"
+        "icono": "fsua-malo",
+        "details": 20,
+        "name": "Negativas"
       },
       {
-        "porcentaje": 3,
-        "tipo": "Positivas"
+        "icono": "fsua-bueno",
+        "details": 4,
+        "name": "Positivas"
       }
     ]
   },

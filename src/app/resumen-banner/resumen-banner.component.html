@@ -4,7 +4,7 @@
         <mat-icon [inline]="true">alarm</mat-icon>
     </div >
 
-    <mat-card style="height: 74px">
+    <mat-card >
         <mat-card-content>
             <mat-card-subtitle class="titulo-bold"> Reiteradas </mat-card-subtitle>
             <div>
@@ -62,6 +62,14 @@
         </mat-card-content>
     </mat-card>
 
-    <ng-template #placeholder>Loading...</ng-template>
+    <ng-template #placeholder>
+        <ngx-content-loading
+            [speed]="'2000ms'"
+            [primaryColor]="'#ebebeb'"
+            [secondaryColor]="'#cfcfcf'"
+            [width]="300" [height]="60">
+            <svg:g ngx-rect width="135" height="55" y="0" x="20" rx="7" ry="7"></svg:g>
+        </ngx-content-loading>
+    </ng-template>
 
 </div>

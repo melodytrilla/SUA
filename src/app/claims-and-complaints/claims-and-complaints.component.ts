@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SolicitudesService } from '../solicitudes.service';
 
 @Component({
@@ -6,19 +6,12 @@ import { SolicitudesService } from '../solicitudes.service';
   templateUrl: './claims-and-complaints.component.html',
   styleUrls: ['./claims-and-complaints.component.sass']
 })
-export class ClaimsAndComplaintsComponent implements OnInit {
+export class ClaimsAndComplaintsComponent{
 
-constructor(private solicitudesService: SolicitudesService) { }
+@Input() data: any;
+@Input() title: string;
+@Input() loading: Boolean;
 
-public total: number = 0;
-public items: any[];
+constructor() { }
 
-  ngOnInit() {
-
-      this.solicitudesService.getTopReclamosDenuncias().subscribe(
-        data => {
-          this.total = data.total;
-          this.items = data.valores
-        });
-  }
 }
