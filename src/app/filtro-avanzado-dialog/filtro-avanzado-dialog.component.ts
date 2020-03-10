@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy,  Inject, Input, ViewChild, ElementRef, ContentChild, TemplateRef, AfterViewInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA, MatRadioGroup, MatSelect } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatRadioGroup, MatSelect, MatSnackBar } from '@angular/material';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
@@ -82,6 +82,24 @@ export interface AdvSearch{
   styleUrls: ['./filtro-avanzado-dialog.component.sass']
 })
 export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterViewInit{
+
+  //nombre de la busqueda a guardar
+  searchName = "";
+  
+  //metodo que agrega la busqueda a la lista de busquedas
+  agregarBusqueda(){
+    if(this.searchName == ""){
+      this._snackBar.open("no tiene nombre", "", {duration: 2000});
+      
+    }else{
+      this.advSearch.clasificacion_subtipo = this.myChips.guardarChips();
+      this.data.busqueda.advSearch = this.advSearch;
+      //console.log(this.data);
+      this.busqueda.Guardar(this.data.busqueda, this.searchName);
+      this._snackBar.open("el nombre es: " + this.searchName, "", {duration: 2000});
+    }
+  }
+
 
   //una variable donde se guardaran todos los valores y asociaran algunos valores de la forma
   advSearch: AdvSearch = {
@@ -279,7 +297,8 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
     public dialogRef: MatDialogRef<FiltroAvanzadoDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private solicitud:SolicitudesService,
-    private busqueda: BusquedaService) 
+    private busqueda: BusquedaService,
+    private _snackBar: MatSnackBar) 
     {
 
     }
