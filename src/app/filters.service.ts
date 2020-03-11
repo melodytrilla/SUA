@@ -10,7 +10,7 @@ import { element } from 'protractor';
 })
 export class FiltersService {
 
-  otherURL = "http://localhost:4000"
+  otherURL = "http://192.168.39.142:4000"
   constructor(private httpClient: HttpClient) { }
 
   private _todasSubcategorias: Chip[] = [];
@@ -19,13 +19,14 @@ export class FiltersService {
 
   //Obtiene los datos del Json
   getNewFilters(): void{
-    this._todasSubcategorias = [];
-    this.httpClient.get<Chip[]>(
-      `${this.otherURL}/Categorias`).subscribe(
-        categorias => {
-          this._todasSubcategorias = this._todasSubcategorias.concat(categorias);
+    if (this._todasSubcategorias.length == 0){
+      this.httpClient.get<Chip[]>(
+        `${this.otherURL}/Categorias`).subscribe(
+          categorias => {
+            this._todasSubcategorias = this._todasSubcategorias.concat(categorias);
         }
       );
+    }
   }
 
   get todasSubcategorias(): Chip[]{

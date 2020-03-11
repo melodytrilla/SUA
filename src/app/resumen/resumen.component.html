@@ -45,14 +45,22 @@
 
       <mat-grid-tile [colspan] =1 [rowspan] =5> 
           <mat-card class="dashboard-card">
-              <app-claims-and-complaints></app-claims-and-complaints>
-            </mat-card>
+              <app-claims-and-complaints 
+                [data]= "reclamos"
+                [loading]= "loading"
+                [title]="'Reclamos y denuncias'">
+              </app-claims-and-complaints>
+          </mat-card>
           
       </mat-grid-tile>
 
       <mat-grid-tile [colspan] =1 [rowspan] =5> 
             <mat-card class="dashboard-card">
-              <app-queries-and-formalities></app-queries-and-formalities>
+              <app-claims-and-complaints 
+                [data]= "consultas"
+                [loading]= "loading"
+                [title]="'Consultas y Reclamos'">
+              </app-claims-and-complaints>
             </mat-card>
             
       </mat-grid-tile>
@@ -112,7 +120,11 @@
     
           <mat-grid-tile [colspan] =1 [rowspan] =5> 
               <mat-card class="dashboard-card">
-                      <rating-bar></rating-bar>
+                  <app-claims-and-complaints 
+                    [data]= "opinadas"
+                    [loading]= "loading"
+                    [title]="'Opinadas'">
+                  </app-claims-and-complaints>
                 </mat-card>
           </mat-grid-tile>
     

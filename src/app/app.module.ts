@@ -25,7 +25,6 @@ import * as _ from 'lodash';
 
 //Componentes 
 import { RequestsByStateComponent } from './requests-by-state/requests-by-state.component';
-import { RatingBarComponent } from './rating-bar/rating-bar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ResumenBannerComponent } from './resumen-banner/resumen-banner.component';
 import { ResumenComponent } from './resumen/resumen.component';
@@ -33,7 +32,6 @@ import { RequestsByDistrictComponent } from './requests-by-district/requests-by-
 import { ClaimsAndComplaintsComponent } from './claims-and-complaints/claims-and-complaints.component';
 import { ChipsContainerComponent } from './chips-container/chips-container.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
-import { QueriesAndFormalitiesComponent } from './queries-and-formalities/queries-and-formalities.component';
 import { FiltroAvanzadoDialogComponent } from './filtro-avanzado-dialog/filtro-avanzado-dialog.component';
 import { RequestsByOriginComponent } from './requests-by-origin/requests-by-origin.component';
 import { Top10CategoriesComponent } from './top10-categories/top10-categories.component';
@@ -56,7 +54,6 @@ import { DownloadService } from './download.service';
   declarations: [
     AppComponent,
     RequestsByStateComponent,
-    RatingBarComponent,
     NavbarComponent,
     ResumenBannerComponent,
     ResumenComponent,
@@ -65,7 +62,6 @@ import { DownloadService } from './download.service';
     ChipsContainerComponent,
     SearchBarComponent,
     DateRangePicker,
-    QueriesAndFormalitiesComponent,
     FiltroAvanzadoDialogComponent,
     RequestsByOriginComponent,
     Top10CategoriesComponent,
