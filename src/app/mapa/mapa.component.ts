@@ -6,6 +6,7 @@ import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import {MapComponent} from '../map/map.component';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { DownloadService } from '../download.service';
 
 export interface Opcion {
   value: string;
@@ -23,7 +24,8 @@ export class MapaComponent implements OnInit {
 
   constructor(public api: SolicitudesItemsService,
               private router: Router,
-              private rutaActiva: ActivatedRoute,) { }
+              private rutaActiva: ActivatedRoute,
+              public service: DownloadService) { }
 
   public solicitudes: any[];
   public ar: any[] = [];
@@ -88,4 +90,7 @@ export class MapaComponent implements OnInit {
   showMe(a:number){
     this.viewPort.scrollToIndex(a-1);
   }
+  downloadFile(){
+    return this.service.downloadFile(this.solicitudes)
+    }
 }

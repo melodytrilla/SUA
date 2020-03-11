@@ -32,7 +32,7 @@
         <div *ngIf="solicitudes.length=='1'" style="text-align: right;">{{solicitudes.length}} solicitud con localización</div>
         <div>
             <mat-menu #appMenu="matMenu">
-                <button mat-menu-item>Exportar a CSV</button>
+                <button mat-menu-item (click)="downloadFile()">Exportar a CSV</button>
               </mat-menu>
               
               <button mat-icon-button [matMenuTriggerFor]="appMenu">
