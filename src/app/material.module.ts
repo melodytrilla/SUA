@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import {
-  MatToolbarModule,
+  MatToolbarModule, MatTooltipModule,
   MatDividerModule,
   MatChipsModule,
   MatExpansionModule,
@@ -26,7 +26,7 @@ import {
 @NgModule({
   declarations: [],
   exports: [
-    MatToolbarModule,
+    MatToolbarModule, MatTooltipModule,
     MatDividerModule,
     MatChipsModule,
     MatDialogModule ,

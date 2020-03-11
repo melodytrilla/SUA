@@ -21,6 +21,7 @@ export interface Opcion {
 })
 export class ListadoComponent implements AfterViewInit {
   asc = false;
+  allSelected = false;
   toppings = new FormControl();
   list: {subtipo: string};
 
@@ -46,6 +47,7 @@ export class ListadoComponent implements AfterViewInit {
               value.tiempo = this.calculateTime(value.fecha_hora_estado);
               value.tiempoInterv = this.calculateTime(value.fecha_hora_intervencion);
               value.tiempoMap = this.calculateTime(value.fecha_hora_asignacion);
+              value.checked = false;
           })
           this.items = data;
           this.loading = false;
@@ -74,5 +76,23 @@ export class ListadoComponent implements AfterViewInit {
 
   trackByIdx(i: number) {
     return i;
+  }
+
+  checkAll() {
+    this.allSelected = !this.allSelected;
+    if (this.allSelected) {
+      this.items.forEach(element => {
+        element.checked = true;
+      });
+    } 
+    else {
+      this.items.forEach(element => {
+        element.checked = false;
+      }); 
+    }
+  }
+
+  toggleItem(item){
+    item.checked = !item.checked;
   }
 }
