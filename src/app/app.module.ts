@@ -50,6 +50,7 @@ import { CartaInfoComponent } from './carta-info/carta-info.component';
 import { DetalleSolicitudComponent } from './detalle-solicitud/detalle-solicitud.component';
 import { DesplegableTestComponent } from './desplegable-test/desplegable-test.component';
 import { IconoTestComponent } from './icono-test/icono-test.component';
+import { DownloadService } from './download.service';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,7 @@ import { IconoTestComponent } from './icono-test/icono-test.component';
     MapComponent,
     DetalleSolicitudComponent,
     DesplegableTestComponent,
-    IconoTestComponent
+    IconoTestComponent,
   ],
   imports: [
     BrowserModule,
@@ -102,7 +103,7 @@ import { IconoTestComponent } from './icono-test/icono-test.component';
     NgxSpinnerModule, NgxContentLoadingModule,
   ],
   entryComponents: [DateRangePicker, FiltroAvanzadoDialogComponent],
-  providers: [{ provide: LOCALE_ID, useValue: "es-AR" }, BusquedaService],
+  providers: [{ provide: LOCALE_ID, useValue: "es-AR" }, BusquedaService, DownloadService],
   bootstrap: [AppComponent],
 
 })

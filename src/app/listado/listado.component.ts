@@ -7,6 +7,7 @@ import 'moment/locale/es';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from "@angular/router";
 import { FormControl } from '@angular/forms';
+import { DownloadService } from '../download.service';
 
 export interface Opcion {
   value: string;
@@ -26,7 +27,8 @@ export class ListadoComponent implements AfterViewInit {
 
   constructor(public api: SolicitudesItemsService,
               private rutaActiva: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              public service: DownloadService) { }
 
   public items: any[];
   public ar: any[] = [];
@@ -75,4 +77,7 @@ export class ListadoComponent implements AfterViewInit {
   trackByIdx(i: number) {
     return i;
   }
+  downloadFile(){
+    return this.service.downloadFile(this.items)
+    }
 }

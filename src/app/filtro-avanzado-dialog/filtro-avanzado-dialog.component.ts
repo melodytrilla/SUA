@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy,  Inject, Input, ViewChild, ElementRef, ContentChild, TemplateRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy,  Inject, Input, ViewChild, ElementRef, ContentChild, TemplateRef, AfterViewInit, Output, EventEmitter  } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatRadioGroup, MatSelect } from '@angular/material';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
@@ -78,6 +78,9 @@ export interface AdvSearch{
 
 @Component({
   selector: 'app-filtro-avanzado-dialog',
+  template: `
+  <app-search-bar [cantFiltros]="cantidad_filtros"></app-search-bar>
+`,
   templateUrl: './filtro-avanzado-dialog.component.html',
   styleUrls: ['./filtro-avanzado-dialog.component.sass']
 })
@@ -164,8 +167,10 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
 //-----Datos especificos--------------------------------------------
     Datos_Extra:[]
   };
+  public cantidad_filtros:number = 0;
   savePressed:boolean = false;
   datesControl = new FormControl('');
+
 
   //referencia al elemento chips conteiner
   @ViewChild(ChipsContainerComponent, {static: false})
@@ -284,6 +289,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
 
     }
 
+    
   //form: FormGroup;
 
   ngOnInit() {
@@ -305,6 +311,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
     //inicializacion de los paneles expansores
     this.ActualizarDescReporte();
     this.ActualizarDescCalificacion();
+    this.ActualizarDescArea();
     this.ActualizarDescAdjunto();
     this.ActualizarDescOpinion();
     this.ActualizarEstado();
@@ -372,6 +379,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
       this.advSearch.reiteraciones_con = true;
       this.advSearch.reiteraciones_sin = true;
     }
+    
     this.inputDescripcion = this.InputADescripcionReporte();
 
     if(!(this.advSearch.reiteraciones_con && this.advSearch.reiteraciones_sin && this.advSearch.prioridad == undefined)){
@@ -982,6 +990,9 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
     document.getElementById(panelId).style.animationName = "hasData"
     document.getElementById(panelId).style.webkitAnimationName = "hasData"
     document.getElementById(panelId).style.webkitAnimationDirection = "normal";
+    if(document.getElementById(panelId).classList.contains("light")){
+      this.cantidad_filtros= this.cantidad_filtros + 1;
+   }
     document.getElementById(panelId).classList.remove("light");
     document.getElementById(panelId).classList.add("dark");
     if(fontId != ""){
@@ -998,8 +1009,11 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
     if( document.getElementById(panelId).style.animationName == "hasData"){
       document.getElementById(panelId).style.animationDirection = "reverse";
       document.getElementById(panelId).style.webkitAnimationDirection = "reverse";
+      if(document.getElementById(panelId).classList.contains("dark")){
+        this.cantidad_filtros= this.cantidad_filtros - 1;
+     }
       document.getElementById(panelId).classList.remove("dark");
-      document.getElementById(panelId).classList.add("light");
+      document.getElementById(panelId).classList.add("light");   
       if(fontId != ""){
         document.getElementById(fontId).style.color = "#000000";
       }
@@ -1011,7 +1025,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
     }
   }
   //----------------------------------------------------------------------------
-
+  
 
 
 }

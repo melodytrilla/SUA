@@ -1,4 +1,3 @@
-
 <div class="mainContainer dark fila" [formGroup]="form">
     
     <mat-form-field class="medium texto-regular">
@@ -74,7 +73,7 @@
     </mat-form-field>
     <div class="boton columna">
         <div class="filtrar">
-            <button mat-button (click)="openDialog()"> <i class="fsua fsua-filtrar fsua-1_5x" style="color: #f7f7f8"> </i></button>
+            <button mat-button (click)="openDialog()"> <mat-icon matBadge="{{cantFiltros}}" matBadgeSize="medium" matBadgeColor="accent" class="fsua fsua-filtrar fsua-1_5x" style="color: #f7f7f8"> </mat-icon></button>
         </div>
 
         <div class="serch-button">

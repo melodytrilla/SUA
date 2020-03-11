@@ -23,7 +23,13 @@
             <div *ngIf="items.length!='1'">{{items.length}} solicitudes</div>
             <div *ngIf="items.length=='1'">{{items.length}} solicitud</div>
             <div>
-                <mat-icon class="more hov">more_vert</mat-icon>
+                <mat-menu #appMenu="matMenu">
+                    <button mat-menu-item (click)="downloadFile()">Exportar a CSV</button>
+                  </mat-menu>
+                  
+                  <button mat-icon-button [matMenuTriggerFor]="appMenu">
+                    <mat-icon>more_vert</mat-icon>
+                  </button>
             </div>
         </div>
     </div>
