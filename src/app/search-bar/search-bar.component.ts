@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
@@ -12,9 +12,11 @@ import { BusquedaService, Busqueda } from '../busqueda.service';
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
-  styleUrls: ['./search-bar.component.sass']
+  styleUrls: ['./search-bar.component.sass'],
+
 })
 export class SearchBarComponent implements OnInit {
+  @Input() cantFiltros: number;
 
   public dateMask = {
     guide: false,
@@ -41,6 +43,7 @@ export class SearchBarComponent implements OnInit {
 
   //a enviar al servicio de busqueda
   private busquedaField: Busqueda
+  
 
   constructor(
     private formBuilder: FormBuilder, 
@@ -48,9 +51,12 @@ export class SearchBarComponent implements OnInit {
     public dialog: MatDialog,
     private busqueda: BusquedaService) {  }
 
+
   inlineRangeChange($event) {
     this.inlineRange = $event;
   }
+
+ 
   //se llama al servicio para inicializarlo y se inicializan y linkean todos los valores de el formulario
   ngOnInit() {
     this.busqueda.Init();
@@ -101,8 +107,9 @@ export class SearchBarComponent implements OnInit {
     this.deFormABusqueda();
     const dialogRef = this.dialog.open(FiltroAvanzadoDialogComponent, {
       width: '1000px',
-      data: {info: "filtro", busqueda: this.busquedaField}
+      data: {info: "filtro", busqueda: this.busquedaField},
     });
+    console.log(this.cantFiltros)
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');

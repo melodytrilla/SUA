@@ -7,6 +7,7 @@ import 'moment/locale/es';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from "@angular/router";
 import { FormControl } from '@angular/forms';
+import { DownloadService } from '../download.service';
 
 export interface Opcion {
   value: string;
@@ -27,7 +28,8 @@ export class ListadoComponent implements AfterViewInit {
 
   constructor(public api: SolicitudesItemsService,
               private rutaActiva: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              public service: DownloadService) { }
 
   public items: any[];
   public ar: any[] = [];
@@ -95,4 +97,16 @@ export class ListadoComponent implements AfterViewInit {
   toggleItem(item){
     item.checked = !item.checked;
   }
+  downloadFile(){
+    var exportadas = [];
+    console.log(this.items);
+    this.items.forEach(element => {
+      console.log(element);
+      if(element.checked){
+        exportadas.push(element)
+      }
+    });
+    console.log(exportadas);
+    return this.service.downloadFile(exportadas)
+    }
 }

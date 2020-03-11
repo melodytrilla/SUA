@@ -28,9 +28,17 @@
     </div>
 
     <div class="total fila texto-semibold" *ngIf="solicitudes">
-        <div *ngIf="solicitudes.length!='1'">{{solicitudes.length}} solicitudes con localización</div>
-        <div *ngIf="solicitudes.length=='1'">{{solicitudes.length}} solicitud con localización</div>
-        <div><mat-icon class="more hov">more_vert</mat-icon></div>
+        <div *ngIf="solicitudes.length!='1'" style="text-align: right;">{{solicitudes.length}} solicitudes con localización</div>
+        <div *ngIf="solicitudes.length=='1'" style="text-align: right;">{{solicitudes.length}} solicitud con localización</div>
+        <div>
+            <mat-menu #appMenu="matMenu">
+                <button mat-menu-item (click)="downloadFile()">Exportar a CSV</button>
+              </mat-menu>
+              
+              <button mat-icon-button [matMenuTriggerFor]="appMenu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+        </div>
     </div>
 </div>
 <mat-divider></mat-divider>
