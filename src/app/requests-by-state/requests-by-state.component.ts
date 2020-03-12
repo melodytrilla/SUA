@@ -23,8 +23,8 @@ export class RequestsByStateComponent implements OnInit {
 
   public doughnutChartColors: Array<any> = [
     {
-      backgroundColor: ['#9B9487', '#F7B543', '#94D8FA', '#2764F3'],
-      hoverBackgroundColor: ['#B2AFAA', '#F6C672', '#BAE3F7', '#6B96FA'],
+      backgroundColor: ['#616161', '#3bdb98', '#0dc1e0', '#0066cc'],
+      hoverBackgroundColor: ['#adadad', '#5cee9e', '#25dae7', '#0787d1'],
       borderWidth: 1,
     }
   ];

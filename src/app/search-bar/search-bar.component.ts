@@ -16,7 +16,6 @@ import { BusquedaService, Busqueda } from '../busqueda.service';
 
 })
 export class SearchBarComponent implements OnInit {
-  @Input() cantFiltros: number;
 
   public dateMask = {
     guide: false,
@@ -43,7 +42,7 @@ export class SearchBarComponent implements OnInit {
 
   //a enviar al servicio de busqueda
   private busquedaField: Busqueda
-  
+  private cantFiltros: number;
 
   constructor(
     private formBuilder: FormBuilder, 
@@ -60,6 +59,7 @@ export class SearchBarComponent implements OnInit {
   //se llama al servicio para inicializarlo y se inicializan y linkean todos los valores de el formulario
   ngOnInit() {
     this.busqueda.Init();
+    console.log(this.cantFiltros)
     //console.log(this.busqueda.busquedaCompleta);
     this.busquedaField = this.busqueda.busquedaCompleta;
 

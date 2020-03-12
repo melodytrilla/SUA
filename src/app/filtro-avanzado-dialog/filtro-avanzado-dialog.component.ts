@@ -11,7 +11,6 @@ import { BusquedaService } from '../busqueda.service';
 import { SolicitudesService, Vecinal } from '../solicitudes.service';
 import { SatDatepickerRangeValue } from 'saturn-datepicker';
 
-
 export interface AdvSearch{
   // Los nuevos parametros a guardar
   //Reporte
@@ -78,14 +77,11 @@ export interface AdvSearch{
 
 @Component({
   selector: 'app-filtro-avanzado-dialog',
-  template: `
-  <app-search-bar [cantFiltros]="cantidad_filtros"></app-search-bar>
-`,
   templateUrl: './filtro-avanzado-dialog.component.html',
   styleUrls: ['./filtro-avanzado-dialog.component.sass']
 })
 export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterViewInit{
-
+ 
   //una variable donde se guardaran todos los valores y asociaran algunos valores de la forma
   advSearch: AdvSearch = {
     //-----Busqueda Reporte ----------------------------------------------
@@ -167,7 +163,6 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
 //-----Datos especificos--------------------------------------------
     Datos_Extra:[]
   };
-  public cantidad_filtros:number = 0;
   savePressed:boolean = false;
   datesControl = new FormControl('');
 
@@ -278,7 +273,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   datosEspecificos_warning:string = "";
 
   //--------------------------------------------------------------------
-
+  cantidad_filtros: number =0;
   constructor(
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<FiltroAvanzadoDialogComponent>,
@@ -293,7 +288,6 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   //form: FormGroup;
 
   ngOnInit() {
-
     //inicializa los valores del advSerch si hay algunos guardado en la session
     if(this.busqueda.busquedaCompleta.advSearch){
       console.log(this.busqueda.busquedaCompleta.advSearch);
@@ -1026,6 +1020,4 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   }
   //----------------------------------------------------------------------------
   
-
-
 }

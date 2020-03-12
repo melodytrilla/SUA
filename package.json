@@ -59,6 +59,7 @@
     "saturn-datepicker": "^8.0.1",
     "save": "^2.4.0",
     "tslib": "^1.10.0",
+    "xlsx": "^0.15.5",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {

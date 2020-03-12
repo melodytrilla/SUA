@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { AdvSearch } from './filtro-avanzado-dialog/filtro-avanzado-dialog.component';
 
 export interface Busqueda{
@@ -20,9 +20,7 @@ export interface Busqueda{
 export class BusquedaService {
 
   constructor() { }
-
   busquedaCompleta:Busqueda;
-
 
   //si hay algo guardado en la session se carga en una variable, si no se inicializa vacio
   Init(){

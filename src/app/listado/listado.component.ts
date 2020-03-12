@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from "@angular/router";
 import { FormControl } from '@angular/forms';
 import { DownloadService } from '../download.service';
+import { ExcelService } from '../excel.service';
 
 export interface Opcion {
   value: string;
@@ -28,7 +29,8 @@ export class ListadoComponent implements AfterViewInit {
   constructor(public api: SolicitudesItemsService,
               private rutaActiva: ActivatedRoute,
               private router: Router,
-              public service: DownloadService) { }
+              public service: DownloadService,
+              private excelService: ExcelService) { }
 
   public items: any[];
   public ar: any[] = [];
@@ -80,4 +82,7 @@ export class ListadoComponent implements AfterViewInit {
   downloadFile(){
     return this.service.downloadFile(this.items)
     }
+  exportAsXLSX():void {
+    this.excelService.exportAsExcelFile(this.items, 'solicitudes');
+  }
 }
