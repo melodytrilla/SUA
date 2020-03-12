@@ -49,7 +49,6 @@ import { DetalleSolicitudComponent } from './detalle-solicitud/detalle-solicitud
 import { DesplegableTestComponent } from './desplegable-test/desplegable-test.component';
 import { IconoTestComponent } from './icono-test/icono-test.component';
 import { DownloadService } from './download.service';
-import { ExcelService } from './excel.service';
 
 @NgModule({
   declarations: [
@@ -100,7 +99,7 @@ import { ExcelService } from './excel.service';
     NgxSpinnerModule, NgxContentLoadingModule,
   ],
   entryComponents: [DateRangePicker, FiltroAvanzadoDialogComponent],
-  providers: [{ provide: LOCALE_ID, useValue: "es-AR" }, BusquedaService, DownloadService, ExcelService],
+  providers: [{ provide: LOCALE_ID, useValue: "es-AR" }, BusquedaService, DownloadService],
   bootstrap: [AppComponent],
 
 })

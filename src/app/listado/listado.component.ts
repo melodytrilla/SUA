@@ -8,7 +8,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from "@angular/router";
 import { FormControl } from '@angular/forms';
 import { DownloadService } from '../download.service';
-import { ExcelService } from '../excel.service';
 
 export interface Opcion {
   value: string;
@@ -23,17 +22,17 @@ export interface Opcion {
 })
 export class ListadoComponent implements AfterViewInit {
   asc = false;
+  allSelected = false;
   toppings = new FormControl();
   list: {subtipo: string};
 
   constructor(public api: SolicitudesItemsService,
               private rutaActiva: ActivatedRoute,
               private router: Router,
-              public service: DownloadService,
-              private excelService: ExcelService) { }
+              public service: DownloadService) { }
 
   public items: any[];
-  public ar: any[] = [];
+
 
   @ViewChild(CdkVirtualScrollViewport, {static: false}) viewPort: CdkVirtualScrollViewport;
   
@@ -50,6 +49,7 @@ export class ListadoComponent implements AfterViewInit {
               value.tiempo = this.calculateTime(value.fecha_hora_estado);
               value.tiempoInterv = this.calculateTime(value.fecha_hora_intervencion);
               value.tiempoMap = this.calculateTime(value.fecha_hora_asignacion);
+              value.checked = false;
           })
           this.items = data;
           this.loading = false;
@@ -79,10 +79,37 @@ export class ListadoComponent implements AfterViewInit {
   trackByIdx(i: number) {
     return i;
   }
+
+  checkAll() {
+    this.allSelected = !this.allSelected;
+    if (this.allSelected) {
+      this.items.forEach(element => {
+        element.checked = true;
+      });
+    } 
+    else {
+      this.items.forEach(element => {
+        element.checked = false;
+      }); 
+    }
+  }
+
+  toggleItem(item){
+    item.checked = !item.checked;
+  }
+  exportar(){
+  var exportadas: any[] = [];
+  this.items.forEach(element => {
+    if(element.checked){
+      exportadas.push(element)
+    }
+  })
+  return exportadas
+}
   downloadFile(){
-    return this.service.downloadFile(this.items)
+    return this.service.downloadFile(this.exportar())
     }
   exportAsXLSX():void {
-    this.excelService.exportAsExcelFile(this.items, 'solicitudes');
+    return this.service.exportAsExcelFile(this.exportar(), 'solicitudes');
   }
 }

@@ -3,7 +3,15 @@
     <app-navbar></app-navbar>
     <div class="topBar fila">
         <div class="ordenar fila">
-            <mat-form-field>
+
+            <mat-checkbox 
+                color="primary"
+                [(value)]="allSelected"
+                (change)="checkAll()"
+                matTooltip="Seleccionar todas">
+            </mat-checkbox>
+            
+            <mat-form-field class="selector">
                 <mat-label class="texto-regular">Ordenar por</mat-label>
                 <mat-select>
                     <mat-option class="texto-regular" value="fechaCreacion"> Fecha de creación </mat-option>
@@ -60,7 +68,14 @@
                             <div *ngIf="item.estado=='Resuelto'" class="accent accentR"></div>
                             <div *ngIf="item.estado=='cerrado'" class="accent accentC"></div>
                         </div>
-                        <div style="width: 1%"><mat-checkbox color="primary"></mat-checkbox></div>
+
+                        <div style="width: 1%">
+                            <mat-checkbox 
+                                color="primary" 
+                                [checked]="item.checked"
+                                (change)="toggleItem(item)">
+                            </mat-checkbox>
+                        </div>
                     </div>
                     <div class="click fila hov" (click)="this.sendto(item.id, item.anio)">
                         <div class="colum0 columna">

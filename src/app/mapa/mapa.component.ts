@@ -28,7 +28,6 @@ export class MapaComponent implements OnInit {
               public service: DownloadService) { }
 
   public solicitudes: any[];
-  public ar: any[] = [];
 
   @ViewChild(CdkVirtualScrollViewport, {static: false}) viewPort: CdkVirtualScrollViewport;
   @ViewChild(MapComponent, {static: false}) map;
@@ -90,7 +89,10 @@ export class MapaComponent implements OnInit {
   showMe(a:number){
     this.viewPort.scrollToIndex(a-1);
   }
-  downloadFile(){
-    return this.service.downloadFile(this.solicitudes)
+    downloadFile(){
+      return this.service.downloadFile(this.solicitudes)
+      }
+    exportAsXLSX():void {
+      return this.service.exportAsExcelFile(this.solicitudes, 'solicitudes');
     }
 }
