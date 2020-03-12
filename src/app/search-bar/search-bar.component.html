@@ -1,12 +1,13 @@
 
-<div class="mainContainer dark fila" [formGroup]="form">
-    <div class="columna">
-        <div>
+<div class="mainContainer dark fila" [(formGroup)]="form">
+    <div class="columnaInvertida" style="width: 95%;">
+        <div style="display: flex; justify-content: center;">
             <mat-form-field class="medium texto-regular">
                 <input matInput
                     placeholder="Fechas"
                     [satDatepicker]="picker"
-                    formControlName="date">
+                    formControlName="date"
+                    autofilled= true >
                     
                 <sat-datepicker #picker 
                     [rangeMode]="true"
@@ -74,14 +75,16 @@
                 <input matInput placeholder="Solicitante" formControlName="Id_solicitante">
             </mat-form-field>
         </div>
-        <div>
-            <mat-form-field>
-                <mat-label>Busquedas anteriores</mat-label>
-                <mat-select>
-                    <mat-option >Nueva</mat-option>
-                    <mat-option *ngFor = "let busqueda of busquedasGuardadas" [value]= "busqueda" (click)= "buscarguardado(busqueda)"> {{busqueda.nombre}} </mat-option>
-                </mat-select>
-            </mat-form-field>
+        <div style="display: flex; justify-content: end;">
+            <div class="medium">
+                <mat-form-field>
+                    <mat-label>Filtros anteriores</mat-label>
+                    <mat-select>
+                        <mat-option >Nueva</mat-option>
+                        <mat-option *ngFor = "let busqueda of busquedasGuardadas" [value]= "busqueda" (click)= "buscarguardado(busqueda)"> {{busqueda.nombre}} </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
         </div>
     </div>
     <div class="boton columna">

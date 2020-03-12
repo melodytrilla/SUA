@@ -121,14 +121,30 @@ export class SearchBarComponent implements OnInit {
   sendInfo():void{
     this.deFormABusqueda();
     //console.log(this.form.value);
-    if(this.busquedaField.Dir.geometry == null){
-      this.busquedaField.Dir =  null;
+    if(this.busquedaField.Dir != null){
+      if(this.busquedaField.Dir.geometry == null){
+        this.busquedaField.Dir =  null;
+      }
     }
     this.busqueda.Buscar(this.busquedaField);
   
   }
 
   //pasa los valores de el formulario a una variable a ser pasada por la busqueda
+  deBusquedaAForm(busquedaLoad: Busqueda):void{
+    this.form.setValue({
+      "Id_solicitante" : busquedaLoad.Id_solicitante,
+      "Id_solicitud" : busquedaLoad.Id_solicitud,
+      "año": busquedaLoad.año,
+      "ubicacion" : busquedaLoad.Dir,
+      "radio" : busquedaLoad.radio,
+      "date" : {
+        "begin" : busquedaLoad.dateRange_begin,
+        "end" : busquedaLoad.dateRange_end
+      }
+    })
+  }
+
   deFormABusqueda():void{
     this.busquedaField.Id_solicitante = this.form.value.Id_solicitante;
     this.busquedaField.Id_solicitud = this.form.value.Id_solicitud;
@@ -161,8 +177,12 @@ export class SearchBarComponent implements OnInit {
   }
 
   buscarguardado(guardado:BusquedaSave):void{
-    console.log(guardado);
-    this.busqueda.Buscar(guardado.busqueda);
+    //console.log(guardado);
+    this.busqueda.loadBusqueda(guardado);
+    this.deBusquedaAForm(guardado.busqueda);
+    this.deFormABusqueda();
+    this.busquedaField = guardado.busqueda;
+
   }
 
 }
