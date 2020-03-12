@@ -104,12 +104,18 @@ export class ListadoComponent implements AfterViewInit {
       exportadas.push(element)
     }
   })
+  console.log(exportadas)
+  if (exportadas.length==0){
+    alert("No hay solicitudes seleccionadas")
+  }
   return exportadas
 }
   downloadFile(){
     return this.service.downloadFile(this.exportar())
     }
   exportAsXLSX():void {
+    if (this.exportar().length!=0){
     return this.service.exportAsExcelFile(this.exportar(), 'solicitudes');
+    }
   }
 }
