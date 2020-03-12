@@ -7,7 +7,7 @@ import { PlacesService, Direccion } from '../places.service';
 import {DateRangePicker} from '../date-range-picker/date-range-picker.component'
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FiltroAvanzadoDialogComponent } from '../filtro-avanzado-dialog/filtro-avanzado-dialog.component';
-import { BusquedaService, Busqueda } from '../busqueda.service';
+import { BusquedaService, Busqueda, BusquedaSave } from '../busqueda.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -41,6 +41,8 @@ export class SearchBarComponent implements OnInit {
 
   //a enviar al servicio de busqueda
   private busquedaField: Busqueda
+
+  busquedasGuardadas; 
 
   constructor(
     private formBuilder: FormBuilder, 
@@ -77,6 +79,12 @@ export class SearchBarComponent implements OnInit {
      * el texto en elcontrol de usuario y enviar el parametro al endpoint
      */
     this.places = this.placesService.getPlaces();
+
+    this.busqueda.getBusquedas().subscribe(
+      data => {
+        this.busquedasGuardadas = data;
+      }
+    );
 
     //Filtrado de resultados busqueda ubicacion
     /*
@@ -150,6 +158,11 @@ export class SearchBarComponent implements OnInit {
         return value.properties.name;
       }
     }
+  }
+
+  buscarguardado(guardado:BusquedaSave):void{
+    console.log(guardado);
+    this.busqueda.Buscar(guardado.busqueda);
   }
 
 }

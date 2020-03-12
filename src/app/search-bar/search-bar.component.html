@@ -1,80 +1,92 @@
 
 <div class="mainContainer dark fila" [formGroup]="form">
-    
-    <mat-form-field class="medium texto-regular">
-        <input matInput
-            placeholder="Fechas"
-            [satDatepicker]="picker"
-            formControlName="date">
-            
-        <sat-datepicker #picker 
-            [rangeMode]="true"
-            [calendarFooterComponent]="rangesFooter"></sat-datepicker>
-        <sat-datepicker-toggle matSuffix [for]="picker"></sat-datepicker-toggle>
-    </mat-form-field>
-   
+    <div class="columna">
+        <div>
+            <mat-form-field class="medium texto-regular">
+                <input matInput
+                    placeholder="Fechas"
+                    [satDatepicker]="picker"
+                    formControlName="date">
+                    
+                <sat-datepicker #picker 
+                    [rangeMode]="true"
+                    [calendarFooterComponent]="rangesFooter"></sat-datepicker>
+                <sat-datepicker-toggle matSuffix [for]="picker"></sat-datepicker-toggle>
+            </mat-form-field>
+        
 
-    <mat-form-field class="short texto-regular">
-        <input matInput placeholder="Numero" formControlName="Id_solicitud">
-    </mat-form-field>
+            <mat-form-field class="short texto-regular">
+                <input matInput placeholder="Numero" formControlName="Id_solicitud">
+            </mat-form-field>
 
-    <mat-form-field class="short texto-regular">
-        <input matInput placeholder="Año" [textMask]="yearMask" formControlName="año">
-    </mat-form-field>
+            <mat-form-field class="short texto-regular">
+                <input matInput placeholder="Año" [textMask]="yearMask" formControlName="año">
+            </mat-form-field>
 
-    <mat-form-field class="large texto-regular">
-        <input matInput type="text" 
-            placeholder="Ubicacion (min 4 letras)" 
-            formControlName="ubicacion"
-            autocapitalize="off"
-            autocomplete="off"
-            (input)="searchUbicaciones($event.target.value)" 
-            [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFunction">
-            <ng-container *ngFor="let dir of filteredDirecciones">
-                <ng-container *ngIf="dir.geometry; else notPoint">
-                    <mat-option class="optionPunto fila" [value]=dir>
-                        <div class="punto columna">
-                            <p>{{dir.properties.name}}</p>
-                            <p *ngIf="dir.properties.subtipo != 'DIRECCIÓN'; else direccion" class="dir font12">{{dir.properties.direccion}}</p>
-                            <ng-template #direccion>
-                                <p class="dir font12">{{dir.properties.subtipo}}</p>
-                            </ng-template>
-                        </div>
-                        <mat-divider></mat-divider>
-                        <!--Soy un punto-->
-                    </mat-option>
-                </ng-container>
-                <ng-template #notPoint>
-                    <mat-option class="optionPunto fila" [value]="dir">
-                        <div class="punto columna texto-regular">
-                            <p>{{dir.properties.name}}</p>
-                            <p class="dir font12">{{dir.properties.subtipo}}</p>
-                            <ng-container *ngFor="let altura of dir.properties.rangosAltura">
-                                <div class="altura fila font12">
-                                    <p>{{altura.alturaDesde}} - {{altura.alturaHasta}} </p>
-                                    <p *ngIf="altura.bis" > BIS </p>
+            <mat-form-field class="large texto-regular">
+                <input matInput type="text" 
+                    placeholder="Ubicacion (min 4 letras)" 
+                    formControlName="ubicacion"
+                    autocapitalize="off"
+                    autocomplete="off"
+                    (input)="searchUbicaciones($event.target.value)" 
+                    [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFunction">
+                    <ng-container *ngFor="let dir of filteredDirecciones">
+                        <ng-container *ngIf="dir.geometry; else notPoint">
+                            <mat-option class="optionPunto fila" [value]=dir>
+                                <div class="punto columna">
+                                    <p>{{dir.properties.name}}</p>
+                                    <p *ngIf="dir.properties.subtipo != 'DIRECCIÓN'; else direccion" class="dir font12">{{dir.properties.direccion}}</p>
+                                    <ng-template #direccion>
+                                        <p class="dir font12">{{dir.properties.subtipo}}</p>
+                                    </ng-template>
                                 </div>
-                            </ng-container>
-                        </div>
-                        <mat-divider></mat-divider>
-                        <!--No soy un punto-->
-                    </mat-option>
-                </ng-template>
-            </ng-container>
-         </mat-autocomplete>
-    </mat-form-field>
+                                <mat-divider></mat-divider>
+                                <!--Soy un punto-->
+                            </mat-option>
+                        </ng-container>
+                        <ng-template #notPoint>
+                            <mat-option class="optionPunto fila" [value]="dir">
+                                <div class="punto columna texto-regular">
+                                    <p>{{dir.properties.name}}</p>
+                                    <p class="dir font12">{{dir.properties.subtipo}}</p>
+                                    <ng-container *ngFor="let altura of dir.properties.rangosAltura">
+                                        <div class="altura fila font12">
+                                            <p>{{altura.alturaDesde}} - {{altura.alturaHasta}} </p>
+                                            <p *ngIf="altura.bis" > BIS </p>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                                <mat-divider></mat-divider>
+                                <!--No soy un punto-->
+                            </mat-option>
+                        </ng-template>
+                    </ng-container>
+                </mat-autocomplete>
+            </mat-form-field>
 
-    <mat-form-field class="short texto-regular">
-        <input matInput type="text" placeholder="Radio" maxlength=4 formControlName="radio">
-    </mat-form-field>
+            <mat-form-field class="short texto-regular">
+                <input matInput type="text" placeholder="Radio" maxlength=4 formControlName="radio">
+            </mat-form-field>
 
-    <mat-form-field class="large">
-        <input matInput placeholder="Solicitante" formControlName="Id_solicitante">
-    </mat-form-field>
+            <mat-form-field class="large">
+                <input matInput placeholder="Solicitante" formControlName="Id_solicitante">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Busquedas anteriores</mat-label>
+                <mat-select>
+                    <mat-option >Nueva</mat-option>
+                    <mat-option *ngFor = "let busqueda of busquedasGuardadas" [value]= "busqueda" (click)= "buscarguardado(busqueda)"> {{busqueda.nombre}} </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
     <div class="boton columna">
         <div class="filtrar">
-            <button mat-button (click)="openDialog()"> <i class="fsua fsua-filtrar fsua-1_5x" style="color: #f7f7f8"> </i></button>
+            <button mat-button (click)="openDialog()"> <i class="fsua fsua-filtrar fsua-1_5x blanco"> </i></button>
         </div>
 
         <div class="serch-button">

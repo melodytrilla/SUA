@@ -586,14 +586,14 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
 
 
   //Para actualizar Adjuntos --------------------------------------------
-  /*
+  
   checkEnable(event){
     if(event.value == "no"){
       this.dis = true;
     }else{
       this.dis = false;
     }
-  }*/
+  }
 
   ActualizarDescAdjunto(){
     if(this.advSearch.adjunto_tiene!= "no" && !this.advSearch.adjunto_regReit && !this.advSearch.adjunto_intervencion && !this.advSearch.adjunto_resolucion){
@@ -653,14 +653,14 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   //---------------------------------------------------------------------
 
   //Para actualizar Opiniones --------------------------------------------
-/*
+
   checkEnableOp(event){
     if(event.value == "no"){
       this.disOp = true;
     }else{
       this.disOp = false;
     }
-  }*/
+  }
 
   ActualizarDescOpinion(){
     if (!this.advSearch.opinion_negative && !this.advSearch.opinion_positivo && !this.advSearch.opinion_neutro){
