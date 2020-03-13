@@ -7,7 +7,7 @@ import { PlacesService, Direccion } from '../places.service';
 import {DateRangePicker} from '../date-range-picker/date-range-picker.component'
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FiltroAvanzadoDialogComponent } from '../filtro-avanzado-dialog/filtro-avanzado-dialog.component';
-import { BusquedaService, Busqueda } from '../busqueda.service';
+import { BusquedaService, Busqueda, BusquedaSave } from '../busqueda.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -43,6 +43,8 @@ export class SearchBarComponent implements OnInit {
   //a enviar al servicio de busqueda
   private busquedaField: Busqueda
   private cantFiltros: number;
+
+  busquedasGuardadas; 
 
   constructor(
     private formBuilder: FormBuilder, 
@@ -84,6 +86,12 @@ export class SearchBarComponent implements OnInit {
      */
     this.places = this.placesService.getPlaces();
 
+    this.busqueda.getBusquedas().subscribe(
+      data => {
+        this.busquedasGuardadas = data;
+      }
+    );
+
     //Filtrado de resultados busqueda ubicacion
     /*
     this.filteredOptions = this.form.get('ubicacion').valueChanges
@@ -120,14 +128,30 @@ export class SearchBarComponent implements OnInit {
   sendInfo():void{
     this.deFormABusqueda();
     //console.log(this.form.value);
-    if(this.busquedaField.Dir.geometry == null){
-      this.busquedaField.Dir =  null;
+    if(this.busquedaField.Dir != null){
+      if(this.busquedaField.Dir.geometry == null){
+        this.busquedaField.Dir =  null;
+      }
     }
     this.busqueda.Buscar(this.busquedaField);
   
   }
 
   //pasa los valores de el formulario a una variable a ser pasada por la busqueda
+  deBusquedaAForm(busquedaLoad: Busqueda):void{
+    this.form.setValue({
+      "Id_solicitante" : busquedaLoad.Id_solicitante,
+      "Id_solicitud" : busquedaLoad.Id_solicitud,
+      "año": busquedaLoad.año,
+      "ubicacion" : busquedaLoad.Dir,
+      "radio" : busquedaLoad.radio,
+      "date" : {
+        "begin" : busquedaLoad.dateRange_begin,
+        "end" : busquedaLoad.dateRange_end
+      }
+    })
+  }
+
   deFormABusqueda():void{
     this.busquedaField.Id_solicitante = this.form.value.Id_solicitante;
     this.busquedaField.Id_solicitud = this.form.value.Id_solicitud;
@@ -157,6 +181,15 @@ export class SearchBarComponent implements OnInit {
         return value.properties.name;
       }
     }
+  }
+
+  buscarguardado(guardado:BusquedaSave):void{
+    //console.log(guardado);
+    this.busqueda.loadBusqueda(guardado);
+    this.deBusquedaAForm(guardado.busqueda);
+    this.deFormABusqueda();
+    this.busquedaField = guardado.busqueda;
+
   }
 
 }

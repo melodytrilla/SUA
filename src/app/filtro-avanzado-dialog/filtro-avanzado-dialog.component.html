@@ -1,5 +1,13 @@
 <!--<div mat-dialog-content class="mainContainer dark" [formGroup]="form"></div>-->
-    <h1 class="titulo-extrabold" mat-dialog-title>Filtros avanzados</h1>
+    <div style="display: flex; flex-direction: row;">
+        <h1 class="titulo-extrabold" mat-dialog-title>Filtros avanzados</h1>
+        <div style="width: 70%;">
+            <mat-form-field style="float: right; width: 50%;">
+                <mat-label>Nombre de busqueda</mat-label>
+                <input matInput [(ngModel)]="searchName" placeholder="nuevo nombre">
+            </mat-form-field>
+        </div>
+    </div>
     <!--
     <app-chips-container #myChips [chipsAnteriores] = []></app-chips-container>
 
@@ -584,6 +592,13 @@
   <button class="whiteBack-Button texto-semibold" mat-raised-button (click)="onNoClick()">Cancelar</button>
   <!--agregar devuelta al botton de abajo ( [mat-dialog-close]="data.filtro" cdkFocusInitial)-->
   <button class="blueBack-Button texto-semibold" mat-raised-button (click)="BusquedaClick()">Buscar</button>
+
+  <div style="width:80%">
+    <button mat-stroked-button (click)="agregarBusqueda()" style="float: right" color="primary">
+        <mat-icon>playlist_add</mat-icon>
+        agregar
+    </button>
+  </div>
 </div>
 
 
