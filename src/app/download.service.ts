@@ -20,19 +20,14 @@ export class DownloadService {
         saveAs(file,"solicitudes.csv");
     }
 
-
-
     public convertToCSV(objArray: any, fields?) {
         let json2csvParser = new this.Json2csvParser({ opts: fields });
         let csv = json2csvParser.parse(objArray);
-        console.log(csv);
         return csv;
     }
 
     public exportAsExcelFile(json: any[], excelFileName: string): void {
-    
       const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(json);
-      console.log('worksheet',worksheet);
       const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
       const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
       //const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'buffer' });

@@ -1,5 +1,6 @@
 import { Injectable} from '@angular/core';
 import { AdvSearch } from './filtro-avanzado-dialog/filtro-avanzado-dialog.component';
+import { BehaviorSubject } from 'rxjs';
 
 export interface Busqueda{
   dateRange_begin: Date,
@@ -18,6 +19,9 @@ export interface Busqueda{
   providedIn: 'root'
 })
 export class BusquedaService {
+  private message = new BehaviorSubject<number>(0);
+
+  public customMessage = this.message.asObservable();
 
   constructor() { }
   busquedaCompleta:Busqueda;
@@ -51,4 +55,7 @@ export class BusquedaService {
     window.sessionStorage['busqueda'] = JSON.stringify(this.busquedaCompleta);
   }
 
+  public changeMessage(msg: number): void {
+    this.message.next(msg);
+  }
 }

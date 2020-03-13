@@ -81,7 +81,8 @@ export interface AdvSearch{
   styleUrls: ['./filtro-avanzado-dialog.component.sass']
 })
 export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterViewInit{
- 
+  
+
   //una variable donde se guardaran todos los valores y asociaran algunos valores de la forma
   advSearch: AdvSearch = {
     //-----Busqueda Reporte ----------------------------------------------
@@ -288,6 +289,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   //form: FormGroup;
 
   ngOnInit() {
+    this.busqueda.customMessage.subscribe(msg => this.cantidad_filtros = msg);
     //inicializa los valores del advSerch si hay algunos guardado en la session
     if(this.busqueda.busquedaCompleta.advSearch){
       console.log(this.busqueda.busquedaCompleta.advSearch);
@@ -331,6 +333,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
       this.data.busqueda.advSearch = this.advSearch;
       //console.log(this.data);
       this.busqueda.Buscar(this.data.busqueda);
+      this.changeMessage();
       this.savePressed = false;
       console.log("destroy save");
     }else{
@@ -986,6 +989,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
     document.getElementById(panelId).style.webkitAnimationDirection = "normal";
     if(document.getElementById(panelId).classList.contains("light")){
       this.cantidad_filtros= this.cantidad_filtros + 1;
+      console.log(this.cantidad_filtros)
    }
     document.getElementById(panelId).classList.remove("light");
     document.getElementById(panelId).classList.add("dark");
@@ -1005,6 +1009,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
       document.getElementById(panelId).style.webkitAnimationDirection = "reverse";
       if(document.getElementById(panelId).classList.contains("dark")){
         this.cantidad_filtros= this.cantidad_filtros - 1;
+        console.log(this.cantidad_filtros)
      }
       document.getElementById(panelId).classList.remove("dark");
       document.getElementById(panelId).classList.add("light");   
@@ -1019,5 +1024,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
     }
   }
   //----------------------------------------------------------------------------
-  
+  changeMessage() {
+    this.busqueda.changeMessage(this.cantidad_filtros);
+  }
 }
