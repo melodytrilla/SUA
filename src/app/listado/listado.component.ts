@@ -99,14 +99,11 @@ export class ListadoComponent implements AfterViewInit {
   }
   downloadFile(){
     var exportadas = [];
-    console.log(this.items);
     this.items.forEach(element => {
-      console.log(element);
       if(element.checked){
         exportadas.push(element)
       }
     });
-    console.log(exportadas);
     return this.service.downloadFile(exportadas)
     }
 }
