@@ -76,11 +76,11 @@
             </mat-form-field>
         </div>
         <div style="display: flex; justify-content: end;">
-            <div class="medium" style="height:45%">
+            <div class="medium" style="height:45px">
                 <mat-form-field>
                     <mat-label>Filtros anteriores</mat-label>
                     <mat-select>
-                        <mat-option >Nueva</mat-option>
+                        <mat-option >Ninguna</mat-option>
                         <mat-option *ngFor = "let busqueda of busquedasGuardadas" [value]= "busqueda" (click)= "buscarguardado(busqueda)"> {{busqueda.nombre}} </mat-option>
                     </mat-select>
                 </mat-form-field>

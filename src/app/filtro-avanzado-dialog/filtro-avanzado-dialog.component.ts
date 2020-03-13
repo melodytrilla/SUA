@@ -89,15 +89,19 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   //metodo que agrega la busqueda a la lista de busquedas
   agregarBusqueda(){
     if(this.searchName == ""){
-      this._snackBar.open("no tiene nombre", "", {duration: 2000});
+      this.showMessage("por favor ingrese un nombre para guardar el filtro");
       
     }else{
       this.advSearch.clasificacion_subtipo = this.myChips.guardarChips();
       this.data.busqueda.advSearch = this.advSearch;
       //console.log(this.data);
       this.busqueda.Guardar(this.data.busqueda, this.searchName);
-      this._snackBar.open("el nombre es: " + this.searchName, "", {duration: 2000});
+      this.showMessage("este filtro se a guardado con el nombre:  " + this.searchName);
     }
+  }
+
+  public showMessage (message:string):void{
+    this._snackBar.open(message , "", {duration: 2000});
   }
 
 
