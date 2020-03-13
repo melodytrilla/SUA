@@ -2,6 +2,7 @@ import { Injectable} from '@angular/core';
 import { AdvSearch } from './filtro-avanzado-dialog/filtro-avanzado-dialog.component';
 import { HttpClient } from '@angular/common/http';
 import { stringToKeyValue } from '@angular/flex-layout/extended/typings/style/style-transforms';
+import { BehaviorSubject } from 'rxjs';
 
 export interface Busqueda{
   dateRange_begin: Date,
@@ -31,6 +32,9 @@ export interface BusquedaSave2{
   providedIn: 'root'
 })
 export class BusquedaService {
+  private message = new BehaviorSubject<number>(0);
+
+  public customMessage = this.message.asObservable();
 
   constructor(private httpClient: HttpClient) { }
 
@@ -84,5 +88,8 @@ export class BusquedaService {
   loadBusqueda(filtrosPrevios:BusquedaSave){
     this.busquedaCompleta = filtrosPrevios.busqueda;
     this.guardarEnSecion();
+  }
+  public changeMessage(msg: number): void {
+    this.message.next(msg);
   }
 }
