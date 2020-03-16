@@ -33,13 +33,6 @@ export class RequestsByStateComponent implements OnInit {
     tooltips: {
       enabled: true,
     },
-    
-    layout:{
-      padding:{
-        right:70
-      }
-    },
-
 
     plugins: {
       datalabels: {
@@ -56,8 +49,6 @@ export class RequestsByStateComponent implements OnInit {
       legend: {
         fullWidth: false,
         display: false,
-        position: 'right',
-        
         labels: {
           padding: 18,
           fontFamily: 'open_sansregular',
