@@ -2,7 +2,7 @@
     <mat-card-title class="titulo font15">
         <div class="titulo-bold">{{title}}</div>
         <div  class="texto-semibold">
-            <h3 *ngIf="!loading && data; else placeholder"> {{data.total}} </h3>
+            <h3 *ngIf="!loading && data; else placeholder"> {{data.total | number:'':'es-AR'}} </h3>
             <ng-template #placeholder><h3>0</h3></ng-template>
         </div>
     </mat-card-title>
@@ -19,7 +19,7 @@
                             <h3 class="cut-text">{{item.name}}</h3>
                         </div>
                     </div>
-                <div class="item texto-semibold"><p>{{item.details}}</p></div>
+                <div class="item texto-semibold"><p>{{item.details | number:'':'es-AR'}}</p></div>
                 </div>
             </mat-list>
         </div>
