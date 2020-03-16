@@ -1,4 +1,4 @@
-<mat-card class="tarjeta">
+<div class="tarjeta">
     <mat-card-title class="titulo font15">
         <div class="titulo-bold">{{title}}</div>
         <div  class="texto-semibold">
@@ -13,8 +13,8 @@
         <div *ngIf="!loading && data; else loader">
             <mat-list class="lista hov" *ngFor="let item of data.valores">
                 <div class="linea fila" style="max-height: 40px;">
-                    <div class="fila">
-                        <mat-icon class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
+                    <mat-icon class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
+                    <div class="fila cut-text">
                         <div class="item texto-semibold">
                             <h3 class="cut-text">{{item.name}}</h3>
                         </div>
@@ -27,6 +27,6 @@
             <mat-spinner [diameter]="70"></mat-spinner>
         </ng-template>
     </div>
-</mat-card>
+</div>
 
 <ng-template #error><mat-icon>error</mat-icon> Error</ng-template>

@@ -54,8 +54,8 @@
     </mat-card>
 
     <mat-card>
-        <mat-card-content>
-            <mat-card-subtitle class="titulo-bold"> Resueltas fuera de término </mat-card-subtitle>
+        <mat-card-content class="cut-text">
+            <mat-card-subtitle class="titulo-bold cut-text"> Resueltas fuera de término </mat-card-subtitle>
             <mat-card-title class="texto-semibold" *ngIf="alertas['out-of-term']; else placeholder"> 
                  {{alertas['out-of-term'].cantidad}} 
             </mat-card-title>
