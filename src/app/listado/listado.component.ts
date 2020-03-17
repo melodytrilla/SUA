@@ -55,6 +55,12 @@ export class ListadoComponent implements AfterViewInit {
           this.loading = false;
         });
   }
+
+  //top botttom action
+  topBottomClick(){
+    console.log("se activo");
+    window.scrollTo(0,0);
+  }
   
   //TODO: ver. Esto es una forma incorrecta de redirigir ya que se refresca toda la pagina y no el componente.
   sendto(a, b){
