@@ -41,7 +41,7 @@ export class SearchBarComponent implements OnInit {
 
   //a enviar al servicio de busqueda
   private busquedaField: Busqueda
-  private cantFiltros: number;
+  private cantFiltros: number = 0;
   editMessage: number;
 
   busquedasGuardadas; 
@@ -61,11 +61,12 @@ export class SearchBarComponent implements OnInit {
   //se llama al servicio para inicializarlo y se inicializan y linkean todos los valores de el formulario
   
   ngOnInit() {
-    this.busqueda.customMessage.subscribe(msg => this.cantFiltros = msg);
+    //this.busqueda.customMessage.subscribe(msg => this.cantFiltros = msg);
     console.log(this.cantFiltros)
     this.busqueda.Init();
     //console.log(this.busqueda.busquedaCompleta);
     this.busquedaField = this.busqueda.busquedaCompleta;
+    this.cantFiltros = this.busqueda.getCantFiltros();
 
     this.form = this.formBuilder.group({
       date: {
@@ -121,8 +122,18 @@ export class SearchBarComponent implements OnInit {
     });
     console.log(this.cantFiltros)
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+
+    //esto es el putput del filtro avanzado aca recibo la cantidad de 
+    //filtros cambiadoa cuando hago una busqueda
+    dialogRef.afterClosed().subscribe(
+      data=>{
+        if(data != undefined){
+          this.cantFiltros = data;
+          console.log("Cantidad de filtros: ", this.cantFiltros);
+        }
+      },
+      result => {
+        console.log('The dialog was closed');
     });
   }
 
@@ -191,6 +202,7 @@ export class SearchBarComponent implements OnInit {
     this.deBusquedaAForm(guardado.busqueda);
     this.deFormABusqueda();
     this.busquedaField = guardado.busqueda;
+    this.cantFiltros = guardado.cantFiltros;
 
   }
 

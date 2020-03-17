@@ -94,7 +94,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
       this.advSearch.clasificacion_subtipo = this.myChips.guardarChips();
       this.data.busqueda.advSearch = this.advSearch;
       //console.log(this.data);
-      this.busqueda.Guardar(this.data.busqueda, this.searchName);
+      this.busqueda.Guardar(this.data.busqueda, this.searchName, this.cantidad_filtros);
       this.showMessage("este filtro se a guardado con el nombre:  " + this.searchName);
     }
   }
@@ -311,10 +311,10 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   //form: FormGroup;
 
   ngOnInit() {
-    this.busqueda.customMessage.subscribe(msg => this.cantidad_filtros = msg);
+    //this.busqueda.customMessage.subscribe(msg => this.cantidad_filtros = msg);
     //inicializa los valores del advSerch si hay algunos guardado en la session
     if(this.busqueda.busquedaCompleta.advSearch){
-      console.log(this.busqueda.busquedaCompleta.advSearch);
+      //console.log(this.busqueda.busquedaCompleta.advSearch);
       this.advSearch =  Object.assign({}, this.busqueda.busquedaCompleta.advSearch);
       
       //this.datesControl.setValue({begin: this.advSearch.intervenciones_fechaStart,
@@ -325,6 +325,8 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
 
     //console.log("ngInit");
     //console.log(this.myChips);
+
+    this.cantidad_filtros = 0;
 
     //inicializacion de los paneles expansores
     this.ActualizarDescReporte();
@@ -353,9 +355,8 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
     if(this.savePressed){
       this.advSearch.clasificacion_subtipo = this.myChips.guardarChips();
       this.data.busqueda.advSearch = this.advSearch;
-      //console.log(this.data);
-      this.busqueda.Buscar(this.data.busqueda);
-      this.changeMessage();
+      console.log(this.busqueda.busquedaCompleta);
+      this.busqueda.Buscar(this.data.busqueda, this.cantidad_filtros);
       this.savePressed = false;
       console.log("destroy save");
     }else{
@@ -374,7 +375,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   //los de la busqueda principal al servicio de busqueda
   BusquedaClick():void{
     this.savePressed = true;
-    this.dialogRef.close();
+    this.dialogRef.close(this.cantidad_filtros);
   }
 
   //* Date picker props
@@ -1044,9 +1045,5 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
         }
       }
     }
-  }
-  //----------------------------------------------------------------------------
-  changeMessage() {
-    this.busqueda.changeMessage(this.cantidad_filtros);
   }
 }

@@ -1,5 +1,54 @@
 {
-  "filtrosGuardados": [],
+  "filtrosGuardados": [
+    {
+      "nombre": "test1",
+      "busqueda": {
+        "dateRange_begin": null,
+        "dateRange_end": null,
+        "Id_solicitud": "",
+        "año": null,
+        "Dir": null,
+        "radio": 0,
+        "Id_solicitante": "",
+        "advSearch": {
+          "reiteraciones_con": false,
+          "reiteraciones_sin": true,
+          "clasificacion_subtipo": [],
+          "clasificacion_origenes": [],
+          "clasificacion_registro": true,
+          "clasificacion_reiteracion": true,
+          "adjunto_tiene": "no",
+          "adjunto_regReit": false,
+          "adjunto_intervencion": false,
+          "adjunto_resolucion": false,
+          "opinion_tiene": "Sin",
+          "opinion_positivo": true,
+          "opinion_negative": true,
+          "opinion_neutro": true,
+          "estado_estados": [],
+          "estado_detallado": "",
+          "estado_fecha_start": null,
+          "estado_fecha_end": null,
+          "distrito_vecinales": [],
+          "intervenciones_seleccionadas": [],
+          "intervenciones_suaMovile": false,
+          "intervenciones_tipo": "sin",
+          "intervenciones_fecha_begin": null,
+          "intervenciones_fecha_end": null,
+          "equipamiento_seleccionado": "",
+          "equipamiento_choice": "",
+          "equipamiento_detalle": "",
+          "asignacion_tipo": "sin",
+          "asignacion_fecha_start": null,
+          "asignacion_fecha_end": null,
+          "asignacion_listPersonas": [],
+          "Datos_Extra": []
+        }
+      },
+      "cantFiltros": 4,
+      "id": 1
+    }
+  ],
   "alertas": {
     "reiterated": {
       "descripcion": "REITERATED",
@@ -122,7 +171,7 @@
   ],
   "Opinadas": {
     "total": 26,
-    "valores":[
+    "valores": [
       {
         "icono": "fsua-neutro",
         "details": 1,
