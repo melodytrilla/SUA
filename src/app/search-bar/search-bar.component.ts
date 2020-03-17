@@ -66,6 +66,7 @@ export class SearchBarComponent implements OnInit {
     this.busqueda.Init();
     //console.log(this.busqueda.busquedaCompleta);
     this.busquedaField = this.busqueda.busquedaCompleta;
+    this.cantFiltros = this.busqueda.getCantFiltros();
 
     this.form = this.formBuilder.group({
       date: {
@@ -201,6 +202,7 @@ export class SearchBarComponent implements OnInit {
     this.deBusquedaAForm(guardado.busqueda);
     this.deFormABusqueda();
     this.busquedaField = guardado.busqueda;
+    this.cantFiltros = guardado.cantFiltros;
 
   }
 

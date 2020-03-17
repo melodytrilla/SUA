@@ -94,7 +94,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
       this.advSearch.clasificacion_subtipo = this.myChips.guardarChips();
       this.data.busqueda.advSearch = this.advSearch;
       //console.log(this.data);
-      this.busqueda.Guardar(this.data.busqueda, this.searchName);
+      this.busqueda.Guardar(this.data.busqueda, this.searchName, this.cantidad_filtros);
       this.showMessage("este filtro se a guardado con el nombre:  " + this.searchName);
     }
   }
