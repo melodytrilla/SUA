@@ -1,4 +1,8 @@
-<mat-card class="dashboard-card">
-    <div class="titulo-bold font15"><p id={{title_style}}> {{title_value}} </p></div>
-    <div class="texto-semibold"><p id={{content_style}}><b>{{content_value}}</b></p></div>
-</mat-card>
+<div>
+    <div class="titulo-bold font15">
+        <p id={{title_style}}> {{title_value}} </p>
+    </div>
+    <div class="texto-semibold">
+        <p id={{content_style}}>{{content_value | number:'':'es-AR'}}</p>
+    </div>
+</div>
