@@ -17,9 +17,9 @@ import { BusquedaService, Busqueda } from '../busqueda.service';
 })
 export class SearchBarComponent implements OnInit {
   public dateMask = {
-    guide: false,
+    guide: true,
     showMask : true,
-    mask: [/\d/, /\d/, '/', /\d/, /\d/, '/',/\d/, /\d/,/\d/, /\d/]
+    mask: [/\d/, /\d/, '/', /\d/, /\d/, '/',/\d/, /\d/,/\d/, /\d/, ' - ', /\d/, /\d/, '/', /\d/, /\d/, '/',/\d/, /\d/,/\d/, /\d/]
   };
 
   public yearMask = {

@@ -17,6 +17,7 @@ import {
   MatListModule,
   MatIconModule,
   MatButtonModule,
+  MatButtonToggleModule,
   MatNativeDateModule,
   MatDatepickerModule,
   MatFormFieldModule, MatInputModule, MatAutocompleteModule,
@@ -28,6 +29,7 @@ import {
   exports: [
     MatToolbarModule, MatTooltipModule,
     MatDividerModule,
+    MatButtonToggleModule,
     MatChipsModule,
     MatDialogModule ,
     MatCheckboxModule, MatRadioModule,
