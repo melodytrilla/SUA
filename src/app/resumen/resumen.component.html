@@ -5,104 +5,59 @@
 <app-resumen-banner></app-resumen-banner>
 <div class="grid-container">
 
-
- 
-
-  <!--<mat-grid-list cols="4" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            {{card.title}}
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>{{ card.content }}</div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>-->
-
-  <div id="MasterCards">
+<div id="MasterCards">
+  
   <div id="firstHalf">
     <mat-grid-list cols="2" rows="9" rowHeight="60px">
+      
       <mat-grid-tile [colspan] =2 [rowspan] =2> 
-        <app-carta-info cardName="Solicitudes"></app-carta-info>
-       <!--
         <mat-card class="dashboard-card">
-          <p id="cardTitle-center"> Solicitudes</p>
-          <p id="cardContent-big"><b>13622</b></p>
+          <app-carta-info cardName="Solicitudes"></app-carta-info>
         </mat-card>
-         -->
       </mat-grid-tile>
-
+ 
       <mat-grid-tile [colspan] =1 [rowspan] =5> 
-          <mat-card class="dashboard-card">
+          <mat-card class="dashboard-card"> 
               <app-claims-and-complaints 
                 [data]= "reclamos"
                 [loading]= "loading"
                 [title]="'Reclamos y denuncias'">
               </app-claims-and-complaints>
-          </mat-card>
-          
+          </mat-card> 
       </mat-grid-tile>
 
       <mat-grid-tile [colspan] =1 [rowspan] =5> 
-            <mat-card class="dashboard-card">
+          <mat-card class="dashboard-card">
               <app-claims-and-complaints 
                 [data]= "consultas"
                 [loading]= "loading"
                 [title]="'Consultas y Reclamos'">
               </app-claims-and-complaints>
-            </mat-card>
-            
+          </mat-card>
       </mat-grid-tile>
 
       <mat-grid-tile [colspan] =1 [rowspan] =2> 
-        <app-carta-info cardName="Vecino con + solicitudes"></app-carta-info>
-        <!--
-          <mat-card class="dashboard-card">
-              <p id="cardTitle"> Vecino con + solicitudes</p>
-              <h3 id="cardContent">95</h3>
-          </mat-card>
-          -->
-      </mat-grid-tile>
-
-      <mat-grid-tile [colspan] =1 [rowspan] =2> 
-        <app-carta-info cardName="Agente con + solicitudes"></app-carta-info>
-        <!--
-          <mat-card class="dashboard-card">
-              <p id="cardTitle"> Agente con + solicitudes</p>
-              <h3 id="cardContent">161</h3>
-          </mat-card>
-          -->
+        <mat-card class="dashboard-card">
+          <app-carta-info cardName="Vecino con + solicitudes"></app-carta-info>
+        </mat-card>
       </mat-grid-tile>
 
       <mat-grid-tile [colspan] =1 [rowspan] =2>
-        <app-carta-info cardName="Equipamiento con + solicitudes"></app-carta-info>
-        <!-- 
-          <mat-card class="dashboard-card">
-              <p id="cardTitle"> Equipamiento con + solicitudes</p>
-              <h3 id="cardContent">30</h3>
-          </mat-card>
-          -->
+        <mat-card class="dashboard-card"> 
+          <app-carta-info cardName="Agente con + solicitudes"></app-carta-info>
+        </mat-card>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan] =1 [rowspan] =2>
+        <mat-card class="dashboard-card">
+          <app-carta-info cardName="Equipamiento con + solicitudes"></app-carta-info>
+        </mat-card>
       </mat-grid-tile>
 
       <mat-grid-tile [colspan] =1 [rowspan] =1.5> 
-        <app-carta-info cardName="Solicitudes con equipamiento"></app-carta-info>
-        <!--
-          <mat-card class="dashboard-card">
-              <p id="cardTitle"> Solicitudes con equipamiento</p>
-              <h3 id="cardContent">1752</h3>
-          </mat-card>
-          -->
+        <mat-card class="dashboard-card">
+          <app-carta-info cardName="Solicitudes con equipamiento"></app-carta-info>
+        </mat-card>
       </mat-grid-tile>
 
     </mat-grid-list>
@@ -119,43 +74,15 @@
           </mat-grid-tile>
     
           <mat-grid-tile [colspan] =1 [rowspan] =5> 
-              <mat-card class="dashboard-card">
-                  <app-claims-and-complaints 
-                    [data]= "opinadas"
-                    [loading]= "loading"
-                    [title]="'Opinadas'">
-                  </app-claims-and-complaints>
-                </mat-card>
+            <mat-card class="dashboard-card">
+              <app-claims-and-complaints 
+                [data]= "opinadas"
+                [loading]= "loading"
+                [title]="'Opinadas'">
+              </app-claims-and-complaints> 
+            </mat-card> 
           </mat-grid-tile>
     
-          <!--
-          <mat-grid-tile [colspan] =1 [rowspan] =3> 
-            <mat-card class="dashboard-card">
-              <p id="cardTitle"> Solicitudes por distrito</p>
-              <app-requests-by-state></app-requests-by-state>
-            </mat-card>
-          </mat-grid-tile>
-    
-          <mat-grid-tile [colspan] =1 [rowspan] =3> 
-            <mat-card class="dashboard-card">
-              <p id="cardTitle"> top 10 vecinales</p>
-              <p id="cardContent-side">1752</p>
-                </mat-card>
-          </mat-grid-tile>
-    
-          <mat-grid-tile [colspan] =1 [rowspan] =3> 
-            <mat-card class="dashboard-card">
-              <p id="cardTitle"> Solicitudes por origen</p>
-              <p id="cardContent-side">1752</p>
-                </mat-card>
-          </mat-grid-tile>
-    
-          <mat-grid-tile [colspan] =1 [rowspan] =3> 
-            <mat-card class="dashboard-card">
-              <p id="cardTitle"> top 10 categorias</p>
-              <p id="cardContent-side">1752</p>
-                </mat-card>
-          </mat-grid-tile>-->
           <mat-grid-tile [colspan] =2 [rowspan] =6>
             <mat-card class="dashboard-card">
               <app-carousel></app-carousel>

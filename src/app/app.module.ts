@@ -13,6 +13,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //Utiles
 import { NgModule, LOCALE_ID } from '@angular/core';
+import localeEs from '@angular/common/locales/es';
+registerLocaleData(localeEs);
+
 import { TextMaskModule } from 'angular2-text-mask';
 import { SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
 import { DateRangePicker } from './date-range-picker/date-range-picker.component';
@@ -49,6 +52,7 @@ import { DetalleSolicitudComponent } from './detalle-solicitud/detalle-solicitud
 import { DesplegableTestComponent } from './desplegable-test/desplegable-test.component';
 import { IconoTestComponent } from './icono-test/icono-test.component';
 import { DownloadService } from './download.service';
+import { registerLocaleData } from '@angular/common';
 
 @NgModule({
   declarations: [
