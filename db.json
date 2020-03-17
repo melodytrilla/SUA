@@ -1,5 +1,55 @@
 {
-  "alertas":{
+  "filtrosGuardados": [
+    {
+      "nombre": "test1",
+      "busqueda": {
+        "dateRange_begin": null,
+        "dateRange_end": null,
+        "Id_solicitud": "",
+        "año": null,
+        "Dir": null,
+        "radio": 0,
+        "Id_solicitante": "",
+        "advSearch": {
+          "reiteraciones_con": false,
+          "reiteraciones_sin": true,
+          "clasificacion_subtipo": [],
+          "clasificacion_origenes": [],
+          "clasificacion_registro": true,
+          "clasificacion_reiteracion": true,
+          "adjunto_tiene": "no",
+          "adjunto_regReit": false,
+          "adjunto_intervencion": false,
+          "adjunto_resolucion": false,
+          "opinion_tiene": "Sin",
+          "opinion_positivo": true,
+          "opinion_negative": true,
+          "opinion_neutro": true,
+          "estado_estados": [],
+          "estado_detallado": "",
+          "estado_fecha_start": null,
+          "estado_fecha_end": null,
+          "distrito_vecinales": [],
+          "intervenciones_seleccionadas": [],
+          "intervenciones_suaMovile": false,
+          "intervenciones_tipo": "sin",
+          "intervenciones_fecha_begin": null,
+          "intervenciones_fecha_end": null,
+          "equipamiento_seleccionado": "",
+          "equipamiento_choice": "",
+          "equipamiento_detalle": "",
+          "asignacion_tipo": "sin",
+          "asignacion_fecha_start": null,
+          "asignacion_fecha_end": null,
+          "asignacion_listPersonas": [],
+          "Datos_Extra": []
+        }
+      },
+      "cantFiltros": 4,
+      "id": 1
+    }
+  ],
+  "alertas": {
     "reiterated": {
       "descripcion": "REITERATED",
       "cantidad": "429",
@@ -33,40 +83,43 @@
   },
   "reclamos": {
     "total": 6457,
-    "valores":[{
-      "id": 1,
-      "icono": "fsua-alumbrado_publico",
-      "name": "Lámpara apagada ó encendida",
-      "details": 840
-    },
-    {
-      "id": 2,
-      "icono": "fsua-alumbrado_publico",
-      "name": "Sector apagado ó encendido",
-      "details": 516
-    },
-    {
-      "id": 3,
-      "icono": "fsua-higiene_urbana",
-      "name": "Barrido y limpieza ausente ó deficiente aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "details": 450
-    },
-    {
-      "id": 4,
-      "icono": "fsua-bicis_publicas",
-      "name": "Puesto de bicicletas vacío",
-      "details": 289
-    },
-    {
-      "id": 5,
-      "icono": "fsua-semaforos",
-      "name": "Semáforo roto",
-      "details": 100
-    }
-  ]}, 
-  "consultas" : {
+    "valores": [
+      {
+        "id": 1,
+        "icono": "fsua-alumbrado_publico",
+        "name": "Lámpara apagada ó encendida",
+        "details": 840
+      },
+      {
+        "id": 2,
+        "icono": "fsua-alumbrado_publico",
+        "name": "Sector apagado ó encendido",
+        "details": 516
+      },
+      {
+        "id": 3,
+        "icono": "fsua-higiene_urbana",
+        "name": "Barrido y limpieza ausente ó deficiente aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "details": 450
+      },
+      {
+        "id": 4,
+        "icono": "fsua-bicis_publicas",
+        "name": "Puesto de bicicletas vacío",
+        "details": 289
+      },
+      {
+        "id": 5,
+        "icono": "fsua-semaforos",
+        "name": "Semáforo roto",
+        "details": 100
+      }
+    ]
+  },
+  "consultas": {
     "total": 7165,
-    "valores":[{
+    "valores": [
+      {
         "id": 1,
         "icono": "fsua-colectivos_urbanos",
         "name": "Consulta TUP",
@@ -96,8 +149,9 @@
         "name": "Otro item",
         "details": "10"
       }
-  ]},
-  "porEstado":[
+    ]
+  },
+  "porEstado": [
     {
       "name": "Pendiente",
       "number": 845
@@ -115,9 +169,9 @@
       "number": 4122
     }
   ],
-  "Opinadas":{
+  "Opinadas": {
     "total": 26,
-    "valores":[
+    "valores": [
       {
         "icono": "fsua-neutro",
         "details": 1,
@@ -135,7 +189,7 @@
       }
     ]
   },
-  "top10-categorias":[
+  "top10-categorias": [
     {
       "nombre": "Alumbrado",
       "num": 1056
@@ -177,8 +231,7 @@
       "num": 335
     }
   ],
-
-  "top10-vecinales":[
+  "top10-vecinales": [
     {
       "nombre": "Acera 1",
       "num": 1056
@@ -220,8 +273,7 @@
       "num": 335
     }
   ],
-
-  "porDistrito":[
+  "porDistrito": [
     {
       "distrito": "Centro",
       "solicitudes": 7566
@@ -247,78 +299,74 @@
       "solicitudes": 1303
     }
   ],
-
-  "porOrigen":[
+  "porOrigen": [
     {
-      "origen":"Telefonico",
+      "origen": "Telefonico",
       "solicitudes": 9542
     },
     {
-      "origen":"Contacto Web",
+      "origen": "Contacto Web",
       "solicitudes": 3017
     },
     {
-      "origen":"Twitter",
+      "origen": "Twitter",
       "solicitudes": 548
     },
     {
-      "origen":"Personal",
+      "origen": "Personal",
       "solicitudes": 80
     },
     {
-      "origen":"Facebook",
+      "origen": "Facebook",
       "solicitudes": 125
     },
     {
-      "origen":"Nota/Expediente",
+      "origen": "Nota/Expediente",
       "solicitudes": 10
     },
     {
-      "origen":"VVV",
+      "origen": "VVV",
       "solicitudes": 10
     },
     {
-      "origen":"MR",
+      "origen": "MR",
       "solicitudes": 200
     },
     {
-      "origen":"Externo",
+      "origen": "Externo",
       "solicitudes": 90
     }
   ],
-  
-  "datosVarios":[
+  "datosVarios": [
     {
-      "titulo":"Solicitudes",
+      "titulo": "Solicitudes",
       "valor": 13622
     },
     {
-      "titulo":"Vecino con + solicitudes",
+      "titulo": "Vecino con + solicitudes",
       "valor": 95
     },
     {
-      "titulo":"Agente con + solicitudes",
+      "titulo": "Agente con + solicitudes",
       "valor": 161
     },
     {
-      "titulo":"Equipamiento con + solicitudes",
+      "titulo": "Equipamiento con + solicitudes",
       "valor": 30
     },
     {
-      "titulo":"Solicitudes con equipamiento",
+      "titulo": "Solicitudes con equipamiento",
       "valor": 1752
     }
   ],
-
-  "Areas":[
+  "Areas": [
     "CIOR - Comunicación",
     "CMD Centro - Inspección",
     "CMD Sudoeste - Trámites Rápidos",
     "Cementerio La Piedad",
     "Dirección General de Defunciones y Cementerios"
   ],
-
-  "Vecinales":[
+  "Vecinales": [
     {
       "msLink": 85,
       "numero": 19,

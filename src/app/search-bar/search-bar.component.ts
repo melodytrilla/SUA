@@ -7,7 +7,7 @@ import { PlacesService, Direccion } from '../places.service';
 import {DateRangePicker} from '../date-range-picker/date-range-picker.component'
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FiltroAvanzadoDialogComponent } from '../filtro-avanzado-dialog/filtro-avanzado-dialog.component';
-import { BusquedaService, Busqueda } from '../busqueda.service';
+import { BusquedaService, Busqueda, BusquedaSave } from '../busqueda.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -41,8 +41,10 @@ export class SearchBarComponent implements OnInit {
 
   //a enviar al servicio de busqueda
   private busquedaField: Busqueda
-  private cantFiltros: number;
+  private cantFiltros: number = 0;
   editMessage: number;
+
+  busquedasGuardadas; 
 
   constructor(
     private formBuilder: FormBuilder, 
@@ -59,11 +61,12 @@ export class SearchBarComponent implements OnInit {
   //se llama al servicio para inicializarlo y se inicializan y linkean todos los valores de el formulario
   
   ngOnInit() {
-    this.busqueda.customMessage.subscribe(msg => this.cantFiltros = msg);
+    //this.busqueda.customMessage.subscribe(msg => this.cantFiltros = msg);
     console.log(this.cantFiltros)
     this.busqueda.Init();
     //console.log(this.busqueda.busquedaCompleta);
     this.busquedaField = this.busqueda.busquedaCompleta;
+    this.cantFiltros = this.busqueda.getCantFiltros();
 
     this.form = this.formBuilder.group({
       date: {
@@ -85,6 +88,12 @@ export class SearchBarComponent implements OnInit {
      * el texto en elcontrol de usuario y enviar el parametro al endpoint
      */
     this.places = this.placesService.getPlaces();
+
+    this.busqueda.getBusquedas().subscribe(
+      data => {
+        this.busquedasGuardadas = data;
+      }
+    );
 
     //Filtrado de resultados busqueda ubicacion
     /*
@@ -113,8 +122,18 @@ export class SearchBarComponent implements OnInit {
     });
     console.log(this.cantFiltros)
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+
+    //esto es el putput del filtro avanzado aca recibo la cantidad de 
+    //filtros cambiadoa cuando hago una busqueda
+    dialogRef.afterClosed().subscribe(
+      data=>{
+        if(data != undefined){
+          this.cantFiltros = data;
+          console.log("Cantidad de filtros: ", this.cantFiltros);
+        }
+      },
+      result => {
+        console.log('The dialog was closed');
     });
   }
 
@@ -122,14 +141,30 @@ export class SearchBarComponent implements OnInit {
   sendInfo():void{
     this.deFormABusqueda();
     //console.log(this.form.value);
-    if(this.busquedaField.Dir.geometry == null){
-      this.busquedaField.Dir =  null;
+    if(this.busquedaField.Dir != null){
+      if(this.busquedaField.Dir.geometry == null){
+        this.busquedaField.Dir =  null;
+      }
     }
     this.busqueda.Buscar(this.busquedaField);
   
   }
 
   //pasa los valores de el formulario a una variable a ser pasada por la busqueda
+  deBusquedaAForm(busquedaLoad: Busqueda):void{
+    this.form.setValue({
+      "Id_solicitante" : busquedaLoad.Id_solicitante,
+      "Id_solicitud" : busquedaLoad.Id_solicitud,
+      "año": busquedaLoad.año,
+      "ubicacion" : busquedaLoad.Dir,
+      "radio" : busquedaLoad.radio,
+      "date" : {
+        "begin" : busquedaLoad.dateRange_begin,
+        "end" : busquedaLoad.dateRange_end
+      }
+    })
+  }
+
   deFormABusqueda():void{
     this.busquedaField.Id_solicitante = this.form.value.Id_solicitante;
     this.busquedaField.Id_solicitud = this.form.value.Id_solicitud;
@@ -160,5 +195,15 @@ export class SearchBarComponent implements OnInit {
       }
     }
   }
-  
+
+  buscarguardado(guardado:BusquedaSave):void{
+    //console.log(guardado);
+    this.busqueda.loadBusqueda(guardado);
+    this.deBusquedaAForm(guardado.busqueda);
+    this.deFormABusqueda();
+    this.busquedaField = guardado.busqueda;
+    this.cantFiltros = guardado.cantFiltros;
+
+  }
+
 }

@@ -1,5 +1,7 @@
 import { Injectable} from '@angular/core';
 import { AdvSearch } from './filtro-avanzado-dialog/filtro-avanzado-dialog.component';
+import { HttpClient } from '@angular/common/http';
+import { stringToKeyValue } from '@angular/flex-layout/extended/typings/style/style-transforms';
 import { BehaviorSubject } from 'rxjs';
 
 export interface Busqueda{
@@ -13,23 +15,44 @@ export interface Busqueda{
   advSearch: AdvSearch
 }
 
+export interface BusquedaSave{
+  id: number,
+  nombre: string,
+  busqueda: Busqueda,
+  cantFiltros: number,
+}
+
+export interface BusquedaSave2{
+  nombre: string,
+  busqueda: Busqueda,
+  cantFiltros: number
+}
+
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class BusquedaService {
-  private message = new BehaviorSubject<number>(0);
+  //private message = new BehaviorSubject<number>(0);
 
-  public customMessage = this.message.asObservable();
+  //public customMessage = this.message.asObservable();
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
+
+  apiURL = "http://localhost:3000"
+
   busquedaCompleta:Busqueda;
+  aGuardar : BusquedaSave2;
+
+  private filtroNumber  : number = 0;
 
   //si hay algo guardado en la session se carga en una variable, si no se inicializa vacio
   Init(){
     if(window.sessionStorage['busqueda']){
       this.busquedaCompleta = JSON.parse(window.sessionStorage['busqueda']);
+      this.filtroNumber = window.sessionStorage['filtroCant'];
+      console.log(this.filtroNumber);
     }else{
       this.busquedaCompleta = {
         dateRange_begin: null,
@@ -46,16 +69,39 @@ export class BusquedaService {
   }
 
 // se utilizara para inicializar la busqueda, por ahora solo guarda la busqueda en la session
-  Buscar(busqueda: Busqueda): void{
+  Buscar(busqueda: Busqueda, filtroCant?:number): void{
     console.log("se esta haciendo la busqueda");
-    //console.log(busqueda);
-    //console.log(this.busquedaCompleta);
+    this.filtroNumber = filtroCant;
+    this.guardarEnSecion();
+  }
 
-    //almacena la busqueda en la session
+  Guardar(search: Busqueda, name: string, cantf:number):void{
+    this.aGuardar = {nombre: name, busqueda: search, cantFiltros: cantf};
+    this.httpClient.post<BusquedaSave>(`${this.apiURL}/filtrosGuardados`, this.aGuardar).subscribe();
+  }
+
+  getBusquedas(){
+    return this.httpClient.get<BusquedaSave>(`${this.apiURL}/filtrosGuardados`)
+  }
+
+  //almacena la busqueda en la session
+  guardarEnSecion(){
     window.sessionStorage['busqueda'] = JSON.stringify(this.busquedaCompleta);
+    console.log(this.filtroNumber);
+    window.sessionStorage['filtroCant'] = this.filtroNumber;
+
   }
 
-  public changeMessage(msg: number): void {
-    this.message.next(msg);
+  loadBusqueda(filtrosPrevios:BusquedaSave){
+    this.busquedaCompleta = filtrosPrevios.busqueda;
+    this.guardarEnSecion();
   }
+
+  getCantFiltros():number{
+    return this.filtroNumber;
+  }
+
+  /*public changeMessage(msg: number): void {
+    this.message.next(msg);
+  }*/
 }
