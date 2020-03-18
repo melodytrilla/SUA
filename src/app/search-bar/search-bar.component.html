@@ -68,7 +68,7 @@
             </mat-form-field>
 
             <mat-form-field class="short texto-regular">
-                <input matInput type="text" placeholder="Radio" maxlength=4 formControlName="radio">
+                <input matInput placeholder="Radio" [textMask]="yearMask" formControlName="radio">
             </mat-form-field>
 
             <mat-form-field class="large">
