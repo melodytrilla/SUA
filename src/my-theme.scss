@@ -305,3 +305,11 @@ $darkTheme-theme:mat-dark-theme($angular-alerta-grave, $angular-alerta-grave, $a
 .accentR{
   background-color: #25dae7
 }
+
+.cut-text{
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 90%;
+    text-overflow: ellipsis;
+}

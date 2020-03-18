@@ -103,7 +103,7 @@ import { registerLocaleData } from '@angular/common';
     NgxSpinnerModule, NgxContentLoadingModule,
   ],
   entryComponents: [DateRangePicker, FiltroAvanzadoDialogComponent],
-  providers: [{ provide: LOCALE_ID, useValue: "es-AR" }, BusquedaService, DownloadService],
+  providers: [{ provide: LOCALE_ID, useValue: "es-AR" }, BusquedaService, DownloadService, ClaimsAndComplaintsComponent],
   bootstrap: [AppComponent],
 
 })

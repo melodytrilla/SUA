@@ -75,7 +75,7 @@
                                         </div>
                                         <div class="part2 columna">
                                             <div class="upperPart fila">
-                                                <div class="texto-regularitalic font15" style="width: 40%;"><mat-icon class="fsua fsua-recientes iconoPos"></mat-icon>{{solicitud.tiempo}}</div>
+                                                <div class="texto-regularitalic font15" style="width: 115px;"><mat-icon class="fsua fsua-recientes iconoPos"></mat-icon>{{solicitud.tiempo}}</div>
                                                 <div class="raiting">
                                                     <div *ngIf="solicitud.opinion=='positivo'"><mat-icon class="iconoPos fsua fsua-bueno"></mat-icon></div>
                                                     <div *ngIf="solicitud.opinion=='negativo'"><mat-icon class="iconoPos fsua fsua-malo"></mat-icon></div>
@@ -89,12 +89,12 @@
                                             <div class="lowerPart rowContent fila">
                                                 <div class="infoConteiner columna">
                                                     <div class="infoType fila">
-                                                        <div *ngIf = "solicitud.categoria=='Alumbrado'"><mat-icon class="iconoPos fsua fsua-alumbrado_publico"></mat-icon> {{solicitud.subtipo}}</div>
-                                                        <div *ngIf = "solicitud.categoria=='Colectivos urbanos'"><mat-icon class="iconoPos fsua fsua-colectivos_urbanos"></mat-icon> {{solicitud.subtipo}}</div>
+                                                        <div *ngIf = "solicitud.categoria=='Alumbrado'" class="cut-text"><mat-icon class="iconoPos fsua fsua-alumbrado_publico"></mat-icon> {{solicitud.subtipo}}</div>
+                                                        <div *ngIf = "solicitud.categoria=='Colectivos urbanos'" class="cut-text"><mat-icon class="iconoPos fsua fsua-colectivos_urbanos"></mat-icon> {{solicitud.subtipo}}</div>
                                                     </div>
-                                                    <div class="infoDescripcion fila">
-                                                        <div *ngIf="solicitud.altura>0">{{solicitud.calle}} {{solicitud.altura}}</div>
-                                                        <div *ngIf="solicitud.interseccion != ''">{{solicitud.calle}} Y {{solicitud.interseccion}}</div>
+                                                    <div class="infoDescripcion">
+                                                        <div *ngIf="solicitud.altura>0" class="cut-text">{{solicitud.calle}} {{solicitud.altura}}</div>
+                                                        <div *ngIf="solicitud.interseccion != ''" class="cut-text">{{solicitud.calle}} Y {{solicitud.interseccion}}</div>
                                                     </div>
                                                 </div>
         
