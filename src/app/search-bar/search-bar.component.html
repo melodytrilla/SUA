@@ -4,6 +4,8 @@
         <div style="padding-left: 15px;">
             <mat-form-field class="medium texto-regular">
                 <input matInput
+                    (focus)="picker.open()"
+                    onkeydown="return false"
                     placeholder="Fechas"
                     [satDatepicker]="picker"
                     formControlName="date"
@@ -17,11 +19,11 @@
         
 
             <mat-form-field class="short texto-regular">
-                <input matInput placeholder="Numero" formControlName="Id_solicitud">
+                <input matInput placeholder="Número" formControlName="Id_solicitud" type="number">
             </mat-form-field>
 
             <mat-form-field class="short texto-regular">
-                <input matInput placeholder="Año" [textMask]="yearMask" formControlName="año">
+                <input matInput placeholder="Año" [textMask]="yearMask" formControlName="año" type="number">
             </mat-form-field>
 
             <mat-form-field class="large texto-regular">
@@ -68,7 +70,7 @@
             </mat-form-field>
 
             <mat-form-field class="short texto-regular">
-                <input matInput placeholder="Radio" [textMask]="yearMask" formControlName="radio">
+                <input matInput placeholder="Radio" [textMask]="yearMask" formControlName="radio" type="number">
             </mat-form-field>
 
             <mat-form-field class="large">

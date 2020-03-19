@@ -29,7 +29,7 @@ export class SearchBarComponent implements OnInit {
   };
   
   form: FormGroup;
-
+  
   //Datepicker props
   inlineRange;
   rangesFooter = DateRangePicker;
