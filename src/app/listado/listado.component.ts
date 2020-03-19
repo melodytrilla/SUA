@@ -33,7 +33,6 @@ export class ListadoComponent implements AfterViewInit {
 
   public items: any[];
 
-
   @ViewChild(CdkVirtualScrollViewport, {static: false}) viewPort: CdkVirtualScrollViewport;
   
   ngAfterViewInit() {
@@ -59,7 +58,8 @@ export class ListadoComponent implements AfterViewInit {
   //top botttom action
   topBottomClick(){
     console.log("se activo");
-    window.scrollTo(0,0);
+    this.viewPort.scrollToIndex(0);
+    //window.scrollTo(0,0);
   }
   
   //TODO: ver. Esto es una forma incorrecta de redirigir ya que se refresca toda la pagina y no el componente.
