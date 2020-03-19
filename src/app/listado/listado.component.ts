@@ -35,8 +35,11 @@ export class ListadoComponent implements AfterViewInit {
 
   @ViewChild(CdkVirtualScrollViewport, {static: false}) viewPort: CdkVirtualScrollViewport;
   
+  public scrollListener: number;
+
   ngAfterViewInit() {
-    
+    this.findScrollView();
+
   }
 
   loading = false;
@@ -53,6 +56,26 @@ export class ListadoComponent implements AfterViewInit {
           this.items = data;
           this.loading = false;
         });
+
+        this.scrollListener = 0;
+  }
+  
+
+  findScrollView(){
+    if(this.viewPort == undefined){
+      console.log("error");
+      setTimeout(()=>{
+        this.findScrollView();
+      }, 1000);
+    }else{
+      console.log("linkeado");
+      this.viewPort.elementScrolled().subscribe({
+        next: (scroll)=> {
+          this.scrollListener = scroll["target"]["scrollTop"];
+          
+        }
+      });
+    }
   }
 
   //top botttom action

@@ -11,7 +11,7 @@
                 matTooltip="Seleccionar todas">
             </mat-checkbox>
 
-            <button mat-raised-button color="primary" class="light fixed" (click)= "topBottomClick()"> Top </button>
+            <button mat-raised-button  [class.is-hidden]="scrollListener == 0" color="primary" class="light fixed" (click)= "topBottomClick()"> Top </button>
             
             <mat-form-field class="selector">
                 <mat-label class="texto-regular">Ordenar por</mat-label>
