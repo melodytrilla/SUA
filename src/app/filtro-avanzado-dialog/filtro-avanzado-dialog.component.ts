@@ -203,6 +203,8 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   //-----Busqueda Reporte ----------------------------------------------
   public descripcionReporte: string = this.default_descripcion;
 
+  public reporteIsOpen: boolean = false
+
   //--------------------------------------------------------------------
 
   //-----Busqueda Clasificacion ----------------------------------------
@@ -411,6 +413,9 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
       
       this.descripcionReporte = this.inputDescripcion;
     }
+    console.log(this.reporteIsOpen);
+
+    this.reporteIsOpen = false;
   }
 
   //genera la nueva descripcion de reporte
@@ -1044,6 +1049,12 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
           document.getElementById(secondFontId).style.color = "#000000";
         }
       }
+    }
+  }
+
+  shirnkButton(nombre:string):void{
+    if(nombre == "reporte"){
+      this.reporteIsOpen = true;
     }
   }
 }

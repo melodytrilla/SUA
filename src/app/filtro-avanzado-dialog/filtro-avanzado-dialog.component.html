@@ -40,37 +40,44 @@
 
   <mat-accordion>
       <!-- -------------Reporte--------------- -->
-    <mat-expansion-panel (closed)="ActualizarDescReporte()" class="light every-panel" Id="ReportePanel">
-        <mat-expansion-panel-header>
-            <mat-panel-title class="titulo titulo-bold">
-                Reporte
-            </mat-panel-title>
-            <mat-panel-description class="texto-regularitalic">
-                {{descripcionReporte}}
-            </mat-panel-description>
-        </mat-expansion-panel-header>
+    <div style="display: flex; flex-direction: row;">  
+        <mat-expansion-panel style="width: 95%" (opened)="shirnkButton('reporte')" (closed)="ActualizarDescReporte()" class="light every-panel" Id="ReportePanel">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="titulo titulo-bold">
+                    Reporte
+                </mat-panel-title>
+                <mat-panel-description class="texto-regularitalic">
+                    {{descripcionReporte}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
 
-        <div class="body fila texto-regular">
-            <div class="fila" Id="inputField">
-                <mat-label style="margin-right: 2%;">Reiteraciones: </mat-label>
+            <div class="body fila texto-regular">
+                <div class="fila" Id="inputField">
+                    <mat-label style="margin-right: 2%;">Reiteraciones: </mat-label>
+                    
+                    <mat-checkbox class="texto-regular" [(ngModel)]="advSearch.reiteraciones_con" color="primary">Con</mat-checkbox>
+                    <mat-checkbox class="texto-regular" [(ngModel)]="advSearch.reiteraciones_sin" color="primary">Sin</mat-checkbox>
+                </div>
                 
-                <mat-checkbox class="texto-regular" [(ngModel)]="advSearch.reiteraciones_con" color="primary">Con</mat-checkbox>
-                <mat-checkbox class="texto-regular" [(ngModel)]="advSearch.reiteraciones_sin" color="primary">Sin</mat-checkbox>
+
+                <mat-form-field class="texto-regular" style="margin-left: 5%">
+                    <mat-label>Prioridad:</mat-label>
+                    <mat-select [(value)] = "advSearch.prioridad">
+                        <mat-option class="texto-regularitalic">Todas</mat-option>
+                        <mat-option class="texto-regularitalic" value="Alta">Alta</mat-option>
+                        <mat-option class="texto-regularitalic" value="Media">Media</mat-option>
+                        <mat-option class="texto-regularitalic" value="Baja">Baja</mat-option>
+                    </mat-select>
+                </mat-form-field>
             </div>
             
-
-            <mat-form-field class="texto-regular" style="margin-left: 5%">
-                <mat-label>Prioridad:</mat-label>
-                <mat-select [(value)] = "advSearch.prioridad">
-                    <mat-option class="texto-regularitalic">Todas</mat-option>
-                    <mat-option class="texto-regularitalic" value="Alta">Alta</mat-option>
-                    <mat-option class="texto-regularitalic" value="Media">Media</mat-option>
-                    <mat-option class="texto-regularitalic" value="Baja">Baja</mat-option>
-                </mat-select>
-            </mat-form-field>
+        </mat-expansion-panel>
+        <div>
+            <button style="height:100%" [class.expand-button]="reporteIsOpen" mat-stroked-button>
+                <mat-icon>undo</mat-icon>
+            </button>
         </div>
-        
-    </mat-expansion-panel>
+    </div>
 
     <!-- -------------Clasificacion--------------- -->
     <mat-expansion-panel (closed)="ActualizarDescCalificacion()" class="light every-panel" Id="CalifPanel">
