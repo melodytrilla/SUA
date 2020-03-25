@@ -283,11 +283,15 @@
                 <div Id="estado_font.toWhite" style="flex-grow: 1;">
                     <!-- Date Range -->
                     <mat-form-field>
-                        <input matInput class="texto-regular"
+                        <input matInput 
+                            class="texto-regular"
+                            (focus)="picker.open()"
+                            onkeydown="return false"
                             [disabled]="advSearch.estado_estados.length == 0"
                             placeholder = "Elija una fecha"
                             [satDatepicker]="pickerEstado"
                             [(ngModel)] = "estado_DateRango"
+                            formControlName="date"
                             value = "">
 
                         <sat-datepicker #pickerEstado 
@@ -400,8 +404,10 @@
                     <div clas="fila" style="margin-top: 5px;">
                         <mat-form-field style = "margin-left: 10px;">
                             <input matInput class="texto-regular"
+                                (focus)="picker.open()"
+                                onkeydown="return false"
                                 [disabled]="advSearch.intervenciones_tipo == ''"
-                                placeholder="Choose a date"
+                                placeholder="Elija una fecha"
                                 [satDatepicker]="picker3"
                                 [(ngModel)]= "intervenciones_DateRango"
                                 value="">
@@ -517,8 +523,10 @@
                     <div clas="fila" style="margin-top: 5px;">
                         <mat-form-field style = "margin-left: 10px;">
                             <input matInput class="texto-regular"
+                                (focus)="picker.open()"
+                                onkeydown="return false"
                                 [disabled]="advSearch.asignacion_tipo == ''"
-                                placeholder="Choose a date"
+                                placeholder="Elija una fecha"
                                 [satDatepicker]="pickerAsig"
                                 [(ngModel)]="asigDate"
                                 value="">

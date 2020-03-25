@@ -53,6 +53,7 @@ import { DesplegableTestComponent } from './desplegable-test/desplegable-test.co
 import { IconoTestComponent } from './icono-test/icono-test.component';
 import { DownloadService } from './download.service';
 import { registerLocaleData } from '@angular/common';
+import { VerMasComponent } from './ver-mas/ver-mas.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { registerLocaleData } from '@angular/common';
     DetalleSolicitudComponent,
     DesplegableTestComponent,
     IconoTestComponent,
+    VerMasComponent,
   ],
   imports: [
     BrowserModule,
@@ -102,7 +104,7 @@ import { registerLocaleData } from '@angular/common';
     InfiniteScrollModule,
     NgxSpinnerModule, NgxContentLoadingModule,
   ],
-  entryComponents: [DateRangePicker, FiltroAvanzadoDialogComponent],
+  entryComponents: [DateRangePicker, FiltroAvanzadoDialogComponent, VerMasComponent],
   providers: [{ provide: LOCALE_ID, useValue: "es-AR" }, BusquedaService, DownloadService, ClaimsAndComplaintsComponent],
   bootstrap: [AppComponent],
 

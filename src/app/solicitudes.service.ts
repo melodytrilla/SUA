@@ -96,6 +96,11 @@ export class SolicitudesService {
       `${this.apiURL}/datosVarios?titulo=${titulo}`
     )
   }
+  getVecinos(): Observable<any[]> {
+    return this.httpClient.get<any[]>(
+      `${this.apiURL}/vecinosConSolicitudes`
+    )
+  }
 
   getAreas():Observable<string[]>{
     return this.httpClient.get<string[]>(

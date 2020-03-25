@@ -5,4 +5,7 @@
     <div class="texto-semibold">
         <p id={{content_style}}>{{content_value | number:'':'es-AR'}}</p>
     </div>
+    <div *ngIf="title_value!='Solicitudes'" class="texto-regular ver-mas hov" (click)="this.openD()"> 
+        <p>VER MÁS</p>
+    </div>
 </div>
