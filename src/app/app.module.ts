@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import localeEs from '@angular/common/locales/es';
 registerLocaleData(localeEs);
+import { SortPipe } from './sort.pipe';
 
 import { TextMaskModule } from 'angular2-text-mask';
 import { SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
@@ -84,6 +85,7 @@ import { VerMasComponent } from './ver-mas/ver-mas.component';
     DesplegableTestComponent,
     IconoTestComponent,
     VerMasComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule,

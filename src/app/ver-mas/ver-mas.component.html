@@ -1,7 +1,6 @@
 <mat-dialog-content>
-    <div *ngFor="let vec of vecinos">
+    <div *ngFor="let vec of vecinos | sort:{ property: 'cantidad_solicitudes', descending: true}">
         <p>{{vec.nombre_solicitante}}</p>
         <p>{{vec.cantidad_solicitudes}}</p>
     </div>
-<p>ver-mas works!ewfwefwefewfwfe</p>
 </mat-dialog-content>

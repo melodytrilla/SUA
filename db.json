@@ -342,19 +342,19 @@
       "dni_solicitante":"30757543",
       "nombre_solicitante": "Jose",
       "apellido_solicitante": "Perez",
-      "cantidad_solicitudes": "3"
+      "cantidad_solicitudes": 3
     },
     {
       "dni_solicitante":"23334654",
       "nombre_solicitante": "Pedro",
       "apellido_solicitante": "Lopez",
-      "cantidad_solicitudes": "1"
+      "cantidad_solicitudes": 1
     },
     {
       "dni_solicitante":"12355432",
       "nombre_solicitante": "Juan",
       "apellido_solicitante": "Torres",
-      "cantidad_solicitudes": "4"
+      "cantidad_solicitudes": 4
     }
   ],
   "datosVarios": [

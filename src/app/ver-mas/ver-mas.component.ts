@@ -13,13 +13,9 @@ export class VerMasComponent implements OnInit {
   
 
   ngOnInit() {
-    this.service.getVecinos().subscribe(data => {this.vecinos= data; console.log(this.vecinos)});
-    
-    this.ordenar()
-  }
+    this.service.getVecinos().subscribe(data => {
+      this.vecinos= data
+  });
 
-  ordenar(){
-    this.vecinos.sort((a, b) => a.cantidad_solicitudes - b.cantidad_solicitudes);
-    console.log(this.vecinos)
-  }
+}
 }
