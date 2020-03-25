@@ -380,6 +380,19 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
     this.dialogRef.close(this.cantidad_filtros);
   }
 
+//funciones para limpiar cada filtro-------
+
+  ClearReporte(){
+    this.advSearch.reiteraciones_con = true;
+    this.advSearch.reiteraciones_sin = true;
+    this.advSearch.prioridad = undefined;
+
+    this.ActualizarDescReporte();
+  }
+
+//------------------------------------------
+
+
   //* Date picker props
   inlineRange;
   rangesFooter = DateRangePicker;

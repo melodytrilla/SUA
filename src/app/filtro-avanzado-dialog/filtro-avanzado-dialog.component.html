@@ -73,7 +73,8 @@
             
         </mat-expansion-panel>
         <div>
-            <button style="height:100%" [class.expand-button]="reporteIsOpen" mat-stroked-button>
+            <button style="height:100%" [class.expand-button]="reporteIsOpen"
+             mat-stroked-button (click)="ClearReporte()">
                 <mat-icon>undo</mat-icon>
             </button>
         </div>
