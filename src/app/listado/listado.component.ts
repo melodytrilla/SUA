@@ -1,5 +1,4 @@
 import { Component, ViewChild, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
-import * as _ from 'lodash';
 import { SolicitudesItemsService } from '../solicitudes-items.service';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import * as moment from 'moment';
@@ -21,7 +20,8 @@ export interface Opcion {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ListadoComponent implements AfterViewInit {
-  asc = false;
+  criterio: string;
+  asc:boolean;
   allSelected = false;
   toppings = new FormControl();
   list: {subtipo: string};
@@ -68,7 +68,7 @@ export class ListadoComponent implements AfterViewInit {
 
   togglePlay() {
     this.asc = !this.asc;
-  }
+    }
   
   nextBatch(currIndex: number, items: any[]) {
     const start = this.viewPort.getRenderedRange().start;
@@ -104,7 +104,6 @@ export class ListadoComponent implements AfterViewInit {
       exportadas.push(element)
     }
   })
-  console.log(exportadas)
   if (exportadas.length==0){
     alert("No hay solicitudes seleccionadas")
   }
@@ -117,5 +116,8 @@ export class ListadoComponent implements AfterViewInit {
     if (this.exportar().length!=0){
     return this.service.exportAsExcelFile(this.exportar(), 'solicitudes');
     }
+  }
+  ordenar(c: string){
+    this.criterio = c;
   }
 }

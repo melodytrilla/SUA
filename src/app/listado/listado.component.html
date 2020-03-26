@@ -1,3 +1,4 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <div style="overflow-y:hidden;" class="texto-regular">
     <app-global-nav-bar></app-global-nav-bar>
     <app-navbar></app-navbar>
@@ -14,12 +15,12 @@
             <mat-form-field class="selector">
                 <mat-label class="texto-regular">Ordenar por</mat-label>
                 <mat-select>
-                    <mat-option class="texto-regular" value="fechaCreacion"> Fecha de creación </mat-option>
-                    <mat-option class="texto-regular" value="fechaEstado"> Fecha de estado </mat-option>
-                    <mat-option class="texto-regular" value="cantidadReiteraciones"> Cantidad de reiteraciones </mat-option>
-                    <mat-option class="texto-regular" value="cantidadSolicitantes"> Cantidad de solicitantes </mat-option>
-                    <mat-option class="texto-regular" value="cantidadAsignaciones"> Cantidad de asignaciones </mat-option>
-                    <mat-option class="texto-regular" value="cantidadIntervenciones"> Cantidad de intervenciones </mat-option>
+                    <mat-option id="boton" class="texto-regular" value="fechaCreacion" (click)="ordenar('fecha_hora_registro')"> Fecha de creación </mat-option>
+                    <mat-option id="boton" class="texto-regular" value="fechaEstado"> Fecha de estado </mat-option>
+                    <mat-option id="boton" class="texto-regular" value="cantidadReiteraciones" (click)="ordenar('reiteraciones')"> Cantidad de reiteraciones </mat-option>
+                    <mat-option id="boton" class="texto-regular" value="cantidadSolicitantes" (click)="ordenar('solicitantes.length')"> Cantidad de solicitantes </mat-option>
+                    <mat-option id="boton" class="texto-regular" value="cantidadAsignaciones" (click)="ordenar('asignaciones.length')"> Cantidad de asignaciones </mat-option>
+                    <mat-option id="boton" class="texto-regular" value="cantidadIntervenciones" (click)="ordenar('intervenciones.length')"> Cantidad de intervenciones </mat-option>
                 </mat-select>
             </mat-form-field>
             <button mat-button (click)="togglePlay()">
@@ -56,9 +57,9 @@
             <h4 class="texto-regular">Ningun resultado.</h4>
         </div>
     </div>
-
+    <div id="here">
     <cdk-virtual-scroll-viewport *ngIf="!loading && items" style="height: 73vh" itemSize="93" (scrolledIndexChange)="nextBatch($event)">
-        <div mat-list *cdkVirtualFor="let item of items" class="lista">
+        <div  mat-list *cdkVirtualFor="let item of items | sort:{ property: criterio, descending: !asc}" class="lista">
             <div mat-list-item class="content fila">
                 <div class="fila" style="width: 100%;">
                     <div class="fila">
@@ -200,4 +201,5 @@
             <mat-divider></mat-divider>
         </div>
     </cdk-virtual-scroll-viewport>
+</div>
 </div>

@@ -7,8 +7,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SortPipe implements PipeTransform {
 
   transform(value: any[], criteria: SortCriteria): any[] {
-    console.log('Piped');
-    console.log(value);
     if (!value || !criteria)
       return value;
     

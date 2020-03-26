@@ -25,7 +25,6 @@ import { ChartsModule } from 'ng2-charts';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
-import * as _ from 'lodash';
 
 //Componentes 
 import { RequestsByStateComponent } from './requests-by-state/requests-by-state.component';
