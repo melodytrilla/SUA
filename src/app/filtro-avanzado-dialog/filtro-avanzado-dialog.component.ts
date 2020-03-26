@@ -203,6 +203,8 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   //-----Busqueda Reporte ----------------------------------------------
   public descripcionReporte: string = this.default_descripcion;
 
+  public reporteIsOpen: boolean = false
+
   //--------------------------------------------------------------------
 
   //-----Busqueda Clasificacion ----------------------------------------
@@ -378,6 +380,114 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
     this.dialogRef.close(this.cantidad_filtros);
   }
 
+//funciones para limpiar cada filtro-------
+
+  ClearReporte(){
+    this.advSearch.reiteraciones_con = true;
+    this.advSearch.reiteraciones_sin = true;
+    this.advSearch.prioridad = undefined;
+
+    this.ActualizarDescReporte();
+  }
+
+  ClearClasificacion(){
+    this.advSearch.clasificacion_subtipo = [];
+    this.advSearch.clasificacion_tipo = undefined;
+    this.advSearch.clasificacion_origenes = [];
+    this.advSearch.clasificacion_registro = true;
+    this.advSearch.clasificacion_reiteracion = true;
+
+    this.ActualizarDescCalificacion();
+  }
+
+  ClearArea(){
+    this.advSearch.area_origen = undefined;
+    this.advSearch.area_destino = undefined;
+    this.advSearch.area_reiteracion = undefined;
+
+    this.ActualizarDescArea();
+  }
+
+  ClearAdjunto(){
+    this.advSearch.adjunto_tiene = "no";
+    this.advSearch.adjunto_regReit = false;
+    this.advSearch.adjunto_intervencion = false;
+    this.advSearch.adjunto_resolucion = false;
+
+    this.ActualizarDescAdjunto();
+  }
+
+  ClearOpiniones(){
+    this.advSearch.opinion_tiene = "no";
+    this.advSearch.opinion_positivo = false;
+    this.advSearch.opinion_negative = false;
+    this.advSearch.opinion_neutro = false;
+    
+    this.ActualizarDescOpinion();
+  }
+
+  ClearEstado(){
+    this.advSearch.estado_estados = [];
+    this.advSearch.estado_detallado = "";
+    this.advSearch.estado_fecha_start = null;
+    this.advSearch.estado_fecha_end = null;
+
+    this.ActualizarEstado();
+  }
+
+  ClearDistrito(){
+    this.advSearch.distrito_vecinales = [];
+
+    this.ActualizarDescDistrito();
+  }
+
+  ClearIntervenciones(){
+    this.advSearch.intervenciones_seleccionadas = [];
+    this.advSearch.intervenciones_suaMovile = false;
+    this.advSearch.intervenciones_tipo = "";
+    this.advSearch.intervenciones_fecha_begin = null;
+    this.advSearch.intervenciones_fecha_end = null;
+
+    this.ActualizarDescInt();
+  }
+
+  ClearEquipamiento(){
+    this.advSearch.equipamiento_seleccionado = "";
+    this.advSearch.equipamiento_choice = "";
+    this.advSearch.equipamiento_detalle = "";
+
+    this.ActualizarDescEqp();
+  }
+
+  ClearAsignacion(){
+    this.advSearch.asignacion_tipo = "";
+    this.advSearch.asignacion_fecha_start = null;
+    this.advSearch.asignacion_fecha_end = null;
+    this.advSearch.asignacion_listPersonas = [];
+
+    this.ActualizarDescAsig();
+  }
+
+  ClearDatosEspecificos(){
+    this.advSearch.Datos_Extra = [];
+  }
+
+  ClearAll(){
+    this.ClearReporte();
+    this.ClearClasificacion();
+    this.ClearArea();
+    this.ClearAdjunto();
+    this.ClearOpiniones();
+    this.ClearEstado();
+    this.ClearDistrito();
+    this.ClearIntervenciones();
+    this.ClearEquipamiento();
+    this.ClearAsignacion();
+    this.ClearDatosEspecificos();
+  }
+//------------------------------------------
+
+
   //* Date picker props
   inlineRange;
   rangesFooter = DateRangePicker;
@@ -411,6 +521,9 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
       
       this.descripcionReporte = this.inputDescripcion;
     }
+    console.log(this.reporteIsOpen);
+
+    this.reporteIsOpen = false;
   }
 
   //genera la nueva descripcion de reporte
@@ -1044,6 +1157,12 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
           document.getElementById(secondFontId).style.color = "#000000";
         }
       }
+    }
+  }
+
+  shirnkButton(nombre:string):void{
+    if(nombre == "reporte"){
+      this.reporteIsOpen = true;
     }
   }
 }

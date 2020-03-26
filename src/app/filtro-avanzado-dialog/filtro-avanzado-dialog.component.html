@@ -40,559 +40,651 @@
 
   <mat-accordion>
       <!-- -------------Reporte--------------- -->
-    <mat-expansion-panel (closed)="ActualizarDescReporte()" class="light every-panel" Id="ReportePanel">
-        <mat-expansion-panel-header>
-            <mat-panel-title class="titulo titulo-bold">
-                Reporte
-            </mat-panel-title>
-            <mat-panel-description class="texto-regularitalic">
-                {{descripcionReporte}}
-            </mat-panel-description>
-        </mat-expansion-panel-header>
+    <div style="display: flex; flex-direction: row;">  
+        <mat-expansion-panel (opened)="shirnkButton('reporte')" (closed)="ActualizarDescReporte()" class="light every-panel" Id="ReportePanel">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="titulo titulo-bold">
+                    Reporte
+                </mat-panel-title>
+                <mat-panel-description class="texto-regularitalic">
+                    {{descripcionReporte}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
 
-        <div class="body fila texto-regular">
-            <div class="fila" Id="inputField">
-                <mat-label style="margin-right: 2%;">Reiteraciones: </mat-label>
+            <div class="body fila texto-regular">
+                <div class="fila" Id="inputField">
+                    <mat-label style="margin-right: 2%;">Reiteraciones: </mat-label>
+                    
+                    <mat-checkbox class="texto-regular" [(ngModel)]="advSearch.reiteraciones_con" color="primary">Con</mat-checkbox>
+                    <mat-checkbox class="texto-regular" [(ngModel)]="advSearch.reiteraciones_sin" color="primary">Sin</mat-checkbox>
+                </div>
                 
-                <mat-checkbox class="texto-regular" [(ngModel)]="advSearch.reiteraciones_con" color="primary">Con</mat-checkbox>
-                <mat-checkbox class="texto-regular" [(ngModel)]="advSearch.reiteraciones_sin" color="primary">Sin</mat-checkbox>
-            </div>
-            
 
-            <mat-form-field class="texto-regular" style="margin-left: 5%">
-                <mat-label>Prioridad:</mat-label>
-                <mat-select [(value)] = "advSearch.prioridad">
-                    <mat-option class="texto-regularitalic">Todas</mat-option>
-                    <mat-option class="texto-regularitalic" value="Alta">Alta</mat-option>
-                    <mat-option class="texto-regularitalic" value="Media">Media</mat-option>
-                    <mat-option class="texto-regularitalic" value="Baja">Baja</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-        
-    </mat-expansion-panel>
-
-    <!-- -------------Clasificacion--------------- -->
-    <mat-expansion-panel (closed)="ActualizarDescCalificacion()" class="light every-panel" Id="CalifPanel">
-        <mat-expansion-panel-header>
-            <mat-panel-title class="titulo titulo-bold">
-                Clasificación
-            </mat-panel-title>
-            <mat-panel-description class="texto-regularitalic">
-                {{descripcionCalif}}
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-        <div class="texto-regular">
-        <div>
-            <app-chips-container id="subtipoFont" #myChips [chipsAnteriores] = []></app-chips-container>
-        </div>
-        <mat-divider style="margin-bottom: 1%;"></mat-divider>
-        <div class="body fila">
-            <mat-form-field>
-                <mat-label class="texto-regular">Tipo</mat-label>
-
-                <mat-select [(value)]="advSearch.clasificacion_tipo">
-                    <mat-option class="texto-regularitalic"> Cualquiera</mat-option>
-                    <mat-option class="texto-regularitalic" *ngFor="let elem of tipos" [value]="elem">  
-                        {{elem}}
-                    </mat-option>
-                </mat-select> 
-            </mat-form-field>
-
-
-            <div style="max-width: 35%;">
-                <mat-form-field>
-                    <mat-label class="texto-regular">Origen</mat-label>
-                    <mat-select #origenSelect (selectionChange)="agregarChipOrigen($event.value)" >
-                        <mat-option class="texto-regularitalic" *ngFor="let origen of origenes" [value]="origen">{{origen}}</mat-option>
+                <mat-form-field class="texto-regular" style="margin-left: 5%">
+                    <mat-label>Prioridad:</mat-label>
+                    <mat-select [(value)] = "advSearch.prioridad">
+                        <mat-option class="texto-regularitalic">Todas</mat-option>
+                        <mat-option class="texto-regularitalic" value="Alta">Alta</mat-option>
+                        <mat-option class="texto-regularitalic" value="Media">Media</mat-option>
+                        <mat-option class="texto-regularitalic" value="Baja">Baja</mat-option>
                     </mat-select>
                 </mat-form-field>
-
-                <mat-chip-list>
-                    <mat-chip *ngFor="let elegido of advSearch.clasificacion_origenes"
-                        class="texto-semibold" [removable]=true [selectable]=true 
-                        (removed)="takeOut(elegido)" color="accent" selected> 
-                            {{elegido}}
-                            <mat-icon matChipRemove>cancel</mat-icon>
-                        </mat-chip>
-                </mat-chip-list>
             </div>
-            <div style="display: flex;" Id="CalifFont">
-                <mat-checkbox class="texto-regular"
-                [(ngModel)]="advSearch.clasificacion_registro"
-                [disabled]="advSearch.clasificacion_origenes.length == 0"
-                style="margin-right: 8%;" color="primary">
-                Registro
-                    
-                </mat-checkbox>
+            
+        </mat-expansion-panel>
+        <div>
+            <button style="height:100%" [class.expand-button]="reporteIsOpen"
+             mat-stroked-button (click)="ClearReporte()">
+                <mat-icon>undo</mat-icon>
+            </button>
+        </div>
+    </div>
 
-                <mat-checkbox class="texto-regular"
-                [(ngModel)]="advSearch.clasificacion_reiteracion"
-                [disabled]="advSearch.clasificacion_origenes.length == 0" color="primary">
-                Reiteracion
-                    
-                </mat-checkbox>
+    <!-- -------------Clasificacion--------------- -->
+    <div style="display: flex; flex-direction: row;">
+        <mat-expansion-panel (closed)="ActualizarDescCalificacion()" class="light every-panel" Id="CalifPanel">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="titulo titulo-bold">
+                    Clasificación
+                </mat-panel-title>
+                <mat-panel-description class="texto-regularitalic">
+                    {{descripcionCalif}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="texto-regular">
+            <div>
+                <app-chips-container id="subtipoFont" #myChips [chipsAnteriores] = []></app-chips-container>
             </div>
+            <mat-divider style="margin-bottom: 1%;"></mat-divider>
+            <div class="body fila">
+                <mat-form-field>
+                    <mat-label class="texto-regular">Tipo</mat-label>
+
+                    <mat-select [(value)]="advSearch.clasificacion_tipo">
+                        <mat-option class="texto-regularitalic"> Cualquiera</mat-option>
+                        <mat-option class="texto-regularitalic" *ngFor="let elem of tipos" [value]="elem">  
+                            {{elem}}
+                        </mat-option>
+                    </mat-select> 
+                </mat-form-field>
+
+
+                <div style="max-width: 35%;">
+                    <mat-form-field>
+                        <mat-label class="texto-regular">Origen</mat-label>
+                        <mat-select #origenSelect (selectionChange)="agregarChipOrigen($event.value)" >
+                            <mat-option class="texto-regularitalic" *ngFor="let origen of origenes" [value]="origen">{{origen}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-chip-list>
+                        <mat-chip *ngFor="let elegido of advSearch.clasificacion_origenes"
+                            class="texto-semibold" [removable]=true [selectable]=true 
+                            (removed)="takeOut(elegido)" color="accent" selected> 
+                                {{elegido}}
+                                <mat-icon matChipRemove>cancel</mat-icon>
+                            </mat-chip>
+                    </mat-chip-list>
+                </div>
+                <div style="display: flex;" Id="CalifFont">
+                    <mat-checkbox class="texto-regular"
+                    [(ngModel)]="advSearch.clasificacion_registro"
+                    [disabled]="advSearch.clasificacion_origenes.length == 0"
+                    style="margin-right: 8%;" color="primary">
+                    Registro
+                        
+                    </mat-checkbox>
+
+                    <mat-checkbox class="texto-regular"
+                    [(ngModel)]="advSearch.clasificacion_reiteracion"
+                    [disabled]="advSearch.clasificacion_origenes.length == 0" color="primary">
+                    Reiteracion
+                        
+                    </mat-checkbox>
+                </div>
+            </div>
+            </div>
+        </mat-expansion-panel>
+
+        <div>
+            <button style="height:100%" [class.expand-button]="reporteIsOpen"
+             mat-stroked-button (click)="ClearClasificacion()">
+                <mat-icon>undo</mat-icon>
+            </button>
         </div>
-        </div>
-    </mat-expansion-panel>
+    </div>
 
 
     <!-- ----------------Areas------------------- -->
-    <mat-expansion-panel (closed)="ActualizarDescArea()" class="light every-panel" Id="AreaPanel">
-        <mat-expansion-panel-header>
-            <mat-panel-title class="titulo titulo-bold">
-                Área
-            </mat-panel-title>
-            <mat-panel-description class="texto-regularitalic">
-                {{descripcionArea}}
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-        
-        <div Id="area_font_toWhite" class="body fila texto-regular">
-            <mat-form-field style="width: 25%;">
-                <mat-label class="texto-regular">Área de origen</mat-label>            
-                <input matInput [matAutocomplete] = "autoArea"
-                    (input)="updateAutocomplete($event.target.value)"
-                    (focus)="updateAutocomplete($event.target.value)"
-                    [(ngModel)]="advSearch.area_origen"
-                    >
+    <div style="display: flex; flex-direction: row;">  
+        <mat-expansion-panel (closed)="ActualizarDescArea()" class="light every-panel" Id="AreaPanel">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="titulo titulo-bold">
+                    Área
+                </mat-panel-title>
+                <mat-panel-description class="texto-regularitalic">
+                    {{descripcionArea}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            
+            <div Id="area_font_toWhite" class="body fila texto-regular">
+                <mat-form-field style="width: 25%;">
+                    <mat-label class="texto-regular">Área de origen</mat-label>            
+                    <input matInput [matAutocomplete] = "autoArea"
+                        (input)="updateAutocomplete($event.target.value)"
+                        (focus)="updateAutocomplete($event.target.value)"
+                        [(ngModel)]="advSearch.area_origen"
+                        >
 
-                <mat-autocomplete #autoArea = "matAutocomplete" style="width: 100px; height: 100px;">
-                    <mat-option class="texto-regularitalic"> Cualquiera </mat-option>
-                    <mat-divider></mat-divider>
-                    <div *ngFor = "let area of area_areas">
-                        <mat-option class="texto-regularitalic" [value]= area style="height:auto; display: flex; white-space: normal;line-height: 2;">
-                            {{area}}istro
-                        </mat-option>
+                    <mat-autocomplete #autoArea = "matAutocomplete" style="width: 100px; height: 100px;">
+                        <mat-option class="texto-regularitalic"> Cualquiera </mat-option>
                         <mat-divider></mat-divider>
-                    </div>
-                </mat-autocomplete>
-            </mat-form-field>
-            <mat-form-field style="width: 25%;">
-                <mat-label class="texto-regular">Área de destino actual</mat-label>            
-                <input matInput [matAutocomplete] = "autoArea"
-                    (input)="updateAutocomplete($event.target.value)"
-                    (focus)="updateAutocomplete($event.target.value)"
-                    [(ngModel)]="advSearch.area_destino"
-                    >
-            </mat-form-field>
-            <mat-form-field style="width: 25%;">
-                <mat-label class="texto-regular">Área de reiteración</mat-label>            
-                <input matInput [matAutocomplete] = "autoArea"
-                    (input)="updateAutocomplete($event.target.value)"
-                    (focus)="updateAutocomplete($event.target.value)"
-                    [(ngModel)]="advSearch.area_reiteracion"
-                    >
-            </mat-form-field>
+                        <div *ngFor = "let area of area_areas">
+                            <mat-option class="texto-regularitalic" [value]= area style="height:auto; display: flex; white-space: normal;line-height: 2;">
+                                {{area}}istro
+                            </mat-option>
+                            <mat-divider></mat-divider>
+                        </div>
+                    </mat-autocomplete>
+                </mat-form-field>
+                <mat-form-field style="width: 25%;">
+                    <mat-label class="texto-regular">Área de destino actual</mat-label>            
+                    <input matInput [matAutocomplete] = "autoArea"
+                        (input)="updateAutocomplete($event.target.value)"
+                        (focus)="updateAutocomplete($event.target.value)"
+                        [(ngModel)]="advSearch.area_destino"
+                        >
+                </mat-form-field>
+                <mat-form-field style="width: 25%;">
+                    <mat-label class="texto-regular">Área de reiteración</mat-label>            
+                    <input matInput [matAutocomplete] = "autoArea"
+                        (input)="updateAutocomplete($event.target.value)"
+                        (focus)="updateAutocomplete($event.target.value)"
+                        [(ngModel)]="advSearch.area_reiteracion"
+                        >
+                </mat-form-field>
+            </div>
+        </mat-expansion-panel>
+
+        <div>
+            <button style="height:100%" [class.expand-button]="reporteIsOpen"
+            mat-stroked-button (click)="ClearArea()">
+                <mat-icon>undo</mat-icon>
+            </button>
         </div>
-    </mat-expansion-panel>
+    </div>
     
     <!-- ----------------Adjuntos------------------- -->
-    <mat-expansion-panel (closed)="ActualizarDescAdjunto()" class="light every-panel" Id="AdjuntoPanel">
-        <mat-expansion-panel-header>
-            <mat-panel-title class="titulo titulo-bold">
-                Adjunto
-            </mat-panel-title>
-            <mat-panel-description class="texto-regularitalic">
-                {{descripcionAdjunto}}
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-        
-        <div id="AdjuntoFont" class="body fila texto-regular">
-            <section>
-                <mat-radio-group [(ngModel)]="advSearch.adjunto_tiene" (change)="checkEnable($event)">
-                    <mat-radio-button class="texto-regular" value="Con" color="primary"> Con</mat-radio-button>
-                    <mat-radio-button class="texto-regular" value="Sin" color="primary"> Sin</mat-radio-button>
-                    <mat-radio-button class="texto-regular" value="no" color="primary"> No Seleccionado</mat-radio-button>
-                </mat-radio-group>
-            </section>
+    <div style="display: flex; flex-direction: row;">
+        <mat-expansion-panel (closed)="ActualizarDescAdjunto()" class="light every-panel" Id="AdjuntoPanel">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="titulo titulo-bold">
+                    Adjunto
+                </mat-panel-title>
+                <mat-panel-description class="texto-regularitalic">
+                    {{descripcionAdjunto}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            
+            <div id="AdjuntoFont" class="body fila texto-regular">
+                <section>
+                    <mat-radio-group [(ngModel)]="advSearch.adjunto_tiene" (change)="checkEnable($event)">
+                        <mat-radio-button class="texto-regular" value="Con" color="primary"> Con</mat-radio-button>
+                        <mat-radio-button class="texto-regular" value="Sin" color="primary"> Sin</mat-radio-button>
+                        <mat-radio-button class="texto-regular" value="no" color="primary"> No Seleccionado</mat-radio-button>
+                    </mat-radio-group>
+                </section>
 
-            <section>
-                <mat-checkbox class="texto-regular" [disabled]="advSearch.adjunto_tiene == 'no'" [(ngModel)]="advSearch.adjunto_regReit" color="primary"> Registro/Reiteración</mat-checkbox>
-                <mat-checkbox class="texto-regular" [disabled]="advSearch.adjunto_tiene == 'no'" [(ngModel)]="advSearch.adjunto_intervencion" color="primary"> Intervención</mat-checkbox>
-                <mat-checkbox class="texto-regular" [disabled]="advSearch.adjunto_tiene == 'no'" [(ngModel)]="advSearch.adjunto_resolucion" color="primary"> Resolución</mat-checkbox>
-            </section>
+                <section>
+                    <mat-checkbox class="texto-regular" [disabled]="advSearch.adjunto_tiene == 'no'" [(ngModel)]="advSearch.adjunto_regReit" color="primary"> Registro/Reiteración</mat-checkbox>
+                    <mat-checkbox class="texto-regular" [disabled]="advSearch.adjunto_tiene == 'no'" [(ngModel)]="advSearch.adjunto_intervencion" color="primary"> Intervención</mat-checkbox>
+                    <mat-checkbox class="texto-regular" [disabled]="advSearch.adjunto_tiene == 'no'" [(ngModel)]="advSearch.adjunto_resolucion" color="primary"> Resolución</mat-checkbox>
+                </section>
+            </div>
+        </mat-expansion-panel>
+
+        <div>
+            <button style="height:100%" [class.expand-button]="reporteIsOpen"
+            mat-stroked-button (click)="ClearAdjunto()">
+                <mat-icon>undo</mat-icon>
+            </button>
         </div>
-    </mat-expansion-panel>
+    </div>
 
     <!-- ----------------Opiniones------------------- -->
-    <mat-expansion-panel (closed)="ActualizarDescOpinion()" class="light every-panel" Id="OpinionPanel">
-        <mat-expansion-panel-header>
-            <mat-panel-title class="titulo titulo-bold">
-                Opinión
-            </mat-panel-title>
-            <mat-panel-description class="texto-regularitalic">
-                {{descripcionOpinion}}
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-        
-        <div id="OpinionFont" class="body fila texto-regular">
-            <section>
-                <mat-radio-group [(ngModel)]="advSearch.opinion_tiene" (change)="checkEnableOp($event)">
-                    <mat-radio-button class="texto-regular" value="Con" color="primary"> Con</mat-radio-button>
-                    <mat-radio-button class="texto-regular" value="Sin" color="primary"> Sin</mat-radio-button>
-                    <mat-radio-button class="texto-regular" value="no" color="primary"> No Seleccionado</mat-radio-button>
-                </mat-radio-group
-                >
-            </section>
+    <div style="display: flex; flex-direction: row;">
+        <mat-expansion-panel (closed)="ActualizarDescOpinion()" class="light every-panel" Id="OpinionPanel">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="titulo titulo-bold">
+                    Opinión
+                </mat-panel-title>
+                <mat-panel-description class="texto-regularitalic">
+                    {{descripcionOpinion}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            
+            <div id="OpinionFont" class="body fila texto-regular">
+                <section>
+                    <mat-radio-group [(ngModel)]="advSearch.opinion_tiene" (change)="checkEnableOp($event)">
+                        <mat-radio-button class="texto-regular" value="Con" color="primary"> Con</mat-radio-button>
+                        <mat-radio-button class="texto-regular" value="Sin" color="primary"> Sin</mat-radio-button>
+                        <mat-radio-button class="texto-regular" value="no" color="primary"> No Seleccionado</mat-radio-button>
+                    </mat-radio-group
+                    >
+                </section>
 
-            <section>
-                <mat-checkbox class="texto-regular" [disabled]="advSearch.opinion_tiene == 'no'" [(ngModel)]="advSearch.opinion_positivo" color="primary"> Positiva</mat-checkbox>
-                <mat-checkbox class="texto-regular" [disabled]="advSearch.opinion_tiene == 'no'" [(ngModel)]="advSearch.opinion_negative" color="primary"> Negativa</mat-checkbox>
-                <mat-checkbox class="texto-regular" [disabled]="advSearch.opinion_tiene == 'no'" [(ngModel)]="advSearch.opinion_neutro" color="primary"> Neutra</mat-checkbox>
-            </section>
+                <section>
+                    <mat-checkbox class="texto-regular" [disabled]="advSearch.opinion_tiene == 'no'" [(ngModel)]="advSearch.opinion_positivo" color="primary"> Positiva</mat-checkbox>
+                    <mat-checkbox class="texto-regular" [disabled]="advSearch.opinion_tiene == 'no'" [(ngModel)]="advSearch.opinion_negative" color="primary"> Negativa</mat-checkbox>
+                    <mat-checkbox class="texto-regular" [disabled]="advSearch.opinion_tiene == 'no'" [(ngModel)]="advSearch.opinion_neutro" color="primary"> Neutra</mat-checkbox>
+                </section>
+            </div>
+        </mat-expansion-panel>
+
+        <div>
+            <button style="height:100%" [class.expand-button]="reporteIsOpen"
+            mat-stroked-button (click)="ClearOpiniones()">
+                <mat-icon>undo</mat-icon>
+            </button>
         </div>
-    </mat-expansion-panel>
+    </div>
 
     <!-- ----------------Estados------------------- -->
-    <mat-expansion-panel (closed)="ActualizarEstado()" class="light every-panel" Id="EstadoPanel">
-        <mat-expansion-panel-header>
-            <mat-panel-title class="titulo titulo-bold">
-                Estado
-            </mat-panel-title>
-            <mat-panel-description class="texto-regularitalic">
-                {{descripcionEstado}}
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-        
-        <div class="body fila texto-regular">
-            <div class="fila" style="width: 100%">
-                <div style="flex-grow: 1;flex-direction: column; max-width: 35%;">
-                    <!-- estado chips -->
-                    <mat-form-field>
-                        <mat-label class="texto-regular">Estado</mat-label>
-                        <mat-select #estadoBuscador (selectionChange)="addEstadoToChips($event.value)">
-                            <mat-option class="texto-regularitalic" *ngFor="let option of estados_total" [value]="option">
-                                {{option}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                    <div>
-                        <mat-chip-list #showEstado>
-                            <mat-chip *ngFor="let chip of advSearch.estado_estados"
-                                [removable] = "true" class="texto-semibold"
-                                (removed)= "removeEstado(chip)"
-                                color="accent" selected>
-                            {{chip}}
-                            <mat-icon matChipRemove> cancel</mat-icon>
-                            </mat-chip>
-                        </mat-chip-list>
-                    </div>
-                </div>
-                <div Id="estado_font.toWhite" style="flex-grow: 1;">
-                    <!-- Date Range -->
-                    <mat-form-field>
-                        <input matInput 
-                            class="texto-regular"
-                            (focus)="picker.open()"
-                            onkeydown="return false"
-                            [disabled]="advSearch.estado_estados.length == 0"
-                            placeholder = "Elija una fecha"
-                            [satDatepicker]="pickerEstado"
-                            [(ngModel)] = "estado_DateRango"
-                            formControlName="date"
-                            value = "">
-
-                        <sat-datepicker #pickerEstado 
-                            [rangeMode]="true"
-                            [calendarFooterComponent]="rangesFooter"
-                            [selectFirstDateOnClose]="true">
-                        </sat-datepicker>
-                        <sat-datepicker-toggle matSuffix [for]="pickerEstado"></sat-datepicker-toggle>
-                    </mat-form-field>
-                </div>
-                <div style="flex-grow: 1;">
-                    <!-- estado Detallado -->
-                    <mat-form-field >
-                        <mat-label class="texto-regular">Estado detallado</mat-label>
-                        <mat-select [(ngModel)] = "advSearch.estado_detallado">
-                            <mat-option class="texto-regularitalic" [value] = ""> --ninguno--</mat-option>
-                            <mat-option class="texto-regularitalic" *ngFor="let option of detallados_total" [value]="option">
-                                {{option}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
-            </div>
-
-        </div>
-    </mat-expansion-panel>
-
-<!-- ----------------Distritos------------------- -->
-    <mat-expansion-panel (closed)="ActualizarDescDistrito()" class="light every-panel" Id="DistritoPanel">
-        <mat-expansion-panel-header>
-            <mat-panel-title class="titulo titulo-bold">
-                Distrito
-            </mat-panel-title>
-            <mat-panel-description class="texto-regularitalic">
-                {{descripcionDistrito}}
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-
-        <div class="body fila texto-regular">
-            <div class="fila" style="justify-content: space-between;">
-                <div Id="distrito_font_toWhite" style="flex-grow: 1; margin-right: 30px;">
-                    <mat-form-field style="width:275px">
-                        <input matInput #search
-                            class="texto-regular"
-                            placeholder = "Vecinal"
-                            [matAutocomplete]="autoDistrito"
-                            [matChipInputFor]="showVecinales"
-                            [matChipInputSeparatorKeyCodes] = "separatorKeys"
-                            [matChipInputAddOnBlur] = true
-                            (input)="onChange($event.target.value)"
-                            (focus)="onChange($event.target.value)"
-                            >
-                    </mat-form-field>
-                    <mat-autocomplete #autoDistrito="matAutocomplete" (optionSelected)="showSelected($event.option.value)"> 
-                        <ng-container *ngFor="let distrito of filteredDistritos">
-                            <mat-option class="distritoOption texto-semibolditalic" [value]="distrito">
-                                {{distrito}}
-                            </mat-option>
-
-                            <ng-container *ngFor="let vecinal of filteredVecinales">
-                                <mat-option class="vecinalOption texto-regularitalic" [value]="vecinal" *ngIf="vecinal.distrito == distrito">
-                                    {{vecinal.nombre}}
+    <div style="display: flex; flex-direction: row;">
+        <mat-expansion-panel (closed)="ActualizarEstado()" class="light every-panel" Id="EstadoPanel">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="titulo titulo-bold">
+                    Estado
+                </mat-panel-title>
+                <mat-panel-description class="texto-regularitalic">
+                    {{descripcionEstado}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            
+            <div class="body fila texto-regular">
+                <div class="fila" style="width: 100%">
+                    <div style="flex-grow: 1;flex-direction: column; max-width: 35%;">
+                        <!-- estado chips -->
+                        <mat-form-field>
+                            <mat-label class="texto-regular">Estado</mat-label>
+                            <mat-select #estadoBuscador (selectionChange)="addEstadoToChips($event.value)">
+                                <mat-option class="texto-regularitalic" *ngFor="let option of estados_total" [value]="option">
+                                    {{option}}
                                 </mat-option>
-                            </ng-container>
-                        </ng-container>
-                    </mat-autocomplete>
-                </div>
-                <mat-divider [vertical]="true"></mat-divider>
-                <div style="flex-grow: 10; margin-left: 30px;">
-                    <mat-chip-list #showVecinales>
-                        <mat-chip *ngFor="let chip of advSearch.distrito_vecinales"
-                            [removable]=true
-                            (removed)="remove(chip)"
-                            color="accent" selected>
-                            <div class="chip texto-semibold">
-                                <h6 class="subtitulo titulo-bold">{{chip.distrito}}</h6>
-                                {{chip.nombre}}
-                            </div>
-                            <mat-icon matChipRemove>cancel</mat-icon>
-                        </mat-chip>
-                        
-                    </mat-chip-list>
-                </div>
-                
-            </div>
-        </div>
-        
-    </mat-expansion-panel>
-<!-- ----------------Intervenciones------------------- -->
-    <mat-expansion-panel (closed)="ActualizarDescInt()" class="light every-panel" Id="IntPanel">
-        <mat-expansion-panel-header>
-            <mat-panel-title class="titulo titulo-bold">
-                Intervenciones
-            </mat-panel-title>
-            <mat-panel-description class="texto-regularitalic">
-                {{descripcionInt}}
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-
-        <div class="body fila texto-regular">
-            <div Id="changeFont" class="fila" style="width: -moz-available; width: 100%;">
-                <div class="columna" style="min-width: 50%;">
-                    <mat-radio-group [(ngModel)] = "advSearch.intervenciones_tipo">
-                        <mat-radio-button class="texto-regular" value="con" color="primary"> Con </mat-radio-button>
-                        <mat-radio-button class="texto-regular" value="sin" color="primary"> Sin </mat-radio-button>
-                        <mat-radio-button class="texto-regular" value="ultima" color="primary"> Última </mat-radio-button>
-                        <mat-radio-button class="texto-regular" value="" color="primary"> No seleccionado </mat-radio-button>
-    
-                    </mat-radio-group>
-                    <div clas="fila" style="margin-top: 5px;">
-                        <mat-form-field style = "margin-left: 10px;">
+                            </mat-select>
+                        </mat-form-field>
+                        <div>
+                            <mat-chip-list #showEstado>
+                                <mat-chip *ngFor="let chip of advSearch.estado_estados"
+                                    [removable] = "true" class="texto-semibold"
+                                    (removed)= "removeEstado(chip)"
+                                    color="accent" selected>
+                                {{chip}}
+                                <mat-icon matChipRemove> cancel</mat-icon>
+                                </mat-chip>
+                            </mat-chip-list>
+                        </div>
+                    </div>
+                    <div Id="estado_font.toWhite" style="flex-grow: 1;">
+                        <!-- Date Range -->
+                        <mat-form-field>
                             <input matInput class="texto-regular"
-                                (focus)="picker.open()"
-                                onkeydown="return false"
-                                [disabled]="advSearch.intervenciones_tipo == ''"
-                                placeholder="Elija una fecha"
-                                [satDatepicker]="picker3"
-                                [(ngModel)]= "intervenciones_DateRango"
-                                value="">
-                            <sat-datepicker #picker3 
+                                [disabled]="advSearch.estado_estados.length == 0"
+                                placeholder = "Elija una fecha"
+                                [satDatepicker]="pickerEstado"
+                                [(ngModel)] = "estado_DateRango"
+                                value = "">
+
+                            <sat-datepicker #pickerEstado 
                                 [rangeMode]="true"
                                 [calendarFooterComponent]="rangesFooter"
                                 [selectFirstDateOnClose]="true">
                             </sat-datepicker>
-                            <sat-datepicker-toggle matSuffix [for]="picker3"></sat-datepicker-toggle>
+                            <sat-datepicker-toggle matSuffix [for]="pickerEstado"></sat-datepicker-toggle>
                         </mat-form-field>
                     </div>
-    
-                </div>
-    
-    
-                <div class="flexIColunm" style="min-width: 50%;">
-                    <div>
-                        <mat-form-field>
-                            <mat-label class="texto-regular">Intervención</mat-label>
-                            <mat-select #intervencionSelect (selectionChange)="agregarInt($event.value)">
-                                <mat-option *ngFor=" let int of intervenciones" 
-                                [value]="int" class="texto-regularitalic">
-                                    {{int}}
+                    <div style="flex-grow: 1;">
+                        <!-- estado Detallado -->
+                        <mat-form-field >
+                            <mat-label class="texto-regular">Estado detallado</mat-label>
+                            <mat-select [(ngModel)] = "advSearch.estado_detallado">
+                                <mat-option class="texto-regularitalic" [value] = ""> --ninguno--</mat-option>
+                                <mat-option class="texto-regularitalic" *ngFor="let option of detallados_total" [value]="option">
+                                    {{option}}
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
-    
-                        <mat-chip-list>
-                            <mat-chip *ngFor="let int of advSearch.intervenciones_seleccionadas"
-                            class="texto-semibold"
-                            [removable]=true [selectable]=true
-                            (removed)="quitarIntervencion(int)"
-                            color="accent" selected>
-                                {{int}}
+                    </div>
+                </div>
+
+            </div>
+        </mat-expansion-panel>
+
+        <div>
+            <button style="height:100%" [class.expand-button]="reporteIsOpen"
+            mat-stroked-button (click)="ClearEstado()">
+                <mat-icon>undo</mat-icon>
+            </button>
+        </div>
+    </div>
+
+<!-- ----------------Distritos------------------- -->
+    <div style="display: flex; flex-direction: row;">
+        <mat-expansion-panel (closed)="ActualizarDescDistrito()" class="light every-panel" Id="DistritoPanel">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="titulo titulo-bold">
+                    Distrito
+                </mat-panel-title>
+                <mat-panel-description class="texto-regularitalic">
+                    {{descripcionDistrito}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <div class="body fila texto-regular">
+                <div class="fila" style="justify-content: space-between;">
+                    <div Id="distrito_font_toWhite" style="flex-grow: 1; margin-right: 30px;">
+                        <mat-form-field style="width:275px">
+                            <input matInput #search
+                                class="texto-regular"
+                                placeholder = "Vecinal"
+                                [matAutocomplete]="autoDistrito"
+                                [matChipInputFor]="showVecinales"
+                                [matChipInputSeparatorKeyCodes] = "separatorKeys"
+                                [matChipInputAddOnBlur] = true
+                                (input)="onChange($event.target.value)"
+                                (focus)="onChange($event.target.value)"
+                                >
+                        </mat-form-field>
+                        <mat-autocomplete #autoDistrito="matAutocomplete" (optionSelected)="showSelected($event.option.value)"> 
+                            <ng-container *ngFor="let distrito of filteredDistritos">
+                                <mat-option class="distritoOption texto-semibolditalic" [value]="distrito">
+                                    {{distrito}}
+                                </mat-option>
+
+                                <ng-container *ngFor="let vecinal of filteredVecinales">
+                                    <mat-option class="vecinalOption texto-regularitalic" [value]="vecinal" *ngIf="vecinal.distrito == distrito">
+                                        {{vecinal.nombre}}
+                                    </mat-option>
+                                </ng-container>
+                            </ng-container>
+                        </mat-autocomplete>
+                    </div>
+                    <mat-divider [vertical]="true"></mat-divider>
+                    <div style="flex-grow: 10; margin-left: 30px;">
+                        <mat-chip-list #showVecinales>
+                            <mat-chip *ngFor="let chip of advSearch.distrito_vecinales"
+                                [removable]=true
+                                (removed)="remove(chip)"
+                                color="accent" selected>
+                                <div class="chip texto-semibold">
+                                    <h6 class="subtitulo titulo-bold">{{chip.distrito}}</h6>
+                                    {{chip.nombre}}
+                                </div>
                                 <mat-icon matChipRemove>cancel</mat-icon>
                             </mat-chip>
+                            
                         </mat-chip-list>
                     </div>
-                    <div>
-                        <mat-checkbox class="texto-regular" [(ngModel)]="advSearch.intervenciones_suaMovile" color="primary" >SUA Móvil</mat-checkbox>
-                    </div>
+                    
                 </div>
             </div>
+            
+        </mat-expansion-panel>
 
+        <div>
+            <button style="height:100%" [class.expand-button]="reporteIsOpen"
+            mat-stroked-button (click)="ClearDistrito()">
+                <mat-icon>undo</mat-icon>
+            </button>
         </div>
+    </div>
+<!-- ----------------Intervenciones------------------- -->
+    <div style="display: flex; flex-direction: row;">
+        <mat-expansion-panel (closed)="ActualizarDescInt()" class="light every-panel" Id="IntPanel">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="titulo titulo-bold">
+                    Intervenciones
+                </mat-panel-title>
+                <mat-panel-description class="texto-regularitalic">
+                    {{descripcionInt}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
 
-    </mat-expansion-panel>
-<!-- ----------------Equipamiento------------------- -->
-    <mat-expansion-panel (closed)="ActualizarDescEqp()" class="light every-panel" Id="EqpPanel">
-        <mat-expansion-panel-header>
-            <mat-panel-title class="titulo titulo-bold">
-                Equipamiento
-            </mat-panel-title>
-            <mat-panel-description class="texto-regularitalic">
-                {{descripcionEqp}}
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-        <div class="body fila texto-regular">
-            <div Id="changeFontEqp" style="width: 100%;display: flex;flex-direction: row;">
-                <div style="flex-grow: 1;">
-                    <mat-radio-group [(ngModel)] = "advSearch.equipamiento_choice">
-                        <mat-radio-button class="texto-regular" value="con" color="primary"> Con </mat-radio-button>
-                        <mat-radio-button class="texto-regular" value="sin" color="primary"> Sin </mat-radio-button>
-                        <mat-radio-button class="texto-regular" value="" color="primary"> No seleccionado </mat-radio-button>
-                    </mat-radio-group>
-                </div>
-    
-                <div style="flex-grow: 1;">
-                    <mat-form-field>
-                        <mat-label class="texto-regular">Tipo</mat-label>
-                        <mat-select [(ngModel)] = "advSearch.equipamiento_seleccionado">
-                            <mat-option class="texto-regularitalic" [value]="">No seleccionado</mat-option>
-                            <mat-option class="texto-regularitalic" *ngFor="let tipo of equipamiento_tipo" [value]="tipo">
-                                {{tipo}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
-    
-                <div style="flex-grow: 1;">
-                    <mat-form-field appearance="outline" style="width: -moz-available;">
-                        <mat-label class="texto-regular">Detalle</mat-label>
-                        <textarea class="texto-regular" matInput [(ngModel)]="advSearch.equipamiento_detalle"></textarea>
-                    </mat-form-field>
-                </div>
-            </div>
-
-        </div>
-
-    </mat-expansion-panel>
-
-<!-- ----------------Asignaciones------------------------ -->
-    <mat-expansion-panel (closed)="ActualizarDescAsig()" class="light every-panel" Id="AsigPanel">
-        <mat-expansion-panel-header>
-            <mat-panel-title class="titulo titulo-bold">
-                Asignaciones
-            </mat-panel-title>
-            <mat-panel-description class="texto-regularitalic">
-                {{descripcionAsig}}
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-        <div class="body fila texto-regular">
-            <div class="fila" style="width: 100%">
-                <div Id= "asig_font-towhite" style="flex-grow: 1; flex-direction: column;">
-                    <div>
-                        <mat-radio-group [(ngModel)] = "advSearch.asignacion_tipo">
+            <div class="body fila texto-regular">
+                <div Id="changeFont" class="fila" style="width: -moz-available; width: 100%;">
+                    <div class="columna" style="min-width: 50%;">
+                        <mat-radio-group [(ngModel)] = "advSearch.intervenciones_tipo">
                             <mat-radio-button class="texto-regular" value="con" color="primary"> Con </mat-radio-button>
                             <mat-radio-button class="texto-regular" value="sin" color="primary"> Sin </mat-radio-button>
                             <mat-radio-button class="texto-regular" value="ultima" color="primary"> Última </mat-radio-button>
                             <mat-radio-button class="texto-regular" value="" color="primary"> No seleccionado </mat-radio-button>
+        
                         </mat-radio-group>
+                        <div clas="fila" style="margin-top: 5px;">
+                            <mat-form-field style = "margin-left: 10px;">
+                                <input matInput class="texto-regular"
+                                    [disabled]="advSearch.intervenciones_tipo == ''"
+                                    placeholder="Choose a date"
+                                    [satDatepicker]="picker3"
+                                    [(ngModel)]= "intervenciones_DateRango"
+                                    value="">
+                                <sat-datepicker #picker3 
+                                    [rangeMode]="true"
+                                    [calendarFooterComponent]="rangesFooter"
+                                    [selectFirstDateOnClose]="true">
+                                </sat-datepicker>
+                                <sat-datepicker-toggle matSuffix [for]="picker3"></sat-datepicker-toggle>
+                            </mat-form-field>
+                        </div>
+        
                     </div>
-                    <div clas="fila" style="margin-top: 5px;">
-                        <mat-form-field style = "margin-left: 10px;">
-                            <input matInput class="texto-regular"
-                                (focus)="picker.open()"
-                                onkeydown="return false"
-                                [disabled]="advSearch.asignacion_tipo == ''"
-                                placeholder="Elija una fecha"
-                                [satDatepicker]="pickerAsig"
-                                [(ngModel)]="asigDate"
-                                value="">
-                            <sat-datepicker #pickerAsig 
-                                [rangeMode]="true"
-                                [calendarFooterComponent]="rangesFooter"
-                                [selectFirstDateOnClose]="true">
-                            </sat-datepicker>
-                            <sat-datepicker-toggle matSuffix [for]="pickerAsig"></sat-datepicker-toggle>
-                        </mat-form-field>
-                    </div>
-                </div>
-                <mat-divider [vertical]="true" style="margin-right: 20px;"></mat-divider>
-    
-                <div style="flex-grow: 20; flex-direction: column;">
-                    <div>
-                        <mat-form-field>
-                            <mat-label class="texto-regular"> Equipo</mat-label>
-                            <input #equipoSearch matInput [matAutocomplete]="auto"
-                                [matChipInputFor]="showEquipo"
-                                [matChipInputAddOnBlur]= true
-                                (focus)="updateEquipoAuto($event.target.value)"
-                                (input)="updateEquipoAuto($event.target.value)"
-                                >
-                            <mat-autocomplete #auto = "matAutocomplete" (optionSelected)="agregarEquipo($event.option.value)" >
-                                <div *ngFor="let persona of List_Personas">
-                                    <mat-option class="texto-regularitalic" [value]= "persona" (click)="agregarEquipo(persona)">
-                                        {{persona}}
+        
+        
+                    <div class="flexIColunm" style="min-width: 50%;">
+                        <div>
+                            <mat-form-field>
+                                <mat-label class="texto-regular">Intervención</mat-label>
+                                <mat-select #intervencionSelect (selectionChange)="agregarInt($event.value)">
+                                    <mat-option *ngFor=" let int of intervenciones" 
+                                    [value]="int" class="texto-regularitalic">
+                                        {{int}}
                                     </mat-option>
-                                    <mat-divider></mat-divider>
-                                </div>
-                            </mat-autocomplete>
-                        </mat-form-field>
-                    </div>
-                    <div>
-                        <mat-chip-list #showEquipo>
-                            <mat-chip *ngFor= "let chip of advSearch.asignacion_listPersonas"
-                                [removable]=true class="texto-semibold"
-                                (removed)= "removeEquipo(chip)"
+                                </mat-select>
+                            </mat-form-field>
+        
+                            <mat-chip-list>
+                                <mat-chip *ngFor="let int of advSearch.intervenciones_seleccionadas"
+                                class="texto-semibold"
+                                [removable]=true [selectable]=true
+                                (removed)="quitarIntervencion(int)"
                                 color="accent" selected>
-                                {{chip}}
-                                <mat-icon matChipRemove> cancel</mat-icon>
-                            </mat-chip>
-                        </mat-chip-list>
+                                    {{int}}
+                                    <mat-icon matChipRemove>cancel</mat-icon>
+                                </mat-chip>
+                            </mat-chip-list>
+                        </div>
+                        <div>
+                            <mat-checkbox class="texto-regular" [(ngModel)]="advSearch.intervenciones_suaMovile" color="primary" >SUA Móvil</mat-checkbox>
+                        </div>
                     </div>
                 </div>
+
             </div>
 
-        </div>
+        </mat-expansion-panel>
 
-    </mat-expansion-panel>
+        <div>
+            <button style="height:100%" [class.expand-button]="reporteIsOpen"
+            mat-stroked-button (click)="ClearIntervenciones()">
+                <mat-icon>undo</mat-icon>
+            </button>
+        </div>
+    </div>
+<!-- ----------------Equipamiento------------------- -->
+    <div style="display: flex; flex-direction: row;">
+        <mat-expansion-panel (closed)="ActualizarDescEqp()" class="light every-panel" Id="EqpPanel">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="titulo titulo-bold">
+                    Equipamiento
+                </mat-panel-title>
+                <mat-panel-description class="texto-regularitalic">
+                    {{descripcionEqp}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="body fila texto-regular">
+                <div Id="changeFontEqp" style="width: 100%;display: flex;flex-direction: row;">
+                    <div style="flex-grow: 1;">
+                        <mat-radio-group [(ngModel)] = "advSearch.equipamiento_choice">
+                            <mat-radio-button class="texto-regular" value="con" color="primary"> Con </mat-radio-button>
+                            <mat-radio-button class="texto-regular" value="sin" color="primary"> Sin </mat-radio-button>
+                            <mat-radio-button class="texto-regular" value="" color="primary"> No seleccionado </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+        
+                    <div style="flex-grow: 1;">
+                        <mat-form-field>
+                            <mat-label class="texto-regular">Tipo</mat-label>
+                            <mat-select [(ngModel)] = "advSearch.equipamiento_seleccionado">
+                                <mat-option class="texto-regularitalic" [value]="">No seleccionado</mat-option>
+                                <mat-option class="texto-regularitalic" *ngFor="let tipo of equipamiento_tipo" [value]="tipo">
+                                    {{tipo}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+        
+                    <div style="flex-grow: 1;">
+                        <mat-form-field appearance="outline" style="width: -moz-available;">
+                            <mat-label class="texto-regular">Detalle</mat-label>
+                            <textarea class="texto-regular" matInput [(ngModel)]="advSearch.equipamiento_detalle"></textarea>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+            </div>
+
+        </mat-expansion-panel>
+
+        <div>
+            <button style="height:100%" [class.expand-button]="reporteIsOpen"
+            mat-stroked-button (click)="ClearEquipamiento()">
+                <mat-icon>undo</mat-icon>
+            </button>
+        </div>
+    </div>
+
+<!-- ----------------Asignaciones------------------------ -->
+    <div style="display: flex; flex-direction: row;">
+        <mat-expansion-panel (closed)="ActualizarDescAsig()" class="light every-panel" Id="AsigPanel">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="titulo titulo-bold">
+                    Asignaciones
+                </mat-panel-title>
+                <mat-panel-description class="texto-regularitalic">
+                    {{descripcionAsig}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="body fila texto-regular">
+                <div class="fila" style="width: 100%">
+                    <div Id= "asig_font-towhite" style="flex-grow: 1; flex-direction: column;">
+                        <div>
+                            <mat-radio-group [(ngModel)] = "advSearch.asignacion_tipo">
+                                <mat-radio-button class="texto-regular" value="con" color="primary"> Con </mat-radio-button>
+                                <mat-radio-button class="texto-regular" value="sin" color="primary"> Sin </mat-radio-button>
+                                <mat-radio-button class="texto-regular" value="ultima" color="primary"> Última </mat-radio-button>
+                                <mat-radio-button class="texto-regular" value="" color="primary"> No seleccionado </mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                        <div clas="fila" style="margin-top: 5px;">
+                            <mat-form-field style = "margin-left: 10px;">
+                                <input matInput class="texto-regular"
+                                    [disabled]="advSearch.asignacion_tipo == ''"
+                                    placeholder="Choose a date"
+                                    [satDatepicker]="pickerAsig"
+                                    [(ngModel)]="asigDate"
+                                    value="">
+                                <sat-datepicker #pickerAsig 
+                                    [rangeMode]="true"
+                                    [calendarFooterComponent]="rangesFooter"
+                                    [selectFirstDateOnClose]="true">
+                                </sat-datepicker>
+                                <sat-datepicker-toggle matSuffix [for]="pickerAsig"></sat-datepicker-toggle>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <mat-divider [vertical]="true" style="margin-right: 20px;"></mat-divider>
+        
+                    <div style="flex-grow: 20; flex-direction: column;">
+                        <div>
+                            <mat-form-field>
+                                <mat-label class="texto-regular"> Equipo</mat-label>
+                                <input #equipoSearch matInput [matAutocomplete]="auto"
+                                    [matChipInputFor]="showEquipo"
+                                    [matChipInputAddOnBlur]= true
+                                    (focus)="updateEquipoAuto($event.target.value)"
+                                    (input)="updateEquipoAuto($event.target.value)"
+                                    >
+                                <mat-autocomplete #auto = "matAutocomplete" (optionSelected)="agregarEquipo($event.option.value)" >
+                                    <div *ngFor="let persona of List_Personas">
+                                        <mat-option class="texto-regularitalic" [value]= "persona" (click)="agregarEquipo(persona)">
+                                            {{persona}}
+                                        </mat-option>
+                                        <mat-divider></mat-divider>
+                                    </div>
+                                </mat-autocomplete>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-chip-list #showEquipo>
+                                <mat-chip *ngFor= "let chip of advSearch.asignacion_listPersonas"
+                                    [removable]=true class="texto-semibold"
+                                    (removed)= "removeEquipo(chip)"
+                                    color="accent" selected>
+                                    {{chip}}
+                                    <mat-icon matChipRemove> cancel</mat-icon>
+                                </mat-chip>
+                            </mat-chip-list>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </mat-expansion-panel>
+
+        <div>
+            <button style="height:100%" [class.expand-button]="reporteIsOpen"
+            mat-stroked-button (click)="ClearAsignacion()">
+                <mat-icon>undo</mat-icon>
+            </button>
+        </div>
+    </div>
 
 <!-- ----------------Datos Especificos------------------- -->
-    <mat-expansion-panel (closed)="ActualizarDescDE()" class="light every-panel" Id="DEPanel">
-        <mat-expansion-panel-header>
-            <mat-panel-title class="titulo titulo-bold">
-                Datos específicos
-            </mat-panel-title>
-            <mat-panel-description class="texto-regularitalic">
-                <!--{{descripcionDE}}--> No se filtra por datos específicos
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-        <ng-container >
-            <p class="texto-regular" style="text-align: center;">{{datosEspecificos_warning}}</p>
-        </ng-container>
-    </mat-expansion-panel>
+    <div style="display: flex; flex-direction: row;">
+        <mat-expansion-panel (closed)="ActualizarDescDE()" class="light every-panel" Id="DEPanel">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="titulo titulo-bold">
+                    Datos específicos
+                </mat-panel-title>
+                <mat-panel-description class="texto-regularitalic">
+                    <!--{{descripcionDE}}--> No se filtra por datos específicos
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <ng-container >
+                <p class="texto-regular" style="text-align: center;">{{datosEspecificos_warning}}</p>
+            </ng-container>
+        </mat-expansion-panel>
+
+        <div>
+            <button style="height:100%" [class.expand-button]="reporteIsOpen"
+            mat-stroked-button (click)="ClearDatosEspecificos()">
+                <mat-icon>undo</mat-icon>
+            </button>
+        </div>
+    </div>
+
+
 </mat-accordion>
 
 
@@ -601,7 +693,13 @@
   <!--agregar devuelta al botton de abajo ( [mat-dialog-close]="data.filtro" cdkFocusInitial)-->
   <button class="blueBack-Button texto-semibold" mat-raised-button (click)="BusquedaClick()">Buscar</button>
 
-  <div style="width:80%">
+  <div style="width:78%">
+    
+    <button mat-stroked-button (click)="ClearAll()" style="float: right">
+        <mat-icon>undo</mat-icon>
+        Clear all
+    </button>
+
     <button mat-stroked-button (click)="agregarBusqueda()" style="float: right" color="primary">
         <mat-icon>playlist_add</mat-icon>
         agregar

@@ -33,11 +33,13 @@ export class ListadoComponent implements AfterViewInit {
 
   public items: any[];
 
-
   @ViewChild(CdkVirtualScrollViewport, {static: false}) viewPort: CdkVirtualScrollViewport;
   
+  public scrollListener: number;
+
   ngAfterViewInit() {
-    
+    this.findScrollView();
+
   }
 
   loading = false;
@@ -54,6 +56,33 @@ export class ListadoComponent implements AfterViewInit {
           this.items = data;
           this.loading = false;
         });
+
+        this.scrollListener = 0;
+  }
+  
+
+  findScrollView(){
+    if(this.viewPort == undefined){
+      console.log("error");
+      setTimeout(()=>{
+        this.findScrollView();
+      }, 1000);
+    }else{
+      console.log("linkeado");
+      this.viewPort.elementScrolled().subscribe({
+        next: (scroll)=> {
+          this.scrollListener = scroll["target"]["scrollTop"];
+          
+        }
+      });
+    }
+  }
+
+  //top botttom action
+  topBottomClick(){
+    console.log("se activo");
+    this.viewPort.scrollToIndex(0);
+    //window.scrollTo(0,0);
   }
   
   //TODO: ver. Esto es una forma incorrecta de redirigir ya que se refresca toda la pagina y no el componente.
