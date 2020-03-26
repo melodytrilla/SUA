@@ -693,7 +693,13 @@
   <!--agregar devuelta al botton de abajo ( [mat-dialog-close]="data.filtro" cdkFocusInitial)-->
   <button class="blueBack-Button texto-semibold" mat-raised-button (click)="BusquedaClick()">Buscar</button>
 
-  <div style="width:75%">
+  <div style="width:78%">
+    
+    <button mat-stroked-button (click)="ClearAll()" style="float: right">
+        <mat-icon>undo</mat-icon>
+        Clear all
+    </button>
+
     <button mat-stroked-button (click)="agregarBusqueda()" style="float: right" color="primary">
         <mat-icon>playlist_add</mat-icon>
         agregar

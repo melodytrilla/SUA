@@ -471,6 +471,20 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   ClearDatosEspecificos(){
     this.advSearch.Datos_Extra = [];
   }
+
+  ClearAll(){
+    this.ClearReporte();
+    this.ClearClasificacion();
+    this.ClearArea();
+    this.ClearAdjunto();
+    this.ClearOpiniones();
+    this.ClearEstado();
+    this.ClearDistrito();
+    this.ClearIntervenciones();
+    this.ClearEquipamiento();
+    this.ClearAsignacion();
+    this.ClearDatosEspecificos();
+  }
 //------------------------------------------
 
 
