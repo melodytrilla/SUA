@@ -17,6 +17,9 @@ export class MapComponent implements OnInit {
   map: L.Map;
   argCrs: any;
   @Output() selected = new EventEmitter<number>();
+
+  //probar cluster layers
+  layerMark:any;
   
   constructor(public api: SolicitudesItemsService, public iconManager:IconosManagerService) { }
 
@@ -24,6 +27,8 @@ export class MapComponent implements OnInit {
     this.argCrs = new L.Proj.CRS('EPSG:22185','+proj=tmerc +lat_0=-90 +lon_0=-60 +k=1 +x_0=5500000 +y_0=0 +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs ');
     this.map = new L.map('mapid').setView([-32.9493486, -60.6746665], 14);
     
+    this.layerMark = L.markerClusterGroup();
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         subdomains: ['a', 'b', 'c'],
         maxZoom: 19,
@@ -32,13 +37,16 @@ export class MapComponent implements OnInit {
   }
   
   setLayers() {
-    this.api.getSolicitudes().subscribe(
-      data => {
+    this.api.getSolicitudes().subscribe({
+      next: data => {
         data.forEach(value => {
           this.addMarker(value);
         })
-      });
+      },error:()=>{},
+      complete:()=>{this.map.addLayer(this.layerMark);},
+    })
   }
+  
 
   getIcon(categoria:string, estado:string){
     return L.icon({iconUrl: this.iconManager.getSrc2(categoria, estado),
@@ -49,6 +57,7 @@ export class MapComponent implements OnInit {
   
   addMarker(value: any){
     let coord = this.convertToLatLng(value.coord_x, value.coord_y);
+    
     let marker = new L.Marker({
       lat: coord.lat, lng: coord.lng},{
         title: value.subtipo, 
@@ -56,8 +65,11 @@ export class MapComponent implements OnInit {
       });
 
     marker.on('click', this.pressed.bind(this, value.id));
-    marker.addTo(this.map)
-      .bindPopup('<p>Categoría: ' + value.categoria +'</br>Subtipo: ' + value.subtipo +'</br> Estado: '+ value.estado +'</br> numero: '+ value.id+ '</p>');
+    marker.bindPopup('<p>Categoría: ' + value.categoria +'</br>Subtipo: ' + value.subtipo +'</br> Estado: '+ value.estado +'</br> numero: '+ value.id+ '</p>');
+
+    this.layerMark.addLayer(marker);
+    //marker.addTo(this.map)
+      //.bindPopup('<p>Categoría: ' + value.categoria +'</br>Subtipo: ' + value.subtipo +'</br> Estado: '+ value.estado +'</br> numero: '+ value.id+ '</p>');
   }
 
   convertToLatLng(x: number, y :number){
