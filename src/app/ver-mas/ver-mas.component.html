@@ -31,13 +31,7 @@
     </div>
     <div class="fil hov texto-regular" *ngFor="let vec of vecinos | sort:{ property: 'cantidad_solicitudes', descending: true}">
         <div class="col colum1"><p>{{vec.etiqueta_equipamiento}}</p></div>
-        <div class="col colum2">
-            
-                <mat-icon class="fsua {{vec.icono}}"></mat-icon>
-            
-                {{vec.descripcion_equipamiento}}
-            
-        </div>
+        <div class="col colum2"><mat-icon class="fsua {{vec.icono}}"></mat-icon>{{vec.descripcion_equipamiento}}</div>
         <div class="col"><p>{{vec.direccion}}</p></div>
         <div class="col colum3"><p>{{vec.cantidad_solicitudes}}</p></div>
     </div>
