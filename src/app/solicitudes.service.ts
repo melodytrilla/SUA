@@ -92,13 +92,8 @@ export class SolicitudesService {
 
   getDatosVarios(titulo: string): Observable<any>{
     titulo = encodeURIComponent(titulo);
-    return this.httpClient.get<any>(
-      `${this.apiURL}/datosVarios?titulo=${titulo}`
-    )
-  }
-  getVecinos(): Observable<any[]> {
     return this.httpClient.get<any[]>(
-      `${this.apiURL}/vecinosConSolicitudes`
+      `${this.apiURL}/${titulo}`
     )
   }
 

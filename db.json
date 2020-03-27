@@ -338,47 +338,86 @@
     }
   ],
   "vecinosConSolicitudes": [
+        {
+          "dni_solicitante":"30757543",
+          "nombre_solicitante": "Jose",
+          "apellido_solicitante": "Perez",
+          "cantidad_solicitudes": 3
+        },
+        {
+          "dni_solicitante":"23334654",
+          "nombre_solicitante": "Pedro",
+          "apellido_solicitante": "Lopez",
+          "cantidad_solicitudes": 1
+        },
+        {
+          "dni_solicitante":"12355432",
+          "nombre_solicitante": "Juan",
+          "apellido_solicitante": "Torres",
+          "cantidad_solicitudes": 4
+        }
+  ],
+  "agentesConSolicitudes": [
     {
-      "dni_solicitante":"30757543",
-      "nombre_solicitante": "Jose",
-      "apellido_solicitante": "Perez",
+      "dni_agente":"12569784",
+      "nombre_agente": "Pedro",
+      "apellido_agente": "Avila",
+      "cantidad_solicitudes": 23
+    },
+    {
+      "dni_agente":"25896745",
+      "nombre_agente": "Micaela",
+      "apellido_agente": "Perez",
+      "cantidad_solicitudes": 31
+    },
+    {
+      "dni_agente":"17485965",
+      "nombre_agente": "carla",
+      "apellido_agente": "Rodriguez",
       "cantidad_solicitudes": 3
+    }
+],
+  "solicitudes": {
+    "valor": 13622
+  },
+  "equipamientoConSolicitudes": [
+    {
+      "etiqueta_equipamiento": "222poyt",
+      "descripcion_equipamiento": "Lámpara",
+      "direccion": "Buenos Aires y Pellegrini",
+      "cantidad_solicitudes": 5,
+      "icono": "fsua-alumbrado_publico"
     },
     {
-      "dni_solicitante":"23334654",
-      "nombre_solicitante": "Pedro",
-      "apellido_solicitante": "Lopez",
-      "cantidad_solicitudes": 1
+      "etiqueta_equipamiento": "435asvd",
+      "descripcion_equipamiento": "Lámpara",
+      "direccion": "Av. Pellegrini y Oroño",
+      "cantidad_solicitudes": 4,
+      "icono": "fsua-alumbrado_publico"
     },
     {
-      "dni_solicitante":"12355432",
-      "nombre_solicitante": "Juan",
-      "apellido_solicitante": "Torres",
-      "cantidad_solicitudes": 4
+      "etiqueta_equipamiento": "102qwer",
+      "descripcion_equipamiento": "Contenedor",
+      "direccion": "Tucuman y Entre Ríos",
+      "cantidad_solicitudes": 7,
+      "icono": "fsua-higiene_urbana"
+    },
+    {
+      "etiqueta_equipamiento": "632lplj",
+      "descripcion_equipamiento": "Bicicleta Pública",
+      "direccion": "Moreno y Mendoza",
+      "cantidad_solicitudes": 2,
+      "icono": "fsua-bicis_publicas"
+    },
+    {
+      "etiqueta_equipamiento": "785dhdh",
+      "descripcion_equipamiento": "Semáforo",
+      "direccion": "Corrientes y Santa Fe",
+      "cantidad_solicitudes": 7,
+      "icono": "fsua-semaforos"
     }
   ],
-  "datosVarios": [
-    {
-      "titulo": "Solicitudes",
-      "valor": 13622
-    },
-    {
-      "titulo": "Vecino con + solicitudes",
-      "valor": 95
-    },
-    {
-      "titulo": "Agente con + solicitudes",
-      "valor": 161
-    },
-    {
-      "titulo": "Equipamiento con + solicitudes",
-      "valor": 30
-    },
-    {
-      "titulo": "Solicitudes con equipamiento",
-      "valor": 1752
-    }
-  ],
+  
   "Areas": [
     "CIOR - Comunicación",
     "CMD Centro - Inspección",

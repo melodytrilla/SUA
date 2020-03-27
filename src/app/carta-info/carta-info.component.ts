@@ -20,21 +20,42 @@ export class CartaInfoComponent implements OnInit {
   title_style: string = "cardTitle";
   title_value: string;
   content_style: string = "cardContent";
-  content_value: string = "0";
+  content_value: number=0;
+  max: number=0;
 
   ngOnInit() {
-    this.title_value = this.cardName;
-    if(this.cardName == "Solicitudes"){
+    if(this.cardName == "solicitudes"){
+      this.title_value = "Solicitudes"
+    }
+    else if(this.cardName == "vecinosConSolicitudes"){
+      this.title_value = "Vecino con más solicitudes"
+    }
+    else if(this.cardName == "agentesConSolicitudes"){
+      this.title_value = "Agente con más solicitudes"
+    }
+    else if(this.cardName == "equipamientoConSolicitudes"){
+      this.title_value = "Equipamiento con más solicitudes"
+    }
+    if(this.cardName == "solicitudes"){
       this.title_style = "cardTitle-center";
       this.content_style = "cardContent-big";
     }
-    this.solicitudes.getDatosVarios(this.cardName).subscribe(data => this.content_value= data[0].valor);
+    this.solicitudes.getDatosVarios(this.cardName).subscribe(data => {
+      if(this.cardName == "solicitudes"){
+        this.content_value = data.valor
+      }
+      data.forEach(value => {
+        if (value.cantidad_solicitudes > this.content_value){
+          this.content_value = value.cantidad_solicitudes
+        }
+      })
+    });
   }
-
+  
   openD(): void{
     this.dialog.open(VerMasComponent, {
       width: '50%',
-      data: {info: "ver-mas", name: this.title_value}
+      data: {info: "ver-mas", name: this.cardName}
     });
 
   }

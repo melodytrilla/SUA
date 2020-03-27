@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { SolicitudesService } from '../solicitudes.service';
+import { MAT_DIALOG_DATA } from '@angular/material';
+import { SolicitudesItemsService } from '../solicitudes-items.service';
 
 @Component({
   selector: 'app-ver-mas',
@@ -8,12 +10,13 @@ import { SolicitudesService } from '../solicitudes.service';
 })
 export class VerMasComponent implements OnInit {
   public vecinos: any[] = [];
-
-  constructor(public service: SolicitudesService) { }
+  constructor(public service: SolicitudesService,
+              public api: SolicitudesItemsService,
+              @Inject(MAT_DIALOG_DATA) public data: any,) { }
   
 
   ngOnInit() {
-    this.service.getVecinos().subscribe(data => {
+    this.service.getDatosVarios(this.data.name).subscribe(data => {
       this.vecinos= data
   });
 
