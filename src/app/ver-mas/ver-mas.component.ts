@@ -16,9 +16,21 @@ export class VerMasComponent implements OnInit {
   
 
   ngOnInit() {
+    if (this.data.name != 'solicitudesConEquipamiento'){
     this.service.getDatosVarios(this.data.name).subscribe(data => {
       this.vecinos= data
-  });
+  })
+  }
+  else{
+    this.api.getSolicitudes().subscribe(data => {
+      data.forEach(value => {
+        if(value.etiqueta_equipamiento != ''){
+          this.vecinos.push(value)
+        }
+      })
+    console.log(this.vecinos)
+    })
+  }
 
 }
 }
