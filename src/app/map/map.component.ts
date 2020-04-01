@@ -27,7 +27,19 @@ export class MapComponent implements OnInit {
     this.argCrs = new L.Proj.CRS('EPSG:22185','+proj=tmerc +lat_0=-90 +lon_0=-60 +k=1 +x_0=5500000 +y_0=0 +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs ');
     this.map = new L.map('mapid').setView([-32.9493486, -60.6746665], 14);
     
-    this.layerMark = L.markerClusterGroup();
+    this.layerMark = L.markerClusterGroup(/*{
+      options:{
+        maxClusterRadius: 20
+      },
+      iconCreateFunction: function(cluster){
+        let childAmount = cluster.getChildCount();
+        return L.divIcon({
+
+          //html: '<img src="/assets/iconos/g4497.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" style="margin-left: -25px; margin-top: -60px; width: 50px; height: 60px; transform: translate3d(442px, 235px, 0px); z-index: 235; opacity: 1; outline: currentcolor none medium;" title="Sector apagado ó encendido" alt="" tabindex="0">',
+          iconSize:[50, 50]
+        })
+      }
+    }*/);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         subdomains: ['a', 'b', 'c'],
@@ -43,8 +55,9 @@ export class MapComponent implements OnInit {
           this.addMarker(value);
         })
       },error:()=>{},
-      complete:()=>{this.map.addLayer(this.layerMark);},
+      complete:()=>{},
     })
+    this.map.addLayer(this.layerMark);
   }
   
 
