@@ -80,13 +80,6 @@
         "detalle_asignacion": "Inspeccionar",
         "area_asignacion": "Alumbrado Público Zona 2",
         "usuario_asignacion": "gdemaio0"
-      },
-      {
-        "fecha_hora_asignacion": "16/01/2020 23:51",
-        "equipo_asignado": "Alejandra Garbagna",
-        "detalle_asignacion": "Inspeccionar",
-        "area_asignacion": "Alumbrado Público Zona 2",
-        "usuario_asignacion": "gdemaio0"
       }
     ],
     "intervenciones": [
@@ -477,7 +470,7 @@
     "hora_registro": "09:52",
     "area_origen": "Alumbrado Público Zona 2",
     "estado": "En curso",
-    "fecha_hora_estado": "19/01/2020 09:52",
+    "fecha_hora_estado": "19/03/2020 09:52",
     "hora_estado": "09:52",
     "usuario_registro": "agarbag0",
     "prioridad": "MEDIA",
@@ -1283,7 +1276,7 @@
     "hora_registro": "10:22",
     "area_origen": "Alumbrado Público",
     "estado": "Pendiente",
-    "fecha_hora_estado": "21/01/2020 10:22",
+    "fecha_hora_estado": "29/03/2020 10:22",
     "hora_estado": "10:22",
     "usuario_registro": "jespino2",
     "prioridad": "ALTA",
@@ -1345,20 +1338,6 @@
         "fecha_hora_asignacion": "16/01/2020 07:51",
         "equipo_asignado": "Alejandra Garbagna",
         "detalle_asignacion": "VERIFICAR",
-        "area_asignacion": "Alumbrado Público Zona 2",
-        "usuario_asignacion": "gdemaio0"
-      },
-      {
-        "fecha_hora_asignacion": "16/01/2020 19:20",
-        "equipo_asignado": "Alejandra Garbagna",
-        "detalle_asignacion": "Inspeccionar",
-        "area_asignacion": "Alumbrado Público Zona 2",
-        "usuario_asignacion": "gdemaio0"
-      },
-      {
-        "fecha_hora_asignacion": "16/01/2020 23:51",
-        "equipo_asignado": "Alejandra Garbagna",
-        "detalle_asignacion": "Inspeccionar",
         "area_asignacion": "Alumbrado Público Zona 2",
         "usuario_asignacion": "gdemaio0"
       }
@@ -2012,7 +1991,7 @@
     "hora_registro": "10:29",
     "area_origen": "Alumbrado Público",
     "estado": "Pendiente",
-    "fecha_hora_estado": "21/01/2020 10:29",
+    "fecha_hora_estado": "01/03/2020 10:29",
     "hora_estado": "10:29",
     "usuario_registro": "jespino2",
     "prioridad": "MEDIA",

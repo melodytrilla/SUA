@@ -12,17 +12,17 @@
                 matTooltip="Seleccionar todas">
             </mat-checkbox>
 
-            <button mat-raised-button  [class.is-hidden]="scrollListener == 0" color="primary" class="light fixed" (click)= "topBottomClick()"> Top </button>
+            <button mat-raised-button  [class.is-hidden]="scrollListener == 0" color="primary" class="light fixed" (click)= "topBottomClick()"><mat-icon>keyboard_arrow_up</mat-icon> </button>
             
             <mat-form-field class="selector">
                 <mat-label class="texto-regular">Ordenar por</mat-label>
                 <mat-select>
-                    <mat-option id="boton" class="texto-regular" value="fechaCreacion" (click)="ordenar('fecha_hora_registro')"> Fecha de creación </mat-option>
-                    <mat-option id="boton" class="texto-regular" value="fechaEstado"> Fecha de estado </mat-option>
+                    <mat-option id="boton" class="texto-regular" value="fechaCreacion" (click)="ordenar('fechaR')"> Fecha de creación </mat-option>
+                    <mat-option id="boton" class="texto-regular" value="fechaEstado" (click)="ordenar('fechaE')"> Fecha de estado </mat-option>
                     <mat-option id="boton" class="texto-regular" value="cantidadReiteraciones" (click)="ordenar('reiteraciones')"> Cantidad de reiteraciones </mat-option>
-                    <mat-option id="boton" class="texto-regular" value="cantidadSolicitantes" (click)="ordenar('solicitantes.length')"> Cantidad de solicitantes </mat-option>
-                    <mat-option id="boton" class="texto-regular" value="cantidadAsignaciones" (click)="ordenar('asignaciones.length')"> Cantidad de asignaciones </mat-option>
-                    <mat-option id="boton" class="texto-regular" value="cantidadIntervenciones" (click)="ordenar('intervenciones.length')"> Cantidad de intervenciones </mat-option>
+                    <mat-option id="boton" class="texto-regular" value="cantidadSolicitantes" (click)="ordenar('solicitantes')"> Cantidad de solicitantes </mat-option>
+                    <mat-option id="boton" class="texto-regular" value="cantidadAsignaciones" (click)="ordenar('asignaciones')"> Cantidad de asignaciones </mat-option>
+                    <mat-option id="boton" class="texto-regular" value="cantidadIntervenciones" (click)="ordenar('intervenciones')"> Cantidad de intervenciones </mat-option>
                 </mat-select>
             </mat-form-field>
             <button mat-button (click)="togglePlay()">

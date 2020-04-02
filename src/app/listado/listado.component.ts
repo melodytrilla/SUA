@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from "@angular/router";
 import { FormControl } from '@angular/forms';
 import { DownloadService } from '../download.service';
+import * as $ from 'jquery'
 
 export interface Opcion {
   value: string;
@@ -147,6 +148,43 @@ export class ListadoComponent implements AfterViewInit {
     }
   }
   ordenar(c: string){
-    this.criterio = c;
+    this.api.getSolicitudes().subscribe(
+      data => {
+        data.forEach(value => {
+            value.tiempo = this.calculateTime(value.fecha_hora_estado);
+            value.tiempoInterv = this.calculateTime(value.fecha_hora_intervencion);
+            value.tiempoMap = this.calculateTime(value.fecha_hora_asignacion);
+            value.checked = false;
+            if( c == 'asignaciones'){
+            value.asig = value.asignaciones.length
+            this.criterio = 'asig';
+            }
+            else if (c == 'reiteraciones'){
+              this.criterio = 'reiteraciones'
+            }
+            else if( c == 'solicitantes'){
+              value.solic = value.solicitantes.length
+              this.criterio = 'solic';
+              }
+            else if( c == 'intervenciones'){
+                value.inter = value.intervenciones.length
+                this.criterio = 'inter';
+                }
+            else if( c == 'fechaR'){
+                value.fecha_hora_registro = new Date();
+                console.log(value.fecha_hora_registro)
+                value.fechaR = Date.parse(value.fecha_hora_registro);
+                this.criterio = 'fechaR';
+                console.log(value.fechaR)
+                }
+            else if( c == 'fechaE'){
+                value.fechaE = value.fecha_hora_estado
+                console.log(value.fechaE.valueOf())
+                this.criterio = 'fechaE';
+                }
+        })
+        this.items = data;
+        this.loading = false;
+      });
   }
 }
