@@ -1,2 +1,38 @@
+@import '../../../node_modules/leaflet.markercluster/dist/MarkerCluster', '../../../node_modules/leaflet.markercluster/dist/MarkerCluster.Default'
+    
 #mapid  
     height: 72vh
+
+
+
+//delete later
+    .marker-pin 
+      width: 50px
+      height: 50px
+      border-radius: 100%
+      background: #40d832
+      position: absolute
+      left: 50%
+      top: 50%
+      margin: -15px 0 0 -15px
+    
+    // to draw white circle
+    .marker-pin::after 
+        content: ''
+        width: 24px
+        height: 24px
+        margin: 3px 0 0 3px
+        background: #fff
+        position: absolute
+        border-radius: 50%
+     
+    // to align icon
+    .custom-div-icon i 
+       position: absolute
+       width: 22px
+       font-size: 22px
+       left: 0
+       right: 0
+       margin: 10px auto
+       text-align: center
+    
