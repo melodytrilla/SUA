@@ -7,7 +7,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from "@angular/router";
 import { FormControl } from '@angular/forms';
 import { DownloadService } from '../download.service';
-import * as $ from 'jquery'
 
 export interface Opcion {
   value: string;
@@ -46,21 +45,19 @@ export class ListadoComponent implements AfterViewInit {
   loading = false;
   ngOnInit() {
     this.loading = true;
-      this.api.getSolicitudes().subscribe(
-        data => {
-          data.forEach(value => {
-              value.tiempo = this.calculateTime(value.fecha_hora_estado);
-              value.tiempoInterv = this.calculateTime(value.fecha_hora_intervencion);
-              value.tiempoMap = this.calculateTime(value.fecha_hora_asignacion);
-              value.checked = false;
-          })
-          this.items = data;
-          this.loading = false;
-        });
-
-        this.scrollListener = 0;
+    this.api.getSolicitudes().subscribe(
+      data => {
+        data.forEach(value => {
+            value.tiempo = this.calculateTime(value.fecha_hora_estado);
+            value.tiempoInterv = this.calculateTime(value.fecha_hora_intervencion);
+            value.tiempoMap = this.calculateTime(value.fecha_hora_asignacion);
+            value.checked = false;
+        })
+        this.items = data;
+        this.loading = false;
+      });
+    this.scrollListener = 0;
   }
-  
 
   findScrollView(){
     if(this.viewPort == undefined){
@@ -97,6 +94,7 @@ export class ListadoComponent implements AfterViewInit {
   }
 
   togglePlay() {
+    this.ordenar(this.criterio)
     this.asc = !this.asc;
     }
   
@@ -148,6 +146,7 @@ export class ListadoComponent implements AfterViewInit {
     }
   }
   ordenar(c: string){
+    console.log('anda')
     this.api.getSolicitudes().subscribe(
       data => {
         data.forEach(value => {
@@ -155,29 +154,22 @@ export class ListadoComponent implements AfterViewInit {
             value.tiempoInterv = this.calculateTime(value.fecha_hora_intervencion);
             value.tiempoMap = this.calculateTime(value.fecha_hora_asignacion);
             value.checked = false;
-            if( c == 'asignaciones'){
+            if( c == 'asig'){
             value.asig = value.asignaciones.length
-            this.criterio = 'asig';
             }
-            else if (c == 'reiteraciones'){
-              this.criterio = 'reiteraciones'
-            }
-            else if( c == 'solicitantes'){
+            else if( c == 'solic'){
               value.solic = value.solicitantes.length
-              this.criterio = 'solic';
               }
-            else if( c == 'intervenciones'){
+            else if( c == 'inter'){
                 value.inter = value.intervenciones.length
-                this.criterio = 'inter';
                 }
             else if( c == 'fechaR'){
                 value.fechaR = this.formato(value.fecha_hora_registro)
-                this.criterio = 'fechaR';
                 }
             else if( c == 'fechaE'){
                 value.fechaE = this.formato(value.fecha_hora_estado)
-                this.criterio = 'fechaE';
                 }
+            this.criterio = c;
         })
         this.items = data;
         this.loading = false;
