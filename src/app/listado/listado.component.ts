@@ -171,15 +171,11 @@ export class ListadoComponent implements AfterViewInit {
                 this.criterio = 'inter';
                 }
             else if( c == 'fechaR'){
-                value.fecha_hora_registro = new Date();
-                console.log(value.fecha_hora_registro)
-                value.fechaR = Date.parse(value.fecha_hora_registro);
+                value.fechaR = this.formato(value.fecha_hora_registro)
                 this.criterio = 'fechaR';
-                console.log(value.fechaR)
                 }
             else if( c == 'fechaE'){
-                value.fechaE = value.fecha_hora_estado
-                console.log(value.fechaE.valueOf())
+                value.fechaE = this.formato(value.fecha_hora_estado)
                 this.criterio = 'fechaE';
                 }
         })
@@ -187,4 +183,9 @@ export class ListadoComponent implements AfterViewInit {
         this.loading = false;
       });
   }
+formato(fecha){
+  fecha = fecha.replace("/", ",");
+  fecha = fecha.replace("/", ",");
+  return fecha.replace(/(\d{2}),(\d{2}),(\d{4}) (\d{2}):(\d{2})/, "$3$2$1$4$5")
+}
 }
