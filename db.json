@@ -169,9 +169,7 @@
       "number": 4122
     }
   ],
-  "Opinadas": {
-    "total": 26,
-    "valores": [
+  "Opinadas": [
       {
         "icono": "fsua-neutro",
         "details": 1,
@@ -187,8 +185,7 @@
         "details": 4,
         "name": "Positivas"
       }
-    ]
-  },
+    ],
   "top10-categorias": [
     {
       "nombre": "Alumbrado",

@@ -146,7 +146,6 @@ export class ListadoComponent implements AfterViewInit {
     }
   }
   ordenar(c: string){
-    console.log('anda')
     this.api.getSolicitudes().subscribe(
       data => {
         data.forEach(value => {

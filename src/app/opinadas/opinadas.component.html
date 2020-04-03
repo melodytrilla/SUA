@@ -1,0 +1,44 @@
+<div class="tarjeta">
+    <mat-card-title class="titulo font15">
+        <div class="titulo-bold">Opinadas</div>
+        <div  class="texto-semibold">
+            <h3 *ngIf="!loading else placeholder"> {{total | number:'':'es-AR'}} </h3>
+            <ng-template #placeholder><h3>0</h3></ng-template>
+        </div>
+        <div class="rating-bar" [@panelInOut] style="margin-bottom: 10px">
+            <div class="rating positivo" [style.width.%]="positivas">{{positivas}}%</div>
+            <div class="rating neutral " [style.width.%]="neutral">{{neutral}}%</div>
+            <div class="rating negativo" [style.width.%]="negativas">{{negativas}}%</div>
+        </div>
+    </mat-card-title>
+    <div style="margin-bottom: 10px"><mat-divider></mat-divider></div>
+
+    <div>
+        <div *ngIf="!loading else loader">
+            <mat-list class="lista hov" *ngFor="let item of datos">
+                <div class="linea fila" style="align-items: center;">
+                    <div class="fila" *ngIf="item.name == 'Positivas'">
+                        <div class="accent positivo"></div><mat-icon class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
+                    </div>
+                    <div class="fila" *ngIf="item.name == 'Negativas'">
+                        <div class="accent negativo"></div><mat-icon class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
+                    </div>
+                    <div class="fila" *ngIf="item.name == 'Neutral'">
+                        <div class="accent neutral"></div><mat-icon class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
+                    </div>
+                    <div class="fila">
+                        <div class="item texto-regular">
+                            <h3>{{item.name}}</h3>
+                        </div>
+                    </div>
+                <div class="item texto-semibold"><p>{{item.details | number:'':'es-AR'}}</p></div>
+                </div>
+            </mat-list>
+        </div>
+        <ng-template #loader>
+            <mat-spinner [diameter]="70"></mat-spinner>
+        </ng-template>
+    </div>
+</div>
+
+<ng-template #error><mat-icon>error</mat-icon> Error</ng-template>
