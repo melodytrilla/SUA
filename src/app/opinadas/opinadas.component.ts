@@ -25,11 +25,7 @@ export class OpinadasComponent implements OnInit {
   positivas: number;
   negativas: number;
   neutral: number;
-  opiniones = {
-    'positivo': 45,
-    'negativo': 3,
-    'neutral': 34,
-  }
+ 
   constructor(private api: SolicitudesService) { }
 
   ngOnInit() {
@@ -42,7 +38,6 @@ export class OpinadasComponent implements OnInit {
         this.datos.push(value);
         if(value.name == 'Positivas'){
           this.positivas = value.details * 100 / this.total
-          console.log(this.positivas)
         }
         else if(value.name == 'Negativas'){
           this.negativas = value.details * 100 / this.total
@@ -53,15 +48,6 @@ export class OpinadasComponent implements OnInit {
       })
     });
     this.loading = false;
-  }
-  getColor(){
-    var max;
-    for (var h in this.opiniones) {
-      if (!max || (this.opiniones[h] > this.opiniones[max])) {
-        max = h;
-      }
-    }
-    return max;
   }
 
 

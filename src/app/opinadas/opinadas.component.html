@@ -6,9 +6,9 @@
             <ng-template #placeholder><h3>0</h3></ng-template>
         </div>
         <div class="rating-bar" [@panelInOut] style="margin-bottom: 10px">
-            <div class="rating positivo" [style.width.%]="positivas">{{positivas}}%</div>
+            <div class="rating positivo" style="border-top-left-radius: 10px; border-bottom-left-radius: 10px" [style.width.%]="positivas">{{positivas}}%</div>
             <div class="rating neutral " [style.width.%]="neutral">{{neutral}}%</div>
-            <div class="rating negativo" [style.width.%]="negativas">{{negativas}}%</div>
+            <div class="rating negativo" style="border-top-right-radius: 10px; border-bottom-right-radius: 10px" [style.width.%]="negativas">{{negativas}}%</div>
         </div>
     </mat-card-title>
     <div style="margin-bottom: 10px"><mat-divider></mat-divider></div>

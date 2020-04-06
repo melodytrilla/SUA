@@ -1,4 +1,4 @@
-import { Component, ViewChild, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { SolicitudesItemsService } from '../solicitudes-items.service';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import * as moment from 'moment';
@@ -29,7 +29,8 @@ export class ListadoComponent implements AfterViewInit {
   constructor(public api: SolicitudesItemsService,
               private rutaActiva: ActivatedRoute,
               private router: Router,
-              public service: DownloadService) { }
+              public service: DownloadService,
+              private changeDetector: ChangeDetectorRef) { }
 
   public items: any[];
 
@@ -173,6 +174,7 @@ export class ListadoComponent implements AfterViewInit {
         this.items = data;
         this.loading = false;
       });
+    this.changeDetector.detectChanges();
   }
 formato(fecha){
   fecha = fecha.replace("/", ",");

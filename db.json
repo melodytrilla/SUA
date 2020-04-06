@@ -81,76 +81,6 @@
       "_link": "http://localhost:8080/api/fuera-termino"
     }
   },
-  "reclamos": {
-    "total": 6457,
-    "valores": [
-      {
-        "id": 1,
-        "icono": "fsua-alumbrado_publico",
-        "name": "Lámpara apagada ó encendida",
-        "details": 840
-      },
-      {
-        "id": 2,
-        "icono": "fsua-alumbrado_publico",
-        "name": "Sector apagado ó encendido",
-        "details": 516
-      },
-      {
-        "id": 3,
-        "icono": "fsua-higiene_urbana",
-        "name": "Barrido y limpieza ausente ó deficiente aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-        "details": 450
-      },
-      {
-        "id": 4,
-        "icono": "fsua-bicis_publicas",
-        "name": "Puesto de bicicletas vacío",
-        "details": 289
-      },
-      {
-        "id": 5,
-        "icono": "fsua-semaforos",
-        "name": "Semáforo roto",
-        "details": 100
-      }
-    ]
-  },
-  "consultas": {
-    "total": 7165,
-    "valores": [
-      {
-        "id": 1,
-        "icono": "fsua-colectivos_urbanos",
-        "name": "Consulta TUP",
-        "details": "5948"
-      },
-      {
-        "id": 2,
-        "icono": "fsua-tel",
-        "name": "Información sobre temas ajenos al 147",
-        "details": "358"
-      },
-      {
-        "id": 3,
-        "icono": "fsua-higiene_urbana",
-        "name": "Solicitud de información de higiene urbana",
-        "details": "72"
-      },
-      {
-        "id": 4,
-        "icono": "fsua-higiene_urbana",
-        "name": "Solicitud de información de higiene urbana y más texto para testear que se corta en el programa",
-        "details": "50"
-      },
-      {
-        "id": 5,
-        "icono": "fsua-higiene_urbana",
-        "name": "Otro item",
-        "details": "10"
-      }
-    ]
-  },
   "porEstado": [
     {
       "name": "Pendiente",
@@ -169,6 +99,106 @@
       "number": 4122
     }
   ],
+    "ReclamosDenuncias": [
+      {
+        "id": 1,
+        "icono": "fsua-alumbrado_publico",
+        "name": "Lámpara apagada ó encendida",
+        "details": 2840
+      },
+      {
+        "id": 2,
+        "icono": "fsua-alumbrado_publico",
+        "name": "Sector apagado ó encendido",
+        "details": 5164
+      },
+      {
+        "id": 3,
+        "icono": "fsua-higiene_urbana",
+        "name": "Barrido y limpieza ausente ó deficiente aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "details": 450
+      },
+      {
+        "id": 4,
+        "icono": "fsua-bicis_publicas",
+        "name": "Puesto de bicicletas vacío",
+        "details": 2897
+      },
+      {
+        "id": 5,
+        "icono": "fsua-semaforos",
+        "name": "Semáforo roto",
+        "details": 450
+      },
+      {
+        "id": 6,
+        "icono": "fsua-semaforos",
+        "name": "Semáforo roto",
+        "details": 1000
+      },
+      {
+        "id": 7,
+        "icono": "fsua-tel",
+        "name": "otro-item",
+        "details": 103
+      },
+      {
+        "id": 8,
+        "icono": "fsua-semaforos",
+        "name": "Semáforo roto",
+        "details": 1045
+      },
+      {
+        "id": 9,
+        "icono": "fsua-semaforos",
+        "name": "Semáforo roto",
+        "details": 1444
+      }
+    ],
+    "ConsultasReclamos": [
+      {
+        "id": 1,
+        "icono": "fsua-colectivos_urbanos",
+        "name": "Consulta TUP",
+        "details": 5948
+      },
+      {
+        "id": 2,
+        "icono": "fsua-tel",
+        "name": "Información sobre temas ajenos al 147",
+        "details": 354
+      },
+      {
+        "id": 3,
+        "icono": "fsua-higiene_urbana",
+        "name": "Solicitud de información de higiene urbana",
+        "details": 721
+      },
+      {
+        "id": 4,
+        "icono": "fsua-higiene_urbana",
+        "name": "Solicitud de información de higiene urbana y más texto para testear que se corta en el programa",
+        "details": 500
+      },
+      {
+        "id": 5,
+        "icono": "fsua-higiene_urbana",
+        "name": "Otro item",
+        "details": 1453
+      },
+      {
+        "id": 6,
+        "icono": "fsua-higiene_urbana",
+        "name": "Otro item",
+        "details": 234
+      },
+      {
+        "id": 7,
+        "icono": "fsua-higiene_urbana",
+        "name": "Otro item",
+        "details": 809
+      }
+    ],
   "Opinadas": [
       {
         "icono": "fsua-neutro",

@@ -70,7 +70,6 @@ export class CartaInfoComponent implements OnInit {
   openD(): void{
     this.dialog.open(VerMasComponent, {
       width: '50%',
-      height: '90%',
       data: {info: "ver-mas", name: this.cardName}
     });
 
