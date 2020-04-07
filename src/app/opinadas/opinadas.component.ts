@@ -49,6 +49,17 @@ export class OpinadasComponent implements OnInit {
     });
     this.loading = false;
   }
-
+  cambiarFondo(ind){
+    if (document.getElementById("i-" + ind).style.backgroundColor == "rgb(0, 102, 204)"){
+      document.getElementById("i-" + ind).style.backgroundColor = "rgb(249, 250, 253)"
+      document.getElementById("i-" + ind).style.color = "rgba(0, 0, 0, 0.87)"
+      document.getElementById("ico-"+ ind).style.color = "rgba(0, 0, 0, 0.87)"
+    }
+    else{
+      document.getElementById("i-" + ind).style.backgroundColor = "rgb(0, 102, 204)"
+      document.getElementById("ico-" + ind).style.color = "white"
+      document.getElementById("i-" + ind).style.color = "white"
+    }
+  }
 
 }

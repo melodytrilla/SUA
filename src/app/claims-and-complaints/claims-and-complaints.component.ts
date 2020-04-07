@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { SolicitudesService } from '../solicitudes.service';
 import { MatDialog } from '@angular/material';
 import { VerMasComponent } from '../ver-mas/ver-mas.component';
@@ -38,5 +38,17 @@ ngOnInit(){
       width: '50%',
       data: {info: "ver-mas", name: this.title}
     })
+  }
+  cambiarFondo(i, tit){
+    if (document.getElementById(i + "-" + tit).style.backgroundColor == "rgb(0, 102, 204)"){
+      document.getElementById(i + "-" + tit).style.backgroundColor = "rgb(249, 250, 253)"
+      document.getElementById(i + "-" + tit).style.color = "rgba(0, 0, 0, 0.87)"
+      document.getElementById("ico-" + i + "-" + tit).style.color = "rgba(0, 0, 0, 0.87)"
+    }
+    else{
+      document.getElementById(i + "-" + tit).style.backgroundColor = "rgb(0, 102, 204)"
+      document.getElementById(i + "-" + tit).style.color = "white"
+      document.getElementById("ico-" + i + "-" + tit).style.color = "white"
+    }
   }
 }

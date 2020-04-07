@@ -15,16 +15,16 @@
 
     <div>
         <div *ngIf="!loading else loader">
-            <mat-list class="lista hov" *ngFor="let item of datos">
-                <div class="linea fila" style="align-items: center;">
-                    <div class="fila" *ngIf="item.name == 'Positivas'">
-                        <div class="accent positivo"></div><mat-icon class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
+            <mat-list id="i-{{ind}}" class="lista hov" *ngFor="let item of datos; let ind =index">
+                <div class="linea fila" (click)="this.cambiarFondo(ind)">
+                    <div style="align-items: center;" class="fila" *ngIf="item.name == 'Positivas'">
+                        <div class="accent positivo"></div><mat-icon id="ico-{{ind}}" class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
                     </div>
-                    <div class="fila" *ngIf="item.name == 'Negativas'">
-                        <div class="accent negativo"></div><mat-icon class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
+                    <div style="align-items: center;" class="fila" *ngIf="item.name == 'Negativas'">
+                        <div class="accent negativo"></div><mat-icon id="ico-{{ind}}" class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
                     </div>
-                    <div class="fila" *ngIf="item.name == 'Neutral'">
-                        <div class="accent neutral"></div><mat-icon class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
+                    <div style="align-items: center;" class="fila" *ngIf="item.name == 'Neutral'">
+                        <div class="accent neutral"></div><mat-icon id="ico-{{ind}}" class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
                     </div>
                     <div class="fila">
                         <div class="item texto-regular">
