@@ -71,8 +71,43 @@ export class BusquedaService {
 // se utilizara para inicializar la busqueda, por ahora solo guarda la busqueda en la session
   Buscar(busqueda: Busqueda, filtroCant?:number): void{
     console.log("se esta haciendo la busqueda");
+    this.busquedaCompleta = this.copyBusquedas(busqueda);
     this.filtroNumber = filtroCant;
     this.guardarEnSecion();
+  }
+
+  public copyBusquedas(from:Busqueda): Busqueda{
+    let tempBusqueda:Busqueda;
+    tempBusqueda = JSON.parse(JSON.stringify(from));
+    tempBusqueda.advSearch = this.copyAdvsearch(from.advSearch);
+    console.log("*-------------- Date ------------------*");
+    typeof tempBusqueda.advSearch.estado_fecha_end == "string"? console.log("string") : console.log("date");
+    console.log(tempBusqueda.advSearch.estado_fecha_start)
+    console.log(tempBusqueda.advSearch.estado_fecha_end);
+    console.log("*-----------------------------------------*");
+
+    return tempBusqueda;
+  }
+
+  //funcion para copiar datos de advsearch
+  public copyAdvsearch(from: AdvSearch):AdvSearch{
+    let tempAdv:AdvSearch = JSON.parse(JSON.stringify(from));
+    
+    console.log("*----Adv---------- Date ------------------*");
+    typeof tempAdv.estado_fecha_end == "string"? console.log("string") : console.log("date");
+    console.log(tempAdv.estado_fecha_start)
+    console.log(tempAdv.estado_fecha_end);
+    console.log("*-----------------------------------------*");
+    if(typeof from.estado_fecha_end == "string"){
+      console.log("entro");
+      tempAdv.estado_fecha_end = new Date(from.estado_fecha_end);
+      console.log(typeof tempAdv.estado_fecha_end);
+    } 
+    if(typeof from.estado_fecha_start == "string"){
+      tempAdv.estado_fecha_start = new Date(from.estado_fecha_start);
+    } 
+    console.log(tempAdv);
+    return tempAdv;
   }
 
   Guardar(search: Busqueda, name: string, cantf:number):void{

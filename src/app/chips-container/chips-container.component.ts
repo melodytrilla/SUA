@@ -33,6 +33,8 @@ export class ChipsContainerComponent implements OnInit{
   filteredOptions: Chip[];
   chips: Chip[] = [];
 
+  savedChips :Chip[] = [];
+
   //Chips config
   removable = true;
   selectable = true;
@@ -47,9 +49,15 @@ export class ChipsContainerComponent implements OnInit{
 
   //recupera los chisp guardados en la session si los hay
   ngOnInit() {
+    console.log("onInit llamado desde chips");
     if(this.busquedaService.busquedaCompleta.advSearch != null){
-      this.chips = this.busquedaService.busquedaCompleta.advSearch.clasificacion_subtipo;
+      this.savedChips = this.busquedaService.busquedaCompleta.advSearch.clasificacion_subtipo;
     }
+    this.chips = this.savedChips;
+
+    console.log("onInit chips: " + this.chips.length);
+    console.log("onInit savedChips: " + this.savedChips.length);
+
   }
 
   onSearchChange (searchValue: string): void {

@@ -57,7 +57,7 @@ export class SearchBarComponent implements OnInit {
   
   ngOnInit() {
     //this.busqueda.customMessage.subscribe(msg => this.cantFiltros = msg);
-    console.log(this.cantFiltros)
+    //console.log(this.cantFiltros)
     this.busqueda.Init();
     //console.log(this.busqueda.busquedaCompleta);
     this.busquedaField = this.busqueda.busquedaCompleta;
@@ -111,12 +111,13 @@ export class SearchBarComponent implements OnInit {
   //se utiliza para abrir la ventana de busqueda avanzada
   openDialog(): void {
     this.deFormABusqueda();
+    console.log(this.busquedaField);
     const dialogRef = this.dialog.open(FiltroAvanzadoDialogComponent, {
       width: '70%',
       height: '90%',
       data: {info: "filtro", busqueda: this.busquedaField},
     });
-    console.log(this.cantFiltros)
+    //console.log(this.cantFiltros)
 
 
     //esto es el putput del filtro avanzado aca recibo la cantidad de 
@@ -125,7 +126,8 @@ export class SearchBarComponent implements OnInit {
       data=>{
         if(data != undefined){
           this.cantFiltros = data;
-          console.log("Cantidad de filtros: ", this.cantFiltros);
+          console.log(data);
+          //console.log("Cantidad de filtros: ", this.cantFiltros);
         }
       },
       result => {

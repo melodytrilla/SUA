@@ -10,6 +10,7 @@ import { Chip, ChipsContainerComponent } from '../chips-container/chips-containe
 import { BusquedaService } from '../busqueda.service';
 import { SolicitudesService, Vecinal } from '../solicitudes.service';
 import { SatDatepickerRangeValue } from 'saturn-datepicker';
+import { ThemeService } from 'ng2-charts';
 
 export interface AdvSearch{
   // Los nuevos parametros a guardar
@@ -314,10 +315,11 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
 
   ngOnInit() {
     //this.busqueda.customMessage.subscribe(msg => this.cantidad_filtros = msg);
+    console.log("data: " + this.data.info);
     //inicializa los valores del advSerch si hay algunos guardado en la session
     if(this.busqueda.busquedaCompleta.advSearch){
       //console.log(this.busqueda.busquedaCompleta.advSearch);
-      this.advSearch =  Object.assign({}, this.busqueda.busquedaCompleta.advSearch);
+      this.advSearch = this.busqueda.copyAdvsearch(this.busqueda.busquedaCompleta.advSearch);
       
       //this.datesControl.setValue({begin: this.advSearch.intervenciones_fechaStart,
       //                          end: this.advSearch.intervenciones_fechaEnd});
@@ -353,17 +355,31 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
 
 
   ngOnDestroy(){
+    /*
     console.log("destroy called");
+    if(this.data.busqueda.advSearch != null){
+      console.log("la cantidad de categoroias en data es", this.data.busqueda.advSearch.clasificacion_subtipo.length);
+    }else{
+      console.log("Destroy: data is null");
+    }
+    console.log("la cantidad de categoroias es", this.advSearch.clasificacion_subtipo.length);*/
     if(this.savePressed){
+      
       this.advSearch.clasificacion_subtipo = this.myChips.guardarChips();
-      this.data.busqueda.advSearch = this.advSearch;
-      console.log(this.busqueda.busquedaCompleta);
+      this.data.busqueda.advSearch = this.busqueda.copyAdvsearch(this.advSearch);
+      //console.log(this.advSearch);
+      //console.log(this.data.busqueda);
       this.busqueda.Buscar(this.data.busqueda, this.cantidad_filtros);
+      console.log(this.busqueda.busquedaCompleta);
+
       this.savePressed = false;
       console.log("destroy save");
     }else{
+      console.log(this.busqueda.busquedaCompleta);
       this.advSearch = this.data.busqueda.advSearch;
       console.log("destroy not save");
+      //console.log("la cantidad de categoroias en data es", this.data.busqueda.advSearch.clasificacion_subtipo.length);
+      //console.log("la cantidad de categoroias es", this.advSearch.clasificacion_subtipo.length);
     }
   }
 
@@ -559,7 +575,8 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
       if(!this.advSearch.clasificacion_origenes.includes(origen)){
         this.advSearch.clasificacion_origenes.push(origen);
       }
-      console.log(this.advSearch.clasificacion_origenes);
+      //console.log(this.advSearch.clasificacion_origenes);
+      //console.log(this.busqueda.busquedaCompleta.advSearch.clasificacion_origenes);
     }
     this.origenSelect.value = "";
   } 
