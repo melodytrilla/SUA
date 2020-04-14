@@ -23,4 +23,19 @@ export class ResumenBannerComponent implements OnInit {
         });
   }
 
+  cambiarFondo(i){
+    if (document.getElementById(i).style.backgroundColor == "rgb(0, 102, 204)"){
+      document.getElementById(i).style.backgroundColor = "white"
+      document.getElementById(i).style.color = "rgba(0, 0, 0, 0.87)"
+      document.getElementById("tit-" + i).style.color = "rgba(0, 0, 0, 0.87)"
+      document.getElementById("ico-" + i).style.color = "rgba(0, 0, 0, 0.87)"
+    }
+    else{
+      document.getElementById(i).style.backgroundColor = "rgb(0, 102, 204)"
+      document.getElementById(i).style.color = "white"
+      document.getElementById("tit-" + i).style.color = "white"
+      document.getElementById("ico-" + i).style.color = "white"
+    }
+  }
+
 }

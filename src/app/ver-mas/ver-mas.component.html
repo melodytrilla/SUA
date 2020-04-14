@@ -7,7 +7,8 @@
             <div class="col">APELLIDO Y NOMBRE</div>
             <div class="col col3">CANTIDAD DE SOLICITUDES</div>
         </div>
-        <div class="fil hov texto-regular" *ngFor="let vec of vecinos | sort:{ property: 'cantidad_solicitudes', descending: true}">
+        <div id="{{data.name}}-{{i}}" class="fil hov texto-regular" *ngFor="let vec of vecinos | sort:{ property: 'cantidad_solicitudes', descending: true}; let i = index">
+            <p>{{data.name}}-{{i}}</p>
             <div class="col col1"><p>{{vec.dni_solicitante}}</p></div>
             <div class="col"><p>{{vec.apellido_solicitante}}, {{vec.nombre_solicitante}}</p></div>
             <div class="col col3"><p>{{vec.cantidad_solicitudes}}</p></div>

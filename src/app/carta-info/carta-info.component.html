@@ -1,11 +1,21 @@
-<div>
+<div *ngIf="title_value!='Solicitudes'" id="{{title_value}}" class="hovv">
+    <div (click)="this.cambiarFondo(title_value)">
+        <div class="titulo-bold font15">
+            <p id={{title_style}}> {{title_value}} </p>
+        </div>
+        <div class="texto-semibold">
+            <div id="{{content_style}}"><p style="margin: 0px" id="num-{{title_value}}">{{content_value | number:'':'es-AR'}}</p></div>
+        </div>
+    </div>
+    <div style="cursor: pointer" class="texto-regular ver-mas" (click)="this.openD()"> 
+        <p>VER MÁS</p>
+    </div>
+</div>
+<div *ngIf="title_value=='Solicitudes'">
     <div class="titulo-bold font15">
         <p id={{title_style}}> {{title_value}} </p>
     </div>
     <div class="texto-semibold">
         <p id={{content_style}}>{{content_value | number:'':'es-AR'}}</p>
-    </div>
-    <div *ngIf="title_value!='Solicitudes'" class="texto-regular ver-mas hov" (click)="this.openD()"> 
-        <p>VER MÁS</p>
     </div>
 </div>

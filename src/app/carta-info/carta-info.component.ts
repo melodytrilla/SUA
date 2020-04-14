@@ -25,6 +25,7 @@ export class CartaInfoComponent implements OnInit {
   content_value: number=0;
   max: number=0;
   arr: any[] = [];
+  fondoAzul: boolean = false;
 
   ngOnInit() {
     if(this.cardName == "solicitudes"){
@@ -66,12 +67,28 @@ export class CartaInfoComponent implements OnInit {
       })
     });}
   }
+
+  cambiarFondo(i){
+    if (document.getElementById(i).style.backgroundColor == "rgb(0, 102, 204)"){
+      document.getElementById(i).style.backgroundColor = "rgb(249, 250, 253)"
+      document.getElementById(i).style.color = "rgba(0, 0, 0, 0.87)"
+      document.getElementById("num-" + i).style.color = "rgba(0, 0, 0, 0.87)"
+      this.fondoAzul= false;
+    }
+    else{
+      document.getElementById(i).style.backgroundColor = "rgb(0, 102, 204)"
+      document.getElementById(i).style.color = "white"
+      document.getElementById("num-" + i).style.color = "white"
+      this.fondoAzul = true;
+    }
+  }
   
   openD(): void{
     this.dialog.open(VerMasComponent, {
       width: '50%',
-      data: {info: "ver-mas", name: this.cardName}
+      data: {info: "ver-mas", name: this.cardName, fondo: this.fondoAzul}
     });
 
   }
+
 }
