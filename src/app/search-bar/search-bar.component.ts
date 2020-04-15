@@ -57,17 +57,15 @@ export class SearchBarComponent implements OnInit {
   
   ngOnInit() {
     //this.busqueda.customMessage.subscribe(msg => this.cantFiltros = msg);
-    //console.log(this.cantFiltros)
     this.busqueda.Init();
-    //console.log(this.busqueda.busquedaCompleta);
     this.busquedaField = this.busqueda.busquedaCompleta;
     this.cantFiltros = this.busqueda.getCantFiltros();
 
     this.form = this.formBuilder.group({
       date: {
         //Aca se puede configurar el rango predeterminado en el cual inicializar el form
-        begin: this.busquedaField.dateRange_begin/*new Date(2018, 7, 5)*/, 
-        end: this.busquedaField.dateRange_end//new Date(2018, 7, 25)
+        begin: this.busquedaField.dateRange_begin, 
+        end: this.busquedaField.dateRange_end
       },
       Id_solicitud: this.busquedaField.Id_solicitud,
       año: this.busquedaField.año,

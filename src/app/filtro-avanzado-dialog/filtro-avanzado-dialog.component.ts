@@ -289,7 +289,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   List_Personas_Total: string[] = ["Ayelen Carbone", "D'Arrigo Florencia", "Fede Movil"];
   List_Personas: string[] = [];
 
-  asigDate:SatDatepickerRangeValue<Date> = {begin: null, end: null};
+  asig_DateRango:SatDatepickerRangeValue<Date> = {begin: null, end: null};
 
   //--------------------------------------------------------------------
 
@@ -314,8 +314,6 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   //form: FormGroup;
 
   ngOnInit() {
-    //this.busqueda.customMessage.subscribe(msg => this.cantidad_filtros = msg);
-    console.log("data: " + this.data.info);
     //inicializa los valores del advSerch si hay algunos guardado en la session
     if(this.busqueda.busquedaCompleta.advSearch){
       //console.log(this.busqueda.busquedaCompleta.advSearch);
@@ -325,10 +323,10 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
       //                          end: this.advSearch.intervenciones_fechaEnd});
     }
 
-    this.solicitud.getAllVecinales();
+    this.dateRangesUpdate();
 
-    //console.log("ngInit");
-    //console.log(this.myChips);
+
+    this.solicitud.getAllVecinales();
 
     this.cantidad_filtros = 0;
 
@@ -346,8 +344,6 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   }
 
   ngAfterViewInit(){
-    //console.log("afterviewInit")
-    //console.log(this.myChips);
 
     this.ActualizarDescCalificacion();
   }
@@ -355,14 +351,6 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
 
 
   ngOnDestroy(){
-    /*
-    console.log("destroy called");
-    if(this.data.busqueda.advSearch != null){
-      console.log("la cantidad de categoroias en data es", this.data.busqueda.advSearch.clasificacion_subtipo.length);
-    }else{
-      console.log("Destroy: data is null");
-    }
-    console.log("la cantidad de categoroias es", this.advSearch.clasificacion_subtipo.length);*/
     if(this.savePressed){
       
       this.advSearch.clasificacion_subtipo = this.myChips.guardarChips();
@@ -370,16 +358,12 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
       //console.log(this.advSearch);
       //console.log(this.data.busqueda);
       this.busqueda.Buscar(this.data.busqueda, this.cantidad_filtros);
-      console.log(this.busqueda.busquedaCompleta);
 
       this.savePressed = false;
       console.log("destroy save");
     }else{
-      console.log(this.busqueda.busquedaCompleta);
       this.advSearch = this.data.busqueda.advSearch;
       console.log("destroy not save");
-      //console.log("la cantidad de categoroias en data es", this.data.busqueda.advSearch.clasificacion_subtipo.length);
-      //console.log("la cantidad de categoroias es", this.advSearch.clasificacion_subtipo.length);
     }
   }
 
@@ -516,6 +500,33 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
 //cambios en los valores de el selector de fechas
   onDateChange(): void{
     console.log(this.datesControl.value);
+  }
+
+  dateRangesUpdate():void{
+
+    //estado
+    if(this.advSearch.estado_fecha_start != null){
+      this.estado_DateRango.begin = this.advSearch.estado_fecha_start;
+      if(this.advSearch.estado_fecha_end != null){
+        this.estado_DateRango.end = this.advSearch.estado_fecha_end;
+      }
+    }
+
+    //intervenciones
+    if(this.advSearch.intervenciones_fecha_begin != null){
+      this.intervenciones_DateRango.begin = this.advSearch.intervenciones_fecha_begin;
+      if(this.advSearch.intervenciones_fecha_end != null){
+        this.intervenciones_DateRango.end = this.advSearch.intervenciones_fecha_end;
+      }
+    }
+
+    //asignacion
+    if(this.advSearch.asignacion_fecha_start != null){
+      this.asig_DateRango.begin = this.advSearch.asignacion_fecha_start;
+      if(this.advSearch.asignacion_fecha_end != null){
+        this.asig_DateRango.end = this.advSearch.asignacion_fecha_end;
+      }
+    }
   }
 
 
@@ -1109,8 +1120,8 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
     if(this.AsigChanged()){
       this.turnOn("AsigPanel", "asig_font-towhite");
 
-      this.advSearch.asignacion_fecha_start = this.asigDate.begin;
-      this.advSearch.asignacion_fecha_end = this.asigDate.end;
+      this.advSearch.asignacion_fecha_start = this.asig_DateRango.begin;
+      this.advSearch.asignacion_fecha_end = this.asig_DateRango.end;
 
       this.descripcionAsig = this.InputADescripcionAsig();
     }else{

@@ -52,7 +52,6 @@ export class BusquedaService {
     if(window.sessionStorage['busqueda']){
       this.busquedaCompleta = JSON.parse(window.sessionStorage['busqueda']);
       this.filtroNumber = window.sessionStorage['filtroCant'];
-      console.log(this.filtroNumber);
     }else{
       this.busquedaCompleta = {
         dateRange_begin: null,
@@ -72,6 +71,7 @@ export class BusquedaService {
   Buscar(busqueda: Busqueda, filtroCant?:number): void{
     console.log("se esta haciendo la busqueda");
     this.busquedaCompleta = this.copyBusquedas(busqueda);
+    console.log("filtrosCant: " + filtroCant);
     this.filtroNumber = filtroCant;
     this.guardarEnSecion();
   }
@@ -80,11 +80,14 @@ export class BusquedaService {
     let tempBusqueda:Busqueda;
     tempBusqueda = JSON.parse(JSON.stringify(from));
     tempBusqueda.advSearch = this.copyAdvsearch(from.advSearch);
-    console.log("*-------------- Date ------------------*");
-    typeof tempBusqueda.advSearch.estado_fecha_end == "string"? console.log("string") : console.log("date");
-    console.log(tempBusqueda.advSearch.estado_fecha_start)
-    console.log(tempBusqueda.advSearch.estado_fecha_end);
-    console.log("*-----------------------------------------*");
+
+    //main search fecha 
+    if(typeof from.dateRange_begin == "string"){
+      tempBusqueda.dateRange_begin = new Date(from.dateRange_begin);
+    } 
+    if(typeof from.dateRange_end == "string"){
+      tempBusqueda.dateRange_end = new Date(from.dateRange_end);
+    } 
 
     return tempBusqueda;
   }
@@ -93,20 +96,30 @@ export class BusquedaService {
   public copyAdvsearch(from: AdvSearch):AdvSearch{
     let tempAdv:AdvSearch = JSON.parse(JSON.stringify(from));
     
-    console.log("*----Adv---------- Date ------------------*");
-    typeof tempAdv.estado_fecha_end == "string"? console.log("string") : console.log("date");
-    console.log(tempAdv.estado_fecha_start)
-    console.log(tempAdv.estado_fecha_end);
-    console.log("*-----------------------------------------*");
+    //fecha estado 
     if(typeof from.estado_fecha_end == "string"){
-      console.log("entro");
       tempAdv.estado_fecha_end = new Date(from.estado_fecha_end);
-      console.log(typeof tempAdv.estado_fecha_end);
     } 
     if(typeof from.estado_fecha_start == "string"){
       tempAdv.estado_fecha_start = new Date(from.estado_fecha_start);
     } 
-    console.log(tempAdv);
+
+    //fecha intervenciones
+    if(typeof from.intervenciones_fecha_end == "string"){
+      tempAdv.intervenciones_fecha_end = new Date(from.intervenciones_fecha_end);
+    } 
+    if(typeof from.intervenciones_fecha_begin == "string"){
+      tempAdv.intervenciones_fecha_begin = new Date(from.intervenciones_fecha_begin);
+    } 
+
+    //asignacion
+    if(typeof from.asignacion_fecha_end == "string"){
+      tempAdv.asignacion_fecha_end = new Date(from.asignacion_fecha_end);
+    } 
+    if(typeof from.asignacion_fecha_start == "string"){
+      tempAdv.asignacion_fecha_start = new Date(from.asignacion_fecha_start);
+    } 
+
     return tempAdv;
   }
 
@@ -116,13 +129,12 @@ export class BusquedaService {
   }
 
   getBusquedas(){
-    return this.httpClient.get<BusquedaSave>(`${this.apiURL}/filtrosGuardados`)
+    return this.httpClient.get<BusquedaSave>(`${this.apiURL}/filtrosGuardados`);
   }
 
   //almacena la busqueda en la session
   guardarEnSecion(){
     window.sessionStorage['busqueda'] = JSON.stringify(this.busquedaCompleta);
-    console.log(this.filtroNumber);
     window.sessionStorage['filtroCant'] = this.filtroNumber;
 
   }
