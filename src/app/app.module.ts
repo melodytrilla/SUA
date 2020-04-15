@@ -54,6 +54,7 @@ import { IconoTestComponent } from './icono-test/icono-test.component';
 import { DownloadService } from './download.service';
 import { registerLocaleData } from '@angular/common';
 import { VerMasComponent } from './ver-mas/ver-mas.component';
+import { OpinadasComponent } from './opinadas/opinadas.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import { VerMasComponent } from './ver-mas/ver-mas.component';
     DesplegableTestComponent,
     IconoTestComponent,
     VerMasComponent,
-    SortPipe
+    SortPipe,
+    OpinadasComponent
   ],
   imports: [
     BrowserModule,

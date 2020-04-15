@@ -1,8 +1,9 @@
 <div class="tarjeta">
     <mat-card-title class="titulo font15">
-        <div class="titulo-bold">{{title}}</div>
+        <div class="titulo-bold" *ngIf="title == 'ReclamosDenuncias'">Reclamos y denuncias</div>
+        <div class="titulo-bold" *ngIf="title == 'ConsultasReclamos'">Trámites y consultas</div>
         <div  class="texto-semibold">
-            <h3 *ngIf="!loading && data; else placeholder"> {{data.total | number:'':'es-AR'}} </h3>
+            <h3 *ngIf="!loading else placeholder"> {{total | number:'':'es-AR'}} </h3>
             <ng-template #placeholder><h3>0</h3></ng-template>
         </div>
     </mat-card-title>
@@ -10,18 +11,23 @@
     <mat-divider></mat-divider>
 
     <div>
-        <div *ngIf="!loading && data; else loader">
-            <mat-list class="lista hov" *ngFor="let item of data.valores">
-                <div class="linea fila" style="max-height: 40px;">
-                    <mat-icon class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
+        <div *ngIf="!loading else loader">
+            <mat-list id="{{i}}-{{title}}" class="lista" *ngFor="let item of data | sort:{ property: 'details', descending: 'true'} | slice:0:4; let i =index">
+                <div id="div-{{i}}" class="linea fila hovv" (click)="this.cambiarFondo(i, title)">
+                    <mat-icon id="ico-{{i}}-{{title}}" class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
                     <div class="fila cut-text">
                         <div class="item texto-semibold">
                             <h3 class="cut-text">{{item.name}}</h3>
                         </div>
                     </div>
-                <div class="item texto-semibold"><p>{{item.details | number:'':'es-AR'}}</p></div>
+                    <div class="item texto-semibold"><p>{{item.details | number:'':'es-AR'}}</p></div>
                 </div>
             </mat-list>
+            <div style="text-align: center">
+                <div class="hov ver-mas" (click)="this.open()">
+                    <p class="texto-regular">VER MÁS</p>
+                </div>
+            </div>
         </div>
         <ng-template #loader>
             <mat-spinner [diameter]="70"></mat-spinner>

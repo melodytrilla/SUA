@@ -92,5 +92,15 @@ export class RequestsByStateComponent implements OnInit {
     });
 
   }
+  cambiarFondo(i){
+    if (document.getElementById(i).style.backgroundColor == "rgb(0, 102, 204)"){
+      document.getElementById(i).style.backgroundColor = "rgb(249, 250, 253)"
+      document.getElementById(i).style.color = "rgba(0, 0, 0, 0.87)"
+    }
+    else{
+      document.getElementById(i).style.backgroundColor = "rgb(0, 102, 204)"
+      document.getElementById(i).style.color = "white"
+    }
+  }
 
 }

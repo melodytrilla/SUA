@@ -3,7 +3,6 @@ import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { RequestsByDistrictComponent } from '../requests-by-district/requests-by-district.component';
 import { FiltersService } from '../filters.service';
-import { SolicitudesService } from '../solicitudes.service';
 
 
 
@@ -39,29 +38,9 @@ export class ResumenComponent {
   );
 
   constructor(private breakpointObserver: BreakpointObserver, 
-    private filterService: FiltersService, private solicitudesService:SolicitudesService) {}
+    private filterService: FiltersService) {}
 
-  reclamos;
-  consultas;
-  opinadas;
-  loading = false;
 
   ngOnInit() {
-    this.loading = true;
-    this.solicitudesService.getTopReclamosDenuncias().subscribe(
-      data => {
-        this.reclamos = data;
-      });
-
-    this.solicitudesService.getTopConsultasTramites().subscribe(
-      data => {
-        this.consultas = data;
-      });
-
-    this.solicitudesService.getOpiniones().subscribe(
-      data => {
-        this.opinadas = data;
-    });
-    this.loading = false;
   }
 }

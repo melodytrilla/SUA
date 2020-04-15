@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import * as _ from 'lodash';
 import { SolicitudesItemsService } from '../solicitudes-items.service';
 import * as moment from 'moment';
@@ -19,13 +19,15 @@ export interface Opcion {
   styleUrls: ['./mapa.component.sass'],
 })
 export class MapaComponent implements OnInit {
-  asc= false;
+  criterio: string;
+  asc:boolean= false;
   list: {subtipo: string};
 
   constructor(public api: SolicitudesItemsService,
               private router: Router,
               private rutaActiva: ActivatedRoute,
-              public service: DownloadService) { }
+              public service: DownloadService,
+              private changeDetector: ChangeDetectorRef) { }
 
   public solicitudes: any[];
 
@@ -70,6 +72,7 @@ export class MapaComponent implements OnInit {
 
   togglePlay(){
     this.asc = !this.asc;
+    this.ordenar(this.criterio)
   }
 
   nextBatch(currIndex: number, items: any[]) {
@@ -95,4 +98,39 @@ export class MapaComponent implements OnInit {
     exportAsXLSX():void {
       return this.service.exportAsExcelFile(this.solicitudes, 'solicitudes');
     }
+    ordenar(c: string){
+      this.api.getSolicitudes().subscribe(
+        data => {
+          data.forEach(value => {
+              value.tiempo = this.calculateTime(value.fecha_hora_estado);
+              value.tiempoInterv = this.calculateTime(value.fecha_hora_intervencion);
+              value.tiempoMap = this.calculateTime(value.fecha_hora_asignacion);
+              value.checked = false;
+              if( c == 'asig'){
+              value.asig = value.asignaciones.length
+              }
+              else if( c == 'solic'){
+                value.solic = value.solicitantes.length
+                }
+              else if( c == 'inter'){
+                  value.inter = value.intervenciones.length
+                  }
+              else if( c == 'fechaR'){
+                  value.fechaR = this.formato(value.fecha_hora_registro)
+                  }
+              else if( c == 'fechaE'){
+                  value.fechaE = this.formato(value.fecha_hora_estado)
+                  }
+              this.criterio = c;
+          })
+          this.solicitudes = data;
+          this.loading = false;
+        });
+      this.changeDetector.detectChanges();
+    }
+  formato(fecha){
+    fecha = fecha.replace("/", ",");
+    fecha = fecha.replace("/", ",");
+    return fecha.replace(/(\d{2}),(\d{2}),(\d{4}) (\d{2}):(\d{2})/, "$3$2$1$4$5")
+  }
 }

@@ -2,11 +2,11 @@
     <div class="alerta columna titulo-bold">
         <div>Alertas</div>
         <mat-icon [inline]="true">alarm</mat-icon>
-    </div >
+    </div>
 
-    <mat-card >
+    <mat-card id="reiteradas" (click)="this.cambiarFondo('reiteradas')" class="hovv">
         <mat-card-content>
-            <mat-card-subtitle class="titulo-bold"> Reiteradas </mat-card-subtitle>
+            <mat-card-subtitle id="tit-reiteradas" class="titulo-bold"> Reiteradas </mat-card-subtitle>
             <div>
                 <mat-card-title class="texto-semibold" *ngIf="alertas['reiterated']; else placeholder"> 
                     {{alertas['reiterated'].cantidad | number:'':'es-AR'}} 
@@ -15,22 +15,22 @@
         </mat-card-content>
     </mat-card>
 
-    <mat-card>
+    <mat-card id="sinInter" (click)="this.cambiarFondo('sinInter')" class="hovv">
         <mat-card-content>
-            <mat-card-subtitle class="titulo-bold">  Sin Intervención </mat-card-subtitle>
+            <mat-card-subtitle id="tit-sinInter" class="titulo-bold">  Sin Intervención </mat-card-subtitle>
             <mat-card-title class="texto-semibold" *ngIf="alertas['unintervined']; else placeholder"> 
                 {{alertas['unintervined'].cantidad | number:'':'es-AR'}}
-                <mat-icon class="fsua fsua-intervenido fsua-0_5x"></mat-icon>
+                <mat-icon id="ico-sinInter" class="fsua fsua-intervenido fsua-0_5x"></mat-icon>
             </mat-card-title>
         </mat-card-content>
     </mat-card>
 
-    <mat-card>
+    <mat-card id="sinAsig" (click)="this.cambiarFondo('sinAsig')" class="hovv">
         <mat-card-content>
-            <mat-card-subtitle class="titulo-bold"> Sin asignación </mat-card-subtitle>
+            <mat-card-subtitle id="tit-sinAsig" class="titulo-bold"> Sin asignación </mat-card-subtitle>
             <mat-card-title class="texto-semibold" *ngIf="alertas['unasigned']; else placeholder"> 
                 {{alertas['unasigned'].cantidad | number:'':'es-AR'}}
-                <mat-icon class="fsua fsua-mapa fsua-0_5x"></mat-icon>
+                <mat-icon id="ico-sinAsig" class="fsua fsua-mapa fsua-0_5x"></mat-icon>
             </mat-card-title>
         </mat-card-content>
     </mat-card>
