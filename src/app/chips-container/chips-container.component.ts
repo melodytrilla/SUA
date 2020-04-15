@@ -33,6 +33,8 @@ export class ChipsContainerComponent implements OnInit{
   filteredOptions: Chip[];
   chips: Chip[] = [];
 
+  savedChips :Chip[] = [];
+
   //Chips config
   removable = true;
   selectable = true;
@@ -48,15 +50,15 @@ export class ChipsContainerComponent implements OnInit{
   //recupera los chisp guardados en la session si los hay
   ngOnInit() {
     if(this.busquedaService.busquedaCompleta.advSearch != null){
-      this.chips = this.busquedaService.busquedaCompleta.advSearch.clasificacion_subtipo;
+      this.savedChips = this.busquedaService.busquedaCompleta.advSearch.clasificacion_subtipo;
     }
+    this.chips = this.savedChips;
   }
 
   onSearchChange (searchValue: string): void {
     if(searchValue.length >= 4){
       //consige todas las opciones filtradas por las palabras buscadas
       this.filteredOptions = this.filtersService.filteredSubCategorias(searchValue);
-      //console.log(this.filteredOptions);
 
       //busca todas las diferentes categorias que se encontraron en esta busqueda
       this.filteredCategories = [];
@@ -75,22 +77,14 @@ export class ChipsContainerComponent implements OnInit{
 
   //al seleccionar una categoria se le debuelve todos las subcategorias que pertenescan a ella
   getAllCategoria(palabra: string): void{
-    //console.log(palabra);
 
     var datas = this.filtersService.filteredByCategorias(palabra);
-    //console.log(datas);
 
     datas.forEach(data => {
       if(!this.chips.includes(data)){
         this.chips.push(data);
       }
     })
-/*
-    if(!data){
-      //Checks if the option was alredy added.
-      //If it has, it ignores it 
-      this.chips.push(event.option.value);
-    }*/
     this.searchElement.nativeElement.value = '';
     
   }
@@ -105,21 +99,10 @@ export class ChipsContainerComponent implements OnInit{
       this.filteredOptions = [];
       this.filteredCategories = [];
     }
-    /*
-    var removeIndex = this.chips
-      .map(function(item) { return item.id_subtipo; }).indexOf(chip.id_subtipo);
-    ~removeIndex && this.chips.splice(removeIndex, 1);
-   
-    if(index >= 0){
-      this.chips.splice(index, 1);
-    }*/
   }
 
   //Select an option from the select menu
   selected(chip: Chip): void {
-    /*
-    const value = event.option.viewValue;
-    */
     var data = this.chips.find( element => { 
       return element.descripcion === chip.descripcion;});
       
@@ -142,7 +125,6 @@ export class ChipsContainerComponent implements OnInit{
 
   //se utiliza para enviar los chips al elemento padre
   guardarChips(): Chip[]{
-    //this.eviarChips.emit(this.chips);
     return this.chips;
   }
 

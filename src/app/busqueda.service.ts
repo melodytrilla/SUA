@@ -52,7 +52,6 @@ export class BusquedaService {
     if(window.sessionStorage['busqueda']){
       this.busquedaCompleta = JSON.parse(window.sessionStorage['busqueda']);
       this.filtroNumber = window.sessionStorage['filtroCant'];
-      console.log(this.filtroNumber);
     }else{
       this.busquedaCompleta = {
         dateRange_begin: null,
@@ -71,8 +70,57 @@ export class BusquedaService {
 // se utilizara para inicializar la busqueda, por ahora solo guarda la busqueda en la session
   Buscar(busqueda: Busqueda, filtroCant?:number): void{
     console.log("se esta haciendo la busqueda");
+    this.busquedaCompleta = this.copyBusquedas(busqueda);
+    console.log("filtrosCant: " + filtroCant);
     this.filtroNumber = filtroCant;
     this.guardarEnSecion();
+  }
+
+  public copyBusquedas(from:Busqueda): Busqueda{
+    let tempBusqueda:Busqueda;
+    tempBusqueda = JSON.parse(JSON.stringify(from));
+    tempBusqueda.advSearch = this.copyAdvsearch(from.advSearch);
+
+    //main search fecha 
+    if(typeof from.dateRange_begin == "string"){
+      tempBusqueda.dateRange_begin = new Date(from.dateRange_begin);
+    } 
+    if(typeof from.dateRange_end == "string"){
+      tempBusqueda.dateRange_end = new Date(from.dateRange_end);
+    } 
+
+    return tempBusqueda;
+  }
+
+  //funcion para copiar datos de advsearch
+  public copyAdvsearch(from: AdvSearch):AdvSearch{
+    let tempAdv:AdvSearch = JSON.parse(JSON.stringify(from));
+    
+    //fecha estado 
+    if(typeof from.estado_fecha_end == "string"){
+      tempAdv.estado_fecha_end = new Date(from.estado_fecha_end);
+    } 
+    if(typeof from.estado_fecha_start == "string"){
+      tempAdv.estado_fecha_start = new Date(from.estado_fecha_start);
+    } 
+
+    //fecha intervenciones
+    if(typeof from.intervenciones_fecha_end == "string"){
+      tempAdv.intervenciones_fecha_end = new Date(from.intervenciones_fecha_end);
+    } 
+    if(typeof from.intervenciones_fecha_begin == "string"){
+      tempAdv.intervenciones_fecha_begin = new Date(from.intervenciones_fecha_begin);
+    } 
+
+    //asignacion
+    if(typeof from.asignacion_fecha_end == "string"){
+      tempAdv.asignacion_fecha_end = new Date(from.asignacion_fecha_end);
+    } 
+    if(typeof from.asignacion_fecha_start == "string"){
+      tempAdv.asignacion_fecha_start = new Date(from.asignacion_fecha_start);
+    } 
+
+    return tempAdv;
   }
 
   Guardar(search: Busqueda, name: string, cantf:number):void{
@@ -81,13 +129,12 @@ export class BusquedaService {
   }
 
   getBusquedas(){
-    return this.httpClient.get<BusquedaSave>(`${this.apiURL}/filtrosGuardados`)
+    return this.httpClient.get<BusquedaSave>(`${this.apiURL}/filtrosGuardados`);
   }
 
   //almacena la busqueda en la session
   guardarEnSecion(){
     window.sessionStorage['busqueda'] = JSON.stringify(this.busquedaCompleta);
-    console.log(this.filtroNumber);
     window.sessionStorage['filtroCant'] = this.filtroNumber;
 
   }

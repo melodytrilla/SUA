@@ -10,6 +10,7 @@ import { Chip, ChipsContainerComponent } from '../chips-container/chips-containe
 import { BusquedaService } from '../busqueda.service';
 import { SolicitudesService, Vecinal } from '../solicitudes.service';
 import { SatDatepickerRangeValue } from 'saturn-datepicker';
+import { ThemeService } from 'ng2-charts';
 
 export interface AdvSearch{
   // Los nuevos parametros a guardar
@@ -288,7 +289,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   List_Personas_Total: string[] = ["Ayelen Carbone", "D'Arrigo Florencia", "Fede Movil"];
   List_Personas: string[] = [];
 
-  asigDate:SatDatepickerRangeValue<Date> = {begin: null, end: null};
+  asig_DateRango:SatDatepickerRangeValue<Date> = {begin: null, end: null};
 
   //--------------------------------------------------------------------
 
@@ -313,20 +314,19 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   //form: FormGroup;
 
   ngOnInit() {
-    //this.busqueda.customMessage.subscribe(msg => this.cantidad_filtros = msg);
     //inicializa los valores del advSerch si hay algunos guardado en la session
     if(this.busqueda.busquedaCompleta.advSearch){
       //console.log(this.busqueda.busquedaCompleta.advSearch);
-      this.advSearch =  Object.assign({}, this.busqueda.busquedaCompleta.advSearch);
+      this.advSearch = this.busqueda.copyAdvsearch(this.busqueda.busquedaCompleta.advSearch);
       
       //this.datesControl.setValue({begin: this.advSearch.intervenciones_fechaStart,
       //                          end: this.advSearch.intervenciones_fechaEnd});
     }
 
-    this.solicitud.getAllVecinales();
+    this.dateRangesUpdate();
 
-    //console.log("ngInit");
-    //console.log(this.myChips);
+
+    this.solicitud.getAllVecinales();
 
     this.cantidad_filtros = 0;
 
@@ -344,8 +344,6 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   }
 
   ngAfterViewInit(){
-    //console.log("afterviewInit")
-    //console.log(this.myChips);
 
     this.ActualizarDescCalificacion();
   }
@@ -353,12 +351,14 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
 
 
   ngOnDestroy(){
-    console.log("destroy called");
     if(this.savePressed){
+      
       this.advSearch.clasificacion_subtipo = this.myChips.guardarChips();
-      this.data.busqueda.advSearch = this.advSearch;
-      console.log(this.busqueda.busquedaCompleta);
+      this.data.busqueda.advSearch = this.busqueda.copyAdvsearch(this.advSearch);
+      //console.log(this.advSearch);
+      //console.log(this.data.busqueda);
       this.busqueda.Buscar(this.data.busqueda, this.cantidad_filtros);
+
       this.savePressed = false;
       console.log("destroy save");
     }else{
@@ -502,6 +502,33 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
     console.log(this.datesControl.value);
   }
 
+  dateRangesUpdate():void{
+
+    //estado
+    if(this.advSearch.estado_fecha_start != null){
+      this.estado_DateRango.begin = this.advSearch.estado_fecha_start;
+      if(this.advSearch.estado_fecha_end != null){
+        this.estado_DateRango.end = this.advSearch.estado_fecha_end;
+      }
+    }
+
+    //intervenciones
+    if(this.advSearch.intervenciones_fecha_begin != null){
+      this.intervenciones_DateRango.begin = this.advSearch.intervenciones_fecha_begin;
+      if(this.advSearch.intervenciones_fecha_end != null){
+        this.intervenciones_DateRango.end = this.advSearch.intervenciones_fecha_end;
+      }
+    }
+
+    //asignacion
+    if(this.advSearch.asignacion_fecha_start != null){
+      this.asig_DateRango.begin = this.advSearch.asignacion_fecha_start;
+      if(this.advSearch.asignacion_fecha_end != null){
+        this.asig_DateRango.end = this.advSearch.asignacion_fecha_end;
+      }
+    }
+  }
+
 
   //para actualizar la descripcion y color del panel reporte------------
   ActualizarDescReporte(){
@@ -559,7 +586,8 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
       if(!this.advSearch.clasificacion_origenes.includes(origen)){
         this.advSearch.clasificacion_origenes.push(origen);
       }
-      console.log(this.advSearch.clasificacion_origenes);
+      //console.log(this.advSearch.clasificacion_origenes);
+      //console.log(this.busqueda.busquedaCompleta.advSearch.clasificacion_origenes);
     }
     this.origenSelect.value = "";
   } 
@@ -1092,8 +1120,8 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
     if(this.AsigChanged()){
       this.turnOn("AsigPanel", "asig_font-towhite");
 
-      this.advSearch.asignacion_fecha_start = this.asigDate.begin;
-      this.advSearch.asignacion_fecha_end = this.asigDate.end;
+      this.advSearch.asignacion_fecha_start = this.asig_DateRango.begin;
+      this.advSearch.asignacion_fecha_end = this.asig_DateRango.end;
 
       this.descripcionAsig = this.InputADescripcionAsig();
     }else{

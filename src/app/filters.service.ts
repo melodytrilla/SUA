@@ -10,7 +10,7 @@ import { element } from 'protractor';
 })
 export class FiltersService {
 
-  otherURL = "http://192.168.39.142:4000"
+  otherURL = "http://localhost:4000"
   constructor(private httpClient: HttpClient) { }
 
   private _todasSubcategorias: Chip[] = [];
