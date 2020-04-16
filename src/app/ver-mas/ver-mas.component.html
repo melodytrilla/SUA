@@ -7,8 +7,7 @@
             <div class="col">APELLIDO Y NOMBRE</div>
             <div class="col col3">CANTIDAD DE SOLICITUDES</div>
         </div>
-        <div id="{{data.name}}-{{i}}" class="fil hov texto-regular" *ngFor="let vec of vecinos | sort:{ property: 'cantidad_solicitudes', descending: true}; let i = index">
-            <p>{{data.name}}-{{i}}</p>
+        <div id="{{data.name}}-{{i}}" (click)="this.cambiarFondo(i, data.name)" class="fil hov texto-regular" *ngFor="let vec of vecinos | sort:{ property: 'cantidad_solicitudes', descending: true}; let i = index">
             <div class="col col1"><p>{{vec.dni_solicitante}}</p></div>
             <div class="col"><p>{{vec.apellido_solicitante}}, {{vec.nombre_solicitante}}</p></div>
             <div class="col col3"><p>{{vec.cantidad_solicitudes}}</p></div>
@@ -24,7 +23,7 @@
             <div class="col">APELLIDO Y NOMBRE</div>
             <div class="col col3">CANTIDAD DE SOLICITUDES</div>
         </div>
-        <div class="fil hov texto-regular" *ngFor="let vec of vecinos | sort:{ property: 'cantidad_solicitudes', descending: true}">
+        <div id="{{data.name}}-{{i}}" (click)="this.cambiarFondo(i, data.name)" class="fil hov texto-regular" *ngFor="let vec of vecinos | sort:{ property: 'cantidad_solicitudes', descending: true}; let i= index">
             <div class="col col1"><p>{{vec.dni_agente}}</p></div>
             <div class="col"><p>{{vec.apellido_agente}}, {{vec.nombre_agente}}</p></div>
             <div class="col col3"><p>{{vec.cantidad_solicitudes}}</p></div>
@@ -41,9 +40,9 @@
             <div class="col">DIRECCIÓN</div>
             <div class="col colum3"> CANTIDAD DE SOLICITUDES</div>
         </div>
-        <div class="fil hov texto-regular" *ngFor="let vec of vecinos | sort:{ property: 'cantidad_solicitudes', descending: true}">
+        <div id="{{data.name}}-{{i}}" (click)="this.cambiarFondo(i, data.name)" class="fil hov texto-regular" *ngFor="let vec of vecinos | sort:{ property: 'cantidad_solicitudes', descending: true} let i = index">
             <div class="col colum1"><p>{{vec.etiqueta_equipamiento}}</p></div>
-            <div class="col colum2"><mat-icon class="fsua {{vec.icono}}" style="margin-right: 20px;"></mat-icon>{{vec.descripcion_equipamiento}}</div>
+            <div class="col colum2"><mat-icon id="ico-{{data.name}}-{{i}}" class="fsua {{vec.icono}}" style="margin-right: 20px;"></mat-icon>{{vec.descripcion_equipamiento}}</div>
             <div class="col"><p>{{vec.direccion}}</p></div>
             <div class="col colum3"><p>{{vec.cantidad_solicitudes}}</p></div>
         </div>
@@ -59,7 +58,7 @@
             <div class="col colum3">ESTADO</div>
             <div class="col">ETIQUETA</div>
         </div>
-        <div class="fil hov texto-regular" *ngFor="let vec of vecinos">
+        <div id="{{data.name}}-{{i}}" (click)="this.cambiarFondo(i, data.name)" class="fil hov texto-regular" *ngFor="let vec of vecinos; let i = index">
             <div class="col colum3"><p>{{vec.numero}}-{{vec.anio}}</p></div>
             <div class="col colum2"><p>{{vec.subtipo}}</p></div>
             <div class="col colum3"><p>{{vec.estado}}</p></div>
@@ -76,8 +75,8 @@
             <div class="col">SUBTIPO</div>
             <div class="col col3">CANTIDAD DE SOLICITUDES</div>
         </div>
-        <div class="fil hov texto-regular" style = "align-items: center" *ngFor="let vec of vecinos | sort:{ property: 'details', descending: true}">
-            <div class="col" style="padding:10px; text-align: left"><mat-icon class="fsua {{vec.icono}}" style="margin-right: 20px;"></mat-icon>{{vec.name}}</div>
+        <div id="{{data.name}}-{{i}}" (click)="this.cambiarFondo(i, data.name)" class="fil hov texto-regular" style = "align-items: center" *ngFor="let vec of vecinos | sort:{ property: 'details', descending: true} let i = index">
+            <div class="col" style="padding:10px; text-align: left"><mat-icon id="ico-{{data.name}}-{{i}}" class="fsua {{vec.icono}}" style="margin-right: 20px;"></mat-icon>{{vec.name}}</div>
             <div class="col col3" style="padding: 10px">{{vec.details}}</div>
         </div>
     </div>

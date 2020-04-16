@@ -42,4 +42,17 @@ export class VerMasComponent implements AfterViewInit {
   
 
 }
+cambiarFondo(i, name){
+  console.log(i, name)
+  if (document.getElementById(name + "-" + i).style.backgroundColor == "rgb(0, 102, 204)"){
+    document.getElementById(name + "-" + i).style.backgroundColor = "white"
+    document.getElementById(name + "-" + i).style.color = "rgba(0, 0, 0, 0.87)"
+    document.getElementById("ico-" + name + "-" + i).style.color = "rgba(0, 0, 0, 0.87)"
+  }
+  else{
+    document.getElementById(name + "-" + i).style.backgroundColor = "rgb(0, 102, 204)"
+    document.getElementById(name + "-" + i).style.color = "white"
+    document.getElementById("ico-" + name + "-" + i).style.color = "white"
+  }
+}
 }
