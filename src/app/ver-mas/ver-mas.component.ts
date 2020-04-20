@@ -17,9 +17,9 @@ export class VerMasComponent implements AfterViewInit {
   ngAfterViewInit() {
     console.log(this.data.fondo)
     if(this.data.fondo == true){
-      console.log(this.data.name + "-0")
-      document.getElementById(this.data.name + "-0").style.backgroundColor = "rgb(0, 102, 204)"
-      document.getElementById(this.data.name + "-0").style.color = "white"
+      console.log(this.data.name + "-1")
+      document.getElementById(this.data.name + "-1").style.backgroundColor = "rgb(0, 102, 204)"
+      document.getElementById(this.data.name + "-1").style.color = "white"
   }
 
   }
@@ -43,7 +43,6 @@ export class VerMasComponent implements AfterViewInit {
 
 }
 cambiarFondo(i, name){
-  console.log(i, name)
   if (document.getElementById(name + "-" + i).style.backgroundColor == "rgb(0, 102, 204)"){
     document.getElementById(name + "-" + i).style.backgroundColor = "white"
     document.getElementById(name + "-" + i).style.color = "rgba(0, 0, 0, 0.87)"

@@ -298,6 +298,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   datosEspecificos_warning:string = "";
 
   //--------------------------------------------------------------------
+  op : any[] = []
   cantidad_filtros: number =0;
   constructor(
     private formBuilder: FormBuilder,
@@ -329,6 +330,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
     this.solicitud.getAllVecinales();
 
     this.cantidad_filtros = 0;
+
 
     //inicializacion de los paneles expansores
     this.ActualizarDescReporte();
@@ -422,7 +424,6 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
     this.advSearch.opinion_positivo = false;
     this.advSearch.opinion_negative = false;
     this.advSearch.opinion_neutro = false;
-    
     this.ActualizarDescOpinion();
   }
 
