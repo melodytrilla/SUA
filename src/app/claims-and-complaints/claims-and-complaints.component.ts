@@ -2,6 +2,7 @@ import { Component, OnInit, Input} from '@angular/core';
 import { SolicitudesService } from '../solicitudes.service';
 import { MatDialog } from '@angular/material';
 import { VerMasComponent } from '../ver-mas/ver-mas.component';
+import { BusquedaService } from '../busqueda.service';
 
 @Component({
   selector: 'app-claims-and-complaints',
@@ -13,7 +14,8 @@ export class ClaimsAndComplaintsComponent implements OnInit{
 @Input() title: string;
 
 constructor(private api: SolicitudesService,
-            public dialog: MatDialog) { }
+            public dialog: MatDialog,
+            private service: BusquedaService) { }
 loading: boolean;
 public data: any[] = []
 public total: number = 0;
@@ -40,12 +42,15 @@ ngOnInit(){
     })
   }
   cambiarFondo(i, tit){
+    console.log(this.data[i].name)
     if (document.getElementById(i + "-" + tit).style.backgroundColor == "rgb(0, 102, 204)"){
+      this.service.borrarSubtipo(this.data[i].name);
       document.getElementById(i + "-" + tit).style.backgroundColor = "rgb(249, 250, 253)"
       document.getElementById(i + "-" + tit).style.color = "rgba(0, 0, 0, 0.87)"
       document.getElementById("ico-" + i + "-" + tit).style.color = "rgba(0, 0, 0, 0.87)"
     }
     else{
+      this.service.agregarSubtipo(this.data[i].name);
       document.getElementById(i + "-" + tit).style.backgroundColor = "rgb(0, 102, 204)"
       document.getElementById(i + "-" + tit).style.color = "white"
       document.getElementById("ico-" + i + "-" + tit).style.color = "white"

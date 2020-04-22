@@ -47,7 +47,451 @@
       },
       "cantFiltros": 4,
       "id": 1
-    }
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "id": 10
+    },
+    {
+      "id": 11
+    },
+    {
+      "id": 12
+    },
+    {
+      "id": 13
+    },
+    {
+      "id": 14
+    },
+    {
+      "id": 15
+    },
+    {
+      "id": 16
+    },
+    {
+      "id": 17
+    },
+    {
+      "id": 18
+    },
+    {
+      "id": 19
+    },
+    {
+      "id": 20
+    },
+    {
+      "id": 21
+    },
+    {
+      "id": 22
+    },
+    {
+      "id": 23
+    },
+    {
+      "id": 24
+    },
+    {
+      "id": 25
+    },
+    {
+      "id": 26
+    },
+    {
+      "id": 27
+    },
+    {
+      "id": 28
+    },
+    {
+      "id": 29
+    },
+    {
+      "id": 30
+    },
+    {
+      "id": 31
+    },
+    {
+      "id": 32
+    },
+    {
+      "id": 33
+    },
+    {
+      "id": 34
+    },
+    {
+      "id": 35
+    },
+    {
+      "id": 36
+    },
+    {
+      "id": 37
+    },
+    {
+      "id": 38
+    },
+    {
+      "id": 39
+    },
+    {
+      "id": 40
+    },
+    {
+      "id": 41
+    },
+    {
+      "id": 42
+    },
+    {
+      "id": 43
+    },
+    {
+      "id": 44
+    },
+    {
+      "id": 45
+    },
+    {
+      "id": 46
+    },
+    {
+      "id": 47
+    },
+    [
+      "Pendiente"
+    ],
+    [
+      "Pendiente",
+      "Pendiente"
+    ],
+    [
+      "Pendiente",
+      "Pendiente",
+      "En curso"
+    ],
+    [
+      "Pendiente",
+      "Pendiente",
+      "En curso",
+      "Resuelto"
+    ],
+    [
+      "En curso"
+    ],
+    [
+      "En curso"
+    ],
+    [
+      "En curso",
+      "Pendiente"
+    ],
+    [
+      "En curso",
+      "Pendiente"
+    ],
+    [
+      "En curso",
+      "Pendiente",
+      "Resuelto"
+    ],
+    [
+      "En curso",
+      "Pendiente",
+      "Resuelto"
+    ],
+    [
+      "Pendiente"
+    ],
+    [
+      "Pendiente",
+      "En curso"
+    ],
+    [
+      "Pendiente",
+      "En curso"
+    ],
+    [
+      "Pendiente",
+      "En curso"
+    ],
+    [
+      "Pendiente",
+      "En curso"
+    ],
+    [
+      "Pendiente",
+      "En curso",
+      "Resuelto"
+    ],
+    [
+      "Pendiente",
+      "En curso",
+      "Resuelto"
+    ],
+    [
+      "En curso"
+    ],
+    [
+      "En curso",
+      "Pendiente"
+    ],
+    [
+      "En curso",
+      "Pendiente"
+    ],
+    [
+      "En curso",
+      "Pendiente"
+    ],
+    [
+      "En curso",
+      "Pendiente",
+      "Resuelto"
+    ],
+    [
+      "En curso",
+      "Pendiente",
+      "Resuelto",
+      "Cerrado"
+    ],
+    [
+      "En curso",
+      "Pendiente",
+      "Resuelto",
+      "Cerrado"
+    ],
+    [
+      "En curso",
+      "Pendiente",
+      "Resuelto",
+      "Cerrado"
+    ],
+    [
+      "En curso",
+      "Pendiente",
+      "Resuelto",
+      "Cerrado"
+    ],
+    [
+      "En curso",
+      "Pendiente",
+      "Resuelto",
+      "Cerrado"
+    ],
+    [
+      "En curso",
+      "Pendiente",
+      "Resuelto",
+      "Cerrado"
+    ],
+    [
+      "En curso",
+      "Pendiente",
+      "Resuelto",
+      "Cerrado"
+    ],
+    [
+      "En curso"
+    ],
+    [
+      "En curso",
+      "Pendiente"
+    ],
+    [
+      "En curso",
+      "Pendiente"
+    ],
+    [
+      "En curso",
+      "Pendiente"
+    ],
+    [
+      "En curso",
+      "Pendiente",
+      "Resuelto"
+    ],
+    [
+      "En curso",
+      "Pendiente",
+      "Resuelto"
+    ],
+    [
+      "En curso",
+      "Pendiente",
+      "Resuelto"
+    ],
+    [
+      "En curso",
+      "Pendiente",
+      "Resuelto"
+    ],
+    [
+      "",
+      "Pendiente",
+      ""
+    ],
+    [
+      "",
+      "Pendiente",
+      "",
+      "En curso"
+    ],
+    [
+      "",
+      "Pendiente",
+      "",
+      null
+    ],
+    [
+      "",
+      "Pendiente",
+      "",
+      null,
+      "En curso"
+    ],
+    [
+      "",
+      "Pendiente",
+      "",
+      null
+    ],
+    [
+      "En curso"
+    ],
+    [
+      "En curso",
+      "Resuelto"
+    ],
+    [
+      "En curso",
+      "Resuelto"
+    ],
+    [
+      "En curso",
+      "Resuelto",
+      "Pendiente"
+    ],
+    [
+      "En curso"
+    ],
+    [
+      "En curso",
+      "Resuelto"
+    ],
+    [
+      "En curso",
+      "Resuelto",
+      "Pendiente"
+    ],
+    [
+      "En curso",
+      "Resuelto",
+      "Pendiente"
+    ],
+    [
+      "En curso",
+      "Resuelto",
+      "Cerrado"
+    ],
+    [
+      "En curso",
+      "Resuelto",
+      "Cerrado"
+    ],
+    [
+      "En curso",
+      "Resuelto",
+      "Cerrado"
+    ],
+    [
+      "En curso",
+      "Resuelto",
+      "Cerrado"
+    ],
+    [
+      "En curso",
+      "Resuelto",
+      "Cerrado"
+    ],
+    [
+      "En curso",
+      "Resuelto",
+      "Cerrado"
+    ],
+    [
+      "Cerrado"
+    ],
+    [
+      "Pendiente"
+    ],
+    [
+      "Pendiente",
+      "En curso"
+    ],
+    [
+      "Pendiente",
+      "En curso"
+    ],
+    [
+      "Pendiente",
+      "En curso"
+    ],
+    [
+      "Pendiente",
+      "En curso"
+    ],
+    [
+      "Pendiente",
+      "En curso"
+    ],
+    [
+      "Pendiente",
+      "En curso"
+    ],
+    [
+      "Otro item"
+    ],
+    [
+      "Otro item",
+      "Sector apagado ó encendido"
+    ],
+    [
+      "Otro item",
+      "Sector apagado ó encendido",
+      "Lámpara apagada ó encendida"
+    ],
+    [
+      "En curso"
+    ]
   ],
   "alertas": {
     "reiterated": {
@@ -99,123 +543,123 @@
       "number": 4122
     }
   ],
-    "ReclamosDenuncias": [
-      {
-        "id": 1,
-        "icono": "fsua-alumbrado_publico",
-        "name": "Lámpara apagada ó encendida",
-        "details": 2840
-      },
-      {
-        "id": 2,
-        "icono": "fsua-alumbrado_publico",
-        "name": "Sector apagado ó encendido",
-        "details": 5164
-      },
-      {
-        "id": 3,
-        "icono": "fsua-higiene_urbana",
-        "name": "Barrido y limpieza ausente ó deficiente aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-        "details": 450
-      },
-      {
-        "id": 4,
-        "icono": "fsua-bicis_publicas",
-        "name": "Puesto de bicicletas vacío",
-        "details": 2897
-      },
-      {
-        "id": 5,
-        "icono": "fsua-semaforos",
-        "name": "Semáforo roto",
-        "details": 450
-      },
-      {
-        "id": 6,
-        "icono": "fsua-semaforos",
-        "name": "Semáforo roto",
-        "details": 1000
-      },
-      {
-        "id": 7,
-        "icono": "fsua-tel",
-        "name": "otro-item",
-        "details": 103
-      },
-      {
-        "id": 8,
-        "icono": "fsua-semaforos",
-        "name": "Semáforo roto",
-        "details": 1045
-      },
-      {
-        "id": 9,
-        "icono": "fsua-semaforos",
-        "name": "Semáforo roto",
-        "details": 1444
-      }
-    ],
-    "ConsultasReclamos": [
-      {
-        "id": 1,
-        "icono": "fsua-colectivos_urbanos",
-        "name": "Consulta TUP",
-        "details": 5948
-      },
-      {
-        "id": 2,
-        "icono": "fsua-tel",
-        "name": "Información sobre temas ajenos al 147",
-        "details": 354
-      },
-      {
-        "id": 3,
-        "icono": "fsua-higiene_urbana",
-        "name": "Solicitud de información de higiene urbana",
-        "details": 721
-      },
-      {
-        "id": 4,
-        "icono": "fsua-higiene_urbana",
-        "name": "Solicitud de información de higiene urbana y más texto para testear que se corta en el programa",
-        "details": 500
-      },
-      {
-        "id": 5,
-        "icono": "fsua-higiene_urbana",
-        "name": "Otro item",
-        "details": 1453
-      },
-      {
-        "id": 6,
-        "icono": "fsua-higiene_urbana",
-        "name": "Otro item",
-        "details": 234
-      },
-      {
-        "id": 7,
-        "icono": "fsua-higiene_urbana",
-        "name": "Otro item",
-        "details": 809
-      }
-    ],
+  "ReclamosDenuncias": [
+    {
+      "id": 1,
+      "icono": "fsua-alumbrado_publico",
+      "name": "Lámpara apagada ó encendida",
+      "details": 2840
+    },
+    {
+      "id": 2,
+      "icono": "fsua-alumbrado_publico",
+      "name": "Sector apagado ó encendido",
+      "details": 5164
+    },
+    {
+      "id": 3,
+      "icono": "fsua-higiene_urbana",
+      "name": "Barrido y limpieza ausente ó deficiente aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "details": 450
+    },
+    {
+      "id": 4,
+      "icono": "fsua-bicis_publicas",
+      "name": "Puesto de bicicletas vacío",
+      "details": 2897
+    },
+    {
+      "id": 5,
+      "icono": "fsua-semaforos",
+      "name": "Semáforo roto",
+      "details": 450
+    },
+    {
+      "id": 6,
+      "icono": "fsua-semaforos",
+      "name": "Semáforo roto",
+      "details": 1000
+    },
+    {
+      "id": 7,
+      "icono": "fsua-tel",
+      "name": "otro-item",
+      "details": 103
+    },
+    {
+      "id": 8,
+      "icono": "fsua-semaforos",
+      "name": "Semáforo roto",
+      "details": 1045
+    },
+    {
+      "id": 9,
+      "icono": "fsua-semaforos",
+      "name": "Semáforo roto",
+      "details": 1444
+    }
+  ],
+  "ConsultasReclamos": [
+    {
+      "id": 1,
+      "icono": "fsua-colectivos_urbanos",
+      "name": "Consulta TUP",
+      "details": 5948
+    },
+    {
+      "id": 2,
+      "icono": "fsua-tel",
+      "name": "Información sobre temas ajenos al 147",
+      "details": 354
+    },
+    {
+      "id": 3,
+      "icono": "fsua-higiene_urbana",
+      "name": "Solicitud de información de higiene urbana",
+      "details": 721
+    },
+    {
+      "id": 4,
+      "icono": "fsua-higiene_urbana",
+      "name": "Solicitud de información de higiene urbana y más texto para testear que se corta en el programa",
+      "details": 500
+    },
+    {
+      "id": 5,
+      "icono": "fsua-higiene_urbana",
+      "name": "Otro item",
+      "details": 1453
+    },
+    {
+      "id": 6,
+      "icono": "fsua-higiene_urbana",
+      "name": "Otro item",
+      "details": 234
+    },
+    {
+      "id": 7,
+      "icono": "fsua-higiene_urbana",
+      "name": "Otro item",
+      "details": 809
+    }
+  ],
   "Opinadas": [
-      {
-        "icono": "fsua-neutro",
-        "details": 1,
-        "name": "Neutral"
-      },
-      {
-        "icono": "fsua-malo",
-        "details": 20,
-        "name": "Negativas"
-      },
-      {
-        "icono": "fsua-bueno",
-        "details": 4,
-        "name": "Positivas"
-      }
-    ],
+    {
+      "icono": "fsua-neutro",
+      "details": 1,
+      "name": "Neutral"
+    },
+    {
+      "icono": "fsua-malo",
+      "details": 20,
+      "name": "Negativas"
+    },
+    {
+      "icono": "fsua-bueno",
+      "details": 4,
+      "name": "Positivas"
+    }
+  ],
   "top10-categorias": [
     {
       "nombre": "Alumbrado",
@@ -365,45 +809,45 @@
     }
   ],
   "vecinosConSolicitudes": [
-        {
-          "dni_solicitante":"30757543",
-          "nombre_solicitante": "Jose",
-          "apellido_solicitante": "Perez",
-          "cantidad_solicitudes": 3
-        },
-        {
-          "dni_solicitante":"23334654",
-          "nombre_solicitante": "Pedro",
-          "apellido_solicitante": "Lopez",
-          "cantidad_solicitudes": 1
-        },
-        {
-          "dni_solicitante":"12355432",
-          "nombre_solicitante": "Juan",
-          "apellido_solicitante": "Torres",
-          "cantidad_solicitudes": 4
-        }
+    {
+      "dni_solicitante": "30757543",
+      "nombre_solicitante": "Jose",
+      "apellido_solicitante": "Perez",
+      "cantidad_solicitudes": 3
+    },
+    {
+      "dni_solicitante": "23334654",
+      "nombre_solicitante": "Pedro",
+      "apellido_solicitante": "Lopez",
+      "cantidad_solicitudes": 1
+    },
+    {
+      "dni_solicitante": "12355432",
+      "nombre_solicitante": "Juan",
+      "apellido_solicitante": "Torres",
+      "cantidad_solicitudes": 4
+    }
   ],
   "agentesConSolicitudes": [
     {
-      "dni_agente":"12569784",
+      "dni_agente": "12569784",
       "nombre_agente": "Pedro",
       "apellido_agente": "Avila",
       "cantidad_solicitudes": 23
     },
     {
-      "dni_agente":"25896745",
+      "dni_agente": "25896745",
       "nombre_agente": "Micaela",
       "apellido_agente": "Perez",
       "cantidad_solicitudes": 31
     },
     {
-      "dni_agente":"17485965",
+      "dni_agente": "17485965",
       "nombre_agente": "carla",
       "apellido_agente": "Rodriguez",
       "cantidad_solicitudes": 3
     }
-],
+  ],
   "solicitudes": {
     "valor": 13622
   },
@@ -444,7 +888,6 @@
       "icono": "fsua-semaforos"
     }
   ],
-  
   "Areas": [
     "CIOR - Comunicación",
     "CMD Centro - Inspección",

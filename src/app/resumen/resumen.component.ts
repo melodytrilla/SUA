@@ -3,6 +3,7 @@ import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { RequestsByDistrictComponent } from '../requests-by-district/requests-by-district.component';
 import { FiltersService } from '../filters.service';
+import { BusquedaService } from '../busqueda.service';
 
 
 
@@ -37,10 +38,12 @@ export class ResumenComponent {
     })
   );
 
+  busqueda: any
   constructor(private breakpointObserver: BreakpointObserver, 
-    private filterService: FiltersService) {}
+    private filterService: FiltersService,
+    private bus: BusquedaService) {}
 
 
   ngOnInit() {
-  }
+    }
 }

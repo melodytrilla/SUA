@@ -44,7 +44,6 @@ export class BusquedaService {
 
   busquedaCompleta:Busqueda;
   aGuardar : BusquedaSave2;
-
   private filtroNumber  : number = 0;
 
   //si hay algo guardado en la session se carga en una variable, si no se inicializa vacio
@@ -61,7 +60,86 @@ export class BusquedaService {
         Dir: null,
         radio: 0,
         Id_solicitante: "",
-        advSearch: null,
+        advSearch: {
+    //-----Busqueda Reporte ----------------------------------------------
+    reiteraciones_con:true,
+    reiteraciones_sin:true,
+    prioridad:undefined,
+
+    //--------------------------------------------------------------------
+
+    //-----Busqueda Clasificacion ----------------------------------------
+    clasificacion_subtipo: [],
+    clasificacion_tipo:undefined,
+    clasificacion_origenes: [],
+    clasificacion_registro:true,
+    clasificacion_reiteracion :true,
+
+    //--------------------------------------------------------------------
+
+    //-----Busqueda Area -------------------------------------------------
+    area_origen:undefined,
+    area_destino:undefined,
+    area_reiteracion:undefined,
+
+    //--------------------------------------------------------------------
+  
+    //-----Busqueda Adjunto ----------------------------------------------
+    adjunto_tiene:"no",
+    adjunto_regReit: false,
+    adjunto_intervencion: false,
+    adjunto_resolucion: false,
+    
+    //--------------------------------------------------------------------
+
+    //-----Busqueda Opinion ----------------------------------------------
+    opinion_tiene:"no",
+    opinion_positivo:false,
+    opinion_negative:false,
+    opinion_neutro:false,
+
+    //--------------------------------------------------------------------
+
+    //-----Busqueda Estado ----------------------------------------------
+    estado_estados:[],
+    estado_detallado: "",
+    estado_fecha_start: null,
+    estado_fecha_end: null,
+
+    //--------------------------------------------------------------------
+
+    //-----Busqueda Distrito ----------------------------------------------
+    distrito_vecinales: [],
+
+    //--------------------------------------------------------------------
+
+    //-----Busqueda Intervenciones ---------------------------------------
+    intervenciones_seleccionadas:[],
+    intervenciones_suaMovile:false,
+    intervenciones_tipo:"",
+    intervenciones_fecha_begin:null,
+    intervenciones_fecha_end: null,
+
+    //--------------------------------------------------------------------
+
+    //-----Busqueda Equipamiento -----------------------------------------
+    equipamiento_seleccionado:"",
+    equipamiento_choice:"",
+    equipamiento_detalle:"",
+
+  //--------------------------------------------------------------------
+
+  //-----Busqueda Asignacion -----------------------------------------
+    asignacion_tipo:"",
+    asignacion_fecha_start: null,
+    asignacion_fecha_end: null,
+    asignacion_listPersonas:[],
+
+//--------------------------------------------------------------------
+    
+//-----Datos especificos--------------------------------------------
+    Datos_Extra:[]
+        },
     
       };
     }
@@ -80,7 +158,6 @@ export class BusquedaService {
     let tempBusqueda:Busqueda;
     tempBusqueda = JSON.parse(JSON.stringify(from));
     tempBusqueda.advSearch = this.copyAdvsearch(from.advSearch);
-
     //main search fecha 
     if(typeof from.dateRange_begin == "string"){
       tempBusqueda.dateRange_begin = new Date(from.dateRange_begin);
@@ -148,6 +225,75 @@ export class BusquedaService {
     return this.filtroNumber;
   }
 
+  agregarSubtipo(a){
+    let cont: number = 0;
+    for (let subtipo of this.busquedaCompleta.advSearch.clasificacion_subtipo){
+      if(subtipo != a ){
+        cont = cont + 1;
+      }
+    }
+      if(cont == this.busquedaCompleta.advSearch.clasificacion_subtipo.length){
+        this.busquedaCompleta.advSearch.clasificacion_subtipo.push(a)
+      }
+    this.httpClient.post<BusquedaSave>(`${this.apiURL}/filtrosGuardados`, this.busquedaCompleta.advSearch.clasificacion_subtipo).subscribe();
+    this.guardarEnSecion()
+  }
+  borrarSubtipo(a){
+    if(this.busquedaCompleta.advSearch.clasificacion_tipo == a){
+    this.busquedaCompleta.advSearch.clasificacion_tipo = undefined;
+    this.httpClient.post<BusquedaSave>(`${this.apiURL}/filtrosGuardados`, this.busquedaCompleta.advSearch.clasificacion_tipo).subscribe();
+    }
+  }
+  agregarEstado(a){
+    let cont: number = 0;
+    for (let estado of this.busquedaCompleta.advSearch.estado_estados){
+      if(estado != a ){
+        cont = cont + 1;
+      }
+    }
+      if(cont == this.busquedaCompleta.advSearch.estado_estados.length){
+        this.busquedaCompleta.advSearch.estado_estados.push(a)
+      }
+    console.log(this.busquedaCompleta.advSearch.estado_estados)
+    this.httpClient.post<BusquedaSave>(`${this.apiURL}/filtrosGuardados`, this.busquedaCompleta.advSearch.estado_estados).subscribe();
+    this.guardarEnSecion()
+  }
+  borrarEstado(a){
+    for (let estado of this.busquedaCompleta.advSearch.estado_estados){
+      if (estado == a){
+        this.busquedaCompleta.advSearch.estado_estados = this.busquedaCompleta.advSearch.estado_estados.filter(est => est!= estado);
+      }
+    }
+    this.guardarEnSecion()
+  }
+  agregarOpinion(a){
+    this.busquedaCompleta.advSearch.opinion_tiene != "no"
+    if (a == 'Positivas'){
+      this.busquedaCompleta.advSearch.opinion_positivo = true
+    }
+    else if (a == 'Negativas'){
+      this.busquedaCompleta.advSearch.opinion_negative = true
+    }
+    else if (a == 'Neutral'){
+      this.busquedaCompleta.advSearch.opinion_neutro = true
+    }
+    this.guardarEnSecion()
+  }
+  borrarOpinion(a){
+    if (a == 'Positivas'){
+      this.busquedaCompleta.advSearch.opinion_positivo = false
+    }
+    else if (a == 'Negativas'){
+      this.busquedaCompleta.advSearch.opinion_negative = false
+    }
+    else if (a == 'Neutral'){
+      this.busquedaCompleta.advSearch.opinion_neutro = false
+    }
+    if (!this.busquedaCompleta.advSearch.opinion_positivo && !this.busquedaCompleta.advSearch.opinion_negative && !this.busquedaCompleta.advSearch.opinion_neutro){
+      this.busquedaCompleta.advSearch.opinion_tiene= "no"
+    }
+    this.guardarEnSecion()
+  }
 
   /*public changeMessage(msg: number): void {
     this.message.next(msg);

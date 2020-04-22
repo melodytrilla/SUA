@@ -16,7 +16,7 @@
     <div>
         <div *ngIf="!loading else loader">
             <mat-list id="i-{{ind}}" class="lista hov" *ngFor="let item of datos; let ind =index">
-                <div class="linea fila" (click)="this.cambiarFondo(ind)">
+                <div class="linea fila" (click)="this.cambiarFondo(ind, item.name)">
                     <div style="align-items: center;" class="fila" *ngIf="item.name == 'Positivas'">
                         <div class="accent positivo"></div><mat-icon id="ico-{{ind}}" class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
                     </div>

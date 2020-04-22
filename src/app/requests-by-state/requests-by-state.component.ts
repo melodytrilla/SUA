@@ -3,6 +3,7 @@ import { ChartOptions} from 'chart.js';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import 'chart.piecelabel.js';
 import { SolicitudesService } from '../solicitudes.service';
+import { BusquedaService } from '../busqueda.service';
 
 
 @Component({
@@ -12,7 +13,8 @@ import { SolicitudesService } from '../solicitudes.service';
 })
 export class RequestsByStateComponent implements OnInit {
 
-  constructor(private solicitudService: SolicitudesService) {
+  constructor(private solicitudService: SolicitudesService,
+              private service: BusquedaService) {
   }
 
   total = 0;
@@ -94,13 +96,16 @@ export class RequestsByStateComponent implements OnInit {
   }
   cambiarFondo(i){
     if (document.getElementById(i).style.backgroundColor == "rgb(0, 102, 204)"){
+      this.service.borrarEstado(i)
       document.getElementById(i).style.backgroundColor = "rgb(249, 250, 253)"
       document.getElementById(i).style.color = "rgba(0, 0, 0, 0.87)"
     }
     else{
+      this.service.agregarEstado(i)
       document.getElementById(i).style.backgroundColor = "rgb(0, 102, 204)"
       document.getElementById(i).style.color = "white"
     }
+    window.sessionStorage['item'] = JSON.stringify(i);
   }
 
 }

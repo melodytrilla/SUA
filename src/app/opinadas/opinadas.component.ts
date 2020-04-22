@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SolicitudesService } from '../solicitudes.service';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { BusquedaService } from '../busqueda.service';
 
 @Component({
   selector: 'app-opinadas',
@@ -26,7 +27,8 @@ export class OpinadasComponent implements OnInit {
   negativas: number;
   neutral: number;
  
-  constructor(private api: SolicitudesService) { }
+  constructor(private api: SolicitudesService,
+              private service: BusquedaService) { }
 
   ngOnInit() {
     this.loading = true;
@@ -49,13 +51,15 @@ export class OpinadasComponent implements OnInit {
     });
     this.loading = false;
   }
-  cambiarFondo(ind){
+  cambiarFondo(ind, name){
     if (document.getElementById("i-" + ind).style.backgroundColor == "rgb(0, 102, 204)"){
+      this.service.borrarOpinion(name)
       document.getElementById("i-" + ind).style.backgroundColor = "rgb(249, 250, 253)"
       document.getElementById("i-" + ind).style.color = "rgba(0, 0, 0, 0.87)"
       document.getElementById("ico-"+ ind).style.color = "rgba(0, 0, 0, 0.87)"
     }
     else{
+      this.service.agregarOpinion(name)
       document.getElementById("i-" + ind).style.backgroundColor = "rgb(0, 102, 204)"
       document.getElementById("ico-" + ind).style.color = "white"
       document.getElementById("i-" + ind).style.color = "white"
