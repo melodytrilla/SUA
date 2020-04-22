@@ -3,6 +3,7 @@ import { AdvSearch } from './filtro-avanzado-dialog/filtro-avanzado-dialog.compo
 import { HttpClient } from '@angular/common/http';
 import { stringToKeyValue } from '@angular/flex-layout/extended/typings/style/style-transforms';
 import { BehaviorSubject } from 'rxjs';
+import { Chip } from './chips-container/chips-container.component';
 
 export interface Busqueda{
   dateRange_begin: Date,
@@ -225,23 +226,40 @@ export class BusquedaService {
     return this.filtroNumber;
   }
 
-  agregarSubtipo(a){
+  //cambie que la variable a sea un chip
+  agregarSubtipo(a: Chip): void {
+    //use este metodo para encontrar si esta en clasificacion subtipo y luego la pushe
+    if(!this.busquedaCompleta.advSearch.clasificacion_subtipo.includes(a)){
+      this.busquedaCompleta.advSearch.clasificacion_subtipo.push(a)
+    }
+    /* ------------------------- tu codigo ---------------------------- no lo queria tocar por si las dudas lo mio este mal
     let cont: number = 0;
     for (let subtipo of this.busquedaCompleta.advSearch.clasificacion_subtipo){
-      if(subtipo != a ){
+      if(subtipo.descripcion != a ){
         cont = cont + 1;
       }
     }
       if(cont == this.busquedaCompleta.advSearch.clasificacion_subtipo.length){
         this.busquedaCompleta.advSearch.clasificacion_subtipo.push(a)
       }
+      --------------------------------------------------------------------*/
+
     this.httpClient.post<BusquedaSave>(`${this.apiURL}/filtrosGuardados`, this.busquedaCompleta.advSearch.clasificacion_subtipo).subscribe();
     this.guardarEnSecion()
   }
-  borrarSubtipo(a){
+    //caste las variables a a string para facilitar ve como funciona la funcion
+  borrarSubtipo(a: string):void {
+    /* --------------------------------------------------------------
     if(this.busquedaCompleta.advSearch.clasificacion_tipo == a){
     this.busquedaCompleta.advSearch.clasificacion_tipo = undefined;
-    this.httpClient.post<BusquedaSave>(`${this.apiURL}/filtrosGuardados`, this.busquedaCompleta.advSearch.clasificacion_tipo).subscribe();
+    }
+    -----------------------------------------------------------------*/
+
+    //esto busca el index y lo saca usando splice (pued que este mal usado tendremos que ir testeandolo)
+    let indexFound: number =  this.busquedaCompleta.advSearch.clasificacion_subtipo.findIndex(chipSearch => chipSearch.descripcion == a)
+    if(indexFound > -1){
+      this.busquedaCompleta.advSearch.clasificacion_subtipo.splice(indexFound, 1);
+      this.httpClient.post<BusquedaSave>(`${this.apiURL}/filtrosGuardados`, this.busquedaCompleta.advSearch.clasificacion_tipo).subscribe();
     }
   }
   agregarEstado(a){

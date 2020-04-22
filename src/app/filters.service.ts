@@ -60,7 +60,15 @@ export class FiltersService {
     
   }
 
-  //interaccion con los cips guardados
+  //agrege esta funcion para buscar chips en el filtro de categorias
+  searchChip( chipDesc:string):Chip{
+    console.log(chipDesc);
+    let outChip = this._todasSubcategorias.find(elemChip => elemChip.descripcion == chipDesc);
+    console.log(outChip);
+    return outChip;
+  }
+
+  //interaccion con los chips guardados
   get savedChips(): Chip[]{
     return this._savedChips;
   }
