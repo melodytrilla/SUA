@@ -2,6 +2,9 @@ import { Component, OnInit, Inject, AfterViewInit } from '@angular/core';
 import { SolicitudesService } from '../solicitudes.service';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { SolicitudesItemsService } from '../solicitudes-items.service';
+import { BusquedaService } from '../busqueda.service';
+import { FiltersService } from '../filters.service';
+import { Chip } from '../chips-container/chips-container.component';
 
 @Component({
   selector: 'app-ver-mas',
@@ -12,7 +15,10 @@ export class VerMasComponent implements AfterViewInit {
   public vecinos: any[] = [];
   constructor(public service: SolicitudesService,
               public api: SolicitudesItemsService,
-              @Inject(MAT_DIALOG_DATA) public data: any,) { }
+              @Inject(MAT_DIALOG_DATA) public data: any,
+              private bService: BusquedaService,
+              private filtrosService: FiltersService
+              ) { }
   
   ngAfterViewInit() {
     console.log(this.data.fondo)
@@ -42,13 +48,23 @@ export class VerMasComponent implements AfterViewInit {
   
 
 }
-cambiarFondo(i, name){
+cambiarFondo(i, name, id){
+  console.log(id)
   if (document.getElementById(name + "-" + i).style.backgroundColor == "rgb(0, 102, 204)"){
+    if (name == "ConsultasReclamos" || name == "ReclamosDenuncias"){
+      this.bService.borrarSubtipo(id)
+    }
     document.getElementById(name + "-" + i).style.backgroundColor = "white"
     document.getElementById(name + "-" + i).style.color = "rgba(0, 0, 0, 0.87)"
     document.getElementById("ico-" + name + "-" + i).style.color = "rgba(0, 0, 0, 0.87)"
   }
   else{
+    if (name == "ConsultasReclamos" || name == "ReclamosDenuncias"){
+      let tempChip :Chip = this.filtrosService.searchChip(id);
+      if(tempChip != null){
+        this.bService.agregarSubtipo(tempChip)
+      }
+    }
     document.getElementById(name + "-" + i).style.backgroundColor = "rgb(0, 102, 204)"
     document.getElementById(name + "-" + i).style.color = "white"
     document.getElementById("ico-" + name + "-" + i).style.color = "white"

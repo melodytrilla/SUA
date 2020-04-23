@@ -228,6 +228,7 @@ export class BusquedaService {
 
   //cambie que la variable a sea un chip
   agregarSubtipo(a: Chip): void {
+    console.log(a)
     //use este metodo para encontrar si esta en clasificacion subtipo y luego la pushe
     if(!this.busquedaCompleta.advSearch.clasificacion_subtipo.includes(a)){
       this.busquedaCompleta.advSearch.clasificacion_subtipo.push(a)
