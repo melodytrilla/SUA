@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SolicitudesService } from '../solicitudes.service';
+import { BusquedaService } from '../busqueda.service';
 
 @Component({
   selector: 'app-resumen-banner',
@@ -10,7 +11,8 @@ export class ResumenBannerComponent implements OnInit {
 
   alertas;
 
-  constructor(private solicitudesService: SolicitudesService) { }
+  constructor(private solicitudesService: SolicitudesService,
+              private service: BusquedaService) { }
 
   ngOnInit() {
     this.update();
@@ -25,12 +27,14 @@ export class ResumenBannerComponent implements OnInit {
 
   cambiarFondo(i){
     if (document.getElementById(i).style.backgroundColor == "rgb(0, 102, 204)"){
+      this.service.borrarBanner(i)
       document.getElementById(i).style.backgroundColor = "white"
       document.getElementById(i).style.color = "rgba(0, 0, 0, 0.87)"
       document.getElementById("tit-" + i).style.color = "rgba(0, 0, 0, 0.87)"
       document.getElementById("ico-" + i).style.color = "rgba(0, 0, 0, 0.87)"
     }
     else{
+      this.service.agregarBanner(i)
       document.getElementById(i).style.backgroundColor = "rgb(0, 102, 204)"
       document.getElementById(i).style.color = "white"
       document.getElementById("tit-" + i).style.color = "white"

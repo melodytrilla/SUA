@@ -793,7 +793,10 @@
     },
     {
       "id": 78
-    }
+    },
+    [
+      "Pendiente"
+    ]
   ],
   "alertas": {
     "reiterated": {

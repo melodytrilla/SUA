@@ -3,6 +3,7 @@ import { SolicitudesService } from '../solicitudes.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { VerMasComponent } from '../ver-mas/ver-mas.component';
 import { SolicitudesItemsService } from '../solicitudes-items.service';
+import { BusquedaService } from '../busqueda.service';
 
 @Component({
   selector: 'app-carta-info',
@@ -13,7 +14,8 @@ export class CartaInfoComponent implements OnInit {
 
   constructor(private solicitudes: SolicitudesService,
               public dialog: MatDialog,
-              private solicItems: SolicitudesItemsService) {
+              private solicItems: SolicitudesItemsService,
+              private service: BusquedaService) {
     
    }
 

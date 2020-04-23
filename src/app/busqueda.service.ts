@@ -278,8 +278,8 @@ export class BusquedaService {
     }
     this.guardarEnSecion()
   }
-  agregarOpinion(a){
-    this.busquedaCompleta.advSearch.opinion_tiene = "con"
+  agregarOpinion(a: string):void{
+    this.busquedaCompleta.advSearch.opinion_tiene = "Con"
     if (a == 'Positivas'){
       this.busquedaCompleta.advSearch.opinion_positivo = true
     }
@@ -291,7 +291,7 @@ export class BusquedaService {
     }
     this.guardarEnSecion()
   }
-  borrarOpinion(a){
+  borrarOpinion(a: string): void{
     if (a == 'Positivas'){
       this.busquedaCompleta.advSearch.opinion_positivo = false
     }
@@ -306,7 +306,30 @@ export class BusquedaService {
     }
     this.guardarEnSecion()
   }
-
+  agregarBanner(a: string):void{
+    if (a == 'reiteradas'){
+      this.busquedaCompleta.advSearch.reiteraciones_sin = false;
+    }
+    else if (a == 'sinInter'){
+      this.busquedaCompleta.advSearch.intervenciones_tipo = "sin";
+    }
+    else if (a == 'sinAsig'){
+      this.busquedaCompleta.advSearch.asignacion_tipo = "sin";
+    }
+    this.guardarEnSecion();
+  }
+  borrarBanner(a: string): void{
+    if (a == 'reiteradas'){
+      this.busquedaCompleta.advSearch.reiteraciones_sin = true;
+    }
+    else if (a == 'sinInter'){
+      this.busquedaCompleta.advSearch.intervenciones_tipo = "";
+    }
+    else if (a == 'sinAsig'){
+      this.busquedaCompleta.advSearch.asignacion_tipo = "";
+    }
+    this.guardarEnSecion();
+  }
   /*public changeMessage(msg: number): void {
     this.message.next(msg);
   }*/
