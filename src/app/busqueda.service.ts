@@ -263,15 +263,9 @@ export class BusquedaService {
     }
   }
   agregarEstado(a){
-    let cont: number = 0;
-    for (let estado of this.busquedaCompleta.advSearch.estado_estados){
-      if(estado != a ){
-        cont = cont + 1;
-      }
+    if(!this.busquedaCompleta.advSearch.estado_estados.includes(a)){
+      this.busquedaCompleta.advSearch.estado_estados.push(a)
     }
-      if(cont == this.busquedaCompleta.advSearch.estado_estados.length){
-        this.busquedaCompleta.advSearch.estado_estados.push(a)
-      }
     console.log(this.busquedaCompleta.advSearch.estado_estados)
     this.httpClient.post<BusquedaSave>(`${this.apiURL}/filtrosGuardados`, this.busquedaCompleta.advSearch.estado_estados).subscribe();
     this.guardarEnSecion()
@@ -285,7 +279,7 @@ export class BusquedaService {
     this.guardarEnSecion()
   }
   agregarOpinion(a){
-    this.busquedaCompleta.advSearch.opinion_tiene != "no"
+    this.busquedaCompleta.advSearch.opinion_tiene = "con"
     if (a == 'Positivas'){
       this.busquedaCompleta.advSearch.opinion_positivo = true
     }

@@ -48,450 +48,752 @@
       "cantFiltros": 4,
       "id": 1
     },
+    [
+      {
+        "id_subtipo": 491,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Lámpara apagada ó encendida",
+        "descripcion_ext": "Reclamo [Alumbrado] - Lámpara apagada ó encendida",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "lampara quemada",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [
+          "transversal",
+          "columna"
+        ],
+        "eq_req": true,
+        "preguntas": []
+      }
+    ],
     {
-      "id": 2
-    },
-    {
-      "id": 3
-    },
-    {
-      "id": 4
-    },
-    {
-      "id": 5
-    },
-    {
-      "id": 6
-    },
-    {
-      "id": 7
-    },
-    {
-      "id": 8
-    },
-    {
-      "id": 9
-    },
-    {
-      "id": 10
-    },
-    {
-      "id": 11
-    },
-    {
-      "id": 12
-    },
-    {
-      "id": 13
-    },
-    {
-      "id": 14
-    },
-    {
-      "id": 15
-    },
-    {
-      "id": 16
-    },
-    {
-      "id": 17
-    },
-    {
-      "id": 18
-    },
-    {
-      "id": 19
-    },
-    {
-      "id": 20
-    },
-    {
-      "id": 21
-    },
-    {
-      "id": 22
-    },
-    {
-      "id": 23
-    },
-    {
-      "id": 24
-    },
-    {
-      "id": 25
-    },
-    {
-      "id": 26
-    },
-    {
-      "id": 27
-    },
-    {
-      "id": 28
-    },
-    {
-      "id": 29
-    },
-    {
-      "id": 30
-    },
-    {
-      "id": 31
-    },
-    {
-      "id": 32
-    },
-    {
-      "id": 33
-    },
-    {
-      "id": 34
-    },
-    {
-      "id": 35
-    },
-    {
-      "id": 36
-    },
-    {
-      "id": 37
-    },
-    {
-      "id": 38
-    },
-    {
-      "id": 39
-    },
-    {
-      "id": 40
-    },
-    {
-      "id": 41
-    },
-    {
-      "id": 42
-    },
-    {
-      "id": 43
-    },
-    {
-      "id": 44
-    },
-    {
-      "id": 45
-    },
-    {
-      "id": 46
-    },
-    {
-      "id": 47
+      "id": 54
     },
     [
-      "Pendiente"
+      {
+        "id_subtipo": 499,
+        "tipo": "Reclamo",
+        "categoria": "Higiene urbana",
+        "descripcion": "Equipamiento desaparecido, dañado ó fuera de lugar",
+        "descripcion_ext": "Reclamo [Higiene urbana] - Equipamiento desaparecido, dañado ó fuera de lugar",
+        "orden": 1,
+        "estilo": "fsua-higiene_urbana",
+        "etiquetas": "contenedor verde naranja metálico metalico cesto residuo basura volquete faltante roto quemado",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [
+          "contenedores"
+        ],
+        "eq_req": true,
+        "preguntas": []
+      }
     ],
     [
-      "Pendiente",
-      "Pendiente"
+      {
+        "id_subtipo": 499,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Sector apagado ó encendido",
+        "descripcion_ext": "Reclamo [Alumbrado] - Sector apagado ó encendido",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "zona prendido",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [],
+        "eq_req": false,
+        "preguntas": []
+      },
+      {
+        "id_subtipo": 491,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Lámpara apagada ó encendida",
+        "descripcion_ext": "Reclamo [Alumbrado] - Lámpara apagada ó encendida",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "lampara quemada",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [
+          "transversal",
+          "columna"
+        ],
+        "eq_req": true,
+        "preguntas": []
+      }
+    ],
+    {
+      "id": 57
+    },
+    [
+      {
+        "id_subtipo": 491,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Lámpara apagada ó encendida",
+        "descripcion_ext": "Reclamo [Alumbrado] - Lámpara apagada ó encendida",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "lampara quemada",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [
+          "transversal",
+          "columna"
+        ],
+        "eq_req": true,
+        "preguntas": []
+      },
+      {
+        "id_subtipo": 499,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Sector apagado ó encendido",
+        "descripcion_ext": "Reclamo [Alumbrado] - Sector apagado ó encendido",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "zona prendido",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [],
+        "eq_req": false,
+        "preguntas": []
+      }
     ],
     [
-      "Pendiente",
-      "Pendiente",
-      "En curso"
+      {
+        "id_subtipo": 491,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Lámpara apagada ó encendida",
+        "descripcion_ext": "Reclamo [Alumbrado] - Lámpara apagada ó encendida",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "lampara quemada",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [
+          "transversal",
+          "columna"
+        ],
+        "eq_req": true,
+        "preguntas": []
+      },
+      {
+        "id_subtipo": 499,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Sector apagado ó encendido",
+        "descripcion_ext": "Reclamo [Alumbrado] - Sector apagado ó encendido",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "zona prendido",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [],
+        "eq_req": false,
+        "preguntas": []
+      },
+      {
+        "id_subtipo": 499,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Sector apagado ó encendido",
+        "descripcion_ext": "Reclamo [Alumbrado] - Sector apagado ó encendido",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "zona prendido",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [],
+        "eq_req": false,
+        "preguntas": []
+      },
+      {
+        "id_subtipo": 475,
+        "tipo": "Trámite",
+        "categoria": "Arbolado",
+        "descripcion": "Permiso de poda ó extracción por cuenta propia",
+        "descripcion_ext": "Trámite [Arbolado] - Permiso de poda ó extracción por cuenta propia",
+        "orden": 4,
+        "estilo": "fsua-arbolado",
+        "etiquetas": "árbol arbol ramas podar",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [],
+        "eq_req": false,
+        "preguntas": []
+      }
     ],
     [
-      "Pendiente",
-      "Pendiente",
-      "En curso",
+      {
+        "id_subtipo": 491,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Lámpara apagada ó encendida",
+        "descripcion_ext": "Reclamo [Alumbrado] - Lámpara apagada ó encendida",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "lampara quemada",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [
+          "transversal",
+          "columna"
+        ],
+        "eq_req": true,
+        "preguntas": []
+      },
+      {
+        "id_subtipo": 499,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Sector apagado ó encendido",
+        "descripcion_ext": "Reclamo [Alumbrado] - Sector apagado ó encendido",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "zona prendido",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [],
+        "eq_req": false,
+        "preguntas": []
+      },
+      {
+        "id_subtipo": 499,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Sector apagado ó encendido",
+        "descripcion_ext": "Reclamo [Alumbrado] - Sector apagado ó encendido",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "zona prendido",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [],
+        "eq_req": false,
+        "preguntas": []
+      },
+      {
+        "id_subtipo": 475,
+        "tipo": "Trámite",
+        "categoria": "Arbolado",
+        "descripcion": "Permiso de poda ó extracción por cuenta propia",
+        "descripcion_ext": "Trámite [Arbolado] - Permiso de poda ó extracción por cuenta propia",
+        "orden": 4,
+        "estilo": "fsua-arbolado",
+        "etiquetas": "árbol arbol ramas podar",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [],
+        "eq_req": false,
+        "preguntas": []
+      },
+      {
+        "id_subtipo": 491,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Lámpara apagada ó encendida",
+        "descripcion_ext": "Reclamo [Alumbrado] - Lámpara apagada ó encendida",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "lampara quemada",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [
+          "transversal",
+          "columna"
+        ],
+        "eq_req": true,
+        "preguntas": []
+      }
+    ],
+    [
+      {
+        "id_subtipo": 491,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Lámpara apagada ó encendida",
+        "descripcion_ext": "Reclamo [Alumbrado] - Lámpara apagada ó encendida",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "lampara quemada",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [
+          "transversal",
+          "columna"
+        ],
+        "eq_req": true,
+        "preguntas": []
+      },
+      {
+        "id_subtipo": 499,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Sector apagado ó encendido",
+        "descripcion_ext": "Reclamo [Alumbrado] - Sector apagado ó encendido",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "zona prendido",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [],
+        "eq_req": false,
+        "preguntas": []
+      },
+      {
+        "id_subtipo": 499,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Sector apagado ó encendido",
+        "descripcion_ext": "Reclamo [Alumbrado] - Sector apagado ó encendido",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "zona prendido",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [],
+        "eq_req": false,
+        "preguntas": []
+      },
+      {
+        "id_subtipo": 475,
+        "tipo": "Trámite",
+        "categoria": "Arbolado",
+        "descripcion": "Permiso de poda ó extracción por cuenta propia",
+        "descripcion_ext": "Trámite [Arbolado] - Permiso de poda ó extracción por cuenta propia",
+        "orden": 4,
+        "estilo": "fsua-arbolado",
+        "etiquetas": "árbol arbol ramas podar",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [],
+        "eq_req": false,
+        "preguntas": []
+      },
+      {
+        "id_subtipo": 491,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Lámpara apagada ó encendida",
+        "descripcion_ext": "Reclamo [Alumbrado] - Lámpara apagada ó encendida",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "lampara quemada",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [
+          "transversal",
+          "columna"
+        ],
+        "eq_req": true,
+        "preguntas": []
+      },
+      {
+        "id_subtipo": 499,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Sector apagado ó encendido",
+        "descripcion_ext": "Reclamo [Alumbrado] - Sector apagado ó encendido",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "zona prendido",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [],
+        "eq_req": false,
+        "preguntas": []
+      }
+    ],
+    [
       "Resuelto"
     ],
     [
-      "En curso"
-    ],
-    [
-      "En curso"
-    ],
-    [
-      "En curso",
+      "Resuelto",
       "Pendiente"
     ],
     [
-      "En curso",
       "Pendiente"
     ],
     [
-      "En curso",
       "Pendiente",
       "Resuelto"
     ],
     [
-      "En curso",
-      "Pendiente",
-      "Resuelto"
-    ],
-    [
-      "Pendiente"
-    ],
-    [
-      "Pendiente",
-      "En curso"
-    ],
-    [
-      "Pendiente",
-      "En curso"
-    ],
-    [
-      "Pendiente",
-      "En curso"
-    ],
-    [
-      "Pendiente",
-      "En curso"
-    ],
-    [
-      "Pendiente",
-      "En curso",
-      "Resuelto"
-    ],
-    [
-      "Pendiente",
-      "En curso",
-      "Resuelto"
-    ],
-    [
-      "En curso"
-    ],
-    [
-      "En curso",
-      "Pendiente"
-    ],
-    [
-      "En curso",
-      "Pendiente"
-    ],
-    [
-      "En curso",
-      "Pendiente"
-    ],
-    [
-      "En curso",
-      "Pendiente",
-      "Resuelto"
-    ],
-    [
-      "En curso",
       "Pendiente",
       "Resuelto",
-      "Cerrado"
-    ],
-    [
-      "En curso",
-      "Pendiente",
-      "Resuelto",
-      "Cerrado"
-    ],
-    [
-      "En curso",
-      "Pendiente",
-      "Resuelto",
-      "Cerrado"
-    ],
-    [
-      "En curso",
-      "Pendiente",
-      "Resuelto",
-      "Cerrado"
-    ],
-    [
-      "En curso",
-      "Pendiente",
-      "Resuelto",
-      "Cerrado"
-    ],
-    [
-      "En curso",
-      "Pendiente",
-      "Resuelto",
-      "Cerrado"
-    ],
-    [
-      "En curso",
-      "Pendiente",
-      "Resuelto",
-      "Cerrado"
-    ],
-    [
       "En curso"
     ],
     [
-      "En curso",
-      "Pendiente"
+      {
+        "id_subtipo": 475,
+        "tipo": "Trámite",
+        "categoria": "Arbolado",
+        "descripcion": "Permiso de poda ó extracción por cuenta propia",
+        "descripcion_ext": "Trámite [Arbolado] - Permiso de poda ó extracción por cuenta propia",
+        "orden": 4,
+        "estilo": "fsua-arbolado",
+        "etiquetas": "árbol arbol ramas podar",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [],
+        "eq_req": false,
+        "preguntas": []
+      }
     ],
     [
-      "En curso",
-      "Pendiente"
+      {
+        "id_subtipo": 475,
+        "tipo": "Trámite",
+        "categoria": "Arbolado",
+        "descripcion": "Permiso de poda ó extracción por cuenta propia",
+        "descripcion_ext": "Trámite [Arbolado] - Permiso de poda ó extracción por cuenta propia",
+        "orden": 4,
+        "estilo": "fsua-arbolado",
+        "etiquetas": "árbol arbol ramas podar",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [],
+        "eq_req": false,
+        "preguntas": []
+      },
+      {
+        "id_subtipo": 499,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Sector apagado ó encendido",
+        "descripcion_ext": "Reclamo [Alumbrado] - Sector apagado ó encendido",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "zona prendido",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [],
+        "eq_req": false,
+        "preguntas": []
+      }
     ],
     [
-      "En curso",
-      "Pendiente"
+      {
+        "id_subtipo": 475,
+        "tipo": "Trámite",
+        "categoria": "Arbolado",
+        "descripcion": "Permiso de poda ó extracción por cuenta propia",
+        "descripcion_ext": "Trámite [Arbolado] - Permiso de poda ó extracción por cuenta propia",
+        "orden": 4,
+        "estilo": "fsua-arbolado",
+        "etiquetas": "árbol arbol ramas podar",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [],
+        "eq_req": false,
+        "preguntas": []
+      },
+      {
+        "id_subtipo": 499,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Sector apagado ó encendido",
+        "descripcion_ext": "Reclamo [Alumbrado] - Sector apagado ó encendido",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "zona prendido",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [],
+        "eq_req": false,
+        "preguntas": []
+      },
+      {
+        "id_subtipo": 491,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Lámpara apagada ó encendida",
+        "descripcion_ext": "Reclamo [Alumbrado] - Lámpara apagada ó encendida",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "lampara quemada",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [
+          "transversal",
+          "columna"
+        ],
+        "eq_req": true,
+        "preguntas": []
+      }
     ],
     [
-      "En curso",
-      "Pendiente",
-      "Resuelto"
+      {
+        "id_subtipo": 475,
+        "tipo": "Trámite",
+        "categoria": "Arbolado",
+        "descripcion": "Permiso de poda ó extracción por cuenta propia",
+        "descripcion_ext": "Trámite [Arbolado] - Permiso de poda ó extracción por cuenta propia",
+        "orden": 4,
+        "estilo": "fsua-arbolado",
+        "etiquetas": "árbol arbol ramas podar",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [],
+        "eq_req": false,
+        "preguntas": []
+      },
+      {
+        "id_subtipo": 499,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Sector apagado ó encendido",
+        "descripcion_ext": "Reclamo [Alumbrado] - Sector apagado ó encendido",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "zona prendido",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [],
+        "eq_req": false,
+        "preguntas": []
+      },
+      {
+        "id_subtipo": 491,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Lámpara apagada ó encendida",
+        "descripcion_ext": "Reclamo [Alumbrado] - Lámpara apagada ó encendida",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "lampara quemada",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [
+          "transversal",
+          "columna"
+        ],
+        "eq_req": true,
+        "preguntas": []
+      },
+      {
+        "id_subtipo": 386,
+        "tipo": "Denuncia",
+        "categoria": "Convivencia ciudadana",
+        "descripcion": "Ruido molesto en vía pública, comercio ú obra",
+        "descripcion_ext": "Denuncia [Convivencia ciudadana] - Ruido molesto en vía pública, comercio ú obra",
+        "orden": 4,
+        "estilo": "fsua-convivencia_ciudadana",
+        "etiquetas": "musica música boliche construcción construccion medicion medición",
+        "desc_sugerida": " ",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [
+          "comercios"
+        ],
+        "eq_req": false,
+        "preguntas": []
+      }
     ],
+    {
+      "id": 70
+    },
     [
-      "En curso",
-      "Pendiente",
-      "Resuelto"
+      {
+        "id_subtipo": 475,
+        "tipo": "Trámite",
+        "categoria": "Arbolado",
+        "descripcion": "Permiso de poda ó extracción por cuenta propia",
+        "descripcion_ext": "Trámite [Arbolado] - Permiso de poda ó extracción por cuenta propia",
+        "orden": 4,
+        "estilo": "fsua-arbolado",
+        "etiquetas": "árbol arbol ramas podar",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [],
+        "eq_req": false,
+        "preguntas": []
+      },
+      {
+        "id_subtipo": 491,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Lámpara apagada ó encendida",
+        "descripcion_ext": "Reclamo [Alumbrado] - Lámpara apagada ó encendida",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "lampara quemada",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [
+          "transversal",
+          "columna"
+        ],
+        "eq_req": true,
+        "preguntas": []
+      },
+      {
+        "id_subtipo": 386,
+        "tipo": "Denuncia",
+        "categoria": "Convivencia ciudadana",
+        "descripcion": "Ruido molesto en vía pública, comercio ú obra",
+        "descripcion_ext": "Denuncia [Convivencia ciudadana] - Ruido molesto en vía pública, comercio ú obra",
+        "orden": 4,
+        "estilo": "fsua-convivencia_ciudadana",
+        "etiquetas": "musica música boliche construcción construccion medicion medición",
+        "desc_sugerida": " ",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [
+          "comercios"
+        ],
+        "eq_req": false,
+        "preguntas": []
+      },
+      {
+        "id_subtipo": 499,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Sector apagado ó encendido",
+        "descripcion_ext": "Reclamo [Alumbrado] - Sector apagado ó encendido",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "zona prendido",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [],
+        "eq_req": false,
+        "preguntas": []
+      }
     ],
+    {
+      "id": 72
+    },
     [
-      "En curso",
-      "Pendiente",
-      "Resuelto"
-    ],
-    [
-      "En curso",
-      "Pendiente",
-      "Resuelto"
-    ],
-    [
-      "",
-      "Pendiente",
-      ""
-    ],
-    [
-      "",
-      "Pendiente",
-      "",
-      "En curso"
-    ],
-    [
-      "",
-      "Pendiente",
-      "",
-      null
-    ],
-    [
-      "",
-      "Pendiente",
-      "",
-      null,
-      "En curso"
-    ],
-    [
-      "",
-      "Pendiente",
-      "",
-      null
-    ],
-    [
-      "En curso"
-    ],
-    [
-      "En curso",
-      "Resuelto"
-    ],
-    [
-      "En curso",
-      "Resuelto"
-    ],
-    [
-      "En curso",
       "Resuelto",
-      "Pendiente"
-    ],
-    [
       "En curso"
     ],
+    {
+      "id": 74
+    },
+    {
+      "id": 75
+    },
     [
-      "En curso",
-      "Resuelto"
+      {
+        "id_subtipo": 386,
+        "tipo": "Denuncia",
+        "categoria": "Convivencia ciudadana",
+        "descripcion": "Ruido molesto en vía pública, comercio ú obra",
+        "descripcion_ext": "Denuncia [Convivencia ciudadana] - Ruido molesto en vía pública, comercio ú obra",
+        "orden": 4,
+        "estilo": "fsua-convivencia_ciudadana",
+        "etiquetas": "musica música boliche construcción construccion medicion medición",
+        "desc_sugerida": " ",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [
+          "comercios"
+        ],
+        "eq_req": false,
+        "preguntas": []
+      },
+      {
+        "id_subtipo": 491,
+        "tipo": "Reclamo",
+        "categoria": "Alumbrado",
+        "descripcion": "Lámpara apagada ó encendida",
+        "descripcion_ext": "Reclamo [Alumbrado] - Lámpara apagada ó encendida",
+        "orden": 1,
+        "estilo": "fsua-alumbrado_publico",
+        "etiquetas": "lampara quemada",
+        "desc_sugerida": "",
+        "solicitante_req": true,
+        "direccion_req": true,
+        "guia": "",
+        "tipos_equipamiento": [
+          "transversal",
+          "columna"
+        ],
+        "eq_req": true,
+        "preguntas": []
+      }
     ],
-    [
-      "En curso",
-      "Resuelto",
-      "Pendiente"
-    ],
-    [
-      "En curso",
-      "Resuelto",
-      "Pendiente"
-    ],
-    [
-      "En curso",
-      "Resuelto",
-      "Cerrado"
-    ],
-    [
-      "En curso",
-      "Resuelto",
-      "Cerrado"
-    ],
-    [
-      "En curso",
-      "Resuelto",
-      "Cerrado"
-    ],
-    [
-      "En curso",
-      "Resuelto",
-      "Cerrado"
-    ],
-    [
-      "En curso",
-      "Resuelto",
-      "Cerrado"
-    ],
-    [
-      "En curso",
-      "Resuelto",
-      "Cerrado"
-    ],
-    [
-      "Cerrado"
-    ],
-    [
-      "Pendiente"
-    ],
-    [
-      "Pendiente",
-      "En curso"
-    ],
-    [
-      "Pendiente",
-      "En curso"
-    ],
-    [
-      "Pendiente",
-      "En curso"
-    ],
-    [
-      "Pendiente",
-      "En curso"
-    ],
-    [
-      "Pendiente",
-      "En curso"
-    ],
-    [
-      "Pendiente",
-      "En curso"
-    ],
-    [
-      "Otro item"
-    ],
-    [
-      "Otro item",
-      "Sector apagado ó encendido"
-    ],
-    [
-      "Otro item",
-      "Sector apagado ó encendido",
-      "Lámpara apagada ó encendida"
-    ],
-    [
-      "En curso"
-    ]
+    {
+      "id": 77
+    },
+    {
+      "id": 78
+    }
   ],
   "alertas": {
     "reiterated": {
@@ -558,88 +860,88 @@
     },
     {
       "id": 3,
-      "icono": "fsua-higiene_urbana",
-      "name": "Barrido y limpieza ausente ó deficiente aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "icono": "fsua-bicis_publicas",
+      "name": "Estación completa ó vacía",
       "details": 450
     },
     {
       "id": 4,
       "icono": "fsua-bicis_publicas",
-      "name": "Puesto de bicicletas vacío",
+      "name": "Bici dañada, desinflada ó con faltantes",
       "details": 2897
     },
     {
       "id": 5,
       "icono": "fsua-semaforos",
-      "name": "Semáforo roto",
+      "name": "Semáforo apagado ó intermitente",
       "details": 450
     },
     {
       "id": 6,
       "icono": "fsua-semaforos",
-      "name": "Semáforo roto",
+      "name": "Semáforo dañado",
       "details": 1000
     },
     {
       "id": 7,
-      "icono": "fsua-tel",
-      "name": "otro-item",
+      "icono": "fsua-senalizacion_vial",
+      "name": "Cartel o poste dañado o faltante",
       "details": 103
     },
     {
       "id": 8,
-      "icono": "fsua-semaforos",
-      "name": "Semáforo roto",
+      "icono": "fsua-estacionamiento_medido",
+      "name": "Problema con punto de venta",
       "details": 1045
     },
     {
       "id": 9,
-      "icono": "fsua-semaforos",
-      "name": "Semáforo roto",
+      "icono": "fsua-convivencia_ciudadana",
+      "name": "Ruido molesto en vía pública, comercio ú obra",
       "details": 1444
     }
   ],
   "ConsultasReclamos": [
     {
       "id": 1,
-      "icono": "fsua-colectivos_urbanos",
-      "name": "Consulta TUP",
+      "icono": "fsua-semaforos",
+      "name": "Solicitud de nuevo semáforo",
       "details": 5948
     },
     {
       "id": 2,
-      "icono": "fsua-tel",
-      "name": "Información sobre temas ajenos al 147",
+      "icono": "fsua-cloacas_zanjas",
+      "name": "Solicitud de camión atmosférico para caso social",
       "details": 354
     },
     {
       "id": 3,
-      "icono": "fsua-higiene_urbana",
-      "name": "Solicitud de información de higiene urbana",
+      "icono": "fsua-senalizacion_vial",
+      "name": "Solicitud de nueva señalización vial",
       "details": 721
     },
     {
       "id": 4,
-      "icono": "fsua-higiene_urbana",
-      "name": "Solicitud de información de higiene urbana y más texto para testear que se corta en el programa",
+      "icono": "fsua-bicis_publicas",
+      "name": "Solicitud de infraestructura para bicis",
       "details": 500
     },
     {
       "id": 5,
-      "icono": "fsua-higiene_urbana",
-      "name": "Otro item",
+      "icono": "fsua-arbolado",
+      "name": "Permiso de poda ó extracción por cuenta propia",
       "details": 1453
     },
     {
       "id": 6,
-      "icono": "fsua-higiene_urbana",
-      "name": "Otro item",
+      "icono": "fsua-arbolado",
+      "name": "Solicitud de plantación de árbol en mi frente",
       "details": 234
     },
     {
       "id": 7,
-      "icono": "fsua-higiene_urbana",
-      "name": "Otro item",
+      "icono": "fsua-parques_plazas",
+      "name": "Solicitud de nuevo equipamiento",
       "details": 809
     }
   ],
