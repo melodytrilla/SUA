@@ -393,7 +393,11 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   }
 
   ClearClasificacion(){
+    console.log(this.advSearch.clasificacion_subtipo);
     this.advSearch.clasificacion_subtipo = [];
+    this.myChips.removeAll();
+    console.log("after clear:");
+    console.log(this.advSearch.clasificacion_subtipo);
     this.advSearch.clasificacion_tipo = undefined;
     this.advSearch.clasificacion_origenes = [];
     this.advSearch.clasificacion_registro = true;
