@@ -4,6 +4,7 @@ import 'chart.piecelabel.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { monkeyPatchChartJsLegend } from 'ng2-charts';
 import { SolicitudesService } from '../solicitudes.service';
+import {MyColores} from '../../assets/Color';
 
 @Component({
   selector: 'app-requests-by-origin',
@@ -20,7 +21,7 @@ export class RequestsByOriginComponent implements OnInit {
   public doughnutChartData: Array<number> = [1, 1, 1, 1, 1, 1, 1, 1, 1];
   public doughnutChartColors: Array<any> = [
     {
-      backgroundColor: ['#F5CBA7', '#48C9B0', '#2471A3', '#F7DC6F', '#AF7AC5', '#F1948A', '#EE493E', '#88B6DF'],
+      backgroundColor: [MyColores.encurso_theme(), '#48C9B0', '#2471A3', '#F7DC6F', '#AF7AC5', '#F1948A', '#EE493E', '#88B6DF'],
       hoverBackgroundColor: ['#FAE5D3', '#76D7C4', '#5499C7', '#F9E79F', '#D7BDE2', '#FADBD8', '#F96D63', '#A2D0F9'],
       borderWidth: 1,
     }
@@ -104,8 +105,8 @@ export class RequestsByOriginComponent implements OnInit {
         this.doughnutChartData = clone1;
         this.doughnutChartLabels = clone2;
       }
-    )
 
+    )
   }
 
 }
