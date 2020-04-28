@@ -50,9 +50,9 @@ export class ChipsContainerComponent implements OnInit{
   //recupera los chisp guardados en la session si los hay
   ngOnInit() {
     if(this.busquedaService.busquedaCompleta.advSearch != null){
-      this.savedChips = this.busquedaService.busquedaCompleta.advSearch.clasificacion_subtipo;
+      this.savedChips = JSON.parse(JSON.stringify(this.busquedaService.busquedaCompleta.advSearch.clasificacion_subtipo));
     }
-    this.chips = this.savedChips;
+    this.chips = JSON.parse(JSON.stringify(this.savedChips));
   }
 
   onSearchChange (searchValue: string): void {
@@ -99,6 +99,12 @@ export class ChipsContainerComponent implements OnInit{
       this.filteredOptions = [];
       this.filteredCategories = [];
     }
+  }
+
+  removeAll():void{
+    this.chips = [];
+    this.filteredOptions = [];
+    this.filteredCategories = [];
   }
 
   //Select an option from the select menu
