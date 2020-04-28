@@ -17,6 +17,9 @@ import { BusquedaService, Busqueda, BusquedaSave } from '../busqueda.service';
 })
 export class SearchBarComponent implements OnInit {
 
+  message: number;
+  editMessage: number;
+
   public yearMask = {
     guide: false,
     showMask : true,
@@ -37,7 +40,6 @@ export class SearchBarComponent implements OnInit {
   //a enviar al servicio de busqueda
   private busquedaField: Busqueda
   private cantFiltros: number = 0;
-  editMessage: number;
 
   busquedasGuardadas; 
 
@@ -59,6 +61,9 @@ export class SearchBarComponent implements OnInit {
     //this.busqueda.customMessage.subscribe(msg => this.cantFiltros = msg);
     this.busqueda.Init();
     this.busquedaField = this.busqueda.busquedaCompleta;
+    this.busqueda.customMessage.subscribe(msg => {
+      this.cantFiltros = msg}
+      );
     this.cantFiltros = this.busqueda.getCantFiltros();
 
     this.form = this.formBuilder.group({

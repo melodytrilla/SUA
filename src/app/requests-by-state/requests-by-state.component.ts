@@ -13,6 +13,9 @@ import { BusquedaService } from '../busqueda.service';
 })
 export class RequestsByStateComponent implements OnInit {
 
+  message: number;
+  editMessage: number;
+
   constructor(private solicitudService: SolicitudesService,
               private service: BusquedaService) {
   }
@@ -77,7 +80,7 @@ export class RequestsByStateComponent implements OnInit {
   }]
 
   ngOnInit() {
-    
+    this.service.customMessage.subscribe(msg => this.message = msg);
     this.solicitudService.getSolicitudesporEstado().subscribe(
       data => {
         let clone1 = JSON.parse(JSON.stringify(this.doughnutChartData));
@@ -97,11 +100,13 @@ export class RequestsByStateComponent implements OnInit {
   cambiarFondo(i){
     if (document.getElementById(i).style.backgroundColor == "rgb(0, 102, 204)"){
       this.service.borrarEstado(i)
+      this.service.changeMessage(this.editMessage);
       document.getElementById(i).style.backgroundColor = "rgb(249, 250, 253)"
       document.getElementById(i).style.color = "rgba(0, 0, 0, 0.87)"
     }
     else{
       this.service.agregarEstado(i)
+      this.service.changeMessage(this.editMessage);
       document.getElementById(i).style.backgroundColor = "rgb(0, 102, 204)"
       document.getElementById(i).style.color = "white"
     }

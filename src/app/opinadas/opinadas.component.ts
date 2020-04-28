@@ -26,12 +26,14 @@ export class OpinadasComponent implements OnInit {
   positivas: number;
   negativas: number;
   neutral: number;
- 
+  message: number;
+  editMessage: number;
   constructor(private api: SolicitudesService,
               private service: BusquedaService) { }
 
   ngOnInit() {
     this.loading = true;
+    this.service.customMessage.subscribe(msg => this.message = msg);
     this.api.getDatosVarios('Opinadas').subscribe(data=>{
       data.forEach(value=>{
         this.total = this.total + value.details;
@@ -54,12 +56,14 @@ export class OpinadasComponent implements OnInit {
   cambiarFondo(ind, name){
     if (document.getElementById("i-" + ind).style.backgroundColor == "rgb(0, 102, 204)"){
       this.service.borrarOpinion(name)
+      this.service.changeMessage(this.editMessage);
       document.getElementById("i-" + ind).style.backgroundColor = "rgb(249, 250, 253)"
       document.getElementById("i-" + ind).style.color = "rgba(0, 0, 0, 0.87)"
       document.getElementById("ico-"+ ind).style.color = "rgba(0, 0, 0, 0.87)"
     }
     else{
       this.service.agregarOpinion(name)
+      this.service.changeMessage(this.editMessage);
       document.getElementById("i-" + ind).style.backgroundColor = "rgb(0, 102, 204)"
       document.getElementById("ico-" + ind).style.color = "white"
       document.getElementById("i-" + ind).style.color = "white"

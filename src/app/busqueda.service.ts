@@ -35,17 +35,25 @@ export interface BusquedaSave2{
   providedIn: 'root'
 })
 export class BusquedaService {
+  private filtroNumber  : number = 0;
+  private message = new BehaviorSubject<number>(0);
+
+  public customMessage = this.message.asObservable();
   //private message = new BehaviorSubject<number>(0);
 
   //public customMessage = this.message.asObservable();
 
   constructor(private httpClient: HttpClient) { }
 
+  public changeMessage(msg: number): void {
+    this.message.next(this.filtroNumber);
+  }
+
   apiURL = "http://localhost:3000"
 
   busquedaCompleta:Busqueda;
   aGuardar : BusquedaSave2;
-  private filtroNumber  : number = 0;
+  agOp: boolean = true;
 
   //si hay algo guardado en la session se carga en una variable, si no se inicializa vacio
   Init(){
@@ -246,6 +254,9 @@ export class BusquedaService {
       --------------------------------------------------------------------*/
 
     this.httpClient.post<BusquedaSave>(`${this.apiURL}/filtrosGuardados`, this.busquedaCompleta.advSearch.clasificacion_subtipo).subscribe();
+    if (this.busquedaCompleta.advSearch.clasificacion_subtipo.length == 1){
+      this.filtroNumber++;
+    }
     this.guardarEnSecion()
   }
     //caste las variables a a string para facilitar ve como funciona la funcion
@@ -262,6 +273,9 @@ export class BusquedaService {
       this.busquedaCompleta.advSearch.clasificacion_subtipo.splice(indexFound, 1);
       this.httpClient.post<BusquedaSave>(`${this.apiURL}/filtrosGuardados`, this.busquedaCompleta.advSearch.clasificacion_tipo).subscribe();
     }
+    if (this.busquedaCompleta.advSearch.clasificacion_subtipo.length == 0){
+      this.filtroNumber--;
+    }
   }
   agregarEstado(a){
     if(!this.busquedaCompleta.advSearch.estado_estados.includes(a)){
@@ -269,6 +283,9 @@ export class BusquedaService {
     }
     console.log(this.busquedaCompleta.advSearch.estado_estados)
     this.httpClient.post<BusquedaSave>(`${this.apiURL}/filtrosGuardados`, this.busquedaCompleta.advSearch.estado_estados).subscribe();
+    if (this.busquedaCompleta.advSearch.estado_estados.length == 1){
+      this.filtroNumber++;
+    }
     this.guardarEnSecion()
   }
   borrarEstado(a){
@@ -276,6 +293,9 @@ export class BusquedaService {
       if (estado == a){
         this.busquedaCompleta.advSearch.estado_estados = this.busquedaCompleta.advSearch.estado_estados.filter(est => est!= estado);
       }
+    }
+    if (this.busquedaCompleta.advSearch.estado_estados.length == 0){
+      this.filtroNumber--;
     }
     this.guardarEnSecion()
   }
@@ -289,6 +309,10 @@ export class BusquedaService {
     }
     else if (a == 'Neutral'){
       this.busquedaCompleta.advSearch.opinion_neutro = true
+    }
+    if (this.agOp == true){
+      this.filtroNumber++;
+      this.agOp = false
     }
     this.guardarEnSecion()
   }
@@ -304,29 +328,37 @@ export class BusquedaService {
     }
     if (!this.busquedaCompleta.advSearch.opinion_positivo && !this.busquedaCompleta.advSearch.opinion_negative && !this.busquedaCompleta.advSearch.opinion_neutro){
       this.busquedaCompleta.advSearch.opinion_tiene= "no"
+      this.filtroNumber--;
+      this.agOp= true;
     }
     this.guardarEnSecion()
   }
   agregarBanner(a: string):void{
     if (a == 'reiteradas'){
+      this.filtroNumber++;
       this.busquedaCompleta.advSearch.reiteraciones_sin = false;
     }
     else if (a == 'sinInter'){
+      this.filtroNumber++;
       this.busquedaCompleta.advSearch.intervenciones_tipo = "sin";
     }
     else if (a == 'sinAsig'){
+      this.filtroNumber++;
       this.busquedaCompleta.advSearch.asignacion_tipo = "sin";
     }
     this.guardarEnSecion();
   }
   borrarBanner(a: string): void{
     if (a == 'reiteradas'){
+      this.filtroNumber--;
       this.busquedaCompleta.advSearch.reiteraciones_sin = true;
     }
     else if (a == 'sinInter'){
+      this.filtroNumber--;
       this.busquedaCompleta.advSearch.intervenciones_tipo = "";
     }
     else if (a == 'sinAsig'){
+      this.filtroNumber--;
       this.busquedaCompleta.advSearch.asignacion_tipo = "";
     }
     this.guardarEnSecion();
@@ -334,4 +366,5 @@ export class BusquedaService {
   /*public changeMessage(msg: number): void {
     this.message.next(msg);
   }*/
+
 }
