@@ -273,7 +273,7 @@ export class BusquedaService {
       this.busquedaCompleta.advSearch.clasificacion_subtipo.splice(indexFound, 1);
       this.httpClient.post<BusquedaSave>(`${this.apiURL}/filtrosGuardados`, this.busquedaCompleta.advSearch.clasificacion_tipo).subscribe();
     }
-    if (this.busquedaCompleta.advSearch.clasificacion_subtipo.length == 0){
+    if (this.busquedaCompleta.advSearch.clasificacion_subtipo.length == 0 && this.filtroNumber > 0){
       this.filtroNumber--;
     }
   }
@@ -294,7 +294,7 @@ export class BusquedaService {
         this.busquedaCompleta.advSearch.estado_estados = this.busquedaCompleta.advSearch.estado_estados.filter(est => est!= estado);
       }
     }
-    if (this.busquedaCompleta.advSearch.estado_estados.length == 0){
+    if (this.busquedaCompleta.advSearch.estado_estados.length == 0 && this.filtroNumber > 0){
       this.filtroNumber--;
     }
     this.guardarEnSecion()
@@ -328,38 +328,39 @@ export class BusquedaService {
     }
     if (!this.busquedaCompleta.advSearch.opinion_positivo && !this.busquedaCompleta.advSearch.opinion_negative && !this.busquedaCompleta.advSearch.opinion_neutro){
       this.busquedaCompleta.advSearch.opinion_tiene= "no"
-      this.filtroNumber--;
+      if (this.filtroNumber > 0){
+        this.filtroNumber--;
+      }
       this.agOp= true;
     }
     this.guardarEnSecion()
   }
   agregarBanner(a: string):void{
     if (a == 'reiteradas'){
-      this.filtroNumber++;
       this.busquedaCompleta.advSearch.reiteraciones_sin = false;
     }
     else if (a == 'sinInter'){
-      this.filtroNumber++;
       this.busquedaCompleta.advSearch.intervenciones_tipo = "sin";
     }
     else if (a == 'sinAsig'){
-      this.filtroNumber++;
       this.busquedaCompleta.advSearch.asignacion_tipo = "sin";
     }
+    this.filtroNumber++;
     this.guardarEnSecion();
   }
   borrarBanner(a: string): void{
     if (a == 'reiteradas'){
-      this.filtroNumber--;
       this.busquedaCompleta.advSearch.reiteraciones_sin = true;
     }
     else if (a == 'sinInter'){
-      this.filtroNumber--;
       this.busquedaCompleta.advSearch.intervenciones_tipo = "";
     }
     else if (a == 'sinAsig'){
-      this.filtroNumber--;
+      
       this.busquedaCompleta.advSearch.asignacion_tipo = "";
+    }
+    if(this.filtroNumber > 0){
+      this.filtroNumber--;
     }
     this.guardarEnSecion();
   }
