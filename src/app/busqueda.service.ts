@@ -234,44 +234,20 @@ export class BusquedaService {
     return this.filtroNumber;
   }
 
-  //cambie que la variable a sea un chip
   agregarSubtipo(a: Chip): void {
     console.log(a)
-    //use este metodo para encontrar si esta en clasificacion subtipo y luego la pushe
     if(!this.busquedaCompleta.advSearch.clasificacion_subtipo.includes(a)){
       this.busquedaCompleta.advSearch.clasificacion_subtipo.push(a)
     }
-    /* ------------------------- tu codigo ---------------------------- no lo queria tocar por si las dudas lo mio este mal
-    let cont: number = 0;
-    for (let subtipo of this.busquedaCompleta.advSearch.clasificacion_subtipo){
-      if(subtipo.descripcion != a ){
-        cont = cont + 1;
-      }
-    }
-      if(cont == this.busquedaCompleta.advSearch.clasificacion_subtipo.length){
-        this.busquedaCompleta.advSearch.clasificacion_subtipo.push(a)
-      }
-      --------------------------------------------------------------------*/
-
-    this.httpClient.post<BusquedaSave>(`${this.apiURL}/filtrosGuardados`, this.busquedaCompleta.advSearch.clasificacion_subtipo).subscribe();
     if (this.busquedaCompleta.advSearch.clasificacion_subtipo.length == 1){
       this.filtroNumber++;
     }
     this.guardarEnSecion()
   }
-    //caste las variables a a string para facilitar ve como funciona la funcion
   borrarSubtipo(a: string):void {
-    /* --------------------------------------------------------------
-    if(this.busquedaCompleta.advSearch.clasificacion_tipo == a){
-    this.busquedaCompleta.advSearch.clasificacion_tipo = undefined;
-    }
-    -----------------------------------------------------------------*/
-
-    //esto busca el index y lo saca usando splice (pued que este mal usado tendremos que ir testeandolo)
     let indexFound: number =  this.busquedaCompleta.advSearch.clasificacion_subtipo.findIndex(chipSearch => chipSearch.descripcion == a)
     if(indexFound > -1){
       this.busquedaCompleta.advSearch.clasificacion_subtipo.splice(indexFound, 1);
-      this.httpClient.post<BusquedaSave>(`${this.apiURL}/filtrosGuardados`, this.busquedaCompleta.advSearch.clasificacion_tipo).subscribe();
     }
     if (this.busquedaCompleta.advSearch.clasificacion_subtipo.length == 0 && this.filtroNumber > 0){
       this.filtroNumber--;
@@ -282,7 +258,6 @@ export class BusquedaService {
       this.busquedaCompleta.advSearch.estado_estados.push(a)
     }
     console.log(this.busquedaCompleta.advSearch.estado_estados)
-    this.httpClient.post<BusquedaSave>(`${this.apiURL}/filtrosGuardados`, this.busquedaCompleta.advSearch.estado_estados).subscribe();
     if (this.busquedaCompleta.advSearch.estado_estados.length == 1){
       this.filtroNumber++;
     }

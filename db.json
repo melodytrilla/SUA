@@ -452,25 +452,6 @@
       }
     ],
     [
-      "Resuelto"
-    ],
-    [
-      "Resuelto",
-      "Pendiente"
-    ],
-    [
-      "Pendiente"
-    ],
-    [
-      "Pendiente",
-      "Resuelto"
-    ],
-    [
-      "Pendiente",
-      "Resuelto",
-      "En curso"
-    ],
-    [
       {
         "id_subtipo": 475,
         "tipo": "Trámite",
@@ -656,9 +637,6 @@
         "preguntas": []
       }
     ],
-    {
-      "id": 70
-    },
     [
       {
         "id_subtipo": 475,
@@ -734,19 +712,7 @@
         "preguntas": []
       }
     ],
-    {
-      "id": 72
-    },
-    [
-      "Resuelto",
-      "En curso"
-    ],
-    {
-      "id": 74
-    },
-    {
-      "id": 75
-    },
+    
     [
       {
         "id_subtipo": 386,
@@ -788,64 +754,9 @@
         "preguntas": []
       }
     ],
-    {
-      "id": 77
-    },
-    {
-      "id": 78
-    },
+    
     [
-      "Pendiente"
-    ],
-    [
-      "Solicitud de camión atmosférico para caso social"
-    ],
-    [
-      "Solicitud de camión atmosférico para caso social",
-      "Solicitud de nuevo equipamiento"
-    ],
-    [
-      "Solicitud de camión atmosférico para caso social",
-      "Solicitud de nuevo equipamiento",
-      "Solicitud de nueva señalización vial"
-    ],
-    [
-      "Solicitud de camión atmosférico para caso social",
-      "Solicitud de nuevo equipamiento",
-      "Solicitud de nueva señalización vial",
-      "Solicitud de nuevo semáforo"
-    ],
-    [
-      "Semáforo dañado"
-    ],
-    [
-      "Semáforo dañado",
-      "Ruido molesto en vía pública, comercio ú obra"
-    ],
-    [
-      "Semáforo dañado",
-      "Ruido molesto en vía pública, comercio ú obra",
-      "Problema con punto de venta"
-    ],
-    [
-      "Semáforo dañado",
-      "Ruido molesto en vía pública, comercio ú obra",
-      "Problema con punto de venta",
-      "Cartel o poste dañado o faltante"
-    ],
-    [
-      "Semáforo dañado",
-      "Ruido molesto en vía pública, comercio ú obra",
-      "Problema con punto de venta",
-      "Cartel o poste dañado o faltante",
-      "Semáforo apagado ó intermitente"
-    ],
-    [
-      "Semáforo dañado",
-      "Ruido molesto en vía pública, comercio ú obra",
-      "Problema con punto de venta",
-      "Cartel o poste dañado o faltante",
-      "Semáforo apagado ó intermitente",
+      
       {
         "id_subtipo": 386,
         "tipo": "Denuncia",
@@ -867,11 +778,6 @@
       }
     ],
     [
-      "Semáforo dañado",
-      "Ruido molesto en vía pública, comercio ú obra",
-      "Problema con punto de venta",
-      "Cartel o poste dañado o faltante",
-      "Semáforo apagado ó intermitente",
       {
         "id_subtipo": 386,
         "tipo": "Denuncia",
@@ -910,11 +816,6 @@
       }
     ],
     [
-      "Semáforo dañado",
-      "Ruido molesto en vía pública, comercio ú obra",
-      "Problema con punto de venta",
-      "Cartel o poste dañado o faltante",
-      "Semáforo apagado ó intermitente",
       {
         "id_subtipo": 386,
         "tipo": "Denuncia",
@@ -953,11 +854,6 @@
       }
     ],
     [
-      "Semáforo dañado",
-      "Ruido molesto en vía pública, comercio ú obra",
-      "Problema con punto de venta",
-      "Cartel o poste dañado o faltante",
-      "Semáforo apagado ó intermitente",
       {
         "id_subtipo": 386,
         "tipo": "Denuncia",
@@ -996,11 +892,6 @@
       }
     ],
     [
-      "Semáforo dañado",
-      "Ruido molesto en vía pública, comercio ú obra",
-      "Problema con punto de venta",
-      "Cartel o poste dañado o faltante",
-      "Semáforo apagado ó intermitente",
       {
         "id_subtipo": 386,
         "tipo": "Denuncia",
@@ -1036,15 +927,9 @@
         "tipos_equipamiento": [],
         "eq_req": false,
         "preguntas": []
-      },
-      "Estación completa ó vacía"
+      }
     ],
     [
-      "Semáforo dañado",
-      "Ruido molesto en vía pública, comercio ú obra",
-      "Problema con punto de venta",
-      "Cartel o poste dañado o faltante",
-      "Semáforo apagado ó intermitente",
       {
         "id_subtipo": 386,
         "tipo": "Denuncia",
@@ -1103,11 +988,6 @@
       }
     ],
     [
-      "Semáforo dañado",
-      "Ruido molesto en vía pública, comercio ú obra",
-      "Problema con punto de venta",
-      "Cartel o poste dañado o faltante",
-      "Semáforo apagado ó intermitente",
       {
         "id_subtipo": 386,
         "tipo": "Denuncia",
@@ -1144,7 +1024,6 @@
         "eq_req": false,
         "preguntas": []
       },
-      "Estación completa ó vacía",
       {
         "id_subtipo": 4,
         "tipo": "Reclamo",
@@ -1185,11 +1064,6 @@
       }
     ],
     [
-      "Semáforo dañado",
-      "Ruido molesto en vía pública, comercio ú obra",
-      "Problema con punto de venta",
-      "Cartel o poste dañado o faltante",
-      "Semáforo apagado ó intermitente",
       {
         "id_subtipo": 386,
         "tipo": "Denuncia",
@@ -1226,7 +1100,6 @@
         "eq_req": false,
         "preguntas": []
       },
-      "Estación completa ó vacía",
       {
         "id_subtipo": 4,
         "tipo": "Reclamo",
@@ -1286,11 +1159,6 @@
       }
     ],
     [
-      "Semáforo dañado",
-      "Ruido molesto en vía pública, comercio ú obra",
-      "Problema con punto de venta",
-      "Cartel o poste dañado o faltante",
-      "Semáforo apagado ó intermitente",
       {
         "id_subtipo": 386,
         "tipo": "Denuncia",
@@ -1327,7 +1195,6 @@
         "eq_req": false,
         "preguntas": []
       },
-      "Estación completa ó vacía",
       {
         "id_subtipo": 4,
         "tipo": "Reclamo",
@@ -1775,13 +1642,6 @@
         "eq_req": false,
         "preguntas": []
       }
-    ],
-    [
-      "En curso"
-    ],
-    [
-      "En curso",
-      "Resuelto"
     ]
   ],
   "alertas": {
