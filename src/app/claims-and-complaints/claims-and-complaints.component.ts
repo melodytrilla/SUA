@@ -13,6 +13,8 @@ import { Chip } from '../chips-container/chips-container.component';
 })
 export class ClaimsAndComplaintsComponent implements OnInit{
 
+message: number;
+editMessage: number;
 @Input() title: string;
 
 constructor(private api: SolicitudesService,
@@ -26,6 +28,7 @@ public i:number =1;
 
 ngOnInit(){
   this.loading = true;
+  this.service.customMessage.subscribe(msg => this.message = msg);
   this.api.getDatosVarios(this.title).subscribe(data=>{
     data.forEach(value=>{
       this.total = this.total + value.details;
@@ -48,6 +51,7 @@ ngOnInit(){
     console.log(typeof this.data[i].name)
     if (document.getElementById(i + "-" + tit).style.backgroundColor == "rgb(0, 102, 204)"){
       this.service.borrarSubtipo(this.data[i].name);
+      this.service.changeMessage(this.editMessage);
       document.getElementById(i + "-" + tit).style.backgroundColor = "rgb(249, 250, 253)"
       document.getElementById(i + "-" + tit).style.color = "rgba(0, 0, 0, 0.87)"
       document.getElementById("ico-" + i + "-" + tit).style.color = "rgba(0, 0, 0, 0.87)"
@@ -61,6 +65,7 @@ ngOnInit(){
       // ---> Abria que cambiar db para que sean subcategorias  
       if(tempChip != null){
         this.service.agregarSubtipo(tempChip);
+        this.service.changeMessage(this.editMessage);
         document.getElementById(i + "-" + tit).style.backgroundColor = "rgb(0, 102, 204)"
         document.getElementById(i + "-" + tit).style.color = "white"
         document.getElementById("ico-" + i + "-" + tit).style.color = "white"
