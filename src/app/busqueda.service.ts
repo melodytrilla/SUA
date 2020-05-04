@@ -41,7 +41,7 @@ export class BusquedaService {
 
   constructor(private httpClient: HttpClient) { }
 
-  apiURL = "http://localhost:3000"
+  apiURL = "http://localhost:3000" // <--- fijarse que hay post en este codigo (hay que entendes que es lo que hacen y cambiarlos si es necesario)
 
   busquedaCompleta:Busqueda;
   aGuardar : BusquedaSave2;
@@ -245,7 +245,7 @@ export class BusquedaService {
       }
       --------------------------------------------------------------------*/
 
-    this.httpClient.post<BusquedaSave>(`${this.apiURL}/filtrosGuardados`, this.busquedaCompleta.advSearch.clasificacion_subtipo).subscribe();
+    //this.httpClient.post<BusquedaSave>(`${this.apiURL}/filtrosGuardados`, this.busquedaCompleta.advSearch.clasificacion_subtipo).subscribe();
     this.guardarEnSecion()
   }
     //caste las variables a a string para facilitar ve como funciona la funcion
@@ -260,7 +260,7 @@ export class BusquedaService {
     let indexFound: number =  this.busquedaCompleta.advSearch.clasificacion_subtipo.findIndex(chipSearch => chipSearch.descripcion == a)
     if(indexFound > -1){
       this.busquedaCompleta.advSearch.clasificacion_subtipo.splice(indexFound, 1);
-      this.httpClient.post<BusquedaSave>(`${this.apiURL}/filtrosGuardados`, this.busquedaCompleta.advSearch.clasificacion_tipo).subscribe();
+      //this.httpClient.post<BusquedaSave>(`${this.apiURL}/filtrosGuardados`, this.busquedaCompleta.advSearch.clasificacion_tipo).subscribe();
     }
   }
   agregarEstado(a){
@@ -268,7 +268,7 @@ export class BusquedaService {
       this.busquedaCompleta.advSearch.estado_estados.push(a)
     }
     console.log(this.busquedaCompleta.advSearch.estado_estados)
-    this.httpClient.post<BusquedaSave>(`${this.apiURL}/filtrosGuardados`, this.busquedaCompleta.advSearch.estado_estados).subscribe();
+    //this.httpClient.post<BusquedaSave>(`${this.apiURL}/filtrosGuardados`, this.busquedaCompleta.advSearch.estado_estados).subscribe();
     this.guardarEnSecion()
   }
   borrarEstado(a){
