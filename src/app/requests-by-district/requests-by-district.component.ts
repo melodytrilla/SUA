@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ChartOptions } from 'chart.js';
 import 'chart.piecelabel.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
@@ -14,7 +14,7 @@ export class RequestsByDistrictComponent implements OnInit {
 
   constructor(private solicitudesService: SolicitudesService) {
   }
-  
+
   public doughnutChartLabels: Array<string> = ['Centro', 'Norte', 'Sur', 'Oeste', 'Noroeste', 'Sudoeste'];
   public doughnutChartType = 'doughnut';
   public doughnutChartLegend = true;
@@ -28,13 +28,12 @@ export class RequestsByDistrictComponent implements OnInit {
   ];
   public doughnutChartOptions: ChartOptions = {
     responsive: true,
+    onClick: this.alertBox,
     tooltips: {
       enabled: true,
       
     },
-    
     plugins: {
-    
       datalabels: {
         display: false,
         padding: 0,
@@ -42,6 +41,7 @@ export class RequestsByDistrictComponent implements OnInit {
         anchor: 'end',
         textStrokeWidth: 0.2,
         align: 'end',
+        
         formatter: function(value) {
           return value;
       }
@@ -51,7 +51,35 @@ export class RequestsByDistrictComponent implements OnInit {
         fullWidth: false,
         display: true,
         position: 'right',
-        
+        onClick: function(e, legendItem) {
+          var hid:boolean;
+          var cont: number =0;
+          var index = legendItem.index;
+          var ci = this.chart;
+          ci.data.datasets.forEach(function(e, i) {
+            console.log(e)
+            console.log(i)
+            for (let item of e._meta[8].data){
+              if (e._meta[8].data[item._index].hidden == false){
+                cont++;
+              }
+            }
+            for (let item of e._meta[8].data){
+              if(cont == e._meta[8].data.length){
+                e._meta[8].data[item._index].hidden = true
+                e._meta[8].data[index].hidden = false
+              }
+              else if(item._index == index){
+                e._meta[8].data[index].hidden = !e._meta[8].data[index].hidden
+              }
+            }
+          });
+
+          ci.update();
+        },
+        onHover: function(event, legendItem) {
+            document.getElementById("doughnut").style.cursor = 'pointer';
+          },
         labels: {
           padding: 12,
           fontSize: 16,
@@ -59,11 +87,13 @@ export class RequestsByDistrictComponent implements OnInit {
           fontColor: 'black',
           usePointStyle: true,
           boxWidth: 11,
+          
         }
       }
   }
   public doughnutChartPlugins = [{
       ChartDataLabels,
+      
       /*afterLayout: function (chart){
       chart.legend.legendItems.forEach(
         (label) => {
@@ -92,5 +122,14 @@ export class RequestsByDistrictComponent implements OnInit {
       }
     )
 
+  }
+  alertBox(event, array){
+    if (array.length != 0 && array.text === undefined){
+      console.log(array[0].hidden)
+      array[0].hidden = !array[0].hidden
+      console.log(array[0].hidden)
+      console.log(array)
+      console.log(array[0]._view.label)
+    }
   }
 }

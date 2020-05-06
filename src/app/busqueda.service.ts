@@ -35,6 +35,7 @@ export interface BusquedaSave2{
   providedIn: 'root'
 })
 export class BusquedaService {
+  public hid: boolean = false;
   private filtroNumber  : number = 0;
   private message = new BehaviorSubject<number>(0);
 
@@ -342,5 +343,10 @@ export class BusquedaService {
   /*public changeMessage(msg: number): void {
     this.message.next(msg);
   }*/
-
+  actHid(){
+    this.hid = true
+  }
+  getHid(){
+    return this.hid
+  }
 }
