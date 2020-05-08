@@ -671,9 +671,10 @@
                     <!--{{descripcionDE}}--> No se filtra por datos específicos
                 </mat-panel-description>
             </mat-expansion-panel-header>
-            <ng-container >
+           <!-- <ng-container >
                 <p class="texto-regular" style="text-align: center;">{{datosEspecificos_warning}}</p>
-            </ng-container>
+            </ng-container>-->
+            <app-dinamico-datoE [subtipoArray]="advSearch.clasificacion_subtipo" [data]="advSearch.Datos_Extra"></app-dinamico-datoE>
         </mat-expansion-panel>
 
         <div>

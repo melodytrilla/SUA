@@ -1159,7 +1159,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
     if(document.getElementById(panelId).classList.contains("light")){
       this.cantidad_filtros= this.cantidad_filtros + 1;
       console.log(this.cantidad_filtros)
-   }
+    }
     document.getElementById(panelId).classList.remove("light");
     document.getElementById(panelId).classList.add("dark");
     if(fontId != ""){

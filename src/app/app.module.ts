@@ -55,6 +55,10 @@ import { DownloadService } from './download.service';
 import { registerLocaleData } from '@angular/common';
 import { VerMasComponent } from './ver-mas/ver-mas.component';
 import { OpinadasComponent } from './opinadas/opinadas.component';
+import { DatoEHolder } from './Datos-Especificos/DatoEHolder.Component';
+import {DatoEDirective} from './Datos-Especificos/DatoE.directive';
+import {PermisoDePoda} from './Datos-Especificos/DatosE-Componentes/PermisoDePoda.Component';
+import {DemasiadosSubtipos} from './Datos-Especificos/DatosE-Componentes/demasiadosSubtipos.Component';
 
 @NgModule({
   declarations: [
@@ -86,7 +90,11 @@ import { OpinadasComponent } from './opinadas/opinadas.component';
     IconoTestComponent,
     VerMasComponent,
     SortPipe,
-    OpinadasComponent
+    OpinadasComponent,
+    DatoEHolder,
+    DatoEDirective,
+    PermisoDePoda,
+    DemasiadosSubtipos
   ],
   imports: [
     BrowserModule,
