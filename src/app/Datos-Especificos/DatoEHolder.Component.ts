@@ -1,9 +1,10 @@
-import {Component, Input, ViewChild, ComponentFactoryResolver, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
+import {Component, Input, ViewChild, ComponentFactoryResolver, OnInit, ViewContainerRef, ComponentRef} from '@angular/core';
 
 import{Chip} from '../chips-container/chips-container.component'
 
 import {DatoEDirective} from './DatoE.directive'
 import {DatoEspecifico} from './DatoI.Component'
+import {DatosEList} from './DatosE.List'
 
 import {DemasiadosSubtipos} from './DatosE-Componentes/demasiadosSubtipos.Component'
 import { PermisoDePoda } from './DatosE-Componentes/PermisoDePoda.Component';
@@ -17,28 +18,34 @@ import { write } from 'fs';
                 </div>
                 `
 })
-export class DatoEHolder implements OnInit, OnDestroy{
+export class DatoEHolder implements OnInit{
     @Input() subtipoArray:Chip[];
     @Input() data:any;
     @ViewChild(DatoEDirective, {static:true}) datoPlace: DatoEDirective;
 
     constructor(private componentFactoryResolver: ComponentFactoryResolver){}
-    
+
     ngOnInit(){
+        this.showDatoEspecifico();
+        
+    }
+
+    showDatoEspecifico(){
         const viewContainerRef = this.datoPlace.viewConteinerRef;
         viewContainerRef.clear();
         
+
         if(this.subtipoArray.length == 1){
-            const componentFactory = this.componentFactoryResolver.resolveComponentFactory(PermisoDePoda);
-            viewContainerRef.createComponent(componentFactory);
+            console.log(this.subtipoArray[0].descripcion);
+            const componentFactory = 
+            this.componentFactoryResolver.resolveComponentFactory(DatosEList.getDatoEspecifico(this.subtipoArray[0].descripcion));
+            const componentRef = viewContainerRef.createComponent(componentFactory);
+            (<DatoEspecifico> componentRef.instance).datos = this.data;
+            
         }else{
             const componentFactory = this.componentFactoryResolver.resolveComponentFactory(DemasiadosSubtipos);
             viewContainerRef.createComponent(componentFactory);
         }
-        
     }
 
-    ngOnDestroy(){
-
-    }
 } 

@@ -11,6 +11,7 @@ import { BusquedaService } from '../busqueda.service';
 import { SolicitudesService, Vecinal } from '../solicitudes.service';
 import { SatDatepickerRangeValue } from 'saturn-datepicker';
 import { ThemeService } from 'ng2-charts';
+import { DatoEHolder } from '../Datos-Especificos/DatoEHolder.Component';
 
 export interface AdvSearch{
   // Los nuevos parametros a guardar
@@ -294,7 +295,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   //--------------------------------------------------------------------
 
   //-----Busqueda Datos Especificos -----------------------------------------
-
+  @ViewChild(DatoEHolder, {static: true}) datoEholder: DatoEHolder;
   datosEspecificos_warning:string = "";
 
   //--------------------------------------------------------------------
@@ -488,7 +489,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
     this.ClearIntervenciones();
     this.ClearEquipamiento();
     this.ClearAsignacion();
-    this.ClearDatosEspecificos();
+    this.ClearDatosEspecificos(); //chequear
   }
 //------------------------------------------
 
@@ -621,8 +622,6 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
       this.advSearch.clasificacion_subtipo = [];
       this.descripcionCalif = this.inputDescripcion;
     }
-
-    this.DEcambiarBusqueda();
   }
 
   CalificacionCheck():boolean{
@@ -1141,11 +1140,12 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   //Para actualizar Datos Especificos --------------------------------------
 
   DEcambiarBusqueda(){
-    if(this.advSearch.clasificacion_subtipo.length == 1){
+    /*if(this.advSearch.clasificacion_subtipo.length == 1){
       this.datosEspecificos_warning = "tiene 1 y es " + this.advSearch.clasificacion_subtipo[0].descripcion;
     }else{
       this.datosEspecificos_warning =  "Para filtrar por datos específicos debe ingresar solo 1 subtipo en clasificación"
-    }
+    }*/
+    this.datoEholder.showDatoEspecifico();
   }
 
   ActualizarDescDE(){};

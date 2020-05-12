@@ -115,7 +115,7 @@ import {DemasiadosSubtipos} from './Datos-Especificos/DatosE-Componentes/demasia
     InfiniteScrollModule,
     NgxSpinnerModule, NgxContentLoadingModule,
   ],
-  entryComponents: [DateRangePicker, FiltroAvanzadoDialogComponent, VerMasComponent],
+  entryComponents: [DateRangePicker, FiltroAvanzadoDialogComponent, VerMasComponent, DemasiadosSubtipos, PermisoDePoda],
   providers: [{ provide: LOCALE_ID, useValue: "es-AR" }, BusquedaService, DownloadService, ClaimsAndComplaintsComponent],
   bootstrap: [AppComponent],
 
