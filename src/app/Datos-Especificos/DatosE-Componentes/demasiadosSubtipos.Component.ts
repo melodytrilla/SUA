@@ -1,6 +1,7 @@
 import { Component, Input }  from '@angular/core';
 
 import { DatoEspecifico }       from '../DatoI.component';
+import { DatoEBase } from '../DatoEBase.Component';
 
 @Component({
   template: `
@@ -10,6 +11,10 @@ import { DatoEspecifico }       from '../DatoI.component';
             `
 
 })
-export class DemasiadosSubtipos implements DatoEspecifico {
-  @Input() datos: any;
+export class DemasiadosSubtipos extends DatoEBase implements DatoEspecifico {
+
+  public getDatos():any{
+    return null;
+  }
+
 }

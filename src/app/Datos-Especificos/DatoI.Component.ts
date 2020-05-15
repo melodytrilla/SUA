@@ -1,3 +1,5 @@
 export interface DatoEspecifico{
-    datos: any;
+    datos:{tipoDE: string, contenido: any};
+
+
 }

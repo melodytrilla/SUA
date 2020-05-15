@@ -12,6 +12,8 @@ import { SolicitudesService, Vecinal } from '../solicitudes.service';
 import { SatDatepickerRangeValue } from 'saturn-datepicker';
 import { ThemeService } from 'ng2-charts';
 import { DatoEHolder } from '../Datos-Especificos/DatoEHolder.Component';
+import { DatoEspecifico } from '../Datos-Especificos/DatoI.Component';
+import { DatoEBase } from '../Datos-Especificos/DatoEBase.Component';
 
 export interface AdvSearch{
   // Los nuevos parametros a guardar
@@ -72,7 +74,7 @@ export interface AdvSearch{
   asignacion_listPersonas:string[];
 
   //Datos especificos
-  Datos_Extra:any[];
+  Datos_Extra:DatoEspecifico;
   //
 }
 
@@ -185,7 +187,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
 //--------------------------------------------------------------------
     
 //-----Datos especificos--------------------------------------------
-    Datos_Extra:[]
+    Datos_Extra:undefined
   };
   savePressed:boolean = false;
   datesControl = new FormControl('');
@@ -344,6 +346,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
     this.ActualizarDescInt();
     this.ActualizarDescEqp();
     this.ActualizarDescAsig();
+    this.ActualizarDescDE();
   }
 
   ngAfterViewInit(){
@@ -475,7 +478,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   }
 
   ClearDatosEspecificos(){
-    this.advSearch.Datos_Extra = [];
+    this.advSearch.Datos_Extra = undefined;
   }
 
   ClearAll(){
@@ -1148,7 +1151,35 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
     this.datoEholder.showDatoEspecifico();
   }
 
-  ActualizarDescDE(){};
+  DEChange():boolean{
+    console.log("hay una referencia");
+    console.log(this.datoEholder.componentRef);
+
+    if(this.advSearch.Datos_Extra != undefined){
+      console.log("DEChange");
+      
+      console.log((<DatoEBase>this.datoEholder.componentRef.instance).hasChanged());
+      return (<DatoEBase>this.datoEholder.componentRef.instance).hasChanged();
+    }
+
+    return false;
+  }
+
+  GuardaryActualizarDE(){
+    this.advSearch.Datos_Extra = this.datoEholder.getDatosFromComponent();
+    this.ActualizarDescDE();
+  }
+
+  ActualizarDescDE(){
+  
+    //actualizar texto de descripcion
+    if(this.DEChange()){
+      this.turnOn("DEPanel", "distrito_font_toWhite");
+    }else{
+      this.turnOff("DEPanel", "distrito_font_toWhite");
+    }
+  };
+  
   //---------------------------------------------------------------------
 
   //funciones para cambiar visualmente los paneles expansores-------------

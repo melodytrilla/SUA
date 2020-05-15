@@ -9,6 +9,7 @@ import {DatosEList} from './DatosE.List'
 import {DemasiadosSubtipos} from './DatosE-Componentes/demasiadosSubtipos.Component'
 import { PermisoDePoda } from './DatosE-Componentes/PermisoDePoda.Component';
 import { write } from 'fs';
+import { DatoEBase } from './DatoEBase.Component';
 
 @Component({
     selector: 'app-dinamico-datoE',
@@ -23,7 +24,10 @@ export class DatoEHolder implements OnInit{
     @Input() data:any;
     @ViewChild(DatoEDirective, {static:true}) datoPlace: DatoEDirective;
 
+    componentRef:any;
+
     constructor(private componentFactoryResolver: ComponentFactoryResolver){}
+
 
     ngOnInit(){
         this.showDatoEspecifico();
@@ -39,13 +43,18 @@ export class DatoEHolder implements OnInit{
             console.log(this.subtipoArray[0].descripcion);
             const componentFactory = 
             this.componentFactoryResolver.resolveComponentFactory(DatosEList.getDatoEspecifico(this.subtipoArray[0].descripcion));
-            const componentRef = viewContainerRef.createComponent(componentFactory);
-            (<DatoEspecifico> componentRef.instance).datos = this.data;
-            
+            this.componentRef = viewContainerRef.createComponent(componentFactory);
+            (<DatoEspecifico> this.componentRef.instance).datos = this.data;
+            console.log(this.data);
+
         }else{
             const componentFactory = this.componentFactoryResolver.resolveComponentFactory(DemasiadosSubtipos);
-            viewContainerRef.createComponent(componentFactory);
+            this.componentRef = viewContainerRef.createComponent(componentFactory);
         }
+    }
+
+    public getDatosFromComponent(): any{
+        return (<DatoEBase>this.componentRef.instance).getDatos();
     }
 
 } 

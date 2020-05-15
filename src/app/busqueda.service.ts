@@ -147,7 +147,7 @@ export class BusquedaService {
 //--------------------------------------------------------------------
     
 //-----Datos especificos--------------------------------------------
-    Datos_Extra:[]
+    Datos_Extra:undefined
         },
     
       };
