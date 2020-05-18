@@ -3,7 +3,7 @@ import { ChartOptions } from 'chart.js';
 import 'chart.piecelabel.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { SolicitudesService } from '../solicitudes.service';
-
+import { BusquedaService } from '../busqueda.service';
 
 @Component({
   selector: 'app-requests-by-district',
@@ -12,9 +12,10 @@ import { SolicitudesService } from '../solicitudes.service';
 })
 export class RequestsByDistrictComponent implements OnInit {
 
-  constructor(private solicitudesService: SolicitudesService) {
+  constructor(private solicitudesService: SolicitudesService,
+              private busqueda: BusquedaService) {
   }
-
+  public arr: any[] = [];
   public doughnutChartLabels: Array<string> = ['Centro', 'Norte', 'Sur', 'Oeste', 'Noroeste', 'Sudoeste'];
   public doughnutChartType = 'doughnut';
   public doughnutChartLegend = true;
@@ -28,7 +29,6 @@ export class RequestsByDistrictComponent implements OnInit {
   ];
   public doughnutChartOptions: ChartOptions = {
     responsive: true,
-    onClick: this.alertBox,
     tooltips: {
       enabled: true,
       
@@ -52,13 +52,11 @@ export class RequestsByDistrictComponent implements OnInit {
         display: true,
         position: 'right',
         onClick: function(e, legendItem) {
-          var hid:boolean;
           var cont: number =0;
+          var a: any[]
           var index = legendItem.index;
           var ci = this.chart;
           ci.data.datasets.forEach(function(e, i) {
-            console.log(e)
-            console.log(i)
             for (let item of e._meta[8].data){
               if (e._meta[8].data[item._index].hidden == false){
                 cont++;
@@ -68,13 +66,24 @@ export class RequestsByDistrictComponent implements OnInit {
               if(cont == e._meta[8].data.length){
                 e._meta[8].data[item._index].hidden = true
                 e._meta[8].data[index].hidden = false
+                a = []
+                BusquedaService.prototype.inicDist(e._meta[8].data[index]._view.label)
+                //console.log(a)
               }
               else if(item._index == index){
                 e._meta[8].data[index].hidden = !e._meta[8].data[index].hidden
+                if (e._meta[8].data[index].hidden == true){
+                  BusquedaService.prototype.borrarDist(e._meta[8].data[index]._view.label)
+                  //console.log(a)
+                }
+                else {
+                  BusquedaService.prototype.agregarDist(e._meta[8].data[index]._view.label)
+                  //console.log(a)
+                }
               }
             }
           });
-
+          RequestsByDistrictComponent.prototype.arr = a;
           ci.update();
         },
         onHover: function(event, legendItem) {
@@ -106,12 +115,12 @@ export class RequestsByDistrictComponent implements OnInit {
     }*/
     }];
   ngOnInit() {
-
+    this.arr = this.solicitudesService.filteredVecinalesSearch("Centro")
+    console.log(this.arr)
     this.solicitudesService.getporDistrito().subscribe(
       data =>{
         let clone1 = JSON.parse(JSON.stringify(this.doughnutChartData));
         let clone2 = JSON.parse(JSON.stringify(this.doughnutChartLabels));
-
         for(let i=0; i < clone1.length; i++){
           clone1[i] = data[i].solicitudes;
           clone2[i] = data[i].distrito;
@@ -122,14 +131,5 @@ export class RequestsByDistrictComponent implements OnInit {
       }
     )
 
-  }
-  alertBox(event, array){
-    if (array.length != 0 && array.text === undefined){
-      console.log(array[0].hidden)
-      array[0].hidden = !array[0].hidden
-      console.log(array[0].hidden)
-      console.log(array)
-      console.log(array[0]._view.label)
-    }
   }
 }

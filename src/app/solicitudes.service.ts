@@ -131,7 +131,6 @@ export class SolicitudesService {
   filteredVecinalesSearch(value:string){
     let vecinalesBuscados: Vecinal[];
 
-
     vecinalesBuscados = this._vecinalesAll.filter(vecinal => this.filterVecinalFunc(vecinal, value));
 
     return vecinalesBuscados;

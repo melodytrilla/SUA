@@ -20,6 +20,9 @@ export class SearchBarComponent implements OnInit {
   message: number;
   editMessage: number;
 
+  id: string;
+  editId: string;
+
   public yearMask = {
     guide: false,
     showMask : true,
@@ -40,7 +43,7 @@ export class SearchBarComponent implements OnInit {
   //a enviar al servicio de busqueda
   private busquedaField: Busqueda
   private cantFiltros: number = 0;
-
+  private idSolic: string = ""
   busquedasGuardadas; 
 
   constructor(
@@ -78,6 +81,11 @@ export class SearchBarComponent implements OnInit {
       radio: this.busquedaField.radio,
       Id_solicitante: this.busquedaField.Id_solicitante  
     });
+    this.busqueda.customId.subscribe(msg =>{
+      this.idSolic = msg 
+    })
+
+    this.idSolic = this.busqueda.getIdSolic()
 
     /**Para disminuir la cantidad de request a la API en el filtrado 
      * si los resultados son pocos, conviene buscar todos los resultados

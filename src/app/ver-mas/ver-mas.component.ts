@@ -12,6 +12,8 @@ import { Chip } from '../chips-container/chips-container.component';
   styleUrls: ['./ver-mas.component.sass']
 })
 export class VerMasComponent implements AfterViewInit {
+  message: number;
+  editMessage: number;
   public vecinos: any[] = [];
   constructor(public service: SolicitudesService,
               public api: SolicitudesItemsService,
@@ -30,6 +32,7 @@ export class VerMasComponent implements AfterViewInit {
 
   }
   ngOnInit() {
+    this.bService.customMessage.subscribe(msg => this.message = msg);
     if (this.data.name != 'solicitudesConEquipamiento'){
     this.service.getDatosVarios(this.data.name).subscribe(data => {
       this.vecinos= data
@@ -53,6 +56,7 @@ cambiarFondo(i, name, id){
   if (document.getElementById(name + "-" + i).style.backgroundColor == "rgb(0, 102, 204)"){
     if (name == "ConsultasReclamos" || name == "ReclamosDenuncias"){
       this.bService.borrarSubtipo(id)
+      this.bService.changeMessage(this.editMessage);
     }
     document.getElementById(name + "-" + i).style.backgroundColor = "white"
     document.getElementById(name + "-" + i).style.color = "rgba(0, 0, 0, 0.87)"
@@ -63,6 +67,7 @@ cambiarFondo(i, name, id){
       let tempChip :Chip = this.filtrosService.searchChip(id);
       if(tempChip != null){
         this.bService.agregarSubtipo(tempChip)
+        this.bService.changeMessage(this.editMessage);
       }
     }
     document.getElementById(name + "-" + i).style.backgroundColor = "rgb(0, 102, 204)"
