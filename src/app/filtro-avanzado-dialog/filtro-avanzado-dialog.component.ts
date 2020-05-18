@@ -299,6 +299,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   //-----Busqueda Datos Especificos -----------------------------------------
   @ViewChild(DatoEHolder, {static: true}) datoEholder: DatoEHolder;
   datosEspecificos_warning:string = "";
+  descripcionDE:string;
 
   //--------------------------------------------------------------------
   op : any[] = []
@@ -478,7 +479,14 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   }
 
   ClearDatosEspecificos(){
-    this.advSearch.Datos_Extra = undefined;
+    console.log((<DatoEBase>this.datoEholder.componentRef.instance).datos);
+    if((<DatoEBase>this.datoEholder.componentRef.instance).datos == undefined){
+      this.advSearch.Datos_Extra = undefined;
+    }else{
+      this.advSearch.Datos_Extra.datos = (<DatoEBase>this.datoEholder.componentRef.instance).defaultState();
+    }
+
+    this.ActualizarDescDE();
   }
 
   ClearAll(){
@@ -1152,13 +1160,11 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   }
 
   DEChange():boolean{
-    console.log("hay una referencia");
-    console.log(this.datoEholder.componentRef);
+    if(this.datoEholder.componentRef == undefined){
+      return this.advSearch.Datos_Extra != undefined;
+    }
 
     if(this.advSearch.Datos_Extra != undefined){
-      console.log("DEChange");
-      
-      console.log((<DatoEBase>this.datoEholder.componentRef.instance).hasChanged());
       return (<DatoEBase>this.datoEholder.componentRef.instance).hasChanged();
     }
 
@@ -1175,10 +1181,19 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
     //actualizar texto de descripcion
     if(this.DEChange()){
       this.turnOn("DEPanel", "distrito_font_toWhite");
+      if(this.datoEholder.componentRef != undefined){
+        this.descripcionDE = this.datoEholder.getDescricion();
+      }else{
+        //hay que arreglar esto para poder darle una descripcion
+        this.descripcionDE = "Se filtra por un componente que todavia no se cargo";
+      }
     }else{
       this.turnOff("DEPanel", "distrito_font_toWhite");
+      this.descripcionDE = "No se filtra por datos específicos";
     }
-  };
+  }
+
+  
   
   //---------------------------------------------------------------------
 

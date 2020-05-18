@@ -40,7 +40,7 @@ export class DatoEHolder implements OnInit{
         
 
         if(this.subtipoArray.length == 1){
-            console.log(this.subtipoArray[0].descripcion);
+            //console.log(this.subtipoArray[0].descripcion);
             const componentFactory = 
             this.componentFactoryResolver.resolveComponentFactory(DatosEList.getDatoEspecifico(this.subtipoArray[0].descripcion));
             this.componentRef = viewContainerRef.createComponent(componentFactory);
@@ -55,6 +55,10 @@ export class DatoEHolder implements OnInit{
 
     public getDatosFromComponent(): any{
         return (<DatoEBase>this.componentRef.instance).getDatos();
+    }
+
+    public getDescricion():string{
+        return (<DatoEBase>this.componentRef.instance).getDescription();
     }
 
 } 

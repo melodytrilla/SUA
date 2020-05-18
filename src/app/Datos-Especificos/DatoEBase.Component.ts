@@ -16,5 +16,11 @@ export class DatoEBase{
         return false;
     }
 
-    public defaultState(){}
+    public defaultState():any{
+        return {tipoDE: "", contenido: {}};
+    }
+
+    public getDescription():string{
+        return "";
+    }
 }

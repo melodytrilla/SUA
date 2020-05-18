@@ -48,7 +48,16 @@ export class PermisoDePoda extends DatoEBase implements DatoEspecifico, OnInit {
     return this.datos.contenido.pedido != "";
   }
 
-  public defaultState(){
-    this.datos.contenido.pedido = "";
+  public defaultState():any{
+    return {tipoDE: "PermisoDePoda", contenido: {pedido: ""}};
+  }
+
+  public getDescription():string{
+    if(this.datos.contenido.pedido != ""){
+      return "El tipo de pedido es de " + this.datos.contenido.pedido;
+    }
+    else{
+      return "No se filtra por tipo de pedido";
+    }
   }
 }
