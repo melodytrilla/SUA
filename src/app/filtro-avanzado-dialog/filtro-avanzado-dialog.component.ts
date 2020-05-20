@@ -479,13 +479,11 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   }
 
   ClearDatosEspecificos(){
-    console.log((<DatoEBase>this.datoEholder.componentRef.instance).datos);
-    if((<DatoEBase>this.datoEholder.componentRef.instance).datos == undefined){
-      this.advSearch.Datos_Extra = undefined;
+    if(this.datoEholder.componentRef.instance.datos == undefined){
+      this.advSearch.Datos_Extra.datos = undefined;
     }else{
-      this.advSearch.Datos_Extra.datos = (<DatoEBase>this.datoEholder.componentRef.instance).defaultState();
+      this.advSearch.Datos_Extra.datos = this.datoEholder.componentRef.instance.defaultState();
     }
-
     this.ActualizarDescDE();
   }
 
@@ -1172,7 +1170,11 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   }
 
   GuardaryActualizarDE(){
-    this.advSearch.Datos_Extra = this.datoEholder.getDatosFromComponent();
+    //aca esta e problema deberia buscar una forma de que el dato_extra no rompa como esta guardado
+    if(this.advSearch.Datos_Extra == undefined){
+      this.advSearch.Datos_Extra = {datos:{tipoDE:"", contenido:{}}}; 
+    }
+    this.advSearch.Datos_Extra.datos = this.datoEholder.getDatosFromComponent();
     this.ActualizarDescDE();
   }
 
@@ -1204,7 +1206,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
     document.getElementById(panelId).style.webkitAnimationDirection = "normal";
     if(document.getElementById(panelId).classList.contains("light")){
       this.cantidad_filtros= this.cantidad_filtros + 1;
-      console.log(this.cantidad_filtros)
+      //console.log(this.cantidad_filtros)
     }
     document.getElementById(panelId).classList.remove("light");
     document.getElementById(panelId).classList.add("dark");

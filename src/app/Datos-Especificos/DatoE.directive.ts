@@ -1,4 +1,5 @@
-import { Directive, ViewContainerRef } from '@angular/core';
+import { Directive, ViewContainerRef, Input } from '@angular/core';
+import { DatoEspecifico } from './DatoI.Component';
 
 @Directive({
     selector:'[Dato-place]',

@@ -21,7 +21,7 @@ import { DatoEBase } from './DatoEBase.Component';
 })
 export class DatoEHolder implements OnInit{
     @Input() subtipoArray:Chip[];
-    @Input() data:any;
+    @Input() datos:DatoEspecifico;
     @ViewChild(DatoEDirective, {static:true}) datoPlace: DatoEDirective;
 
     componentRef:any;
@@ -44,8 +44,12 @@ export class DatoEHolder implements OnInit{
             const componentFactory = 
             this.componentFactoryResolver.resolveComponentFactory(DatosEList.getDatoEspecifico(this.subtipoArray[0].descripcion));
             this.componentRef = viewContainerRef.createComponent(componentFactory);
-            (<DatoEspecifico> this.componentRef.instance).datos = this.data;
-            console.log(this.data);
+            if(this.datos){
+                this.componentRef.instance.datos = this.datos.datos;
+            }else{
+                this.componentRef.instance.datos = this.componentRef.instance.defaultState();
+            }
+            //console.log(this.componentRef.instance);
 
         }else{
             const componentFactory = this.componentFactoryResolver.resolveComponentFactory(DemasiadosSubtipos);

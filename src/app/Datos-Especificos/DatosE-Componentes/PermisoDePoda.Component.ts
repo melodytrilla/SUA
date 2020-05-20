@@ -16,11 +16,10 @@ import { DatoEBase } from '../DatoEBase.Component';
             `
 })
 
-//
-export class PermisoDePoda extends DatoEBase implements DatoEspecifico, OnInit {
+export class PermisoDePoda extends DatoEBase implements OnInit {
 
   ngOnInit(): void {
-    //console.log(this.datos);
+
     if(this.datos == undefined){
       this.datos = {tipoDE: "PermisoDePoda", contenido: {pedido: ""}};
     }
@@ -49,7 +48,8 @@ export class PermisoDePoda extends DatoEBase implements DatoEspecifico, OnInit {
   }
 
   public defaultState():any{
-    return {tipoDE: "PermisoDePoda", contenido: {pedido: ""}};
+    this.datos = {tipoDE: "PermisoDePoda", contenido: {pedido: ""}};
+    return this.datos;
   }
 
   public getDescription():string{
