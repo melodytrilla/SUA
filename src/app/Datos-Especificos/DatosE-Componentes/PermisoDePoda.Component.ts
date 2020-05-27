@@ -21,7 +21,7 @@ export class PermisoDePoda extends DatoEBase implements OnInit {
   ngOnInit(): void {
 
     if(this.datos == undefined){
-      this.datos = {tipoDE: "PermisoDePoda", contenido: {pedido: ""}};
+      this.datos = this.defaultState();
     }
 
     if(this.datos.tipoDE == "PermisoDePoda"){
@@ -30,17 +30,13 @@ export class PermisoDePoda extends DatoEBase implements OnInit {
       
       if(this.datos.contenido.pedido == undefined){
         this.datos.contenido.pedido = "";
-
       }
     }else{
       //si no es de pedido de poda lo cambia y borra datos anteriores remplazandolos por poedido
      
       this.datos.tipoDE = "PermisoDePoda";
       this.datos.contenido = {pedido: ""};
-    }
-    // -- asi es como se borra todo
-    //this.datos = [];
-    
+    }    
   }
 
   public hasChanged():boolean{

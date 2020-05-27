@@ -59,6 +59,8 @@ import { DatoEHolder } from './Datos-Especificos/DatoEHolder.Component';
 import {DatoEDirective} from './Datos-Especificos/DatoE.directive';
 import {PermisoDePoda} from './Datos-Especificos/DatosE-Componentes/PermisoDePoda.Component';
 import {DemasiadosSubtipos} from './Datos-Especificos/DatosE-Componentes/demasiadosSubtipos.Component';
+import { InseguridadObraConst } from './Datos-Especificos/DatosE-Componentes/InseguridadObraConst.Component';
+import { TableroAbiertoODañado } from './Datos-Especificos/DatosE-Componentes/TableroAbiertoODañado.Component';
 
 @NgModule({
   declarations: [
@@ -94,6 +96,8 @@ import {DemasiadosSubtipos} from './Datos-Especificos/DatosE-Componentes/demasia
     DatoEHolder,
     DatoEDirective,
     PermisoDePoda,
+    InseguridadObraConst,
+    TableroAbiertoODañado,
     DemasiadosSubtipos
   ],
   imports: [
@@ -115,7 +119,7 @@ import {DemasiadosSubtipos} from './Datos-Especificos/DatosE-Componentes/demasia
     InfiniteScrollModule,
     NgxSpinnerModule, NgxContentLoadingModule,
   ],
-  entryComponents: [DateRangePicker, FiltroAvanzadoDialogComponent, VerMasComponent, DemasiadosSubtipos, PermisoDePoda],
+  entryComponents: [DateRangePicker, FiltroAvanzadoDialogComponent, VerMasComponent, DemasiadosSubtipos, PermisoDePoda, InseguridadObraConst, TableroAbiertoODañado],
   providers: [{ provide: LOCALE_ID, useValue: "es-AR" }, BusquedaService, DownloadService, ClaimsAndComplaintsComponent],
   bootstrap: [AppComponent],
 

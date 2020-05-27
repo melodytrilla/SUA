@@ -40,7 +40,6 @@ export class DatoEHolder implements OnInit{
         
 
         if(this.subtipoArray.length == 1){
-            //console.log(this.subtipoArray[0].descripcion);
             const componentFactory = 
             this.componentFactoryResolver.resolveComponentFactory(DatosEList.getDatoEspecifico(this.subtipoArray[0].descripcion));
             this.componentRef = viewContainerRef.createComponent(componentFactory);
@@ -49,7 +48,6 @@ export class DatoEHolder implements OnInit{
             }else{
                 this.componentRef.instance.datos = this.componentRef.instance.defaultState();
             }
-            //console.log(this.componentRef.instance);
 
         }else{
             const componentFactory = this.componentFactoryResolver.resolveComponentFactory(DemasiadosSubtipos);
