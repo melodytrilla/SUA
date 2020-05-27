@@ -11,6 +11,9 @@ import { BusquedaService } from '../busqueda.service';
 import { SolicitudesService, Vecinal } from '../solicitudes.service';
 import { SatDatepickerRangeValue } from 'saturn-datepicker';
 import { ThemeService } from 'ng2-charts';
+import { DatoEHolder } from '../Datos-Especificos/DatoEHolder.Component';
+import { DatoEspecifico } from '../Datos-Especificos/DatoI.Component';
+import { DatoEBase } from '../Datos-Especificos/DatoEBase.Component';
 
 export interface AdvSearch{
   // Los nuevos parametros a guardar
@@ -71,7 +74,7 @@ export interface AdvSearch{
   asignacion_listPersonas:string[];
 
   //Datos especificos
-  Datos_Extra:any[];
+  Datos_Extra:DatoEspecifico;
   //
 }
 
@@ -184,7 +187,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
 //--------------------------------------------------------------------
     
 //-----Datos especificos--------------------------------------------
-    Datos_Extra:[]
+    Datos_Extra:undefined
   };
   savePressed:boolean = false;
   datesControl = new FormControl('');
@@ -294,8 +297,9 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   //--------------------------------------------------------------------
 
   //-----Busqueda Datos Especificos -----------------------------------------
-
+  @ViewChild(DatoEHolder, {static: true}) datoEholder: DatoEHolder;
   datosEspecificos_warning:string = "";
+  descripcionDE:string;
 
   //--------------------------------------------------------------------
   op : any[] = []
@@ -343,6 +347,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
     this.ActualizarDescInt();
     this.ActualizarDescEqp();
     this.ActualizarDescAsig();
+    this.ActualizarDescDE();
   }
 
   ngAfterViewInit(){
@@ -474,7 +479,12 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   }
 
   ClearDatosEspecificos(){
-    this.advSearch.Datos_Extra = [];
+    if(this.datoEholder.componentRef.instance.datos == undefined){
+      this.advSearch.Datos_Extra.datos = undefined;
+    }else{
+      this.advSearch.Datos_Extra.datos = this.datoEholder.componentRef.instance.defaultState();
+    }
+    this.ActualizarDescDE();
   }
 
   ClearAll(){
@@ -488,7 +498,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
     this.ClearIntervenciones();
     this.ClearEquipamiento();
     this.ClearAsignacion();
-    this.ClearDatosEspecificos();
+    this.ClearDatosEspecificos(); //chequear
   }
 //------------------------------------------
 
@@ -621,8 +631,6 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
       this.advSearch.clasificacion_subtipo = [];
       this.descripcionCalif = this.inputDescripcion;
     }
-
-    this.DEcambiarBusqueda();
   }
 
   CalificacionCheck():boolean{
@@ -1141,14 +1149,54 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   //Para actualizar Datos Especificos --------------------------------------
 
   DEcambiarBusqueda(){
-    if(this.advSearch.clasificacion_subtipo.length == 1){
+    /*if(this.advSearch.clasificacion_subtipo.length == 1){
       this.datosEspecificos_warning = "tiene 1 y es " + this.advSearch.clasificacion_subtipo[0].descripcion;
     }else{
       this.datosEspecificos_warning =  "Para filtrar por datos específicos debe ingresar solo 1 subtipo en clasificación"
+    }*/
+    this.datoEholder.showDatoEspecifico();
+  }
+
+  DEChange():boolean{
+    if(this.datoEholder.componentRef == undefined){
+      return this.advSearch.Datos_Extra != undefined;
+    }
+
+    if(this.advSearch.Datos_Extra != undefined){
+      return (<DatoEBase>this.datoEholder.componentRef.instance).hasChanged();
+    }
+
+    return false;
+  }
+
+  GuardaryActualizarDE(){
+    //aca esta e problema deberia buscar una forma de que el dato_extra no rompa como esta guardado
+    if(this.advSearch.Datos_Extra == undefined){
+      this.advSearch.Datos_Extra = {datos:{tipoDE:"", contenido:{}}}; 
+    }
+    this.advSearch.Datos_Extra.datos = this.datoEholder.getDatosFromComponent();
+    this.ActualizarDescDE();
+  }
+
+  ActualizarDescDE(){
+  
+    //actualizar texto de descripcion
+    if(this.DEChange()){
+      this.turnOn("DEPanel", "distrito_font_toWhite");
+      if(this.datoEholder.componentRef != undefined){
+        this.descripcionDE = this.datoEholder.getDescricion();
+      }else{
+        //hay que arreglar esto para poder darle una descripcion
+        this.descripcionDE = "Se filtra por un componente que todavia no se cargo";
+      }
+    }else{
+      this.turnOff("DEPanel", "distrito_font_toWhite");
+      this.descripcionDE = "No se filtra por datos específicos";
     }
   }
 
-  ActualizarDescDE(){};
+  
+  
   //---------------------------------------------------------------------
 
   //funciones para cambiar visualmente los paneles expansores-------------
@@ -1158,8 +1206,8 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
     document.getElementById(panelId).style.webkitAnimationDirection = "normal";
     if(document.getElementById(panelId).classList.contains("light")){
       this.cantidad_filtros= this.cantidad_filtros + 1;
-      console.log(this.cantidad_filtros)
-   }
+      //console.log(this.cantidad_filtros)
+    }
     document.getElementById(panelId).classList.remove("light");
     document.getElementById(panelId).classList.add("dark");
     if(fontId != ""){

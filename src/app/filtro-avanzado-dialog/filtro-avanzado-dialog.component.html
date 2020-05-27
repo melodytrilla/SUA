@@ -662,18 +662,21 @@
 
 <!-- ----------------Datos Especificos------------------- -->
     <div style="display: flex; flex-direction: row;">
-        <mat-expansion-panel (closed)="ActualizarDescDE()" class="light every-panel" Id="DEPanel">
+        <mat-expansion-panel (closed)="GuardaryActualizarDE()" (opened)="DEcambiarBusqueda()" class="light every-panel" Id="DEPanel">
             <mat-expansion-panel-header>
                 <mat-panel-title class="titulo titulo-bold">
                     Datos específicos
                 </mat-panel-title>
                 <mat-panel-description class="texto-regularitalic">
-                    <!--{{descripcionDE}}--> No se filtra por datos específicos
+                    {{descripcionDE}}
                 </mat-panel-description>
             </mat-expansion-panel-header>
-            <ng-container >
+           <!-- <ng-container >
                 <p class="texto-regular" style="text-align: center;">{{datosEspecificos_warning}}</p>
-            </ng-container>
+            </ng-container>-->
+            <div style="padding: 0 24px 16px !important;">
+                <app-dinamico-datoE [subtipoArray]="advSearch.clasificacion_subtipo" [datos]="advSearch.Datos_Extra"></app-dinamico-datoE>
+            </div>
         </mat-expansion-panel>
 
         <div>
