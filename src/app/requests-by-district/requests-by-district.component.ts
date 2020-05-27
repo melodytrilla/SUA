@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ChartOptions } from 'chart.js';
 import 'chart.piecelabel.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { SolicitudesService } from '../solicitudes.service';
-
+import { BusquedaService } from '../busqueda.service';
 
 @Component({
   selector: 'app-requests-by-district',
@@ -12,9 +12,10 @@ import { SolicitudesService } from '../solicitudes.service';
 })
 export class RequestsByDistrictComponent implements OnInit {
 
-  constructor(private solicitudesService: SolicitudesService) {
+  constructor(private solicitudesService: SolicitudesService,
+              private busqueda: BusquedaService) {
   }
-  
+  public arr: any[] = [];
   public doughnutChartLabels: Array<string> = ['Centro', 'Norte', 'Sur', 'Oeste', 'Noroeste', 'Sudoeste'];
   public doughnutChartType = 'doughnut';
   public doughnutChartLegend = true;
@@ -32,9 +33,7 @@ export class RequestsByDistrictComponent implements OnInit {
       enabled: true,
       
     },
-    
     plugins: {
-    
       datalabels: {
         display: false,
         padding: 0,
@@ -42,6 +41,7 @@ export class RequestsByDistrictComponent implements OnInit {
         anchor: 'end',
         textStrokeWidth: 0.2,
         align: 'end',
+        
         formatter: function(value) {
           return value;
       }
@@ -51,7 +51,44 @@ export class RequestsByDistrictComponent implements OnInit {
         fullWidth: false,
         display: true,
         position: 'right',
-        
+        onClick: function(e, legendItem) {
+          var cont: number =0;
+          var a: any[]
+          var index = legendItem.index;
+          var ci = this.chart;
+          ci.data.datasets.forEach(function(e, i) {
+            for (let item of e._meta[8].data){
+              if (e._meta[8].data[item._index].hidden == false){
+                cont++;
+              }
+            }
+            for (let item of e._meta[8].data){
+              if(cont == e._meta[8].data.length){
+                e._meta[8].data[item._index].hidden = true
+                e._meta[8].data[index].hidden = false
+                a = []
+                BusquedaService.prototype.inicDist(e._meta[8].data[index]._view.label)
+                //console.log(a)
+              }
+              else if(item._index == index){
+                e._meta[8].data[index].hidden = !e._meta[8].data[index].hidden
+                if (e._meta[8].data[index].hidden == true){
+                  BusquedaService.prototype.borrarDist(e._meta[8].data[index]._view.label)
+                  //console.log(a)
+                }
+                else {
+                  BusquedaService.prototype.agregarDist(e._meta[8].data[index]._view.label)
+                  //console.log(a)
+                }
+              }
+            }
+          });
+          RequestsByDistrictComponent.prototype.arr = a;
+          ci.update();
+        },
+        onHover: function(event, legendItem) {
+            document.getElementById("doughnut").style.cursor = 'pointer';
+          },
         labels: {
           padding: 12,
           fontSize: 16,
@@ -59,11 +96,13 @@ export class RequestsByDistrictComponent implements OnInit {
           fontColor: 'black',
           usePointStyle: true,
           boxWidth: 11,
+          
         }
       }
   }
   public doughnutChartPlugins = [{
       ChartDataLabels,
+      
       /*afterLayout: function (chart){
       chart.legend.legendItems.forEach(
         (label) => {
@@ -76,12 +115,12 @@ export class RequestsByDistrictComponent implements OnInit {
     }*/
     }];
   ngOnInit() {
-
+    this.arr = this.solicitudesService.filteredVecinalesSearch("Centro")
+    console.log(this.arr)
     this.solicitudesService.getporDistrito().subscribe(
       data =>{
         let clone1 = JSON.parse(JSON.stringify(this.doughnutChartData));
         let clone2 = JSON.parse(JSON.stringify(this.doughnutChartLabels));
-
         for(let i=0; i < clone1.length; i++){
           clone1[i] = data[i].solicitudes;
           clone2[i] = data[i].distrito;

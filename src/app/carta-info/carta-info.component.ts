@@ -28,8 +28,15 @@ export class CartaInfoComponent implements OnInit {
   max: number=0;
   arr: any[] = [];
   fondoAzul: boolean = false;
+  message: number;
+  editMessage: number;
+  id: string;
+  idd: string;
+  editId: string;
 
   ngOnInit() {
+    this.service.customMessage.subscribe(msg => this.message = msg);
+    this.service.customId.subscribe(msg => this.idd = msg);
     if(this.cardName == "solicitudes"){
       this.title_value = "Solicitudes"
       this.title_style = "cardTitle-center";
@@ -65,23 +72,33 @@ export class CartaInfoComponent implements OnInit {
       data.forEach(value => {
         if (value.cantidad_solicitudes > this.content_value){
           this.content_value = value.cantidad_solicitudes
+          if(this.cardName == "vecinosConSolicitudes"){
+            this.id = value.dni_solicitante
+          }
         }
       })
     });}
   }
 
   cambiarFondo(i){
+    console.log(i)
     if (document.getElementById(i).style.backgroundColor == "rgb(0, 102, 204)"){
+      this.service.borrarCard(i, this.id)
       document.getElementById(i).style.backgroundColor = "rgb(249, 250, 253)"
       document.getElementById(i).style.color = "rgba(0, 0, 0, 0.87)"
       document.getElementById("num-" + i).style.color = "rgba(0, 0, 0, 0.87)"
       this.fondoAzul= false;
     }
     else{
+      this.service.agregarCard(i, this.id)
       document.getElementById(i).style.backgroundColor = "rgb(0, 102, 204)"
       document.getElementById(i).style.color = "white"
       document.getElementById("num-" + i).style.color = "white"
       this.fondoAzul = true;
+    }
+    this.service.changeMessage(this.editMessage);
+    if (i == 'Vecino con más solicitudes'){
+      this.service.changeId(this.editId)
     }
   }
   

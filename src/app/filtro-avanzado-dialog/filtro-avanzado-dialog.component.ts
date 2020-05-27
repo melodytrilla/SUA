@@ -351,7 +351,6 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   }
 
   ngAfterViewInit(){
-
     this.ActualizarDescCalificacion();
   }
 

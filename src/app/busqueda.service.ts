@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { stringToKeyValue } from '@angular/flex-layout/extended/typings/style/style-transforms';
 import { BehaviorSubject } from 'rxjs';
 import { Chip } from './chips-container/chips-container.component';
+import { Vecinal, SolicitudesService } from './solicitudes.service';
 
 export interface Busqueda{
   dateRange_begin: Date,
@@ -35,26 +36,36 @@ export interface BusquedaSave2{
   providedIn: 'root'
 })
 export class BusquedaService {
-  private filtroNumber  : number = 0;
+  
   private message = new BehaviorSubject<number>(0);
 
   public customMessage = this.message.asObservable();
+
+  private id = new BehaviorSubject<string>("");
+  public customId = this.id.asObservable();
   //private message = new BehaviorSubject<number>(0);
 
   //public customMessage = this.message.asObservable();
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,
+              private service: SolicitudesService,) {
+               }
 
   public changeMessage(msg: number): void {
     this.message.next(this.filtroNumber);
   }
+  public changeId(msg: string): void {
+    this.id.next(this.idSolic);
+  }
 
   apiURL = "http://localhost:3000"
 
+  private idSolic: string = "";
+  private filtroNumber  : number = 0;
   busquedaCompleta:Busqueda;
   aGuardar : BusquedaSave2;
   agOp: boolean = true;
-
+  arr: any[] = []
   //si hay algo guardado en la session se carga en una variable, si no se inicializa vacio
   Init(){
     if(window.sessionStorage['busqueda']){
@@ -233,6 +244,9 @@ export class BusquedaService {
   getCantFiltros():number{
     return this.filtroNumber;
   }
+  getIdSolic(): string{
+    return this.idSolic
+  }
 
   agregarSubtipo(a: Chip): void {
     console.log(a)
@@ -342,5 +356,50 @@ export class BusquedaService {
   /*public changeMessage(msg: number): void {
     this.message.next(msg);
   }*/
-
+  inicDist(a: Vecinal){
+    this.Init()
+    if(!this.busquedaCompleta.advSearch.distrito_vecinales.includes(a)){
+      this.busquedaCompleta.advSearch.distrito_vecinales.push(a)
+      console.log(this.busquedaCompleta.advSearch.distrito_vecinales)
+      this.guardarEnSecion();
+    }
+  }
+  agregarDist(a: Vecinal){
+    if(!this.busquedaCompleta.advSearch.distrito_vecinales.includes(a)){
+      this.busquedaCompleta.advSearch.distrito_vecinales.push(a)
+      console.log(this.busquedaCompleta.advSearch.distrito_vecinales)
+      this.guardarEnSecion();
+    }
+  }
+  borrarDist(a: Vecinal){
+    this.busquedaCompleta.advSearch.distrito_vecinales.splice(this.busquedaCompleta.advSearch.distrito_vecinales.indexOf(a), 1)
+    console.log(this.busquedaCompleta.advSearch.distrito_vecinales)
+    this.guardarEnSecion();
+  }
+  agregarCard(a: string, id: string): void {
+    if (a== 'Solicitudes con equipamiento'){
+      this.busquedaCompleta.advSearch.equipamiento_choice = "con"
+      this.filtroNumber++;
+    }
+    else if (a == 'Vecino con más solicitudes'){
+      this.idSolic = id;
+      this.busquedaCompleta.Id_solicitante = id;
+      console.log(this.busquedaCompleta.Id_solicitante)
+    }
+    this.guardarEnSecion();
+  }
+  borrarCard(a: string, id: string): void{
+    if (a== 'Solicitudes con equipamiento'){
+      this.busquedaCompleta.advSearch.equipamiento_choice = ""
+      if(this.filtroNumber > 0){
+        this.filtroNumber--;
+      }
+    }
+    else if (a == 'Vecino con más solicitudes'){
+      this.idSolic="";
+      this.busquedaCompleta.Id_solicitante = "";
+      console.log(this.busquedaCompleta.Id_solicitante)
+    }
+    this.guardarEnSecion();
+  }
 }
