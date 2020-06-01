@@ -11,7 +11,8 @@ import { Chip } from '../chips-container/chips-container.component';
   templateUrl: './ver-mas.component.html',
   styleUrls: ['./ver-mas.component.sass']
 })
-export class VerMasComponent implements AfterViewInit {
+export class VerMasComponent implements OnInit {
+
   message: number;
   editMessage: number;
   public vecinos: any[] = [];
@@ -20,17 +21,19 @@ export class VerMasComponent implements AfterViewInit {
               @Inject(MAT_DIALOG_DATA) public data: any,
               private bService: BusquedaService,
               private filtrosService: FiltersService
-              ) { }
+              ) { 
+                
+              }
   
-  ngAfterViewInit() {
+  /*ngAfterViewInit(){
     console.log(this.data.fondo)
     if(this.data.fondo == true){
-      console.log(this.data.name + "-1")
-      document.getElementById(this.data.name + "-1").style.backgroundColor = "rgb(0, 102, 204)"
-      document.getElementById(this.data.name + "-1").style.color = "white"
-  }
-
-  }
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log(document.getElementById("vecinosConSolicitudes-1").classList)
+        document.getElementById("vecinosConSolicitudes-1").classList.add("fondo");
+      });
+    }
+  }*/
   ngOnInit() {
     this.bService.customMessage.subscribe(msg => this.message = msg);
     if (this.data.name != 'solicitudesConEquipamiento'){
@@ -45,34 +48,31 @@ export class VerMasComponent implements AfterViewInit {
           this.vecinos.push(value)
         }
       })
-    console.log(this.vecinos)
     })
   }
-  
 
 }
 cambiarFondo(i, name, id){
-  console.log(id)
-  if (document.getElementById(name + "-" + i).style.backgroundColor == "rgb(0, 102, 204)"){
-    if (name == "ConsultasReclamos" || name == "ReclamosDenuncias"){
-      this.bService.borrarSubtipo(id)
-      this.bService.changeMessage(this.editMessage);
-    }
-    document.getElementById(name + "-" + i).style.backgroundColor = "white"
-    document.getElementById(name + "-" + i).style.color = "rgba(0, 0, 0, 0.87)"
-    document.getElementById("ico-" + name + "-" + i).style.color = "rgba(0, 0, 0, 0.87)"
-  }
-  else{
-    if (name == "ConsultasReclamos" || name == "ReclamosDenuncias"){
-      let tempChip :Chip = this.filtrosService.searchChip(id);
-      if(tempChip != null){
-        this.bService.agregarSubtipo(tempChip)
+    if (document.getElementById(name + "-" + i).style.backgroundColor == "rgb(0, 102, 204)"){
+      if (name == "ConsultasReclamos" || name == "ReclamosDenuncias"){
+        this.bService.borrarSubtipo(id)
         this.bService.changeMessage(this.editMessage);
       }
+      document.getElementById(name + "-" + i).style.backgroundColor = "white"
+      document.getElementById(name + "-" + i).style.color = "rgba(0, 0, 0, 0.87)"
+      document.getElementById("ico-" + name + "-" + i).style.color = "rgba(0, 0, 0, 0.87)"
     }
-    document.getElementById(name + "-" + i).style.backgroundColor = "rgb(0, 102, 204)"
-    document.getElementById(name + "-" + i).style.color = "white"
-    document.getElementById("ico-" + name + "-" + i).style.color = "white"
+    else{
+      if (name == "ConsultasReclamos" || name == "ReclamosDenuncias"){
+        let tempChip :Chip = this.filtrosService.searchChip(id);
+        if(tempChip != null){
+          this.bService.agregarSubtipo(tempChip)
+          this.bService.changeMessage(this.editMessage);
+        }
+      }
+      document.getElementById(name + "-" + i).style.backgroundColor = "rgb(0, 102, 204)"
+      document.getElementById(name + "-" + i).style.color = "white"
+      document.getElementById("ico-" + name + "-" + i).style.color = "white"
+    }
   }
-}
 }

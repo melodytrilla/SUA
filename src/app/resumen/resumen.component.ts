@@ -6,13 +6,15 @@ import { FiltersService } from '../filters.service';
 import { BusquedaService } from '../busqueda.service';
 
 
-
 @Component({
   selector: 'app-resumen',
   templateUrl: './resumen.component.html',
   styleUrls: ['./resumen.component.sass']
 })
 export class ResumenComponent {
+
+  
+  
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {

@@ -1,7 +1,7 @@
 
 <div class="mainContainer dark fila" [(formGroup)]="form">
     <div class="columnaInvertida" style="width: 95%;">
-        <div style="padding-left: 15px;">
+        <div class="cont">
             <mat-form-field class="medium texto-regular">
                 <input matInput
                     (focus)="picker.open()"
@@ -94,7 +94,7 @@
             <button mat-button (click)="openDialog()"> <mat-icon matBadge="{{cantFiltros}}" [matBadgeHidden]="cantFiltros==0" matBadgeSize="medium" matBadgeColor="accent" class="fsua fsua-filtrar fsua-1_5x" style="color: #f7f7f8"> </mat-icon></button>
         </div>
 
-        <div class="serch-button">
+        <div class="search-button">
             <button class="whiteBack-Button " mat-stroked-button (click)="sendInfo()"><mat-icon style="color: inherit;" >search</mat-icon></button>
         </div> 
     </div>
