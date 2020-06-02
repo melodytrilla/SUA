@@ -44,7 +44,7 @@
 </div>
 <mat-divider></mat-divider>
 <div class="content fila texto-regular">
-        <cdk-virtual-scroll-viewport style="height: 73vh; width: 30vw;" itemSize="93" (scrolledIndexChange)="nextBatch($event)">
+        <cdk-virtual-scroll-viewport class="listMapa" itemSize="93" (scrolledIndexChange)="nextBatch($event)">
 
             <!--Ghost content placeholder while loading-->
             <div *ngIf="loading">
