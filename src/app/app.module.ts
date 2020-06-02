@@ -55,6 +55,12 @@ import { DownloadService } from './download.service';
 import { registerLocaleData } from '@angular/common';
 import { VerMasComponent } from './ver-mas/ver-mas.component';
 import { OpinadasComponent } from './opinadas/opinadas.component';
+import { DatoEHolder } from './Datos-Especificos/DatoEHolder.Component';
+import {DatoEDirective} from './Datos-Especificos/DatoE.directive';
+import {PermisoDePoda} from './Datos-Especificos/DatosE-Componentes/PermisoDePoda.Component';
+import {DemasiadosSubtipos} from './Datos-Especificos/DatosE-Componentes/demasiadosSubtipos.Component';
+import { InseguridadObraConst } from './Datos-Especificos/DatosE-Componentes/InseguridadObraConst.Component';
+import { TableroAbiertoODañado } from './Datos-Especificos/DatosE-Componentes/TableroAbiertoODañado.Component';
 
 @NgModule({
   declarations: [
@@ -86,7 +92,13 @@ import { OpinadasComponent } from './opinadas/opinadas.component';
     IconoTestComponent,
     VerMasComponent,
     SortPipe,
-    OpinadasComponent
+    OpinadasComponent,
+    DatoEHolder,
+    DatoEDirective,
+    PermisoDePoda,
+    InseguridadObraConst,
+    TableroAbiertoODañado,
+    DemasiadosSubtipos
   ],
   imports: [
     BrowserModule,
@@ -107,7 +119,7 @@ import { OpinadasComponent } from './opinadas/opinadas.component';
     InfiniteScrollModule,
     NgxSpinnerModule, NgxContentLoadingModule,
   ],
-  entryComponents: [DateRangePicker, FiltroAvanzadoDialogComponent, VerMasComponent],
+  entryComponents: [DateRangePicker, FiltroAvanzadoDialogComponent, VerMasComponent, DemasiadosSubtipos, PermisoDePoda, InseguridadObraConst, TableroAbiertoODañado],
   providers: [{ provide: LOCALE_ID, useValue: "es-AR" }, BusquedaService, DownloadService, ClaimsAndComplaintsComponent],
   bootstrap: [AppComponent],
 
