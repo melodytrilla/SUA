@@ -124,8 +124,6 @@ export class SearchBarComponent implements OnInit {
     this.deFormABusqueda();
     console.log(this.busquedaField);
     const dialogRef = this.dialog.open(FiltroAvanzadoDialogComponent, {
-      width: '70%',
-      height: '90%',
       data: {info: "filtro", busqueda: this.busquedaField},
     });
     //console.log(this.cantFiltros)
