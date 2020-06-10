@@ -1,4 +1,4 @@
-<div style="height:20vh">
+<div style="height:18vh">
   <app-global-nav-bar></app-global-nav-bar>
   <!--<h1 class="mat-h1">SUA Busqueda</h1>-->
   <!--<app-chips-container></app-chips-container>-->
@@ -15,9 +15,9 @@
     <div id="MasterCards">
     
     <div id="firstHalf">
-      <mat-grid-list cols="2" rows="9" rowHeight="fit" style="height: 500px">
+      <mat-grid-list cols="2" rows="9" rowHeight="fit">
         
-        <mat-grid-tile [colspan] =2 [rowspan] =2> 
+        <mat-grid-tile [colspan] =2 [rowspan] =1> 
           <mat-card class="dashboard-card">
             <app-carta-info cardName="solicitudes"></app-carta-info>
           </mat-card>
@@ -39,19 +39,19 @@
             </mat-card>
         </mat-grid-tile>
 
-        <mat-grid-tile [colspan] =1 [rowspan] =2> 
+        <mat-grid-tile [colspan] =1 [rowspan] =1.5> 
           <mat-card class="dashboard-card">
             <app-carta-info cardName="vecinosConSolicitudes"></app-carta-info>
           </mat-card>
         </mat-grid-tile>
 
-        <mat-grid-tile [colspan] =1 [rowspan] =2>
+        <mat-grid-tile [colspan] =1 [rowspan] =1.5>
           <mat-card class="dashboard-card"> 
             <app-carta-info cardName="agentesConSolicitudes"></app-carta-info>
           </mat-card>
         </mat-grid-tile>
 
-        <mat-grid-tile [colspan] =1 [rowspan] =2>
+        <mat-grid-tile [colspan] =1 [rowspan] =1.5>
           <mat-card class="dashboard-card">
             <app-carta-info cardName="equipamientoConSolicitudes"></app-carta-info>
           </mat-card>

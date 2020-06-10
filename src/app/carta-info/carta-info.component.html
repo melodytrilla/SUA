@@ -14,11 +14,11 @@
         <p></p>
     </div>
 </div>
-<div *ngIf="title_value=='Solicitudes'">
-    <div class="titulo-bold font15">
+<div *ngIf="title_value=='Solicitudes'" class="contenedor">
+    <div class="titulo-bold font15 titulo-Solicitud">
         <p id={{title_style}}> {{title_value}} </p>
     </div>
-    <div class="texto-semibold">
+    <div class="texto-semibold texto-solicitud">
         <p id={{content_style}}>{{content_value | number:'':'es-AR'}}</p>
     </div>
 </div>
