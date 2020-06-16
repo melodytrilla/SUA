@@ -69,21 +69,21 @@
   <!-- second half-->
 
     <div id="secondHalf"> 
-        <mat-grid-list cols="2" rows="7" rowHeight="60px">
-            <mat-grid-tile [colspan] =1 [rowspan] =5> 
+        <mat-grid-list cols="2" rows="7" rowHeight="fit">
+            <mat-grid-tile [colspan] =1 [rowspan] =3> 
                 <mat-card class="dashboard-card"> 
                     <app-requests-by-state></app-requests-by-state>
                 </mat-card>
             </mat-grid-tile>
       
-            <mat-grid-tile [colspan] =1 [rowspan] =5> 
+            <mat-grid-tile [colspan] =1 [rowspan] =3> 
               <mat-card class="dashboard-card">
                 <app-opinadas>
                 </app-opinadas> 
               </mat-card> 
             </mat-grid-tile>
       
-            <mat-grid-tile [colspan] =2 [rowspan] =6>
+            <mat-grid-tile [colspan] =2 [rowspan] =4>
               <mat-card class="dashboard-card">
                 <app-carousel></app-carousel>
               </mat-card>
