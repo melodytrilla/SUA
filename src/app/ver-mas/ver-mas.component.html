@@ -2,79 +2,38 @@
 <mat-dialog-content *ngIf="data.name == 'vecinosConSolicitudes'">
     <div class="titulo-bold titulo">Vecinos con más solicitudes</div>
     <div class="tablagen">
-        <div class="fil titulo-bold">
-            <div class="col col1" style="padding-left:10 px">DNI</div>
-            <div class="col">APELLIDO Y NOMBRE</div>
-            <div class="col col3">CANTIDAD DE SOLICITUDES</div>
-        </div>
-        <div id="{{data.name}}-{{i}}" (click)="this.cambiarFondo(i, data.name, vec.dni_solicitante)" class="fil hov texto-regular" *ngFor="let vec of vecinos | sort:{ property: 'cantidad_solicitudes', descending: true}; let i = index">
-            <div class="col col1"><p>{{vec.dni_solicitante}}</p></div>
-            <div class="col"><p>{{vec.apellido_solicitante}}, {{vec.nombre_solicitante}}</p></div>
+        <div id="{{data.name}}-{{i}}" (click)="this.cambiarFondoI(i, data.name, vecinos.length)" class="fil hov texto-regular" *ngFor="let vec of vecinos | sort:{ property: 'cantidad_solicitudes', descending: true}; let i = index">
+            <div class="col" style="text-align: left; padding-left: 20px;"><p>{{vec.nombre_solicitante}} {{vec.apellido_solicitante[0]}}. </p></div>
             <div class="col col3"><p>{{vec.cantidad_solicitudes}}</p></div>
         </div>
     </div>
 </mat-dialog-content>
-<!--Agentes con más solicitudes-->
+<!--Agentes con más solicitudesvec.dni_agente-->
 <mat-dialog-content *ngIf="data.name == 'agentesConSolicitudes'">
     <div class="titulo-bold titulo">Agentes con más solicitudes</div>
     <div class="tablagen">
-        <div class="fil titulo-bold">
-            <div class="col col1" style="padding-left:10 px">DNI</div>
-            <div class="col">APELLIDO Y NOMBRE</div>
-            <div class="col col3">CANTIDAD DE SOLICITUDES</div>
-        </div>
-        <div id="{{data.name}}-{{i}}" (click)="this.cambiarFondo(i, data.name, vec.dni_agente)" class="fil hov texto-regular" *ngFor="let vec of vecinos | sort:{ property: 'cantidad_solicitudes', descending: true}; let i= index">
-            <div class="col col1"><p>{{vec.dni_agente}}</p></div>
-            <div class="col"><p>{{vec.apellido_agente}}, {{vec.nombre_agente}}</p></div>
+        <div id="{{data.name}}-{{i}}" (click)="this.cambiarFondoI(i, data.name, vecinos.length)" class="fil hov texto-regular" *ngFor="let vec of vecinos | sort:{ property: 'cantidad_solicitudes', descending: true}; let i= index">
+            <div class="col" style="text-align: left; padding-left: 20px;"><p>{{vec.nombre_agente}} {{vec.apellido_agente[0]}}. </p></div>
             <div class="col col3"><p>{{vec.cantidad_solicitudes}}</p></div>
         </div>
     </div>
 </mat-dialog-content>
-<!--Equipamientos con más solicitudes-->
+<!--Equipamientos con más solicitudes vec.etiqueta_equipamiento-->
 <mat-dialog-content *ngIf="data.name == 'equipamientoConSolicitudes'">
     <div class="titulo-bold titulo">Equipamientos con más solicitudes</div>
     <div class="tablagen">
-        <div class="fil titulo-bold">
-            <div class="col colum1" style="padding-left:10 px">ETIQUETA</div>
-            <div class="col colum2">DESCRIPCIÓN</div>
-            <div class="col">DIRECCIÓN</div>
-            <div class="col colum3"> CANTIDAD DE SOLICITUDES</div>
-        </div>
-        <div id="{{data.name}}-{{i}}" (click)="this.cambiarFondo(i, data.name, vec.etiqueta_equipamiento)" class="fil hov texto-regular" *ngFor="let vec of vecinos | sort:{ property: 'cantidad_solicitudes', descending: true} let i = index">
-            <div class="col colum1"><p>{{vec.etiqueta_equipamiento}}</p></div>
-            <div class="col colum2"><mat-icon id="ico-{{data.name}}-{{i}}" class="fsua {{vec.icono}}" style="margin-right: 20px;"></mat-icon>{{vec.descripcion_equipamiento}}</div>
-            <div class="col"><p>{{vec.direccion}}</p></div>
+        <div id="{{data.name}}-{{i}}" (click)="this.cambiarFondoI(i, data.name, vecinos.length)" class="fil hov texto-regular" *ngFor="let vec of vecinos | sort:{ property: 'cantidad_solicitudes', descending: true} let i = index">
+            <div class="col colum2"><mat-icon id="ico-{{data.name}}-{{i}}" class="fsua {{vec.icono}}" style="margin-right: 20px"></mat-icon>{{vec.descripcion_equipamiento}}</div>
+            <div class="col"><p style="min-width: max-content;">{{vec.direccion}}</p></div>
             <div class="col colum3"><p>{{vec.cantidad_solicitudes}}</p></div>
         </div>
     </div>
 </mat-dialog-content>
-<!--Solicitudes con equipamiento-->
-<!--<mat-dialog-content *ngIf="data.name == 'solicitudesConEquipamiento'">
-    <div class="titulo-bold titulo">Solicitudes con equipamiento</div>
-    <div class="tablagen">
-        <div class="fil titulo-bold">
-            <div class="col colum3">NÚMERO</div>
-            <div class="col colum2">SUBTIPO</div>
-            <div class="col colum3">ESTADO</div>
-            <div class="col">ETIQUETA</div>
-        </div>
-        <div id="{{data.name}}-{{i}}" (click)="this.cambiarFondo(i, data.name, vec.numero)" class="fil hov texto-regular" *ngFor="let vec of vecinos; let i = index">
-            <div class="col colum3"><p>{{vec.numero}}-{{vec.anio}}</p></div>
-            <div class="col colum2"><p>{{vec.subtipo}}</p></div>
-            <div class="col colum3"><p>{{vec.estado}}</p></div>
-            <div class="col"><p>{{vec.etiqueta_equipamiento}}</p></div>
-        </div>
-    </div>
-</mat-dialog-content>-->
 <!--Reclamos y Denuncias && Consultas y Trámites-->
 <mat-dialog-content *ngIf="data.name == 'ReclamosDenuncias' || data.name =='ConsultasReclamos'">
     <div class="titulo-bold titulo" *ngIf="data.name == 'ReclamosDenuncias'">Reclamos y denuncias</div>
     <div class="titulo-bold titulo" *ngIf="data.name == 'ConsultasReclamos'">Trámites y consultas</div>
     <div class="tablagen">
-        <div class="fil titulo-bold">
-            <div class="col">SUBTIPO</div>
-            <div class="col col3">CANTIDAD DE SOLICITUDES</div>
-        </div>
         <div id="{{data.name}}-{{i}}" (click)="this.cambiarFondo(i, data.name, vec.name)" class="fil hov texto-regular" style = "align-items: center" *ngFor="let vec of vecinos | sort:{ property: 'details', descending: true} let i = index">
             <div class="col" style="padding:10px; text-align: left"><mat-icon id="ico-{{data.name}}-{{i}}" class="fsua {{vec.icono}}" style="margin-right: 20px;"></mat-icon>{{vec.name}}</div>
             <div class="col col3" style="padding: 10px">{{vec.details}}</div>

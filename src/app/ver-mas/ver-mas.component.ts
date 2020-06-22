@@ -50,6 +50,12 @@ export class VerMasComponent implements OnInit {
       })
     })
   }
+  if (this.data.fondo== true){
+    console.log("true")
+    console.log(document.getElementById("vecinosConSolicitudes-1").style.backgroundColor)
+    document.getElementById("vecinosConSolicitudes-1").style.backgroundColor = "rgb(0, 102, 204)"
+    console.log(document.getElementById("vecinosConSolicitudes-1").style.backgroundColor)
+  }
 
 }
 cambiarFondo(i, name, id){
@@ -75,4 +81,23 @@ cambiarFondo(i, name, id){
       document.getElementById("ico-" + name + "-" + i).style.color = "white"
     }
   }
+  cambiarFondoI(i, name, l){
+    var k;
+    if(document.getElementById(name + "-" + i).style.backgroundColor == "rgb(0, 102, 204)"){
+        document.getElementById(name + "-" + i).style.backgroundColor = "white"
+        document.getElementById(name + "-" + i).style.color = "rgba(0, 0, 0, 0.87)"
+    }
+    else{
+        for(k = 0; k < l; k++) {
+          document.getElementById(name + "-" + k).style.backgroundColor = "white"
+          document.getElementById(name + "-" + k).style.color = "rgba(0, 0, 0, 0.87)"
+          if(k==i){
+            if(document.getElementById(name + "-" + k).style.backgroundColor == "white"){
+              document.getElementById(name + "-" + k).style.backgroundColor = "rgb(0, 102, 204)"
+              document.getElementById(name + "-" + k).style.color = "white"
+            }
+          }
+        }
+      }
+    }
 }

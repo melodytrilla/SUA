@@ -1,8 +1,10 @@
 <div class="navbar fila">
 
     <button class="texto-semibold text" mat-button routerLink="/" routerLinkActive="active"> 
-        <mat-icon>dashboard</mat-icon>
-        Resumen
+        <div class="fila desc">
+            <mat-icon>dashboard</mat-icon>
+            <p>Resumen</p>
+        </div>
     </button>
 
     <!--<button class="texto-semibold" mat-button routerLink="/estadisticas" routerLinkActive="active"> 
@@ -11,13 +13,17 @@
     </button>-->
 
     <button class="texto-semibold text" mat-button routerLink="/listado/solicitudes" routerLinkActive="active"> 
-        <mat-icon>dns</mat-icon>
-        Listado
+        <div class="fila desc">
+            <mat-icon>dns</mat-icon>
+            <p>Listado</p>
+        </div>
     </button>
 
     <button class="texto-semibold text" mat-button routerLink="/mapa/solicitudes" routerLinkActive="active">
-        <mat-icon> map</mat-icon>
-        Mapa
+        <div class="fila desc">
+            <mat-icon> map</mat-icon>
+            <p>Mapa</p>
+        </div>
     </button>
 
 </div>
