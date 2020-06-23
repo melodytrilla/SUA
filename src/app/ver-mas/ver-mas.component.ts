@@ -24,7 +24,8 @@ export class VerMasComponent implements OnInit {
               ) { 
                 
               }
-  
+  idd: string;
+  editId: string;
   /*ngAfterViewInit(){
     console.log(this.data.fondo)
     if(this.data.fondo == true){
@@ -36,6 +37,7 @@ export class VerMasComponent implements OnInit {
   }*/
   ngOnInit() {
     this.bService.customMessage.subscribe(msg => this.message = msg);
+    this.bService.customId.subscribe(msg => this.idd = msg);
     if (this.data.name != 'solicitudesConEquipamiento'){
     this.service.getDatosVarios(this.data.name).subscribe(data => {
       this.vecinos= data
@@ -81,9 +83,13 @@ cambiarFondo(i, name, id){
       document.getElementById("ico-" + name + "-" + i).style.color = "white"
     }
   }
-  cambiarFondoI(i, name, l){
+  cambiarFondoI(i, name, l, id){
     var k;
+    console.log(name, id)
     if(document.getElementById(name + "-" + i).style.backgroundColor == "rgb(0, 102, 204)"){
+        if(name=='vecinosConSolicitudes'){
+          this.bService.borrarCard('Vecino con más solicitudes', id)
+        }
         document.getElementById(name + "-" + i).style.backgroundColor = "white"
         document.getElementById(name + "-" + i).style.color = "rgba(0, 0, 0, 0.87)"
     }
@@ -93,11 +99,18 @@ cambiarFondo(i, name, id){
           document.getElementById(name + "-" + k).style.color = "rgba(0, 0, 0, 0.87)"
           if(k==i){
             if(document.getElementById(name + "-" + k).style.backgroundColor == "white"){
+              if(name=='vecinosConSolicitudes'){
+                this.bService.agregarCard('Vecino con más solicitudes', id)
+              }
               document.getElementById(name + "-" + k).style.backgroundColor = "rgb(0, 102, 204)"
               document.getElementById(name + "-" + k).style.color = "white"
             }
           }
         }
       }
+    this.bService.changeMessage(this.editMessage);
+    if (name == 'vecinosConSolicitudes'){
+      this.bService.changeId(this.editId)
+    }
     }
 }
