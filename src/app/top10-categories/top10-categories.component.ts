@@ -14,7 +14,7 @@ export class Top10CategoriesComponent implements OnInit {
   constructor(private solicitudesService: SolicitudesService) { }
 
   public doughnutChartLabels: Array<string> = ['Alumbrado', 'Colectivos Urbanos', 'Estacionamiento Medido', 'Bicis Públicas', 'Higiene Urbana', 'Semáforos', 'Señalización Vial', 'Taxis y Remises', 'Arbolado', 'Tránsito'] ;
-  public doughnutChartType = 'doughnut';
+  public doughnutChartType = 'bar';
   public doughnutChartLegend = true;
   public doughnutChartData: Array<number> = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
   public doughnutChartColors: Array<any> = [
@@ -26,6 +26,7 @@ export class Top10CategoriesComponent implements OnInit {
   ];
   public doughnutChartOptions: ChartOptions = {
     responsive: true,
+    maintainAspectRatio: false,
     tooltips: {
       enabled: true,
       
@@ -47,7 +48,7 @@ export class Top10CategoriesComponent implements OnInit {
       legend: {
         fullWidth: false,
         position: 'right',
-        display: true,
+        display: false,
         labels: {
           padding: 9,
           fontSize: 14,
