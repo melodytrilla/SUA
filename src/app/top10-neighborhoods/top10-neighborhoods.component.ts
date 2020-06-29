@@ -14,7 +14,7 @@ export class Top10NeighborhoodsComponent implements OnInit {
   constructor(private solicitudesService: SolicitudesService) { }
 
   public doughnutChartLabels: Array<string> = ['Acera 1', 'Acindar 2', 'Alberdi 3', 'Avellaneda 9', 'Azcuénaga 12', 'Dorrego 31', 'La Florida 57', 'Unión 94', 'Pellegrini 28', 'Del Bicentenario 51'] ;
-  public doughnutChartType = 'doughnut';
+  public doughnutChartType = 'bar';
   public doughnutChartLegend = true;
   public doughnutChartData: Array<number> = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
   public doughnutChartColors: Array<any> = [
@@ -26,6 +26,7 @@ export class Top10NeighborhoodsComponent implements OnInit {
   ];
   public doughnutChartOptions: ChartOptions = {
     responsive: true,
+    maintainAspectRatio: false,
     tooltips: {
       enabled: true,
       
@@ -47,7 +48,7 @@ export class Top10NeighborhoodsComponent implements OnInit {
       legend: {
         fullWidth: false,
         position: 'right',
-        display: true,
+        display: false,
         labels: {
           padding: 9,
           fontSize: 14,

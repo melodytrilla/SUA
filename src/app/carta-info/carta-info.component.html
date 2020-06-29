@@ -1,24 +1,27 @@
-<div id="{{title_value}}" class="hovv"  *ngIf="title_value!='Solicitudes'">
-    <div (click)="this.cambiarFondo(title_value)">
+<div id="{{title_value}}" class="hovv contenedor-column"  *ngIf="title_value!='Solicitudes'">
+    <div (click)="this.cambiarFondo(title_value)" class="titulo-otros">
         <div class="titulo-bold font15">
             <p id={{title_style}}> {{title_value}} </p>
         </div>
-        <div class="texto-semibold">
+    </div>
+    <div class="contenido-otro">
+        <div class="texto-semibold amount" (click)="this.cambiarFondo(title_value)">
             <div id="{{content_style}}"><p style="margin: 0px" id="num-{{title_value}}">{{content_value | number:'':'es-AR'}}</p></div>
         </div>
-    </div>
-    <div *ngIf="title_value!='Solicitudes con equipamiento'" style="cursor: pointer" class="texto-regular ver-mas" (click)="this.openD()"> 
-        <p>VER MÁS</p>
-    </div>
-    <div style="padding-bottom: 7px" *ngIf="title_value== 'Solicitudes con equipamiento'">
-        <p></p>
+
+        <div *ngIf="title_value!='Solicitudes con equipamiento'" style="cursor: pointer" class="texto-regular ver-mas" (click)="this.openD()"> 
+            <p>VER MÁS</p>
+        </div>
+        <div style="padding-bottom: 7px" *ngIf="title_value== 'Solicitudes con equipamiento'">
+            <p></p>
+        </div>
     </div>
 </div>
-<div *ngIf="title_value=='Solicitudes'">
-    <div class="titulo-bold font15">
-        <p id={{title_style}}> {{title_value}} </p>
+<div *ngIf="title_value=='Solicitudes'" class="contenedor-row">
+    <div class="titulo-bold font15 titulo-Solicitud">
+        <p id={{title_style}} class="texto-solicitudes-p"> {{title_value}} </p>
     </div>
-    <div class="texto-semibold">
+    <div class="texto-semibold texto-solicitud">
         <p id={{content_style}}>{{content_value | number:'':'es-AR'}}</p>
     </div>
 </div>

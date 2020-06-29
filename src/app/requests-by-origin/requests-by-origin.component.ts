@@ -16,7 +16,7 @@ export class RequestsByOriginComponent implements OnInit {
   constructor(private solicitudesService: SolicitudesService) { }
   
   public doughnutChartLabels: Array<string> = ['Telefónico', 'Contacto Web', 'Twitter', 'Personal', 'Facebook', 'Nota/Expediente', 'VVV', 'MR', 'Externo'] ;
-  public doughnutChartType = 'doughnut';
+  public doughnutChartType = 'bar';
   public doughnutChartLegend = true;
   public doughnutChartData: Array<number> = [1, 1, 1, 1, 1, 1, 1, 1, 1];
   public doughnutChartColors: Array<any> = [
@@ -28,6 +28,7 @@ export class RequestsByOriginComponent implements OnInit {
   ];
   public doughnutChartOptions: ChartOptions = {
     responsive: true,
+    maintainAspectRatio: false,
     tooltips: {
       enabled: true,
       
@@ -49,7 +50,7 @@ export class RequestsByOriginComponent implements OnInit {
       legend: {
         fullWidth: false,
         position: 'right',
-        display: true,
+        display: false,
         labels: {
           padding: 10,
           fontSize: 16,

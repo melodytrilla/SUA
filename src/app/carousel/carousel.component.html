@@ -1,14 +1,18 @@
 <mat-card class="tarjeta">
     <div class="image">
-      <mat-tab-group (click)="playPause()" [selectedIndex]="valor" id="TabsControl">
-        <mat-tab label="Solicitudes por Origen"> <app-requests-by-origin></app-requests-by-origin></mat-tab>
-        <mat-tab label="Solicitudes por Distrito"><app-requests-by-district></app-requests-by-district></mat-tab>
+      <mat-tab-group dynamicHeight (click)="playPause()" style="height: 100%;" [selectedIndex]="valor" id="TabsControl">
+        <mat-tab label="Solicitudes por Origen"> 
+          <div style="height: 100%; overflow: visible;">
+            <app-requests-by-origin></app-requests-by-origin>
+          </div>
+        </mat-tab>
+        <mat-tab style="height: 100%; width:100%" label="Solicitudes por Distrito"><app-requests-by-district></app-requests-by-district></mat-tab>
         <mat-tab label="Top 10 categorías"><app-top10-categories></app-top10-categories> </mat-tab>
         <mat-tab label="Top 10 vecinales"><app-top10-neighborhoods></app-top10-neighborhoods></mat-tab>
       </mat-tab-group>
     </div>
       <div class="pause">
-        <button mat-button (click)="togglePlay()">
+        <button mat-button style="height: 100%; line-height: normal" (click)="togglePlay()">
             <mat-icon *ngIf="!pause">pause</mat-icon>
             <mat-icon *ngIf="pause">play_arrow</mat-icon>
         </button>

@@ -1,37 +1,42 @@
-<div class="tarjeta">
-    <mat-card-title class="titulo font15">
-        <div class="titulo-bold">Opinadas</div>
-        <div  class="texto-semibold">
-            <h3 *ngIf="!loading else placeholder"> {{total | number:'':'es-AR'}} </h3>
-            <ng-template #placeholder><h3>0</h3></ng-template>
-        </div>
-        <div class="rating-bar" [@panelInOut] style="margin-bottom: 10px">
-            <div class="rating positivo" style="border-top-left-radius: 10px; border-bottom-left-radius: 10px" [style.width.%]="positivas">{{positivas}}%</div>
-            <div class="rating neutral " [style.width.%]="neutral">{{neutral}}%</div>
-            <div class="rating negativo" style="border-top-right-radius: 10px; border-bottom-right-radius: 10px" [style.width.%]="negativas">{{negativas}}%</div>
+<div class="tarjeta" style="height: 100%;">
+    <mat-card-title class="titulo font15" style="height: 25%; display:flex; flex-direction: column;">
+        <div style="height:25%" class="titulo-bold">Opinadas</div>
+        <div style="height: 75%; display: flex;">
+            <div  class="texto-semibold" style="font-size: 1.5vw; width: 20%;">
+                <h3 *ngIf="!loading else placeholder"> {{total | number:'':'es-AR'}} </h3>
+                <ng-template #placeholder><h3>0</h3></ng-template>
+            </div>
+            <div class="rating-bar" [@panelInOut] style="margin-bottom: 2%; width: 80%;">
+                <div class="rating positivo" style="border-top-left-radius: 10px; border-bottom-left-radius: 10px" [style.width.%]="positivas">{{positivas}}%</div>
+                <div class="rating neutral " [style.width.%]="neutral">{{neutral}}%</div>
+                <div class="rating negativo" style="border-top-right-radius: 10px; border-bottom-right-radius: 10px" [style.width.%]="negativas">{{negativas}}%</div>
+            </div>
         </div>
     </mat-card-title>
-    <div style="margin-bottom: 10px"><mat-divider></mat-divider></div>
+    <div style="margin-bottom: 1%"><mat-divider></mat-divider></div>
 
-    <div>
-        <div *ngIf="!loading else loader">
-            <mat-list id="i-{{ind}}" class="lista hov" *ngFor="let item of datos; let ind =index">
-                <div class="linea fila" (click)="this.cambiarFondo(ind, item.name)">
-                    <div style="align-items: center;" class="fila" *ngIf="item.name == 'Positivas'">
-                        <div class="accent positivo"></div><mat-icon id="ico-{{ind}}" class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
+    <div style="height: 73%; display: flex;">
+        <div *ngIf="!loading else loader" style="width: 100%;">
+            <mat-list id="i-{{ind}}" class="lista hov" style="height:30%; width:100%" *ngFor="let item of datos; let ind =index">
+                <div class="linea fila" (click)="this.cambiarFondo(ind, item.name)" style="height: 100%;">
+                    <div style="align-items: center; height: 100%;" class="fila" *ngIf="item.name == 'Positivas'">
+                        <div class="accent positivo" style="height: 100%;"></div>
+                        <mat-icon id="ico-{{ind}}" class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
                     </div>
-                    <div style="align-items: center;" class="fila" *ngIf="item.name == 'Negativas'">
-                        <div class="accent negativo"></div><mat-icon id="ico-{{ind}}" class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
+                    <div style="align-items: center; height: 100%;" class="fila" *ngIf="item.name == 'Negativas'">
+                        <div class="accent negativo" style="height: 100%;"></div>
+                        <mat-icon id="ico-{{ind}}" class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
                     </div>
-                    <div style="align-items: center;" class="fila" *ngIf="item.name == 'Neutral'">
-                        <div class="accent neutral"></div><mat-icon id="ico-{{ind}}" class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
+                    <div style="align-items: center; height: 100%;" class="fila" *ngIf="item.name == 'Neutral'">
+                        <div class="accent neutral" style="height: 100%;"></div>
+                        <mat-icon id="ico-{{ind}}" class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
                     </div>
                     <div class="fila">
                         <div class="item texto-regular">
                             <h3>{{item.name}}</h3>
                         </div>
                     </div>
-                <div class="item texto-semibold"><p>{{item.details | number:'':'es-AR'}}</p></div>
+                    <div class="item texto-semibold"><p>{{item.details | number:'':'es-AR'}}</p></div>
                 </div>
             </mat-list>
         </div>
