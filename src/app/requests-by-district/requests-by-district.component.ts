@@ -17,7 +17,7 @@ export class RequestsByDistrictComponent implements OnInit {
   }
   public arr: any[] = [];
   public doughnutChartLabels: Array<string> = ['Centro', 'Norte', 'Sur', 'Oeste', 'Noroeste', 'Sudoeste'];
-  public doughnutChartType = 'doughnut';
+  public doughnutChartType = 'bar';
   public doughnutChartLegend = true;
   public doughnutChartData: Array<number> = [1, 1, 1, 1, 1, 1];
   public doughnutChartColors: Array<any> = [
@@ -29,6 +29,7 @@ export class RequestsByDistrictComponent implements OnInit {
   ];
   public doughnutChartOptions: ChartOptions = {
     responsive: true,
+    maintainAspectRatio: false,
     tooltips: {
       enabled: true,
       
@@ -49,7 +50,7 @@ export class RequestsByDistrictComponent implements OnInit {
     },
       legend: {
         fullWidth: false,
-        display: true,
+        display: false,
         position: 'right',
         onClick: function(e, legendItem) {
           var cont: number =0;
