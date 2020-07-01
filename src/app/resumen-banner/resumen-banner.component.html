@@ -4,9 +4,9 @@
         <mat-icon [inline]="true">alarm</mat-icon>
     </div>
 
-    <mat-card id="reiteradas" (click)="this.cambiarFondo('reiteradas')" class="hovv">
+    <mat-card [ngClass]="rei" id="reiteradas" (click)="this.cambiarFondo('reiteradas')" class="hovv">
         <mat-card-content>
-            <mat-card-subtitle id="tit-reiteradas" class="titulo-bold"> Reiteradas </mat-card-subtitle>
+            <mat-card-subtitle [ngClass]="titReit" id="tit-reiteradas" class="titulo-bold"> Reiteradas </mat-card-subtitle>
             <div>
                 <mat-card-title class="texto-semibold" *ngIf="alertas['reiterated']; else placeholder"> 
                     {{alertas['reiterated'].cantidad | number:'':'es-AR'}} 
@@ -15,22 +15,22 @@
         </mat-card-content>
     </mat-card>
 
-    <mat-card id="sinInter" (click)="this.cambiarFondo('sinInter')" class="hovv">
+    <mat-card [ngClass]="int" id="sinInter" (click)="this.cambiarFondo('sinInter')" class="hovv">
         <mat-card-content>
-            <mat-card-subtitle id="tit-sinInter" class="titulo-bold">  Sin Intervención </mat-card-subtitle>
+            <mat-card-subtitle [ngClass]="titInt" id="tit-sinInter" class="titulo-bold">  Sin Intervención </mat-card-subtitle>
             <mat-card-title class="texto-semibold" *ngIf="alertas['unintervined']; else placeholder"> 
                 {{alertas['unintervined'].cantidad | number:'':'es-AR'}}
-                <mat-icon id="ico-sinInter" class="fsua fsua-intervenido fsua-0_5x"></mat-icon>
+                <mat-icon [ngClass]="titInt" id="ico-sinInter" class="fsua fsua-intervenido fsua-0_5x"></mat-icon>
             </mat-card-title>
         </mat-card-content>
     </mat-card>
 
-    <mat-card id="sinAsig" (click)="this.cambiarFondo('sinAsig')" class="hovv">
+    <mat-card [ngClass]="asig" id="sinAsig" (click)="this.cambiarFondo('sinAsig')" class="hovv">
         <mat-card-content>
-            <mat-card-subtitle id="tit-sinAsig" class="titulo-bold"> Sin asignación </mat-card-subtitle>
+            <mat-card-subtitle [ngClass]="titAsig" id="tit-sinAsig" class="titulo-bold"> Sin asignación </mat-card-subtitle>
             <mat-card-title class="texto-semibold" *ngIf="alertas['unasigned']; else placeholder"> 
                 {{alertas['unasigned'].cantidad | number:'':'es-AR'}}
-                <mat-icon id="ico-sinAsig" class="fsua fsua-mapa fsua-0_5x"></mat-icon>
+                <mat-icon [ngClass]="titAsig" id="ico-sinAsig" class="fsua fsua-mapa fsua-0_5x"></mat-icon>
             </mat-card-title>
         </mat-card-content>
     </mat-card>

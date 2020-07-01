@@ -384,6 +384,7 @@ export class FiltroAvanzadoDialogComponent implements OnInit, OnDestroy, AfterVi
   BusquedaClick():void{
     this.savePressed = true;
     this.dialogRef.close(this.cantidad_filtros);
+    window.location.reload()
   }
 
 //funciones para limpiar cada filtro-------

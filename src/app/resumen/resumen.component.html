@@ -2,7 +2,12 @@
 <!--<h1 class="mat-h1">SUA Busqueda</h1>-->
 <!--<app-chips-container></app-chips-container>-->
 <app-navbar></app-navbar>
-<app-resumen-banner></app-resumen-banner>
+<app-resumen-banner
+reiteradas_con="{{busquedaCompleta.advSearch.reiteraciones_con}}"
+reiteradas_sin="{{busquedaCompleta.advSearch.reiteraciones_sin}}"
+intervenciones_sin="{{this.busquedaCompleta.advSearch.intervenciones_tipo}}"
+asignaciones_sin="{{this.busquedaCompleta.advSearch.asignacion_tipo}}">
+</app-resumen-banner>
 <div class="grid-container">
 
 <div id="MasterCards">
@@ -71,7 +76,11 @@
     
           <mat-grid-tile [colspan] =1 [rowspan] =5> 
             <mat-card class="dashboard-card">
-              <app-opinadas>
+              <app-opinadas
+              positivo="{{busquedaCompleta.advSearch.opinion_positive}}"
+              negativo="{{busquedaCompleta.advSearch.opinion_negative}}"
+              neutro="{{busquedaCompleta.advSearch.opinion_neutro}}"
+              >
               </app-opinadas> 
             </mat-card> 
           </mat-grid-tile>

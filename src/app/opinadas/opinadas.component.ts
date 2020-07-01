@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { SolicitudesService } from '../solicitudes.service';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { BusquedaService } from '../busqueda.service';
@@ -19,7 +19,9 @@ import { BusquedaService } from '../busqueda.service';
     ])
 ]
 })
-export class OpinadasComponent implements OnInit {
+export class OpinadasComponent implements OnInit{
+
+  
   public datos: any[] =[]
   loading = false;
   total: number =0;
@@ -28,9 +30,15 @@ export class OpinadasComponent implements OnInit {
   neutral: number;
   message: number;
   editMessage: number;
+  neu: string;
+  icoN: string;
   constructor(private api: SolicitudesService,
               private service: BusquedaService) { }
 
+  @Input() positivo: string;
+  @Input() negativo: string;
+  @Input() neutro: string;
+  
   ngOnInit() {
     this.loading = true;
     this.service.customMessage.subscribe(msg => this.message = msg);
@@ -51,8 +59,19 @@ export class OpinadasComponent implements OnInit {
         }
       })
     });
+    /*
+    if(this.neutro == 'true'){
+      this.neu = 'i-0';
+      this.icoN = 'ico-0'
+    }
+    else{
+      this.neu = 'fondoBlanco'
+    }*/
     this.loading = false;
   }
+
+ 
+  
   cambiarFondo(ind, name){
     if (document.getElementById("i-" + ind).style.backgroundColor == "rgb(0, 102, 204)"){
       this.service.borrarOpinion(name)
