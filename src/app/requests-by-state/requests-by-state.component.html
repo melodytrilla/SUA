@@ -17,33 +17,33 @@
 
 
     <div class="columna" style="height: 58%;">
-            <div id="Pendiente" class="fila hov item" style="height:25%" (click)="this.cambiarFondo('Pendiente')">
-                <div class="fila" style="margin-left: 1px; align-items: center; height: 100%">
+            <div [ngClass]="pen" id="Pendiente" class="fila item" (click)="this.cambiarFondo('Pendiente')">
+                <div class="fila tit-estado">
                     <div class="accent accentP"></div>
                     <div class="texto-regular">Pendientes</div>
                 </div>
-                <div class="texto-semibold" style="margin-right: 10px; font-size: 2vw;">{{doughnutChartData[0] | number:'':'es-AR'}}</div>
+                <div class="texto-semibold cantidad">{{doughnutChartData[0] | number:'':'es-AR'}}</div>
             </div>
-            <div id="En curso" class="fila hov item" style="height:25%" (click)="this.cambiarFondo('En curso')">
-                <div class="fila" style="margin-left: 1px; align-items: center; height: 100%">
+            <div [ngClass]="enC" id="En curso" class="fila item" (click)="this.cambiarFondo('En curso')">
+                <div class="fila tit-estado">
                     <div class="accent accentEC"></div>
                     <div class="texto-regular">En curso</div>
                 </div>
-                <div class="texto-semibold" style="margin-right: 10px; font-size: 2vw;">{{doughnutChartData[1] | number:'':'es-AR'}}</div>
+                <div class="texto-semibold cantidad">{{doughnutChartData[1] | number:'':'es-AR'}}</div>
             </div>
-            <div id="Resuelto" class="fila hov item" style="height:25%" (click)="this.cambiarFondo('Resuelto')">
-                <div class="fila" style="margin-left: 1px; align-items: center; height: 100%">
+            <div [ngClass]="res" id="Resuelto" class="fila item"(click)="this.cambiarFondo('Resuelto')">
+                <div class="fila tit-estado">
                     <div class="accent accentR"></div>
                     <div class="texto-regular">Resueltas</div>
                 </div>
-                <div class="texto-semibold" style="margin-right: 10px; font-size: 2vw;">{{doughnutChartData[2] | number:'':'es-AR'}}</div>
+                <div class="texto-semibold cantidad">{{doughnutChartData[2] | number:'':'es-AR'}}</div>
             </div>
-            <div id="Cerrado" class="fila hov item" style="height:25%" (click)="this.cambiarFondo('Cerrado')">
-                <div class="fila" style="margin-left: 1px; align-items: center; height: 100%">
+            <div [ngClass]="cer" id="Cerrado" class="fila item" (click)="this.cambiarFondo('Cerrado')">
+                <div class="fila tit-estado">
                     <div class="accent accentC"></div>
                     <div class="texto-regular">Cerradas</div>
                 </div>
-                <div class="texto-semibold" style="margin-right: 10px; font-size: 2vw;">{{doughnutChartData[3] | number:'':'es-AR'}}</div>
+                <div class="texto-semibold cantidad">{{doughnutChartData[3] | number:'':'es-AR'}}</div>
             </div>
     </div>
 </div>

@@ -20,6 +20,7 @@ export class CartaInfoComponent implements OnInit {
    }
 
   @Input() cardName: string;
+  @Input() idSolic: string;
 
   title_style: string = "cardTitle";
   title_value: string;

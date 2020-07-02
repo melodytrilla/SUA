@@ -47,7 +47,9 @@
 
         <mat-grid-tile [colspan] =1 [rowspan] =1.5> 
           <mat-card class="dashboard-card">
-            <app-carta-info cardName="vecinosConSolicitudes"></app-carta-info>
+            <app-carta-info 
+            cardName="vecinosConSolicitudes"
+            idSolic="{{this.busquedaCompleta.Id_solicitante}}".3></app-carta-info>
           </mat-card>
         </mat-grid-tile>
 
@@ -78,7 +80,8 @@
         <mat-grid-list cols="2" rows="7" rowHeight="fit">
             <mat-grid-tile [colspan] =1 [rowspan] =3> 
                 <mat-card class="dashboard-card"> 
-                    <app-requests-by-state></app-requests-by-state>
+                    <app-requests-by-state
+                    estados="{{this.busquedaCompleta.advSearch.estado_estados}}"></app-requests-by-state>
                 </mat-card>
             </mat-grid-tile>
       

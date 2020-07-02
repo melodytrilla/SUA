@@ -64,7 +64,7 @@ export class ResumenBannerComponent implements OnInit {
   }
 
   cambiarFondo(i){
-    if (document.getElementById(i).classList.contains('fondo-azul') ){
+    if (document.getElementById(i).classList.contains('fondo-azul')){
       this.service.borrarBanner(i);
       this.service.changeMessage(this.editMessage);
       document.getElementById(i).classList.replace('fondo-azul', 'fondo-blanco');
