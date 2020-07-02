@@ -53,6 +53,8 @@ export class SearchBarComponent implements OnInit {
     private busqueda: BusquedaService) {  }
 
 
+    @Input() idSolici: string;
+
   inlineRangeChange($event) {
     this.inlineRange = $event;
   }
@@ -85,7 +87,8 @@ export class SearchBarComponent implements OnInit {
       this.idSolic = msg 
     })
 
-    this.idSolic = this.busqueda.getIdSolic()
+    /*this.idSolic = this.busqueda.getIdSolic()*/
+    this.idSolic = this.idSolici
 
     /**Para disminuir la cantidad de request a la API en el filtrado 
      * si los resultados son pocos, conviene buscar todos los resultados
