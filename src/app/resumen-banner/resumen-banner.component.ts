@@ -31,28 +31,28 @@ export class ResumenBannerComponent implements OnInit {
     this.service.customMessage.subscribe(msg => this.message = msg);
     this.update();
     if(this.reiteradas_con == 'true' && this.reiteradas_sin =='false'){
-      this.rei = 'reit';
-      this.titReit='tit-reit-blanco'
+      this.rei = 'fondo-azul';
+      this.titReit='tit-blanco'
     }
     else{
-      this.rei = 'reit-blanco'
-      this.titReit='tit-reit-negro'
+      this.rei = 'fondo-blanco'
+      this.titReit='tit-negro'
     }
     if(this.intervenciones_sin == 'sin'){
-      this.int ='reit';
-      this.titInt= 'tit-reit-blanco';
+      this.int ='fondo-azul';
+      this.titInt= 'tit-blanco';
     }
     else{
-      this.int = 'reit-blanco'
-      this.titInt='tit-reit-negro'
+      this.int = 'fondo-blanco'
+      this.titInt='tit-negro'
     }
     if(this.asignaciones_sin == 'sin'){
-      this.asig ='reit';
-      this.titAsig= 'tit-reit-blanco';
+      this.asig ='fondo-azul';
+      this.titAsig= 'tit-blanco';
     }
     else{
-      this.asig = 'reit-blanco'
-      this.titAsig='tit-reit-negro'
+      this.asig = 'fondo-blanco'
+      this.titAsig='tit-negro'
     }
   }
 
@@ -64,33 +64,19 @@ export class ResumenBannerComponent implements OnInit {
   }
 
   cambiarFondo(i){
-    if (document.getElementById(i).classList.contains('reit') ){
+    if (document.getElementById(i).classList.contains('fondo-azul') ){
       this.service.borrarBanner(i);
       this.service.changeMessage(this.editMessage);
-      document.getElementById(i).classList.remove('reit');
-      document.getElementById(i).classList.add('reit-blanco');
-      document.getElementById("tit-" + i).classList.remove('tit-reit-blanco')
-      document.getElementById("tit-" + i).classList.add('tit-reit-negro')
-      document.getElementById("ico-" + i).classList.remove('tit-reit-blanco')
-      document.getElementById("ico-" + i).classList.add('tit-reit-negro')
-      /*document.getElementById(i).style.backgroundColor = "white"
-      document.getElementById(i).style.color = "rgba(0, 0, 0, 0.87)"
-      document.getElementById("tit-" + i).style.color = "rgba(0, 0, 0, 0.87)"
-      document.getElementById("ico-" + i).style.color = "rgba(0, 0, 0, 0.87)"*/
+      document.getElementById(i).classList.replace('fondo-azul', 'fondo-blanco');
+      document.getElementById("tit-" + i).classList.replace('tit-blanco', 'tit-negro')
+      document.getElementById("ico-" + i).classList.replace('tit-blanco', 'tit-negro')
     }
     else{
       this.service.agregarBanner(i);
       this.service.changeMessage(this.editMessage);
-      document.getElementById(i).classList.remove('reit-blanco');
-      document.getElementById(i).classList.add('reit');
-      document.getElementById("tit-" + i).classList.remove('tit-reit-negro')
-      document.getElementById("tit-" + i).classList.add('tit-reit-blanco')
-      document.getElementById("ico-" + i).classList.remove('tit-reit-negro')
-      document.getElementById("ico-" + i).classList.add('tit-reit-blanco')
-      /*document.getElementById(i).style.backgroundColor = "rgb(0, 102, 204)"
-      document.getElementById(i).style.color = "white"
-      document.getElementById("tit-" + i).style.color = "white"
-      document.getElementById("ico-" + i).style.color = "white"*/
+      document.getElementById(i).classList.replace('fondo-blanco', 'fondo-azul');
+      document.getElementById("tit-" + i).classList.replace('tit-negro', 'tit-blanco')
+      document.getElementById("ico-" + i).classList.replace('tit-negro', 'tit-blanco')
     }
   }
 

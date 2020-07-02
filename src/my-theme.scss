@@ -313,3 +313,19 @@ $darkTheme-theme:mat-dark-theme($angular-alerta-grave, $angular-alerta-grave, $a
     width: 90%;
     text-overflow: ellipsis;
 }
+
+/*filtrado resumen*/
+.fondo-azul{
+    background-color: rgb(0, 102, 204);
+    color: white;
+}
+.fondo-blanco{
+    background-color: white;
+    color: black;
+}
+.tit-blanco{
+    color: white
+}
+.tit-negro{
+    color: black
+}
