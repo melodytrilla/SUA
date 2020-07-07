@@ -17,19 +17,35 @@
 
     <div style="height: 73%; display: flex;">
         <div *ngIf="!loading else loader" style="width: 100%;">
-            <mat-list id="i-{{ind}}" class="lista hov" style="height:30%; width:100%" *ngFor="let item of datos; let ind =index">
-                <div class="linea fila" (click)="this.cambiarFondo(ind, item.name)" style="height: 100%;">
-                    <div style="align-items: center; height: 100%;" class="fila" *ngIf="item.name == 'Positivas'">
+            <mat-list  class="lista hov" style="height:30%; width:100%" *ngFor="let item of datos; let ind =index">
+                <div [ngClass]="pos" id="i-0" class="linea fila" (click)="this.cambiarFondo('0', item.name)" *ngIf="item.name == 'Positivas'" style="height: 100%;">
+                    <div style="align-items: center; height: 100%;" class="fila">
                         <div class="accent positivo" style="height: 100%;"></div>
-                        <mat-icon id="ico-{{ind}}" class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
+                        <mat-icon [ngClass]="titPos" id="ico-0" class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
                     </div>
-                    <div style="align-items: center; height: 100%;" class="fila" *ngIf="item.name == 'Negativas'">
+                    <div class="fila">
+                        <div class="item texto-regular">
+                            <h3>{{item.name}}</h3>
+                        </div>
+                    </div>
+                    <div class="item texto-semibold"><p>{{item.details | number:'':'es-AR'}}</p></div>
+                </div>
+                <div [ngClass]="neg" id="i-1" class="linea fila" (click)="this.cambiarFondo('1', item.name)" *ngIf="item.name == 'Negativas'" style="height: 100%;">
+                    <div style="align-items: center; height: 100%;" class="fila">
                         <div class="accent negativo" style="height: 100%;"></div>
-                        <mat-icon id="ico-{{ind}}" class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
+                        <mat-icon [ngClass]="titNeg" id="ico-1" class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
                     </div>
+                    <div class="fila">
+                        <div class="item texto-regular">
+                            <h3>{{item.name}}</h3>
+                        </div>
+                    </div>
+                    <div class="item texto-semibold"><p>{{item.details | number:'':'es-AR'}}</p></div>
+                </div>
+                <div [ngClass]="neu" id='i-2' class="linea fila" (click)="this.cambiarFondo('2', item.name)" *ngIf="item.name == 'Neutral'" style="height: 100%;">
                     <div style="align-items: center; height: 100%;" class="fila" *ngIf="item.name == 'Neutral'">
                         <div class="accent neutral" style="height: 100%;"></div>
-                        <mat-icon id="ico-{{ind}}" class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
+                        <mat-icon [ngClass]="titNeu" id="ico-2" class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
                     </div>
                     <div class="fila">
                         <div class="item texto-regular">

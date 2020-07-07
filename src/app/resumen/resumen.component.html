@@ -87,7 +87,10 @@
       
             <mat-grid-tile [colspan] =1 [rowspan] =3> 
               <mat-card class="dashboard-card">
-                <app-opinadas>
+                <app-opinadas
+                positivo="{{this.busquedaCompleta.advSearch.opinion_positivo}}"
+                negativo="{{this.busquedaCompleta.advSearch.opinion_negative}}"
+                neutro="{{this.busquedaCompleta.advSearch.opinion_neutro}}">
                 </app-opinadas> 
               </mat-card> 
             </mat-grid-tile>

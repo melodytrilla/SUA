@@ -290,6 +290,9 @@ export class BusquedaService {
   }
   agregarOpinion(a: string):void{
     this.busquedaCompleta.advSearch.opinion_tiene = "Con"
+    if(!this.busquedaCompleta.advSearch.opinion_positivo && !this.busquedaCompleta.advSearch.opinion_negative && !this.busquedaCompleta.advSearch.opinion_neutro){
+      this.filtroNumber++;
+      }
     if (a == 'Positivas'){
       this.busquedaCompleta.advSearch.opinion_positivo = true
     }
@@ -298,10 +301,6 @@ export class BusquedaService {
     }
     else if (a == 'Neutral'){
       this.busquedaCompleta.advSearch.opinion_neutro = true
-    }
-    if (this.agOp == true){
-      this.filtroNumber++;
-      this.agOp = false
     }
     this.guardarEnSecion()
   }
