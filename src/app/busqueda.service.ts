@@ -64,7 +64,6 @@ export class BusquedaService {
   private filtroNumber  : number = 0;
   busquedaCompleta:Busqueda;
   aGuardar : BusquedaSave2;
-  agOp: boolean = true;
   arr: any[] = []
   //si hay algo guardado en la session se carga en una variable, si no se inicializa vacio
   Init(){
@@ -319,7 +318,6 @@ export class BusquedaService {
       if (this.filtroNumber > 0){
         this.filtroNumber--;
       }
-      this.agOp= true;
     }
     this.guardarEnSecion()
   }

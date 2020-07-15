@@ -34,6 +34,9 @@ export class CartaInfoComponent implements OnInit {
   id: string;
   idd: string;
   editId: string;
+  vec: string;
+  titVec: string;
+
 
   ngOnInit() {
     this.service.customMessage.subscribe(msg => this.message = msg);
@@ -75,27 +78,38 @@ export class CartaInfoComponent implements OnInit {
           this.content_value = value.cantidad_solicitudes
           if(this.cardName == "vecinosConSolicitudes"){
             this.id = value.dni_solicitante
+            this.iniciarFondo('Vecino con más solicitudes')
           }
         }
       })
     });}
   }
 
+  iniciarFondo(tit){
+    if(this.id == this.idSolic){
+      document.getElementById(tit).classList.replace('fondo-blanco', 'fondo-azul')
+      document.getElementById("num-" + tit).classList.replace('fondo-blanco', 'fondo-azul')
+      this.fondoAzul = true
+    }
+    else{
+      document.getElementById(tit).classList.add('fondo-blanco')
+      document.getElementById("num-" + tit).classList.add('tit-blanco')
+      this.fondoAzul = false
+      
+    }
+  }
   cambiarFondo(i){
-    console.log(i)
-    if (document.getElementById(i).style.backgroundColor == "rgb(0, 102, 204)"){
+    if (document.getElementById(i).classList.contains('fondo-azul')){
       this.service.borrarCard(i, this.id)
-      document.getElementById(i).style.backgroundColor = "rgb(249, 250, 253)"
-      document.getElementById(i).style.color = "rgba(0, 0, 0, 0.87)"
-      document.getElementById("num-" + i).style.color = "rgba(0, 0, 0, 0.87)"
-      this.fondoAzul= false;
+      document.getElementById(i).classList.replace('fondo-azul', 'fondo-blanco');
+      document.getElementById("num-" + i).classList.replace('tit-blanco', 'tit-negro')
+      this.fondoAzul= false
     }
     else{
       this.service.agregarCard(i, this.id)
-      document.getElementById(i).style.backgroundColor = "rgb(0, 102, 204)"
-      document.getElementById(i).style.color = "white"
-      document.getElementById("num-" + i).style.color = "white"
-      this.fondoAzul = true;
+      document.getElementById(i).classList.replace('fondo-blanco', 'fondo-azul');
+      document.getElementById("num-" + i).classList.replace('tit-negro', 'tit-blanco')
+      this.fondoAzul = true
     }
     this.service.changeMessage(this.editMessage);
     if (i == 'Vecino con más solicitudes'){
