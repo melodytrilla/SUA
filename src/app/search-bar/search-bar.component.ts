@@ -8,6 +8,7 @@ import {DateRangePicker} from '../date-range-picker/date-range-picker.component'
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FiltroAvanzadoDialogComponent } from '../filtro-avanzado-dialog/filtro-avanzado-dialog.component';
 import { BusquedaService, Busqueda, BusquedaSave } from '../busqueda.service';
+import { Console } from 'console';
 
 @Component({
   selector: 'app-search-bar',
@@ -15,6 +16,9 @@ import { BusquedaService, Busqueda, BusquedaSave } from '../busqueda.service';
   styleUrls: ['./search-bar.component.sass'],
 
 })
+
+
+
 export class SearchBarComponent implements OnInit {
 
   message: number;
@@ -45,6 +49,7 @@ export class SearchBarComponent implements OnInit {
   private cantFiltros: number = 0;
   private idSolic: string = ""
   busquedasGuardadas; 
+
 
   constructor(
     private formBuilder: FormBuilder, 
@@ -110,6 +115,16 @@ export class SearchBarComponent implements OnInit {
     );
     */
   }
+  public toggleShow(){
+    document.getElementById("miDropdown").classList.toggle("show");
+    document.getElementById("miDropdown-mask").classList.toggle("show");
+  }
+
+  public removeShow(){
+    document.getElementById("miDropdown").classList.remove("show");
+    document.getElementById("miDropdown-mask").classList.remove("show");
+  }
+
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();

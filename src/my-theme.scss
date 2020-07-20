@@ -265,6 +265,11 @@ $darkTheme-theme:mat-dark-theme($angular-alerta-grave, $angular-alerta-grave, $a
     flex-direction: column-reverse;
 }
 
+.filaInvertida{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
 .hov:hover{
     background-color: #EFEEEE;
     cursor: pointer;

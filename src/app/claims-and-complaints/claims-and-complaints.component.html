@@ -10,8 +10,8 @@
 
     <mat-divider></mat-divider>
 
-    <div style="height:76%">
-        <div *ngIf="!loading else loader" style="height:100%">
+    <div class="bodyContainer">
+        <div class="fullHeight" *ngIf="!loading else loader">
             <mat-list id="{{i}}-{{title}}" class="lista" *ngFor="let item of data | sort:{ property: 'details', descending: 'true'} | slice:0:4; let i =index">
                 <div id="div-{{i}}" class="linea fila hovv" (click)="this.cambiarFondo(i, title)" >
                     <mat-icon id="ico-{{i}}-{{title}}" class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>

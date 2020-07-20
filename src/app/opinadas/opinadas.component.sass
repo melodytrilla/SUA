@@ -1,9 +1,24 @@
 .tarjeta
     padding: 0px
+    height: 100%
 
 .titulo
     margin: 0
     padding: 1% 1% 0px 1%
+    height: 25%
+    display: flex
+    flex-direction: column
+
+.tituloText
+    height:25%
+
+.totalTextoContenedor
+    height: 75%
+    display: flex
+
+.totalTexto
+    font-size: 1.5vw
+    width: 20%
 
 .tarjeta h3
     font-size: 2vW
@@ -14,6 +29,7 @@
 .lista 
     padding-top: 0 !important
     padding-left: 5px
+    height:30%
 
 .linea
     align-items: center
@@ -75,19 +91,55 @@ $neutral: #AED4D8
     align-items: center
     -webkit-font-smoothing: antialiased
     text-rendering: auto
+    margin-bottom: 1%
+    width: 80%
 
-    .positivo
-        background-color: $positivo
-    .negativo
-        background-color: $negativo
-    .neutral
-        background-color: $neutral
-    
-    .rating
-        font-weight: 400
-        color: black
+    .numbersContainer
+        width: inherit
+        position: absolute
+        display: flex
+        z-index: 1
+
+        .rating
+            overflow-x: visible
+            font-weight: 400
+            color: black
+
+    .colorsContainer
+        width: inherit
+        height: 10%
+        position: absolute
+        display: flex
+
+        .positivo
+            background-color: $positivo
+            border-top-left-radius: 10px
+            border-bottom-left-radius: 10px
+        .negativo
+            background-color: $negativo
+            border-top-right-radius: 10px
+            border-bottom-right-radius: 10px
+        .neutral
+            background-color: $neutral
+            
+        
+.divicionSpacing
+    margin-bottom: 1%
+
+.bodyContainer
+    height: 73%
+    display: flex
+
+.fullWidth
+    width: 100%
+
+.fullHeight
+    height: 100%
 
 .accent
-    width: 3.2px
+    width: 10%
     margin: 0px 10px 0px 0px
-    height: 50px
+    height: 100%
+
+.fila
+    align-items: center

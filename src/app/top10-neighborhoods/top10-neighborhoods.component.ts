@@ -29,6 +29,8 @@ export class Top10NeighborhoodsComponent implements OnInit {
     maintainAspectRatio: false,
     tooltips: {
       enabled: true,
+      mode: "x", 
+      intersect:false 
       
     },
     
