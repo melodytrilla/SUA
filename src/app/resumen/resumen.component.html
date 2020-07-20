@@ -1,5 +1,7 @@
+<div class="grid-container">
 <div class="navbarContainer">
-  <app-global-nav-bar></app-global-nav-bar>
+  <app-global-nav-bar
+  idSolicitante="{{this.busquedaCompleta.Id_solicitante}}"></app-global-nav-bar>
   <!--<h1 class="mat-h1">SUA Busqueda</h1>-->
   <!--<app-chips-container></app-chips-container>-->
   <app-navbar></app-navbar>
@@ -7,7 +9,11 @@
 <!-- probar con un div para regular el tamaño-->
 <div class="bodyContainer">
   <div class="resumenBannerContainer">
-    <app-resumen-banner></app-resumen-banner>
+    <app-resumen-banner
+    reiteradas_con="{{busquedaCompleta.advSearch.reiteraciones_con}}"
+    reiteradas_sin="{{busquedaCompleta.advSearch.reiteraciones_sin}}"
+    intervenciones_sin="{{this.busquedaCompleta.advSearch.intervenciones_tipo}}"
+    asignaciones_sin="{{this.busquedaCompleta.advSearch.asignacion_tipo}}"></app-resumen-banner>
   </div>
 
   <div class="grid-container">
@@ -41,7 +47,9 @@
 
         <mat-grid-tile [colspan] =1 [rowspan] =1.5> 
           <mat-card class="dashboard-card">
-            <app-carta-info cardName="vecinosConSolicitudes"></app-carta-info>
+            <app-carta-info 
+            cardName="vecinosConSolicitudes"
+            idSolic="{{this.busquedaCompleta.Id_solicitante}}"></app-carta-info>
           </mat-card>
         </mat-grid-tile>
 
@@ -72,13 +80,17 @@
         <mat-grid-list cols="2" rows="7" rowHeight="fit">
             <mat-grid-tile [colspan] =1 [rowspan] =3> 
                 <mat-card class="dashboard-card"> 
-                    <app-requests-by-state></app-requests-by-state>
+                    <app-requests-by-state
+                    estados="{{this.busquedaCompleta.advSearch.estado_estados}}"></app-requests-by-state>
                 </mat-card>
             </mat-grid-tile>
       
             <mat-grid-tile [colspan] =1 [rowspan] =3> 
               <mat-card class="dashboard-card">
-                <app-opinadas>
+                <app-opinadas
+                positivo="{{this.busquedaCompleta.advSearch.opinion_positivo}}"
+                negativo="{{this.busquedaCompleta.advSearch.opinion_negative}}"
+                neutro="{{this.busquedaCompleta.advSearch.opinion_neutro}}">
                 </app-opinadas> 
               </mat-card> 
             </mat-grid-tile>

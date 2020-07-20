@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ChartOptions} from 'chart.js';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import 'chart.piecelabel.js';
@@ -15,11 +15,15 @@ export class RequestsByStateComponent implements OnInit {
 
   message: number;
   editMessage: number;
+  pen: string;
+  enC: string;
+  res: string;
+  cer: string;
 
   constructor(private solicitudService: SolicitudesService,
-              private service: BusquedaService) {
-  }
+              private service: BusquedaService) {}
 
+  @Input () estados: any[];
   total = 0;
   public doughnutChartLabels: Array<string> = ['Pendientes', 'En curso', 'Resueltas', 'Cerradas'];
   public doughnutChartType = 'doughnut';
@@ -95,20 +99,41 @@ export class RequestsByStateComponent implements OnInit {
         this.doughnutChartData = clone1;
         this.doughnutChartLabels = clone2;
     });
-
+    if (this.estados.includes('Pendiente')){
+      this.pen = 'fondo-azul'
+    }
+    else{
+      this.pen = 'fondo-blanco'
+    }
+    if (this.estados.includes('En curso')){
+      this.enC = 'fondo-azul'
+    }
+    else{
+      this.enC = 'fondo-blanco'
+    }
+    if (this.estados.includes('Resuelto')){
+      this.res = 'fondo-azul'
+    }
+    else{
+      this.res = 'fondo-blanco'
+    }
+    if (this.estados.includes('Cerrado')){
+      this.cer = 'fondo-azul'
+    }
+    else{
+      this.cer = 'fondo-blanco'
+    }
   }
   cambiarFondo(i){
-    if (document.getElementById(i).style.backgroundColor == "rgb(0, 102, 204)"){
+    if (document.getElementById(i).classList.contains('fondo-azul')){
       this.service.borrarEstado(i)
       this.service.changeMessage(this.editMessage);
-      document.getElementById(i).style.backgroundColor = "rgb(249, 250, 253)"
-      document.getElementById(i).style.color = "rgba(0, 0, 0, 0.87)"
+      document.getElementById(i).classList.replace('fondo-azul', 'fondo-blanco');
     }
     else{
       this.service.agregarEstado(i)
       this.service.changeMessage(this.editMessage);
-      document.getElementById(i).style.backgroundColor = "rgb(0, 102, 204)"
-      document.getElementById(i).style.color = "white"
+      document.getElementById(i).classList.replace('fondo-blanco', 'fondo-azul');
     }
     window.sessionStorage['item'] = JSON.stringify(i);
   }

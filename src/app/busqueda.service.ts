@@ -64,7 +64,6 @@ export class BusquedaService {
   private filtroNumber  : number = 0;
   busquedaCompleta:Busqueda;
   aGuardar : BusquedaSave2;
-  agOp: boolean = true;
   arr: any[] = []
   //si hay algo guardado en la session se carga en una variable, si no se inicializa vacio
   Init(){
@@ -290,6 +289,9 @@ export class BusquedaService {
   }
   agregarOpinion(a: string):void{
     this.busquedaCompleta.advSearch.opinion_tiene = "Con"
+    if(!this.busquedaCompleta.advSearch.opinion_positivo && !this.busquedaCompleta.advSearch.opinion_negative && !this.busquedaCompleta.advSearch.opinion_neutro){
+      this.filtroNumber++;
+      }
     if (a == 'Positivas'){
       this.busquedaCompleta.advSearch.opinion_positivo = true
     }
@@ -298,10 +300,6 @@ export class BusquedaService {
     }
     else if (a == 'Neutral'){
       this.busquedaCompleta.advSearch.opinion_neutro = true
-    }
-    if (this.agOp == true){
-      this.filtroNumber++;
-      this.agOp = false
     }
     this.guardarEnSecion()
   }
@@ -320,7 +318,6 @@ export class BusquedaService {
       if (this.filtroNumber > 0){
         this.filtroNumber--;
       }
-      this.agOp= true;
     }
     this.guardarEnSecion()
   }

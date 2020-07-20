@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FiltersService } from '../filters.service';
 
 @Component({
@@ -9,6 +9,8 @@ import { FiltersService } from '../filters.service';
 export class GlobalNavBarComponent implements OnInit {
 
   constructor(private filterService: FiltersService) { }
+
+  @Input() idSolicitante: string;
 
   ngOnInit() {
     this.filterService.getNewFilters();
