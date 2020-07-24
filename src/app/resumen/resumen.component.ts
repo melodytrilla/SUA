@@ -47,8 +47,8 @@ export class ResumenComponent {
 
   ngOnInit() {
     this.Init();
-    console.log(this.busquedaCompleta)
     }
+    
     Init(){
       if(window.sessionStorage['busqueda']){
         this.busquedaCompleta = JSON.parse(window.sessionStorage['busqueda']);

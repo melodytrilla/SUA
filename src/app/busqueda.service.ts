@@ -265,6 +265,7 @@ export class BusquedaService {
     if (this.busquedaCompleta.advSearch.clasificacion_subtipo.length == 0 && this.filtroNumber > 0){
       this.filtroNumber--;
     }
+    this.guardarEnSecion()
   }
   agregarEstado(a){
     if(!this.busquedaCompleta.advSearch.estado_estados.includes(a)){

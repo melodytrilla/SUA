@@ -1,21 +1,25 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, Renderer2, ViewChild, ElementRef, AfterViewInit, Renderer} from '@angular/core';
 import { SolicitudesService } from '../solicitudes.service';
 import { MatDialog } from '@angular/material';
 import { VerMasComponent } from '../ver-mas/ver-mas.component';
 import { BusquedaService } from '../busqueda.service';
 import { FiltersService } from '../filters.service';
 import { Chip } from '../chips-container/chips-container.component';
+import { keyValuesToMap } from '@angular/flex-layout/extended/typings/style/style-transforms';
 
 @Component({
   selector: 'app-claims-and-complaints',
   templateUrl: './claims-and-complaints.component.html',
   styleUrls: ['./claims-and-complaints.component.sass']
 })
-export class ClaimsAndComplaintsComponent implements OnInit{
+export class ClaimsAndComplaintsComponent implements OnInit, AfterViewInit{
 
 message: number;
 editMessage: number;
 @Input() title: string;
+@Input() subtiposRD: any[];
+
+@ViewChild("1-ReclamosDenuncias", {static: false}) myButton: Renderer;
 
 constructor(private api: SolicitudesService,
             public dialog: MatDialog,
@@ -25,50 +29,71 @@ loading: boolean;
 public data: any[] = []
 public total: number = 0;
 public i:number =1;
+public fon: any[] = [];
+public sinFon: any[] = []
 
+ngAfterViewInit(){
+  if(this.title == 'ReclamosDenuncias'){
+    let rrd = this.fon
+    let data = this.data
+    let tit = this.title
+    window.onload = function addClassStyle() {
+      event.preventDefault();
+        for(let k=0; k < rrd.length; k++){
+          document.getElementById(tit + "-" + rrd[k]).classList.add('fondo-azul');
+          document.getElementById("ico-" + tit + "-" + rrd[k]).classList.add('tit-blanco')
+        }
+        for(let j=0; j < data.length; j++){
+          if(!rrd.includes(data[j].name)){
+            document.getElementById(tit + "-" + data[j].name).classList.add('fondo-blanco');
+            document.getElementById("ico-" + tit + "-" + data[j].name).classList.add('tit-negro')
+          }
+        }
+    };
+  }
+}
 ngOnInit(){
   this.loading = true;
   this.service.customMessage.subscribe(msg => this.message = msg);
   this.api.getDatosVarios(this.title).subscribe(data=>{
     data.forEach(value=>{
       this.total = this.total + value.details;
-    })
-    data.forEach(value =>{
       this.data.push(value);
     })
+    if (this.title == 'ReclamosDenuncias'){
+      for (let j=0; j < this.data.length; j++){
+        let tempChip :Chip = this.filtrosService.searchChip(this.data[j].name);
+        for (let k=0; k < this.subtiposRD.length; k++){
+          if (JSON.stringify(tempChip) == JSON.stringify(this.subtiposRD[k])){
+            this.fon.push(this.data[j].name)
+          }
+        }
+      }
+      console.log(this.fon)
+  }
   });
   this.loading = false;
   }
 
   open(): void{
-    console.log(this.title)
     this.dialog.open(VerMasComponent, {
-      width: '50%',
       data: {info: "ver-mas", name: this.title}
     })
   }
-  cambiarFondo(i, tit){
-    console.log(typeof this.data[i].name)
-    if (document.getElementById(i + "-" + tit).style.backgroundColor == "rgb(0, 102, 204)"){
+  cambiarFondo(name, tit, i){
+    if (document.getElementById(tit + "-" + name).classList.contains('fondo-azul')){
       this.service.borrarSubtipo(this.data[i].name);
       this.service.changeMessage(this.editMessage);
-      document.getElementById(i + "-" + tit).style.backgroundColor = "rgb(249, 250, 253)"
-      document.getElementById(i + "-" + tit).style.color = "rgba(0, 0, 0, 0.87)"
-      document.getElementById("ico-" + i + "-" + tit).style.color = "rgba(0, 0, 0, 0.87)"
+      document.getElementById(tit + "-" + name).classList.replace('fondo-azul', 'fondo-blanco');
+      document.getElementById("ico-" + tit + "-" + name).classList.replace('tit-blanco', 'tit-negro')
     }
     else{
-      //agrege una funcion de filter.service para buscar los chips en categoria
       let tempChip :Chip = this.filtrosService.searchChip(this.data[i].name);
-      // esto lom hice porque no devolvia nada en algunos de los casos
-      //creo que el problema es que la lista de db tiene algunas cosas que pusimos
-      // para testear la lista pero no eran subcategorias de verdad.
-      // ---> Abria que cambiar db para que sean subcategorias  
       if(tempChip != null){
         this.service.agregarSubtipo(tempChip);
         this.service.changeMessage(this.editMessage);
-        document.getElementById(i + "-" + tit).style.backgroundColor = "rgb(0, 102, 204)"
-        document.getElementById(i + "-" + tit).style.color = "white"
-        document.getElementById("ico-" + i + "-" + tit).style.color = "white"
+        document.getElementById(tit + "-" + name).classList.replace('fondo-blanco', 'fondo-azul');
+        document.getElementById("ico-" + tit + "-" + name).classList.replace('tit-negro', 'tit-blanco')
       }
     }
   }

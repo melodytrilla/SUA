@@ -62,9 +62,7 @@ export class FiltersService {
 
   //agrege esta funcion para buscar chips en el filtro de categorias
   searchChip( chipDesc:string):Chip{
-    console.log(chipDesc);
     let outChip = this._todasSubcategorias.find(elemChip => elemChip.descripcion == chipDesc);
-    console.log(outChip);
     return outChip;
   }
 

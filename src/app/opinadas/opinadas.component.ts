@@ -42,6 +42,7 @@ export class OpinadasComponent implements OnInit{
   @Input() positivo: string;
   @Input() negativo: string;
   @Input() neutro: string;
+  @Input() opinionTiene: string;
   
   ngOnInit() {
     this.loading = true;
@@ -63,7 +64,7 @@ export class OpinadasComponent implements OnInit{
         }
       })
     });
-    if(this.positivo == 'true'){
+    if(this.positivo == 'true' && this.opinionTiene == 'Con'){
       this.pos = 'fondo-azul';
       this.titPos = 'tit-blanco'
     }
@@ -71,7 +72,7 @@ export class OpinadasComponent implements OnInit{
       this.pos = 'fondo-blanco'
       this.titPos = 'tit-negro'
     }
-    if(this.negativo == 'true'){
+    if(this.negativo == 'true' && this.opinionTiene == 'Con'){
       this.neg = 'fondo-azul';
       this.titNeg = 'tit-blanco'
     }
@@ -79,7 +80,7 @@ export class OpinadasComponent implements OnInit{
       this.neg = 'fondo-blanco'
       this.titNeg = 'tit-negro'
     }
-    if(this.neutro == 'true'){
+    if(this.neutro == 'true' && this.opinionTiene == 'Con'){
       this.neu = 'fondo-azul';
       this.titNeu = 'tit-blanco'
     }

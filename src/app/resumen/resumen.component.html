@@ -32,7 +32,8 @@
         <mat-grid-tile [colspan] =1 [rowspan] =5> 
             <mat-card class="dashboard-card"> 
                 <app-claims-and-complaints 
-                  [title]="'ReclamosDenuncias'">
+                  [title]="'ReclamosDenuncias'"
+                  [subtiposRD]="this.busquedaCompleta.advSearch.clasificacion_subtipo">
                 </app-claims-and-complaints>
             </mat-card> 
         </mat-grid-tile>
@@ -40,7 +41,8 @@
         <mat-grid-tile [colspan] =1 [rowspan] =5> 
             <mat-card class="dashboard-card">
                 <app-claims-and-complaints 
-                  [title]="'ConsultasReclamos'">
+                  [title]="'ConsultasReclamos'"
+                  [subtiposRD]="this.busquedaCompleta.advSearch.clasificacion_subtipo">
                 </app-claims-and-complaints>
             </mat-card>
         </mat-grid-tile>
@@ -90,7 +92,8 @@
                 <app-opinadas
                 positivo="{{this.busquedaCompleta.advSearch.opinion_positivo}}"
                 negativo="{{this.busquedaCompleta.advSearch.opinion_negative}}"
-                neutro="{{this.busquedaCompleta.advSearch.opinion_neutro}}">
+                neutro="{{this.busquedaCompleta.advSearch.opinion_neutro}}"
+                opinionTiene="{{this.busquedaCompleta.advSearch.opinion_tiene}}">
                 </app-opinadas> 
               </mat-card> 
             </mat-grid-tile>
