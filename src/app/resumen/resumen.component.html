@@ -1,5 +1,5 @@
 <div class="grid-container">
-<div style="height:18vh">
+<div class="navbarContainer">
   <app-global-nav-bar
   idSolicitante="{{this.busquedaCompleta.Id_solicitante}}"></app-global-nav-bar>
   <!--<h1 class="mat-h1">SUA Busqueda</h1>-->
@@ -7,8 +7,8 @@
   <app-navbar></app-navbar>
 </div>
 <!-- probar con un div para regular el tamaño-->
-<div style="height:79vh">
-  <div style="height: 10%;">
+<div class="bodyContainer">
+  <div class="resumenBannerContainer">
     <app-resumen-banner
     reiteradas_con="{{busquedaCompleta.advSearch.reiteraciones_con}}"
     reiteradas_sin="{{busquedaCompleta.advSearch.reiteraciones_sin}}"
@@ -16,7 +16,7 @@
     asignaciones_sin="{{this.busquedaCompleta.advSearch.asignacion_tipo}}"></app-resumen-banner>
   </div>
 
-  <div class="grid-container" style="height: 90%; margin:0.5% 0% 0% 0%">
+  <div class="grid-container">
 
     <div id="MasterCards">
     

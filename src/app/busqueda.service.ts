@@ -248,7 +248,6 @@ export class BusquedaService {
   }
 
   agregarSubtipo(a: Chip): void {
-    console.log(a)
     if(!this.busquedaCompleta.advSearch.clasificacion_subtipo.includes(a)){
       this.busquedaCompleta.advSearch.clasificacion_subtipo.push(a)
     }

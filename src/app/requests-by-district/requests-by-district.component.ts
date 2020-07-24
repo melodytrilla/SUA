@@ -32,6 +32,8 @@ export class RequestsByDistrictComponent implements OnInit {
     maintainAspectRatio: false,
     tooltips: {
       enabled: true,
+      mode: "x", 
+      intersect:false 
       
     },
     plugins: {
@@ -102,7 +104,7 @@ export class RequestsByDistrictComponent implements OnInit {
       }
   }
   public doughnutChartPlugins = [{
-      ChartDataLabels,
+      ChartDataLabels
       
       /*afterLayout: function (chart){
       chart.legend.legendItems.forEach(
