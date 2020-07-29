@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Renderer2, ViewChild, ElementRef, AfterViewInit, Renderer} from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { SolicitudesService } from '../solicitudes.service';
 import { MatDialog } from '@angular/material';
 import { VerMasComponent } from '../ver-mas/ver-mas.component';
@@ -12,19 +12,18 @@ import { keyValuesToMap } from '@angular/flex-layout/extended/typings/style/styl
   templateUrl: './claims-and-complaints.component.html',
   styleUrls: ['./claims-and-complaints.component.sass']
 })
-export class ClaimsAndComplaintsComponent implements OnInit, AfterViewInit{
+export class ClaimsAndComplaintsComponent implements OnInit{
 
 message: number;
 editMessage: number;
 @Input() title: string;
 @Input() subtiposRD: any[];
 
-@ViewChild("1-ReclamosDenuncias", {static: false}) myButton: Renderer;
-
 constructor(private api: SolicitudesService,
             public dialog: MatDialog,
             private service: BusquedaService,
             private filtrosService: FiltersService) { }
+
 loading: boolean;
 public data: any[] = []
 public total: number = 0;
@@ -32,26 +31,6 @@ public i:number =1;
 public fon: any[] = [];
 public sinFon: any[] = []
 
-ngAfterViewInit(){
-  if(this.title == 'ReclamosDenuncias'){
-    let rrd = this.fon
-    let data = this.data
-    let tit = this.title
-    window.onload = function addClassStyle() {
-      event.preventDefault();
-        for(let k=0; k < rrd.length; k++){
-          document.getElementById(tit + "-" + rrd[k]).classList.add('fondo-azul');
-          document.getElementById("ico-" + tit + "-" + rrd[k]).classList.add('tit-blanco')
-        }
-        for(let j=0; j < data.length; j++){
-          if(!rrd.includes(data[j].name)){
-            document.getElementById(tit + "-" + data[j].name).classList.add('fondo-blanco');
-            document.getElementById("ico-" + tit + "-" + data[j].name).classList.add('tit-negro')
-          }
-        }
-    };
-  }
-}
 ngOnInit(){
   this.loading = true;
   this.service.customMessage.subscribe(msg => this.message = msg);
@@ -60,7 +39,7 @@ ngOnInit(){
       this.total = this.total + value.details;
       this.data.push(value);
     })
-    if (this.title == 'ReclamosDenuncias'){
+    if(this.title == 'ReclamosDenuncias'){
       for (let j=0; j < this.data.length; j++){
         let tempChip :Chip = this.filtrosService.searchChip(this.data[j].name);
         for (let k=0; k < this.subtiposRD.length; k++){
@@ -69,11 +48,32 @@ ngOnInit(){
           }
         }
       }
-      console.log(this.fon)
-  }
-  });
+    }
+  },
+  ()=>{},
+  ()=>{if (this.title=='ReclamosDenuncias') {this.addClassStyle()}});
   this.loading = false;
   }
+
+  addClassStyle() {
+    let rrd = this.fon
+    let data = this.data
+    let tit = this.title
+    console.log(rrd)
+    console.log(data)
+    window.onload= function addClass(){
+      for(let k=0; k < rrd.length; k++){
+        document.getElementById(tit + "-" + rrd[k]).classList.add('fondo-azul');
+        document.getElementById("ico-" + tit + "-" + rrd[k]).classList.add('tit-blanco')
+      }
+      for(let j=0; j < data.length; j++){
+        if(!rrd.includes(data[j].name)){
+          document.getElementById(tit + "-" + data[j].name).classList.add('fondo-blanco');
+          document.getElementById("ico-" + tit + "-" + data[j].name).classList.add('tit-negro')
+        }
+      }
+    }
+  };
 
   open(): void{
     this.dialog.open(VerMasComponent, {

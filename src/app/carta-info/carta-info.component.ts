@@ -88,12 +88,13 @@ export class CartaInfoComponent implements OnInit {
   iniciarFondo(tit){
     if(this.id == this.idSolic){
       document.getElementById(tit).classList.replace('fondo-blanco', 'fondo-azul')
-      document.getElementById("num-" + tit).classList.replace('fondo-blanco', 'fondo-azul')
+      document.getElementById("num-" + tit).classList.replace('tit-negro', 'tit-blanco')
+
       this.fondoAzul = true
     }
     else{
       document.getElementById(tit).classList.add('fondo-blanco')
-      document.getElementById("num-" + tit).classList.add('tit-blanco')
+      document.getElementById("num-" + tit).classList.add('tit-negro')
       this.fondoAzul = false
       
     }
