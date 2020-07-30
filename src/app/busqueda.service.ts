@@ -171,6 +171,7 @@ export class BusquedaService {
     console.log("filtrosCant: " + filtroCant);
     this.filtroNumber = filtroCant;
     this.guardarEnSecion();
+    window.location.reload()
   }
 
   public copyBusquedas(from:Busqueda): Busqueda{
