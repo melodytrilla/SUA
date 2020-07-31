@@ -74,6 +74,7 @@ export class SearchBarComponent implements OnInit {
     this.busqueda.customMessage.subscribe(msg => {
       this.cantFiltros = msg}
       );
+
     this.cantFiltros = this.busqueda.getCantFiltros();
 
     this.form = this.formBuilder.group({

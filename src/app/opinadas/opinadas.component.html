@@ -22,7 +22,7 @@
     </mat-card-title>
     <div class="divicionSpacing"><mat-divider></mat-divider></div>
 
-    <div class="bodyConainer">
+    <div class="bodyContainer">
         <div class="fullWidth" *ngIf="!loading else loader">
             <mat-list  class="lista hov fullWidth" *ngFor="let item of datos; let ind =index">
                 <div [ngClass]="pos" id="i-0" class="linea fila fullHeight" (click)="this.cambiarFondo('0', item.name)" *ngIf="item.name == 'Positivas'">

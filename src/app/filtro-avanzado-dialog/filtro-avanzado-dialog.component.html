@@ -1,12 +1,24 @@
 <!--<div mat-dialog-content class="mainContainer dark" [formGroup]="form"></div>-->
 <div mat-dialog-content style="padding-bottom: 20px;">
     <div style="display: flex; flex-direction: row;">
-        <h1 class="titulo-extrabold" mat-dialog-title>Filtros avanzados</h1>
-        <div style="width: 70%;">
-            <mat-form-field style="float: right; width: 50%;">
+        <h1 style="width: 40%;" class="titulo-extrabold" mat-dialog-title>Filtros avanzados</h1>
+        <div style="width: 60%; display: flex;">
+            <mat-form-field style="margin-left: 11%; float: right;">
                 <mat-label>Nombre de busqueda</mat-label>
                 <input matInput [(ngModel)]="searchName" placeholder="nuevo nombre">
             </mat-form-field>
+            <div style="display: flex; flex-direction: row-reverse; margin-left: 1%;">
+    
+                <button mat-stroked-button (click)="ClearAll()" style="float: right; height: 50%; top: 25%;">
+                    <mat-icon>undo</mat-icon>
+                    Clear all
+                </button>
+            
+                <button mat-stroked-button (click)="agregarBusqueda()" style="float: right; height: 50%; top: 25%;" color="primary">
+                    <mat-icon>playlist_add</mat-icon>
+                    agregar
+                </button>
+            </div>
         </div>
     </div>
     <!--
@@ -696,7 +708,7 @@
   <button class="whiteBack-Button texto-semibold" mat-raised-button (click)="onNoClick()">Cancelar</button>
   <!--agregar devuelta al botton de abajo ( [mat-dialog-close]="data.filtro" cdkFocusInitial)-->
   <button class="blueBack-Button texto-semibold" mat-raised-button (click)="BusquedaClick()">Buscar</button>
-
+<!--
   <div style="width:78%">
     
     <button mat-stroked-button (click)="ClearAll()" style="float: right">
@@ -708,7 +720,7 @@
         <mat-icon>playlist_add</mat-icon>
         agregar
     </button>
-  </div>
+  </div>-->
 </div>
 </div>
 
