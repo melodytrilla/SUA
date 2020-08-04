@@ -17,7 +17,7 @@ export class RequestsByDistrictComponent implements OnInit {
   }
   public arr: any[] = [];
   public doughnutChartLabels: Array<string> = ['Centro', 'Norte', 'Sur', 'Oeste', 'Noroeste', 'Sudoeste'];
-  public doughnutChartType = 'bar';
+  public doughnutChartType = 'horizontalBar';
   public doughnutChartLegend = true;
   public doughnutChartData: Array<number> = [1, 1, 1, 1, 1, 1];
   public doughnutChartColors: Array<any> = [

@@ -1,4 +1,4 @@
-<div id="{{title_value}}" class="hovv contenedor-column"  *ngIf="title_value!='Solicitudes'">
+<div id="{{title_value}}" class="hovv contenedor-row"  *ngIf="title_value!='Solicitudes'">
     <div (click)="this.cambiarFondo(title_value)" class="titulo-otros">
         <div class="titulo-bold font15">
             <p id={{title_style}}> {{title_value}} </p>
@@ -8,10 +8,10 @@
         <div class="texto-semibold amount" (click)="this.cambiarFondo(title_value)">
             <div id="{{content_style}}"><p style="margin: 0px" id="num-{{title_value}}">{{content_value | number:'':'es-AR'}}</p></div>
         </div>
-
+        <!--   el boton para vermas ce cada carta
         <div *ngIf="title_value!='Solicitudes con equipamiento'" style="cursor: pointer" class="texto-regular ver-mas" (click)="this.openD()"> 
             <p>VER MÁS</p>
-        </div>
+        </div>-->
         <div style="padding-bottom: 7px" *ngIf="title_value== 'Solicitudes con equipamiento'">
             <p></p>
         </div>
