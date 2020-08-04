@@ -13,7 +13,4 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
-  click(){
-    window.location.reload()
-  }
 }

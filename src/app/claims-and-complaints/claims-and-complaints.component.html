@@ -12,9 +12,9 @@
 
     <div class="bodyContainer">
         <div class="fullHeight" *ngIf="!loading else loader">
-            <mat-list id="{{title}}-{{item.name}}" class="lista" *ngFor="let item of data | sort:{ property: 'details', descending: 'true'} | slice:0:4; let i =index">
+            <mat-list id="{{title}}-{{item.name}}" class="fondo-blanco lista" *ngFor="let item of data | sort:{ property: 'details', descending: 'true'} | slice:0:4; let i =index">
                 <div id="div-{{i}}" class="linea fila hovv" (click)="this.cambiarFondo(item.name, title, i)" >
-                    <mat-icon id="ico-{{title}}-{{item.name}}" class="icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
+                    <mat-icon id="ico-{{title}}-{{item.name}}" class=" tit-negro icono fsua {{item.icono}} fsua-1_5x"></mat-icon>
                     <div class="fila cut-text">
                         <div class="item texto-semibold">
                             <h3 class="cut-text">{{item.name}}</h3>
