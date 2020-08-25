@@ -59,19 +59,11 @@ ngOnInit(){
     let rrd = this.fon
     let data = this.data
     let tit = this.title
-    console.log(rrd)
-    console.log(data)
     window.onload= function addClass(){
       for(let k=0; k < rrd.length; k++){
         document.getElementById(tit + "-" + rrd[k]).classList.replace('fondo-blanco', 'fondo-azul');
         document.getElementById("ico-" + tit + "-" + rrd[k]).classList.replace('tit-negro', 'tit-blanco')
       }
-      /*for(let j=0; j < data.length; j++){
-        if(!rrd.includes(data[j].name)){
-          document.getElementById(tit + "-" + data[j].name).classList.add('fondo-blanco');
-          document.getElementById("ico-" + tit + "-" + data[j].name).classList.add('tit-negro')
-        }
-      }*/
     }
   };
 

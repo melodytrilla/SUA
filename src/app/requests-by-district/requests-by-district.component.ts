@@ -119,7 +119,7 @@ export class RequestsByDistrictComponent implements OnInit {
     }];
   ngOnInit() {
     this.arr = this.solicitudesService.filteredVecinalesSearch("Centro")
-    console.log(this.arr)
+    //console.log(this.arr)
     this.solicitudesService.getporDistrito().subscribe(
       data =>{
         let clone1 = JSON.parse(JSON.stringify(this.doughnutChartData));
@@ -128,7 +128,6 @@ export class RequestsByDistrictComponent implements OnInit {
           clone1[i] = data[i].solicitudes;
           clone2[i] = data[i].distrito;
         }
-
         this.doughnutChartData = clone1;
         this.doughnutChartLabels = clone2;
       }
