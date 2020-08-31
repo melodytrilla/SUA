@@ -54,7 +54,7 @@ export class RequestsByDistrictComponent implements OnInit {
         fullWidth: false,
         display: false,
         position: 'right',
-        onClick: function(e, legendItem) {
+        /*onClick: function(e, legendItem) {
           var cont: number =0;
           var a: any[]
           var index = legendItem.index;
@@ -71,17 +71,14 @@ export class RequestsByDistrictComponent implements OnInit {
                 e._meta[8].data[index].hidden = false
                 a = []
                 BusquedaService.prototype.inicDist(e._meta[8].data[index]._view.label)
-                //console.log(a)
               }
               else if(item._index == index){
                 e._meta[8].data[index].hidden = !e._meta[8].data[index].hidden
                 if (e._meta[8].data[index].hidden == true){
                   BusquedaService.prototype.borrarDist(e._meta[8].data[index]._view.label)
-                  //console.log(a)
                 }
                 else {
                   BusquedaService.prototype.agregarDist(e._meta[8].data[index]._view.label)
-                  //console.log(a)
                 }
               }
             }
@@ -91,7 +88,7 @@ export class RequestsByDistrictComponent implements OnInit {
         },
         onHover: function(event, legendItem) {
             document.getElementById("doughnut").style.cursor = 'pointer';
-          },
+          },*/
         labels: {
           padding: 12,
           fontSize: 16,
@@ -105,21 +102,9 @@ export class RequestsByDistrictComponent implements OnInit {
   }
   public doughnutChartPlugins = [{
       ChartDataLabels
-      
-      /*afterLayout: function (chart){
-      chart.legend.legendItems.forEach(
-        (label) => {
-          let value = chart.data.datasets[0].data[label.index];
-
-          label.text += "\n" + value  ;
-          return label;
-        }
-      )
-    }*/
     }];
   ngOnInit() {
     this.arr = this.solicitudesService.filteredVecinalesSearch("Centro")
-    //console.log(this.arr)
     this.solicitudesService.getporDistrito().subscribe(
       data =>{
         let clone1 = JSON.parse(JSON.stringify(this.doughnutChartData));
