@@ -1,5 +1,5 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<div style="overflow-y:hidden;" class="texto-regular">
+<div class="texto-regular">
     <app-global-nav-bar></app-global-nav-bar>
     <app-navbar></app-navbar>
     <div class="topBar fila">
@@ -60,7 +60,7 @@
         </div>
     </div>
     <div id="here">
-    <cdk-virtual-scroll-viewport *ngIf="!loading && items" style="height: 73vh" itemSize="93" (scrolledIndexChange)="nextBatch($event)">
+    <cdk-virtual-scroll-viewport *ngIf="!loading && items" class="lis" itemSize="93" (scrolledIndexChange)="nextBatch($event)">
         <div  mat-list *cdkVirtualFor="let item of items | sort:{ property: criterio, descending: !asc}" class="lista">
             <div mat-list-item class="content fila">
                 <div class="fila" style="width: 100%;">
