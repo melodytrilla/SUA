@@ -4,17 +4,18 @@
   idSolicitante="{{this.busquedaCompleta.Id_solicitante}}"></app-global-nav-bar>
   <!--<h1 class="mat-h1">SUA Busqueda</h1>-->
   <!--<app-chips-container></app-chips-container>-->
-  <app-navbar></app-navbar>
+  <!--<app-navbar></app-navbar>-->
 </div>
 <!-- probar con un div para regular el tamaño-->
+
 <div class="bodyContainer">
-  <div class="resumenBannerContainer">
-    <app-resumen-banner
-    reiteradas_con="{{busquedaCompleta.advSearch.reiteraciones_con}}"
-    reiteradas_sin="{{busquedaCompleta.advSearch.reiteraciones_sin}}"
-    intervenciones_sin="{{this.busquedaCompleta.advSearch.intervenciones_tipo}}"
-    asignaciones_sin="{{this.busquedaCompleta.advSearch.asignacion_tipo}}"></app-resumen-banner>
-  </div>
+    <div class="resumenBannerContainer">
+      <app-resumen-banner
+      reiteradas_con="{{busquedaCompleta.advSearch.reiteraciones_con}}"
+      reiteradas_sin="{{busquedaCompleta.advSearch.reiteraciones_sin}}"
+      intervenciones_sin="{{this.busquedaCompleta.advSearch.intervenciones_tipo}}"
+      asignaciones_sin="{{this.busquedaCompleta.advSearch.asignacion_tipo}}"></app-resumen-banner>
+    </div>
 
   <div class="grid-container">
 
