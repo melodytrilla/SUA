@@ -6,6 +6,7 @@ import { BusquedaService } from '../busqueda.service';
 import { FiltersService } from '../filters.service';
 import { Chip } from '../chips-container/chips-container.component';
 import { keyValuesToMap } from '@angular/flex-layout/extended/typings/style/style-transforms';
+import { BuiltinTypeName } from '@angular/compiler';
 
 @Component({
   selector: 'app-claims-and-complaints',
@@ -57,27 +58,33 @@ ngOnInit(){
 
   addClassStyle() {
     let rrd = this.fon
-    let data = this.data
     let tit = this.title
     window.onload= function addClass(){
       for(let k=0; k < rrd.length; k++){
         document.getElementById(tit + "-" + rrd[k]).classList.replace('fondo-blanco', 'fondo-azul');
-        document.getElementById("ico-" + tit + "-" + rrd[k]).classList.replace('tit-negro', 'tit-blanco')
+        document.getElementById("ico-" + tit + "-" + rrd[k]).classList.replace('tit-negro', 'tit-blanco');
       }
     }
   };
 
   open(): void{
+    let rrd = this.service.getSubtipos();
+    let tit  = this.title;
     this.dialog.open(VerMasComponent, {
-      data: {info: "ver-mas", name: this.title}
-    })
+      data: {info: "ver-mas", name: this.title, subt: this.subtiposRD}
+    }).afterOpen().subscribe(data => {
+      for(let k=0; k < rrd.length; k++){
+        document.getElementById("vermas-" + tit + "-" + rrd[k].descripcion).classList.replace('fondo-blanco', 'fondo-azul');
+        document.getElementById("vermas-ico-" + tit + "-" + rrd[k].descripcion).classList.replace('tit-negro', 'tit-blanco')
+      }
+});
   }
   cambiarFondo(name, tit, i){
     if (document.getElementById(tit + "-" + name).classList.contains('fondo-azul')){
       this.service.borrarSubtipo(this.data[i].name);
       this.service.changeMessage(this.editMessage);
       document.getElementById(tit + "-" + name).classList.replace('fondo-azul', 'fondo-blanco');
-      document.getElementById("ico-" + tit + "-" + name).classList.replace('tit-blanco', 'tit-negro')
+      document.getElementById("ico-" + tit + "-" + name).classList.replace('tit-blanco', 'tit-negro');
     }
     else{
       let tempChip :Chip = this.filtrosService.searchChip(this.data[i].name);
@@ -85,7 +92,7 @@ ngOnInit(){
         this.service.agregarSubtipo(tempChip);
         this.service.changeMessage(this.editMessage);
         document.getElementById(tit + "-" + name).classList.replace('fondo-blanco', 'fondo-azul');
-        document.getElementById("ico-" + tit + "-" + name).classList.replace('tit-negro', 'tit-blanco')
+        document.getElementById("ico-" + tit + "-" + name).classList.replace('tit-negro', 'tit-blanco');
       }
     }
   }

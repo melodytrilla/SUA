@@ -1,6 +1,6 @@
-import { Component, OnInit, Inject, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Inject} from '@angular/core';
 import { SolicitudesService } from '../solicitudes.service';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA} from '@angular/material';
 import { SolicitudesItemsService } from '../solicitudes-items.service';
 import { BusquedaService } from '../busqueda.service';
 import { FiltersService } from '../filters.service';
@@ -16,6 +16,7 @@ export class VerMasComponent implements OnInit {
   message: number;
   editMessage: number;
   public vecinos: any[] = [];
+
   constructor(public service: SolicitudesService,
               public api: SolicitudesItemsService,
               @Inject(MAT_DIALOG_DATA) public data: any,
@@ -26,23 +27,14 @@ export class VerMasComponent implements OnInit {
               }
   idd: string;
   editId: string;
-  /*ngAfterViewInit(){
-    console.log(this.data.fondo)
-    if(this.data.fondo == true){
-      document.addEventListener('DOMContentLoaded', function() {
-        console.log(document.getElementById("vecinosConSolicitudes-1").classList)
-        document.getElementById("vecinosConSolicitudes-1").classList.add("fondo");
-      });
-    }
-  }*/
+
   ngOnInit() {
     this.bService.customMessage.subscribe(msg => this.message = msg);
     this.bService.customId.subscribe(msg => this.idd = msg);
     if (this.data.name != 'solicitudesConEquipamiento'){
     this.service.getDatosVarios(this.data.name).subscribe(data => {
       this.vecinos= data
-  })
-  }
+  })}
   else{
     this.api.getSolicitudes().subscribe(data => {
       data.forEach(value => {
@@ -52,37 +44,36 @@ export class VerMasComponent implements OnInit {
       })
     })
   }
-  if (this.data.fondo== true){
-    console.log("true")
-    console.log(document.getElementById("vecinosConSolicitudes-1").style.backgroundColor)
-    document.getElementById("vecinosConSolicitudes-1").style.backgroundColor = "rgb(0, 102, 204)"
-    console.log(document.getElementById("vecinosConSolicitudes-1").style.backgroundColor)
-  }
-
 }
-cambiarFondo(i, name, id){
-    if (document.getElementById(name + "-" + i).style.backgroundColor == "rgb(0, 102, 204)"){
-      if (name == "ConsultasReclamos" || name == "ReclamosDenuncias"){
-        this.bService.borrarSubtipo(id)
+
+
+cambiarFondo(name, tit, i){
+    if (document.getElementById("vermas-" + tit + "-" + name).classList.contains('fondo-azul')){
+      if (tit == "ConsultasReclamos" || tit == "ReclamosDenuncias"){
+        this.bService.borrarSubtipo(this.vecinos[i].name)
         this.bService.changeMessage(this.editMessage);
       }
-      document.getElementById(name + "-" + i).style.backgroundColor = "white"
-      document.getElementById(name + "-" + i).style.color = "rgba(0, 0, 0, 0.87)"
-      document.getElementById("ico-" + name + "-" + i).style.color = "rgba(0, 0, 0, 0.87)"
+      document.getElementById("vermas-" + tit + "-" + name).classList.replace('fondo-azul', 'fondo-blanco');
+      document.getElementById("vermas-ico-" + tit + "-" + name).classList.replace('tit-blanco', 'tit-negro');
+      document.getElementById(tit + "-" + name).classList.replace('fondo-azul', 'fondo-blanco');
+      document.getElementById("ico-" + tit + "-" + name).classList.replace('tit-blanco', 'tit-negro')
     }
     else{
-      if (name == "ConsultasReclamos" || name == "ReclamosDenuncias"){
-        let tempChip :Chip = this.filtrosService.searchChip(id);
+      console.log(tit)
+      if (tit == "ConsultasReclamos" || tit == "ReclamosDenuncias"){
+        let tempChip :Chip = this.filtrosService.searchChip(this.vecinos[i].name);
         if(tempChip != null){
           this.bService.agregarSubtipo(tempChip)
           this.bService.changeMessage(this.editMessage);
+          document.getElementById("vermas-" + tit + "-" + name).classList.replace('fondo-blanco', 'fondo-azul');
+          document.getElementById("vermas-ico-" + tit + "-" + name).classList.replace('tit-negro', 'tit-blanco');
+          document.getElementById(tit + "-" + name).classList.replace('fondo-blanco', 'fondo-azul');
+          document.getElementById("ico-" + tit + "-" + name).classList.replace('tit-negro', 'tit-blanco')
         }
       }
-      document.getElementById(name + "-" + i).style.backgroundColor = "rgb(0, 102, 204)"
-      document.getElementById(name + "-" + i).style.color = "white"
-      document.getElementById("ico-" + name + "-" + i).style.color = "white"
     }
   }
+  
   cambiarFondoI(i, name, l, id){
     var k;
     console.log(name, id)

@@ -400,4 +400,7 @@ export class BusquedaService {
     }
     this.guardarEnSecion();
   }
+  getSubtipos(): any[]{
+    return this.busquedaCompleta.advSearch.clasificacion_subtipo
+  }
 }

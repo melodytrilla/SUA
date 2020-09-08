@@ -34,8 +34,8 @@
     <div class="titulo-bold titulo" *ngIf="data.name == 'ReclamosDenuncias'">Reclamos y denuncias</div>
     <div class="titulo-bold titulo" *ngIf="data.name == 'ConsultasReclamos'">Trámites y consultas</div>
     <div class="tablagen">
-        <div id="{{data.name}}-{{i}}" (click)="this.cambiarFondo(i, data.name, vec.name)" class="fil hov texto-regular" style = "align-items: center" *ngFor="let vec of vecinos | sort:{ property: 'details', descending: true} let i = index">
-            <div class="col" style="padding:10px; text-align: left"><mat-icon id="ico-{{data.name}}-{{i}}" class="fsua {{vec.icono}}" style="margin-right: 20px;"></mat-icon>{{vec.name}}</div>
+        <div id="vermas-{{data.name}}-{{vec.name}}" (click)="this.cambiarFondo(vec.name, data.name, i)" class="fondo-blanco fil texto-regular" style = "align-items: center" *ngFor="let vec of vecinos | sort:{ property: 'details', descending: true} let i = index">
+            <div class="col" style="padding:10px; text-align: left"><mat-icon id="vermas-ico-{{data.name}}-{{vec.name}}" class="tit-negro fsua {{vec.icono}}" style="margin-right: 20px;"></mat-icon>{{vec.name}}</div>
             <div class="col col3" style="padding: 10px">{{vec.details}}</div>
         </div>
     </div>
