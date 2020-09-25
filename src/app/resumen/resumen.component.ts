@@ -11,9 +11,6 @@ import { Busqueda } from '../busqueda.service';
   styleUrls: ['./resumen.component.sass']
 })
 export class ResumenComponent {
-  busquedaCompleta: Busqueda;
-
-  
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
@@ -39,6 +36,8 @@ export class ResumenComponent {
     })
   );
 
+  busquedaCompleta: Busqueda;
+  //no se si busqueda se usa en algun otro lado, si no hay que borrarlo
   busqueda: any
   constructor(private breakpointObserver: BreakpointObserver, 
     private filterService: FiltersService,
@@ -50,6 +49,8 @@ export class ResumenComponent {
     }
     
     Init(){
+      // busca si hay una busqueda previa en sesion si no la inicializa de cero
+
       if(window.sessionStorage['busqueda']){
         this.busquedaCompleta = JSON.parse(window.sessionStorage['busqueda']);
       }else{
@@ -62,84 +63,84 @@ export class ResumenComponent {
           radio: 0,
           Id_solicitante: "",
           advSearch: {
-      //-----Busqueda Reporte ----------------------------------------------
-      reiteraciones_con:true,
-      reiteraciones_sin:true,
-      prioridad:undefined,
-  
-      //--------------------------------------------------------------------
-  
-      //-----Busqueda Clasificacion ----------------------------------------
-      clasificacion_subtipo: [],
-      clasificacion_tipo:undefined,
-      clasificacion_origenes: [],
-      clasificacion_registro:true,
-      clasificacion_reiteracion :true,
-  
-      //--------------------------------------------------------------------
-  
-      //-----Busqueda Area -------------------------------------------------
-      area_origen:undefined,
-      area_destino:undefined,
-      area_reiteracion:undefined,
-  
-      //--------------------------------------------------------------------
-    
-      //-----Busqueda Adjunto ----------------------------------------------
-      adjunto_tiene:"no",
-      adjunto_regReit: false,
-      adjunto_intervencion: false,
-      adjunto_resolucion: false,
-      
-      //--------------------------------------------------------------------
-  
-      //-----Busqueda Opinion ----------------------------------------------
-      opinion_tiene:"no",
-      opinion_positivo:false,
-      opinion_negative:false,
-      opinion_neutro:false,
-  
-      //--------------------------------------------------------------------
-  
-      //-----Busqueda Estado ----------------------------------------------
-      estado_estados:[],
-      estado_detallado: "",
-      estado_fecha_start: null,
-      estado_fecha_end: null,
-  
-      //--------------------------------------------------------------------
-  
-      //-----Busqueda Distrito ----------------------------------------------
-      distrito_vecinales: [],
-  
-      //--------------------------------------------------------------------
-  
-      //-----Busqueda Intervenciones ---------------------------------------
-      intervenciones_seleccionadas:[],
-      intervenciones_suaMovile:false,
-      intervenciones_tipo:"",
-      intervenciones_fecha_begin:null,
-      intervenciones_fecha_end: null,
-  
-      //--------------------------------------------------------------------
-  
-      //-----Busqueda Equipamiento -----------------------------------------
-      equipamiento_seleccionado:"",
-      equipamiento_choice:"",
-      equipamiento_detalle:"",
-  
-    //--------------------------------------------------------------------
-  
-    //-----Busqueda Asignacion -----------------------------------------
-      asignacion_tipo:"",
-      asignacion_fecha_start: null,
-      asignacion_fecha_end: null,
-      asignacion_listPersonas:[],
-  
-  //--------------------------------------------------------------------
-      
-  //-----Datos especificos--------------------------------------------
-      Datos_Extra:undefined
+            //-----Busqueda Reporte ----------------------------------------------
+            reiteraciones_con:true,
+            reiteraciones_sin:true,
+            prioridad:undefined,
+        
+            //--------------------------------------------------------------------
+        
+            //-----Busqueda Clasificacion ----------------------------------------
+            clasificacion_subtipo: [],
+            clasificacion_tipo:undefined,
+            clasificacion_origenes: [],
+            clasificacion_registro:true,
+            clasificacion_reiteracion :true,
+        
+            //--------------------------------------------------------------------
+        
+            //-----Busqueda Area -------------------------------------------------
+            area_origen:undefined,
+            area_destino:undefined,
+            area_reiteracion:undefined,
+        
+            //--------------------------------------------------------------------
+          
+            //-----Busqueda Adjunto ----------------------------------------------
+            adjunto_tiene:"no",
+            adjunto_regReit: false,
+            adjunto_intervencion: false,
+            adjunto_resolucion: false,
+            
+            //--------------------------------------------------------------------
+        
+            //-----Busqueda Opinion ----------------------------------------------
+            opinion_tiene:"no",
+            opinion_positivo:false,
+            opinion_negative:false,
+            opinion_neutro:false,
+        
+            //--------------------------------------------------------------------
+        
+            //-----Busqueda Estado ----------------------------------------------
+            estado_estados:[],
+            estado_detallado: "",
+            estado_fecha_start: null,
+            estado_fecha_end: null,
+        
+            //--------------------------------------------------------------------
+        
+            //-----Busqueda Distrito ----------------------------------------------
+            distrito_vecinales: [],
+        
+            //--------------------------------------------------------------------
+        
+            //-----Busqueda Intervenciones ---------------------------------------
+            intervenciones_seleccionadas:[],
+            intervenciones_suaMovile:false,
+            intervenciones_tipo:"",
+            intervenciones_fecha_begin:null,
+            intervenciones_fecha_end: null,
+        
+            //--------------------------------------------------------------------
+        
+            //-----Busqueda Equipamiento -----------------------------------------
+            equipamiento_seleccionado:"",
+            equipamiento_choice:"",
+            equipamiento_detalle:"",
+        
+            //--------------------------------------------------------------------
+        
+            //-----Busqueda Asignacion -----------------------------------------
+            asignacion_tipo:"",
+            asignacion_fecha_start: null,
+            asignacion_fecha_end: null,
+            asignacion_listPersonas:[],
+        
+            //--------------------------------------------------------------------
+            
+            //-----Datos especificos--------------------------------------------
+            Datos_Extra:undefined
           },
       
         };

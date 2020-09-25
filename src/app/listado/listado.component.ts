@@ -78,6 +78,7 @@ export class ListadoComponent implements AfterViewInit {
   }
 
   //top botttom action
+  //vuelve la lista deslizable de solicitudes al principio 
   topBottomClick(){
     console.log("se activo");
     this.viewPort.scrollToIndex(0);
@@ -99,6 +100,7 @@ export class ListadoComponent implements AfterViewInit {
     this.asc = !this.asc;
     }
   
+  // esto no es llamado por nadie, que hace?
   nextBatch(currIndex: number, items: any[]) {
     const start = this.viewPort.getRenderedRange().start;
     const end = this.viewPort.getRenderedRange().end;
@@ -126,26 +128,30 @@ export class ListadoComponent implements AfterViewInit {
   toggleItem(item){
     item.checked = !item.checked;
   }
+
   exportar(){
-  var exportadas: any[] = [];
-  this.items.forEach(element => {
-    if(element.checked){
-      exportadas.push(element)
+    var exportadas: any[] = [];
+    this.items.forEach(element => {
+      if(element.checked){
+        exportadas.push(element)
+      }
+    })
+    if (exportadas.length==0){
+      alert("No hay solicitudes seleccionadas")
     }
-  })
-  if (exportadas.length==0){
-    alert("No hay solicitudes seleccionadas")
+    return exportadas
   }
-  return exportadas
-}
+
   downloadFile(){
     return this.service.downloadFile(this.exportar())
-    }
+  }
+
   exportAsXLSX():void {
     if (this.exportar().length!=0){
-    return this.service.exportAsExcelFile(this.exportar(), 'solicitudes');
+      return this.service.exportAsExcelFile(this.exportar(), 'solicitudes');
     }
   }
+
   ordenar(c: string){
     this.api.getSolicitudes().subscribe(
       data => {
@@ -176,9 +182,10 @@ export class ListadoComponent implements AfterViewInit {
       });
     this.changeDetector.detectChanges();
   }
-formato(fecha){
-  fecha = fecha.replace("/", ",");
-  fecha = fecha.replace("/", ",");
-  return fecha.replace(/(\d{2}),(\d{2}),(\d{4}) (\d{2}):(\d{2})/, "$3$2$1$4$5")
-}
+
+  formato(fecha){
+    fecha = fecha.replace("/", ",");
+    fecha = fecha.replace("/", ",");
+    return fecha.replace(/(\d{2}),(\d{2}),(\d{4}) (\d{2}):(\d{2})/, "$3$2$1$4$5")
+  }
 }

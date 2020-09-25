@@ -32,6 +32,7 @@ public fon: any[] = [];
 public sinFon: any[] = []
 
 ngOnInit(){
+  //aparentemente usa un loading peo no se si lo usa bien
   this.loading = true;
   this.service.customMessage.subscribe(msg => this.message = msg);
   this.api.getDatosVarios(this.title).subscribe(data=>{
@@ -39,6 +40,7 @@ ngOnInit(){
       this.total = this.total + value.details;
       this.data.push(value);
     })
+    // no entiendo que hace este for, revisarlo mas 
     if(this.title == 'ReclamosDenuncias'){
       for (let j=0; j < this.data.length; j++){
         let tempChip :Chip = this.filtrosService.searchChip(this.data[j].name);
@@ -54,7 +56,7 @@ ngOnInit(){
   ()=>{if (this.title=='ReclamosDenuncias') {this.addClassStyle()}});
   this.loading = false;
   }
-
+  //es una funcion para que cada item empieze con el color blanco
   addClassStyle() {
     let rrd = this.fon
     let data = this.data
@@ -75,11 +77,14 @@ ngOnInit(){
     }
   };
 
+  //se usa cuando se apreta el ver mas y abre una ventana con mas elementos de la lista
   open(): void{
     this.dialog.open(VerMasComponent, {
       data: {info: "ver-mas", name: this.title}
     })
   }
+
+  //esta funcion es  para cambiar el fodo de los items ya buscados de blanco a azul o vice versa
   cambiarFondo(name, tit, i){
     if (document.getElementById(tit + "-" + name).classList.contains('fondo-azul')){
       this.service.borrarSubtipo(this.data[i].name);
