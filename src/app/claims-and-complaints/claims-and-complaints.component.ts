@@ -72,7 +72,7 @@ ngOnInit(){
     let tit  = this.title;
     this.dialog.open(VerMasComponent, {
       data: {info: "ver-mas", name: this.title, subt: this.subtiposRD}
-    }).afterOpen().subscribe(data => {
+    }).afterOpened().subscribe(data => {
       for(let k=0; k < rrd.length; k++){
         document.getElementById("vermas-" + tit + "-" + rrd[k].descripcion).classList.replace('fondo-blanco', 'fondo-azul');
         document.getElementById("vermas-ico-" + tit + "-" + rrd[k].descripcion).classList.replace('tit-negro', 'tit-blanco')
