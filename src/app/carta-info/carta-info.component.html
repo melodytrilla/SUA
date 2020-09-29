@@ -8,10 +8,11 @@
         <div class="texto-semibold amount" (click)="this.cambiarFondo(title_value)">
             <div id="{{content_style}}"><p style="margin: 0px" id="num-{{title_value}}">{{content_value | number:'':'es-AR'}}</p></div>
         </div>
-        <!--   el boton para vermas ce cada carta
+        <!--   el boton para vermas de cada carta
         <div *ngIf="title_value!='Solicitudes con equipamiento'" style="cursor: pointer" class="texto-regular ver-mas" (click)="this.openD()"> 
             <p>VER MÁS</p>
         </div>-->
+        <!-- para que se usa este div -->
         <div style="padding-bottom: 7px" *ngIf="title_value== 'Solicitudes con equipamiento'">
             <p></p>
         </div>
