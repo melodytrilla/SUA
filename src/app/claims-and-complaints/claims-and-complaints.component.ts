@@ -18,7 +18,7 @@ export class ClaimsAndComplaintsComponent implements OnInit{
 message: number;
 editMessage: number;
 @Input() title: string;
-@Input() subtiposRD: any[];
+@Input() subtiposSeleccionado: any[];
 
 constructor(private api: SolicitudesService,
             public dialog: MatDialog,
@@ -42,21 +42,20 @@ ngOnInit(){
       this.data.push(value);
     })
     // no entiendo que hace este for, revisarlo mas 
-    if(this.title == 'ReclamosDenuncias'){
+    if(this.title == 'ReclamosDenuncias' && this.subtiposSeleccionado.length > 0){
       for (let j=0; j < this.data.length; j++){
         let tempChip :Chip = this.filtrosService.searchChip(this.data[j].name);
-        for (let k=0; k < this.subtiposRD.length; k++){
-          if (JSON.stringify(tempChip) == JSON.stringify(this.subtiposRD[k])){
+        for (let k=0; k < this.subtiposSeleccionado.length; k++){
+          if (JSON.stringify(tempChip) == JSON.stringify(this.subtiposSeleccionado[k])){
             this.fon.push(this.data[j].name)
           }
         }
       }
     }
-  },
-  ()=>{},
-  ()=>{if (this.title=='ReclamosDenuncias') {this.addClassStyle()}});
-  this.loading = false;
-  }
+    this.loading = false;
+  })
+
+}
   //es una funcion para que cada item empieze con el color blanco
   addClassStyle() {
     let rrd = this.fon
@@ -74,7 +73,7 @@ ngOnInit(){
     let rrd = this.service.getSubtipos();
     let tit  = this.title;
     this.dialog.open(VerMasComponent, {
-      data: {info: "ver-mas", name: this.title, subt: this.subtiposRD}
+      data: {info: "ver-mas", name: this.title, subt: this.subtiposSeleccionado}
     }).afterOpened().subscribe(data => {
       for(let k=0; k < rrd.length; k++){
         document.getElementById("vermas-" + tit + "-" + rrd[k].descripcion).classList.replace('fondo-blanco', 'fondo-azul');
