@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit} from '@angular/core';
 import { SolicitudesService } from '../solicitudes.service';
 import { MatDialog } from '@angular/material';
 import { VerMasComponent } from '../ver-mas/ver-mas.component';
@@ -13,7 +13,7 @@ import { BuiltinTypeName } from '@angular/compiler';
   templateUrl: './claims-and-complaints.component.html',
   styleUrls: ['./claims-and-complaints.component.sass']
 })
-export class ClaimsAndComplaintsComponent implements OnInit{
+export class ClaimsAndComplaintsComponent implements OnInit, AfterViewInit{
 
 message: number;
 editMessage: number;
@@ -32,8 +32,10 @@ public i:number =1;
 public fon: any[] = [];
 public sinFon: any[] = []
 
-ngOnInit(){
-  //aparentemente usa un loading peo no se si lo usa bien
+ngOnInit(){}
+
+ngAfterViewInit(){
+  //aparentemente usa un loading pero no se si lo usa bien
   this.loading = true;
   this.service.customMessage.subscribe(msg => this.message = msg);
   this.api.getDatosVarios(this.title).subscribe(data=>{

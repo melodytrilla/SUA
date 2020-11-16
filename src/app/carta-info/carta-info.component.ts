@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { SolicitudesService } from '../solicitudes.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { VerMasComponent } from '../ver-mas/ver-mas.component';
@@ -10,7 +10,7 @@ import { BusquedaService } from '../busqueda.service';
   templateUrl: './carta-info.component.html',
   styleUrls: ['./carta-info.component.sass']
 })
-export class CartaInfoComponent implements OnInit {
+export class CartaInfoComponent implements OnInit, AfterViewInit {
 
   constructor(private solicitudes: SolicitudesService,
               public dialog: MatDialog,
@@ -43,8 +43,9 @@ export class CartaInfoComponent implements OnInit {
   vec: string;
   titVec: string;
 
+  ngOnInit(){}
 
-  ngOnInit() {
+  ngAfterViewInit() {
     // para que se ussaban message y idd?
     this.service.customMessage.subscribe(msg => this.message = msg);
     this.service.customId.subscribe(msg => this.idd = msg);

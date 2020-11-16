@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EstadisticasComponent implements OnInit {
 
+  //que es este componenete y para que se usa, lo encontre en archivo de rutas pero esta vacio
+
   constructor() { }
 
   ngOnInit() {

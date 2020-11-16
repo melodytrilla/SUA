@@ -50,6 +50,7 @@ export class PlacesService {
 
   constructor(private httpClient: HttpClient) { }
   
+  // creo que esta funcion es obsoleta, el otro archivo que lo usa lo usa en una funcion que no es llamada
   getPlaces (): String[] {
     return this.places
   }
