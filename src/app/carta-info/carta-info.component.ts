@@ -31,12 +31,15 @@ export class CartaInfoComponent implements OnInit {
   //el max se utilizara cundo tegamos un numero maximo de solicitudes?
   max: number=0;
   arr: any[] = [];
+  //para que se entienda podrimos renombrarlo "tieneFondoAzul"
+  //es un booleano que sigue si el fondo cambio de color o no
   fondoAzul: boolean = false;
   message: number;
   editMessage: number;
   id: string;
   idd: string;
   editId: string;
+  //vec y titvec no los veo siendo usados aca
   vec: string;
   titVec: string;
 
@@ -105,7 +108,7 @@ export class CartaInfoComponent implements OnInit {
   }
 
   // Deberia separar la inicializacion del estilo con la busqueda de datos 
-  // y despeues pasarle los datos due conseguimos 
+  // y despeues pasarle los datos que conseguimos 
 
   iniciarFondo(tit){
     if(this.id == this.idSolic){
