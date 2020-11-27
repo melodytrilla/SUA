@@ -1,5 +1,4 @@
-
-<div class="mainContainer dark fila" [(formGroup)]="form">
+<div class="mainContainer dark fila" [(formGroup)]="form" *ngIf="!loading">
     <div class="columnaInvertida" style="width: 95%;">
         <div class="cont">
             <mat-form-field class="medium texto-regular">

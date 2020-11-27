@@ -10,6 +10,14 @@
 
     <mat-divider></mat-divider>
 
+    <div style="display: flex; justify-content: center; ">
+        <div *ngIf="loading">
+            <mat-progress-spinner
+                color="primary" 
+                mode="indeterminate">
+            </mat-progress-spinner> 
+        </div>
+    </div>
     <div class="bodyContainer">
         <div class="fullHeight" *ngIf="!loading else loader">
             <mat-list id="{{title}}-{{item.name}}" class="fondo-blanco lista" *ngFor="let item of data | sort:{ property: 'details', descending: 'true'} | slice:0:4; let i =index">
@@ -25,13 +33,11 @@
             </mat-list>
             <div style="text-align: center">
                 <div class="hov ver-mas" (click)="this.open()">
-                    <p class="texto-regular">VER MÁS</p>
+                    <p *ngIf="title == 'ReclamosDenuncias'" class="texto-regular" matBadge="{{matBadge}}" matBadgeSize="small">VER MÁS</p>
+                    <p *ngIf="title == 'ConsultasReclamos'" class="texto-regular" matBadge="{{matBadgeCR}}" [matBadgeHidden]="matBadgeCR==0"  matBadgeSize="small">VER MÁS</p>
                 </div>
             </div>
         </div>
-        <ng-template #loader>
-            <mat-spinner [diameter]="70"></mat-spinner>
-        </ng-template>
     </div>
 </div>
 

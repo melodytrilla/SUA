@@ -25,39 +25,54 @@ constructor(private api: SolicitudesService,
             private service: BusquedaService,
             private filtrosService: FiltersService) { }
 
-loading: boolean;
 public data: any[] = []
 public total: number = 0;
 public i:number =1;
 public fon: any[] = [];
 public sinFon: any[] = []
+public matBadge = 0;
+public cont =0;
 
+loading = false;
 ngOnInit(){
-  //aparentemente usa un loading peo no se si lo usa bien
   this.loading = true;
   this.service.customMessage.subscribe(msg => this.message = msg);
   this.api.getDatosVarios(this.title).subscribe(data=>{
     data.forEach(value=>{
       this.total = this.total + value.details;
       this.data.push(value);
+      this.loading = false;
     })
     // no entiendo que hace este for, revisarlo mas 
+    // Esto es porque la busqueda me trae todos los datos del subtipo y yo necesito el nombre.
     if(this.title == 'ReclamosDenuncias'){
       for (let j=0; j < this.data.length; j++){
         let tempChip :Chip = this.filtrosService.searchChip(this.data[j].name);
         for (let k=0; k < this.subtiposRD.length; k++){
           if (JSON.stringify(tempChip) == JSON.stringify(this.subtiposRD[k])){
-            this.fon.push(this.data[j].name)
+              this.fon.push(this.data[j].name)
           }
         }
       }
+        if (this.fon.includes('Sector apagado ó encendido')){
+          this.cont++;
+        }
+        if (this.fon.includes('Bici dañada, desinflada ó con faltantes')){
+          this.cont++;
+        }
+        if (this.fon.includes('Lámpara apagada ó encendida')){
+          this.cont++;
+        }
+        if (this.fon.includes('Ruido molesto en vía pública, comercio ú obra')){
+          this.cont++;
+        }
+      this.matBadge = this.fon.length - this.cont
     }
   },
   ()=>{},
   ()=>{if (this.title=='ReclamosDenuncias') {this.addClassStyle()}});
-  this.loading = false;
   }
-  //es una funcion para que cada item empieze con el color blanco
+  //es una funcion para que cada item empieze con fondo blanco si ese subtipo estaba filtrado
   addClassStyle() {
     let rrd = this.fon
     let tit = this.title
@@ -65,7 +80,7 @@ ngOnInit(){
       for(let k=0; k < rrd.length; k++){
         document.getElementById(tit + "-" + rrd[k]).classList.replace('fondo-blanco', 'fondo-azul');
         document.getElementById("ico-" + tit + "-" + rrd[k]).classList.replace('tit-negro', 'tit-blanco');
-      }
+      } 
     }
   };
 

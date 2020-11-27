@@ -15,8 +15,15 @@
         </div>
     </mat-card-title>
 
-
-    <div class="columna" style="height: 58%;">
+    <div style="display: flex; justify-content: center; ">
+        <div *ngIf="loading">
+            <mat-progress-spinner
+                color="primary" 
+                mode="indeterminate">
+            </mat-progress-spinner> 
+        </div>
+    </div>
+    <div class="columna" style="height: 58%;" *ngIf="!loading">
             <div [ngClass]="pen" id="Pendiente" class="fila item" (click)="this.cambiarFondo('Pendiente')">
                 <div class="fila tit-estado">
                     <div class="accent accentP"></div>

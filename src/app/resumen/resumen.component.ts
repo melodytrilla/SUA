@@ -10,7 +10,7 @@ import { Busqueda } from '../busqueda.service';
   templateUrl: './resumen.component.html',
   styleUrls: ['./resumen.component.sass']
 })
-export class ResumenComponent {
+export class ResumenComponent{
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
@@ -39,10 +39,7 @@ export class ResumenComponent {
   busquedaCompleta: Busqueda;
   //no se si busqueda se usa en algun otro lado, si no hay que borrarlo
   busqueda: any
-  constructor(private breakpointObserver: BreakpointObserver, 
-    private filterService: FiltersService,
-    private bus: BusquedaService) {}
-
+  constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit() {
     this.Init();

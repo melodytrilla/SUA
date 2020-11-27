@@ -62,6 +62,7 @@ export class OpinadasComponent implements OnInit{
         else if(value.name == 'Neutral'){
           this.neutral = value.details * 100 / this.total
         }
+        this.loading = false;
       })
     });
     if(this.positivo == 'true' && this.opinionTiene == 'Con'){
@@ -88,7 +89,6 @@ export class OpinadasComponent implements OnInit{
       this.neu = 'fondo-blanco'
       this.titNeu = 'tit-negro'
     }
-    this.loading = false;
   }
 
  

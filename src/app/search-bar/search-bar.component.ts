@@ -67,7 +67,9 @@ export class SearchBarComponent implements OnInit {
  
   //se llama al servicio para inicializarlo y se inicializan y linkean todos los valores de el formulario
   
+  loading = false;
   ngOnInit() {
+    this.loading = true;
     //this.busqueda.customMessage.subscribe(msg => this.cantFiltros = msg);
     this.busqueda.Init();
     this.busquedaField = this.busqueda.busquedaCompleta;
@@ -107,6 +109,7 @@ export class SearchBarComponent implements OnInit {
     this.busqueda.getBusquedas().subscribe(
       data => {
         this.busquedasGuardadas = data;
+        this.loading = false;
       }
     );
 

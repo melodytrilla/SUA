@@ -83,7 +83,9 @@ export class RequestsByStateComponent implements OnInit {
     } */
   }]
 
+  loading= false;
   ngOnInit() {
+    this.loading= true;
     this.service.customMessage.subscribe(msg => this.message = msg);
     this.solicitudService.getSolicitudesporEstado().subscribe(
       data => {
@@ -94,10 +96,9 @@ export class RequestsByStateComponent implements OnInit {
           clone2[index] = data[index].name;
           this.total += data[index].number;
         });
-
-
         this.doughnutChartData = clone1;
         this.doughnutChartLabels = clone2;
+        this.loading = false;
     });
     if (this.estados.includes('Pendiente')){
       this.pen = 'fondo-azul'

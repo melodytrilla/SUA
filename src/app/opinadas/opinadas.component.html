@@ -22,8 +22,16 @@
     </mat-card-title>
     <div class="divicionSpacing"><mat-divider></mat-divider></div>
 
-    <div class="bodyContainer">
-        <div class="fullWidth" *ngIf="!loading else loader">
+    <div style="display: flex; justify-content: center;">
+        <div *ngIf="loading">
+            <mat-progress-spinner
+                color="primary" 
+                mode="indeterminate">
+            </mat-progress-spinner> 
+        </div>
+    </div>
+    <div class="bodyContainer" *ngIf="!loading">
+        <div class="fullWidth">
             <mat-list  class="lista hov fullWidth" *ngFor="let item of datos; let ind =index">
                 <div [ngClass]="pos" id="i-0" class="linea fila fullHeight" (click)="this.cambiarFondo('0', item.name)" *ngIf="item.name == 'Positivas'">
                     <div class="fila fullHeight">
@@ -63,9 +71,6 @@
                 </div>
             </mat-list>
         </div>
-        <ng-template #loader>
-            <mat-spinner [diameter]="70"></mat-spinner>
-        </ng-template>
     </div>
 </div>
 
