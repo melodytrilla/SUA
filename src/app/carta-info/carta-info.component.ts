@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { SolicitudesService } from '../solicitudes.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { VerMasComponent } from '../ver-mas/ver-mas.component';
@@ -10,7 +10,7 @@ import { BusquedaService } from '../busqueda.service';
   templateUrl: './carta-info.component.html',
   styleUrls: ['./carta-info.component.sass']
 })
-export class CartaInfoComponent implements OnInit {
+export class CartaInfoComponent implements OnInit, AfterViewInit {
 
   constructor(private solicitudes: SolicitudesService,
               public dialog: MatDialog,
@@ -43,13 +43,15 @@ export class CartaInfoComponent implements OnInit {
   vec: string;
   titVec: string;
 
+  ngOnInit(){}
 
-  ngOnInit() {
+  ngAfterViewInit() {
     // para que se ussaban message y idd?
     this.service.customMessage.subscribe(msg => this.message = msg);
     this.service.customId.subscribe(msg => this.idd = msg);
 
     //esto lo podria separar en su propio metodo ya que es para ponerle el titulo a la carta
+    //le pone el titulo a la carta
     if(this.cardName == "solicitudes"){
       this.title_value = "Solicitudes"
       this.title_style = "cardTitle-center";
@@ -76,7 +78,9 @@ export class CartaInfoComponent implements OnInit {
             // porque hace un array push? creo que solo necesita la cantidad, no?
             //entonces no seria mejor poner:
             // content_value ++; o como sea el incrementador
+            
             this.arr.push(value);
+            //this.content_value++;
           }
           this.content_value = this.arr.length
         })
@@ -143,6 +147,7 @@ export class CartaInfoComponent implements OnInit {
     }
   }
   
+  // abre el componenete ver mas cuando se apreta la flecha
   openD(): void{
     this.dialog.open(VerMasComponent, {
       data: {info: "ver-mas", name: this.cardName, fondo: this.fondoAzul}

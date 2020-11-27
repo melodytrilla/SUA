@@ -23,6 +23,7 @@ export class MapComponent implements OnInit {
   
   constructor(public api: SolicitudesItemsService, public iconManager:IconosManagerService) { }
 
+  //inicializa el mapa, las coordenadas y la mascara para los iconos
   ngOnInit() {
     this.argCrs = new L.Proj.CRS('EPSG:22185','+proj=tmerc +lat_0=-90 +lon_0=-60 +k=1 +x_0=5500000 +y_0=0 +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs ');
     this.map = new L.map('mapid').setView([-32.9493486, -60.6746665], 14);
@@ -85,6 +86,7 @@ export class MapComponent implements OnInit {
       //.bindPopup('<p>Categoría: ' + value.categoria +'</br>Subtipo: ' + value.subtipo +'</br> Estado: '+ value.estado +'</br> numero: '+ value.id+ '</p>');
   }
 
+  // utiliza argCrs para mover x,y en cordinadas argentinas
   convertToLatLng(x: number, y :number){
     let tempPoint = new L.Point(x,y);
     return this.argCrs.unproject(tempPoint)

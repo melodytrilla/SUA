@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { ChartOptions} from 'chart.js';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import 'chart.piecelabel.js';
@@ -11,7 +11,7 @@ import { BusquedaService } from '../busqueda.service';
   templateUrl: './requests-by-state.component.html',
   styleUrls: ['./requests-by-state.component.sass']
 })
-export class RequestsByStateComponent implements OnInit {
+export class RequestsByStateComponent implements OnInit{
 
   message: number;
   editMessage: number;

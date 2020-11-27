@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ChartOptions } from 'chart.js';
 import 'chart.piecelabel.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
@@ -9,9 +9,10 @@ import { SolicitudesService } from '../solicitudes.service';
   templateUrl: './top10-neighborhoods.component.html',
   styleUrls: ['./top10-neighborhoods.component.sass']
 })
-export class Top10NeighborhoodsComponent implements OnInit {
+export class Top10NeighborhoodsComponent implements OnInit, AfterViewInit {
 
   constructor(private solicitudesService: SolicitudesService) { }
+ 
 
   public doughnutChartLabels: Array<string> = ['Acera 1', 'Acindar 2', 'Alberdi 3', 'Avellaneda 9', 'Azcuénaga 12', 'Dorrego 31', 'La Florida 57', 'Unión 94', 'Pellegrini 28', 'Del Bicentenario 51'] ;
   public doughnutChartType = 'bar';
@@ -92,7 +93,24 @@ export class Top10NeighborhoodsComponent implements OnInit {
     }];
 
   ngOnInit() {
-    
+    /*
+    this.solicitudesService.get10Vecinales().subscribe(
+      data =>{
+        let clone1 = JSON.parse(JSON.stringify(this.doughnutChartData));
+        let clone2 = JSON.parse(JSON.stringify(this.doughnutChartLabels));
+
+        for(let i=0; i < clone1.length; i++){
+          clone1[i] = data[i].num;
+          clone2[i] = data[i].nombre;
+        }
+
+        this.doughnutChartData = clone1;
+        this.doughnutChartLabels = clone2;
+      }
+    )*/
+  }
+
+  ngAfterViewInit(): void {
     this.solicitudesService.get10Vecinales().subscribe(
       data =>{
         let clone1 = JSON.parse(JSON.stringify(this.doughnutChartData));

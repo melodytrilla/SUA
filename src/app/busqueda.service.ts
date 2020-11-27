@@ -36,7 +36,6 @@ export interface BusquedaSave2{
   providedIn: 'root'
 })
 export class BusquedaService {
-  
   private message = new BehaviorSubject<number>(0);
 
   public customMessage = this.message.asObservable();

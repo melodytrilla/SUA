@@ -34,7 +34,7 @@
             <mat-card class="dashboard-card"> 
                 <app-claims-and-complaints 
                   [title]="'ReclamosDenuncias'"
-                  [subtiposRD]="this.busquedaCompleta.advSearch.clasificacion_subtipo">
+                  [subtiposSeleccionado]="this.busquedaCompleta.advSearch.clasificacion_subtipo">
                 </app-claims-and-complaints>
             </mat-card> 
         </mat-grid-tile>
@@ -43,7 +43,7 @@
             <mat-card class="dashboard-card">
                 <app-claims-and-complaints 
                   [title]="'ConsultasReclamos'"
-                  [subtiposRD]="this.busquedaCompleta.advSearch.clasificacion_subtipo">
+                  [subtiposSeleccionado]="this.busquedaCompleta.advSearch.clasificacion_subtipo">
                 </app-claims-and-complaints>
             </mat-card>
         </mat-grid-tile>

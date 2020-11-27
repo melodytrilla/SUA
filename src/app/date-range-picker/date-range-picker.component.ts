@@ -30,6 +30,8 @@ export class DateRangePicker<Date> implements SatCalendarFooter<Date> {
         .subscribe(() => cdr.markForCheck())
   }
 
+  // si uno apreta los botones hoy, esta semana, este mes esta funcion se 
+  // encarga de devolver el valor que debe ser
   setRange(range: string) {
     const today = moment();
     switch (range) {

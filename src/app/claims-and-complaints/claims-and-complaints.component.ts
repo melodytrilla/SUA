@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit} from '@angular/core';
 import { SolicitudesService } from '../solicitudes.service';
 import { MatDialog } from '@angular/material';
 import { VerMasComponent } from '../ver-mas/ver-mas.component';
@@ -18,7 +18,7 @@ export class ClaimsAndComplaintsComponent implements OnInit{
 message: number;
 editMessage: number;
 @Input() title: string;
-@Input() subtiposRD: any[];
+@Input() subtiposSeleccionado: any[];
 
 constructor(private api: SolicitudesService,
             public dialog: MatDialog,
@@ -33,22 +33,24 @@ public sinFon: any[] = []
 
 loading = false;
 ngOnInit(){
+  //loading indica que se esta cargardo
   this.loading = true;
+  //asigna a la varaible message el valor del customMessage en busqueda Service
   this.service.customMessage.subscribe(msg => this.message = msg);
+  //consigue todos los valores de los datos y los suma en una variable total para mostrar en la pagina
   this.api.getDatosVarios(this.title).subscribe(data=>{
     data.forEach(value=>{
       this.total = this.total + value.details;
       this.data.push(value);
       this.loading = false;
     })
-    // no entiendo que hace este for, revisarlo mas 
-    // Esto es porque la busqueda me trae todos los datos del subtipo y yo necesito el nombre.
-    if(this.title == 'ReclamosDenuncias'){
+    // 
+    if(this.title == 'ReclamosDenuncias' && this.subtiposSeleccionado.length > 0){
       for (let j=0; j < this.data.length; j++){
         let tempChip :Chip = this.filtrosService.searchChip(this.data[j].name);
-        for (let k=0; k < this.subtiposRD.length; k++){
-          if (JSON.stringify(tempChip) == JSON.stringify(this.subtiposRD[k])){
-              this.fon.push(this.data[j].name)
+        for (let k=0; k < this.subtiposSeleccionado.length; k++){
+          if (JSON.stringify(tempChip) == JSON.stringify(this.subtiposSeleccionado[k])){
+            this.fon.push(this.data[j].name)
           }
         }
       }
@@ -57,7 +59,8 @@ ngOnInit(){
   ()=>{},
   ()=>{if (this.title=='ReclamosDenuncias') {this.addClassStyle()}});
   }
-  //es una funcion para que cada item empieze con fondo blanco si ese subtipo estaba filtrado
+
+  //es una funcion para que cada item empieze con el color blanco
   addClassStyle() {
     let rrd = this.fon
     let tit = this.title
@@ -69,12 +72,12 @@ ngOnInit(){
     }
   };
 
-  //se usa cuando se apreta el ver mas y abre una ventana con mas elementos de la lista
+  //se usa cuando se apreta el ver mas y abre una ventana con mas elementos de la lista y los hace azules cuando corresponde
   open(): void{
     let rrd = this.service.getSubtipos();
     let tit  = this.title;
     this.dialog.open(VerMasComponent, {
-      data: {info: "ver-mas", name: this.title, subt: this.subtiposRD}
+      data: {info: "ver-mas", name: this.title, subt: this.subtiposSeleccionado}
     }).afterOpened().subscribe(data => {
       for(let k=0; k < rrd.length; k++){
         document.getElementById("vermas-" + tit + "-" + rrd[k].descripcion).classList.replace('fondo-blanco', 'fondo-azul');

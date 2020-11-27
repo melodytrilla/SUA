@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit} from '@angular/core';
 import { SolicitudesService } from '../solicitudes.service';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { BusquedaService } from '../busqueda.service';
@@ -19,7 +19,7 @@ import { BusquedaService } from '../busqueda.service';
     ])
 ]
 })
-export class OpinadasComponent implements OnInit{
+export class OpinadasComponent implements OnInit, AfterViewInit{
 
   
   public datos: any[] =[]
@@ -44,7 +44,9 @@ export class OpinadasComponent implements OnInit{
   @Input() neutro: string;
   @Input() opinionTiene: string;
   
-  ngOnInit() {
+  ngOnInit(){}
+
+  ngAfterViewInit() {
     this.loading = true;
     this.service.customMessage.subscribe(msg => this.message = msg);
     this.api.getDatosVarios('Opinadas').subscribe(data=>{

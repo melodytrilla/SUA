@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ChartOptions } from 'chart.js';
 import 'chart.piecelabel.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
@@ -11,9 +11,10 @@ import {MyColores} from '../../assets/Color';
   templateUrl: './requests-by-origin.component.html',
   styleUrls: ['./requests-by-origin.component.sass']
 })
-export class RequestsByOriginComponent implements OnInit {
+export class RequestsByOriginComponent implements OnInit, AfterViewInit {
 
   constructor(private solicitudesService: SolicitudesService) { }
+ 
   
   public doughnutChartLabels: Array<string> = ['Telefónico', 'Contacto Web', 'Twitter', 'Personal', 'Facebook', 'Nota/Expediente', 'VVV', 'MR', 'Externo'] ;
   public doughnutChartType = 'bar';
@@ -93,7 +94,7 @@ export class RequestsByOriginComponent implements OnInit {
     }];
 
   ngOnInit() {
-    
+    /*
     this.solicitudesService.getporOrigen().subscribe(
       data =>{
         let clone1 = JSON.parse(JSON.stringify(this.doughnutChartData));
@@ -108,7 +109,22 @@ export class RequestsByOriginComponent implements OnInit {
         this.doughnutChartLabels = clone2;
       }
 
+    )*/
+  }
+  ngAfterViewInit(): void {
+    this.solicitudesService.getporOrigen().subscribe(
+      data =>{
+        let clone1 = JSON.parse(JSON.stringify(this.doughnutChartData));
+        let clone2 = JSON.parse(JSON.stringify(this.doughnutChartLabels));
+
+        for(let i=0; i < clone1.length; i++){
+          clone1[i] = data[i].solicitudes;
+          clone2[i] = data[i].origen;
+        }
+
+        this.doughnutChartData = clone1;
+        this.doughnutChartLabels = clone2;
+      }
     )
   }
-
 }

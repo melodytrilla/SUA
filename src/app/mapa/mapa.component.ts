@@ -42,6 +42,8 @@ export class MapaComponent implements OnInit {
     this.api.getSolicitudes().subscribe(
         data => {
           data.forEach(value => {
+            //si el texto tiene un tamaño mas grande que el componente permite
+            //entonces lo corta agregando ...
               if (value.subtipo.length > 50) {
                 value.subtipo = value.subtipo.substr(0, 47) + "...";
               }

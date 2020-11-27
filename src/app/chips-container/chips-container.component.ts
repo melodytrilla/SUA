@@ -113,8 +113,8 @@ export class ChipsContainerComponent implements OnInit{
       return element.descripcion === chip.descripcion;});
       
     if(!data){
-      //Checks if the option was alredy added.
-      //If it has, it ignores it 
+      //chequea si la opcion fue agregada
+      //si no, lo ignora 
       this.chips.push(chip);
     }
     this.searchElement.nativeElement.value = '';
@@ -123,7 +123,7 @@ export class ChipsContainerComponent implements OnInit{
 
   showSearch() : void {
     this.searchBoxVisible = !this.searchBoxVisible;
-    // Focus on the search bar after the boolean has changed
+    // despues de que se cambiio el bool se enfoca en la barra de busqueda
     setTimeout(()=>{ 
       this.searchElement.nativeElement.focus();
     },0);  

@@ -7,13 +7,15 @@ import { Component, OnInit} from '@angular/core';
 })
 export class CarouselComponent implements OnInit {
 
+  //el valor se usa para saber en que diapositiva esta
   valor=0;
+  //si esta pausado o no
   pause= false;
   
   constructor() { 
   
   }
-
+  //se inicializa el temporizador que movera a la diapositiva si no esta pausada
   ngOnInit() {
     setInterval(() => {
       if (!this.pause){
@@ -22,6 +24,8 @@ export class CarouselComponent implements OnInit {
     }, 10000);
 
   }
+
+  //cambia el estado de pause al opuesto
 togglePlay(){
   this.pause = !this.pause;
 }
