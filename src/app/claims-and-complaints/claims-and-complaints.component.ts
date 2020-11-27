@@ -30,8 +30,6 @@ public total: number = 0;
 public i:number =1;
 public fon: any[] = [];
 public sinFon: any[] = []
-public matBadge = 0;
-public cont =0;
 
 loading = false;
 ngOnInit(){
@@ -54,19 +52,6 @@ ngOnInit(){
           }
         }
       }
-        if (this.fon.includes('Sector apagado ó encendido')){
-          this.cont++;
-        }
-        if (this.fon.includes('Bici dañada, desinflada ó con faltantes')){
-          this.cont++;
-        }
-        if (this.fon.includes('Lámpara apagada ó encendida')){
-          this.cont++;
-        }
-        if (this.fon.includes('Ruido molesto en vía pública, comercio ú obra')){
-          this.cont++;
-        }
-      this.matBadge = this.fon.length - this.cont
     }
   },
   ()=>{},
