@@ -35,15 +35,17 @@ public sinFon: any[] = []
 ngOnInit(){}
 
 ngAfterViewInit(){
-  //aparentemente usa un loading pero no se si lo usa bien
+  //loading indica que se esta cargardo
   this.loading = true;
+  //asigna a la varaible message el valor del customMessage en busqueda Service
   this.service.customMessage.subscribe(msg => this.message = msg);
+  //consigue todos los valores de los datos y los suma en una variable total para mostrar en la pagina
   this.api.getDatosVarios(this.title).subscribe(data=>{
     data.forEach(value=>{
       this.total = this.total + value.details;
       this.data.push(value);
     })
-    // no entiendo que hace este for, revisarlo mas 
+    // 
     if(this.title == 'ReclamosDenuncias' && this.subtiposSeleccionado.length > 0){
       for (let j=0; j < this.data.length; j++){
         let tempChip :Chip = this.filtrosService.searchChip(this.data[j].name);
@@ -54,6 +56,7 @@ ngAfterViewInit(){
         }
       }
     }
+    //indica que termino de cargar
     this.loading = false;
   })
 
@@ -70,7 +73,7 @@ ngAfterViewInit(){
     }
   };
 
-  //se usa cuando se apreta el ver mas y abre una ventana con mas elementos de la lista
+  //se usa cuando se apreta el ver mas y abre una ventana con mas elementos de la lista y los hace azules cuando corresponde
   open(): void{
     let rrd = this.service.getSubtipos();
     let tit  = this.title;

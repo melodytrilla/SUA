@@ -46,7 +46,7 @@ export class DesplegableTestComponent implements OnInit {
   }
 
 
-
+  // lo usamos para algo esto?
   ngOnInit() {
     //this.solicitudesService.getAllVecinales();
     this.ActualizarDesc()

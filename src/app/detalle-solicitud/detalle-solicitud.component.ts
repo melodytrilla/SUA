@@ -17,6 +17,9 @@ export class DetalleSolicitudComponent implements OnInit {
   constructor(  private rutaActiva: ActivatedRoute,
                 public api: SolicitudesItemsService ) { }
 
+
+  //obtine el detalle de una solicitud
+  //no deberiamos hacer una lamada de sql que agarra solo uno
   ngOnInit() {
     this.detalle = {
       nro: this.rutaActiva.snapshot.params.nro,

@@ -51,6 +51,7 @@ export class CartaInfoComponent implements OnInit, AfterViewInit {
     this.service.customId.subscribe(msg => this.idd = msg);
 
     //esto lo podria separar en su propio metodo ya que es para ponerle el titulo a la carta
+    //le pone el titulo a la carta
     if(this.cardName == "solicitudes"){
       this.title_value = "Solicitudes"
       this.title_style = "cardTitle-center";
@@ -77,7 +78,9 @@ export class CartaInfoComponent implements OnInit, AfterViewInit {
             // porque hace un array push? creo que solo necesita la cantidad, no?
             //entonces no seria mejor poner:
             // content_value ++; o como sea el incrementador
+            
             this.arr.push(value);
+            //this.content_value++;
           }
           this.content_value = this.arr.length
         })
@@ -144,6 +147,7 @@ export class CartaInfoComponent implements OnInit, AfterViewInit {
     }
   }
   
+  // abre el componenete ver mas cuando se apreta la flecha
   openD(): void{
     this.dialog.open(VerMasComponent, {
       data: {info: "ver-mas", name: this.cardName, fondo: this.fondoAzul}
