@@ -47,7 +47,7 @@ export class ChipsContainerComponent implements OnInit{
   constructor(private filtersService: FiltersService,
               private busquedaService: BusquedaService) { }
 
-  //recupera los chisp guardados en la session si los hay
+  //recupera los chips guardados en la session si los hay
   ngOnInit() {
     if(this.busquedaService.busquedaCompleta.advSearch != null){
       this.savedChips = JSON.parse(JSON.stringify(this.busquedaService.busquedaCompleta.advSearch.clasificacion_subtipo));

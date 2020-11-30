@@ -89,6 +89,7 @@ export class RequestsByStateComponent implements OnInit{
     this.service.customMessage.subscribe(msg => this.message = msg);
     this.solicitudService.getSolicitudesporEstado().subscribe(
       data => {
+        //json.parse(json.stringify(x)) se usa para clonar x y no asignar una referencai a el
         let clone1 = JSON.parse(JSON.stringify(this.doughnutChartData));
         let clone2 = JSON.parse(JSON.stringify(this.doughnutChartLabels));
         clone1.forEach((dato,index) =>{ 

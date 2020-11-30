@@ -87,11 +87,14 @@ export class IconosManagerService {
 
   constructor() {}
 
+  //no hay referencias de esta funcion asi que creo que no se usa 
+  //y en su lugar se usa getSrc2
   getSrc( data:iconoData):string{
     //console.log(data);
     return this.iconosFolder + data.codigo;
   }
 
+  //devuelve la ubicacion de la imagen del icono
   getSrc2(categoria:string, estado:string): string{
 
     let estadoNum = 0;
