@@ -1,6 +1,4 @@
 <div class="container fila">
-
-    
     <h5 class="legend texto-semibold">Subtipo: </h5>
 
     <mat-chip-list #chipList>
@@ -32,7 +30,7 @@
                 [matChipInputAddOnBlur] = "addOnBlur"
                 [matAutocomplete]="auto"/>
 
-            <!--(optionSelected)="selected($event)" recordatorio volver a ponner en autocomplete si no funciona-->
+            <!--(optionSelected)="selected($event)" recordatorio volver a poner en autocomplete si no funciona-->
             <mat-autocomplete #auto="matAutocomplete" >
                 <ng-container *ngFor="let categoria of filteredCategories">
                     <mat-option  class="labelOpcion texto-semibolditalic" [value]="categoria" (click)="getAllCategoria(categoria); trigger.closePanel()">

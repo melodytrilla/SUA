@@ -35,7 +35,7 @@ loading = false;
 ngOnInit(){
   //loading indica que se esta cargardo
   this.loading = true;
-  //asigna a la varaible message el valor del customMessage en busqueda Service
+  //asigna a la variable message el valor del customMessage en busqueda Service
   this.service.customMessage.subscribe(msg => this.message = msg);
   //consigue todos los valores de los datos y los suma en una variable total para mostrar en la pagina
   this.api.getDatosVarios(this.title).subscribe(data=>{
@@ -44,7 +44,6 @@ ngOnInit(){
       this.data.push(value);
       this.loading = false;
     })
-    // 
     if(this.title == 'ReclamosDenuncias' && this.subtiposSeleccionado.length > 0){
       for (let j=0; j < this.data.length; j++){
         let tempChip :Chip = this.filtrosService.searchChip(this.data[j].name);
@@ -60,7 +59,7 @@ ngOnInit(){
   ()=>{if (this.title=='ReclamosDenuncias') {this.addClassStyle()}});
   }
 
-  //es una funcion para que cada item empieze con el color blanco
+  //es una funcion para que cada item filtrado empiece con fondo azul
   addClassStyle() {
     let rrd = this.fon
     let tit = this.title
@@ -86,7 +85,7 @@ ngOnInit(){
 });
   }
 
-  //esta funcion es  para cambiar el fodo de los items ya buscados de blanco a azul o vice versa
+  //esta funcion es para cambiar el fodo de los items ya buscados de blanco a azul o viceversa
   cambiarFondo(name, tit, i){
     if (document.getElementById(tit + "-" + name).classList.contains('fondo-azul')){
       this.service.borrarSubtipo(this.data[i].name);

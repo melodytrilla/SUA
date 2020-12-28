@@ -5,9 +5,10 @@
                 <input matInput
                     (focus)="picker.open()"
                     onkeydown="return false"
-                    placeholder="Elija una fecha"
+                    placeholder="Fecha"
                     [satDatepicker]="picker"
                     formControlName="date"
+                    dateFormat= "dd/mm/yy"
                     autofilled= true >
                     
                 <sat-datepicker #picker 

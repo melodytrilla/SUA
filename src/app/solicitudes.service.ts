@@ -103,6 +103,12 @@ export class SolicitudesService {
       )
   }
 
+  getConMasSolicitudes(titulo: string):Observable<any[]>{
+    return this.httpClient.get<any[]>(
+      `http://localhost:3000/${titulo}?_sort=cantidad_solicitudes&_order=desc&_limit=1`
+    )
+  }
+
   //vecinales Handeling ------------------------------------------------
 
   getAllVecinales():void{

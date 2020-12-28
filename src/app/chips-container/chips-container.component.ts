@@ -57,7 +57,7 @@ export class ChipsContainerComponent implements OnInit{
 
   onSearchChange (searchValue: string): void {
     if(searchValue.length >= 4){
-      //consige todas las opciones filtradas por las palabras buscadas
+      //consigue todas las opciones filtradas por las palabras buscadas
       this.filteredOptions = this.filtersService.filteredSubCategorias(searchValue);
 
       //busca todas las diferentes categorias que se encontraron en esta busqueda
@@ -67,7 +67,6 @@ export class ChipsContainerComponent implements OnInit{
           this.filteredCategories = this.filteredCategories.concat(chip.categoria);
         }
       });
-      //console.log(this.filteredCategories);
     }else{
       this.filteredOptions = [];
       this.filteredCategories = [];
@@ -75,7 +74,7 @@ export class ChipsContainerComponent implements OnInit{
 
   }
 
-  //al seleccionar una categoria se le debuelve todos las subcategorias que pertenescan a ella
+  //al seleccionar una categoria se le devuelve todos las subcategorias que pertenezcan a ella
   getAllCategoria(palabra: string): void{
 
     var datas = this.filtersService.filteredByCategorias(palabra);
@@ -123,7 +122,7 @@ export class ChipsContainerComponent implements OnInit{
 
   showSearch() : void {
     this.searchBoxVisible = !this.searchBoxVisible;
-    // despues de que se cambiio el bool se enfoca en la barra de busqueda
+    // despues de que se cambio el bool se enfoca en la barra de busqueda
     setTimeout(()=>{ 
       this.searchElement.nativeElement.focus();
     },0);  
